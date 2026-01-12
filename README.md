@@ -1,8 +1,6 @@
 # Website for STA 221 (Spring 2026)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/52e144cc-794c-469c-93df-635e4e990ab4/deploy-status)](https://app.netlify.com/projects/sta221-sp26/deploys)
-
-🔗 [sta221-sp26.netlify.app](https://sta221-sp26.netlify.app/)
+🔗 [sta221-sp26.github.io](https://sta221-sp26.github.io)
 
 ## Colors
 
