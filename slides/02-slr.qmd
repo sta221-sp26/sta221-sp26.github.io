@@ -40,6 +40,8 @@ bibliography: references.bib
 
 -   Introduction to R workshops at Duke library (see Friday's Canvas announcement for details)
 
+-   Triangle Sports Analytics Competition: <https://triangle-sports.github.io/>
+
 # Questions from last class?
 
 ## Topics
@@ -529,7 +531,7 @@ predict(movie_fit, more_new_movies)
 -   Interpreted the slope and intercept for simple linear regression
 -   Predicted the response given a value of the predictor
 
-## Next time 
+## Next time
 
 -   Model assessment for simple linear regression
 
