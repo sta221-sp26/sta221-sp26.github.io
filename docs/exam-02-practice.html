@@ -649,7 +649,7 @@ There is no answer key for these problems. You may ask questions in office hours
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/sta221-sp26\.netlify\.app");
+        var filterRegex = new RegExp("https:\/\/sta221-sp26\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
