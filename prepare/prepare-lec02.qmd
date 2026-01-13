@@ -9,7 +9,7 @@ subtitle: "Simple linear regression"
 
 📖 Read [Chapter 1](https://intro-regression.github.io/01-intro)
 
-📖 Read Section [4.1 - 4.6](https://intro-regression.github.io/04-slr)
+📖 Read Sections [4.1 - 4.6](https://intro-regression.github.io/04-slr)
 
 <br>
 
