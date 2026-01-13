@@ -429,7 +429,7 @@ Submit your answers to the following questions on Ed Discussion:
 ```
 :::::
 
-🔗 <https://edstem.org/us/courses/90766/discussion/7506084>
+🔗<https://edstem.org/us/courses/90766/discussion/7506084>
 
 ## Does it make sense to interpret the intercept?
 
