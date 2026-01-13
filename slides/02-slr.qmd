@@ -37,10 +37,13 @@ bibliography: references.bib
 -   Office hours start this week
 
     -   See Canvas homepage for times and locations
+    -   Allison's office hours start January 20
 
 -   Introduction to R workshops at Duke library (see Friday's Canvas announcement for details)
 
 -   Triangle Sports Analytics Competition: <https://triangle-sports.github.io/>
+
+    -   See [Ed Discussion](https://edstem.org/us/courses/90766/discussion/7506153) for full announcement
 
 # Questions from last class?
 
@@ -78,8 +81,6 @@ knitr::opts_chunk$set(
 ## Data science workflow
 
 ![Source: Introduction to Regression Analysis: A Data Science Approach](images/02/data-science-workflow.png){fig-align="center"}
-
-# Data
 
 ## Movie scores
 
