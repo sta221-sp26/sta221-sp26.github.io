@@ -1,0 +1,128 @@
+{
+  "labs/lab-02.qmd": {
+    "lab-02.html": "7f3637a4"
+  },
+  "labs/lab-03.qmd": {
+    "lab-03.html": "41d8f592"
+  },
+  "labs/lab-01.qmd": {
+    "lab-01.html": "12c125cc"
+  },
+  "labs/lab-00.qmd": {
+    "lab-00.html": "110efce5"
+  },
+  "labs/lab-04.qmd": {
+    "lab-04.html": "e8d17e44"
+  },
+  "labs/lab-05.qmd": {
+    "lab-05.html": "4a3c66dd"
+  },
+  "labs/lab-07.qmd": {
+    "lab-07.html": "7d4729a0"
+  },
+  "labs/lab-06.qmd": {
+    "lab-06.html": "5dfed5e5"
+  },
+  "overview.qmd": {
+    "overview.html": "4b7e9dad"
+  },
+  "hw/hw-04.qmd": {
+    "hw-04.html": "8ca78f56"
+  },
+  "hw/hw-01.qmd": {
+    "hw-01.html": "a7c395cd"
+  },
+  "hw/hw-03.qmd": {
+    "hw-03.html": "81b95c58"
+  },
+  "hw/hw-02.qmd": {
+    "hw-02.html": "f855fb98"
+  },
+  "hw/stats-experience.qmd": {
+    "stats-experience.html": "77410762"
+  },
+  "exam-01-practice.qmd": {
+    "exam-01-practice.html": "ce8a6864"
+  },
+  "support.qmd": {
+    "support.html": "0c91c343"
+  },
+  "computing-r-resources.qmd": {
+    "computing-r-resources.html": "63c1f604"
+  },
+  "computing-access.qmd": {
+    "computing-access.html": "54c829b5"
+  },
+  "index.qmd": {
+    "index.html": "1b4f2b8b"
+  },
+  "about.qmd": {
+    "about.html": "1351d447"
+  },
+  "math-rules.qmd": {
+    "math-rules.html": "0874a8ee"
+  },
+  "links.qmd": {
+    "links.html": "19d5ed6a"
+  },
+  "project-tips.qmd": {
+    "project-tips.html": "38211e33"
+  },
+  "syllabus.qmd": {
+    "syllabus.html": "ee95ec89",
+    "syllabus.tex": "86348f8c"
+  },
+  "project.qmd": {
+    "project.html": "71ab2d2e"
+  },
+  "computing-troubleshooting.qmd": {
+    "computing-troubleshooting.html": "59558d51"
+  },
+  "exam-02-practice.qmd": {
+    "exam-02-practice.html": "258dea3e"
+  },
+  "prepare/prepare-lec01.qmd": {
+    "prepare-lec01.html": "3e5cba6e"
+  },
+  "prepare/prepare-lec20.qmd": {
+    "prepare-lec20.html": "7a7afce2"
+  },
+  "prepare/prepare-lec08.qmd": {
+    "prepare-lec08.html": "691aec6b"
+  },
+  "prepare/prepare-lec09.qmd": {
+    "prepare-lec09.html": "bc279a6c"
+  },
+  "prepare/prepare-lec04.qmd": {
+    "prepare-lec04.html": "63882dc4"
+  },
+  "prepare/prepare-lec05.qmd": {
+    "prepare-lec05.html": "60a37170"
+  },
+  "prepare/prepare-lec02.qmd": {
+    "prepare-lec02.html": "81b88f6c"
+  },
+  "prepare/prepare-lec03.qmd": {
+    "prepare-lec03.html": "a6811cc8"
+  },
+  "slides/01-welcome.qmd": {
+    "01-welcome.html": "b114ce58",
+    "01-welcome-notes.html": "c2bd8c35"
+  },
+  "slides/lab-00.qmd": {
+    "lab-00.html": "dc4a0b5c"
+  },
+  "slides/02-slr.qmd": {
+    "02-slr.html": "c08a9046",
+    "02-slr-notes.html": "82af1a20"
+  },
+  "prepare/prepare-lec07.qmd": {
+    "prepare-lec07.html": "28d850f3"
+  },
+  "prepare/prepare-lec06.qmd": {
+    "prepare-lec06.html": "32e7c138"
+  },
+  "labs/lab-01-DRAFT.qmd": {
+    "lab-01-DRAFT.html": "3d007a97"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "hash": "ad8d469e7b06eaa97b2dd2fb09c976ad",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Final project\n---\n\n\n\n## Project milestones\n\n[Research topics](#research-topics) due Tuesday February 10\n\n[Project proposal](#project-proposal) due Tuesday, February 24\n\n[Exploratory data analysis](#eda) due Thursday, March 19\n\n[Presentation](#presentation) + [Presentation comments](#presentation-comments) Friday, March 27 (in lab)\n\n[Analysis draft + peer review](#draft-report-peer-review) Friday, April 10 (peer review in lab)\n\n[Written report](#written-report) due Tuesday, April 21\n\n[Reproducibility + organization](#reproducibility-organization) due Tuesday, April 21\n\n<br>\n\n**More details posted when the project is assigned.**\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

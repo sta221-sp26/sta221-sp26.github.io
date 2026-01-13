@@ -1,0 +1,32 @@
+{
+    "id": "703D848D",
+    "path": "~/Library/CloudStorage/OneDrive-DukeUniversity/teaching/sta221-sp26/website/slides/01-welcome.qmd",
+    "project_path": "slides/01-welcome.qmd",
+    "type": "quarto_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1768228983556.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "6:81.5999984741211",
+        "cursorPosition": "196,0",
+        "scrollLine": "0",
+        "ignored_words": "TAs,Krish,Bansal,Xueyan,regressors,covariates,corequisite,Gradebook,Gradescope,Scriptability,versioning,auditable,Chapekis,Lieb,www,pewresearch,ai\n"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1767883044,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1767883044,
+    "read_only": false,
+    "read_only_alternatives": []
+}

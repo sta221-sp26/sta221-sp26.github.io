@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: e89bb24e-a4d0-4287-9f10-5e4f898ab5d7
+      url: 'https://sta221-sp26.netlify.app/'

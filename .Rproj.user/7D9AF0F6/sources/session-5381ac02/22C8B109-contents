@@ -1,0 +1,29 @@
+---
+title: Final project
+---
+
+```{r include = F}
+library(tidyverse)
+library(knitr)
+library(broom)
+```
+
+## Project milestones
+
+[Research topics](#research-topics) due Tuesday February 10
+
+[Project proposal](#project-proposal) due Tuesday, February 24
+
+[Exploratory data analysis](#eda) due Thursday, March 19
+
+[Presentation](#presentation) + [Presentation comments](#presentation-comments) Friday, March 27 (in lab)
+
+[Analysis draft + peer review](#draft-report-peer-review) Friday, April 10 (peer review in lab)
+
+[Written report](#written-report) due Tuesday, April 21
+
+[Reproducibility + organization](#reproducibility-organization) due Tuesday, April 21
+
+<br>
+
+**More details posted when the project is assigned.**
