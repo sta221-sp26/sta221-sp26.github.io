@@ -425,11 +425,11 @@ Submit your answers to the following questions on Ed Discussion:
 ## Submit
 
 ```{=html}
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://edstem.org/us/courses/90766/discussion/918812" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://edstem.org/us/courses/90766/discussion/7506084" width="100%"></iframe>
 ```
 :::::
 
-🔗 <https://edstem.org/us/courses/90766/discussion/918812>
+🔗 <https://edstem.org/us/courses/90766/discussion/7506084>
 
 ## Does it make sense to interpret the intercept?
 
