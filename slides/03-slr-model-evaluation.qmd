@@ -142,7 +142,7 @@ p1
 # Application exercise
 
 ::: appex
-📋 [sta221-sp26.github.io/ae/ae-01-model-evaluation.html](https://📋%20sta221-sp26.github.io/ae/ae-01-model-evaluation.html%20Complete%20Part%201.)
+📋 [sta221-sp26.github.io/ae/ae-01-model-evaluation.html](https://sta221-sp26.github.io/ae/ae-01-model-evaluation.html)
 
 Complete Part 1.
 :::
@@ -393,7 +393,7 @@ glance(life_exp_fit)$r.squared
 # Application exercise
 
 ::: appex
-📋 [sta221-sp26.github.io/ae/ae-01-model-evaluation.html](https://📋%20sta221-sp26.github.io/ae/ae-01-model-evaluation.html%20Complete%20Part%201.)
+📋 [sta221-sp26.github.io/ae/ae-01-model-evaluation.html](https://sta221-sp26.github.io/ae/ae-01-model-evaluation.html)
 
 Complete Part 2.
 :::
