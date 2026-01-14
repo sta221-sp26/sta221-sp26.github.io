@@ -1,9 +1,9 @@
 ---
-title: "SLR: Model Assessment"
+title: "SLR: Model evaluation"
 author: "Prof. Maria Tackett"
-date: "2025-01-16"
-date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 221 - Spring 2025](https://sta221-sp25.netlify.app)"
+date: "01-15-2026"
+date-format: "MMMM DD, YYYY"
+footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
 logo: "../images/logo.png"
 format: 
   revealjs: 
@@ -15,7 +15,7 @@ format:
     chalkboard: true
     include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
   html: 
-    output-file: 03-slr-model-assessment-notes.html
+    output-file: 03-slr-model-evaluation-notes.html
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -48,10 +48,7 @@ knitr::opts_chunk$set(
 ## Announcements {.midi}
 
 -   No office hours Mon, Jan 20 - Martin Luther King, Jr. Holiday
--   Introduction to R workshops at Duke library
-    -   [Data wrangling with dplyr](https://duke.libcal.com/event/13664829) - Thu, Jan 16 at 12pm
-
-    -   [Data visualization with ggplot2](https://duke.libcal.com/event/13660125) - Thu, Jan 23 at 12pm
+    -   See Canvas for full office hours schedule
 
 # Questions from last class?
 
@@ -78,123 +75,6 @@ library(patchwork)   # arrange plots
 ggplot2::theme_set(ggplot2::theme_bw())
 ```
 
-## Data: Movie scores on Rotten Tomatoes
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-library(fivethirtyeight)
-movie_scores <- fandango |>
-  rename(critics = rottentomatoes, 
-         audience = rottentomatoes_user)
-
-p <- ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
-  geom_point(alpha = 0.5) + 
-  geom_smooth(method = "lm", color = "red", se = FALSE) +
-  labs(x = "Critics Score" , 
-       y = "Audience Score",
-       title = "Audience vs. critics score",
-       subtitle = "146 movies rated on rottentomatoes.com")
-
-p
-```
-
-$$
-\widehat{\text{audience}} = 32.3142 + 0.5187 \times \text{critics} 
-$$
-
-# Prediction
-
-## Making a prediction
-
-Suppose that a movie has a critics score of 70. According to this model, what is the movie's predicted audience score?
-
-\begin{aligned}
-\widehat{\text{audience}} &= 32.3142 + 0.5187 \times \text{critics} \\
-&= 32.3142 + 0.5187 \times 70 \\
-&= \mathbf{68.6232}
-\end{aligned}
-
-<br>
-
-. . .
-
-::: callout-caution
-Using the model to predict for values outside the range of the original data is **extrapolation.** Why do we want to avoid extrapolation?
-:::
-
-# Linear regression in R
-
-## Fit the model
-
-Use the `lm()` function to fit a linear regression model
-
-<br>
-
-```{r}
-movie_fit <- lm(audience ~ critics, data = movie_scores)
-movie_fit
-```
-
-## Tidy results
-
-Use the `tidy()` function from the **broom** R package to "tidy" the model output
-
-<br>
-
-```{r}
-#| code-line-numbers: "|2"
-movie_fit <- lm(audience ~ critics, data = movie_scores)
-tidy(movie_fit)
-```
-
-## Format results
-
-Use the `kable()` function from the **knitr** package to neatly format the results
-
-<br>
-
-<div>
-
-```{r}
-#| code-line-numbers: "|2,3"
-movie_fit <- lm(audience ~ critics, data = movie_scores)
-tidy(movie_fit) |>
-  kable(digits = 3)
-```
-
-</div>
-
-## Prediction
-
-Use the `predict()` function to calculate predictions for new observations
-
-<br>
-
-**Single observation**
-
-```{r}
-new_movie <- tibble(critics = 70)
-predict(movie_fit, new_movie)
-```
-
-## Prediction
-
-Use the `predict()` function to calculate predictions for new observations
-
-<br>
-
-**Multiple observations**
-
-```{r}
-more_new_movies <- tibble(critics = c(24,70, 85))
-predict(movie_fit, more_new_movies)
-```
-
-# Model assessment
-
 ## Data: Life expectancy in 140 countries
 
 ```{r}
@@ -210,7 +90,7 @@ life_exp <- read_excel("data/life-expectancy-data.xlsx") |>
 
 The data set comes from @zarulli2021 who analyze the effects of a country's healthcare expenditures and other factors on the country's life expectancy. The data are originally from the [Human Development Database](http://hdr.undp.org/en/data) and [World Health Organization](https://apps.who.int/nha/database/).
 
-There are `r nrow(life_exp)` countries (observations) in the data set.
+The data are avaialable in [life-expectancy-data.csv](https://intro-regression.github.io/data/life-expectancy-data.csv). There are `r nrow(life_exp)` countries (observations) in the data set.
 
 <br>
 
@@ -233,13 +113,13 @@ There are `r nrow(life_exp)` countries (observations) in the data set.
 ```{r univariate}
 #| echo: false
 p1 <- ggplot(data = life_exp, aes(x = life_exp))  + 
-  geom_histogram(fill = "steelblue", color = "black", binwidth = 2) + 
+  geom_histogram(fill = "steelblue", color = "black", binwidth = 3) + 
   labs(x = "Life expectancy (in years)", 
        y = "Count")
 
 p2 <- ggplot(data = life_exp, aes(x = income_inequality))  + 
-  geom_histogram(fill = "steelblue", color = "black",binwidth = 2) + 
-  labs(x = "Income inequality", 
+  geom_histogram(fill = "steelblue", color = "black", binwidth = 3) + 
+  labs(x = "Income inequality (Gini coefficient)", 
        y = "Count") 
 
 p1 + p2
@@ -249,6 +129,7 @@ p1 + p2
 
 ```{r bivariate}
 #| echo: false
+#| out-width: 80%
 p1 <- ggplot(data = life_exp, aes(x = income_inequality, y = life_exp)) + 
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = FALSE, color = "steelblue") +
@@ -258,7 +139,7 @@ p1 <- ggplot(data = life_exp, aes(x = income_inequality, y = life_exp)) +
 p1 
 ```
 
-# Application exercise
+# Application exercise - UPDATE
 
 ::: appex
 📋 [sta221-sp25.netlify.app/ae/ae-01-model-assessment.html](../ae/ae-01-model-assessment.html){.uri}
@@ -266,11 +147,11 @@ p1
 Complete Part 1.
 :::
 
-## Clone repo + Start new RStudio project {.midi}
+## Clone repo + start new RStudio project - UPDATE {.small}
 
 -   Go to the course organization. Click on the repo with the prefix `ae-01`. It contains the starter documents you need to complete the AE.
 
-    -   If you do not see an `ae-01` repo, use this link to create one: <https://classroom.github.com/a/6jpkfA8n>
+    -   If you do not see an `ae-01` repo, use this link to create one: **UPDATE LINK!**
 
 -   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you’ll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
 
@@ -282,7 +163,7 @@ Complete Part 1.
 
 -   Click `ae-01.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
 
-# Model assessment
+# Model evaluation
 
 We fit a model but is it any good?
 
@@ -419,7 +300,7 @@ ggplot(data = life_exp, aes(x = income_inequality, y = life_exp)) +
 
 $$\text{Sum of Squares Residuals (SSR)} = \sum_{i = 1}^{n}(y_i - \hat{y}_i)^2$$
 
-## Sum of Squares
+## Sum of Squares - UPDATE! 
 
 <br>
 
@@ -431,7 +312,7 @@ $$
 $$
 
 ::: aside
-[Click here](https://introregression.netlify.app/98-appendix#sum-of-squares) to see why this equality holds.
+[Click here](https://introregression.netlify.app/98-appendix#sum-of-squares) to see why this equality holds. - UPDATE LINK
 :::
 
 ## $R^2$
@@ -457,32 +338,14 @@ life_exp_fit_rsq <- round(glance(life_exp_fit)$r.squared, 3) * 100
 
 ```
 
-::::: panel-tabset
-## Question
-
-:::: appex
-Submit your response to the following question on Ed Discussion.
-
-<div>
-
+::: question
 The $R^2$ of the model of life expectancy and income inequality is `r life_exp_fit_rsq`%. Which of the following is the correct interpretation of this value?
 
-1.  A country's income inequality correctly predicts `r life_exp_fit_rsq`% of its life expectancy.
-2.  `r life_exp_fit_rsq`% of the variability in life expectancy can be explained by income inequality.
-3.  `r life_exp_fit_rsq`% of the variability in income inequality can be explained by life expectancy.
-4.  `r life_exp_fit_rsq`% of the time a country's life expectancy can be predicted by its income inequality.
-
-</div>
-::::
-
-## Submit
-
-```{=html}
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://edstem.org/us/courses/70811/discussion/5978094" width="100%"></iframe>
-```
-:::::
-
-🔗 <https://edstem.org/us/courses/70811/discussion/5978094>
+a.  A country's income inequality correctly predicts `r life_exp_fit_rsq`% of its life expectancy.
+b.  `r life_exp_fit_rsq`% of the variability in life expectancy can be explained by income inequality.
+c.  `r life_exp_fit_rsq`% of the variability in income inequality can be explained by life expectancy.
+d.  `r life_exp_fit_rsq`% of the time a country's life expectancy can be predicted by its income inequality.
+:::
 
 # Using R
 
@@ -527,7 +390,7 @@ Alternatively, use `glance()` to construct a single row summary of the model fit
 glance(life_exp_fit)$r.squared
 ```
 
-# Application exercise
+# Application exercise - UPDATE
 
 ::: appex
 📋 [sta221-sp25.netlify.app/ae/ae-01-model-assessment.html](../ae/ae-01-model-assessment.html){.uri}
@@ -546,6 +409,6 @@ Complete Part 2.
 ## Next class
 
 -   Matrix representation of simple linear regression
-    -   See [Lec 04: SLR - Matrix representation prepare](../prepare/prepare-lec04.html)
+-   Complete [Lecture 04 prepare](../prepare/prepare-lec04.html)
 
 ## References

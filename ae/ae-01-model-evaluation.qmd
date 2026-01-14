@@ -1,5 +1,5 @@
 ---
-title: "AE 01: Model assessment"
+title: "Lecture 03 AE: Model evaluation"
 subtitle: "Income inequality, healthcare expenditure, and life expectancy"
 date: "January 16, 2025"
 editor: visual
@@ -11,26 +11,22 @@ bibliography: references.bib
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta221-sp25) and locate your `ae-01` repo to get started.
+Go to the [course GitHub organization](https://github.com/sta221-sp26) and locate your `ae-01` repo to get started.
 
 If you do not see an `ae-01` repo, use the link below to create one:
 
-<https://classroom.github.com/a/6jpkfA8n>
+<https://classroom.github.com/a/6jpkfA8n> - UPDATE
 
-Render, commit, and push your responses to GitHub by the end of class to submit your AE.
-
-\
-\
-**This AE will not count towards your participation grade.**
+Render, commit, and push your responses to GitHub. This is good practice for the workflow you will use in assignments.
 :::
 
 ```{r}
 #| label: load-packages
 #| message: false
 
-library(tidyverse)    # data wrangling and visualization
-library(tidymodels)   # broom and yardstick package
-library(knitr)        # format output
+library(tidyverse)
+library(tidymodels) 
+library(knitr) 
 ```
 
 # Data
@@ -56,7 +52,7 @@ life_exp <- read_csv("data/life_exp.csv")
 
 ## Exercise 1
 
-Fit a model using income equality to understand variability in life expectancy. Neatly display the results using 3 digits.
+Fit a model using income equality to understand variability in life expectancy. Neatly display the results using 3 digits. [Click here](https://sta221-sp26.github.io/slides/02-slr.html#/fit-the-model) for code to fit and display a model.
 
 ```{r}
 #| label: ex-1
@@ -69,7 +65,7 @@ Fit a model using income equality to understand variability in life expectancy. 
 
 -   Interpret the slope in the context of the data.
 
--   Does it make sense to interpret the intercept? If so, interpret it in the context of the data. Otherwise, explain why not.
+-   Does the intercept have a meaningful interpretation? If so, interpret it in the context of the data. Otherwise, explain why not.
 
 # Part 2
 
@@ -101,10 +97,10 @@ Which measure of healthcare expenditure would you choose as a predictor of life 
 
 ```
 
-# Submission
+# Wrapping up
 
 ::: callout-important
-To submit the AE:
+Once you've completed the AE:
 
 -   Render the document to produce the PDF with all of your work from today's class.
 -   Push all your work to your AE repo on GitHub. You're done! 🎉
