@@ -147,7 +147,7 @@ p1
 Complete Part 1.
 :::
 
-## Clone repo + start new RStudio project - UPDATE {.small}
+## Clone repo + start new RStudio project  {.small}
 
 -   Go to the course organization. Click on the repo with the prefix `ae-01`. It contains the starter documents you need to complete the AE.
 
