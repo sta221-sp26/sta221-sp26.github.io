@@ -2499,7 +2499,7 @@
     "href": "slides/03-slr-model-evaluation-notes.html#computing-set-up",
     "title": "SLR: Model evaluation",
     "section": "Computing set up",
-    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling (includes broom, yardstick, and other packages)\nlibrary(knitr)       # for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme for ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\n\nWarning: package 'ggplot2' was built under R version 4.5.2\n\n\nWarning: package 'tidyr' was built under R version 4.5.2\n\nlibrary(tidymodels)  # for modeling (includes broom, yardstick, and other packages)\nlibrary(knitr)       # for pretty tables\n\nWarning: package 'knitr' was built under R version 4.5.2\n\nlibrary(patchwork)   # arrange plots\n\n# set default theme for ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
   },
   {
     "objectID": "slides/03-slr-model-evaluation-notes.html#data-life-expectancy-in-140-countries",
@@ -2527,7 +2527,7 @@
     "href": "slides/03-slr-model-evaluation-notes.html#bivariate-exploratory-data-analysis",
     "title": "SLR: Model evaluation",
     "section": "Bivariate exploratory data analysis",
-    "text": "Bivariate exploratory data analysis"
+    "text": "Bivariate exploratory data analysis\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "slides/03-slr-model-evaluation-notes.html#clone-repo-start-new-rstudio-project---update",
@@ -2583,14 +2583,14 @@
     "href": "slides/03-slr-model-evaluation-notes.html#explained-variability-model",
     "title": "SLR: Model evaluation",
     "section": "Explained variability (Model)",
-    "text": "Explained variability (Model)\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Model (SSM)} = \\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2\\]"
+    "text": "Explained variability (Model)\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Model (SSM)} = \\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2\\]"
   },
   {
     "objectID": "slides/03-slr-model-evaluation-notes.html#unexplained-variability-residuals",
     "href": "slides/03-slr-model-evaluation-notes.html#unexplained-variability-residuals",
     "title": "SLR: Model evaluation",
     "section": "Unexplained variability (Residuals)",
-    "text": "Unexplained variability (Residuals)\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Residuals (SSR)} = \\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2\\]"
+    "text": "Unexplained variability (Residuals)\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Residuals (SSR)} = \\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2\\]"
   },
   {
     "objectID": "slides/03-slr-model-evaluation-notes.html#sum-of-squares---update",
@@ -2647,5 +2647,19 @@
     "title": "SLR: Model evaluation",
     "section": "Next class",
     "text": "Next class\n\nMatrix representation of simple linear regression\nComplete Lecture 04 prepare"
+  },
+  {
+    "objectID": "slides/sum-of-squares.html",
+    "href": "slides/sum-of-squares.html",
+    "title": "Sum of squares",
+    "section": "",
+    "text": "In this document, we show how the equality in Equation 1 holds.\n\\[\n\\begin{aligned}\nSST &= SSM + SSR \\\\[10pt]\n\\sum_{i=1}^{n}(y_i - \\bar{y})^2 &= \\sum_{i=1}^{n}(\\hat{y}_i - \\bar{y})^2 + \\sum_{i=1}^{n}(y_i -\\hat{y}_i)^2\n\\end{aligned}\n\\tag{1}\\]\nwhere \\(n\\) is the number of observations.\nWe start with the fact \\((y_i - \\bar{y}) = (\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)\\).\nThen, \\[\n\\begin{aligned}\n(y_i - \\bar{y})^2 &= [(\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)]^2\\\\[10pt]\n& = (\\hat{y}_i - \\bar{y})^2 + 2(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + (y_i - \\hat{y}_i)^2\n\\end{aligned}\n\\]\nWe can sum over both sides to get\n\\[\n\\sum_{i=1}^n(y_i - \\bar{y})^2 = \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\n\\tag{2}\\]\nFor now, let’s focus on the middle term: \\(2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i)\\)\n\\[\n\\begin{aligned}\n2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) &= 2\\sum_{i=1}^n(\\hat{y}_iy_i - \\hat{y}_i^2 - \\bar{y}y_i + \\bar{y}\\hat{y}_i)\\\\[10pt]\n& = 2\\sum_{i=1}^n\\hat{y}_i(y_i - \\hat{y}_i) - 2\\bar{y}\\sum_{i=1}^n(y_i - \\hat{y}_i) \\\\[10pt]\n&=2\\sum_{i=1}^n\\hat{y}_ie_i - 2\\bar{y}\\sum_{i=1}^ne_i\\\\[10pt]\n&= 0 \\quad(\\text{ given }\\sum_{i=1}^ne_i = 0)\n\\end{aligned}\n\\tag{3}\\]\nPlugging Equation 3 back into Equation 2, we have\n\\[\n\\begin{aligned}\n\\sum_{i=1}^n(y_i - \\bar{y})^2 &= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 0 + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2 \\\\[10pt]\n&= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 +  \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\\\\[10pt]\n\\end{aligned}\n\\]\nThus \\(SST = SSM + SSR\\)"
+  },
+  {
+    "objectID": "slides/sum-of-squares.html#sum-of-squares",
+    "href": "slides/sum-of-squares.html#sum-of-squares",
+    "title": "Sum of squares",
+    "section": "",
+    "text": "From ?@sec-slr-sum-sq, we have the following\n\\[\n\\begin{aligned}\nSST &= SSM + SSR \\\\\n\\sum_{i=1}^{n}(y_i - \\bar{Y})^2 &= \\sum_{i=1}^{n}(\\hat{y}_i - \\bar{Y})^2 + \\sum_{i=1}^{n}(y_i -\\hat{y}_i)^2\n\\end{aligned}\n\\tag{1}\\]\nwhere \\(n\\) is the number of observations. We will show why Equation 1 is true mathematically by starting with the fact that \\((y_i - \\bar{Y}) = (\\hat{y}_i - \\bar{Y}) + (y_i - \\hat{y}_i)\\)\n\\[\n\\begin{aligned}\n(y_i - \\bar{Y})^2 &= [(\\hat{y}_i - \\bar{Y}) + (y_i - \\hat{y}_i)]^2\\\\[10pt]\n& = (\\hat{y}_i - \\bar{Y})^2 + 2(\\hat{y}_i - \\bar{Y})(y_i - \\hat{y}_i) + (y_i - \\hat{y}_i)^2\n\\end{aligned}\n\\]\nWe can sum over both sides to get\n\\[\n\\sum_{i=1}^n(y_i - \\bar{Y})^2 = \\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})^2 + 2\\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})(y_i - \\hat{y}_i) + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\n\\tag{2}\\]\nFor now, let’s focus on the middle term \\(2\\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})(y_i - \\hat{y}_i)\\)\n\\[\n\\begin{aligned}\n2\\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})(y_i - \\hat{y}_i) &= 2\\sum_{i=1}^n(\\hat{y}_iy_i - \\hat{y}_i^2 - \\bar{Y}y_i + \\bar{Y}\\hat{y}_i)\\\\[10pt]\n& = 2\\sum_{i=1}^n\\hat{y}_i(y_i - \\hat{y}_i) - 2\\bar{Y}\\sum_{i=1}^n(y_i - \\hat{y}_i) \\\\[10pt]\n&=2\\sum_{i=1}^n\\hat{y}_ie_i - 2\\bar{Y}\\sum_{i=1}^ne_i\\\\[10pt]\n&= 0 \\quad(\\text{ given }\\sum_{i=1}^ne_i = 0)\n\\end{aligned}\n\\tag{3}\\]\nPlugging Equation 3 back into Equation 2, we have\n\\[\n\\begin{aligned}\n\\sum_{i=1}^n(y_i - \\bar{Y})^2 &= \\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})^2 + 0 + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2 \\\\[10pt]\n&= \\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})^2 +  \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\\\\[10pt]\n\\end{aligned}\n\\]\nThus \\(SST = SSM + SSR\\)"
   }
 ]
