@@ -208,6 +208,13 @@
     "text": "Probability distributions\n\nMultivariate normal distribution\nLet \\(\\mathbf{z}\\) be a \\(p \\times 1\\) vector of random variables, such that \\(\\mathbf{z}\\) follows a multivariate normal distribution with mean \\(\\boldsymbol{\\mu}\\) and variance \\(\\boldsymbol{\\Sigma}\\). Then the probability density function of \\(\\mathbf{z}\\) is\n\\[f(\\mathbf{z}) = \\frac{1}{(2\\pi)^{p/2}|\\boldsymbol{\\Sigma}|^{1/2}}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{z} - \\boldsymbol{\\mu})^\\mathsf{T}\\boldsymbol{\\Sigma}^{-1}(\\mathbf{z}- \\boldsymbol{\\mu})\\Big\\}\\]\n\n\n\n\n\n\nLinear transformation of normal random variable\nSuppose \\(\\mathbf{z}\\) is a multivariate normal random variable with mean \\(\\boldsymbol{\\mu}\\) and variance \\(\\boldsymbol{\\Sigma}\\). A linear transformation of \\(\\mathbf{z}\\) is also multivariate normal, such that\n\\[\n\\mathbf{A}\\mathbf{z} + \\mathbf{B} \\sim N(\\mathbf{A}\\boldsymbol{\\mu} + \\mathbf{B}, \\mathbf{A}\\boldsymbol{\\Sigma}\\mathbf{A}^\\mathsf{T})\n\\]"
   },
   {
+    "objectID": "slides/sum-of-squares.html",
+    "href": "slides/sum-of-squares.html",
+    "title": "Sum of squares",
+    "section": "",
+    "text": "In this document, we show how the equality in Equation 1 holds.\n\\[\n\\begin{aligned}\nSST &= SSM + SSR \\\\[10pt]\n\\sum_{i=1}^{n}(y_i - \\bar{y})^2 &= \\sum_{i=1}^{n}(\\hat{y}_i - \\bar{y})^2 + \\sum_{i=1}^{n}(y_i -\\hat{y}_i)^2\n\\end{aligned}\n\\tag{1}\\]\nwhere \\(n\\) is the number of observations.\nWe start with the fact \\((y_i - \\bar{y}) = (\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)\\).\nThen, \\[\n\\begin{aligned}\n(y_i - \\bar{y})^2 &= [(\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)]^2\\\\[10pt]\n& = (\\hat{y}_i - \\bar{y})^2 + 2(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + (y_i - \\hat{y}_i)^2\n\\end{aligned}\n\\]\nWe can sum over both sides to get\n\\[\n\\sum_{i=1}^n(y_i - \\bar{y})^2 = \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\n\\tag{2}\\]\nFor now, let’s focus on the middle term: \\(2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i)\\)\n\\[\n\\begin{aligned}\n2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) &= 2\\sum_{i=1}^n(\\hat{y}_iy_i - \\hat{y}_i^2 - \\bar{y}y_i + \\bar{y}\\hat{y}_i)\\\\[10pt]\n& = 2\\sum_{i=1}^n\\hat{y}_i(y_i - \\hat{y}_i) - 2\\bar{y}\\sum_{i=1}^n(y_i - \\hat{y}_i) \\\\[10pt]\n&=2\\sum_{i=1}^n\\hat{y}_ie_i - 2\\bar{y}\\sum_{i=1}^ne_i\\\\[10pt]\n&= 0 \\quad(\\text{ given }\\sum_{i=1}^ne_i = 0)\n\\end{aligned}\n\\tag{3}\\]\nPlugging Equation 3 back into Equation 2, we have\n\\[\n\\begin{aligned}\n\\sum_{i=1}^n(y_i - \\bar{y})^2 &= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 0 + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2 \\\\[10pt]\n&= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 +  \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\\\\[10pt]\n\\end{aligned}\n\\]\nThus \\(SST = SSM + SSR\\)"
+  },
+  {
     "objectID": "slides/01-welcome.html#meet-prof.-tackett",
     "href": "slides/01-welcome.html#meet-prof.-tackett",
     "title": "Welcome to STA 221!",
@@ -805,341 +812,128 @@
     ]
   },
   {
-    "objectID": "prepare/prepare-lec01.html",
-    "href": "prepare/prepare-lec01.html",
-    "title": "Prepare for Lecture 01",
+    "objectID": "ae/ae-01-model-evaluation.html",
+    "href": "ae/ae-01-model-evaluation.html",
+    "title": "AE 01: Model evaluation",
     "section": "",
-    "text": "📖 Read the syllabus"
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-01 repo to get started.\nIf you do not see an ae-01 repo, use the link below to create one:\nhttps://classroom.github.com/a/jWbwQU1r\nRender, commit, and push your responses to GitHub. This is good practice for the workflow you will use in assignments.\nlibrary(tidyverse)\nlibrary(tidymodels) \nlibrary(knitr)"
   },
   {
-    "objectID": "prepare/prepare-lec02.html",
-    "href": "prepare/prepare-lec02.html",
-    "title": "Prepare for Lecture 02",
-    "section": "",
-    "text": "Required\n📖 Read Chapter 1\n📖 Read Sections 4.1 - 4.6\n\nOptional computing introduction/ review\n📖 Read GitHub for supporting, reusing, contributing, and failing safely\n🎥 Watch Meet the Toolkit: R + RStudio\n🎥 Watch Meet the Toolkit: Quarto"
+    "objectID": "ae/ae-01-model-evaluation.html#exercise-1",
+    "href": "ae/ae-01-model-evaluation.html#exercise-1",
+    "title": "AE 01: Model evaluation",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit a model using income equality to understand variability in life expectancy. Neatly display the results using 3 digits. Click here for code to fit and display a model.\n\n# add code here"
   },
   {
-    "objectID": "prepare/prepare-lec07.html",
-    "href": "prepare/prepare-lec07.html",
-    "title": "Prepare for Lecture 07: Inference for regression",
-    "section": "",
-    "text": "📖 Read Sections 5.1 - 5.3\n📖 Read Section 8.4.1"
+    "objectID": "ae/ae-01-model-evaluation.html#exercise-2",
+    "href": "ae/ae-01-model-evaluation.html#exercise-2",
+    "title": "AE 01: Model evaluation",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nInterpret the slope in the context of the data.\nDoes the intercept have a meaningful interpretation? If so, interpret it in the context of the data. Otherwise, explain why not."
   },
   {
-    "objectID": "prepare/prepare-lec04.html",
-    "href": "prepare/prepare-lec04.html",
-    "title": "Prepare for Lecture 04: SLR - Matrix representation",
-    "section": "",
-    "text": "Required\n📖 Read Appendices A.2 - A.3\n\nOptional review linear algebra concepts (as needed)\n\nMatrices and vectors: [slides][video]\nMatrix-Vector products: [slides][video]\nMatrix multiplication: [slides][video]\nVector geometry: [slides][video]\n\n\n\n\n\n\n\nNote\n\n\n\nAll linear algebra review materials from Math 218: Matrices and Vectors (Summer 2024) taught by Dr. Brian Fitzpatrick at Duke University"
+    "objectID": "ae/ae-01-model-evaluation.html#exercise-3",
+    "href": "ae/ae-01-model-evaluation.html#exercise-3",
+    "title": "AE 01: Model evaluation",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit a model using health_expend to understand variability in life_exp. Compute \\(R^2\\) and \\(RMSE\\) for this model.\n\n# add code here\n\n\nInterpret \\(R^2\\) in the context of the data.\nInterpret \\(RMSE\\) in the context for the data."
   },
   {
-    "objectID": "prepare/prepare-lec08.html",
-    "href": "prepare/prepare-lec08.html",
-    "title": "Prepare for Lecture 08: Inference for regression",
+    "objectID": "ae/ae-01-model-evaluation.html#exercise-4",
+    "href": "ae/ae-01-model-evaluation.html#exercise-4",
+    "title": "AE 01: Model evaluation",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nWhich measure of healthcare expenditure would you choose as a predictor of life expectancy - health_expend or health_pct_gdp? Briefly explain, using \\(R^2\\) and/or \\(RMSE\\) to support your choice.\n\n# add code here"
+  },
+  {
+    "objectID": "prepare/prepare-lec03.html",
+    "href": "prepare/prepare-lec03.html",
+    "title": "Prepare for Lecture 03: Model evaluation",
+    "section": "",
+    "text": "Required\n📖 Read Section 4.7\n\nOptional computing introduction/ review\n🎥 Watch Meet the Toolkit: R + RStudio\n🎥 Watch Meet the Toolkit: Quarto"
+  },
+  {
+    "objectID": "prepare/prepare-lec06.html",
+    "href": "prepare/prepare-lec06.html",
+    "title": "Prepare for Lecture 06: Types of predictors",
+    "section": "",
+    "text": "📖 Read Sections 7.4\n📖 Read Sections 7.6 - 7.7"
+  },
+  {
+    "objectID": "prepare/prepare-lec05.html",
+    "href": "prepare/prepare-lec05.html",
+    "title": "Prepare for Lecture 05: Multiple linear regression",
+    "section": "",
+    "text": "📖 Read Sections 7.1 - 7.4.1\n📖 Read Section 7.5"
+  },
+  {
+    "objectID": "prepare/prepare-lec09.html",
+    "href": "prepare/prepare-lec09.html",
+    "title": "Prepare for Lecture 09: Inference for regression cont’d",
     "section": "",
     "text": "📖 Read Inference for Simple Linear Regression:\n\nSections 5.1 - 5.3\nSection 5.6\nSection 5.8\nSection 5.9"
   },
   {
-    "objectID": "exam-01-practice.html",
-    "href": "exam-01-practice.html",
-    "title": "Exam 01 practice",
+    "objectID": "prepare/prepare-lec20.html",
+    "href": "prepare/prepare-lec20.html",
+    "title": "Prepare for Lecture 20: Logistic regression - Prediction",
     "section": "",
-    "text": "Important\n\n\n\nThis page contains practice problems to help prepare for Exam 01. This set of practice problems is not comprehensive. You should review these study tips as you prepare for the exam.\n\nThere is no answer key for these problems. You may ask questions in office hours and on Ed Discussion."
+    "text": "📖 Classification module in Google Machine Learning Crash Course"
   },
   {
-    "objectID": "exam-01-practice.html#exercise-1",
-    "href": "exam-01-practice.html#exercise-1",
-    "title": "Exam 01 practice",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nWe will use data from nrow(penguins) penguins at Palmer Station in Antartica to fit linear regression model model using species (Adelie, Chinstrap, or Gentoo), flipper length (in millimeters), and bill depth (in millimeters) to predict its body mass (in grams). Click here to read more about the variables.\nThe linear regression model has the form\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]Write the dimensions of \\(\\mathbf{y}, \\mathbf{X},\\boldsymbol{\\beta}, \\boldsymbol{\\epsilon}\\) specifically for this analysis."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-2",
-    "href": "exam-01-practice.html#exercise-2",
-    "title": "Exam 01 practice",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nThe output for the model described in Exercise 1, along with 95% confidence intervals for the model coefficients, is shown below:\n\npenguins_fit &lt;- lm(body_mass_g ~ species + flipper_length_mm + \n                     bill_depth_mm + body_mass_g, \n                   data = penguins)\n\nWarning in model.matrix.default(mt, mf, contrasts): the response appeared on\nthe right-hand side and was dropped\n\n\nWarning in model.matrix.default(mt, mf, contrasts): problem with term 4 in\nmodel.matrix: no columns are assigned\n\ntidy(penguins_fit,conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-4526.887\n516.931\n-8.757\n0.000\n-5543.705\n-3510.068\n\n\nspeciesChinstrap\n-131.968\n51.400\n-2.567\n0.011\n-233.073\n-30.863\n\n\nspeciesGentoo\n1288.968\n132.774\n9.708\n0.000\n1027.798\n1550.138\n\n\nflipper_length_mm\n25.700\n3.098\n8.295\n0.000\n19.606\n31.794\n\n\nbill_depth_mm\n182.364\n18.358\n9.934\n0.000\n146.252\n218.475\n\n\n\n\n\n\nInterpret the coefficient of flipper_length_mm in the context of the data.\nWhat is the baseline category for speices?\nInterpret the coefficient of speciesChinstrap in the context of the data."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-3",
-    "href": "exam-01-practice.html#exercise-3",
-    "title": "Exam 01 practice",
-    "section": "Exercise 3",
-    "text": "Exercise 3\n\nDoes the intercept have a meaningful interpretation?\nIf not, what are some strategies we can use to fit a model such that the intercept is meaningful?"
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-4",
-    "href": "exam-01-practice.html#exercise-4",
-    "title": "Exam 01 practice",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nThere are three species in the data set (Adelie, Chinstrap, Gentoo), but only two terms for species in the model. Use the design matrix to show why we cannot put indicators for all three species and the intercept in the model."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-5",
-    "href": "exam-01-practice.html#exercise-5",
-    "title": "Exam 01 practice",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nWe conduct the following hypothesis test for the coefficient of flipper_length_mm.\n\nNull: There is no linear relationship between flipper length and body mass, after accounting for species and bill depth\nAlternative: There is a linear relationship between flipper length and body mass, after accounting for species and bill depth\n\n\nWrite these hypotheses in mathematical notation.\nThe standard error is 3.098. Explain how this value is computed and what this value means in the context of the data.\nThe test statistic is 8.295. Explain how this value is computed and what this value means in the context of the data.\nWhat distribution is used to compute the p-value?\nWhat is the conclusion from the test in the context of the data?"
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-6",
-    "href": "exam-01-practice.html#exercise-6",
-    "title": "Exam 01 practice",
-    "section": "Exercise 6",
-    "text": "Exercise 6\n\nInterpret the 95% confidence interval for flipper_length_mm in the context of the data.\nIs the interval consistent with the test from the previous exercise? Briefly explain."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-7",
-    "href": "exam-01-practice.html#exercise-7",
-    "title": "Exam 01 practice",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nSketch a scatterplot of the relationship between bill depth and body mass such that the effect of bill depth differs by species."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-8",
-    "href": "exam-01-practice.html#exercise-8",
-    "title": "Exam 01 practice",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nWhen we conduct inference for regression, we assume the following distribution for \\(\\mathbf{y}|\\mathbf{X}\\)\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma^2_\\epsilon\\mathbf{I})\n\\]\n\nShow that \\(E(\\mathbf{y}|\\mathbf{X}) = \\mathbf{X}\\boldsymbol{\\beta}\\)\nShow that \\(Var(\\mathbf{y}|\\mathbf{X})= \\sigma^2_{\\epsilon}\\mathbf{I}\\)\n\nSee February 4 lecture “Inference for Regression” to check your work."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-9",
-    "href": "exam-01-practice.html#exercise-9",
-    "title": "Exam 01 practice",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nWe conduct inference on the coefficients \\(\\boldsymbol{\\beta}\\) assuming that the variability of \\(\\mathbf{y}|\\mathbf{X}\\) is constant for value (or combination) of predictors. Briefly explain why is assumption is important."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-10",
-    "href": "exam-01-practice.html#exercise-10",
-    "title": "Exam 01 practice",
-    "section": "Exercise 10",
-    "text": "Exercise 10\nGiven the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\), derive the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) using matrix calculus.\nSee January 21 lecture “SLR: Matrix representation” to check your work."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-11",
-    "href": "exam-01-practice.html#exercise-11",
-    "title": "Exam 01 practice",
-    "section": "Exercise 11",
-    "text": "Exercise 11\nGiven the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\), derive the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) using the geometric interpretation of the model.\nSee January 23 lecture “Geometric interpretation of least-squares regression” to check your work."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-12",
-    "href": "exam-01-practice.html#exercise-12",
-    "title": "Exam 01 practice",
-    "section": "Exercise 12",
-    "text": "Exercise 12\nExplain why we say “holding all else constant” when interpreting the coefficients in a multiple linear regression model."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-13",
-    "href": "exam-01-practice.html#exercise-13",
-    "title": "Exam 01 practice",
-    "section": "Exercise 13",
-    "text": "Exercise 13\nSuppose we have two models:\n\nModel 1 includes predictors \\(X_1\\) and \\(X_2\\)\nModel 2 includes predictors \\(X_1, X_2, X_3\\) and \\(X_4\\)\n\nExplain why we should use \\(Adj. R^2\\) and not \\(R^2\\) to compare these models."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-14",
-    "href": "exam-01-practice.html#exercise-14",
-    "title": "Exam 01 practice",
-    "section": "Exercise 14",
-    "text": "Exercise 14\nRework Exercises 1 - 5 in HW 01 for more practice with theory and math."
-  },
-  {
-    "objectID": "exam-01-practice.html#exercise-15",
-    "href": "exam-01-practice.html#exercise-15",
-    "title": "Exam 01 practice",
-    "section": "Exercise 15",
-    "text": "Exercise 15\nRework Exercises 1 - 5 in HW 02 for more practice with theory and math."
-  },
-  {
-    "objectID": "exam-01-practice.html#relevant-lectures-assignments-and-aes",
-    "href": "exam-01-practice.html#relevant-lectures-assignments-and-aes",
-    "title": "Exam 01 practice",
-    "section": "Relevant lectures, assignments and AEs",
-    "text": "Relevant lectures, assignments and AEs\nAsk yourself “why” questions as you the slides, review your answers, process, and derivations on these assignments. It may also be helpful to explain your process to others.\n\nLectures: January 9 - February 13 (February 13 lecture is an exam review)\nHW 01 - 02\nLab 01 - 04 (Lab 04 is an exam review)\nAE 01 - 04 (AE 04 is an exam review)"
-  },
-  {
-    "objectID": "hw/hw-02.html",
-    "href": "hw/hw-02.html",
-    "title": "HW 02",
+    "objectID": "hw/stats-experience.html",
+    "href": "hw/stats-experience.html",
+    "title": "Statistics Experience",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Homework",
-      "HW 02"
+      "Statistics experience"
     ]
   },
   {
-    "objectID": "hw/hw-01.html",
-    "href": "hw/hw-01.html",
-    "title": "HW 01",
+    "objectID": "hw/hw-03.html",
+    "href": "hw/hw-03.html",
+    "title": "HW 03",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Homework",
-      "HW 01"
+      "HW 03"
     ]
   },
   {
-    "objectID": "overview.html",
-    "href": "overview.html",
-    "title": "STA 221 - Regression Analysis: Theory and Applications",
+    "objectID": "hw/hw-04.html",
+    "href": "hw/hw-04.html",
+    "title": "HW 04",
     "section": "",
-    "text": "In STA 221, students will learn how linear and logistic regression models are used to explore multivariable relationships, apply these methods to answer relevant and engaging questions using a data-driven approach, and learn the mathematical underpinnings of the models. Students will develop computing skills to implement a reproducible data analysis workflow and gain experience communicating statistical results. Throughout the semester, students will work on a team project where they will develop a research question, answer it using methods learned in the course, and share results through a written report and presentation.\nTopics include applications of linear and logistic regression, analysis of variance, model diagnostics, and model selection. Regression parameter estimation via maximum likelihood least squares will also be discussed. Students will gain experience using the computing tools R and GitHub to analyze real-world data from a variety of fields.\n\n\nEither any STA 100-level course or STA 230, 231, or 240L and MATH 216, 218, or 221. The recommended co-requisite is STA 230, 231, or 240L. Interested students with different backgrounds should seek instructor consent.",
+    "text": "To be posted.",
     "crumbs": [
-      "Overview"
+      "Homework",
+      "HW 04"
     ]
   },
   {
-    "objectID": "overview.html#pre-requisites",
-    "href": "overview.html#pre-requisites",
-    "title": "STA 221 - Regression Analysis: Theory and Applications",
-    "section": "",
-    "text": "Either any STA 100-level course or STA 230, 231, or 240L and MATH 216, 218, or 221. The recommended co-requisite is STA 230, 231, or 240L. Interested students with different backgrounds should seek instructor consent.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "overview.html#teaching-assistants",
-    "href": "overview.html#teaching-assistants",
-    "title": "STA 221 - Regression Analysis: Theory and Applications",
-    "section": "Teaching assistants",
-    "text": "Teaching assistants\n\n\n\nName\nRole\n\n\nCathy Lee\nLab 01 leader\n\n\nKrish Bansal\nLab 01 helper\n\n\nXueyan Hu\nLab 02 leader\n\n\nAllison Yang\nLab 02 helper\n\n\n\nOffice hours times and locations on Canvas.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "labs/lab-07.html",
-    "href": "labs/lab-07.html",
-    "title": "Lab 07",
+    "objectID": "labs/lab-06.html",
+    "href": "labs/lab-06.html",
+    "title": "Lab 06",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 07"
+      "Lab 06"
     ]
   },
   {
-    "objectID": "labs/lab-04.html",
-    "href": "labs/lab-04.html",
-    "title": "Lab 04",
+    "objectID": "labs/lab-05.html",
+    "href": "labs/lab-05.html",
+    "title": "Lab 05",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 04"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html",
-    "href": "labs/lab-00.html",
-    "title": "Lab 00: Getting started",
-    "section": "",
-    "text": "Important\n\n\n\nPlease complete all tasks before leaving lab today.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#rstudio",
-    "href": "labs/lab-00.html#rstudio",
-    "title": "Lab 00: Getting started",
-    "section": "RStudio",
-    "text": "RStudio\n\n\n\n\n\n\nTip\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\nReserve RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers. You will log in using your NetID credentials.\nClick “Reserve STA 221” to reserve an RStudio container. Be sure you reserve the container labeled STA 221 to ensure you have the computing set up you need for the class.\n\nYou only need to reserve a container once per semester.\n\n\nOpen RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers and log in with your Duke NetID and Password.\nClick STA221 to log into the Docker container. You should now see the RStudio environment.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#git-and-github",
-    "href": "labs/lab-00.html#git-and-github",
-    "title": "Lab 00: Getting started",
-    "section": "Git and GitHub",
-    "text": "Git and GitHub\nIn addition to R and RStudio, we will use git and GitHub for version control and collaboration.\n\n\n\n\n\n\nTip\n\n\n\nGit is a version control system (like “Track Changes” features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).\n\n\n\nSign up for GitHub account\nYou will need a GitHub account to access the assignments, project, and in-class exercises for the course.\n\nIf you do not have a GitHub account, go to https://github.com and sign up for an account. If you already have a GitHub account, you can skip to the next step.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for advice on choosing a username.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#connect-rstudio-and-github",
-    "href": "labs/lab-00.html#connect-rstudio-and-github",
-    "title": "Lab 00: Getting started",
-    "section": "Connect RStudio and GitHub",
-    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. An outline of the authentication steps is below; you are encouraged to follow along as your TA demonstrates the steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system.\n\n\n\nStep 0: Open your STA 221 RStudio container.\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., sta221)\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"Maria Tackett\",\n  user.email = \"maria.tackett@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio!",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#getting-started",
-    "href": "labs/lab-00.html#getting-started",
-    "title": "Lab 00: Getting started",
-    "section": "Getting started",
-    "text": "Getting started\n\nClick here to create your individual lab-00 repo: https://classroom.github.com/a/TiUOgn-X\nClick to open your lab-00 repo.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick lab-00.qmd to open the template Quarto file. This is where you will write up your code and narrative for the lab.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#update-the-quarto-document",
-    "href": "labs/lab-00.html#update-the-quarto-document",
-    "title": "Lab 00: Getting started",
-    "section": "Update the Quarto document",
-    "text": "Update the Quarto document\n\nTask 1: Change the author name at the top of the document to your name. Render the document. You will see your name at the top of the rendered PDF.\nTask 2: The plot shows the relationship between the daily temperature and number of bike rentals in Washington, D.C.’s Capital Bikeshare in 2012.\n\n\n\n\n\n\n\n\n\n\nWrite 1 - 2 observations from the plot. Render the document. You will see your response in the rendered PDF.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#commit-and-push-changes-to-github",
-    "href": "labs/lab-00.html#commit-and-push-changes-to-github",
-    "title": "Lab 00: Getting started",
-    "section": "Commit and push changes to GitHub",
-    "text": "Commit and push changes to GitHub\n\nOnce you have made your final updates, go to the Git pane in your RStudio instance. This is a tab in the top right corner of the RStudio window.\nCheck the appropriate boxes on every file in the Git pane. All checked files will be sent to GitHub.\nNext, write a meaningful commit message (for instance, “updated author name”) in the Commit message box.\nClick Commit. Note that every commit needs to have a commit message associated with it.\nNow that you have made an update and committed this change, click Push to send the changes to GitHub.\nGo to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-03.html",
-    "href": "labs/lab-03.html",
-    "title": "Lab 03",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 03"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html",
-    "href": "labs/lab-02.html",
-    "title": "Lab 02",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-01.html",
-    "href": "labs/lab-01.html",
-    "title": "Lab 01",
-    "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Labs",
-      "Lab 01"
+      "Lab 05"
     ]
   },
   {
@@ -1283,94 +1077,342 @@
     "text": "Exercise 10\nFor each of the following matrices, state whether it is full rank. If not full rank, show why (find corresponding coefficients \\(a\\)’s).\n\n\\[\\begin{bmatrix}\n1 & 0 & 0\\\\\n1 & 1 & 0\\\\\n1 & 1 & 0\\\\\n1 & 0 & 1\n\\end{bmatrix}\\]\n\\[\\begin{bmatrix}\n0 & 0 & 1\\\\\n1 & 0 & 0\\\\\n1 & 0 & 0\\\\\n0 & 1 & 0\n\\end{bmatrix}\\]\n\\[\\begin{bmatrix}\n1 & 0 & 0 & 1\\\\\n1 & 1 & 0 & 0\\\\\n1 & 1 & 0 & 0\\\\\n1 & 0 & 1 & 0\n\\end{bmatrix}\\]"
   },
   {
-    "objectID": "labs/lab-05.html",
-    "href": "labs/lab-05.html",
-    "title": "Lab 05",
+    "objectID": "labs/lab-01.html",
+    "href": "labs/lab-01.html",
+    "title": "Lab 01",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 05"
+      "Lab 01"
     ]
   },
   {
-    "objectID": "labs/lab-06.html",
-    "href": "labs/lab-06.html",
-    "title": "Lab 06",
+    "objectID": "labs/lab-02.html",
+    "href": "labs/lab-02.html",
+    "title": "Lab 02",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 06"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "hw/hw-04.html",
-    "href": "hw/hw-04.html",
-    "title": "HW 04",
+    "objectID": "labs/lab-03.html",
+    "href": "labs/lab-03.html",
+    "title": "Lab 03",
+    "section": "",
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html",
+    "href": "labs/lab-00.html",
+    "title": "Lab 00: Getting started",
+    "section": "",
+    "text": "Important\n\n\n\nPlease complete all tasks before leaving lab today.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#rstudio",
+    "href": "labs/lab-00.html#rstudio",
+    "title": "Lab 00: Getting started",
+    "section": "RStudio",
+    "text": "RStudio\n\n\n\n\n\n\nTip\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\nReserve RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers. You will log in using your NetID credentials.\nClick “Reserve STA 221” to reserve an RStudio container. Be sure you reserve the container labeled STA 221 to ensure you have the computing set up you need for the class.\n\nYou only need to reserve a container once per semester.\n\n\nOpen RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers and log in with your Duke NetID and Password.\nClick STA221 to log into the Docker container. You should now see the RStudio environment.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#git-and-github",
+    "href": "labs/lab-00.html#git-and-github",
+    "title": "Lab 00: Getting started",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\nIn addition to R and RStudio, we will use git and GitHub for version control and collaboration.\n\n\n\n\n\n\nTip\n\n\n\nGit is a version control system (like “Track Changes” features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).\n\n\n\nSign up for GitHub account\nYou will need a GitHub account to access the assignments, project, and in-class exercises for the course.\n\nIf you do not have a GitHub account, go to https://github.com and sign up for an account. If you already have a GitHub account, you can skip to the next step.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for advice on choosing a username.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#connect-rstudio-and-github",
+    "href": "labs/lab-00.html#connect-rstudio-and-github",
+    "title": "Lab 00: Getting started",
+    "section": "Connect RStudio and GitHub",
+    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. An outline of the authentication steps is below; you are encouraged to follow along as your TA demonstrates the steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system.\n\n\n\nStep 0: Open your STA 221 RStudio container.\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., sta221)\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"Maria Tackett\",\n  user.email = \"maria.tackett@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio!",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#getting-started",
+    "href": "labs/lab-00.html#getting-started",
+    "title": "Lab 00: Getting started",
+    "section": "Getting started",
+    "text": "Getting started\n\nClick here to create your individual lab-00 repo: https://classroom.github.com/a/TiUOgn-X\nClick to open your lab-00 repo.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick lab-00.qmd to open the template Quarto file. This is where you will write up your code and narrative for the lab.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#update-the-quarto-document",
+    "href": "labs/lab-00.html#update-the-quarto-document",
+    "title": "Lab 00: Getting started",
+    "section": "Update the Quarto document",
+    "text": "Update the Quarto document\n\nTask 1: Change the author name at the top of the document to your name. Render the document. You will see your name at the top of the rendered PDF.\nTask 2: The plot shows the relationship between the daily temperature and number of bike rentals in Washington, D.C.’s Capital Bikeshare in 2012.\n\n\n\n\n\n\n\n\n\n\nWrite 1 - 2 observations from the plot. Render the document. You will see your response in the rendered PDF.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#commit-and-push-changes-to-github",
+    "href": "labs/lab-00.html#commit-and-push-changes-to-github",
+    "title": "Lab 00: Getting started",
+    "section": "Commit and push changes to GitHub",
+    "text": "Commit and push changes to GitHub\n\nOnce you have made your final updates, go to the Git pane in your RStudio instance. This is a tab in the top right corner of the RStudio window.\nCheck the appropriate boxes on every file in the Git pane. All checked files will be sent to GitHub.\nNext, write a meaningful commit message (for instance, “updated author name”) in the Commit message box.\nClick Commit. Note that every commit needs to have a commit message associated with it.\nNow that you have made an update and committed this change, click Push to send the changes to GitHub.\nGo to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-04.html",
+    "href": "labs/lab-04.html",
+    "title": "Lab 04",
+    "section": "",
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 04"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html",
+    "href": "labs/lab-07.html",
+    "title": "Lab 07",
+    "section": "",
+    "text": "To be posted.",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "overview.html",
+    "href": "overview.html",
+    "title": "STA 221 - Regression Analysis: Theory and Applications",
+    "section": "",
+    "text": "In STA 221, students will learn how linear and logistic regression models are used to explore multivariable relationships, apply these methods to answer relevant and engaging questions using a data-driven approach, and learn the mathematical underpinnings of the models. Students will develop computing skills to implement a reproducible data analysis workflow and gain experience communicating statistical results. Throughout the semester, students will work on a team project where they will develop a research question, answer it using methods learned in the course, and share results through a written report and presentation.\nTopics include applications of linear and logistic regression, analysis of variance, model diagnostics, and model selection. Regression parameter estimation via maximum likelihood least squares will also be discussed. Students will gain experience using the computing tools R and GitHub to analyze real-world data from a variety of fields.\n\n\nEither any STA 100-level course or STA 230, 231, or 240L and MATH 216, 218, or 221. The recommended co-requisite is STA 230, 231, or 240L. Interested students with different backgrounds should seek instructor consent.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "overview.html#pre-requisites",
+    "href": "overview.html#pre-requisites",
+    "title": "STA 221 - Regression Analysis: Theory and Applications",
+    "section": "",
+    "text": "Either any STA 100-level course or STA 230, 231, or 240L and MATH 216, 218, or 221. The recommended co-requisite is STA 230, 231, or 240L. Interested students with different backgrounds should seek instructor consent.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "overview.html#teaching-assistants",
+    "href": "overview.html#teaching-assistants",
+    "title": "STA 221 - Regression Analysis: Theory and Applications",
+    "section": "Teaching assistants",
+    "text": "Teaching assistants\n\n\n\nName\nRole\n\n\nCathy Lee\nLab 01 leader\n\n\nKrish Bansal\nLab 01 helper\n\n\nXueyan Hu\nLab 02 leader\n\n\nAllison Yang\nLab 02 helper\n\n\n\nOffice hours times and locations on Canvas.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "hw/hw-01.html",
+    "href": "hw/hw-01.html",
+    "title": "HW 01",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Homework",
-      "HW 04"
+      "HW 01"
     ]
   },
   {
-    "objectID": "hw/hw-03.html",
-    "href": "hw/hw-03.html",
-    "title": "HW 03",
+    "objectID": "hw/hw-02.html",
+    "href": "hw/hw-02.html",
+    "title": "HW 02",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Homework",
-      "HW 03"
+      "HW 02"
     ]
   },
   {
-    "objectID": "hw/stats-experience.html",
-    "href": "hw/stats-experience.html",
-    "title": "Statistics Experience",
+    "objectID": "exam-01-practice.html",
+    "href": "exam-01-practice.html",
+    "title": "Exam 01 practice",
     "section": "",
-    "text": "To be posted.",
-    "crumbs": [
-      "Homework",
-      "Statistics experience"
-    ]
+    "text": "Important\n\n\n\nThis page contains practice problems to help prepare for Exam 01. This set of practice problems is not comprehensive. You should review these study tips as you prepare for the exam.\n\nThere is no answer key for these problems. You may ask questions in office hours and on Ed Discussion."
   },
   {
-    "objectID": "prepare/prepare-lec20.html",
-    "href": "prepare/prepare-lec20.html",
-    "title": "Prepare for Lecture 20: Logistic regression - Prediction",
-    "section": "",
-    "text": "📖 Classification module in Google Machine Learning Crash Course"
+    "objectID": "exam-01-practice.html#exercise-1",
+    "href": "exam-01-practice.html#exercise-1",
+    "title": "Exam 01 practice",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWe will use data from nrow(penguins) penguins at Palmer Station in Antartica to fit linear regression model model using species (Adelie, Chinstrap, or Gentoo), flipper length (in millimeters), and bill depth (in millimeters) to predict its body mass (in grams). Click here to read more about the variables.\nThe linear regression model has the form\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]Write the dimensions of \\(\\mathbf{y}, \\mathbf{X},\\boldsymbol{\\beta}, \\boldsymbol{\\epsilon}\\) specifically for this analysis."
   },
   {
-    "objectID": "prepare/prepare-lec09.html",
-    "href": "prepare/prepare-lec09.html",
-    "title": "Prepare for Lecture 09: Inference for regression cont’d",
+    "objectID": "exam-01-practice.html#exercise-2",
+    "href": "exam-01-practice.html#exercise-2",
+    "title": "Exam 01 practice",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nThe output for the model described in Exercise 1, along with 95% confidence intervals for the model coefficients, is shown below:\n\npenguins_fit &lt;- lm(body_mass_g ~ species + flipper_length_mm + \n                     bill_depth_mm + body_mass_g, \n                   data = penguins)\n\nWarning in model.matrix.default(mt, mf, contrasts): the response appeared on\nthe right-hand side and was dropped\n\n\nWarning in model.matrix.default(mt, mf, contrasts): problem with term 4 in\nmodel.matrix: no columns are assigned\n\ntidy(penguins_fit,conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-4526.887\n516.931\n-8.757\n0.000\n-5543.705\n-3510.068\n\n\nspeciesChinstrap\n-131.968\n51.400\n-2.567\n0.011\n-233.073\n-30.863\n\n\nspeciesGentoo\n1288.968\n132.774\n9.708\n0.000\n1027.798\n1550.138\n\n\nflipper_length_mm\n25.700\n3.098\n8.295\n0.000\n19.606\n31.794\n\n\nbill_depth_mm\n182.364\n18.358\n9.934\n0.000\n146.252\n218.475\n\n\n\n\n\n\nInterpret the coefficient of flipper_length_mm in the context of the data.\nWhat is the baseline category for speices?\nInterpret the coefficient of speciesChinstrap in the context of the data."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-3",
+    "href": "exam-01-practice.html#exercise-3",
+    "title": "Exam 01 practice",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nDoes the intercept have a meaningful interpretation?\nIf not, what are some strategies we can use to fit a model such that the intercept is meaningful?"
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-4",
+    "href": "exam-01-practice.html#exercise-4",
+    "title": "Exam 01 practice",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nThere are three species in the data set (Adelie, Chinstrap, Gentoo), but only two terms for species in the model. Use the design matrix to show why we cannot put indicators for all three species and the intercept in the model."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-5",
+    "href": "exam-01-practice.html#exercise-5",
+    "title": "Exam 01 practice",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nWe conduct the following hypothesis test for the coefficient of flipper_length_mm.\n\nNull: There is no linear relationship between flipper length and body mass, after accounting for species and bill depth\nAlternative: There is a linear relationship between flipper length and body mass, after accounting for species and bill depth\n\n\nWrite these hypotheses in mathematical notation.\nThe standard error is 3.098. Explain how this value is computed and what this value means in the context of the data.\nThe test statistic is 8.295. Explain how this value is computed and what this value means in the context of the data.\nWhat distribution is used to compute the p-value?\nWhat is the conclusion from the test in the context of the data?"
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-6",
+    "href": "exam-01-practice.html#exercise-6",
+    "title": "Exam 01 practice",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nInterpret the 95% confidence interval for flipper_length_mm in the context of the data.\nIs the interval consistent with the test from the previous exercise? Briefly explain."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-7",
+    "href": "exam-01-practice.html#exercise-7",
+    "title": "Exam 01 practice",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nSketch a scatterplot of the relationship between bill depth and body mass such that the effect of bill depth differs by species."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-8",
+    "href": "exam-01-practice.html#exercise-8",
+    "title": "Exam 01 practice",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nWhen we conduct inference for regression, we assume the following distribution for \\(\\mathbf{y}|\\mathbf{X}\\)\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma^2_\\epsilon\\mathbf{I})\n\\]\n\nShow that \\(E(\\mathbf{y}|\\mathbf{X}) = \\mathbf{X}\\boldsymbol{\\beta}\\)\nShow that \\(Var(\\mathbf{y}|\\mathbf{X})= \\sigma^2_{\\epsilon}\\mathbf{I}\\)\n\nSee February 4 lecture “Inference for Regression” to check your work."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-9",
+    "href": "exam-01-practice.html#exercise-9",
+    "title": "Exam 01 practice",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nWe conduct inference on the coefficients \\(\\boldsymbol{\\beta}\\) assuming that the variability of \\(\\mathbf{y}|\\mathbf{X}\\) is constant for value (or combination) of predictors. Briefly explain why is assumption is important."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-10",
+    "href": "exam-01-practice.html#exercise-10",
+    "title": "Exam 01 practice",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nGiven the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\), derive the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) using matrix calculus.\nSee January 21 lecture “SLR: Matrix representation” to check your work."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-11",
+    "href": "exam-01-practice.html#exercise-11",
+    "title": "Exam 01 practice",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nGiven the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\), derive the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) using the geometric interpretation of the model.\nSee January 23 lecture “Geometric interpretation of least-squares regression” to check your work."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-12",
+    "href": "exam-01-practice.html#exercise-12",
+    "title": "Exam 01 practice",
+    "section": "Exercise 12",
+    "text": "Exercise 12\nExplain why we say “holding all else constant” when interpreting the coefficients in a multiple linear regression model."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-13",
+    "href": "exam-01-practice.html#exercise-13",
+    "title": "Exam 01 practice",
+    "section": "Exercise 13",
+    "text": "Exercise 13\nSuppose we have two models:\n\nModel 1 includes predictors \\(X_1\\) and \\(X_2\\)\nModel 2 includes predictors \\(X_1, X_2, X_3\\) and \\(X_4\\)\n\nExplain why we should use \\(Adj. R^2\\) and not \\(R^2\\) to compare these models."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-14",
+    "href": "exam-01-practice.html#exercise-14",
+    "title": "Exam 01 practice",
+    "section": "Exercise 14",
+    "text": "Exercise 14\nRework Exercises 1 - 5 in HW 01 for more practice with theory and math."
+  },
+  {
+    "objectID": "exam-01-practice.html#exercise-15",
+    "href": "exam-01-practice.html#exercise-15",
+    "title": "Exam 01 practice",
+    "section": "Exercise 15",
+    "text": "Exercise 15\nRework Exercises 1 - 5 in HW 02 for more practice with theory and math."
+  },
+  {
+    "objectID": "exam-01-practice.html#relevant-lectures-assignments-and-aes",
+    "href": "exam-01-practice.html#relevant-lectures-assignments-and-aes",
+    "title": "Exam 01 practice",
+    "section": "Relevant lectures, assignments and AEs",
+    "text": "Relevant lectures, assignments and AEs\nAsk yourself “why” questions as you the slides, review your answers, process, and derivations on these assignments. It may also be helpful to explain your process to others.\n\nLectures: January 9 - February 13 (February 13 lecture is an exam review)\nHW 01 - 02\nLab 01 - 04 (Lab 04 is an exam review)\nAE 01 - 04 (AE 04 is an exam review)"
+  },
+  {
+    "objectID": "prepare/prepare-lec08.html",
+    "href": "prepare/prepare-lec08.html",
+    "title": "Prepare for Lecture 08: Inference for regression",
     "section": "",
     "text": "📖 Read Inference for Simple Linear Regression:\n\nSections 5.1 - 5.3\nSection 5.6\nSection 5.8\nSection 5.9"
   },
   {
-    "objectID": "prepare/prepare-lec05.html",
-    "href": "prepare/prepare-lec05.html",
-    "title": "Prepare for Lecture 05: Multiple linear regression",
+    "objectID": "prepare/prepare-lec04.html",
+    "href": "prepare/prepare-lec04.html",
+    "title": "Prepare for Lecture 04: SLR - Matrix representation",
     "section": "",
-    "text": "📖 Read Sections 7.1 - 7.4.1\n📖 Read Section 7.5"
+    "text": "Required\n📖 Read Appendices A.2 - A.3\n\nOptional review linear algebra concepts (as needed)\n\nMatrices and vectors: [slides][video]\nMatrix-Vector products: [slides][video]\nMatrix multiplication: [slides][video]\nVector geometry: [slides][video]\n\n\n\n\n\n\n\nNote\n\n\n\nAll linear algebra review materials from Math 218: Matrices and Vectors (Summer 2024) taught by Dr. Brian Fitzpatrick at Duke University"
   },
   {
-    "objectID": "prepare/prepare-lec06.html",
-    "href": "prepare/prepare-lec06.html",
-    "title": "Prepare for Lecture 06: Types of predictors",
+    "objectID": "prepare/prepare-lec07.html",
+    "href": "prepare/prepare-lec07.html",
+    "title": "Prepare for Lecture 07: Inference for regression",
     "section": "",
-    "text": "📖 Read Sections 7.4\n📖 Read Sections 7.6 - 7.7"
+    "text": "📖 Read Sections 5.1 - 5.3\n📖 Read Section 8.4.1"
   },
   {
-    "objectID": "prepare/prepare-lec03.html",
-    "href": "prepare/prepare-lec03.html",
-    "title": "Prepare for Lecture 03: Model evaluation",
+    "objectID": "prepare/prepare-lec02.html",
+    "href": "prepare/prepare-lec02.html",
+    "title": "Prepare for Lecture 02",
     "section": "",
-    "text": "Required\n📖 Read Section 4.7\n\nOptional computing introduction/ review\n🎥 Watch Meet the Toolkit: R + RStudio\n🎥 Watch Meet the Toolkit: Quarto"
+    "text": "Required\n📖 Read Chapter 1\n📖 Read Sections 4.1 - 4.6\n\nOptional computing introduction/ review\n📖 Read GitHub for supporting, reusing, contributing, and failing safely\n🎥 Watch Meet the Toolkit: R + RStudio\n🎥 Watch Meet the Toolkit: Quarto"
+  },
+  {
+    "objectID": "prepare/prepare-lec01.html",
+    "href": "prepare/prepare-lec01.html",
+    "title": "Prepare for Lecture 01",
+    "section": "",
+    "text": "📖 Read the syllabus"
   },
   {
     "objectID": "support.html",
@@ -2002,6 +2044,356 @@
     "text": "Next time\n\nModel assessment for simple linear regression\n\nComplete Lecture 03 prepare\n\nIn-class activity on Thursday\n\nBring fully-charged laptop / device to access RStudio container"
   },
   {
+    "objectID": "slides/03-slr-model-evaluation-notes.html",
+    "href": "slides/03-slr-model-evaluation-notes.html",
+    "title": "SLR: Model evaluation",
+    "section": "",
+    "text": "No office hours Mon, Jan 20 - Martin Luther King, Jr. Holiday\n\nSee Canvas for full office hours schedule"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#announcements",
+    "href": "slides/03-slr-model-evaluation-notes.html#announcements",
+    "title": "SLR: Model evaluation",
+    "section": "",
+    "text": "No office hours Mon, Jan 20 - Martin Luther King, Jr. Holiday\n\nSee Canvas for full office hours schedule"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#topics",
+    "href": "slides/03-slr-model-evaluation-notes.html#topics",
+    "title": "SLR: Model evaluation",
+    "section": "Topics",
+    "text": "Topics\n\nPredict the response given a value of the predictor\nUse R to conduct exploratory data analysis and fit a model\nEvaluate models using RMSE and \\(R^2\\)\nUse analysis of variance to partition variability in the response variable"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#computing-set-up",
+    "href": "slides/03-slr-model-evaluation-notes.html#computing-set-up",
+    "title": "SLR: Model evaluation",
+    "section": "Computing set up",
+    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling (includes broom, yardstick, and other packages)\nlibrary(knitr)       # for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme for ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#data-life-expectancy-in-140-countries",
+    "href": "slides/03-slr-model-evaluation-notes.html#data-life-expectancy-in-140-countries",
+    "title": "SLR: Model evaluation",
+    "section": "Data: Life expectancy in 140 countries",
+    "text": "Data: Life expectancy in 140 countries\nThe data set comes from Zarulli et al. (2021) who analyze the effects of a country’s healthcare expenditures and other factors on the country’s life expectancy. The data are originally from the Human Development Database and World Health Organization.\nThe data are avaialable in life-expectancy-data.csv. There are 140 countries (observations) in the data set.\n\nGoal: Use the income inequality in a country to understand variability in the life expectancy.\n\n\nClick here for the original research paper."
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#variables",
+    "href": "slides/03-slr-model-evaluation-notes.html#variables",
+    "title": "SLR: Model evaluation",
+    "section": "Variables",
+    "text": "Variables\n\n\nlife_exp: The average number of years that a newborn could expect to live, if he or she were to pass through life exposed to the sex- and age-specific death rates prevailing at the time of his or her birth, for a specific year, in a given country, territory, or geographic income_inequality. ( from the World Health Organization)\nincome_inequality: Measure of the deviation of the distribution of income among individuals or households within a country from a perfectly equal distribution. A value of 0 represents absolute equality, a value of 100 absolute inequality (based on Gini coefficient). (from Zarulli et al. (2021))"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#univariate-exploratory-data-analysis",
+    "href": "slides/03-slr-model-evaluation-notes.html#univariate-exploratory-data-analysis",
+    "title": "SLR: Model evaluation",
+    "section": "Univariate exploratory data analysis",
+    "text": "Univariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#bivariate-exploratory-data-analysis",
+    "href": "slides/03-slr-model-evaluation-notes.html#bivariate-exploratory-data-analysis",
+    "title": "SLR: Model evaluation",
+    "section": "Bivariate exploratory data analysis",
+    "text": "Bivariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#clone-repo-start-new-rstudio-project---update",
+    "href": "slides/03-slr-model-evaluation-notes.html#clone-repo-start-new-rstudio-project---update",
+    "title": "SLR: Model evaluation",
+    "section": "Clone repo + start new RStudio project - UPDATE",
+    "text": "Clone repo + start new RStudio project - UPDATE\n\nGo to the course organization. Click on the repo with the prefix ae-01. It contains the starter documents you need to complete the AE.\n\nIf you do not see an ae-01 repo, use this link to create one: https://classroom.github.com/a/jWbwQU1r\n\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#two-statistics",
+    "href": "slides/03-slr-model-evaluation-notes.html#two-statistics",
+    "title": "SLR: Model evaluation",
+    "section": "Two statistics",
+    "text": "Two statistics\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\nR-squared, \\(R^2\\) : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)\n\n. . .\n\nWhat indicates a good model fit? Higher or lower RMSE? Higher or lower \\(R^2\\)?"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#rmse",
+    "href": "slides/03-slr-model-evaluation-notes.html#rmse",
+    "title": "SLR: Model evaluation",
+    "section": "RMSE",
+    "text": "RMSE\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n}} = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n}}\n\\]\n. . .\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nThe value of RMSE is more useful for comparing across models than evaluating a single model"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#analysis-of-variance-anova",
+    "href": "slides/03-slr-model-evaluation-notes.html#analysis-of-variance-anova",
+    "title": "SLR: Model evaluation",
+    "section": "ANOVA",
+    "text": "ANOVA\nAnalysis of Variance (ANOVA): Technique to partition variability in \\(Y\\) by the sources of variability"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#total-variability-response",
+    "href": "slides/03-slr-model-evaluation-notes.html#total-variability-response",
+    "title": "SLR: Model evaluation",
+    "section": "Total variability (Response)",
+    "text": "Total variability (Response)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMin\nMedian\nMax\nMean\nStd.Dev\n\n\n\n\n51.6\n72.85\n84.1\n71.614\n8.075"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#partition-sources-of-variability-in-life_exp",
+    "href": "slides/03-slr-model-evaluation-notes.html#partition-sources-of-variability-in-life_exp",
+    "title": "SLR: Model evaluation",
+    "section": "Partition sources of variability in life_exp",
+    "text": "Partition sources of variability in life_exp"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#total-variability-response-1",
+    "href": "slides/03-slr-model-evaluation-notes.html#total-variability-response-1",
+    "title": "SLR: Model evaluation",
+    "section": "Total variability (Response)",
+    "text": "Total variability (Response)\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Total (SST)} = \\sum_{i=1}^n(y_i - \\bar{y})^2 = (n-1)s_y^2\\]"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#explained-variability-model",
+    "href": "slides/03-slr-model-evaluation-notes.html#explained-variability-model",
+    "title": "SLR: Model evaluation",
+    "section": "Explained variability (Model)",
+    "text": "Explained variability (Model)\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Model (SSM)} = \\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2\\]"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#unexplained-variability-residuals",
+    "href": "slides/03-slr-model-evaluation-notes.html#unexplained-variability-residuals",
+    "title": "SLR: Model evaluation",
+    "section": "Unexplained variability (Residuals)",
+    "text": "Unexplained variability (Residuals)\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Residuals (SSR)} = \\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2\\]"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#sum-of-squares",
+    "href": "slides/03-slr-model-evaluation-notes.html#sum-of-squares",
+    "title": "SLR: Model evaluation",
+    "section": "Sum of Squares",
+    "text": "Sum of Squares\n\n\\[\n\\begin{aligned}\n\\color{#407E99}{SST} \\hspace{5mm}&= &\\color{#993399}{SSM} &\\hspace{5mm} +  &\\color{#8BB174}{SSR} \\\\[10pt]\n\\color{#407E99}{\\sum_{i=1}^n(y_i - \\bar{y})^2} \\hspace{5mm}&= &\\color{#993399}{\\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2} &\\hspace{5mm}+ &\\color{#8BB174}{\\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2}\n\\end{aligned}\n\\]\n\n\nClick here to see why this equality holds."
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#r2",
+    "href": "slides/03-slr-model-evaluation-notes.html#r2",
+    "title": "SLR: Model evaluation",
+    "section": "\\(R^2\\)",
+    "text": "\\(R^2\\)\nThe coefficient of determination \\(R^2\\) is the proportion of variation in the response, \\(Y\\), that is explained by the regression model\n\n\\[\\large{R^2 = \\frac{SSM}{SST} = 1 - \\frac{SSR}{SST}}\\]\n\n\nWhat is the range of \\(R^2\\)? Does \\(R^2\\) have units?"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#interpreting-r2",
+    "href": "slides/03-slr-model-evaluation-notes.html#interpreting-r2",
+    "title": "SLR: Model evaluation",
+    "section": "Interpreting \\(R^2\\)",
+    "text": "Interpreting \\(R^2\\)\n\nThe \\(R^2\\) of the model of life expectancy and income inequality is 70%. Which of the following is the correct interpretation of this value?\n\nA country’s income inequality correctly predicts 70% of its life expectancy.\n70% of the variability in life expectancy can be explained by income inequality.\n70% of the variability in income inequality can be explained by life expectancy.\n70% of the time a country’s life expectancy can be predicted by its income inequality."
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#augmented-data-frame",
+    "href": "slides/03-slr-model-evaluation-notes.html#augmented-data-frame",
+    "title": "SLR: Model evaluation",
+    "section": "Augmented data frame",
+    "text": "Augmented data frame\nUse the augment() function from the broom package to add columns for predicted values, residuals, and other observation-level model statistics\n. . .\n\nlife_exp_aug &lt;- augment(life_exp_fit)\nlife_exp_aug\n\n# A tibble: 140 × 8\n   life_exp income_inequality .fitted .resid    .hat .sigma   .cooksd .std.resid\n      &lt;dbl&gt;             &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1     63.8              28.2    65.8 -1.96  0.0125    4.45 0.00125       -0.444\n 2     78.2              12.2    76.9  1.29  0.0116    4.45 0.000498       0.292\n 3     59.9              32.4    62.8 -2.93  0.0193    4.44 0.00437       -0.667\n 4     76.2              14      75.7  0.542 0.00972   4.45 0.0000739      0.123\n 5     74.6               8.6    79.4 -4.82  0.0168    4.43 0.0102        -1.10 \n 6     83                 8.3    79.6  3.37  0.0173    4.44 0.00515        0.766\n 7     81.3               7.4    80.3  1.04  0.0189    4.45 0.000540       0.237\n 8     72.5              10.1    78.4 -5.88  0.0144    4.42 0.0130        -1.33 \n 9     71.8              27.6    66.2  5.62  0.0118    4.43 0.00972        1.28 \n10     74                 6.5    80.9 -6.89  0.0207    4.41 0.0260        -1.57 \n# ℹ 130 more rows"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#finding-rmse-in-r",
+    "href": "slides/03-slr-model-evaluation-notes.html#finding-rmse-in-r",
+    "title": "SLR: Model evaluation",
+    "section": "Finding RMSE in R",
+    "text": "Finding RMSE in R\nUse the rmse() function from the yardstick package (part of tidymodels)\n\nrmse(life_exp_aug, truth = life_exp, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        4.40"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#finding-r2-in-r",
+    "href": "slides/03-slr-model-evaluation-notes.html#finding-r2-in-r",
+    "title": "SLR: Model evaluation",
+    "section": "Finding \\(R^2\\) in R",
+    "text": "Finding \\(R^2\\) in R\nUse the rsq() function from the yardstick package (part of tidymodels)\n\nrsq(life_exp_aug, truth = life_exp, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rsq     standard       0.700\n\n\n\n. . .\nAlternatively, use glance() to construct a single row summary of the model fit, including \\(R^2\\):\n\nglance(life_exp_fit)$r.squared\n\n[1] 0.7003831"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#recap",
+    "href": "slides/03-slr-model-evaluation-notes.html#recap",
+    "title": "SLR: Model evaluation",
+    "section": "Recap",
+    "text": "Recap\n\nUsed R to conduct exploratory data analysis and fit a model\nEvaluated models using RMSE and \\(R^2\\)\nUsed analysis of variance to partition variability in the response variable"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation-notes.html#next-class",
+    "href": "slides/03-slr-model-evaluation-notes.html#next-class",
+    "title": "SLR: Model evaluation",
+    "section": "Next class",
+    "text": "Next class\n\nMatrix representation of simple linear regression\nComplete Lecture 04 prepare"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#announcements",
+    "href": "slides/03-slr-model-evaluation.html#announcements",
+    "title": "SLR: Model evaluation",
+    "section": "Announcements",
+    "text": "Announcements\n\nNo office hours Mon, Jan 20 - Martin Luther King, Jr. Holiday\n\nSee Canvas for full office hours schedule"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#topics",
+    "href": "slides/03-slr-model-evaluation.html#topics",
+    "title": "SLR: Model evaluation",
+    "section": "Topics",
+    "text": "Topics\n\nPredict the response given a value of the predictor\nUse R to conduct exploratory data analysis and fit a model\nEvaluate models using RMSE and \\(R^2\\)\nUse analysis of variance to partition variability in the response variable"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#computing-set-up",
+    "href": "slides/03-slr-model-evaluation.html#computing-set-up",
+    "title": "SLR: Model evaluation",
+    "section": "Computing set up",
+    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling (includes broom, yardstick, and other packages)\nlibrary(knitr)       # for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme for ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#data-life-expectancy-in-140-countries",
+    "href": "slides/03-slr-model-evaluation.html#data-life-expectancy-in-140-countries",
+    "title": "SLR: Model evaluation",
+    "section": "Data: Life expectancy in 140 countries",
+    "text": "Data: Life expectancy in 140 countries\nThe data set comes from Zarulli et al. (2021) who analyze the effects of a country’s healthcare expenditures and other factors on the country’s life expectancy. The data are originally from the Human Development Database and World Health Organization.\nThe data are avaialable in life-expectancy-data.csv. There are 140 countries (observations) in the data set.\n\nGoal: Use the income inequality in a country to understand variability in the life expectancy.\n\n\nClick here for the original research paper."
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#variables",
+    "href": "slides/03-slr-model-evaluation.html#variables",
+    "title": "SLR: Model evaluation",
+    "section": "Variables",
+    "text": "Variables\n\nlife_exp: The average number of years that a newborn could expect to live, if he or she were to pass through life exposed to the sex- and age-specific death rates prevailing at the time of his or her birth, for a specific year, in a given country, territory, or geographic income_inequality. ( from the World Health Organization)\nincome_inequality: Measure of the deviation of the distribution of income among individuals or households within a country from a perfectly equal distribution. A value of 0 represents absolute equality, a value of 100 absolute inequality (based on Gini coefficient). (from Zarulli et al. (2021))"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#univariate-exploratory-data-analysis",
+    "href": "slides/03-slr-model-evaluation.html#univariate-exploratory-data-analysis",
+    "title": "SLR: Model evaluation",
+    "section": "Univariate exploratory data analysis",
+    "text": "Univariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#bivariate-exploratory-data-analysis",
+    "href": "slides/03-slr-model-evaluation.html#bivariate-exploratory-data-analysis",
+    "title": "SLR: Model evaluation",
+    "section": "Bivariate exploratory data analysis",
+    "text": "Bivariate exploratory data analysis"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#clone-repo-start-new-rstudio-project---update",
+    "href": "slides/03-slr-model-evaluation.html#clone-repo-start-new-rstudio-project---update",
+    "title": "SLR: Model evaluation",
+    "section": "Clone repo + start new RStudio project - UPDATE",
+    "text": "Clone repo + start new RStudio project - UPDATE\n\nGo to the course organization. Click on the repo with the prefix ae-01. It contains the starter documents you need to complete the AE.\n\nIf you do not see an ae-01 repo, use this link to create one: https://classroom.github.com/a/jWbwQU1r\n\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#two-statistics",
+    "href": "slides/03-slr-model-evaluation.html#two-statistics",
+    "title": "SLR: Model evaluation",
+    "section": "Two statistics",
+    "text": "Two statistics\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\nR-squared, \\(R^2\\) : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)\n\n\n\nWhat indicates a good model fit? Higher or lower RMSE? Higher or lower \\(R^2\\)?"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#rmse",
+    "href": "slides/03-slr-model-evaluation.html#rmse",
+    "title": "SLR: Model evaluation",
+    "section": "RMSE",
+    "text": "RMSE\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n}} = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n}}\n\\]\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nThe value of RMSE is more useful for comparing across models than evaluating a single model"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#analysis-of-variance-anova",
+    "href": "slides/03-slr-model-evaluation.html#analysis-of-variance-anova",
+    "title": "SLR: Model evaluation",
+    "section": "ANOVA",
+    "text": "ANOVA\nAnalysis of Variance (ANOVA): Technique to partition variability in \\(Y\\) by the sources of variability"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#total-variability-response",
+    "href": "slides/03-slr-model-evaluation.html#total-variability-response",
+    "title": "SLR: Model evaluation",
+    "section": "Total variability (Response)",
+    "text": "Total variability (Response)\n\n\n\n\n\n\nMin\nMedian\nMax\nMean\nStd.Dev\n\n\n\n\n51.6\n72.85\n84.1\n71.614\n8.075"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#partition-sources-of-variability-in-life_exp",
+    "href": "slides/03-slr-model-evaluation.html#partition-sources-of-variability-in-life_exp",
+    "title": "SLR: Model evaluation",
+    "section": "Partition sources of variability in life_exp",
+    "text": "Partition sources of variability in life_exp"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#total-variability-response-1",
+    "href": "slides/03-slr-model-evaluation.html#total-variability-response-1",
+    "title": "SLR: Model evaluation",
+    "section": "Total variability (Response)",
+    "text": "Total variability (Response)\n\n\\[\\text{Sum of Squares Total (SST)} = \\sum_{i=1}^n(y_i - \\bar{y})^2 = (n-1)s_y^2\\]"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#explained-variability-model",
+    "href": "slides/03-slr-model-evaluation.html#explained-variability-model",
+    "title": "SLR: Model evaluation",
+    "section": "Explained variability (Model)",
+    "text": "Explained variability (Model)\n\n\\[\\text{Sum of Squares Model (SSM)} = \\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2\\]"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#unexplained-variability-residuals",
+    "href": "slides/03-slr-model-evaluation.html#unexplained-variability-residuals",
+    "title": "SLR: Model evaluation",
+    "section": "Unexplained variability (Residuals)",
+    "text": "Unexplained variability (Residuals)\n\n\\[\\text{Sum of Squares Residuals (SSR)} = \\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2\\]"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#sum-of-squares",
+    "href": "slides/03-slr-model-evaluation.html#sum-of-squares",
+    "title": "SLR: Model evaluation",
+    "section": "Sum of Squares",
+    "text": "Sum of Squares\n\n\\[\n\\begin{aligned}\n\\color{#407E99}{SST} \\hspace{5mm}&= &\\color{#993399}{SSM} &\\hspace{5mm} +  &\\color{#8BB174}{SSR} \\\\[10pt]\n\\color{#407E99}{\\sum_{i=1}^n(y_i - \\bar{y})^2} \\hspace{5mm}&= &\\color{#993399}{\\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2} &\\hspace{5mm}+ &\\color{#8BB174}{\\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2}\n\\end{aligned}\n\\]\n\n\nClick here to see why this equality holds."
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#r2",
+    "href": "slides/03-slr-model-evaluation.html#r2",
+    "title": "SLR: Model evaluation",
+    "section": "\\(R^2\\)",
+    "text": "\\(R^2\\)\nThe coefficient of determination \\(R^2\\) is the proportion of variation in the response, \\(Y\\), that is explained by the regression model\n\n\\[\\large{R^2 = \\frac{SSM}{SST} = 1 - \\frac{SSR}{SST}}\\]\n\n\nWhat is the range of \\(R^2\\)? Does \\(R^2\\) have units?"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#interpreting-r2",
+    "href": "slides/03-slr-model-evaluation.html#interpreting-r2",
+    "title": "SLR: Model evaluation",
+    "section": "Interpreting \\(R^2\\)",
+    "text": "Interpreting \\(R^2\\)\n\nThe \\(R^2\\) of the model of life expectancy and income inequality is 70%. Which of the following is the correct interpretation of this value?\n\nA country’s income inequality correctly predicts 70% of its life expectancy.\n70% of the variability in life expectancy can be explained by income inequality.\n70% of the variability in income inequality can be explained by life expectancy.\n70% of the time a country’s life expectancy can be predicted by its income inequality."
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#augmented-data-frame",
+    "href": "slides/03-slr-model-evaluation.html#augmented-data-frame",
+    "title": "SLR: Model evaluation",
+    "section": "Augmented data frame",
+    "text": "Augmented data frame\nUse the augment() function from the broom package to add columns for predicted values, residuals, and other observation-level model statistics\n\n\nlife_exp_aug &lt;- augment(life_exp_fit)\nlife_exp_aug\n\n# A tibble: 140 × 8\n   life_exp income_inequality .fitted .resid    .hat .sigma   .cooksd .std.resid\n      &lt;dbl&gt;             &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1     63.8              28.2    65.8 -1.96  0.0125    4.45 0.00125       -0.444\n 2     78.2              12.2    76.9  1.29  0.0116    4.45 0.000498       0.292\n 3     59.9              32.4    62.8 -2.93  0.0193    4.44 0.00437       -0.667\n 4     76.2              14      75.7  0.542 0.00972   4.45 0.0000739      0.123\n 5     74.6               8.6    79.4 -4.82  0.0168    4.43 0.0102        -1.10 \n 6     83                 8.3    79.6  3.37  0.0173    4.44 0.00515        0.766\n 7     81.3               7.4    80.3  1.04  0.0189    4.45 0.000540       0.237\n 8     72.5              10.1    78.4 -5.88  0.0144    4.42 0.0130        -1.33 \n 9     71.8              27.6    66.2  5.62  0.0118    4.43 0.00972        1.28 \n10     74                 6.5    80.9 -6.89  0.0207    4.41 0.0260        -1.57 \n# ℹ 130 more rows"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#finding-rmse-in-r",
+    "href": "slides/03-slr-model-evaluation.html#finding-rmse-in-r",
+    "title": "SLR: Model evaluation",
+    "section": "Finding RMSE in R",
+    "text": "Finding RMSE in R\nUse the rmse() function from the yardstick package (part of tidymodels)\n\nrmse(life_exp_aug, truth = life_exp, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        4.40"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#finding-r2-in-r",
+    "href": "slides/03-slr-model-evaluation.html#finding-r2-in-r",
+    "title": "SLR: Model evaluation",
+    "section": "Finding \\(R^2\\) in R",
+    "text": "Finding \\(R^2\\) in R\nUse the rsq() function from the yardstick package (part of tidymodels)\n\nrsq(life_exp_aug, truth = life_exp, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rsq     standard       0.700\n\n\n\n\nAlternatively, use glance() to construct a single row summary of the model fit, including \\(R^2\\):\n\nglance(life_exp_fit)$r.squared\n\n[1] 0.7003831"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#recap",
+    "href": "slides/03-slr-model-evaluation.html#recap",
+    "title": "SLR: Model evaluation",
+    "section": "Recap",
+    "text": "Recap\n\nUsed R to conduct exploratory data analysis and fit a model\nEvaluated models using RMSE and \\(R^2\\)\nUsed analysis of variance to partition variability in the response variable"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#next-class",
+    "href": "slides/03-slr-model-evaluation.html#next-class",
+    "title": "SLR: Model evaluation",
+    "section": "Next class",
+    "text": "Next class\n\nMatrix representation of simple linear regression\nComplete Lecture 04 prepare"
+  },
+  {
+    "objectID": "slides/03-slr-model-evaluation.html#references",
+    "href": "slides/03-slr-model-evaluation.html#references",
+    "title": "SLR: Model evaluation",
+    "section": "References",
+    "text": "References\n\n\n\n\nZarulli, Virginia, Elizaveta Sopina, Veronica Toffolutti, and Adam Lenart. 2021. “Health Care System Efficiency and Life Expectancy: A 140-Country Study.” Edited by Srinivas Goli. PLOS ONE 16 (7): e0253450. https://doi.org/10.1371/journal.pone.0253450."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -2199,467 +2591,5 @@
       "Computing",
       "Troubleshooting"
     ]
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#announcements",
-    "href": "slides/03-slr-model-evaluation.html#announcements",
-    "title": "SLR: Model evaluation",
-    "section": "Announcements",
-    "text": "Announcements\n\nNo office hours Mon, Jan 20 - Martin Luther King, Jr. Holiday\n\nSee Canvas for full office hours schedule"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#topics",
-    "href": "slides/03-slr-model-evaluation.html#topics",
-    "title": "SLR: Model evaluation",
-    "section": "Topics",
-    "text": "Topics\n\nPredict the response given a value of the predictor\nUse R to conduct exploratory data analysis and fit a model\nEvaluate models using RMSE and \\(R^2\\)\nUse analysis of variance to partition variability in the response variable"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#computing-set-up",
-    "href": "slides/03-slr-model-evaluation.html#computing-set-up",
-    "title": "SLR: Model evaluation",
-    "section": "Computing set up",
-    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling (includes broom, yardstick, and other packages)\nlibrary(knitr)       # for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme for ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#data-movie-scores-on-rotten-tomatoes",
-    "href": "slides/03-slr-model-evaluation.html#data-movie-scores-on-rotten-tomatoes",
-    "title": "SLR: Model evaluation",
-    "section": "Data: Movie scores on Rotten Tomatoes",
-    "text": "Data: Movie scores on Rotten Tomatoes\n\n\\[\n\\widehat{\\text{audience}} = 32.3142 + 0.5187 \\times \\text{critics}\n\\]"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#making-a-prediction",
-    "href": "slides/03-slr-model-evaluation.html#making-a-prediction",
-    "title": "SLR: Model evaluation",
-    "section": "Making a prediction",
-    "text": "Making a prediction\nSuppose that a movie has a critics score of 70. According to this model, what is the movie’s predicted audience score?\n\\[\\begin{aligned}\n\\widehat{\\text{audience}} &= 32.3142 + 0.5187 \\times \\text{critics} \\\\\n&= 32.3142 + 0.5187 \\times 70 \\\\\n&= \\mathbf{68.6232}\n\\end{aligned}\\]\n\n\n\n\n\n\n\n\nCaution\n\n\nUsing the model to predict for values outside the range of the original data is extrapolation. Why do we want to avoid extrapolation?"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#fit-the-model",
-    "href": "slides/03-slr-model-evaluation.html#fit-the-model",
-    "title": "SLR: Model evaluation",
-    "section": "Fit the model",
-    "text": "Fit the model\nUse the lm() function to fit a linear regression model\n\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\nmovie_fit\n\n\nCall:\nlm(formula = audience ~ critics, data = movie_scores)\n\nCoefficients:\n(Intercept)      critics  \n    32.3155       0.5187"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#tidy-results",
-    "href": "slides/03-slr-model-evaluation.html#tidy-results",
-    "title": "SLR: Model evaluation",
-    "section": "Tidy results",
-    "text": "Tidy results\nUse the tidy() function from the broom R package to “tidy” the model output\n\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\ntidy(movie_fit)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   32.3      2.34        13.8 4.03e-28\n2 critics        0.519    0.0345      15.0 2.70e-31"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#format-results",
-    "href": "slides/03-slr-model-evaluation.html#format-results",
-    "title": "SLR: Model evaluation",
-    "section": "Format results",
-    "text": "Format results\nUse the kable() function from the knitr package to neatly format the results\n\n\n\nmovie_fit &lt;- lm(audience ~ critics, data = movie_scores)\ntidy(movie_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n32.316\n2.343\n13.795\n0\n\n\ncritics\n0.519\n0.035\n15.028\n0"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#prediction-1",
-    "href": "slides/03-slr-model-evaluation.html#prediction-1",
-    "title": "SLR: Model evaluation",
-    "section": "Prediction",
-    "text": "Prediction\nUse the predict() function to calculate predictions for new observations\n\nSingle observation\n\nnew_movie &lt;- tibble(critics = 70)\npredict(movie_fit, new_movie)\n\n       1 \n68.62297"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#prediction-2",
-    "href": "slides/03-slr-model-evaluation.html#prediction-2",
-    "title": "SLR: Model evaluation",
-    "section": "Prediction",
-    "text": "Prediction\nUse the predict() function to calculate predictions for new observations\n\nMultiple observations\n\nmore_new_movies &lt;- tibble(critics = c(24,70, 85))\npredict(movie_fit, more_new_movies)\n\n       1        2        3 \n44.76379 68.62297 76.40313"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#data-life-expectancy-in-140-countries",
-    "href": "slides/03-slr-model-evaluation.html#data-life-expectancy-in-140-countries",
-    "title": "SLR: Model evaluation",
-    "section": "Data: Life expectancy in 140 countries",
-    "text": "Data: Life expectancy in 140 countries\nThe data set comes from Zarulli et al. (2021) who analyze the effects of a country’s healthcare expenditures and other factors on the country’s life expectancy. The data are originally from the Human Development Database and World Health Organization.\nThe data are avaialable in life-expectancy-data.csv. There are 140 countries (observations) in the data set.\n\nGoal: Use the income inequality in a country to understand variability in the life expectancy.\n\n\nClick here for the original research paper."
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#variables",
-    "href": "slides/03-slr-model-evaluation.html#variables",
-    "title": "SLR: Model evaluation",
-    "section": "Variables",
-    "text": "Variables\n\nlife_exp: The average number of years that a newborn could expect to live, if he or she were to pass through life exposed to the sex- and age-specific death rates prevailing at the time of his or her birth, for a specific year, in a given country, territory, or geographic income_inequality. ( from the World Health Organization)\nincome_inequality: Measure of the deviation of the distribution of income among individuals or households within a country from a perfectly equal distribution. A value of 0 represents absolute equality, a value of 100 absolute inequality (based on Gini coefficient). (from Zarulli et al. (2021))"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#univariate-exploratory-data-analysis",
-    "href": "slides/03-slr-model-evaluation.html#univariate-exploratory-data-analysis",
-    "title": "SLR: Model evaluation",
-    "section": "Univariate exploratory data analysis",
-    "text": "Univariate exploratory data analysis"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#bivariate-exploratory-data-analysis",
-    "href": "slides/03-slr-model-evaluation.html#bivariate-exploratory-data-analysis",
-    "title": "SLR: Model evaluation",
-    "section": "Bivariate exploratory data analysis",
-    "text": "Bivariate exploratory data analysis"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#clone-repo-start-new-rstudio-project",
-    "href": "slides/03-slr-model-evaluation.html#clone-repo-start-new-rstudio-project",
-    "title": "SLR: Model evaluation",
-    "section": "Clone repo + Start new RStudio project",
-    "text": "Clone repo + Start new RStudio project\n\nGo to the course organization. Click on the repo with the prefix ae-01. It contains the starter documents you need to complete the AE.\n\nIf you do not see an ae-01 repo, use this link to create one: https://classroom.github.com/a/6jpkfA8n\n\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#two-statistics",
-    "href": "slides/03-slr-model-evaluation.html#two-statistics",
-    "title": "SLR: Model evaluation",
-    "section": "Two statistics",
-    "text": "Two statistics\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\nR-squared, \\(R^2\\) : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)\n\n\n\nWhat indicates a good model fit? Higher or lower RMSE? Higher or lower \\(R^2\\)?"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#rmse",
-    "href": "slides/03-slr-model-evaluation.html#rmse",
-    "title": "SLR: Model evaluation",
-    "section": "RMSE",
-    "text": "RMSE\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n}} = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n}}\n\\]\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nThe value of RMSE is more useful for comparing across models than evaluating a single model"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#analysis-of-variance-anova",
-    "href": "slides/03-slr-model-evaluation.html#analysis-of-variance-anova",
-    "title": "SLR: Model evaluation",
-    "section": "ANOVA",
-    "text": "ANOVA\nAnalysis of Variance (ANOVA): Technique to partition variability in \\(Y\\) by the sources of variability"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#total-variability-response",
-    "href": "slides/03-slr-model-evaluation.html#total-variability-response",
-    "title": "SLR: Model evaluation",
-    "section": "Total variability (Response)",
-    "text": "Total variability (Response)\n\n\n\n\n\n\nMin\nMedian\nMax\nMean\nStd.Dev\n\n\n\n\n51.6\n72.85\n84.1\n71.614\n8.075"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#partition-sources-of-variability-in-life_exp",
-    "href": "slides/03-slr-model-evaluation.html#partition-sources-of-variability-in-life_exp",
-    "title": "SLR: Model evaluation",
-    "section": "Partition sources of variability in life_exp",
-    "text": "Partition sources of variability in life_exp"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#total-variability-response-1",
-    "href": "slides/03-slr-model-evaluation.html#total-variability-response-1",
-    "title": "SLR: Model evaluation",
-    "section": "Total variability (Response)",
-    "text": "Total variability (Response)\n\n\\[\\text{Sum of Squares Total (SST)} = \\sum_{i=1}^n(y_i - \\bar{y})^2 = (n-1)s_y^2\\]"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#explained-variability-model",
-    "href": "slides/03-slr-model-evaluation.html#explained-variability-model",
-    "title": "SLR: Model evaluation",
-    "section": "Explained variability (Model)",
-    "text": "Explained variability (Model)\n\n\\[\\text{Sum of Squares Model (SSM)} = \\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2\\]"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#unexplained-variability-residuals",
-    "href": "slides/03-slr-model-evaluation.html#unexplained-variability-residuals",
-    "title": "SLR: Model evaluation",
-    "section": "Unexplained variability (Residuals)",
-    "text": "Unexplained variability (Residuals)\n\n\\[\\text{Sum of Squares Residuals (SSR)} = \\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2\\]"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#sum-of-squares",
-    "href": "slides/03-slr-model-evaluation.html#sum-of-squares",
-    "title": "SLR: Model evaluation",
-    "section": "Sum of Squares",
-    "text": "Sum of Squares\n\n\\[\n\\begin{aligned}\n\\color{#407E99}{SST} \\hspace{5mm}&= &\\color{#993399}{SSM} &\\hspace{5mm} +  &\\color{#8BB174}{SSR} \\\\[10pt]\n\\color{#407E99}{\\sum_{i=1}^n(y_i - \\bar{y})^2} \\hspace{5mm}&= &\\color{#993399}{\\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2} &\\hspace{5mm}+ &\\color{#8BB174}{\\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2}\n\\end{aligned}\n\\]\n\n\nClick here to see why this equality holds."
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#r2",
-    "href": "slides/03-slr-model-evaluation.html#r2",
-    "title": "SLR: Model evaluation",
-    "section": "\\(R^2\\)",
-    "text": "\\(R^2\\)\nThe coefficient of determination \\(R^2\\) is the proportion of variation in the response, \\(Y\\), that is explained by the regression model\n\n\\[\\large{R^2 = \\frac{SSM}{SST} = 1 - \\frac{SSR}{SST}}\\]\n\n\nWhat is the range of \\(R^2\\)? Does \\(R^2\\) have units?"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#interpreting-r2",
-    "href": "slides/03-slr-model-evaluation.html#interpreting-r2",
-    "title": "SLR: Model evaluation",
-    "section": "Interpreting \\(R^2\\)",
-    "text": "Interpreting \\(R^2\\)\n\nThe \\(R^2\\) of the model of life expectancy and income inequality is 70%. Which of the following is the correct interpretation of this value?\n\nA country’s income inequality correctly predicts 70% of its life expectancy.\n70% of the variability in life expectancy can be explained by income inequality.\n70% of the variability in income inequality can be explained by life expectancy.\n70% of the time a country’s life expectancy can be predicted by its income inequality."
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#augmented-data-frame",
-    "href": "slides/03-slr-model-evaluation.html#augmented-data-frame",
-    "title": "SLR: Model evaluation",
-    "section": "Augmented data frame",
-    "text": "Augmented data frame\nUse the augment() function from the broom package to add columns for predicted values, residuals, and other observation-level model statistics\n\n\nlife_exp_aug &lt;- augment(life_exp_fit)\nlife_exp_aug\n\n# A tibble: 140 × 8\n   life_exp income_inequality .fitted .resid    .hat .sigma   .cooksd .std.resid\n      &lt;dbl&gt;             &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1     63.8              28.2    65.8 -1.96  0.0125    4.45 0.00125       -0.444\n 2     78.2              12.2    76.9  1.29  0.0116    4.45 0.000498       0.292\n 3     59.9              32.4    62.8 -2.93  0.0193    4.44 0.00437       -0.667\n 4     76.2              14      75.7  0.542 0.00972   4.45 0.0000739      0.123\n 5     74.6               8.6    79.4 -4.82  0.0168    4.43 0.0102        -1.10 \n 6     83                 8.3    79.6  3.37  0.0173    4.44 0.00515        0.766\n 7     81.3               7.4    80.3  1.04  0.0189    4.45 0.000540       0.237\n 8     72.5              10.1    78.4 -5.88  0.0144    4.42 0.0130        -1.33 \n 9     71.8              27.6    66.2  5.62  0.0118    4.43 0.00972        1.28 \n10     74                 6.5    80.9 -6.89  0.0207    4.41 0.0260        -1.57 \n# ℹ 130 more rows"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#finding-rmse-in-r",
-    "href": "slides/03-slr-model-evaluation.html#finding-rmse-in-r",
-    "title": "SLR: Model evaluation",
-    "section": "Finding RMSE in R",
-    "text": "Finding RMSE in R\nUse the rmse() function from the yardstick package (part of tidymodels)\n\nrmse(life_exp_aug, truth = life_exp, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        4.40"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#finding-r2-in-r",
-    "href": "slides/03-slr-model-evaluation.html#finding-r2-in-r",
-    "title": "SLR: Model evaluation",
-    "section": "Finding \\(R^2\\) in R",
-    "text": "Finding \\(R^2\\) in R\nUse the rsq() function from the yardstick package (part of tidymodels)\n\nrsq(life_exp_aug, truth = life_exp, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rsq     standard       0.700\n\n\n\n\nAlternatively, use glance() to construct a single row summary of the model fit, including \\(R^2\\):\n\nglance(life_exp_fit)$r.squared\n\n[1] 0.7003831"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#recap",
-    "href": "slides/03-slr-model-evaluation.html#recap",
-    "title": "SLR: Model evaluation",
-    "section": "Recap",
-    "text": "Recap\n\nUsed R to conduct exploratory data analysis and fit a model\nEvaluated models using RMSE and \\(R^2\\)\nUsed analysis of variance to partition variability in the response variable"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#next-class",
-    "href": "slides/03-slr-model-evaluation.html#next-class",
-    "title": "SLR: Model evaluation",
-    "section": "Next class",
-    "text": "Next class\n\nMatrix representation of simple linear regression\nComplete Lecture 04 prepare"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#references",
-    "href": "slides/03-slr-model-evaluation.html#references",
-    "title": "SLR: Model evaluation",
-    "section": "References",
-    "text": "References\n\n\n\n\nZarulli, Virginia, Elizaveta Sopina, Veronica Toffolutti, and Adam Lenart. 2021. “Health Care System Efficiency and Life Expectancy: A 140-Country Study.” Edited by Srinivas Goli. PLOS ONE 16 (7): e0253450. https://doi.org/10.1371/journal.pone.0253450."
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#clone-repo-start-new-rstudio-project---update",
-    "href": "slides/03-slr-model-evaluation.html#clone-repo-start-new-rstudio-project---update",
-    "title": "SLR: Model evaluation",
-    "section": "Clone repo + start new RStudio project - UPDATE",
-    "text": "Clone repo + start new RStudio project - UPDATE\n\nGo to the course organization. Click on the repo with the prefix ae-01. It contains the starter documents you need to complete the AE.\n\nIf you do not see an ae-01 repo, use this link to create one: UPDATE LINK!\n\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation.html#sum-of-squares---update",
-    "href": "slides/03-slr-model-evaluation.html#sum-of-squares---update",
-    "title": "SLR: Model evaluation",
-    "section": "Sum of Squares - UPDATE!",
-    "text": "Sum of Squares - UPDATE!\n\n\\[\n\\begin{aligned}\n\\color{#407E99}{SST} \\hspace{5mm}&= &\\color{#993399}{SSM} &\\hspace{5mm} +  &\\color{#8BB174}{SSR} \\\\[10pt]\n\\color{#407E99}{\\sum_{i=1}^n(y_i - \\bar{y})^2} \\hspace{5mm}&= &\\color{#993399}{\\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2} &\\hspace{5mm}+ &\\color{#8BB174}{\\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2}\n\\end{aligned}\n\\]\n\n\nClick here to see why this equality holds. - UPDATE LINK"
-  },
-  {
-    "objectID": "ae/ae-01-model-evaluation.html",
-    "href": "ae/ae-01-model-evaluation.html",
-    "title": "Lecture 03 AE: Model evaluation",
-    "section": "",
-    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-01 repo to get started.\nIf you do not see an ae-01 repo, use the link below to create one:\nhttps://classroom.github.com/a/6jpkfA8n - UPDATE\nRender, commit, and push your responses to GitHub. This is good practice for the workflow you will use in assignments.\nlibrary(tidyverse)\nlibrary(tidymodels) \nlibrary(knitr)"
-  },
-  {
-    "objectID": "ae/ae-01-model-evaluation.html#exercise-1",
-    "href": "ae/ae-01-model-evaluation.html#exercise-1",
-    "title": "Lecture 03 AE: Model evaluation",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nFit a model using income equality to understand variability in life expectancy. Neatly display the results using 3 digits. Click here for code to fit and display a model.\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-01-model-evaluation.html#exercise-2",
-    "href": "ae/ae-01-model-evaluation.html#exercise-2",
-    "title": "Lecture 03 AE: Model evaluation",
-    "section": "Exercise 2",
-    "text": "Exercise 2\n\nInterpret the slope in the context of the data.\nDoes the intercept have a meaningful interpretation? If so, interpret it in the context of the data. Otherwise, explain why not."
-  },
-  {
-    "objectID": "ae/ae-01-model-evaluation.html#exercise-3",
-    "href": "ae/ae-01-model-evaluation.html#exercise-3",
-    "title": "Lecture 03 AE: Model evaluation",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nFit a model using health_expend to understand variability in life_exp. Compute \\(R^2\\) and \\(RMSE\\) for this model.\n\n# add code here\n\n\nInterpret \\(R^2\\) in the context of the data.\nInterpret \\(RMSE\\) in the context for the data."
-  },
-  {
-    "objectID": "ae/ae-01-model-evaluation.html#exercise-4",
-    "href": "ae/ae-01-model-evaluation.html#exercise-4",
-    "title": "Lecture 03 AE: Model evaluation",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nWhich measure of healthcare expenditure would you choose as a predictor of life expectancy - health_expend or health_pct_gdp? Briefly explain, using \\(R^2\\) and/or \\(RMSE\\) to support your choice.\n\n# add code here"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html",
-    "href": "slides/03-slr-model-evaluation-notes.html",
-    "title": "SLR: Model evaluation",
-    "section": "",
-    "text": "No office hours Mon, Jan 20 - Martin Luther King, Jr. Holiday\n\nSee Canvas for full office hours schedule"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#announcements",
-    "href": "slides/03-slr-model-evaluation-notes.html#announcements",
-    "title": "SLR: Model evaluation",
-    "section": "",
-    "text": "No office hours Mon, Jan 20 - Martin Luther King, Jr. Holiday\n\nSee Canvas for full office hours schedule"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#topics",
-    "href": "slides/03-slr-model-evaluation-notes.html#topics",
-    "title": "SLR: Model evaluation",
-    "section": "Topics",
-    "text": "Topics\n\nPredict the response given a value of the predictor\nUse R to conduct exploratory data analysis and fit a model\nEvaluate models using RMSE and \\(R^2\\)\nUse analysis of variance to partition variability in the response variable"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#computing-set-up",
-    "href": "slides/03-slr-model-evaluation-notes.html#computing-set-up",
-    "title": "SLR: Model evaluation",
-    "section": "Computing set up",
-    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\n\nWarning: package 'ggplot2' was built under R version 4.5.2\n\n\nWarning: package 'tidyr' was built under R version 4.5.2\n\nlibrary(tidymodels)  # for modeling (includes broom, yardstick, and other packages)\nlibrary(knitr)       # for pretty tables\n\nWarning: package 'knitr' was built under R version 4.5.2\n\nlibrary(patchwork)   # arrange plots\n\n# set default theme for ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#data-life-expectancy-in-140-countries",
-    "href": "slides/03-slr-model-evaluation-notes.html#data-life-expectancy-in-140-countries",
-    "title": "SLR: Model evaluation",
-    "section": "Data: Life expectancy in 140 countries",
-    "text": "Data: Life expectancy in 140 countries\nThe data set comes from Zarulli et al. (2021) who analyze the effects of a country’s healthcare expenditures and other factors on the country’s life expectancy. The data are originally from the Human Development Database and World Health Organization.\nThe data are avaialable in life-expectancy-data.csv. There are 140 countries (observations) in the data set.\n\nGoal: Use the income inequality in a country to understand variability in the life expectancy.\n\n\nClick here for the original research paper."
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#variables",
-    "href": "slides/03-slr-model-evaluation-notes.html#variables",
-    "title": "SLR: Model evaluation",
-    "section": "Variables",
-    "text": "Variables\n\n\nlife_exp: The average number of years that a newborn could expect to live, if he or she were to pass through life exposed to the sex- and age-specific death rates prevailing at the time of his or her birth, for a specific year, in a given country, territory, or geographic income_inequality. ( from the World Health Organization)\nincome_inequality: Measure of the deviation of the distribution of income among individuals or households within a country from a perfectly equal distribution. A value of 0 represents absolute equality, a value of 100 absolute inequality (based on Gini coefficient). (from Zarulli et al. (2021))"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#univariate-exploratory-data-analysis",
-    "href": "slides/03-slr-model-evaluation-notes.html#univariate-exploratory-data-analysis",
-    "title": "SLR: Model evaluation",
-    "section": "Univariate exploratory data analysis",
-    "text": "Univariate exploratory data analysis"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#bivariate-exploratory-data-analysis",
-    "href": "slides/03-slr-model-evaluation-notes.html#bivariate-exploratory-data-analysis",
-    "title": "SLR: Model evaluation",
-    "section": "Bivariate exploratory data analysis",
-    "text": "Bivariate exploratory data analysis\n\n\n`geom_smooth()` using formula = 'y ~ x'"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#clone-repo-start-new-rstudio-project---update",
-    "href": "slides/03-slr-model-evaluation-notes.html#clone-repo-start-new-rstudio-project---update",
-    "title": "SLR: Model evaluation",
-    "section": "Clone repo + start new RStudio project - UPDATE",
-    "text": "Clone repo + start new RStudio project - UPDATE\n\nGo to the course organization. Click on the repo with the prefix ae-01. It contains the starter documents you need to complete the AE.\n\nIf you do not see an ae-01 repo, use this link to create one: UPDATE LINK!\n\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#two-statistics",
-    "href": "slides/03-slr-model-evaluation-notes.html#two-statistics",
-    "title": "SLR: Model evaluation",
-    "section": "Two statistics",
-    "text": "Two statistics\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\nR-squared, \\(R^2\\) : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)\n\n. . .\n\nWhat indicates a good model fit? Higher or lower RMSE? Higher or lower \\(R^2\\)?"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#rmse",
-    "href": "slides/03-slr-model-evaluation-notes.html#rmse",
-    "title": "SLR: Model evaluation",
-    "section": "RMSE",
-    "text": "RMSE\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n}} = \\sqrt{\\frac{\\sum_{i=1}^ne_i^2}{n}}\n\\]\n. . .\n\n\nRanges between 0 (perfect predictor) and infinity (terrible predictor)\nSame units as the response variable\nThe value of RMSE is more useful for comparing across models than evaluating a single model"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#analysis-of-variance-anova",
-    "href": "slides/03-slr-model-evaluation-notes.html#analysis-of-variance-anova",
-    "title": "SLR: Model evaluation",
-    "section": "ANOVA",
-    "text": "ANOVA\nAnalysis of Variance (ANOVA): Technique to partition variability in \\(Y\\) by the sources of variability"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#total-variability-response",
-    "href": "slides/03-slr-model-evaluation-notes.html#total-variability-response",
-    "title": "SLR: Model evaluation",
-    "section": "Total variability (Response)",
-    "text": "Total variability (Response)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMin\nMedian\nMax\nMean\nStd.Dev\n\n\n\n\n51.6\n72.85\n84.1\n71.614\n8.075"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#partition-sources-of-variability-in-life_exp",
-    "href": "slides/03-slr-model-evaluation-notes.html#partition-sources-of-variability-in-life_exp",
-    "title": "SLR: Model evaluation",
-    "section": "Partition sources of variability in life_exp",
-    "text": "Partition sources of variability in life_exp"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#total-variability-response-1",
-    "href": "slides/03-slr-model-evaluation-notes.html#total-variability-response-1",
-    "title": "SLR: Model evaluation",
-    "section": "Total variability (Response)",
-    "text": "Total variability (Response)\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Total (SST)} = \\sum_{i=1}^n(y_i - \\bar{y})^2 = (n-1)s_y^2\\]"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#explained-variability-model",
-    "href": "slides/03-slr-model-evaluation-notes.html#explained-variability-model",
-    "title": "SLR: Model evaluation",
-    "section": "Explained variability (Model)",
-    "text": "Explained variability (Model)\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Model (SSM)} = \\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2\\]"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#unexplained-variability-residuals",
-    "href": "slides/03-slr-model-evaluation-notes.html#unexplained-variability-residuals",
-    "title": "SLR: Model evaluation",
-    "section": "Unexplained variability (Residuals)",
-    "text": "Unexplained variability (Residuals)\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\\[\\text{Sum of Squares Residuals (SSR)} = \\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2\\]"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#sum-of-squares---update",
-    "href": "slides/03-slr-model-evaluation-notes.html#sum-of-squares---update",
-    "title": "SLR: Model evaluation",
-    "section": "Sum of Squares - UPDATE!",
-    "text": "Sum of Squares - UPDATE!\n\n\\[\n\\begin{aligned}\n\\color{#407E99}{SST} \\hspace{5mm}&= &\\color{#993399}{SSM} &\\hspace{5mm} +  &\\color{#8BB174}{SSR} \\\\[10pt]\n\\color{#407E99}{\\sum_{i=1}^n(y_i - \\bar{y})^2} \\hspace{5mm}&= &\\color{#993399}{\\sum_{i = 1}^{n}(\\hat{y}_i - \\bar{y})^2} &\\hspace{5mm}+ &\\color{#8BB174}{\\sum_{i = 1}^{n}(y_i - \\hat{y}_i)^2}\n\\end{aligned}\n\\]\n\n\nClick here to see why this equality holds. - UPDATE LINK"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#r2",
-    "href": "slides/03-slr-model-evaluation-notes.html#r2",
-    "title": "SLR: Model evaluation",
-    "section": "\\(R^2\\)",
-    "text": "\\(R^2\\)\nThe coefficient of determination \\(R^2\\) is the proportion of variation in the response, \\(Y\\), that is explained by the regression model\n\n\\[\\large{R^2 = \\frac{SSM}{SST} = 1 - \\frac{SSR}{SST}}\\]\n\n\nWhat is the range of \\(R^2\\)? Does \\(R^2\\) have units?"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#interpreting-r2",
-    "href": "slides/03-slr-model-evaluation-notes.html#interpreting-r2",
-    "title": "SLR: Model evaluation",
-    "section": "Interpreting \\(R^2\\)",
-    "text": "Interpreting \\(R^2\\)\n\nThe \\(R^2\\) of the model of life expectancy and income inequality is 70%. Which of the following is the correct interpretation of this value?\n\nA country’s income inequality correctly predicts 70% of its life expectancy.\n70% of the variability in life expectancy can be explained by income inequality.\n70% of the variability in income inequality can be explained by life expectancy.\n70% of the time a country’s life expectancy can be predicted by its income inequality."
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#augmented-data-frame",
-    "href": "slides/03-slr-model-evaluation-notes.html#augmented-data-frame",
-    "title": "SLR: Model evaluation",
-    "section": "Augmented data frame",
-    "text": "Augmented data frame\nUse the augment() function from the broom package to add columns for predicted values, residuals, and other observation-level model statistics\n. . .\n\nlife_exp_aug &lt;- augment(life_exp_fit)\nlife_exp_aug\n\n# A tibble: 140 × 8\n   life_exp income_inequality .fitted .resid    .hat .sigma   .cooksd .std.resid\n      &lt;dbl&gt;             &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1     63.8              28.2    65.8 -1.96  0.0125    4.45 0.00125       -0.444\n 2     78.2              12.2    76.9  1.29  0.0116    4.45 0.000498       0.292\n 3     59.9              32.4    62.8 -2.93  0.0193    4.44 0.00437       -0.667\n 4     76.2              14      75.7  0.542 0.00972   4.45 0.0000739      0.123\n 5     74.6               8.6    79.4 -4.82  0.0168    4.43 0.0102        -1.10 \n 6     83                 8.3    79.6  3.37  0.0173    4.44 0.00515        0.766\n 7     81.3               7.4    80.3  1.04  0.0189    4.45 0.000540       0.237\n 8     72.5              10.1    78.4 -5.88  0.0144    4.42 0.0130        -1.33 \n 9     71.8              27.6    66.2  5.62  0.0118    4.43 0.00972        1.28 \n10     74                 6.5    80.9 -6.89  0.0207    4.41 0.0260        -1.57 \n# ℹ 130 more rows"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#finding-rmse-in-r",
-    "href": "slides/03-slr-model-evaluation-notes.html#finding-rmse-in-r",
-    "title": "SLR: Model evaluation",
-    "section": "Finding RMSE in R",
-    "text": "Finding RMSE in R\nUse the rmse() function from the yardstick package (part of tidymodels)\n\nrmse(life_exp_aug, truth = life_exp, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard        4.40"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#finding-r2-in-r",
-    "href": "slides/03-slr-model-evaluation-notes.html#finding-r2-in-r",
-    "title": "SLR: Model evaluation",
-    "section": "Finding \\(R^2\\) in R",
-    "text": "Finding \\(R^2\\) in R\nUse the rsq() function from the yardstick package (part of tidymodels)\n\nrsq(life_exp_aug, truth = life_exp, estimate = .fitted)\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rsq     standard       0.700\n\n\n\n. . .\nAlternatively, use glance() to construct a single row summary of the model fit, including \\(R^2\\):\n\nglance(life_exp_fit)$r.squared\n\n[1] 0.7003831"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#recap",
-    "href": "slides/03-slr-model-evaluation-notes.html#recap",
-    "title": "SLR: Model evaluation",
-    "section": "Recap",
-    "text": "Recap\n\nUsed R to conduct exploratory data analysis and fit a model\nEvaluated models using RMSE and \\(R^2\\)\nUsed analysis of variance to partition variability in the response variable"
-  },
-  {
-    "objectID": "slides/03-slr-model-evaluation-notes.html#next-class",
-    "href": "slides/03-slr-model-evaluation-notes.html#next-class",
-    "title": "SLR: Model evaluation",
-    "section": "Next class",
-    "text": "Next class\n\nMatrix representation of simple linear regression\nComplete Lecture 04 prepare"
-  },
-  {
-    "objectID": "slides/sum-of-squares.html",
-    "href": "slides/sum-of-squares.html",
-    "title": "Sum of squares",
-    "section": "",
-    "text": "In this document, we show how the equality in Equation 1 holds.\n\\[\n\\begin{aligned}\nSST &= SSM + SSR \\\\[10pt]\n\\sum_{i=1}^{n}(y_i - \\bar{y})^2 &= \\sum_{i=1}^{n}(\\hat{y}_i - \\bar{y})^2 + \\sum_{i=1}^{n}(y_i -\\hat{y}_i)^2\n\\end{aligned}\n\\tag{1}\\]\nwhere \\(n\\) is the number of observations.\nWe start with the fact \\((y_i - \\bar{y}) = (\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)\\).\nThen, \\[\n\\begin{aligned}\n(y_i - \\bar{y})^2 &= [(\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)]^2\\\\[10pt]\n& = (\\hat{y}_i - \\bar{y})^2 + 2(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + (y_i - \\hat{y}_i)^2\n\\end{aligned}\n\\]\nWe can sum over both sides to get\n\\[\n\\sum_{i=1}^n(y_i - \\bar{y})^2 = \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\n\\tag{2}\\]\nFor now, let’s focus on the middle term: \\(2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i)\\)\n\\[\n\\begin{aligned}\n2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) &= 2\\sum_{i=1}^n(\\hat{y}_iy_i - \\hat{y}_i^2 - \\bar{y}y_i + \\bar{y}\\hat{y}_i)\\\\[10pt]\n& = 2\\sum_{i=1}^n\\hat{y}_i(y_i - \\hat{y}_i) - 2\\bar{y}\\sum_{i=1}^n(y_i - \\hat{y}_i) \\\\[10pt]\n&=2\\sum_{i=1}^n\\hat{y}_ie_i - 2\\bar{y}\\sum_{i=1}^ne_i\\\\[10pt]\n&= 0 \\quad(\\text{ given }\\sum_{i=1}^ne_i = 0)\n\\end{aligned}\n\\tag{3}\\]\nPlugging Equation 3 back into Equation 2, we have\n\\[\n\\begin{aligned}\n\\sum_{i=1}^n(y_i - \\bar{y})^2 &= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 0 + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2 \\\\[10pt]\n&= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 +  \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\\\\[10pt]\n\\end{aligned}\n\\]\nThus \\(SST = SSM + SSR\\)"
-  },
-  {
-    "objectID": "slides/sum-of-squares.html#sum-of-squares",
-    "href": "slides/sum-of-squares.html#sum-of-squares",
-    "title": "Sum of squares",
-    "section": "",
-    "text": "From ?@sec-slr-sum-sq, we have the following\n\\[\n\\begin{aligned}\nSST &= SSM + SSR \\\\\n\\sum_{i=1}^{n}(y_i - \\bar{Y})^2 &= \\sum_{i=1}^{n}(\\hat{y}_i - \\bar{Y})^2 + \\sum_{i=1}^{n}(y_i -\\hat{y}_i)^2\n\\end{aligned}\n\\tag{1}\\]\nwhere \\(n\\) is the number of observations. We will show why Equation 1 is true mathematically by starting with the fact that \\((y_i - \\bar{Y}) = (\\hat{y}_i - \\bar{Y}) + (y_i - \\hat{y}_i)\\)\n\\[\n\\begin{aligned}\n(y_i - \\bar{Y})^2 &= [(\\hat{y}_i - \\bar{Y}) + (y_i - \\hat{y}_i)]^2\\\\[10pt]\n& = (\\hat{y}_i - \\bar{Y})^2 + 2(\\hat{y}_i - \\bar{Y})(y_i - \\hat{y}_i) + (y_i - \\hat{y}_i)^2\n\\end{aligned}\n\\]\nWe can sum over both sides to get\n\\[\n\\sum_{i=1}^n(y_i - \\bar{Y})^2 = \\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})^2 + 2\\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})(y_i - \\hat{y}_i) + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\n\\tag{2}\\]\nFor now, let’s focus on the middle term \\(2\\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})(y_i - \\hat{y}_i)\\)\n\\[\n\\begin{aligned}\n2\\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})(y_i - \\hat{y}_i) &= 2\\sum_{i=1}^n(\\hat{y}_iy_i - \\hat{y}_i^2 - \\bar{Y}y_i + \\bar{Y}\\hat{y}_i)\\\\[10pt]\n& = 2\\sum_{i=1}^n\\hat{y}_i(y_i - \\hat{y}_i) - 2\\bar{Y}\\sum_{i=1}^n(y_i - \\hat{y}_i) \\\\[10pt]\n&=2\\sum_{i=1}^n\\hat{y}_ie_i - 2\\bar{Y}\\sum_{i=1}^ne_i\\\\[10pt]\n&= 0 \\quad(\\text{ given }\\sum_{i=1}^ne_i = 0)\n\\end{aligned}\n\\tag{3}\\]\nPlugging Equation 3 back into Equation 2, we have\n\\[\n\\begin{aligned}\n\\sum_{i=1}^n(y_i - \\bar{Y})^2 &= \\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})^2 + 0 + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2 \\\\[10pt]\n&= \\sum_{i=1}^n(\\hat{y}_i - \\bar{Y})^2 +  \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\\\\[10pt]\n\\end{aligned}\n\\]\nThus \\(SST = SSM + SSR\\)"
   }
 ]

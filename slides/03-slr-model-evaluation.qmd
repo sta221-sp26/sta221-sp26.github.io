@@ -142,16 +142,16 @@ p1
 # Application exercise
 
 ::: appex
-📋 [sta221-sp26.github.io/ae/ae-01-model-evaluation.html](https://📋 sta221-sp26.github.io/ae/ae-01-model-evaluation.html  Complete Part 1.)
+📋 [sta221-sp26.github.io/ae/ae-01-model-evaluation.html](https://📋%20sta221-sp26.github.io/ae/ae-01-model-evaluation.html%20Complete%20Part%201.)
 
 Complete Part 1.
 :::
 
-## Clone repo + start new RStudio project  - UPDATE {.small}
+## Clone repo + start new RStudio project - UPDATE {.small}
 
 -   Go to the course organization. Click on the repo with the prefix `ae-01`. It contains the starter documents you need to complete the AE.
 
-    -   If you do not see an `ae-01` repo, use this link to create one: **UPDATE LINK!**
+    -   If you do not see an `ae-01` repo, use this link to create one: <https://classroom.github.com/a/jWbwQU1r>
 
 -   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you’ll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
 
@@ -393,7 +393,7 @@ glance(life_exp_fit)$r.squared
 # Application exercise
 
 ::: appex
-📋 [sta221-sp26.github.io/ae/ae-01-model-evaluation.html](https://📋 sta221-sp26.github.io/ae/ae-01-model-evaluation.html  Complete Part 1.)
+📋 [sta221-sp26.github.io/ae/ae-01-model-evaluation.html](https://📋%20sta221-sp26.github.io/ae/ae-01-model-evaluation.html%20Complete%20Part%201.)
 
 Complete Part 2.
 :::

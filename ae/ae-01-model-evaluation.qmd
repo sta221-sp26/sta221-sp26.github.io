@@ -1,5 +1,5 @@
 ---
-title: "Lecture 03 AE: Model evaluation"
+title: "AE 01: Model evaluation"
 subtitle: "Income inequality, healthcare expenditure, and life expectancy"
 date: "January 16, 2025"
 editor: visual
@@ -15,7 +15,7 @@ Go to the [course GitHub organization](https://github.com/sta221-sp26) and locat
 
 If you do not see an `ae-01` repo, use the link below to create one:
 
-<https://classroom.github.com/a/6jpkfA8n> - UPDATE
+<https://classroom.github.com/a/jWbwQU1r>
 
 Render, commit, and push your responses to GitHub. This is good practice for the workflow you will use in assignments.
 :::
