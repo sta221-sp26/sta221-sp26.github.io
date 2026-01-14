@@ -72,7 +72,7 @@ The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) 
 
 ### Communication
 
-All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, [sta221-sp26.netlify.app](https://sta221-sp26.netlify.app).
+All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, [sta221-sp26.github.io](https://sta221-sp26.github.io).
 
 Links to Zoom meetings may be found in Canvas. Periodic announcements will be sent via email and will also be available through Ed Discussion and Canvas Announcements. Please check your email regularly to ensure you have the latest announcements for the course.
 

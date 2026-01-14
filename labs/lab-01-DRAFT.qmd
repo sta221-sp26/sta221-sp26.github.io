@@ -15,6 +15,8 @@ This lab is due on **Tuesday, January 20 at 11:59pm**. To be considered on time,
 
 -   Final `.qmd` and `.pdf` files pushed to your GitHub repo
 -   Final `.pdf` file submitted on Gradescope
+
+**No late work is accepted for labs.**
 :::
 
 # Introduction
@@ -509,7 +511,7 @@ To submit your assignment:
 
 -   Click on the assignment, and you’ll be prompted to submit it.
 
--   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).
+-   Mark the pages for the "Exercises" question.
 
 -   Select the first page of your .PDF submission to be associated with the *“Workflow & formatting”* section.
 

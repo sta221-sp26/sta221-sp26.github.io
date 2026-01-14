@@ -36,7 +36,7 @@ knitr:
 
 ## Tips for working on lab
 
--   Labs will always be due **Tuesdays at 11:59pm**, but you are encouraged to complete as much as you can during the lab session.
+-   Labs will always be due **Tuesdays at 11:59pm**, but you are encouraged to complete as much as you can during the lab session. **No late work is accepted for labs.**
 
 -   The lab will be graded based on completion and "workflow and formatting".
 
@@ -68,7 +68,7 @@ Part of the lab grade is for “workflow and formatting” assessing the reprodu
 
     -   Access Gradescope through the course Canvas site
 
-    -   Mark [**all**]{.underline} pages in Gradescope.
+    -   Mark [**all**]{.underline} pages in Gradescope for the "Exercises 1- 10" question.
 
 ## Getting started
 
