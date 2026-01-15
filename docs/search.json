@@ -1295,11 +1295,11 @@
     "text": "Instructions\nThe applied exercises are focused on applying the concepts to analyze data.\nAll work for the applied exercises must be typed in your Quarto document following a reproducible workflow.\nWrite all narrative using complete sentences and include informative axis labels / titles on visualizations."
   },
   {
-    "objectID": "hw/hw-01-DRAFT.html#data---update-to-lemurs",
-    "href": "hw/hw-01-DRAFT.html#data---update-to-lemurs",
+    "objectID": "hw/hw-01-DRAFT.html#data---update",
+    "href": "hw/hw-01-DRAFT.html#data---update",
     "title": "HW 01: Simple linear regression",
-    "section": "Data - UPDATE to LEMURS",
-    "text": "Data - UPDATE to LEMURS\nThe datasets wi-icecover.csv and wi-air-temperature.csv contain information about ice cover and air temperature, respectively, at Lake Monona and Lake Mendota (both in Madison, Wisconsin) for days in 1886 through 2019. The data were obtained from the ntl_icecover and ntl_airtemp data frames in the lterdatasampler R package. They were originally collected by the US Long Term Ecological Research program (LTER) Network.\n\nlemurs &lt;- read_csv(\"https://intro-regression.github.io/data/lemurs-sample-young.csv\")\n\nThe analysis will focus on the following variables:\n\nage: Age of the lemur in months\nweight: Weight of the lemur in grams"
+    "section": "Data - UPDATE",
+    "text": "Data - UPDATE\n[ADD DESCRIPTION]\n\nlemurs &lt;- read_csv(\"https://intro-regression.github.io/data/lemurs-sample-young.csv\")\n\nThe analysis will focus on the following variables:\n\nage: Age of the lemur in months\nweight: Weight of the lemur in grams"
   },
   {
     "objectID": "hw/hw-01-DRAFT.html#analysis-goal",
@@ -2696,12 +2696,5 @@
       "Computing",
       "Troubleshooting"
     ]
-  },
-  {
-    "objectID": "hw/hw-01-DRAFT.html#data---update",
-    "href": "hw/hw-01-DRAFT.html#data---update",
-    "title": "HW 01: Simple linear regression",
-    "section": "Data - UPDATE",
-    "text": "Data - UPDATE\n[ADD DESCRIPTION]\n\nlemurs &lt;- read_csv(\"https://intro-regression.github.io/data/lemurs-sample-young.csv\")\n\nThe analysis will focus on the following variables:\n\nage: Age of the lemur in months\nweight: Weight of the lemur in grams"
   }
 ]
