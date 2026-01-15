@@ -564,15 +564,12 @@ y_i = \beta x_i^2 + \epsilon_i \hspace{8mm} \epsilon_i \sim N(0,\sigma^2_{\epsil
 <h2 class="anchored" data-anchor-id="data---update-to-lemurs">Data - UPDATE to LEMURS</h2>
 <p>The datasets <code>wi-icecover.csv</code> and <code>wi-air-temperature.csv</code> contain information about ice cover and air temperature, respectively, at Lake Monona and Lake Mendota (both in Madison, Wisconsin) for days in 1886 through 2019. The data were obtained from the <a href="https://lter.github.io/lterdatasampler/reference/ntl_icecover.html"><code>ntl_icecover</code></a> and <a href="https://lter.github.io/lterdatasampler/reference/ntl_airtemp.html"><code>ntl_airtemp</code></a> data frames in the <a href="https://lter.github.io/lterdatasampler/">lterdatasampler</a> R package. They were originally collected by the <a href="https://lternet.edu/">US Long Term Ecological Research program (LTER) Network</a>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lemurs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://intro-regression.github.io/data/lemurs-sample-young.csv"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>airtemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wi-air-temperature.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lemurs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://intro-regression.github.io/data/lemurs-sample-young.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The analysis will focus on the following variables:</p>
 <ul>
-<li><p><code>year</code>: year of observation</p></li>
-<li><p><code>lakeid</code>: lake name</p></li>
-<li><p><code>ice_duration</code>: number of days between the freeze and ice breakup dates of each lake</p></li>
-<li><p><code>air_temp_avg</code>: yearly average air temperature in Madison, WI (degrees Celsius)</p></li>
+<li><p><code>age</code>: Age of the lemur in months</p></li>
+<li><p><code>weight</code>: Weight of the lemur in grams</p></li>
 </ul>
 </section>
 <section id="analysis-goal" class="level2">

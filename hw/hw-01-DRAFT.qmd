@@ -113,18 +113,13 @@ The datasets `wi-icecover.csv` and `wi-air-temperature.csv` contain information 
 #| eval: false
 
 lemurs <- read_csv("https://intro-regression.github.io/data/lemurs-sample-young.csv")
-airtemp <- read_csv("data/wi-air-temperature.csv")
 ```
 
 The analysis will focus on the following variables:
 
--   `year`: year of observation
+-   `age`: Age of the lemur in months
 
--   `lakeid`: lake name
-
--   `ice_duration`: number of days between the freeze and ice breakup dates of each lake
-
--   `air_temp_avg`: yearly average air temperature in Madison, WI (degrees Celsius)
+-   `weight`: Weight of the lemur in grams
 
 ## Analysis goal
 
