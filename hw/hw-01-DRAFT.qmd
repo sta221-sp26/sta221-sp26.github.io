@@ -13,9 +13,9 @@ This assignment is due on **Thursday, January 29 at 11:59pm**. To be considered 
 -   Final `.pdf` file submitted on Gradescope
 :::
 
-# Introduction - UPDATE
+# Introduction 
 
-You will use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Madison, Wisconsin. You will also explore the mathematical properties of simple linear regression models.
+You will use simple linear regression to explore the growth rate of young lemurs in the Duke Lemur Center. You will also explore the mathematical properties of simple linear regression models.
 
 # Learning goals
 
@@ -105,9 +105,9 @@ The applied exercises are focused on applying the concepts to analyze data.
 
 Write all narrative using complete sentences and include informative axis labels / titles on visualizations.
 
-## Data - UPDATE to LEMURS
+## Data - UPDATE 
 
-The datasets `wi-icecover.csv` and `wi-air-temperature.csv` contain information about ice cover and air temperature, respectively, at Lake Monona and Lake Mendota (both in Madison, Wisconsin) for days in 1886 through 2019. The data were obtained from the [`ntl_icecover`](https://lter.github.io/lterdatasampler/reference/ntl_icecover.html) and [`ntl_airtemp`](https://lter.github.io/lterdatasampler/reference/ntl_airtemp.html) data frames in the [lterdatasampler](https://lter.github.io/lterdatasampler/) R package. They were originally collected by the [US Long Term Ecological Research program (LTER) Network](https://lternet.edu/).
+\[ADD DESCRIPTION\]
 
 ```{r}
 #| eval: false

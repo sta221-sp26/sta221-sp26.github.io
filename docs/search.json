@@ -2696,5 +2696,12 @@
       "Computing",
       "Troubleshooting"
     ]
+  },
+  {
+    "objectID": "hw/hw-01-DRAFT.html#data---update",
+    "href": "hw/hw-01-DRAFT.html#data---update",
+    "title": "HW 01: Simple linear regression",
+    "section": "Data - UPDATE",
+    "text": "Data - UPDATE\n[ADD DESCRIPTION]\n\nlemurs &lt;- read_csv(\"https://intro-regression.github.io/data/lemurs-sample-young.csv\")\n\nThe analysis will focus on the following variables:\n\nage: Age of the lemur in months\nweight: Weight of the lemur in grams"
   }
 ]
