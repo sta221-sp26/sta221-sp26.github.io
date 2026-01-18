@@ -1315,18 +1315,11 @@
     "text": "ImportantDue date\n\n\n\nThis assignment is due on Thursday, January 29 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
   },
   {
-    "objectID": "hw/hw-01-DRAFT.html#instructions",
-    "href": "hw/hw-01-DRAFT.html#instructions",
-    "title": "HW 01: Simple linear regression",
-    "section": "Instructions",
-    "text": "Instructions\nThe conceptual exercises are focused on explaining concepts and showing results mathematically. Show your work for each question.\n\nYou may write the answers and associated work for conceptual exercises by hand or type them in your Quarto document."
-  },
-  {
     "objectID": "hw/hw-01-DRAFT.html#exercise-1",
     "href": "hw/hw-01-DRAFT.html#exercise-1",
     "title": "HW 01: Simple linear regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nIn lecture, we introduced \\(\\mathbf{H}\\), the hat matrix, as a projection matrix that projects \\(\\mathbf{y}\\) onto \\(\\text{Col}(\\mathbf{X})\\) . Here we will show some properties of \\(\\mathbf{H}\\).\na. Show that the hat matrix \\(\\mathbf{H}\\) is symmetric \\((\\mathbf{H}^\\mathsf{T} = \\mathbf{H})\\) and idempotent \\((\\mathbf{H}^2 = \\mathbf{H})\\).\nd. Show that all eigenvalues of \\(\\mathbf{H}\\) are 0 or 1."
+    "text": "Exercise 1\nIn lecture, we introduced \\(\\mathbf{H}\\), the hat matrix, as a projection matrix that projects \\(\\mathbf{y}\\) onto \\(\\text{Col}(\\mathbf{X})\\) . Here we will show some properties of \\(\\mathbf{H}\\).\n\nShow that \\(\\mathbf{H}\\) is symmetric \\((\\mathbf{H}^\\mathsf{T} = \\mathbf{H})\\).\nShow that \\(\\mathbf{H}\\) is idempotent \\((\\mathbf{H}^2 = \\mathbf{H})\\).\nShow that all eigenvalues of \\(\\mathbf{H}\\) are 0 or 1."
   },
   {
     "objectID": "hw/hw-01-DRAFT.html#exercise-2",
@@ -1340,7 +1333,7 @@
     "href": "hw/hw-01-DRAFT.html#exercise-3",
     "title": "HW 01: Simple linear regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\nIn class we used the sum of squared errors, \\(\\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon}\\) , to estimate the regression coefficients, \\(\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{Y}\\) . To show this is the least squares estimator, we now need to show that we have, in fact, found the estimator for \\(\\boldsymbol{\\beta}\\) that minimizes the sum of square errors.\nIf the Hessian matrix \\(\\nabla_{\\boldsymbol{\\beta}}^2 \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon}\\) is positive definite, then we know we have found the \\(\\hat{\\boldsymbol{\\beta}}\\) that minimizes the sum of squared errors, i.e., the least squares estimator.\nShow that \\(\\nabla_{\\boldsymbol{\\beta}}^2 \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} \\propto \\mathbf{X}^\\mathsf{T}\\mathbf{X}\\) is positive definite."
+    "text": "Exercise 3\nIn class we used the sum of squared errors, \\(\\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon}\\) , to find the least-squares estimator, \\(\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{Y}\\) . To show this is the least-squares estimator, we now need to show that we have found the estimator for \\(\\boldsymbol{\\beta}\\) that minimizes the sum of squared errors.\nIf the Hessian matrix \\(\\nabla_{\\boldsymbol{\\beta}}^2 \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon}\\) is positive definite, then we know we have found a minimum.\nShow that \\(\\nabla_{\\boldsymbol{\\beta}}^2 \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} \\propto \\mathbf{X}^\\mathsf{T}\\mathbf{X}\\) is positive definite."
   },
   {
     "objectID": "hw/hw-01-DRAFT.html#exercise-4",
@@ -1357,39 +1350,25 @@
     "text": "Exercise 5\nShow that the sum of squared residuals (SSR) can be written as the following:\n\\[\n\\mathbf{y}^\\mathsf{T}\\mathbf{y} - \\hat{\\boldsymbol{\\beta}}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]"
   },
   {
-    "objectID": "hw/hw-01-DRAFT.html#instructions-1",
-    "href": "hw/hw-01-DRAFT.html#instructions-1",
+    "objectID": "hw/hw-01-DRAFT.html#data-lemurs",
+    "href": "hw/hw-01-DRAFT.html#data-lemurs",
     "title": "HW 01: Simple linear regression",
-    "section": "Instructions",
-    "text": "Instructions\nThe applied exercises are focused on applying the concepts to analyze data.\nAll work for the applied exercises must be typed in your Quarto document following a reproducible workflow.\nWrite all narrative using complete sentences and include informative axis labels / titles on visualizations."
-  },
-  {
-    "objectID": "hw/hw-01-DRAFT.html#data---update",
-    "href": "hw/hw-01-DRAFT.html#data---update",
-    "title": "HW 01: Simple linear regression",
-    "section": "Data - UPDATE",
-    "text": "Data - UPDATE\n[ADD DESCRIPTION]\n\nlemurs &lt;- read_csv(\"https://intro-regression.github.io/data/lemurs-sample-young.csv\")\n\nThe analysis will focus on the following variables:\n\nage: Age of the lemur in months\nweight: Weight of the lemur in grams"
-  },
-  {
-    "objectID": "hw/hw-01-DRAFT.html#analysis-goal",
-    "href": "hw/hw-01-DRAFT.html#analysis-goal",
-    "title": "HW 01: Simple linear regression",
-    "section": "Analysis goal",
-    "text": "Analysis goal\nThe goal of this analysis is to use linear regression explain variability in ice duration for lakes in Madison, WI based on air temperature. Because ice cover is impacted by various environmental factors, researchers are interested in examining the association between these two factors to better understand the changing climate."
+    "section": "Data: Lemurs",
+    "text": "Data: Lemurs\nThe data used in this analysis includes measurements and other characteristics for lemurs from the Eulemur rufus (ERUF), Propithecus coquereli (PCOQ), and Varecia rubra (VRUB) taxa who have lived in the Duke Lemur Center. Though the lemurs are measured regularly while at the center, this data set includes one randomly selected measurement for each lemur taken when they were 24 months old or younger. These data were originally featured in as part of the TidyTuesday weekly data visualization challenge in August 2021.\n\nlemurs &lt;- read_csv(\"https://intro-regression.github.io/data/lemurs-sample-young.csv\")\n\nThe analysis will focus on the following variables:\n\nage: Age of the lemur in months\nweight: Weight of the lemur in grams\n\n\nAnalysis goal\nThe goal of this analysis is to use linear regression to explore the growth rate of young lemurs (age 24 months or younger). More specifically, we want to use age to explain variability in weight."
   },
   {
     "objectID": "hw/hw-01-DRAFT.html#exercise-6",
     "href": "hw/hw-01-DRAFT.html#exercise-6",
     "title": "HW 01: Simple linear regression",
     "section": "Exercise 6",
-    "text": "Exercise 6\nLet’s start by looking at the response and predictor variables.\n\nVisualize distribution of weight. Describe the distrbution.\nVisualize the distribution of age. Describe the distribution.\n\n\n\n\n\n\n\nTip\n\n\n\nThe description should include shape, center, spread, and presence of outliers. Use specific values in your description. See Section 3.4.2 of Introduction to Regression Analysis for more information about describing univariate distributions. See the ggplot2 reference for example code and plots."
+    "text": "Exercise 6\nLet’s start by exploring the response and predictor variables.\n\nVisualize distribution of weight. Describe the distribution.\nVisualize the distribution of age. Describe the distribution.\n\n\n\n\n\n\n\nTip\n\n\n\nThe description should include shape, center, spread, and presence of outliers. Use specific values in your description. See Section 3.4.2 of Introduction to Regression Analysis for more information about describing univariate distributions. See the ggplot2 reference for example code and plots."
   },
   {
     "objectID": "hw/hw-01-DRAFT.html#exercise-7",
     "href": "hw/hw-01-DRAFT.html#exercise-7",
     "title": "HW 01: Simple linear regression",
     "section": "Exercise 7",
-    "text": "Exercise 7\nVisualize the relationship between weight and age. Do you think a linear model is a reasonable choice to summarize the relationship between the two variables? Briefly explain.\n\n\n\n\n\n\nImportant\n\n\n\nNow is a good time to render your document again if you haven’t done so recently and commit (with a meaningful commit message) and push all updates."
+    "text": "Exercise 7\nVisualize the relationship between weight and age. Do you think a linear model is a reasonable choice to summarize the relationship between the two variables? Briefly explain."
   },
   {
     "objectID": "hw/hw-01-DRAFT.html#exercise-8",
@@ -1403,14 +1382,21 @@
     "href": "hw/hw-01-DRAFT.html#exercise-9",
     "title": "HW 01: Simple linear regression",
     "section": "Exercise 9",
-    "text": "Exercise 9\n\nCalculate \\(R^2\\) for the model in the previous exercise and interpret it in the context of the data.\nCalculate \\(RMSE\\) for the model from the previous exercise and interpret it in the context of the data.\nComment on the model fit based on \\(R^2\\) and \\(RMSE\\)."
+    "text": "Exercise 9\n\nCompute \\(R^2\\) for the model in the previous exercise and interpret it in the context of the data.\nCompute \\(RMSE\\) for the model from the previous exercise and interpret it in the context of the data.\nComment on the model fit based on \\(R^2\\) and \\(RMSE\\)."
   },
   {
     "objectID": "hw/hw-01-DRAFT.html#exercise-10",
     "href": "hw/hw-01-DRAFT.html#exercise-10",
     "title": "HW 01: Simple linear regression",
     "section": "Exercise 10",
-    "text": "Exercise 10\na. Interpret the slope in the context of the data.\nb. A lemur named Strawberry (dlc_id = 6582) weighed 475.0 grams when she was 3.19 months old. What was predicted weight for this lemur based on the model? What is the residual?"
+    "text": "Exercise 10\na. Interpret the slope for the model fit in Exercise 8 in the context of the data.\nb. A lemur named Strawberry (dlc_id = 6582) weighed 475.0 grams when she was 3.19 months old. What was predicted weight for this lemur based on the model? What is the residual?"
+  },
+  {
+    "objectID": "hw/hw-01-DRAFT.html#ai-disclosure",
+    "href": "hw/hw-01-DRAFT.html#ai-disclosure",
+    "title": "HW 01: Simple linear regression",
+    "section": "AI Disclosure",
+    "text": "AI Disclosure\nDid you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste all statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.\n\nI didn’t an LLM / Generative AI tool.\nI asked it to clarify one or more exercises.\nI asked it clarifying questions to better understand a concept.\nI asked it to help write code to complete an exercise.\nI gave it my code and asked it to help me fix it.\nI asked it about an error or why code would do something I didn’t want.\nI used it for some other debugging task.\nI pasted the question prompt in and asked for help, but I wrote my answer myself.\nOther:______"
   },
   {
     "objectID": "hw/hw-01.html",

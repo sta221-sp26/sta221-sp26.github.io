@@ -415,7 +415,6 @@ window.Quarto = {
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#conceptual-exercises" id="toc-conceptual-exercises" class="nav-link" data-scroll-target="#conceptual-exercises">Conceptual exercises</a>
   <ul class="collapse">
-  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
@@ -424,14 +423,16 @@ window.Quarto = {
   </ul></li>
   <li><a href="#applied-exercises" id="toc-applied-exercises" class="nav-link" data-scroll-target="#applied-exercises">Applied exercises</a>
   <ul class="collapse">
-  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1">Instructions</a></li>
-  <li><a href="#data---update" id="toc-data---update" class="nav-link" data-scroll-target="#data---update">Data - UPDATE</a></li>
+  <li><a href="#data-lemurs" id="toc-data-lemurs" class="nav-link" data-scroll-target="#data-lemurs">Data: Lemurs</a>
+  <ul class="collapse">
   <li><a href="#analysis-goal" id="toc-analysis-goal" class="nav-link" data-scroll-target="#analysis-goal">Analysis goal</a></li>
+  </ul></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6"><strong>Exercise 6</strong></a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI Disclosure</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading-50-points" id="toc-grading-50-points" class="nav-link" data-scroll-target="#grading-50-points">Grading (50 points)</a></li>
@@ -480,7 +481,7 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>You will use simple linear regression to explore the growth rate of young lemurs in the Duke Lemur Center. You will also explore the mathematical properties of simple linear regression models.</p>
+<p>In this assignment, you will use simple linear regression to explore the growth rate of young lemurs in the Duke Lemur Center. You will also explore the mathematical properties of linear regression models.</p>
 </section>
 <section id="learning-goals" class="level1">
 <h1>Learning goals</h1>
@@ -513,17 +514,28 @@ window.Quarto = {
 </section>
 <section id="conceptual-exercises" class="level1">
 <h1>Conceptual exercises</h1>
-<section id="instructions" class="level2">
-<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<p>The conceptual exercises are focused on explaining concepts and showing results mathematically. Show your work for each question.<br>
-<br>
-<strong>You may write the answers and associated work for conceptual exercises by hand or type them in your Quarto document.</strong></p>
-</section>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Instructions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The conceptual exercises are focused on explaining concepts and showing results mathematically. Show your work for each question.</p>
+<p><strong>You may write the answers and associated work for conceptual exercises by hand or type them in your Quarto document.</strong></p>
+</div>
+</div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>In lecture, we introduced <span class="math inline">\(\mathbf{H}\)</span>, the hat matrix, as a projection matrix that projects <span class="math inline">\(\mathbf{y}\)</span> onto <span class="math inline">\(\text{Col}(\mathbf{X})\)</span> . Here we will show some properties of <span class="math inline">\(\mathbf{H}\)</span>.</p>
-<p>a. Show that the hat matrix <span class="math inline">\(\mathbf{H}\)</span> is symmetric <span class="math inline">\((\mathbf{H}^\mathsf{T} = \mathbf{H})\)</span> and idempotent <span class="math inline">\((\mathbf{H}^2 = \mathbf{H})\)</span>.</p>
-<p>d. Show that all eigenvalues of <span class="math inline">\(\mathbf{H}\)</span> are 0 or 1.</p>
+<ol type="a">
+<li>Show that <span class="math inline">\(\mathbf{H}\)</span> is symmetric <span class="math inline">\((\mathbf{H}^\mathsf{T} = \mathbf{H})\)</span>.</li>
+<li>Show that <span class="math inline">\(\mathbf{H}\)</span> is idempotent <span class="math inline">\((\mathbf{H}^2 = \mathbf{H})\)</span>.</li>
+<li>Show that all eigenvalues of <span class="math inline">\(\mathbf{H}\)</span> are 0 or 1.</li>
+</ol>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
@@ -535,8 +547,8 @@ y_i = \beta x_i^2 + \epsilon_i \hspace{8mm} \epsilon_i \sim N(0,\sigma^2_{\epsil
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>In class we used the sum of squared errors, <span class="math inline">\(\boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}\)</span> , to estimate the regression coefficients, <span class="math inline">\(\hat{\boldsymbol{\beta}} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{Y}\)</span> . To show this is the least squares estimator, we now need to show that we have, in fact, found the estimator for <span class="math inline">\(\boldsymbol{\beta}\)</span> that minimizes the sum of square errors.</p>
-<p>If the Hessian matrix <span class="math inline">\(\nabla_{\boldsymbol{\beta}}^2 \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}\)</span> is positive definite, then we know we have found the <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> that minimizes the sum of squared errors, i.e., the least squares estimator.</p>
+<p>In class we used the sum of squared errors, <span class="math inline">\(\boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}\)</span> , to find the least-squares estimator, <span class="math inline">\(\hat{\boldsymbol{\beta}} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{Y}\)</span> . To show this is the least-squares estimator, we now need to show that we have found the estimator for <span class="math inline">\(\boldsymbol{\beta}\)</span> that minimizes the sum of squared errors.</p>
+<p>If the Hessian matrix <span class="math inline">\(\nabla_{\boldsymbol{\beta}}^2 \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}\)</span> is positive definite, then we know we have found a minimum.</p>
 <p>Show that <span class="math inline">\(\nabla_{\boldsymbol{\beta}}^2 \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon} \propto \mathbf{X}^\mathsf{T}\mathbf{X}\)</span> is positive definite.</p>
 </section>
 <section id="exercise-4" class="level2">
@@ -554,15 +566,24 @@ y_i = \beta x_i^2 + \epsilon_i \hspace{8mm} \epsilon_i \sim N(0,\sigma^2_{\epsil
 </section>
 <section id="applied-exercises" class="level1">
 <h1>Applied exercises</h1>
-<section id="instructions-1" class="level2">
-<h2 class="anchored" data-anchor-id="instructions-1">Instructions</h2>
-<p>The applied exercises are focused on applying the concepts to analyze data.</p>
-<p><strong>All work for the applied exercises must be typed in your Quarto document following a reproducible workflow.</strong></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Instructions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The applied exercises are focused on use the methods from the course to analyze data and answer questions about real-world phenomena.</p>
+<p><strong>All work for the applied exercises must be typed in your Quarto document. Remember to render, commit, and push your work to GitHub regularly.</strong></p>
 <p>Write all narrative using complete sentences and include informative axis labels / titles on visualizations.</p>
-</section>
-<section id="data---update" class="level2">
-<h2 class="anchored" data-anchor-id="data---update">Data - UPDATE</h2>
-<p>[ADD DESCRIPTION]</p>
+</div>
+</div>
+<section id="data-lemurs" class="level2">
+<h2 class="anchored" data-anchor-id="data-lemurs">Data: Lemurs</h2>
+<p>The data used in this analysis includes measurements and other characteristics for lemurs from the Eulemur rufus (ERUF), Propithecus coquereli (PCOQ), and Varecia rubra (VRUB) taxa who have lived in the Duke Lemur Center. Though the lemurs are measured regularly while at the center, this data set includes one randomly selected measurement for each lemur taken when they were 24 months old or younger. These data were originally featured in as part of the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-08-24/readme.md">TidyTuesday</a> weekly data visualization challenge in August 2021.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lemurs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://intro-regression.github.io/data/lemurs-sample-young.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -571,16 +592,16 @@ y_i = \beta x_i^2 + \epsilon_i \hspace{8mm} \epsilon_i \sim N(0,\sigma^2_{\epsil
 <li><p><code>age</code>: Age of the lemur in months</p></li>
 <li><p><code>weight</code>: Weight of the lemur in grams</p></li>
 </ul>
+<section id="analysis-goal" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-goal">Analysis goal</h3>
+<p>The goal of this analysis is to use linear regression to explore the growth rate of young lemurs (age 24 months or younger). More specifically, we want to use <code>age</code> to explain variability in <code>weight</code>.</p>
 </section>
-<section id="analysis-goal" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-goal">Analysis goal</h2>
-<p>The goal of this analysis is to use linear regression explain variability in ice duration for lakes in Madison, WI based on air temperature. Because ice cover is impacted by various environmental factors, researchers are interested in examining the association between these two factors to better understand the changing climate.</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6"><strong>Exercise 6</strong></h2>
-<p>Let’s start by looking at the response and predictor variables.</p>
+<p>Let’s start by exploring the response and predictor variables.</p>
 <ol type="a">
-<li><p>Visualize distribution of <code>weight</code>. Describe the distrbution.</p></li>
+<li><p>Visualize distribution of <code>weight</code>. Describe the distribution.</p></li>
 <li><p>Visualize the distribution of <code>age</code>. Describe the distribution.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -600,19 +621,6 @@ Tip
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
 <p>Visualize the relationship between <code>weight</code> and <code>age</code>. Do you think a linear model is a reasonable choice to summarize the relationship between the two variables? Briefly explain.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Now is a good time to render your document again if you haven’t done so recently and commit (with a meaningful commit message) and push all updates.</p>
-</div>
-</div>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
@@ -629,26 +637,41 @@ Important
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
 <ol type="a">
-<li><p>Calculate <span class="math inline">\(R^2\)</span> for the model in the previous exercise and interpret it in the context of the data.</p></li>
-<li><p>Calculate <span class="math inline">\(RMSE\)</span> for the model from the previous exercise and interpret it in the context of the data.</p></li>
+<li><p>Compute <span class="math inline">\(R^2\)</span> for the model in the previous exercise and interpret it in the context of the data.</p></li>
+<li><p>Compute <span class="math inline">\(RMSE\)</span> for the model from the previous exercise and interpret it in the context of the data.</p></li>
 <li><p>Comment on the model fit based on <span class="math inline">\(R^2\)</span> and <span class="math inline">\(RMSE\)</span>.</p></li>
 </ol>
 </section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<p>a. Interpret the slope in the context of the data.</p>
+<p>a. Interpret the slope for the model fit in Exercise 8 in the context of the data.</p>
 <p>b. A lemur named Strawberry (<code>dlc_id = 6582</code>) weighed 475.0 grams when she was 3.19 months old. What was predicted weight for this lemur based on the model? What is the residual?</p>
+</section>
+<section id="ai-disclosure" class="level2">
+<h2 class="anchored" data-anchor-id="ai-disclosure">AI Disclosure</h2>
+<p>Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste <u><strong>all</strong></u> statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.</p>
+<ul>
+<li>I didn’t an LLM / Generative AI tool.</li>
+<li>I asked it to clarify one or more exercises.</li>
+<li>I asked it clarifying questions to better understand a concept.</li>
+<li>I asked it to help write code to complete an exercise.</li>
+<li>I gave it my code and asked it to help me fix it.</li>
+<li>I asked it about an error or why code would do something I didn’t want.</li>
+<li>I used it for some other debugging task.</li>
+<li>I pasted the question prompt in and asked for help, but I wrote my answer myself.</li>
+<li>Other:______</li>
+</ul>
 </section>
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -667,7 +690,7 @@ Warning
 </div>
 <p>To submit your assignment:</p>
 <ul>
-<li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/51767">STA 221 Canvas site.</a></p></li>
+<li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/73984">STA 221 Canvas site.</a></p></li>
 <li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
 <li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
 <li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
@@ -685,51 +708,55 @@ Warning
 <tbody>
 <tr class="odd">
 <td>Ex 1</td>
-<td></td>
+<td>6</td>
 </tr>
 <tr class="even">
 <td>Ex 2</td>
-<td></td>
+<td>4</td>
 </tr>
 <tr class="odd">
 <td>Ex 3</td>
-<td></td>
+<td>4</td>
 </tr>
 <tr class="even">
 <td>Ex 4</td>
-<td></td>
+<td>4</td>
 </tr>
 <tr class="odd">
 <td>Ex 5</td>
-<td></td>
+<td>4</td>
 </tr>
 <tr class="even">
 <td>Ex 6</td>
-<td></td>
+<td>5</td>
 </tr>
 <tr class="odd">
 <td>Ex 7</td>
-<td></td>
+<td>5</td>
 </tr>
 <tr class="even">
 <td>Ex 8</td>
-<td></td>
+<td>6</td>
 </tr>
 <tr class="odd">
 <td>Ex 9</td>
-<td></td>
+<td>4</td>
 </tr>
 <tr class="even">
 <td>Ex 10</td>
-<td></td>
+<td>4</td>
 </tr>
 <tr class="odd">
+<td>Completing AI Disclosure</td>
+<td>1</td>
+</tr>
+<tr class="even">
 <td>Workflow &amp; formatting</td>
-<td></td>
+<td>3</td>
 </tr>
 </tbody>
 </table>
-<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.</p>
+<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code, along with your name and the date updated in the YAML.</p>
 
 
 
