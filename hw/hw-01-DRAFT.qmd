@@ -129,7 +129,7 @@ The analysis will focus on the following variables:
 
 The goal of this analysis is to use linear regression to explore the growth rate of young lemurs (age 24 months or younger). More specifically, we want to use `age` to explain variability in `weight`.
 
-## **Exercise 6**
+## Exercise 6
 
 Let's start by exploring the response and predictor variables.
 
@@ -171,7 +171,9 @@ a\. Interpret the slope for the model fit in Exercise 8 in the context of the da
 
 b\. A lemur named Strawberry (`dlc_id = 6582`) weighed 475.0 grams when she was 3.19 months old. What was predicted weight for this lemur based on the model? What is the residual?
 
-## AI Disclosure
+# AI Disclosure
+
+# AI Disclosure
 
 Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste [**all**]{.underline} statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.
 
@@ -181,8 +183,8 @@ Did you use an LLM / Generative AI tool to complete this assignment? If not, cop
 -   I asked it to help write code to complete an exercise.
 -   I gave it my code and asked it to help me fix it.
 -   I asked it about an error or why code would do something I didn't want.
--   I used it for some other debugging task.
--   I pasted the question prompt in and asked for help, but I wrote my answer myself.
+-   I pasted the exercise prompt in AI and asked for help, but I wrote my answer myself.
+-   I pasted the exercise prompt in AI and copied and pasted at least some of the answer into my Quarto document.
 -   Other:\_\_\_\_\_\_
 
 # Submission
