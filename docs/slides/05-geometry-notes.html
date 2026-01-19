@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Prof.&nbsp;Maria Tackett">
 
-<title>HW 01: Simple linear regression – STA 221 - Spring 2026</title>
+<title>Geometric interpretation of least-squares regression – STA 221 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,62 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -125,7 +71,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -165,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 01: Simple linear regression</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Geometric interpretation of least-squares regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -409,51 +355,42 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#conceptual-exercises" id="toc-conceptual-exercises" class="nav-link" data-scroll-target="#conceptual-exercises">Conceptual exercises</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  </ul></li>
-  <li><a href="#applied-exercises" id="toc-applied-exercises" class="nav-link" data-scroll-target="#applied-exercises">Applied exercises</a>
-  <ul class="collapse">
-  <li><a href="#data-lemurs" id="toc-data-lemurs" class="nav-link" data-scroll-target="#data-lemurs">Data: Lemurs</a>
-  <ul class="collapse">
-  <li><a href="#analysis-goal" id="toc-analysis-goal" class="nav-link" data-scroll-target="#analysis-goal">Analysis goal</a></li>
-  </ul></li>
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
-  </ul></li>
-  <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI Disclosure</a></li>
-  <li><a href="#ai-disclosure-1" id="toc-ai-disclosure-1" class="nav-link" data-scroll-target="#ai-disclosure-1">AI Disclosure</a></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading-50-points" id="toc-grading-50-points" class="nav-link" data-scroll-target="#grading-50-points">Grading (50 points)</a></li>
+  <li><a href="#announcements" id="toc-announcements" class="nav-link active" data-scroll-target="#announcements">Announcements</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#recap-regression-in-matrix-from" id="toc-recap-regression-in-matrix-from" class="nav-link" data-scroll-target="#recap-regression-in-matrix-from">Recap: Regression in matrix from</a></li>
+  <li><a href="#recap-derive-hatboldsymbolbeta" id="toc-recap-derive-hatboldsymbolbeta" class="nav-link" data-scroll-target="#recap-derive-hatboldsymbolbeta">Recap: Derive <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></a></li>
+  <li><a href="#geometry-of-least-squares-regression" id="toc-geometry-of-least-squares-regression" class="nav-link" data-scroll-target="#geometry-of-least-squares-regression">Geometry of least-squares regression</a></li>
+  <li><a href="#geometry-of-least-squares-regression-1" id="toc-geometry-of-least-squares-regression-1" class="nav-link" data-scroll-target="#geometry-of-least-squares-regression-1">Geometry of least-squares regression</a></li>
+  <li><a href="#geometry-of-least-squares-regression-2" id="toc-geometry-of-least-squares-regression-2" class="nav-link" data-scroll-target="#geometry-of-least-squares-regression-2">Geometry of least-squares regression</a></li>
+  <li><a href="#hat-matrix" id="toc-hat-matrix" class="nav-link" data-scroll-target="#hat-matrix">Hat matrix</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="05-geometry.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 01: Simple linear regression</h1>
-<p class="subtitle lead">Lemurs</p>
+<h1 class="title">Geometric interpretation of least-squares regression</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Prof.&nbsp;Maria Tackett </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Jan 23, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -463,317 +400,143 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Due date
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Thursday, January 29 at 11:59pm</strong>. To be considered on time, the following must be done by the due date:</p>
+<section id="announcements" class="level2">
+<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
-<li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</li>
-<li>Final <code>.pdf</code> file submitted on Gradescope</li>
-</ul>
-</div>
-</div>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>In this assignment, you will use simple linear regression to explore the growth rate of young lemurs in the Duke Lemur Center. You will also explore the mathematical properties of linear regression models.</p>
-</section>
-<section id="learning-goals" class="level1">
-<h1>Learning goals</h1>
-<p>In this assignment, you will…</p>
+<li><p>HW 01 due <strong>Thursday, January 30 at 11:59pm</strong></p>
 <ul>
-<li>use matrix operations to show results about simple linear regression.</li>
-<li>conduct exploratory data analysis.</li>
-<li>fit and interpret simple linear regression models.</li>
-<li>evaluate model fit.</li>
-<li>continue developing a workflow for reproducible data analysis.</li>
+<li><p>Released after class.</p></li>
+<li><p>Make sure you are a member of the course GitHub organization</p>
+<ul>
+<li>If you can see the number of people in the org, then you are a member!</li>
+</ul></li>
+</ul></li>
 </ul>
 </section>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
+<section id="topics" class="level2">
+<h2 class="anchored" data-anchor-id="topics">Topics</h2>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/sta221-sp26">sta221-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>hw-01</strong>. It contains the starter documents you need to complete the lab.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
+<li>Geometric interpretation of least-squares regression</li>
 </ul>
 </section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>The following packages are used in this assignment:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="conceptual-exercises" class="level1">
-<h1>Conceptual exercises</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Instructions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The conceptual exercises are focused on explaining concepts and showing results mathematically. Show your work for each question.</p>
-<p><strong>You may write the answers and associated work for conceptual exercises by hand or type them in your Quarto document.</strong></p>
-</div>
-</div>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>In lecture, we introduced <span class="math inline">\(\mathbf{H}\)</span>, the hat matrix, as a projection matrix that projects <span class="math inline">\(\mathbf{y}\)</span> onto <span class="math inline">\(\text{Col}(\mathbf{X})\)</span> . Here we will show some properties of <span class="math inline">\(\mathbf{H}\)</span>.</p>
-<ol type="a">
-<li>Show that <span class="math inline">\(\mathbf{H}\)</span> is symmetric <span class="math inline">\((\mathbf{H}^\mathsf{T} = \mathbf{H})\)</span>.</li>
-<li>Show that <span class="math inline">\(\mathbf{H}\)</span> is idempotent <span class="math inline">\((\mathbf{H}^2 = \mathbf{H})\)</span>.</li>
-<li>Show that all eigenvalues of <span class="math inline">\(\mathbf{H}\)</span> are 0 or 1.</li>
-</ol>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p><em>This exercise is adapted from <span class="citation" data-cites="casella2024statistical">Casella and Berger (<a href="#ref-casella2024statistical" role="doc-biblioref">2024</a>)</span>.</em></p>
-<p>Suppose there are <span class="math inline">\(n\)</span> observations <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span>, such that the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can be summarized as <span class="math display">\[
-y_i = \beta x_i^2 + \epsilon_i \hspace{8mm} \epsilon_i \sim N(0,\sigma^2_{\epsilon})
-\]</span></p>
-<p>Find, <span class="math inline">\(\hat{\beta}\)</span>, the least-squares estimator of <span class="math inline">\(\beta\)</span>.</p>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>In class we used the sum of squared errors, <span class="math inline">\(\boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}\)</span> , to find the least-squares estimator, <span class="math inline">\(\hat{\boldsymbol{\beta}} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{Y}\)</span> . To show this is the least-squares estimator, we now need to show that we have found the estimator for <span class="math inline">\(\boldsymbol{\beta}\)</span> that minimizes the sum of squared errors.</p>
-<p>If the Hessian matrix <span class="math inline">\(\nabla_{\boldsymbol{\beta}}^2 \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}\)</span> is positive definite, then we know we have found a minimum.</p>
-<p>Show that <span class="math inline">\(\nabla_{\boldsymbol{\beta}}^2 \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon} \propto \mathbf{X}^\mathsf{T}\mathbf{X}\)</span> is positive definite.</p>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p><em>This exercise is adapted from <span class="citation" data-cites="montgomery2021introduction">Montgomery, Peck, and Vining (<a href="#ref-montgomery2021introduction" role="doc-biblioref">2021</a>)</span> .</em></p>
-<p>Prove that the maximum value of <span class="math inline">\(R^2\)</span> must be less than 1 if the data set contains observations such that there are different observed values of the response for the same value of the predictor (e.g., the data set contains observations <span class="math inline">\((x_i, y_i)\)</span> and <span class="math inline">\((x_j, y_j)\)</span> such that <span class="math inline">\(x_i = x_j\)</span> and <span class="math inline">\(y_i \neq y_j\)</span> ).</p>
-</section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Show that the sum of squared residuals (SSR) can be written as the following:</p>
+<section id="recap-regression-in-matrix-from" class="level2">
+<h2 class="anchored" data-anchor-id="recap-regression-in-matrix-from">Recap: Regression in matrix from</h2>
+<p>The simple linear regression model can be represented using vectors and matrices as</p>
+<div class="equation">
 <p><span class="math display">\[
-\mathbf{y}^\mathsf{T}\mathbf{y} - \hat{\boldsymbol{\beta}}^\mathsf{T}\mathbf{X}^\mathsf{T}\mathbf{y}
+\large{\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}}
 \]</span></p>
-</section>
-</section>
-<section id="applied-exercises" class="level1">
-<h1>Applied exercises</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Instructions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The applied exercises are focused on use the methods from the course to analyze data and answer questions about real-world phenomena.</p>
-<p><strong>All work for the applied exercises must be typed in your Quarto document. Remember to render, commit, and push your work to GitHub regularly.</strong></p>
-<p>Write all narrative using complete sentences and include informative axis labels / titles on visualizations.</p>
-</div>
-</div>
-<section id="data-lemurs" class="level2">
-<h2 class="anchored" data-anchor-id="data-lemurs">Data: Lemurs</h2>
-<p>The data used in this analysis includes measurements and other characteristics for lemurs from the Eulemur rufus (ERUF), Propithecus coquereli (PCOQ), and Varecia rubra (VRUB) taxa who have lived in the Duke Lemur Center. Though the lemurs are measured regularly while at the center, this data set includes one randomly selected measurement for each lemur taken when they were 24 months old or younger. These data were originally featured in as part of the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-08-24/readme.md">TidyTuesday</a> weekly data visualization challenge in August 2021.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lemurs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://intro-regression.github.io/data/lemurs-sample-young.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>The analysis will focus on the following variables:</p>
 <ul>
-<li><p><code>age</code>: Age of the lemur in months</p></li>
-<li><p><code>weight</code>: Weight of the lemur in grams</p></li>
-</ul>
-<section id="analysis-goal" class="level3">
-<h3 class="anchored" data-anchor-id="analysis-goal">Analysis goal</h3>
-<p>The goal of this analysis is to use linear regression to explore the growth rate of young lemurs (age 24 months or younger). More specifically, we want to use <code>age</code> to explain variability in <code>weight</code>.</p>
-</section>
-</section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Let’s start by exploring the response and predictor variables.</p>
-<ol type="a">
-<li><p>Visualize distribution of <code>weight</code>. Describe the distribution.</p></li>
-<li><p>Visualize the distribution of <code>age</code>. Describe the distribution.</p></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The description should include shape, center, spread, and presence of outliers. Use specific values in your description. See <a href="https://intro-regression.github.io/03-eda.html#sec-univar-eda-quant">Section 3.4.2</a> of <em>Introduction to Regression Analysis</em> for more information about describing univariate distributions. See the <a href="https://ggplot2.tidyverse.org/reference/index.html#geoms">ggplot2 reference</a> for example code and plots.</p>
-</div>
-</div>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Visualize the relationship between <code>weight</code> and <code>age</code>. Do you think a linear model is a reasonable choice to summarize the relationship between the two variables? Briefly explain.</p>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>We will fit a model using <code>age</code> to explain variability in the <code>weight</code>. The model takes the form</p>
-<p><span class="math display">\[
-\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}
-\]</span></p>
-<ol type="a">
-<li>State the dimensions of <span class="math inline">\(\mathbf{y}\)</span>, <span class="math inline">\(\mathbf{X}\)</span>, <span class="math inline">\(\boldsymbol{\beta}\)</span>, <span class="math inline">\(\boldsymbol{\epsilon}\)</span> for this analysis. Your answer should have exact values given this data set.</li>
-<li>Estimate the regression coefficients <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> in R using the matrix representation. Show the code used to get the answer.</li>
-<li>Check your results from part (b) by using the <code>lm</code> function to fit the model. Neatly display your results using 3 digits.</li>
-</ol>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<ol type="a">
-<li><p>Compute <span class="math inline">\(R^2\)</span> for the model in the previous exercise and interpret it in the context of the data.</p></li>
-<li><p>Compute <span class="math inline">\(RMSE\)</span> for the model from the previous exercise and interpret it in the context of the data.</p></li>
-<li><p>Comment on the model fit based on <span class="math inline">\(R^2\)</span> and <span class="math inline">\(RMSE\)</span>.</p></li>
-</ol>
-</section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<p>a. Interpret the slope for the model fit in Exercise 8 in the context of the data.</p>
-<p>b. A lemur named Strawberry (<code>dlc_id = 6582</code>) weighed 475.0 grams when she was 3.19 months old. What was predicted weight for this lemur based on the model? What is the residual?</p>
-</section>
-</section>
-<section id="ai-disclosure" class="level1">
-<h1>AI Disclosure</h1>
-</section>
-<section id="ai-disclosure-1" class="level1">
-<h1>AI Disclosure</h1>
-<p>Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste <u><strong>all</strong></u> statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.</p>
-<ul>
-<li>I didn’t an LLM / Generative AI tool.</li>
-<li>I asked it to clarify one or more exercises.</li>
-<li>I asked it clarifying questions to better understand a concept.</li>
-<li>I asked it to help write code to complete an exercise.</li>
-<li>I gave it my code and asked it to help me fix it.</li>
-<li>I asked it about an error or why code would do something I didn’t want.</li>
-<li>I pasted the exercise prompt in AI and asked for help, but I wrote my answer myself.</li>
-<li>I pasted the exercise prompt in AI and copied and pasted at least some of the answer into my Quarto document.</li>
-<li>Other:______</li>
+<li><p><span class="math inline">\(\mathbf{y}\)</span> : Vector of responses</p></li>
+<li><p><span class="math inline">\(\mathbf{X}\)</span>: Design matrix (columns for predictors + intercept)</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\beta}\)</span>: Vector of model coefficients</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\epsilon}\)</span>: Vector of error terms centered at <span class="math inline">\(\mathbf{0}\)</span> with variance <span class="math inline">\(\sigma^2_{\epsilon}\mathbf{I}\)</span></p></li>
 </ul>
 </section>
-<section id="submission" class="level1">
-<h1>Submission</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="recap-derive-hatboldsymbolbeta" class="level2">
+<h2 class="anchored" data-anchor-id="recap-derive-hatboldsymbolbeta">Recap: Derive <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
+<p>We used matrix calculus to derive the estimator <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> that minimizes <span class="math inline">\(\boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}\)</span></p>
+<div class="equation">
+<p><span class="math display">\[\hat{\boldsymbol{\beta}} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}\]</span></p>
 </div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
-<p>If you write your responses to conceptual exercises by hand, you will need to combine your written work to the completed PDF for the applied exercises before submitting on Gradescope.</p>
-<p>Instructions to combine PDFs:</p>
-<ul>
-<li><p>Preview (Mac): <a href="https://support.apple.com/guide/preview/combine-pdfs-prvw43696/mac">support.apple.com/guide/preview/combine-pdfs-prvw43696/mac</a></p></li>
-<li><p>Adobe (Mac or PC): <a href="https://helpx.adobe.com/acrobat/using/merging-files-single-pdf.html">helpx.adobe.com/acrobat/using/merging-files-single-pdf.html</a></p>
-<ul>
-<li>Get free access to Adobe Acrobat as a Duke student: <a href="https://oit.duke.edu/help/articles/kb0030141/">oit.duke.edu/help/articles/kb0030141/</a></li>
+<p>. . .</p>
+<p>Now let’s consider how to derive the least-squares estimator using a geometric interpretation of regression</p>
+</section>
+<section id="geometry-of-least-squares-regression" class="level2">
+<h2 class="anchored" data-anchor-id="geometry-of-least-squares-regression">Geometry of least-squares regression</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Let <span class="math inline">\(\text{Col}(\mathbf{X})\)</span> be the <strong>column space</strong> of <span class="math inline">\(\mathbf{X}\)</span>: the set all possible linear combinations (span) of the columns of <span class="math inline">\(\mathbf{X}\)</span></p></li>
+<li><p>The vector of responses <span class="math inline">\(\mathbf{y}\)</span> is not in <span class="math inline">\(\text{Col}(\mathbf{X})\)</span>.</p></li>
+<li><p><strong>Goal:</strong> Find another vector <span class="math inline">\(\mathbf{z} = \mathbf{Xb}\)</span> that is in <span class="math inline">\(\text{Col}(\mathbf{X})\)</span> and is as close as possible to <span class="math inline">\(\mathbf{y}\)</span>.</p>
+<ul class="incremental">
+<li><span class="math inline">\(\mathbf{z}\)</span> is a <strong>projection</strong> of <span class="math inline">\(\mathbf{y}\)</span> onto <span class="math inline">\(\text{Col}(\mathbf{X})\)</span> .</li>
 </ul></li>
 </ul>
 </div>
-</div>
-<p>To submit your assignment:</p>
-<ul>
-<li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/73984">STA 221 Canvas site.</a></p></li>
-<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
+</section>
+<section id="geometry-of-least-squares-regression-1" class="level2">
+<h2 class="anchored" data-anchor-id="geometry-of-least-squares-regression-1">Geometry of least-squares regression</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>For any <span class="math inline">\(\mathbf{z} = \mathbf{Xb}\)</span> in <span class="math inline">\(\text{Col}(\mathbf{X})\)</span>, the vector <span class="math inline">\(\mathbf{e} = \mathbf{y} - \mathbf{Xb}\)</span> is the difference between <span class="math inline">\(\mathbf{y}\)</span> and <span class="math inline">\(\mathbf{Xb}\)</span>.</p>
+<ul class="incremental">
+<li>We want to find <span class="math inline">\(\mathbf{b}\)</span> such that <span class="math inline">\(\mathbf{z} = \mathbf{Xb}\)</span> is as close as possible to <span class="math inline">\(\mathbf{y}\)</span>, i.e, we want to minimize the difference <span class="math inline">\(\mathbf{e} = \mathbf{y} - \mathbf{Xb}\)</span></li>
+</ul></li>
+<li><p>This distance is minimized when <span class="math inline">\(\mathbf{e}\)</span> is orthogonal to <span class="math inline">\(\text{Col}(\mathbf{X})\)</span></p></li>
 </ul>
+</div>
 </section>
-<section id="grading-50-points" class="level1">
-<h1>Grading (50 points)</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ex 1</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>Ex 2</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ex 3</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Ex 4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ex 5</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Ex 6</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Ex 7</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Ex 8</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>Ex 9</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Ex 10</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Completing AI Disclosure</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Workflow &amp; formatting</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code, along with your name and the date updated in the YAML.</p>
-
+<section id="geometry-of-least-squares-regression-2" class="level2">
+<h2 class="anchored" data-anchor-id="geometry-of-least-squares-regression-2">Geometry of least-squares regression</h2>
+<ul>
+<li><p><strong>Note:</strong> If <span class="math inline">\(\mathbf{A}\)</span>, an <span class="math inline">\(n \times k\)</span> matrix, is orthogonal to an <span class="math inline">\(n \times 1\)</span> vector <span class="math inline">\(\mathbf{c}\)</span>, then <span class="math inline">\(\mathbf{A}^\mathsf{T}\mathbf{c} = \mathbf{0}\)</span></p></li>
+<li><p>Therefore, we have <span class="math inline">\(\mathbf{X}^\mathsf{T}\mathbf{e} = \mathbf{0}\)</span> , and thus</p>
+<p><span class="math display">\[
+\mathbf{X}^\mathsf{T}(\mathbf{y} - \mathbf{Xb}) = \mathbf{0}
+\]</span></p></li>
+</ul>
+<div class="question">
+<p>Solve for <span class="math inline">\(\mathbf{b}\)</span> .</p>
+</div>
+</section>
+<section id="hat-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="hat-matrix">Hat matrix</h2>
+<ul>
+<li><p>Recall the hat matrix <span class="math inline">\(\mathbf{H} = \mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\)</span>.</p></li>
+<li><p><span class="math inline">\(\hat{\mathbf{y}} = \mathbf{Hy}\)</span>, so <span class="math inline">\(\mathbf{H}\)</span> is a projection of <span class="math inline">\(\mathbf{y}\)</span> onto <span class="math inline">\(\mathbf{Xb}\)</span></p></li>
+<li><p>Properties of <span class="math inline">\(\mathbf{H}\)</span>, a projection matrix</p>
+<ul>
+<li><p><span class="math inline">\(\mathbf{H}\)</span> is symmetric (<span class="math inline">\(\mathbf{H}^\mathsf{T} = \mathbf{H}\)</span>)</p></li>
+<li><p><span class="math inline">\(\mathbf{H}\)</span> is idempotent (<span class="math inline">\(\mathbf{H}^2 = \mathbf{H}\)</span>)</p></li>
+<li><p>If <span class="math inline">\(\mathbf{v}\)</span> in <span class="math inline">\(\text{Col}(\mathbf{X})\)</span>, then <span class="math inline">\(\mathbf{Hv} = \mathbf{v}\)</span></p></li>
+<li><p>If <span class="math inline">\(\mathbf{v}\)</span> is orthogonal to <span class="math inline">\(\text{Col}(\mathbf{X})\)</span>, then <span class="math inline">\(\mathbf{Hv} = \mathbf{0}\)</span></p></li>
+</ul></li>
+</ul>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-casella2024statistical" class="csl-entry" role="listitem">
-Casella, George, and Roger Berger. 2024. <em>Statistical Inference</em>. Chapman; Hall/CRC.
-</div>
-<div id="ref-montgomery2021introduction" class="csl-entry" role="listitem">
-Montgomery, Douglas C, Elizabeth A Peck, and G Geoffrey Vining. 2021. <em>Introduction to Linear Regression Analysis</em>. John Wiley &amp; Sons.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

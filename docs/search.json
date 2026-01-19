@@ -215,6 +215,125 @@
     "text": "In this document, we show how the equality in Equation 1 holds.\n\\[\n\\begin{aligned}\nSST &= SSM + SSR \\\\[10pt]\n\\sum_{i=1}^{n}(y_i - \\bar{y})^2 &= \\sum_{i=1}^{n}(\\hat{y}_i - \\bar{y})^2 + \\sum_{i=1}^{n}(y_i -\\hat{y}_i)^2\n\\end{aligned}\n\\tag{1}\\]\nwhere \\(n\\) is the number of observations.\nWe start with the fact \\((y_i - \\bar{y}) = (\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)\\).\nThen, \\[\n\\begin{aligned}\n(y_i - \\bar{y})^2 &= [(\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)]^2\\\\[10pt]\n& = (\\hat{y}_i - \\bar{y})^2 + 2(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + (y_i - \\hat{y}_i)^2\n\\end{aligned}\n\\]\nWe can sum over both sides to get\n\\[\n\\sum_{i=1}^n(y_i - \\bar{y})^2 = \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\n\\tag{2}\\]\nFor now, let’s focus on the middle term: \\(2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i)\\)\n\\[\n\\begin{aligned}\n2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) &= 2\\sum_{i=1}^n(\\hat{y}_iy_i - \\hat{y}_i^2 - \\bar{y}y_i + \\bar{y}\\hat{y}_i)\\\\[10pt]\n& = 2\\sum_{i=1}^n\\hat{y}_i(y_i - \\hat{y}_i) - 2\\bar{y}\\sum_{i=1}^n(y_i - \\hat{y}_i) \\\\[10pt]\n&=2\\sum_{i=1}^n\\hat{y}_ie_i - 2\\bar{y}\\sum_{i=1}^ne_i\\\\[10pt]\n&= 0 \\quad(\\text{ given }\\sum_{i=1}^ne_i = 0)\n\\end{aligned}\n\\tag{3}\\]\nPlugging Equation 3 back into Equation 2, we have\n\\[\n\\begin{aligned}\n\\sum_{i=1}^n(y_i - \\bar{y})^2 &= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 0 + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2 \\\\[10pt]\n&= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 +  \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\\\\[10pt]\n\\end{aligned}\n\\]\nThus \\(SST = SSM + SSR\\)"
   },
   {
+    "objectID": "slides/05-geometry.html#announcements",
+    "href": "slides/05-geometry.html#announcements",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 01 due Thursday, January 30 at 11:59pm\n\nReleased after class.\nMake sure you are a member of the course GitHub organization\n\nIf you can see the number of people in the org, then you are a member!"
+  },
+  {
+    "objectID": "slides/05-geometry.html#topics",
+    "href": "slides/05-geometry.html#topics",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Topics",
+    "text": "Topics\n\nGeometric interpretation of least-squares regression"
+  },
+  {
+    "objectID": "slides/05-geometry.html#recap-regression-in-matrix-from",
+    "href": "slides/05-geometry.html#recap-regression-in-matrix-from",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Recap: Regression in matrix from",
+    "text": "Recap: Regression in matrix from\nThe simple linear regression model can be represented using vectors and matrices as\n\n\\[\n\\large{\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}}\n\\]\n\n\n\\(\\mathbf{y}\\) : Vector of responses\n\\(\\mathbf{X}\\): Design matrix (columns for predictors + intercept)\n\\(\\boldsymbol{\\beta}\\): Vector of model coefficients\n\\(\\boldsymbol{\\epsilon}\\): Vector of error terms centered at \\(\\mathbf{0}\\) with variance \\(\\sigma^2_{\\epsilon}\\mathbf{I}\\)"
+  },
+  {
+    "objectID": "slides/05-geometry.html#recap-derive-hatboldsymbolbeta",
+    "href": "slides/05-geometry.html#recap-derive-hatboldsymbolbeta",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Recap: Derive \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Recap: Derive \\(\\hat{\\boldsymbol{\\beta}}\\)\nWe used matrix calculus to derive the estimator \\(\\hat{\\boldsymbol{\\beta}}\\) that minimizes \\(\\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon}\\)\n\n\\[\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\\]\n\n\nNow let’s consider how to derive the least-squares estimator using a geometric interpretation of regression"
+  },
+  {
+    "objectID": "slides/05-geometry.html#geometry-of-least-squares-regression",
+    "href": "slides/05-geometry.html#geometry-of-least-squares-regression",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\nLet \\(\\text{Col}(\\mathbf{X})\\) be the column space of \\(\\mathbf{X}\\): the set all possible linear combinations (span) of the columns of \\(\\mathbf{X}\\)\nThe vector of responses \\(\\mathbf{y}\\) is not in \\(\\text{Col}(\\mathbf{X})\\).\nGoal: Find another vector \\(\\mathbf{z} = \\mathbf{Xb}\\) that is in \\(\\text{Col}(\\mathbf{X})\\) and is as close as possible to \\(\\mathbf{y}\\).\n\n\\(\\mathbf{z}\\) is a projection of \\(\\mathbf{y}\\) onto \\(\\text{Col}(\\mathbf{X})\\) ."
+  },
+  {
+    "objectID": "slides/05-geometry.html#geometry-of-least-squares-regression-1",
+    "href": "slides/05-geometry.html#geometry-of-least-squares-regression-1",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\nFor any \\(\\mathbf{z} = \\mathbf{Xb}\\) in \\(\\text{Col}(\\mathbf{X})\\), the vector \\(\\mathbf{e} = \\mathbf{y} - \\mathbf{Xb}\\) is the difference between \\(\\mathbf{y}\\) and \\(\\mathbf{Xb}\\).\n\nWe want to find \\(\\mathbf{b}\\) such that \\(\\mathbf{z} = \\mathbf{Xb}\\) is as close as possible to \\(\\mathbf{y}\\), i.e, we want to minimize the difference \\(\\mathbf{e} = \\mathbf{y} - \\mathbf{Xb}\\)\n\nThis distance is minimized when \\(\\mathbf{e}\\) is orthogonal to \\(\\text{Col}(\\mathbf{X})\\)"
+  },
+  {
+    "objectID": "slides/05-geometry.html#geometry-of-least-squares-regression-2",
+    "href": "slides/05-geometry.html#geometry-of-least-squares-regression-2",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\nNote: If \\(\\mathbf{A}\\), an \\(n \\times k\\) matrix, is orthogonal to an \\(n \\times 1\\) vector \\(\\mathbf{c}\\), then \\(\\mathbf{A}^\\mathsf{T}\\mathbf{c} = \\mathbf{0}\\)\nTherefore, we have \\(\\mathbf{X}^\\mathsf{T}\\mathbf{e} = \\mathbf{0}\\) , and thus\n\\[\n\\mathbf{X}^\\mathsf{T}(\\mathbf{y} - \\mathbf{Xb}) = \\mathbf{0}\n\\]\n\n\nSolve for \\(\\mathbf{b}\\) ."
+  },
+  {
+    "objectID": "slides/05-geometry.html#hat-matrix",
+    "href": "slides/05-geometry.html#hat-matrix",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Hat matrix",
+    "text": "Hat matrix\n\nRecall the hat matrix \\(\\mathbf{H} = \\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\).\n\\(\\hat{\\mathbf{y}} = \\mathbf{Hy}\\), so \\(\\mathbf{H}\\) is a projection of \\(\\mathbf{y}\\) onto \\(\\mathbf{Xb}\\)\nProperties of \\(\\mathbf{H}\\), a projection matrix\n\n\\(\\mathbf{H}\\) is symmetric (\\(\\mathbf{H}^\\mathsf{T} = \\mathbf{H}\\))\n\\(\\mathbf{H}\\) is idempotent (\\(\\mathbf{H}^2 = \\mathbf{H}\\))\nIf \\(\\mathbf{v}\\) in \\(\\text{Col}(\\mathbf{X})\\), then \\(\\mathbf{Hv} = \\mathbf{v}\\)\nIf \\(\\mathbf{v}\\) is orthogonal to \\(\\text{Col}(\\mathbf{X})\\), then \\(\\mathbf{Hv} = \\mathbf{0}\\)"
+  },
+  {
+    "objectID": "slides/05-geometry-notes.html",
+    "href": "slides/05-geometry-notes.html",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "",
+    "text": "HW 01 due Thursday, January 30 at 11:59pm\n\nReleased after class.\nMake sure you are a member of the course GitHub organization\n\nIf you can see the number of people in the org, then you are a member!"
+  },
+  {
+    "objectID": "slides/05-geometry-notes.html#announcements",
+    "href": "slides/05-geometry-notes.html#announcements",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "",
+    "text": "HW 01 due Thursday, January 30 at 11:59pm\n\nReleased after class.\nMake sure you are a member of the course GitHub organization\n\nIf you can see the number of people in the org, then you are a member!"
+  },
+  {
+    "objectID": "slides/05-geometry-notes.html#topics",
+    "href": "slides/05-geometry-notes.html#topics",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Topics",
+    "text": "Topics\n\nGeometric interpretation of least-squares regression"
+  },
+  {
+    "objectID": "slides/05-geometry-notes.html#recap-regression-in-matrix-from",
+    "href": "slides/05-geometry-notes.html#recap-regression-in-matrix-from",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Recap: Regression in matrix from",
+    "text": "Recap: Regression in matrix from\nThe simple linear regression model can be represented using vectors and matrices as\n\n\\[\n\\large{\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}}\n\\]\n\n\n\\(\\mathbf{y}\\) : Vector of responses\n\\(\\mathbf{X}\\): Design matrix (columns for predictors + intercept)\n\\(\\boldsymbol{\\beta}\\): Vector of model coefficients\n\\(\\boldsymbol{\\epsilon}\\): Vector of error terms centered at \\(\\mathbf{0}\\) with variance \\(\\sigma^2_{\\epsilon}\\mathbf{I}\\)"
+  },
+  {
+    "objectID": "slides/05-geometry-notes.html#recap-derive-hatboldsymbolbeta",
+    "href": "slides/05-geometry-notes.html#recap-derive-hatboldsymbolbeta",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Recap: Derive \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Recap: Derive \\(\\hat{\\boldsymbol{\\beta}}\\)\nWe used matrix calculus to derive the estimator \\(\\hat{\\boldsymbol{\\beta}}\\) that minimizes \\(\\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon}\\)\n\n\\[\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\\]\n\n. . .\nNow let’s consider how to derive the least-squares estimator using a geometric interpretation of regression"
+  },
+  {
+    "objectID": "slides/05-geometry-notes.html#geometry-of-least-squares-regression",
+    "href": "slides/05-geometry-notes.html#geometry-of-least-squares-regression",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\n\nLet \\(\\text{Col}(\\mathbf{X})\\) be the column space of \\(\\mathbf{X}\\): the set all possible linear combinations (span) of the columns of \\(\\mathbf{X}\\)\nThe vector of responses \\(\\mathbf{y}\\) is not in \\(\\text{Col}(\\mathbf{X})\\).\nGoal: Find another vector \\(\\mathbf{z} = \\mathbf{Xb}\\) that is in \\(\\text{Col}(\\mathbf{X})\\) and is as close as possible to \\(\\mathbf{y}\\).\n\n\\(\\mathbf{z}\\) is a projection of \\(\\mathbf{y}\\) onto \\(\\text{Col}(\\mathbf{X})\\) ."
+  },
+  {
+    "objectID": "slides/05-geometry-notes.html#geometry-of-least-squares-regression-1",
+    "href": "slides/05-geometry-notes.html#geometry-of-least-squares-regression-1",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\n\nFor any \\(\\mathbf{z} = \\mathbf{Xb}\\) in \\(\\text{Col}(\\mathbf{X})\\), the vector \\(\\mathbf{e} = \\mathbf{y} - \\mathbf{Xb}\\) is the difference between \\(\\mathbf{y}\\) and \\(\\mathbf{Xb}\\).\n\nWe want to find \\(\\mathbf{b}\\) such that \\(\\mathbf{z} = \\mathbf{Xb}\\) is as close as possible to \\(\\mathbf{y}\\), i.e, we want to minimize the difference \\(\\mathbf{e} = \\mathbf{y} - \\mathbf{Xb}\\)\n\nThis distance is minimized when \\(\\mathbf{e}\\) is orthogonal to \\(\\text{Col}(\\mathbf{X})\\)"
+  },
+  {
+    "objectID": "slides/05-geometry-notes.html#geometry-of-least-squares-regression-2",
+    "href": "slides/05-geometry-notes.html#geometry-of-least-squares-regression-2",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\nNote: If \\(\\mathbf{A}\\), an \\(n \\times k\\) matrix, is orthogonal to an \\(n \\times 1\\) vector \\(\\mathbf{c}\\), then \\(\\mathbf{A}^\\mathsf{T}\\mathbf{c} = \\mathbf{0}\\)\nTherefore, we have \\(\\mathbf{X}^\\mathsf{T}\\mathbf{e} = \\mathbf{0}\\) , and thus\n\\[\n\\mathbf{X}^\\mathsf{T}(\\mathbf{y} - \\mathbf{Xb}) = \\mathbf{0}\n\\]\n\n\nSolve for \\(\\mathbf{b}\\) ."
+  },
+  {
+    "objectID": "slides/05-geometry-notes.html#hat-matrix",
+    "href": "slides/05-geometry-notes.html#hat-matrix",
+    "title": "Geometric interpretation of least-squares regression",
+    "section": "Hat matrix",
+    "text": "Hat matrix\n\nRecall the hat matrix \\(\\mathbf{H} = \\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\).\n\\(\\hat{\\mathbf{y}} = \\mathbf{Hy}\\), so \\(\\mathbf{H}\\) is a projection of \\(\\mathbf{y}\\) onto \\(\\mathbf{Xb}\\)\nProperties of \\(\\mathbf{H}\\), a projection matrix\n\n\\(\\mathbf{H}\\) is symmetric (\\(\\mathbf{H}^\\mathsf{T} = \\mathbf{H}\\))\n\\(\\mathbf{H}\\) is idempotent (\\(\\mathbf{H}^2 = \\mathbf{H}\\))\nIf \\(\\mathbf{v}\\) in \\(\\text{Col}(\\mathbf{X})\\), then \\(\\mathbf{Hv} = \\mathbf{v}\\)\nIf \\(\\mathbf{v}\\) is orthogonal to \\(\\text{Col}(\\mathbf{X})\\), then \\(\\mathbf{Hv} = \\mathbf{0}\\)"
+  },
+  {
     "objectID": "slides/01-welcome.html#meet-prof.-tackett",
     "href": "slides/01-welcome.html#meet-prof.-tackett",
     "title": "Welcome to STA 221!",
@@ -751,7 +870,7 @@
     "href": "index.html",
     "title": "STA 221 - Regression Analysis: Theory and Applications",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nInference for regression cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\nTh\nFeb 5\nInference for regression cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference for regression cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nInference for regression cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\nTh\nFeb 5\nInference for regression cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference for regression cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
     "crumbs": [
       "Schedule"
     ]
@@ -1390,13 +1509,6 @@
     "title": "HW 01: Simple linear regression",
     "section": "Exercise 10",
     "text": "Exercise 10\na. Interpret the slope for the model fit in Exercise 8 in the context of the data.\nb. A lemur named Strawberry (dlc_id = 6582) weighed 475.0 grams when she was 3.19 months old. What was predicted weight for this lemur based on the model? What is the residual?"
-  },
-  {
-    "objectID": "hw/hw-01-DRAFT.html#ai-disclosure",
-    "href": "hw/hw-01-DRAFT.html#ai-disclosure",
-    "title": "HW 01: Simple linear regression",
-    "section": "AI Disclosure",
-    "text": "AI Disclosure\nDid you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste all statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps learn how students are most effectively using AI.\n\nI didn’t an LLM / Generative AI tool.\nI asked it to clarify one or more exercises.\nI asked it clarifying questions to better understand a concept.\nI asked it to help write code to complete an exercise.\nI gave it my code and asked it to help me fix it.\nI asked it about an error or why code would do something I didn’t want.\nI used it for some other debugging task.\nI pasted the question prompt in and asked for help, but I wrote my answer myself.\nOther:______"
   },
   {
     "objectID": "hw/hw-01.html",
@@ -2552,6 +2664,363 @@
     "title": "SLR: Model evaluation",
     "section": "References",
     "text": "References\n\n\n\n\nZarulli, Virginia, Elizaveta Sopina, Veronica Toffolutti, and Adam Lenart. 2021. “Health Care System Efficiency and Life Expectancy: A 140-Country Study.” Edited by Srinivas Goli. PLOS ONE 16 (7): e0253450. https://doi.org/10.1371/journal.pone.0253450."
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html",
+    "href": "slides/04-slr-matrix-notes.html",
+    "title": "SLR: Matrix representation",
+    "section": "",
+    "text": "Lab 01 due on TODAY at 11:59pm\n\nPush work to GitHub repo\nSubmit final PDF on Gradescope + mark pages for each question\n\nHW 01 released today - due Thursday, January 29 at 11:59pm\n\nNote: AI Disclosure"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#announcements",
+    "href": "slides/04-slr-matrix-notes.html#announcements",
+    "title": "SLR: Matrix representation",
+    "section": "",
+    "text": "Lab 01 due on TODAY at 11:59pm\n\nPush work to GitHub repo\nSubmit final PDF on Gradescope + mark pages for each question\n\nHW 01 released today - due Thursday, January 29 at 11:59pm\n\nNote: AI Disclosure"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#topics",
+    "href": "slides/04-slr-matrix-notes.html#topics",
+    "title": "SLR: Matrix representation",
+    "section": "Topics",
+    "text": "Topics\n\nMatrix representation of least-squares regression\n\nModel form\nLeast square estimate\nPredicted (fitted) values\nResiduals\n\nGeometry of least-squares regression"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#slr-statistical-model-population",
+    "href": "slides/04-slr-matrix-notes.html#slr-statistical-model-population",
+    "title": "SLR: Matrix representation",
+    "section": "SLR: Statistical model (population)",
+    "text": "SLR: Statistical model (population)\nWhen we have a quantitative response, \\(Y\\), and a single quantitative predictor, \\(X\\), we can use a simple linear regression model to describe the relationship between \\(Y\\) and \\(X\\).\n\\[Y = \\beta_0 + \\beta_1 X + \\epsilon\\]\n\n\n\\(\\beta_1\\): Population (true) slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): Population (true) intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error terms centered at 0 with variance \\(\\sigma^2_{\\epsilon}\\)"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#slr-in-matrix-form",
+    "href": "slides/04-slr-matrix-notes.html#slr-in-matrix-form",
+    "title": "SLR: Matrix representation",
+    "section": "SLR in matrix form",
+    "text": "SLR in matrix form\nThe simple linear regression model can be represented using vectors and matrices as\n\n\\[\n\\large{\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}}\n\\]\n\n\n\\(\\mathbf{y}\\) : Vector of responses\n\\(\\mathbf{X}\\): Design matrix (columns for predictors + intercept)\n\\(\\boldsymbol{\\beta}\\): Vector of model coefficients\n\\(\\boldsymbol{\\epsilon}\\): Vector of error terms centered at \\(\\mathbf{0}\\) with variance \\(\\sigma^2_{\\epsilon}\\mathbf{I}\\)"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#slr-in-matrix-form-1",
+    "href": "slides/04-slr-matrix-notes.html#slr-in-matrix-form-1",
+    "title": "SLR: Matrix representation",
+    "section": "SLR in matrix form",
+    "text": "SLR in matrix form\n\\[\n\\underbrace{\n\\begin{bmatrix}\ny_1 \\\\\n\\vdots \\\\\ny_n\n\\end{bmatrix} }_\n{\\mathbf{y}} \\hspace{3mm}\n=\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n1 &x_1 \\\\\n\\vdots &  \\vdots \\\\\n1 &  x_n\n\\end{bmatrix}\n}_{\\mathbf{X}}\n\\hspace{2mm}\n\\underbrace{\n\\begin{bmatrix}\n\\beta_0 \\\\\n\\beta_1\n\\end{bmatrix}\n}_{\\boldsymbol{\\beta}}\n\\hspace{3mm}\n+\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n\\epsilon_1 \\\\\n\\vdots\\\\\n\\epsilon_n\n\\end{bmatrix}\n}_\\boldsymbol{\\epsilon}\n\\]\n\n\nWhat are the dimensions of \\(\\mathbf{y}\\), \\(\\mathbf{X}\\), \\(\\boldsymbol{\\beta}\\), and \\(\\boldsymbol{\\epsilon}\\)?"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#find-least-squares-estimator-for-boldsymbolbeta",
+    "href": "slides/04-slr-matrix-notes.html#find-least-squares-estimator-for-boldsymbolbeta",
+    "title": "SLR: Matrix representation",
+    "section": "Find least-squares estimator for \\(\\boldsymbol{\\beta}\\)",
+    "text": "Find least-squares estimator for \\(\\boldsymbol{\\beta}\\)\nGoal: Find estimator \\(\\hat{\\boldsymbol{\\beta}}= \\begin{bmatrix}\\hat{\\beta}_0 \\\\ \\hat{\\beta}_1 \\end{bmatrix}\\) that minimizes the sum of squares \\[\n\\sum_{i=1}^n \\epsilon_i^2 = \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} = (\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#gradient",
+    "href": "slides/04-slr-matrix-notes.html#gradient",
+    "title": "SLR: Matrix representation",
+    "section": "Gradient",
+    "text": "Gradient\nLet \\(\\mathbf{x} = \\begin{bmatrix}x_1 \\\\ x_2 \\\\ \\vdots \\\\x_k\\end{bmatrix}\\)be a \\(k \\times 1\\) vector and \\(f(\\mathbf{x})\\) be a function of \\(\\mathbf{x}\\).\n. . .\nThen the gradient of \\(f\\) with respect to \\(\\mathbf{x}\\) is\n\\[\\frac{\\partial f}{\\partial \\mathbf{x}} = \\begin{bmatrix}\\frac{\\partial f}{\\partial x_1} \\\\ \\frac{\\partial f}{\\partial x_2} \\\\ \\vdots \\\\ \\frac{\\partial f}{\\partial x_k}\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#property-1-derivative-of-inner-product",
+    "href": "slides/04-slr-matrix-notes.html#property-1-derivative-of-inner-product",
+    "title": "SLR: Matrix representation",
+    "section": "Property 1: Derivative of inner product",
+    "text": "Property 1: Derivative of inner product\nLet \\(\\mathbf{x}\\) be a \\(k \\times 1\\) vector and \\(\\mathbf{z}\\) be a \\(k \\times 1\\) vector, such that \\(\\mathbf{z}\\) is not a function of \\(\\mathbf{x}\\) .\n\n\nThe derivative of \\(\\mathbf{x}^\\mathsf{T}\\mathbf{z}\\) with respect to \\(\\mathbf{x}\\) is\n\\[\n\\frac{\\partial}{\\partial \\mathbf{x}}\\hspace{1mm} \\mathbf{x}^\\mathsf{T}\\mathbf{z} = \\frac{\\partial}{\\partial \\mathbf{x}} \\hspace{1mm} \\mathbf{z}^\\mathsf{T}\\mathbf{x} =  \\mathbf{z}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#property-1-derivative-of-inner-product-1",
+    "href": "slides/04-slr-matrix-notes.html#property-1-derivative-of-inner-product-1",
+    "title": "SLR: Matrix representation",
+    "section": "Property 1: Derivative of inner product",
+    "text": "Property 1: Derivative of inner product\n\\[\\begin{aligned}\n\\mathbf{x}^\\mathsf{T}\\mathbf{z} &= \\class{fragment}{\\begin{bmatrix}x_1 & x_2 & \\dots &x_k\\end{bmatrix}\n\\begin{bmatrix}z_1 \\\\ z_2 \\\\ \\vdots \\\\z_k\\end{bmatrix}} \\\\[10pt]\n&\\class{fragment}{= x_1z_1 + x_2z_2 + \\dots + x_kz_k} \\\\\n&\\class{fragment}{= \\sum_{i=1}^k x_iz_i}\n\\end{aligned}\\]\n\n(This is equivalent to \\(\\mathbf{z}^\\mathsf{T}\\mathbf{x}\\))"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#property-1-derivative-of-inner-product-2",
+    "href": "slides/04-slr-matrix-notes.html#property-1-derivative-of-inner-product-2",
+    "title": "SLR: Matrix representation",
+    "section": "Property 1: Derivative of inner product",
+    "text": "Property 1: Derivative of inner product\n\\[\n\\frac{\\partial}{\\partial \\mathbf{x}}\\hspace{1mm}\\mathbf{x}^\\mathsf{T}\\mathbf{z} = \\class{fragment}{\\begin{bmatrix}\\frac{\\partial \\mathbf{x}^\\mathsf{T}\\mathbf{z}}{\\partial x_1} \\\\ \\frac{\\partial \\mathbf{x}^\\mathsf{T}\\mathbf{z}}{\\partial x_2} \\\\ \\vdots \\\\ \\frac{\\partial \\mathbf{x}^\\mathsf{T}\\mathbf{z}}{\\partial x_k}\\end{bmatrix}}  \n= \\class{fragment}{\\begin{bmatrix}\\frac{\\partial}{\\partial x_1} (x_1z_1 + x_2z_2 + \\dots + x_kz_k) \\\\ \\frac{\\partial}{\\partial x_2} (x_1z_1 + x_2z_2 + \\dots + x_kz_k)\\\\ \\vdots \\\\ \\frac{\\partial}{\\partial x_k} (x_1z_1 + x_2z_2 + \\dots + x_kz_k)\\end{bmatrix}}\n= \\class{fragment}{\\begin{bmatrix} z_1 \\\\ z_2 \\\\ \\vdots \\\\ z_k\\end{bmatrix} = \\mathbf{z}}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#property-2-derivative-of-quadratic-form",
+    "href": "slides/04-slr-matrix-notes.html#property-2-derivative-of-quadratic-form",
+    "title": "SLR: Matrix representation",
+    "section": "Property 2: Derivative of quadratic form",
+    "text": "Property 2: Derivative of quadratic form\nLet \\(\\mathbf{x}\\) be a \\(k \\times 1\\) vector and \\(\\mathbf{A}\\) be a \\(k \\times k\\) matrix, such that \\(\\mathbf{A}\\) is not a function of \\(\\mathbf{x}\\) .\n\nThen the derivative of \\(\\mathbf{x}^\\mathsf{T}\\mathbf{A}\\mathbf{x}\\) with respect to \\(\\mathbf{x}\\) is\n\\[\n\\frac{\\partial}{\\partial \\mathbf{x}} \\hspace{1mm} \\mathbf{x}^\\mathsf{T}\\mathbf{A}\\mathbf{x} = (\\mathbf{A}\\mathbf{x} + \\mathbf{A}^\\mathsf{T} \\mathbf{x}) = (\\mathbf{A} + \\mathbf{A}^\\mathsf{T})\\mathbf{x}\n\\]\n\n\nIf \\(\\mathbf{A}\\) is symmetric, then\n\\[\n(\\mathbf{A} + \\mathbf{A}^\\mathsf{T})\\mathbf{x} = 2\\mathbf{A}\\mathbf{x}\n\\]\n\n\n\n\n\n\nNote\n\n\n\nSee The Matrix Cookbook for more on matrix operations."
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#find-the-least-squares-estimator",
+    "href": "slides/04-slr-matrix-notes.html#find-the-least-squares-estimator",
+    "title": "SLR: Matrix representation",
+    "section": "Find the least-squares estimator",
+    "text": "Find the least-squares estimator\nFind \\(\\hat{\\boldsymbol{\\beta}}\\) that minimizes\n\\[\n\\begin{aligned}\n\\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} &= (\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta}) \\\\[10pt]\n&= (\\mathbf{y}^\\mathsf{T} - \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T})(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\\\[10pt]\n&=\\mathbf{y}^\\mathsf{T}\\mathbf{y} - \\mathbf{y}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta} - \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{y} + \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}\\\\[10pt]\n&=\\mathbf{y}^\\mathsf{T}\\mathbf{y} - 2\\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{y} + \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#find-the-least-squares-estimator-1",
+    "href": "slides/04-slr-matrix-notes.html#find-the-least-squares-estimator-1",
+    "title": "SLR: Matrix representation",
+    "section": "Find the least squares estimator",
+    "text": "Find the least squares estimator\n\\[\\begin{aligned}\n\\frac{\\partial}{\\partial\\boldsymbol{\\beta}} \\hspace{1mm} \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} &= \\frac{\\partial}{\\partial\\boldsymbol{\\beta}}( \\mathbf{y}^\\mathsf{T}\\mathbf{y} - 2\\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{y} + \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}) \\\\[10pt]\n& = -2\\mathbf{X}^\\mathsf{T}\\mathbf{y} + 2\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}\n\\end{aligned}\n\\]\nFind \\(\\hat{\\boldsymbol{\\beta}}\\) that satisfies\n\\[\n-2\\mathbf{X}^\\mathsf{T}\\mathbf{y} + 2\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\hat{\\boldsymbol{\\beta}} = \\mathbf{0}\n\\]\n\n\\[\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#hessian-matrix",
+    "href": "slides/04-slr-matrix-notes.html#hessian-matrix",
+    "title": "SLR: Matrix representation",
+    "section": "Hessian matrix",
+    "text": "Hessian matrix\nThe Hessian matrix is a square matrix of partial second derivatives\n\\[\n\\frac{\\partial^2 f}{\\partial \\mathbf{x}^2}  = \\begin{bmatrix} \\frac{\\partial^2f}{\\partial x_1^2} & \\frac{\\partial^2f}{\\partial x_1 \\partial x_2} & \\dots & \\frac{\\partial^2f}{\\partial x_1\\partial x_k} \\\\\n\\frac{\\partial^2f}{\\partial\\ x_2 \\partial x_1} & \\frac{\\partial^2f}{\\partial x_2^2} & \\dots & \\frac{\\partial^2f}{\\partial x_2 \\partial x_k} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n\\frac{\\partial^2f}{\\partial x_k\\partial x_1} & \\frac{\\partial^2f}{\\partial x_k\\partial x_2} & \\dots & \\frac{\\partial^2f}{\\partial x_k^2} \\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#using-the-hessian-matrix",
+    "href": "slides/04-slr-matrix-notes.html#using-the-hessian-matrix",
+    "title": "SLR: Matrix representation",
+    "section": "Using the Hessian matrix",
+    "text": "Using the Hessian matrix\nIf the Hessian matrix is…\n\npositive-definite, then we have found a minimum.\nnegative-definite, then we have found a maximum.\nneither positive or negative-definite, then we have found a saddle point"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#did-we-find-a-minimum-1",
+    "href": "slides/04-slr-matrix-notes.html#did-we-find-a-minimum-1",
+    "title": "SLR: Matrix representation",
+    "section": "Did we find a minimum?",
+    "text": "Did we find a minimum?\n\\[\n\\begin{aligned}\n\\frac{\\partial^2}{\\partial \\boldsymbol{\\beta}^2} \\hspace{1mm} \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} &= \\frac{\\partial}{\\partial \\boldsymbol{\\beta}} (-2\\mathbf{X}^\\mathsf{T}\\mathbf{y} + 2\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}) \\\\[10pt]\n&{=-2\\frac{\\partial}{\\partial \\boldsymbol{\\beta}} (\\mathbf{X}^\\mathsf{T}\\mathbf{y}) + 2\\frac{\\partial}{\\partial \\boldsymbol{\\beta}} (\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta})} \\\\[10pt]\n&{= 2 \\mathbf{X}^\\mathsf{T}\\mathbf{X}}\n\\end{aligned}\n\\]\n\nShow that \\(2\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\) is positive definite in HW 01."
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#positive-semi-definite-matrices",
+    "href": "slides/04-slr-matrix-notes.html#positive-semi-definite-matrices",
+    "title": "SLR: Matrix representation",
+    "section": "Positive (semi-)definite matrices",
+    "text": "Positive (semi-)definite matrices\nA matrix \\(\\mathbf{A}\\) is positive definite if\n\\[\n\\mathbf{x}^\\mathsf{T}\\mathbf{A}\\mathbf{x} &gt; 0 \\hspace{8mm} \\text{for all } \\mathbf{x} \\neq \\mathbf{0}\n\\]\n\nA matrix \\(\\mathbf{A}\\) is positive semi-definite if\n\\[\n\\mathbf{x}^\\mathsf{T}\\mathbf{A}\\mathbf{x} \\geq 0 \\hspace{8mm} \\text{for all } \\mathbf{x}\n\\]\n\nEquivalently:\n\n\\(\\mathbf{A}\\) is positive definitive if all eigenvalues are positive\n\\(\\mathbf{A}\\) is positive semi-definite if all eigenvalues are non-negative."
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#geometry-of-least-squares-regression-1",
+    "href": "slides/04-slr-matrix-notes.html#geometry-of-least-squares-regression-1",
+    "title": "SLR: Matrix representation",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\n\nLet \\(\\text{Col}(\\mathbf{X})\\) be the column space of \\(\\mathbf{X}\\): the set all possible linear combinations (span) of the columns of \\(\\mathbf{X}\\)\nThe vector of responses \\(\\mathbf{y}\\) is not in \\(\\text{Col}(\\mathbf{X})\\).\nGoal: Find another vector \\(\\mathbf{z} = \\mathbf{X}\\mathbf{\\boldsymbol{\\beta}}\\) that is in \\(\\text{Col}(\\mathbf{X})\\) and is as close as possible to \\(\\mathbf{y}\\).\n\n\\(\\mathbf{z}\\) is a projection of \\(\\mathbf{y}\\) onto \\(\\text{Col}(\\mathbf{X})\\) ."
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#geometry-of-least-squares-regression-2",
+    "href": "slides/04-slr-matrix-notes.html#geometry-of-least-squares-regression-2",
+    "title": "SLR: Matrix representation",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\n\nFor any \\(\\mathbf{z} = \\mathbf{X}\\boldsymbol{\\beta}\\) in \\(\\text{Col}(\\mathbf{X})\\), the vector \\(\\mathbf{e} = \\mathbf{y} - \\mathbf{Xb}\\) is the difference between \\(\\mathbf{y}\\) and \\(\\mathbf{X}\\boldsymbol{\\beta}\\).\n\nWe want to find \\(\\boldsymbol{\\beta}\\) such that \\(\\mathbf{z} = \\mathbf{X}\\boldsymbol{\\beta}\\) is as close as possible to \\(\\mathbf{y}\\), i.e, we want to minimize the difference \\(\\boldsymbol{\\epsilon} = \\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta}\\)\n\nThis distance is minimized when \\(\\mathbf{e}\\) is orthogonal to \\(\\text{Col}(\\mathbf{X})\\)"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#geometry-of-least-squares-regression-3",
+    "href": "slides/04-slr-matrix-notes.html#geometry-of-least-squares-regression-3",
+    "title": "SLR: Matrix representation",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\nNote: If \\(\\mathbf{A}\\), an \\(n \\times k\\) matrix, is orthogonal to an \\(n \\times 1\\) vector \\(\\mathbf{c}\\), then \\(\\mathbf{A}^\\mathsf{T}\\mathbf{c} = \\mathbf{0}\\)\nTherefore, we have \\(\\mathbf{X}^\\mathsf{T}\\boldsymbol{\\epsilon} = \\mathbf{0}\\) , and thus\n\\[\n\\mathbf{X}^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta}) = \\mathbf{0}\n\\]\n\n\nFind \\(\\boldsymbol{\\beta}\\) that satisfies this equation."
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#predicted-fitted-values",
+    "href": "slides/04-slr-matrix-notes.html#predicted-fitted-values",
+    "title": "SLR: Matrix representation",
+    "section": "Predicted (fitted) values",
+    "text": "Predicted (fitted) values\nNow that we have \\(\\hat{\\boldsymbol{\\beta}}\\), let’s predict values of \\(\\mathbf{y}\\) using the model\n\\[\n\\hat{\\mathbf{y}} = \\mathbf{X}\\hat{\\boldsymbol{\\beta}} = \\underbrace{\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}}_{\\mathbf{H}}\\mathbf{y} = \\mathbf{H}\\mathbf{y}\n\\]\n. . .\n\nHat matrix: \\(\\mathbf{H} = \\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\)"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#hat-matrix",
+    "href": "slides/04-slr-matrix-notes.html#hat-matrix",
+    "title": "SLR: Matrix representation",
+    "section": "Hat matrix",
+    "text": "Hat matrix\n\n\\(\\hat{\\mathbf{y}} = \\mathbf{Hy}\\), so \\(\\mathbf{H}\\) is a projection of \\(\\mathbf{y}\\) onto \\(\\mathbf{X}\\boldsymbol{\\beta}\\)\nProperties of \\(\\mathbf{H}\\), a projection matrix\n\n\\(\\mathbf{H}\\) is symmetric (\\(\\mathbf{H}^\\mathsf{T} = \\mathbf{H}\\))\n\\(\\mathbf{H}\\) is idempotent (\\(\\mathbf{H}^2 = \\mathbf{H}\\))\nIf \\(\\mathbf{v}\\) in \\(\\text{Col}(\\mathbf{X})\\), then \\(\\mathbf{Hv} = \\mathbf{v}\\)\nIf \\(\\mathbf{v}\\) is orthogonal to \\(\\text{Col}(\\mathbf{X})\\), then \\(\\mathbf{Hv} = \\mathbf{0}\\)\n\n\n\nShow these properties in HW 01 and HW 02."
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#residuals",
+    "href": "slides/04-slr-matrix-notes.html#residuals",
+    "title": "SLR: Matrix representation",
+    "section": "Residuals",
+    "text": "Residuals\nRecall that the residuals are the difference between the observed and predicted values\n\\[\n\\begin{aligned}\n\\mathbf{e} &= \\mathbf{y} - \\hat{\\mathbf{y}}\\\\[10pt]\n&\\class{fragment}{ = \\mathbf{y} - \\mathbf{X}\\hat{\\boldsymbol{\\beta}}} \\\\[10pt]\n&\\class{fragment}{ = \\mathbf{y} - \\mathbf{H}\\mathbf{y}} \\\\[20pt]\n\\class{fragment}{\\color{#993399}{\\mathbf{e}}} &\\class{fragment}{\\color{#993399}{=(\\mathbf{I} - \\mathbf{H})\\mathbf{y}}} \\\\[10pt]\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#recap",
+    "href": "slides/04-slr-matrix-notes.html#recap",
+    "title": "SLR: Matrix representation",
+    "section": "Recap",
+    "text": "Recap\n\nIntroduced matrix representation for simple linear regression\n\nModel form\nLeast square estimate\nPredicted (fitted) values\nResiduals\n\nIntroduced the geometric interpretation of least-squares regression"
+  },
+  {
+    "objectID": "slides/04-slr-matrix-notes.html#for-next-class",
+    "href": "slides/04-slr-matrix-notes.html#for-next-class",
+    "title": "SLR: Matrix representation",
+    "section": "For next class",
+    "text": "For next class\n\nMultiple linear regression\nComplete Lecture 05 prepare"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#announcements",
+    "href": "slides/04-slr-matrix.html#announcements",
+    "title": "SLR: Matrix representation",
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 01 due on TODAY at 11:59pm\n\nPush work to GitHub repo\nSubmit final PDF on Gradescope + mark pages for each question\n\nHW 01 released today - due Thursday, January 29 at 11:59pm\n\nNote: AI Disclosure"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#topics",
+    "href": "slides/04-slr-matrix.html#topics",
+    "title": "SLR: Matrix representation",
+    "section": "Topics",
+    "text": "Topics\n\nMatrix representation of least-squares regression\n\nModel form\nLeast square estimate\nPredicted (fitted) values\nResiduals\n\nGeometry of least-squares regression"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#slr-statistical-model-population",
+    "href": "slides/04-slr-matrix.html#slr-statistical-model-population",
+    "title": "SLR: Matrix representation",
+    "section": "SLR: Statistical model (population)",
+    "text": "SLR: Statistical model (population)\nWhen we have a quantitative response, \\(Y\\), and a single quantitative predictor, \\(X\\), we can use a simple linear regression model to describe the relationship between \\(Y\\) and \\(X\\).\n\\[Y = \\beta_0 + \\beta_1 X + \\epsilon\\]\n\n\n\\(\\beta_1\\): Population (true) slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): Population (true) intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error terms centered at 0 with variance \\(\\sigma^2_{\\epsilon}\\)"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#slr-in-matrix-form",
+    "href": "slides/04-slr-matrix.html#slr-in-matrix-form",
+    "title": "SLR: Matrix representation",
+    "section": "SLR in matrix form",
+    "text": "SLR in matrix form\nThe simple linear regression model can be represented using vectors and matrices as\n\n\\[\n\\large{\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}}\n\\]\n\n\n\\(\\mathbf{y}\\) : Vector of responses\n\\(\\mathbf{X}\\): Design matrix (columns for predictors + intercept)\n\\(\\boldsymbol{\\beta}\\): Vector of model coefficients\n\\(\\boldsymbol{\\epsilon}\\): Vector of error terms centered at \\(\\mathbf{0}\\) with variance \\(\\sigma^2_{\\epsilon}\\mathbf{I}\\)"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#slr-in-matrix-form-1",
+    "href": "slides/04-slr-matrix.html#slr-in-matrix-form-1",
+    "title": "SLR: Matrix representation",
+    "section": "SLR in matrix form",
+    "text": "SLR in matrix form\n\\[\n\\underbrace{\n\\begin{bmatrix}\ny_1 \\\\\n\\vdots \\\\\ny_n\n\\end{bmatrix} }_\n{\\mathbf{y}} \\hspace{3mm}\n=\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n1 &x_1 \\\\\n\\vdots &  \\vdots \\\\\n1 &  x_n\n\\end{bmatrix}\n}_{\\mathbf{X}}\n\\hspace{2mm}\n\\underbrace{\n\\begin{bmatrix}\n\\beta_0 \\\\\n\\beta_1\n\\end{bmatrix}\n}_{\\boldsymbol{\\beta}}\n\\hspace{3mm}\n+\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n\\epsilon_1 \\\\\n\\vdots\\\\\n\\epsilon_n\n\\end{bmatrix}\n}_\\boldsymbol{\\epsilon}\n\\]\n\n\nWhat are the dimensions of \\(\\mathbf{y}\\), \\(\\mathbf{X}\\), \\(\\boldsymbol{\\beta}\\), and \\(\\boldsymbol{\\epsilon}\\)?"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#find-least-squares-estimator-for-boldsymbolbeta",
+    "href": "slides/04-slr-matrix.html#find-least-squares-estimator-for-boldsymbolbeta",
+    "title": "SLR: Matrix representation",
+    "section": "Find least-squares estimator for \\(\\boldsymbol{\\beta}\\)",
+    "text": "Find least-squares estimator for \\(\\boldsymbol{\\beta}\\)\nGoal: Find estimator \\(\\hat{\\boldsymbol{\\beta}}= \\begin{bmatrix}\\hat{\\beta}_0 \\\\ \\hat{\\beta}_1 \\end{bmatrix}\\) that minimizes the sum of squares \\[\n\\sum_{i=1}^n \\epsilon_i^2 = \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} = (\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#gradient",
+    "href": "slides/04-slr-matrix.html#gradient",
+    "title": "SLR: Matrix representation",
+    "section": "Gradient",
+    "text": "Gradient\nLet \\(\\mathbf{x} = \\begin{bmatrix}x_1 \\\\ x_2 \\\\ \\vdots \\\\x_k\\end{bmatrix}\\)be a \\(k \\times 1\\) vector and \\(f(\\mathbf{x})\\) be a function of \\(\\mathbf{x}\\).\n\nThen the gradient of \\(f\\) with respect to \\(\\mathbf{x}\\) is\n\\[\\frac{\\partial f}{\\partial \\mathbf{x}} = \\begin{bmatrix}\\frac{\\partial f}{\\partial x_1} \\\\ \\frac{\\partial f}{\\partial x_2} \\\\ \\vdots \\\\ \\frac{\\partial f}{\\partial x_k}\\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#property-1-derivative-of-inner-product",
+    "href": "slides/04-slr-matrix.html#property-1-derivative-of-inner-product",
+    "title": "SLR: Matrix representation",
+    "section": "Property 1: Derivative of inner product",
+    "text": "Property 1: Derivative of inner product\nLet \\(\\mathbf{x}\\) be a \\(k \\times 1\\) vector and \\(\\mathbf{z}\\) be a \\(k \\times 1\\) vector, such that \\(\\mathbf{z}\\) is not a function of \\(\\mathbf{x}\\) .\n\n\nThe derivative of \\(\\mathbf{x}^\\mathsf{T}\\mathbf{z}\\) with respect to \\(\\mathbf{x}\\) is\n\\[\n\\frac{\\partial}{\\partial \\mathbf{x}}\\hspace{1mm} \\mathbf{x}^\\mathsf{T}\\mathbf{z} = \\frac{\\partial}{\\partial \\mathbf{x}} \\hspace{1mm} \\mathbf{z}^\\mathsf{T}\\mathbf{x} =  \\mathbf{z}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#property-1-derivative-of-inner-product-1",
+    "href": "slides/04-slr-matrix.html#property-1-derivative-of-inner-product-1",
+    "title": "SLR: Matrix representation",
+    "section": "Property 1: Derivative of inner product",
+    "text": "Property 1: Derivative of inner product\n\\[\\begin{aligned}\n\\mathbf{x}^\\mathsf{T}\\mathbf{z} &= \\class{fragment}{\\begin{bmatrix}x_1 & x_2 & \\dots &x_k\\end{bmatrix}\n\\begin{bmatrix}z_1 \\\\ z_2 \\\\ \\vdots \\\\z_k\\end{bmatrix}} \\\\[10pt]\n&\\class{fragment}{= x_1z_1 + x_2z_2 + \\dots + x_kz_k} \\\\\n&\\class{fragment}{= \\sum_{i=1}^k x_iz_i}\n\\end{aligned}\\]\n\n(This is equivalent to \\(\\mathbf{z}^\\mathsf{T}\\mathbf{x}\\))"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#property-1-derivative-of-inner-product-2",
+    "href": "slides/04-slr-matrix.html#property-1-derivative-of-inner-product-2",
+    "title": "SLR: Matrix representation",
+    "section": "Property 1: Derivative of inner product",
+    "text": "Property 1: Derivative of inner product\n\\[\n\\frac{\\partial}{\\partial \\mathbf{x}}\\hspace{1mm}\\mathbf{x}^\\mathsf{T}\\mathbf{z} = \\class{fragment}{\\begin{bmatrix}\\frac{\\partial \\mathbf{x}^\\mathsf{T}\\mathbf{z}}{\\partial x_1} \\\\ \\frac{\\partial \\mathbf{x}^\\mathsf{T}\\mathbf{z}}{\\partial x_2} \\\\ \\vdots \\\\ \\frac{\\partial \\mathbf{x}^\\mathsf{T}\\mathbf{z}}{\\partial x_k}\\end{bmatrix}}  \n= \\class{fragment}{\\begin{bmatrix}\\frac{\\partial}{\\partial x_1} (x_1z_1 + x_2z_2 + \\dots + x_kz_k) \\\\ \\frac{\\partial}{\\partial x_2} (x_1z_1 + x_2z_2 + \\dots + x_kz_k)\\\\ \\vdots \\\\ \\frac{\\partial}{\\partial x_k} (x_1z_1 + x_2z_2 + \\dots + x_kz_k)\\end{bmatrix}}\n= \\class{fragment}{\\begin{bmatrix} z_1 \\\\ z_2 \\\\ \\vdots \\\\ z_k\\end{bmatrix} = \\mathbf{z}}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#property-2-derivative-of-quadratic-form",
+    "href": "slides/04-slr-matrix.html#property-2-derivative-of-quadratic-form",
+    "title": "SLR: Matrix representation",
+    "section": "Property 2: Derivative of quadratic form",
+    "text": "Property 2: Derivative of quadratic form\nLet \\(\\mathbf{x}\\) be a \\(k \\times 1\\) vector and \\(\\mathbf{A}\\) be a \\(k \\times k\\) matrix, such that \\(\\mathbf{A}\\) is not a function of \\(\\mathbf{x}\\) .\n\nThen the derivative of \\(\\mathbf{x}^\\mathsf{T}\\mathbf{A}\\mathbf{x}\\) with respect to \\(\\mathbf{x}\\) is\n\\[\n\\frac{\\partial}{\\partial \\mathbf{x}} \\hspace{1mm} \\mathbf{x}^\\mathsf{T}\\mathbf{A}\\mathbf{x} = (\\mathbf{A}\\mathbf{x} + \\mathbf{A}^\\mathsf{T} \\mathbf{x}) = (\\mathbf{A} + \\mathbf{A}^\\mathsf{T})\\mathbf{x}\n\\]\n\n\nIf \\(\\mathbf{A}\\) is symmetric, then\n\\[\n(\\mathbf{A} + \\mathbf{A}^\\mathsf{T})\\mathbf{x} = 2\\mathbf{A}\\mathbf{x}\n\\]\n\n\n\n\n\n\nNote\n\n\nSee The Matrix Cookbook for more on matrix operations."
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#find-the-least-squares-estimator",
+    "href": "slides/04-slr-matrix.html#find-the-least-squares-estimator",
+    "title": "SLR: Matrix representation",
+    "section": "Find the least-squares estimator",
+    "text": "Find the least-squares estimator\nFind \\(\\hat{\\boldsymbol{\\beta}}\\) that minimizes\n\\[\n\\begin{aligned}\n\\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} &= (\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta}) \\\\[10pt]\n&= (\\mathbf{y}^\\mathsf{T} - \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T})(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\\\[10pt]\n&=\\mathbf{y}^\\mathsf{T}\\mathbf{y} - \\mathbf{y}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta} - \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{y} + \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}\\\\[10pt]\n&=\\mathbf{y}^\\mathsf{T}\\mathbf{y} - 2\\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{y} + \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#find-the-least-squares-estimator-1",
+    "href": "slides/04-slr-matrix.html#find-the-least-squares-estimator-1",
+    "title": "SLR: Matrix representation",
+    "section": "Find the least squares estimator",
+    "text": "Find the least squares estimator\n\\[\\begin{aligned}\n\\frac{\\partial}{\\partial\\boldsymbol{\\beta}} \\hspace{1mm} \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} &= \\frac{\\partial}{\\partial\\boldsymbol{\\beta}}( \\mathbf{y}^\\mathsf{T}\\mathbf{y} - 2\\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{y} + \\boldsymbol{\\beta}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}) \\\\[10pt]\n& = -2\\mathbf{X}^\\mathsf{T}\\mathbf{y} + 2\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}\n\\end{aligned}\n\\]\nFind \\(\\hat{\\boldsymbol{\\beta}}\\) that satisfies\n\\[\n-2\\mathbf{X}^\\mathsf{T}\\mathbf{y} + 2\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\hat{\\boldsymbol{\\beta}} = \\mathbf{0}\n\\]\n\n\\[\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#hessian-matrix",
+    "href": "slides/04-slr-matrix.html#hessian-matrix",
+    "title": "SLR: Matrix representation",
+    "section": "Hessian matrix",
+    "text": "Hessian matrix\nThe Hessian matrix is a square matrix of partial second derivatives\n\\[\n\\frac{\\partial^2 f}{\\partial \\mathbf{x}^2}  = \\begin{bmatrix} \\frac{\\partial^2f}{\\partial x_1^2} & \\frac{\\partial^2f}{\\partial x_1 \\partial x_2} & \\dots & \\frac{\\partial^2f}{\\partial x_1\\partial x_k} \\\\\n\\frac{\\partial^2f}{\\partial\\ x_2 \\partial x_1} & \\frac{\\partial^2f}{\\partial x_2^2} & \\dots & \\frac{\\partial^2f}{\\partial x_2 \\partial x_k} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n\\frac{\\partial^2f}{\\partial x_k\\partial x_1} & \\frac{\\partial^2f}{\\partial x_k\\partial x_2} & \\dots & \\frac{\\partial^2f}{\\partial x_k^2} \\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#using-the-hessian-matrix",
+    "href": "slides/04-slr-matrix.html#using-the-hessian-matrix",
+    "title": "SLR: Matrix representation",
+    "section": "Using the Hessian matrix",
+    "text": "Using the Hessian matrix\nIf the Hessian matrix is…\n\npositive-definite, then we have found a minimum.\nnegative-definite, then we have found a maximum.\nneither positive or negative-definite, then we have found a saddle point"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#did-we-find-a-minimum-1",
+    "href": "slides/04-slr-matrix.html#did-we-find-a-minimum-1",
+    "title": "SLR: Matrix representation",
+    "section": "Did we find a minimum?",
+    "text": "Did we find a minimum?\n\\[\n\\begin{aligned}\n\\frac{\\partial^2}{\\partial \\boldsymbol{\\beta}^2} \\hspace{1mm} \\boldsymbol{\\epsilon}^\\mathsf{T}\\boldsymbol{\\epsilon} &= \\frac{\\partial}{\\partial \\boldsymbol{\\beta}} (-2\\mathbf{X}^\\mathsf{T}\\mathbf{y} + 2\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}) \\\\[10pt]\n&{=-2\\frac{\\partial}{\\partial \\boldsymbol{\\beta}} (\\mathbf{X}^\\mathsf{T}\\mathbf{y}) + 2\\frac{\\partial}{\\partial \\boldsymbol{\\beta}} (\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta})} \\\\[10pt]\n&{= 2 \\mathbf{X}^\\mathsf{T}\\mathbf{X}}\n\\end{aligned}\n\\]\n\nShow that \\(2\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\) is positive definite in HW 01."
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#positive-semi-definite-matrices",
+    "href": "slides/04-slr-matrix.html#positive-semi-definite-matrices",
+    "title": "SLR: Matrix representation",
+    "section": "Positive (semi-)definite matrices",
+    "text": "Positive (semi-)definite matrices\nA matrix \\(\\mathbf{A}\\) is positive definite if\n\\[\n\\mathbf{x}^\\mathsf{T}\\mathbf{A}\\mathbf{x} &gt; 0 \\hspace{8mm} \\text{for all } \\mathbf{x} \\neq \\mathbf{0}\n\\]\n\nA matrix \\(\\mathbf{A}\\) is positive semi-definite if\n\\[\n\\mathbf{x}^\\mathsf{T}\\mathbf{A}\\mathbf{x} \\geq 0 \\hspace{8mm} \\text{for all } \\mathbf{x}\n\\]\n\nEquivalently:\n\n\\(\\mathbf{A}\\) is positive definitive if all eigenvalues are positive\n\\(\\mathbf{A}\\) is positive semi-definite if all eigenvalues are non-negative."
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#geometry-of-least-squares-regression-1",
+    "href": "slides/04-slr-matrix.html#geometry-of-least-squares-regression-1",
+    "title": "SLR: Matrix representation",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\nLet \\(\\text{Col}(\\mathbf{X})\\) be the column space of \\(\\mathbf{X}\\): the set all possible linear combinations (span) of the columns of \\(\\mathbf{X}\\)\nThe vector of responses \\(\\mathbf{y}\\) is not in \\(\\text{Col}(\\mathbf{X})\\).\nGoal: Find another vector \\(\\mathbf{z} = \\mathbf{X}\\mathbf{\\boldsymbol{\\beta}}\\) that is in \\(\\text{Col}(\\mathbf{X})\\) and is as close as possible to \\(\\mathbf{y}\\).\n\n\\(\\mathbf{z}\\) is a projection of \\(\\mathbf{y}\\) onto \\(\\text{Col}(\\mathbf{X})\\) ."
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#geometry-of-least-squares-regression-2",
+    "href": "slides/04-slr-matrix.html#geometry-of-least-squares-regression-2",
+    "title": "SLR: Matrix representation",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\nFor any \\(\\mathbf{z} = \\mathbf{X}\\boldsymbol{\\beta}\\) in \\(\\text{Col}(\\mathbf{X})\\), the vector \\(\\mathbf{e} = \\mathbf{y} - \\mathbf{Xb}\\) is the difference between \\(\\mathbf{y}\\) and \\(\\mathbf{X}\\boldsymbol{\\beta}\\).\n\nWe want to find \\(\\boldsymbol{\\beta}\\) such that \\(\\mathbf{z} = \\mathbf{X}\\boldsymbol{\\beta}\\) is as close as possible to \\(\\mathbf{y}\\), i.e, we want to minimize the difference \\(\\boldsymbol{\\epsilon} = \\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta}\\)\n\nThis distance is minimized when \\(\\mathbf{e}\\) is orthogonal to \\(\\text{Col}(\\mathbf{X})\\)"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#geometry-of-least-squares-regression-3",
+    "href": "slides/04-slr-matrix.html#geometry-of-least-squares-regression-3",
+    "title": "SLR: Matrix representation",
+    "section": "Geometry of least-squares regression",
+    "text": "Geometry of least-squares regression\n\nNote: If \\(\\mathbf{A}\\), an \\(n \\times k\\) matrix, is orthogonal to an \\(n \\times 1\\) vector \\(\\mathbf{c}\\), then \\(\\mathbf{A}^\\mathsf{T}\\mathbf{c} = \\mathbf{0}\\)\nTherefore, we have \\(\\mathbf{X}^\\mathsf{T}\\boldsymbol{\\epsilon} = \\mathbf{0}\\) , and thus\n\\[\n\\mathbf{X}^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta}) = \\mathbf{0}\n\\]\n\n\nFind \\(\\boldsymbol{\\beta}\\) that satisfies this equation."
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#predicted-fitted-values",
+    "href": "slides/04-slr-matrix.html#predicted-fitted-values",
+    "title": "SLR: Matrix representation",
+    "section": "Predicted (fitted) values",
+    "text": "Predicted (fitted) values\nNow that we have \\(\\hat{\\boldsymbol{\\beta}}\\), let’s predict values of \\(\\mathbf{y}\\) using the model\n\\[\n\\hat{\\mathbf{y}} = \\mathbf{X}\\hat{\\boldsymbol{\\beta}} = \\underbrace{\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}}_{\\mathbf{H}}\\mathbf{y} = \\mathbf{H}\\mathbf{y}\n\\]\n\n\nHat matrix: \\(\\mathbf{H} = \\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\)"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#hat-matrix",
+    "href": "slides/04-slr-matrix.html#hat-matrix",
+    "title": "SLR: Matrix representation",
+    "section": "Hat matrix",
+    "text": "Hat matrix\n\n\\(\\hat{\\mathbf{y}} = \\mathbf{Hy}\\), so \\(\\mathbf{H}\\) is a projection of \\(\\mathbf{y}\\) onto \\(\\mathbf{X}\\boldsymbol{\\beta}\\)\nProperties of \\(\\mathbf{H}\\), a projection matrix\n\n\\(\\mathbf{H}\\) is symmetric (\\(\\mathbf{H}^\\mathsf{T} = \\mathbf{H}\\))\n\\(\\mathbf{H}\\) is idempotent (\\(\\mathbf{H}^2 = \\mathbf{H}\\))\nIf \\(\\mathbf{v}\\) in \\(\\text{Col}(\\mathbf{X})\\), then \\(\\mathbf{Hv} = \\mathbf{v}\\)\nIf \\(\\mathbf{v}\\) is orthogonal to \\(\\text{Col}(\\mathbf{X})\\), then \\(\\mathbf{Hv} = \\mathbf{0}\\)\n\n\n\nShow these properties in HW 01 and HW 02."
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#residuals",
+    "href": "slides/04-slr-matrix.html#residuals",
+    "title": "SLR: Matrix representation",
+    "section": "Residuals",
+    "text": "Residuals\nRecall that the residuals are the difference between the observed and predicted values\n\\[\n\\begin{aligned}\n\\mathbf{e} &= \\mathbf{y} - \\hat{\\mathbf{y}}\\\\[10pt]\n&\\class{fragment}{ = \\mathbf{y} - \\mathbf{X}\\hat{\\boldsymbol{\\beta}}} \\\\[10pt]\n&\\class{fragment}{ = \\mathbf{y} - \\mathbf{H}\\mathbf{y}} \\\\[20pt]\n\\class{fragment}{\\color{#993399}{\\mathbf{e}}} &\\class{fragment}{\\color{#993399}{=(\\mathbf{I} - \\mathbf{H})\\mathbf{y}}} \\\\[10pt]\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#recap",
+    "href": "slides/04-slr-matrix.html#recap",
+    "title": "SLR: Matrix representation",
+    "section": "Recap",
+    "text": "Recap\n\nIntroduced matrix representation for simple linear regression\n\nModel form\nLeast square estimate\nPredicted (fitted) values\nResiduals\n\nIntroduced the geometric interpretation of least-squares regression"
+  },
+  {
+    "objectID": "slides/04-slr-matrix.html#for-next-class",
+    "href": "slides/04-slr-matrix.html#for-next-class",
+    "title": "SLR: Matrix representation",
+    "section": "For next class",
+    "text": "For next class\n\nMultiple linear regression\nComplete Lecture 05 prepare"
   },
   {
     "objectID": "about.html",
