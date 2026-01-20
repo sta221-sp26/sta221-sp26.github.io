@@ -79,9 +79,9 @@ Find, $\hat{\beta}$, the least-squares estimator of $\beta$.
 
 In class we used the sum of squared errors, $\boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}$ , to find the least-squares estimator, $\hat{\boldsymbol{\beta}} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{Y}$ . To show this is the least-squares estimator, we now need to show that we have found the estimator for $\boldsymbol{\beta}$ that minimizes the sum of squared errors.
 
-If the Hessian matrix $\nabla_{\boldsymbol{\beta}}^2 \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}$ is positive definite, then we know we have found a minimum.
+If the Hessian matrix $\frac{\partial^2}{\partial \boldsymbol{\beta}^2} \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}$ is positive definite, then we know we have found a minimum.
 
-Show that $\nabla_{\boldsymbol{\beta}}^2 \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon} \propto \mathbf{X}^\mathsf{T}\mathbf{X}$ is positive definite.
+Show that $\nabla_{\boldsymbol{\beta}}^2 \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon} = 2\mathbf{X}^\mathsf{T}\mathbf{X}$ is positive definite.
 
 ## Exercise 4
 
