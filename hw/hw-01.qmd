@@ -81,7 +81,7 @@ In class we used the sum of squared errors, $\boldsymbol{\epsilon}^\mathsf{T}\bo
 
 If the Hessian matrix $\frac{\partial^2}{\partial \boldsymbol{\beta}^2} \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}$ is positive definite, then we know we have found a minimum.
 
-Show that $\nabla_{\boldsymbol{\beta}}^2 \boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon} = 2\mathbf{X}^\mathsf{T}\mathbf{X}$ is positive definite.
+Show that $\frac{\partial^2}{\partial \boldsymbol{\beta}^2}\boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon} = 2\mathbf{X}^\mathsf{T}\mathbf{X}$ is positive definite.
 
 ## Exercise 4
 
