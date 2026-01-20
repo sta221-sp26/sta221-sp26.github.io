@@ -178,9 +178,10 @@ $$
  &\class{fragment}{= x_1z_1 + x_2z_2 + \dots + x_kz_k} \\
 &\class{fragment}{= \sum_{i=1}^k x_iz_i}
 \end{aligned}
+
 <br>
 
-(This is equivalent to $\mathbf{z}^\mathsf{T}\mathbf{x}$) 
+(This is equivalent to $\mathbf{z}^\mathsf{T}\mathbf{x}$)
 
 ## Property 1: Derivative of inner product {.midi background-color="#ccddeb"}
 
@@ -190,7 +191,7 @@ $$
  = \class{fragment}{\begin{bmatrix} z_1 \\ z_2 \\ \vdots \\ z_k\end{bmatrix} = \mathbf{z}}
 $$
 
-## Property 2: Derivative of quadratic form  {.midi background-color="#ccddeb"}
+## Property 2: Derivative of quadratic form {.midi background-color="#ccddeb"}
 
 Let $\mathbf{x}$ be a $k \times 1$ vector and $\mathbf{A}$ be a $k \times k$ matrix, such that $\mathbf{A}$ is not a function of $\mathbf{x}$ .\
 
@@ -280,7 +281,7 @@ $$
 Show that $2\mathbf{X}^\mathsf{T}\mathbf{X}$ is positive definite in HW 01.
 :::
 
-## Positive (semi-)definite matrices {background-color="#ccddeb"}
+## Positive (semi-)definite matrices {.midi background-color="#ccddeb"}
 
 A matrix $\mathbf{A}$ is **positive definite** if
 
@@ -320,7 +321,7 @@ Equivalently:
 ## Geometry of least-squares regression
 
 ::: incremental
--   For any $\mathbf{z} = \mathbf{X}\boldsymbol{\beta}$ in $\text{Col}(\mathbf{X})$, the vector $\mathbf{e} = \mathbf{y} - \mathbf{Xb}$ is the difference between $\mathbf{y}$ and $\mathbf{X}\boldsymbol{\beta}$.
+-   For any $\mathbf{z} = \mathbf{X}\boldsymbol{\beta}$ in $\text{Col}(\mathbf{X})$, the vector $\boldsymbol{\epsilon} = \mathbf{y} - \mathbf{Xb}$ is the difference between $\mathbf{y}$ and $\mathbf{X}\boldsymbol{\beta}$.
 
     -   We want to find $\boldsymbol{\beta}$ such that $\mathbf{z} = \mathbf{X}\boldsymbol{\beta}$ is as close as possible to $\mathbf{y}$, i.e, we want to minimize the difference $\boldsymbol{\epsilon} = \mathbf{y} - \mathbf{X}\boldsymbol{\beta}$
 
