@@ -540,7 +540,7 @@ This lab will be graded based on completion and workflow & formatting. The point
 
 **Workflow & formatting**
 
-Each assignment will have a portion associated with "Workflow & formatting". This grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.
+Each assignment will have a portion associated with “Workflow & formatting”. This grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.
 
 -   2 pts: Meet all criteria
 
@@ -548,8 +548,8 @@ Each assignment will have a portion associated with "Workflow & formatting". Thi
 
 -   0 pt: Meet no criteria
 
-Everyone will receive 2 points for "Workflow & formatting" on this lab. You will receive feedback about how well your submission satisfies the "Workflow & formatting" criteria, so you know what to expect for grading in future assignments.
+Everyone will receive 2 points for “Workflow & formatting” on this lab. You will receive feedback about how well your submission satisfies the “Workflow & formatting” criteria, so you know what to expect for grading in future assignments.
 
-<hr>
+------------------------------------------------------------------------
 
 *This assignment was written in collaboration with Kat Husar, a PhD student in Statistical Science at Duke University.*
