@@ -275,7 +275,7 @@
     "href": "slides/05-mlr.html#multiple-linear-regression-mlr-1",
     "title": "Multiple linear regression",
     "section": "Multiple linear regression (MLR)",
-    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\text{interest_rate} ~ =\n\\beta_0 & + \\beta_1 ~ \\text{debt_to_income} \\\\ & + \\beta_2 ~ \\text{verified_income} \\\\ &+ \\beta_3~ \\text{annual_income_th} \\\\\n& +\\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\end{aligned}\n\\]"
+    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\text{interest_rate} ~ =\n\\beta_0 & + \\beta_1 ~ \\text{debt_to_income} \\\\ & + \\beta_2 ~ \\text{verified_income}_1 \\\\ &+ \\beta_3 ~ \\text{verified_income}_2 \\\\\n&+\\beta_4~ \\text{annual_income_th} \\\\\n& +\\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "slides/05-mlr.html#multiple-linear-regression",
@@ -506,7 +506,7 @@
     "href": "slides/05-mlr-notes.html#multiple-linear-regression-mlr-1",
     "title": "Multiple linear regression",
     "section": "Multiple linear regression (MLR)",
-    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\text{interest_rate} ~ =\n\\beta_0 & + \\beta_1 ~ \\text{debt_to_income} \\\\ & + \\beta_2 ~ \\text{verified_income} \\\\ &+ \\beta_3~ \\text{annual_income_th} \\\\\n& +\\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\end{aligned}\n\\]"
+    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\text{interest_rate} ~ =\n\\beta_0 & + \\beta_1 ~ \\text{debt_to_income} \\\\ & + \\beta_2 ~ \\text{verified_income}_1 \\\\ &+ \\beta_3 ~ \\text{verified_income}_2 \\\\\n&+\\beta_4~ \\text{annual_income_th} \\\\\n& +\\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "slides/05-mlr-notes.html#multiple-linear-regression",

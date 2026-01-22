@@ -208,7 +208,8 @@ Based on the analysis goals, we will use a **multiple linear regression** model 
 
 $$
 \begin{aligned}\text{interest_rate} ~ = 
-\beta_0 & + \beta_1 ~ \text{debt_to_income} \\ & + \beta_2 ~ \text{verified_income} \\ &+ \beta_3~ \text{annual_income_th} \\
+\beta_0 & + \beta_1 ~ \text{debt_to_income} \\ & + \beta_2 ~ \text{verified_income}_1 \\ &+ \beta_3 ~ \text{verified_income}_2 \\
+&+\beta_4~ \text{annual_income_th} \\
 & +\epsilon, \quad \epsilon \sim N(0, \sigma^2_{\epsilon})
 \end{aligned}
 $$
@@ -553,7 +554,7 @@ glance(int_fit_2)$adj.r.squared
 
 -   Introduced $Adj. R^2$ for comparing models
 
-## Questions 
+## Questions
 
 ```{=html}
 <center>
