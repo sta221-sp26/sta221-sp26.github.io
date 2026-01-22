@@ -146,9 +146,103 @@
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
 <ul>
+<li>Review derivation of <span class="math inline">\(\hat{\beta}_0\)</span> based on survey responses</li>
 <li>LaTex in this course</li>
 <li>Lab 02: Linear regression</li>
 </ul>
+</section>
+<section id="deriving-hatbeta_0" class="slide level2">
+<h2>Deriving <span class="math inline">\(\hat{\beta}_0\)</span></h2>
+<p>Suppose we have a simple linear regression model of response <span class="math inline">\(Y\)</span> and predictor <span class="math inline">\(X\)</span><br>
+<br>
+<span class="math display">\[Y = \beta_0 + \beta_1X + \epsilon\]</span></p>
+<div class="fragment">
+<p>We want to find the estimators <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> that minimize the sum of squares <span class="math inline">\(\sum_{i=1}^n \epsilon_i^2\)</span></p>
+</div>
+</section>
+<section id="deriving-hatbeta_0-1" class="slide level2">
+<h2>Deriving <span class="math inline">\(\hat{\beta}_0\)</span></h2>
+<p><span class="math display">\[
+\sum_{i=1}^n \epsilon_i^2 =  [y_i - (\beta_0 + \beta_1 x_i)]^2 = [y_i - \beta_0 - \beta_1 x_i]^2
+\]</span></p>
+<div class="fragment">
+<p>Take the first derivative with respect to <span class="math inline">\(\beta_0\)</span></p>
+<p><span class="math display">\[
+\frac{\partial}{\partial \beta_0} \sum_{i=1}^n\epsilon_i^2 = -2 \sum\limits_{i=1}^{n}(y_i - \beta_0 - \beta_1 x_i)
+\]</span></p>
+</div>
+</section>
+<section id="deriving-hatbeta_0-2" class="slide level2">
+<h2>Deriving <span class="math inline">\(\hat{\beta}_0\)</span></h2>
+<p><span class="math display">\[
+\frac{\partial}{\partial \beta_0} \sum_{i=1}^n\epsilon_i^2 = -2 \sum\limits_{i=1}^{n}(y_i - \beta_0 - \beta_1 x_i)
+\]</span></p>
+<p>Find the <span class="math inline">\(\hat{\beta}_0\)</span> that satifies</p>
+<p><span class="math display">\[
+-2 \sum\limits_{i=1}^{n}(y_i - \hat{\beta}_0 - \beta_1 x_i) = 0
+\]</span></p>
+</section>
+<section id="deriving-hatbeta_0-3" class="slide level2">
+<h2>Deriving <span class="math inline">\(\hat{\beta}_0\)</span></h2>
+<p><span class="math display">\[
+-2 \sum\limits_{i=1}^{n}(y_i - \hat{\beta}_0 - \beta_1 x_i) = 0
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
+\Rightarrow \sum_{i=1}^n y_i - \sum_{i=1}^n\hat{\beta}_0  - \sum_{i=1}^n \beta_1x_i = 0
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\Rightarrow \sum_{i=1}^n y_i  - \sum_{i=1}^n \beta_1x_i =  \sum_{i=1}^n\hat{\beta}_0
+\]</span></p>
+</div>
+</section>
+<section id="deriving-hatbeta_0-4" class="slide level2">
+<h2>Deriving <span class="math inline">\(\hat{\beta}_0\)</span></h2>
+<p><span class="math display">\[
+\Rightarrow \sum_{i=1}^n y_i  - \sum_{i=1}^n \beta_1x_i =  \sum_{i=1}^n\hat{\beta}_0
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
+\Rightarrow \sum_{i=1}^n y_i  - \beta_1\sum_{i=1}^n x_i =  n\hat{\beta}_0
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\Rightarrow \frac{\sum_{i=1}^n y_i}{n} -  \beta_1\frac{\sum_{i=1}^n x_i}{n} =  \hat{\beta}_0
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\bar{y} - \beta_1 \bar{x} = \hat{\beta}_0
+\]</span></p>
+</div>
+</section>
+<section id="deriving-hatbeta_0-5" class="slide level2">
+<h2>Deriving <span class="math inline">\(\hat{\beta}_0\)</span></h2>
+<p><span class="math display">\[
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} \hspace{10mm} (\text{ We can plug in }\hat{\beta}_1 )
+\]</span></p>
+<div class="fragment">
+<p>We need to confirm we found the minimum, so we use the second derivative</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial^2}{\partial \beta_0^2} \sum_{i=1}^n \epsilon_i^2 &amp;= \frac{\partial}{\partial \beta_0}\Big(-2 \sum\limits_{i=1}^{n}(y_i - \beta_0 - \beta_1 x_i)\Big) \\[10pt]
+&amp; = 2n &gt; 0
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section id="deriving-hatbeta_0-6" class="slide level2">
+<h2>Deriving <span class="math inline">\(\hat{\beta}_0\)</span></h2>
+<p>We found the least-squares estimator for <span class="math inline">\(\beta_0\)</span></p>
+<p><span class="math display">\[
+\hat{\beta}_0 = \bar{y} - \beta_1 \bar{x}
+\]</span></p>
+<p>Repeat the same process to find <span class="math inline">\(\hat{\beta}_1\)</span></p>
 </section>
 <section id="latex-in-this-class" class="slide level2">
 <h2>LaTex in this class</h2>

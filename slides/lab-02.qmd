@@ -31,8 +31,116 @@ knitr:
 
 ## Goals
 
+-   Review derivation of $\hat{\beta}_0$ based on survey responses
 -   LaTex in this course
 -   Lab 02: Linear regression
+
+## Deriving $\hat{\beta}_0$ 
+
+Suppose we have a simple linear regression model of response $Y$ and predictor $X$\
+\
+$$Y = \beta_0 + \beta_1X + \epsilon$$
+
+. . .
+
+We want to find the estimators $\hat{\beta}_0$ and $\hat{\beta}_1$ that minimize the sum of squares $\sum_{i=1}^n \epsilon_i^2$
+
+## Deriving $\hat{\beta}_0$ 
+
+$$
+\sum_{i=1}^n \epsilon_i^2 =  [y_i - (\beta_0 + \beta_1 x_i)]^2 = [y_i - \beta_0 - \beta_1 x_i]^2
+$$
+
+. . .
+
+Take the first derivative with respect to $\beta_0$
+
+$$
+\frac{\partial}{\partial \beta_0} \sum_{i=1}^n\epsilon_i^2 = -2 \sum\limits_{i=1}^{n}(y_i - \beta_0 - \beta_1 x_i)
+$$
+
+## Deriving $\hat{\beta}_0$ 
+
+$$
+\frac{\partial}{\partial \beta_0} \sum_{i=1}^n\epsilon_i^2 = -2 \sum\limits_{i=1}^{n}(y_i - \beta_0 - \beta_1 x_i)
+$$
+
+Find the $\hat{\beta}_0$ that satifies
+
+$$
+-2 \sum\limits_{i=1}^{n}(y_i - \hat{\beta}_0 - \beta_1 x_i) = 0
+$$
+
+## Deriving $\hat{\beta}_0$ 
+
+$$
+-2 \sum\limits_{i=1}^{n}(y_i - \hat{\beta}_0 - \beta_1 x_i) = 0
+$$
+
+. . .
+
+$$
+\Rightarrow \sum_{i=1}^n y_i - \sum_{i=1}^n\hat{\beta}_0  - \sum_{i=1}^n \beta_1x_i = 0
+$$
+
+. . .
+
+$$
+\Rightarrow \sum_{i=1}^n y_i  - \sum_{i=1}^n \beta_1x_i =  \sum_{i=1}^n\hat{\beta}_0
+$$
+
+## Deriving $\hat{\beta}_0$ 
+
+$$
+\Rightarrow \sum_{i=1}^n y_i  - \sum_{i=1}^n \beta_1x_i =  \sum_{i=1}^n\hat{\beta}_0
+$$
+
+. . .
+
+$$
+\Rightarrow \sum_{i=1}^n y_i  - \beta_1\sum_{i=1}^n x_i =  n\hat{\beta}_0
+$$
+
+. . .
+
+$$
+\Rightarrow \frac{\sum_{i=1}^n y_i}{n} -  \beta_1\frac{\sum_{i=1}^n x_i}{n} =  \hat{\beta}_0
+$$
+
+. . .
+
+$$
+\bar{y} - \beta_1 \bar{x} = \hat{\beta}_0
+$$
+
+## Deriving $\hat{\beta}_0$ 
+
+$$
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} \hspace{10mm} (\text{ We can plug in }\hat{\beta}_1 )
+$$
+
+. . .
+
+We need to confirm we found the minimum, so we use the second derivative
+
+. . .
+
+$$
+\begin{aligned}
+\frac{\partial^2}{\partial \beta_0^2} \sum_{i=1}^n \epsilon_i^2 &= \frac{\partial}{\partial \beta_0}\Big(-2 \sum\limits_{i=1}^{n}(y_i - \beta_0 - \beta_1 x_i)\Big) \\[10pt]
+& = 2n > 0
+\end{aligned}
+$$
+
+## Deriving $\hat{\beta}_0$ 
+
+We found the least-squares estimator for $\beta_0$
+
+$$
+\hat{\beta}_0 = \bar{y} - \beta_1 \bar{x}
+$$
+
+Repeat the same process to find $\hat{\beta}_1$
 
 ## LaTex in this class
 

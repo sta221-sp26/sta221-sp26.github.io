@@ -1556,7 +1556,56 @@
     "href": "slides/lab-02.html#goals",
     "title": "Lab 02",
     "section": "Goals",
-    "text": "Goals\n\nLaTex in this course\nLab 02: Linear regression"
+    "text": "Goals\n\nReview derivation of \\(\\hat{\\beta}_0\\) based on survey responses\nLaTex in this course\nLab 02: Linear regression"
+  },
+  {
+    "objectID": "slides/lab-02.html#deriving-hatbeta_0",
+    "href": "slides/lab-02.html#deriving-hatbeta_0",
+    "title": "Lab 02",
+    "section": "Deriving \\(\\hat{\\beta}_0\\)",
+    "text": "Deriving \\(\\hat{\\beta}_0\\)\nSuppose we have a simple linear regression model of response \\(Y\\) and predictor \\(X\\)\n\n\\[Y = \\beta_0 + \\beta_1X + \\epsilon\\]\n\nWe want to find the estimators \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) that minimize the sum of squares \\(\\sum_{i=1}^n \\epsilon_i^2\\)"
+  },
+  {
+    "objectID": "slides/lab-02.html#deriving-hatbeta_0-1",
+    "href": "slides/lab-02.html#deriving-hatbeta_0-1",
+    "title": "Lab 02",
+    "section": "Deriving \\(\\hat{\\beta}_0\\)",
+    "text": "Deriving \\(\\hat{\\beta}_0\\)\n\\[\n\\sum_{i=1}^n \\epsilon_i^2 =  [y_i - (\\beta_0 + \\beta_1 x_i)]^2 = [y_i - \\beta_0 - \\beta_1 x_i]^2\n\\]\n\nTake the first derivative with respect to \\(\\beta_0\\)\n\\[\n\\frac{\\partial}{\\partial \\beta_0} \\sum_{i=1}^n\\epsilon_i^2 = -2 \\sum\\limits_{i=1}^{n}(y_i - \\beta_0 - \\beta_1 x_i)\n\\]"
+  },
+  {
+    "objectID": "slides/lab-02.html#deriving-hatbeta_0-2",
+    "href": "slides/lab-02.html#deriving-hatbeta_0-2",
+    "title": "Lab 02",
+    "section": "Deriving \\(\\hat{\\beta}_0\\)",
+    "text": "Deriving \\(\\hat{\\beta}_0\\)\n\\[\n\\frac{\\partial}{\\partial \\beta_0} \\sum_{i=1}^n\\epsilon_i^2 = -2 \\sum\\limits_{i=1}^{n}(y_i - \\beta_0 - \\beta_1 x_i)\n\\]\nFind the \\(\\hat{\\beta}_0\\) that satifies\n\\[\n-2 \\sum\\limits_{i=1}^{n}(y_i - \\hat{\\beta}_0 - \\beta_1 x_i) = 0\n\\]"
+  },
+  {
+    "objectID": "slides/lab-02.html#deriving-hatbeta_0-3",
+    "href": "slides/lab-02.html#deriving-hatbeta_0-3",
+    "title": "Lab 02",
+    "section": "Deriving \\(\\hat{\\beta}_0\\)",
+    "text": "Deriving \\(\\hat{\\beta}_0\\)\n\\[\n-2 \\sum\\limits_{i=1}^{n}(y_i - \\hat{\\beta}_0 - \\beta_1 x_i) = 0\n\\]\n\n\\[\n\\Rightarrow \\sum_{i=1}^n y_i - \\sum_{i=1}^n\\hat{\\beta}_0  - \\sum_{i=1}^n \\beta_1x_i = 0\n\\]\n\n\n\\[\n\\Rightarrow \\sum_{i=1}^n y_i  - \\sum_{i=1}^n \\beta_1x_i =  \\sum_{i=1}^n\\hat{\\beta}_0\n\\]"
+  },
+  {
+    "objectID": "slides/lab-02.html#deriving-hatbeta_0-4",
+    "href": "slides/lab-02.html#deriving-hatbeta_0-4",
+    "title": "Lab 02",
+    "section": "Deriving \\(\\hat{\\beta}_0\\)",
+    "text": "Deriving \\(\\hat{\\beta}_0\\)\n\\[\n\\Rightarrow \\sum_{i=1}^n y_i  - \\sum_{i=1}^n \\beta_1x_i =  \\sum_{i=1}^n\\hat{\\beta}_0\n\\]\n\n\\[\n\\Rightarrow \\sum_{i=1}^n y_i  - \\beta_1\\sum_{i=1}^n x_i =  n\\hat{\\beta}_0\n\\]\n\n\n\\[\n\\Rightarrow \\frac{\\sum_{i=1}^n y_i}{n} -  \\beta_1\\frac{\\sum_{i=1}^n x_i}{n} =  \\hat{\\beta}_0\n\\]\n\n\n\\[\n\\bar{y} - \\beta_1 \\bar{x} = \\hat{\\beta}_0\n\\]"
+  },
+  {
+    "objectID": "slides/lab-02.html#deriving-hatbeta_0-5",
+    "href": "slides/lab-02.html#deriving-hatbeta_0-5",
+    "title": "Lab 02",
+    "section": "Deriving \\(\\hat{\\beta}_0\\)",
+    "text": "Deriving \\(\\hat{\\beta}_0\\)\n\\[\n\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x} \\hspace{10mm} (\\text{ We can plug in }\\hat{\\beta}_1 )\n\\]\n\nWe need to confirm we found the minimum, so we use the second derivative\n\n\n\\[\n\\begin{aligned}\n\\frac{\\partial^2}{\\partial \\beta_0^2} \\sum_{i=1}^n \\epsilon_i^2 &= \\frac{\\partial}{\\partial \\beta_0}\\Big(-2 \\sum\\limits_{i=1}^{n}(y_i - \\beta_0 - \\beta_1 x_i)\\Big) \\\\[10pt]\n& = 2n &gt; 0\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/lab-02.html#deriving-hatbeta_0-6",
+    "href": "slides/lab-02.html#deriving-hatbeta_0-6",
+    "title": "Lab 02",
+    "section": "Deriving \\(\\hat{\\beta}_0\\)",
+    "text": "Deriving \\(\\hat{\\beta}_0\\)\nWe found the least-squares estimator for \\(\\beta_0\\)\n\\[\n\\hat{\\beta}_0 = \\bar{y} - \\beta_1 \\bar{x}\n\\]\nRepeat the same process to find \\(\\hat{\\beta}_1\\)"
   },
   {
     "objectID": "slides/lab-02.html#latex-in-this-class",
