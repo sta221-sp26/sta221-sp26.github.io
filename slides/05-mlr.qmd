@@ -552,3 +552,19 @@ glance(int_fit_2)$adj.r.squared
 -   Predicted the response for new observations
 
 -   Introduced $Adj. R^2$ for comparing models
+
+## Questions 
+
+```{=html}
+<center>
+<iframe width="640px" height="480px" src="https://forms.office.com/r/h4BdM85Bjf?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+</center>
+```
+
+🔗 <https://forms.office.com/r/h4BdM85Bjf>
+
+## For next class
+
+-   Types of predictors
+
+-   Complete [Lecture 06 prepare](../prepare/prepare-lec06.html)

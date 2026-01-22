@@ -418,6 +418,20 @@
     "text": "Recap\n\nShowed exploratory data analysis for multiple linear regression\nUsed least squares to fit the regression line\nInterpreted the coefficients for quantitative predictors\nPredicted the response for new observations\nIntroduced \\(Adj. R^2\\) for comparing models"
   },
   {
+    "objectID": "slides/05-mlr.html#questions",
+    "href": "slides/05-mlr.html#questions",
+    "title": "Multiple linear regression",
+    "section": "Questions",
+    "text": "Questions\n\n \n\n🔗 https://forms.office.com/r/h4BdM85Bjf"
+  },
+  {
+    "objectID": "slides/05-mlr.html#for-next-class",
+    "href": "slides/05-mlr.html#for-next-class",
+    "title": "Multiple linear regression",
+    "section": "For next class",
+    "text": "For next class\n\nTypes of predictors\nComplete Lecture 06 prepare"
+  },
+  {
     "objectID": "slides/05-mlr-notes.html",
     "href": "slides/05-mlr-notes.html",
     "title": "Multiple linear regression",
@@ -633,6 +647,20 @@
     "title": "Multiple linear regression",
     "section": "Recap",
     "text": "Recap\n\nShowed exploratory data analysis for multiple linear regression\nUsed least squares to fit the regression line\nInterpreted the coefficients for quantitative predictors\nPredicted the response for new observations\nIntroduced \\(Adj. R^2\\) for comparing models"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#questions",
+    "href": "slides/05-mlr-notes.html#questions",
+    "title": "Multiple linear regression",
+    "section": "Questions",
+    "text": "Questions\n\n \n\n🔗 https://forms.office.com/r/h4BdM85Bjf"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#for-next-class",
+    "href": "slides/05-mlr-notes.html#for-next-class",
+    "title": "Multiple linear regression",
+    "section": "For next class",
+    "text": "For next class\n\nTypes of predictors\nComplete Lecture 06 prepare"
   },
   {
     "objectID": "slides/04-slr-matrix.html#announcements",
