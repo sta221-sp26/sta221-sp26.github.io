@@ -3811,5 +3811,187 @@
       "Computing",
       "Troubleshooting"
     ]
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#announcements",
+    "href": "slides/06-predictor-types.html#announcements",
+    "title": "Multiple linear regression",
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 02 due TODAY at 11:59pm\nHW 01 due Thursday, January 29 at 11:59pm"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#topics",
+    "href": "slides/06-predictor-types.html#topics",
+    "title": "Multiple linear regression",
+    "section": "Topics",
+    "text": "Topics\n\nCategorical predictors\nCentering quantitative predictors\nStandardizing quantitative predictors\nInteraction terms"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#computing-setup",
+    "href": "slides/06-predictor-types.html#computing-setup",
+    "title": "Multiple linear regression",
+    "section": "Computing setup",
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#data-peer-to-peer-lender",
+    "href": "slides/06-predictor-types.html#data-peer-to-peer-lender",
+    "title": "Multiple linear regression",
+    "section": "Data: Peer-to-peer lender",
+    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n# A tibble: 50 × 4\n   annual_income_th debt_to_income verified_income interest_rate\n              &lt;dbl&gt;          &lt;dbl&gt; &lt;fct&gt;                   &lt;dbl&gt;\n 1             59           0.558  Not Verified            10.9 \n 2             60           1.31   Not Verified             9.92\n 3             75           1.06   Verified                26.3 \n 4             75           0.574  Not Verified             9.92\n 5            254           0.238  Not Verified             9.43\n 6             67           1.08   Source Verified          9.92\n 7             28.8         0.0997 Source Verified         17.1 \n 8             80           0.351  Not Verified             6.08\n 9             34           0.698  Not Verified             7.97\n10             80           0.167  Source Verified         12.6 \n# ℹ 40 more rows"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#variables",
+    "href": "slides/06-predictor-types.html#variables",
+    "title": "Multiple linear regression",
+    "section": "Variables",
+    "text": "Variables\nPredictors:\n\nannual_income_th: Annual income (in $1000s)\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\nResponse: interest_rate: Interest rate for the loan"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#response-vs.-predictors",
+    "href": "slides/06-predictor-types.html#response-vs.-predictors",
+    "title": "Multiple linear regression",
+    "section": "Response vs. predictors",
+    "text": "Response vs. predictors\n\nGoal: Use these predictors in a single model to understand variability in interest rate."
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#model-fit-in-r",
+    "href": "slides/06-predictor-types.html#model-fit-in-r",
+    "title": "Multiple linear regression",
+    "section": "Model fit in R",
+    "text": "Model fit in R\n\nint_fit &lt;- lm(interest_rate ~ debt_to_income + verified_income  + annual_income_th,\n              data = loan50)\n\ntidy(int_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#matrix-form-of-multiple-linear-regression",
+    "href": "slides/06-predictor-types.html#matrix-form-of-multiple-linear-regression",
+    "title": "Multiple linear regression",
+    "section": "Matrix form of multiple linear regression",
+    "text": "Matrix form of multiple linear regression\n\\[\n\\underbrace{\n\\begin{bmatrix}\ny_1 \\\\\n\\vdots \\\\\ny_n\n\\end{bmatrix} }_\n{\\mathbf{y}} \\hspace{3mm}\n=\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n1 &x_{11} & \\dots & x_{1p}\\\\\n\\vdots & \\vdots &\\ddots & \\vdots \\\\\n1 &  x_{n1} & \\dots &x_{np}\n\\end{bmatrix}\n}_{\\mathbf{X}}\n\\hspace{2mm}\n\\underbrace{\n\\begin{bmatrix}\n\\beta_0 \\\\\n\\beta_1 \\\\\n\\vdots \\\\\n\\beta_p\n\\end{bmatrix}\n}_{\\boldsymbol{\\beta}}\n\\hspace{3mm}\n+\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n\\epsilon_1 \\\\\n\\vdots\\\\\n\\epsilon_n\n\\end{bmatrix}\n}_\\boldsymbol{\\epsilon}\n\\]\n\nHow might we include a categorical predictor with \\(k\\) levels in the design matrix, \\(\\mathbf{X}\\) ?"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#indicator-variables",
+    "href": "slides/06-predictor-types.html#indicator-variables",
+    "title": "Multiple linear regression",
+    "section": "Indicator variables",
+    "text": "Indicator variables\n\nSuppose there is a categorical variable with \\(k\\) levels\nWe can make \\(k\\) indicator variables from the data - one indicator for each level\nAn indicator (dummy) variable takes values 1 or 0\n\n1 if the observation belongs to that level\n0 if the observation does not belong to that level"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#indicator-variables-1",
+    "href": "slides/06-predictor-types.html#indicator-variables-1",
+    "title": "Multiple linear regression",
+    "section": "Indicator variables",
+    "text": "Indicator variables\nSuppose we want to predict the amount of sleep a Duke student gets based on whether they are in Pratt (Pratt Yes/ No are the only two options). Consider the model\n\\[\nSleep_i = \\beta_0 + \\beta_1\\mathbf{1}(Pratt_i = \\texttt{Yes}) + \\beta_2\\mathbf{1}(Pratt_i = \\texttt{No})\n\\]\n\n\nWrite out the design matrix for this hypothesized linear model.\nDemonstrate that the design matrix is not of full column rank (that is, affirmatively provide one of the columns in terms of the others).\nUse this intuition to explain why when we include categorical predictors, we cannot include both indicators for every level of the variable and an intercept."
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#indicator-variables-for-verified_income",
+    "href": "slides/06-predictor-types.html#indicator-variables-for-verified_income",
+    "title": "Multiple linear regression",
+    "section": "Indicator variables for verified_income",
+    "text": "Indicator variables for verified_income\n\nloan50 &lt;- loan50 |&gt;\n  mutate(\n    not_verified = factor(if_else(verified_income == \"Not Verified\", 1, 0)),\n    source_verified = factor(if_else(verified_income == \"Source Verified\", 1, 0)),\n    verified = factor(if_else(verified_income == \"Verified\", 1, 0))\n  )\n\n\n\n\n# A tibble: 3 × 4\n  verified_income not_verified source_verified verified\n  &lt;fct&gt;           &lt;fct&gt;        &lt;fct&gt;           &lt;fct&gt;   \n1 Not Verified    1            0               0       \n2 Verified        0            0               1       \n3 Source Verified 0            1               0"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#indicator-variables-in-the-model",
+    "href": "slides/06-predictor-types.html#indicator-variables-in-the-model",
+    "title": "Multiple linear regression",
+    "section": "Indicator variables in the model",
+    "text": "Indicator variables in the model\nGiven a categorical predictor with \\(k\\) levels…\n\nUse \\(k-1\\) indicator variables in the model\nThe baseline is the category that doesn’t have a term in the model\n\nThis is also called the reference level\n\nThe coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant."
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#interpreting-verified_income",
+    "href": "slides/06-predictor-types.html#interpreting-verified_income",
+    "title": "Multiple linear regression",
+    "section": "Interpreting verified_income",
+    "text": "Interpreting verified_income\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078\n-0.043\n0.002\n\n\n\n\n\n\n\nThe baseline level is Not verified.\nPeople with source verified income are expected to take a loan with an interest rate that is 2.211% higher, on average, than the rate on loans to those whose income is not verified, holding all else constant."
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#centering",
+    "href": "slides/06-predictor-types.html#centering",
+    "title": "Multiple linear regression",
+    "section": "Centering",
+    "text": "Centering\n\nCentering a quantitative predictor means shifting every value by some constant \\(C\\)\nOne common type of centering is mean-centering, in which every value of a predictor is shifted by its mean\nOnly quantitative predictors are centered\nCenter all quantitative predictors in the model for ease of interpretation\n\n\nWhat is one reason we might want to center the quantitative predictors? What are the units of centered variables?"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#centering-1",
+    "href": "slides/06-predictor-types.html#centering-1",
+    "title": "Multiple linear regression",
+    "section": "Centering",
+    "text": "Centering\nUse the scale() function with center = TRUE and scale = FALSE to mean-center variables\n\nloan50 &lt;- loan50 |&gt;\n  mutate(debt_to_inc_cent = scale(debt_to_income, center = TRUE, scale = FALSE), \n         annual_inc_cent = scale(annual_income_th, center = TRUE, scale = FALSE))\n\nlm(interest_rate ~ debt_to_inc_cent + verified_income + annual_inc_cent, data = loan50) |&gt; \n  tidy() |&gt; kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.444\n0.977\n9.663\n0.000\n\n\ndebt_to_inc_cent\n0.671\n0.676\n0.993\n0.326\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n\n\nannual_inc_cent\n-0.021\n0.011\n-1.804\n0.078"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#centering-2",
+    "href": "slides/06-predictor-types.html#centering-2",
+    "title": "Multiple linear regression",
+    "section": "Centering",
+    "text": "Centering\n\n\n\n\n\nTerm\nOriginal Model\nCentered Model\n\n\n\n\n(Intercept)\n10.726\n9.444\n\n\ndebt_to_income\n0.671\n0.671\n\n\nverified_incomeSource Verified\n2.211\n2.211\n\n\nverified_incomeVerified\n6.880\n6.880\n\n\nannual_income_th\n-0.021\n-0.021\n\n\n\n\n\n\nHow has the model changed? How has the model remained the same?"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#standardizing",
+    "href": "slides/06-predictor-types.html#standardizing",
+    "title": "Multiple linear regression",
+    "section": "Standardizing",
+    "text": "Standardizing\n\nStandardizing a quantitative predictor mean shifting every value by the mean and dividing by the standard deviation of that variable\nOnly quantitative predictors are standardized\nStandardize all quantitative predictors in the model for ease of interpretation\n\n\nWhat is one reason we might want to standardize the quantitative predictors? What are the units of standardized variables?"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#standardizing-1",
+    "href": "slides/06-predictor-types.html#standardizing-1",
+    "title": "Multiple linear regression",
+    "section": "Standardizing",
+    "text": "Standardizing\nUse the scale() function with center = TRUE and scale = TRUE to standardized variables\n\nloan50 &lt;- loan50 |&gt;\n  mutate(debt_to_inc_std = scale(debt_to_income, center = TRUE, scale = TRUE), \n         annual_inc_std = scale(annual_income_th, center = TRUE, scale = TRUE))\n\nlm(interest_rate ~ debt_to_inc_std + verified_income + annual_inc_std, data = loan50) |&gt;\n  tidy() |&gt; kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.444\n0.977\n9.663\n0.000\n\n\ndebt_to_inc_std\n0.643\n0.648\n0.993\n0.326\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n\n\nannual_inc_std\n-1.180\n0.654\n-1.804\n0.078"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#standardizing-2",
+    "href": "slides/06-predictor-types.html#standardizing-2",
+    "title": "Multiple linear regression",
+    "section": "Standardizing",
+    "text": "Standardizing\n\n\n\n\n\nTerm\nOriginal Model\nStandardized Model\n\n\n\n\n(Intercept)\n10.726\n9.444\n\n\ndebt_to_income\n0.671\n0.643\n\n\nverified_incomeSource Verified\n2.211\n2.211\n\n\nverified_incomeVerified\n6.880\n6.880\n\n\nannual_income_th\n-0.021\n-1.180\n\n\n\n\n\n\nHow has the model changed? How has the model remained the same?"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#interaction-terms-1",
+    "href": "slides/06-predictor-types.html#interaction-terms-1",
+    "title": "Multiple linear regression",
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model."
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#interest-rate-vs.-annual-income",
+    "href": "slides/06-predictor-types.html#interest-rate-vs.-annual-income",
+    "title": "Multiple linear regression",
+    "section": "Interest rate vs. annual income",
+    "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is a potential interaction effect. The slope of annual income differs based on the income verification."
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#interaction-term-in-model",
+    "href": "slides/06-predictor-types.html#interaction-term-in-model",
+    "title": "Multiple linear regression",
+    "section": "Interaction term in model",
+    "text": "Interaction term in model\n\nint_fit_2 &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_th + verified_income * annual_income_th,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_th\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_th\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_th\n-0.032\n0.033\n-0.979\n0.333"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#interpreting-interaction-terms",
+    "href": "slides/06-predictor-types.html#interpreting-interaction-terms",
+    "title": "Multiple linear regression",
+    "section": "Interpreting interaction terms",
+    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.\nInterpreting annual_income for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant."
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#recap",
+    "href": "slides/06-predictor-types.html#recap",
+    "title": "Multiple linear regression",
+    "section": "Recap",
+    "text": "Recap\n\nInterpreted categorical predictors\nExplored why the model includes \\(k-1\\) terms for a categorical predictor with \\(k\\) levels\nFit and interpreted models with centered and standardized variables\nInterpreted interaction terms"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#next-class",
+    "href": "slides/06-predictor-types.html#next-class",
+    "title": "Multiple linear regression",
+    "section": "Next class",
+    "text": "Next class\n\nInference for regression\nComplete Lecture 07 prepare"
+  },
+  {
+    "objectID": "slides/06-predictor-types.html#trying-to-use-all-indicators-in-r",
+    "href": "slides/06-predictor-types.html#trying-to-use-all-indicators-in-r",
+    "title": "Multiple linear regression",
+    "section": "Trying to use all indicators in R",
+    "text": "Trying to use all indicators in R\n\nRun the code below to fit a model using debt_to_income, annual_income_th, and all the indicator variables for verified_income to predict interest_rate. What do you notice about the model output? Why did this happen?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   }
 ]
