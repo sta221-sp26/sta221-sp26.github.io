@@ -469,7 +469,7 @@
   // Document level settings ----
 
   // Determine if we need to install R packages
-  globalThis.qwebrInstallRPackagesList = ['tidyverse', 'tidymodels', 'openintro'];
+  globalThis.qwebrInstallRPackagesList = ['tidyverse', 'broom', 'openintro'];
 
   // Specify possible locations to search for the repository
   globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -491,7 +491,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"loan50 <- loan50 |>\n  mutate(\n    not_verified = factor(if_else(verified_income == \"Not Verified\", 1, 0)),\n    source_verified = factor(if_else(verified_income == \"Source Verified\", 1, 0)),\n    verified = factor(if_else(verified_income == \"Verified\", 1, 0))\n  )","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"interest_rate_fit <- lm(interest_rate ~ debt_to_income + annual_income_th + \nnot_verified + source_verified + verified,\ndata = loan50)\n\ntidy(interest_rate_fit)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+  globalThis.qwebrCellDetails = [{"code":"loan50 <- loan50 |>\n  mutate(\n    not_verified = factor(if_else(verified_income == \"Not Verified\", 1, 0)),\n    source_verified = factor(if_else(verified_income == \"Source Verified\", 1, 0)),\n    verified = factor(if_else(verified_income == \"Verified\", 1, 0)),\n    annual_income_th = annual_income / 1000)","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"interest_rate_fit <- lm(interest_rate ~ debt_to_income + annual_income_th + \n                        not_verified + source_verified + verified, \n                        data = loan50)\n\ntidy(interest_rate_fit)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# add code to obtain design matrix","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# code to fit and display model with interaction","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
   </script>
   <script type="module">
@@ -2276,17 +2276,15 @@ Sleep_i = \beta_0 + \beta_1\mathbf{1}(Pratt_i = \texttt{Yes}) + \beta_2\mathbf{1
 </div>
 </div>
 </section>
-<section id="trying-to-use-all-indicators-in-r" class="slide level2">
+<section id="trying-to-use-all-indicators-in-r" class="slide level2 midi">
 <h2>Trying to use all indicators in R</h2>
 <div class="question">
 <p>Run the code below to fit a model using <code>debt_to_income</code>, <code>annual_income_th</code>, and all the indicator variables for <code>verified_income</code> to predict <code>interest_rate</code>. What do you notice about the model output? Why did this happen?</p>
 </div>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="cell">
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
 </section>
 <section id="indicator-variables-in-the-model" class="slide level2 midi">
 <h2>Indicator variables in the model</h2>
@@ -2299,13 +2297,89 @@ Sleep_i = \beta_0 + \beta_1\mathbf{1}(Pratt_i = \texttt{Yes}) + \beta_2\mathbf{1
 </ul></li>
 <li>The coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.</li>
 </ul>
-</section></section>
-<section>
-<section id="application-exercise" class="title-slide slide level1 center">
-<h1>Application exercise</h1>
-<div class="appex">
-<p>📋 <a href="../ae/ae-02-mlr.html" class="uri">https://sta221-sp25.netlify.app/ae/ae-02-mlr.html</a></p>
-<p>Complete Part 1</p>
+</section>
+<section id="ae-model-in-r" class="slide level2 midi">
+<h2>AE: Model in R</h2>
+<div class="question">
+<p>Now let’s take a look at the design matrix for the model with predictors <code>debt_to_income</code>, <code>annual_income_th</code>, and <code>verified_income</code>.</p>
+<p>How does R choose the baseline level by default?</p>
+</div>
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="exploring-indicator-variables" class="slide level2 small">
+<h2>Exploring indicator variables</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.low</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">10.726</td>
+<td style="text-align: right;">1.507</td>
+<td style="text-align: right;">7.116</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">7.690</td>
+<td style="text-align: right;">13.762</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">debt_to_income</td>
+<td style="text-align: right;">0.671</td>
+<td style="text-align: right;">0.676</td>
+<td style="text-align: right;">0.993</td>
+<td style="text-align: right;">0.326</td>
+<td style="text-align: right;">-0.690</td>
+<td style="text-align: right;">2.033</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(220, 229, 178, 255) !important;">verified_incomeSource Verified</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">2.211</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">1.399</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">1.581</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">0.121</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">-0.606</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">5.028</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(220, 229, 178, 255) !important;">verified_incomeVerified</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">6.880</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">1.801</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">3.820</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">0.000</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">3.253</td>
+<td style="text-align: right; background-color: rgba(220, 229, 178, 255) !important;">10.508</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">annual_income_th</td>
+<td style="text-align: right;">-0.021</td>
+<td style="text-align: right;">0.011</td>
+<td style="text-align: right;">-1.804</td>
+<td style="text-align: right;">0.078</td>
+<td style="text-align: right;">-0.043</td>
+<td style="text-align: right;">0.002</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="question">
+<p>What is the intercept for individuals with</p>
+<ul>
+<li><p>Not verified income?</p></li>
+<li><p>Source verified income?</p></li>
+<li><p>Verified income?</p></li>
+</ul>
 </div>
 </section>
 <section id="interpreting-verified_income" class="slide level2 small">
@@ -2655,14 +2729,18 @@ Sleep_i = \beta_0 + \beta_1\mathbf{1}(Pratt_i = \texttt{Yes}) + \beta_2\mathbf{1
 <h2>Interest rate vs.&nbsp;annual income</h2>
 <p>The lines are not parallel indicating there is a potential <strong>interaction effect</strong>. The slope of annual income differs based on the income verification.</p>
 
-<img data-src="06-predictor-types_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
-<section>
-<section id="application-exercise-1" class="title-slide slide level1 center">
-<h1>Application exercise</h1>
-<div class="appex">
-<p>📋 <a href="../ae/ae-02-mlr.html" class="uri">https://sta221-sp25.netlify.app/ae/ae-02-mlr.html</a></p>
-<p>Complete Part 2</p>
+<img data-src="06-predictor-types_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="ae-model-with-interaction-effect" class="slide level2 midi">
+<h2>AE: Model with interaction effect</h2>
+<div class="question">
+<p>Fit the model with the predictors <code>debt_to_income</code>, <code>annual_income_th</code>, <code>verified_income</code> , and the interaction between <code>annual_income_th</code> and <code>verified_income</code>.</p>
+<ul>
+<li><p>Write the estimated regression equation for the people with <code>Not Verified</code> income.</p></li>
+<li><p>Write the estimated regression equation for people with <code>Verified</code> income.</p></li>
+</ul>
 </div>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="interaction-term-in-model" class="slide level2 smaller">
 <h2>Interaction term in model</h2>
@@ -2743,6 +2821,16 @@ Sleep_i = \beta_0 + \beta_1\mathbf{1}(Pratt_i = \texttt{Yes}) + \beta_2\mathbf{1
 <li>What the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.</li>
 <li>Interpreting <code>annual_income</code> for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant.</li>
 </ul>
+</section>
+<section id="indicators-and-interactions" class="slide level2">
+<h2>Indicators and interactions</h2>
+<div class="question">
+<p>In general, how do</p>
+<ul>
+<li><p>indicators for categorical predictors impact the model equation?</p></li>
+<li><p>interaction terms impact the model equation?</p></li>
+</ul>
+</div>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
