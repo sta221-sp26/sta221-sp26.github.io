@@ -82,6 +82,9 @@ loan50 <- loan50 |>
 
 loan50 |>
   select(annual_income_th, debt_to_income, verified_income, interest_rate)
+
+# get rid of the hidden blank column of verified income 
+loan50$verified_income <- droplevels(loan50$verified_income)
 ```
 
 ## Variables
@@ -249,7 +252,11 @@ loan50 <- loan50 |>
     not_verified = factor(if_else(verified_income == "Not Verified", 1, 0)),
     source_verified = factor(if_else(verified_income == "Source Verified", 1, 0)),
     verified = factor(if_else(verified_income == "Verified", 1, 0)),
-    annual_income_th = annual_income / 1000)
+    annual_income_th = annual_income / 1000) |>
+  filter(verified_income %in% c("Not Verified", "Source Verified", "Verified"))
+
+# get rid of the hidden blank column of verified income 
+loan50$verified_income <- droplevels(loan50$verified_income)
 
 ```
 
