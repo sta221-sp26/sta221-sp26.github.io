@@ -15,7 +15,7 @@ format:
     chalkboard: true
     include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
   html: 
-    output-file: 06-mlr-pt2-notes.html
+    output-file: 06-predictor-type-notes.html
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -38,6 +38,8 @@ webr:
 -   Lab 02 due **TODAY** at 11:59pm
 
 -   HW 01 due **Thursday, January 29** at 11:59pm
+
+-   Submit teams by Thursday at 5pm
 
 ## Topics
 
@@ -491,7 +493,7 @@ tidy(int_fit_2) |>
 -   What the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.
 -   Interpreting `annual_income` for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant.
 
-## Indicators and interactions 
+## Indicators and interactions
 
 ::: question
 In general, how do

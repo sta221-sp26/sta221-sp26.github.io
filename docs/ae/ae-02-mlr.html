@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-01-16">
+<meta name="dcterms.date" content="2026-01-27">
 
-<title>AE 01: Model assessment – STA 221 - Spring 2026</title>
+<title>AE 02: Multiple linear regression – STA 221 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,27 +56,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -166,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 01: Model assessment</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 02: Multiple linear regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -410,17 +390,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   </ul></li>
   <li><a href="#part-2" id="toc-part-2" class="nav-link" data-scroll-target="#part-2">Part 2</a>
   <ul class="collapse">
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   </ul></li>
+  <li><a href="#latex" id="toc-latex" class="nav-link" data-scroll-target="#latex">LaTex</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -430,8 +414,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 01: Model assessment</h1>
-<p class="subtitle lead">Income inequality, healthcare expenditure, and life expectancy</p>
+<h1 class="title">AE 02: Multiple linear regression</h1>
+<p class="subtitle lead">Peer-to-peer lending</p>
 </div>
 
 
@@ -442,7 +426,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 16, 2025</p>
+      <p class="date">January 27, 2026</p>
     </div>
   </div>
   
@@ -464,71 +448,175 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta221-sp25">course GitHub organization</a> and locate your <code>ae-01</code> repo to get started.</p>
-<p>If you do not see an <code>ae-01</code> repo, use the link below to create one:</p>
-<p><a href="https://classroom.github.com/a/6jpkfA8n" class="uri">https://classroom.github.com/a/6jpkfA8n</a></p>
-<p>Render, commit, and push your responses to GitHub by the end of class to submit your AE.</p>
-<p><br>
-<br>
-<strong>This AE will not count towards your participation grade.</strong></p>
+<p>This AE will be completed through code chunks in the <a href="../slides/06-predictor-types.html">lecture slides</a>.</p>
 </div>
 </div>
+<section id="packages" class="level1">
+<h1>Packages</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)    <span class="co"># data wrangling and visualization</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)   <span class="co"># broom and yardstick package</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)        <span class="co"># format output</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.5.2</code></pre>
 </div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.5.2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)   </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)    </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)       </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'knitr' was built under R version 4.5.2</code></pre>
+</div>
+</div>
+</section>
 <section id="data" class="level1">
 <h1>Data</h1>
-<p>The data set comes from <span class="citation" data-cites="zarulli2021">Zarulli et al. (<a href="#ref-zarulli2021" role="doc-biblioref">2021</a>)</span> who analyze the effects of a country’s healthcare expenditure and other factors on the country’s life expectancy. The data are originally from the <a href="http://hdr.undp.org/en/data">Human Development Database</a> and <a href="https://apps.who.int/nha/database/">World Health Organization</a>.</p>
+<p>Today’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the <code>loan50</code> data frame in the <strong>openintro</strong> R package.</p>
+<p>We will focus on the following variables:</p>
 <ul>
-<li><p><code>life_exp</code>: The average number of years that a newborn could expect to live, if he or she were to pass through life exposed to the sex- and age-specific death rates prevailing at the time of his or her birth, for a specific year, in a given country, territory, or geographic income_inequality. ( from the <a href="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/65#:~:text=Definition%3A,%2C%20territory%2C%20or%20geographic%20area.">World Health Organization</a>)</p></li>
-<li><p><code>income_inequality</code>: Measure of the deviation of the distribution of income among individuals or households within a country from a perfectly equal distribution. A value of 0 represents absolute equality, a value of 100 absolute inequality (based on Gini coefficient). (from <span class="citation" data-cites="zarulli2021">Zarulli et al. (<a href="#ref-zarulli2021" role="doc-biblioref">2021</a>)</span>)</p></li>
-<li><p><code>health_expend</code>: Per capita current spending on on healthcare good sand services, expressed in respective currency - international Purchasing Power Parity (PPP) dollar (<a href="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4952">from the World Health Organization</a>)</p></li>
-<li><p><code>health_pct_gdp</code>: Spending on healthcare goods and services, expressed as a percentage of GDP. It excludes capital health expenditures such as buildings, machinery, information technology and stocks of vaccines for emergency or outbreaks (from <span class="citation" data-cites="zarulli2021">Zarulli et al. (<a href="#ref-zarulli2021" role="doc-biblioref">2021</a>)</span>).</p></li>
+<li><code>annual_income_th</code>: Annual income (in $1000s)</li>
+<li><code>debt_to_income</code>: Debt-to-income ratio, i.e.&nbsp;the percentage of a borrower’s total debt divided by their total income</li>
+<li><code>verified_income</code>: Whether borrower’s income source and amount have been verified (<code>Not Verified</code>, <code>Source Verified</code>, <code>Verified</code>)</li>
+<li><code>interest_rate</code>: Interest rate for the loan</li>
 </ul>
+<p>The goal of this analysis is to use the annual income, debt-to-income ratio, and income verification to understand variability in the interest rate on the loan.</p>
+<p>We’ll start with data prep to rescale annual income to $1000’s and recode <code>verified_income</code> to fix an issue with the underlying data.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>life_exp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/life_exp.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">annual_income_th =</span> annual_income <span class="sc">/</span> <span class="dv">1000</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">verified_income =</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">case_when</span>(verified_income <span class="sc">==</span> <span class="st">"Not Verified"</span> <span class="sc">~</span> <span class="st">"Not Verified"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                      verified_income <span class="sc">==</span> <span class="st">"Source Verified"</span> <span class="sc">~</span> <span class="st">"Source Verified"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                      verified_income <span class="sc">==</span> <span class="st">"Verified"</span> <span class="sc">~</span> <span class="st">"Verified"</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">verified_income =</span> <span class="fu">as_factor</span>(verified_income)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>   )                    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(loan50)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 50
+Columns: 19
+$ state                   &lt;fct&gt; NJ, CA, SC, CA, OH, IN, NY, MO, FL, FL, MD, HI…
+$ emp_length              &lt;dbl&gt; 3, 10, NA, 0, 4, 6, 2, 10, 6, 3, 8, 10, 10, 2,…
+$ term                    &lt;dbl&gt; 60, 36, 36, 36, 60, 36, 36, 36, 60, 60, 36, 36…
+$ homeownership           &lt;fct&gt; rent, rent, mortgage, rent, mortgage, mortgage…
+$ annual_income           &lt;dbl&gt; 59000, 60000, 75000, 75000, 254000, 67000, 288…
+$ verified_income         &lt;fct&gt; Not Verified, Not Verified, Verified, Not Veri…
+$ debt_to_income          &lt;dbl&gt; 0.55752542, 1.30568333, 1.05628000, 0.57434667…
+$ total_credit_limit      &lt;int&gt; 95131, 51929, 301373, 59890, 422619, 349825, 1…
+$ total_credit_utilized   &lt;int&gt; 32894, 78341, 79221, 43076, 60490, 72162, 2872…
+$ num_cc_carrying_balance &lt;int&gt; 8, 2, 14, 10, 2, 4, 1, 3, 10, 4, 3, 4, 3, 2, 3…
+$ loan_purpose            &lt;fct&gt; debt_consolidation, credit_card, debt_consolid…
+$ loan_amount             &lt;int&gt; 22000, 6000, 25000, 6000, 25000, 6400, 3000, 1…
+$ grade                   &lt;fct&gt; B, B, E, B, B, B, D, A, A, C, D, A, A, A, A, E…
+$ interest_rate           &lt;dbl&gt; 10.90, 9.92, 26.30, 9.92, 9.43, 9.92, 17.09, 6…
+$ public_record_bankrupt  &lt;int&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0…
+$ loan_status             &lt;fct&gt; Current, Current, Current, Current, Current, C…
+$ has_second_income       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
+$ total_income            &lt;dbl&gt; 59000, 60000, 75000, 75000, 254000, 67000, 288…
+$ annual_income_th        &lt;dbl&gt; 59.0, 60.0, 75.0, 75.0, 254.0, 67.0, 28.8, 80.…</code></pre>
+</div>
 </div>
 </section>
 <section id="part-1" class="level1">
 <h1>Part 1</h1>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Fit a model using income equality to understand variability in life expectancy. Neatly display the results using 3 digits.</p>
+<p>We’ll start by fitting a model in which we include all levels of <code>verified_income</code>.</p>
+<ul>
+<li><p>Fit a model using <code>debt_to_income</code>, <code>annual_income_th</code>, and the indicator variables created below to predict <code>interest_rate</code>.</p></li>
+<li><p>What do you notice about the model output? Why did this happen?</p></li>
+</ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">not_verified =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Not Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>)),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_verified =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Source Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>)),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">verified =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Now let’s take a look at the design matrix for the model with predictors <code>debt_to_income</code>, <code>annual_income_th</code>, and <code>verified_income</code>.</p>
+<p>How does R choose the baseline level by default?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## add code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>What is the intercept for individuals with</p>
 <ul>
-<li><p>Interpret the slope in the context of the data.</p></li>
-<li><p>Does it make sense to interpret the intercept? If so, interpret it in the context of the data. Otherwise, explain why not.</p></li>
+<li><p>Not verified income?</p></li>
+<li><p>Source verified income?</p></li>
+<li><p>Verified income?</p></li>
 </ul>
 </section>
 </section>
 <section id="part-2" class="level1">
 <h1>Part 2</h1>
-<p>We now want to understand the relationship between a country’s healthcare expenditure and its life expectancy. The data set contains two measures for healthcare expenditure: <code>health_expend</code> and <code>health_pct_gdp</code>.</p>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Fit a model using <code>health_expend</code> to understand variability in <code>life_exp</code>. Compute <span class="math inline">\(R^2\)</span> and <span class="math inline">\(RMSE\)</span> for this model.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li><p>Interpret <span class="math inline">\(R^2\)</span> in the context of the data.</p></li>
-<li><p>Interpret <span class="math inline">\(RMSE\)</span> in the context for the data.</p></li>
-</ul>
-</section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Which measure of healthcare expenditure would you choose as a predictor of life expectancy - <code>health_expend</code> or <code>health_pct_gdp</code>? Briefly explain, using <span class="math inline">\(R^2\)</span> and/or <span class="math inline">\(RMSE\)</span> to support your choice.</p>
+<p>Fit the model with the predictors <code>debt_to_income</code>, <code>annual_income_th</code>, <code>verified_income</code> , and the interaction between <code>annual_income_th</code> and <code>verified_income</code>.</p>
+<p>Neatly display the model results using 3 digits.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<ul>
+<li><p>Write the estimated regression equation for the people with <code>Not Verified</code> income.</p></li>
+<li><p>Write the estimated regression equation for people with <code>Verified</code> income.</p></li>
+</ul>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>In general, how do</p>
+<ul>
+<li><p>indicators for categorical predictors impact the model equation?</p></li>
+<li><p>interaction terms impact the model equation?</p></li>
+</ul>
+</section>
+</section>
+<section id="latex" class="level1">
+<h1>LaTex</h1>
+<p>Sometimes, you will need to include mathematical notation in your document. There are two ways you can display mathematics in your document:</p>
+<p><strong>Inline:</strong> Your mathematics will display within the line of text.</p>
+<ul>
+<li><p>Use <code>$</code> to start and end your LaTex syntax. You can also use the menu: <em>Insert -&gt; LaTex Math -&gt; Inline Math</em>.</p></li>
+<li><p><em>Example</em>: The text <code>The simple linear regression model is $\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}$</code> produces<br>
+</p>
+<p>The simple linear regression model is <span class="math inline">\(\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}\)</span></p></li>
+</ul>
+<p><br>
+<strong>Displayed:</strong> Your mathematics will display outside the line of text</p>
+<ul>
+<li><p>Use a <code>$$</code> to start and end your LaTex syntax. You can also use the menu: <em>Insert -&gt; LaTex Math -&gt; Display Math</em>.</p></li>
+<li><p><em>Example</em>: The text <code>The estimated regression equation is $$\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}}$$</code>produces<br>
+</p>
+<p>The estimated regression equation is</p></li>
+</ul>
+<p><span class="math display">\[
+\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}}
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">Click here</a> for a quick reference of LaTex code.</p>
+</div>
+</div>
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>
@@ -551,14 +639,9 @@ Important
 </div>
 
 
-
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-zarulli2021" class="csl-entry" role="listitem">
-Zarulli, Virginia, Elizaveta Sopina, Veronica Toffolutti, and Adam Lenart. 2021. <span>“Health Care System Efficiency and Life Expectancy: A 140-Country Study.”</span> Edited by Srinivas Goli. <em>PLOS ONE</em> 16 (7): e0253450. <a href="https://doi.org/10.1371/journal.pone.0253450">https://doi.org/10.1371/journal.pone.0253450</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
