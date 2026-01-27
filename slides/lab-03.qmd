@@ -1,0 +1,100 @@
+---
+title: "Lab 03"
+subtitle: "Multiple linear regression + Meet your Team!"
+date: "01-30-2026"
+date-format: "MMMM DD, YYYY"
+footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+# Welcome
+
+## Goals
+
+-   Meet your team!
+-   Team agreement
+-   Lab 03: Multiple linear regression
+
+## Icebreaker
+
+<br>
+
+::: question
+What is your favorite place to eat at Brodhead Center (West Union)?
+:::
+
+# Teams
+
+## Meet your team! - UPDATE
+
+-   [**Clickhere**](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EWmBSHOfYhJLlxYJKEDFpT8BZNmQsC41rm4hA6uaOqrA1w?e=sUNxBJ) to find your team.
+
+-   Sit with your team.
+
+## Team name + agreement
+
+-   Come up with a team name, if you haven't already. You can't have the same name as another team in the class, so be creative!
+
+    -   Your TA will get your team name by the end of lab.
+
+-   Fill out the team agreement. The goals of the agreement are to...
+
+    -   Gain a common understanding of the team's goals and expectations for collaboration
+    -   Make a plan for team communication
+    -   Make a plan for working outside of lab
+
+## Team workflow
+
+-   Only <u>**one**</u> team member should type at a time. There are markers in today's lab to help you determine whose turn it is to type.
+
+    -   Every team member should still be engaged in discussion for all questions, even if it's not your turn type.
+
+-   Don't forget to **pull** to get your teammates' updates before making changes to the `.qmd` file.
+
+    ::: callout-important
+    **Only one submission per team on Gradescope. Read the submission instructions carefully!**
+    :::
+
+## Team workflow, in action
+
+-   Complete the "Workflow: Using Git and GitHub as a team" section of the lab in your teams.
+-   Raise your hand if you have any questions about the workflow.
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 5, font_size = "2em")
+```
+
+## Tips for working on a team
+
+-   Do not pressure each other to finish early; use the time wisely to really learn the material and produce a quality report.
+
+-   The labs are structured to help you learn the steps of a data analysis. Do not split up the lab among the team members; work on it together in its entirety.
+
+-   Everyone has something to contribute! Use the lab groups as an opportunity to share ideas and learn from each other.
+
+## Lab 03: Multiple linear regression
+
+Today’s lab focuses on using multiple linear regression to predict childcare costs for preschool-aged children in North Carolina.
+
+🔗 [sta221-sp26.github.io/labs/lab-03.html](https://sta221-sp26.github.io/labs/lab-03.html)
