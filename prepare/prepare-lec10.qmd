@@ -1,9 +1,3 @@
 ---
-title: "Prepare for Lecture 10: Inference - Confidence intervals"
+title: "Prepare for Lecture 10: Exam 01 review"
 ---
-
-<br>
-
-📖 Read [Section 5.8.4](https://intro-regression.github.io/05-slr-inference.html#confidence-interval)
-
-📖 Read [Section 8.4.3](https://intro-regression.github.io/08-mlr-inference.html#confidence-intervals)

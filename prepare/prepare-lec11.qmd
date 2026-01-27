@@ -1,5 +1,5 @@
 ---
-title: "Prepare for Lecture 12:  Model conditions + diagnostics"
+title: "Prepare for Lecture 11:  Model conditions + diagnostics"
 ---
 
 <br>
