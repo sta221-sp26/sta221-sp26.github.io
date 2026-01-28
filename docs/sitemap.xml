@@ -26,43 +26,47 @@
   </url>
   <url>
     <loc>https://sta221-sp26.github.io/slides/06-predictor-types.html</loc>
-    <lastmod>2026-01-26T15:27:09.683Z</lastmod>
+    <lastmod>2026-01-28T14:28:37.249Z</lastmod>
   </url>
   <url>
     <loc>https://sta221-sp26.github.io/slides/06-predictor-type-notes.html</loc>
-    <lastmod>2026-01-26T15:27:09.683Z</lastmod>
+    <lastmod>2026-01-28T14:28:37.249Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/slides/03-slr-model-evaluation.html</loc>
-    <lastmod>2026-01-14T17:40:34.299Z</lastmod>
+    <loc>https://sta221-sp26.github.io/slides/05-geometry.html</loc>
+    <lastmod>2025-03-20T01:13:44.000Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/slides/03-slr-model-evaluation-notes.html</loc>
-    <lastmod>2026-01-14T17:40:34.299Z</lastmod>
+    <loc>https://sta221-sp26.github.io/slides/05-geometry-notes.html</loc>
+    <lastmod>2025-03-20T01:13:44.000Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/slides/02-slr.html</loc>
+    <loc>https://sta221-sp26.github.io/slides/01-welcome.html</loc>
     <lastmod>2026-01-13T18:34:54.434Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/slides/02-slr-notes.html</loc>
+    <loc>https://sta221-sp26.github.io/slides/01-welcome-notes.html</loc>
     <lastmod>2026-01-13T18:34:54.434Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/slides/lab-01.html</loc>
-    <lastmod>2026-01-16T01:38:43.290Z</lastmod>
+    <loc>https://sta221-sp26.github.io/slides/lab-00.html</loc>
+    <lastmod>2026-01-13T18:34:54.468Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/slides/lab-02.html</loc>
-    <lastmod>2026-01-22T21:56:21.491Z</lastmod>
+    <loc>https://sta221-sp26.github.io/slides/lab-03.html</loc>
+    <lastmod>2026-01-27T14:08:20.623Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/computing-access.html</loc>
+    <loc>https://sta221-sp26.github.io/index.html</loc>
+    <lastmod>2026-01-13T18:34:54.420Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta221-sp26.github.io/computing-r-resources.html</loc>
     <lastmod>2026-01-13T18:34:54.280Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/support.html</loc>
-    <lastmod>2026-01-13T18:34:54.469Z</lastmod>
+    <loc>https://sta221-sp26.github.io/ae/ae-02-mlr.html</loc>
+    <lastmod>2026-01-26T14:21:01.937Z</lastmod>
   </url>
   <url>
     <loc>https://sta221-sp26.github.io/ae/ae-01-model-evaluation.html</loc>
@@ -181,32 +185,40 @@
     <lastmod>2026-01-13T18:34:54.429Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/ae/ae-02-mlr.html</loc>
-    <lastmod>2026-01-26T14:21:01.937Z</lastmod>
+    <loc>https://sta221-sp26.github.io/ae/ae-01-model-assessment.html</loc>
+    <lastmod>2025-03-20T01:13:44.000Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/computing-r-resources.html</loc>
+    <loc>https://sta221-sp26.github.io/support.html</loc>
+    <lastmod>2026-01-13T18:34:54.469Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta221-sp26.github.io/computing-access.html</loc>
     <lastmod>2026-01-13T18:34:54.280Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/index.html</loc>
-    <lastmod>2026-01-13T18:34:54.420Z</lastmod>
+    <loc>https://sta221-sp26.github.io/slides/lab-02.html</loc>
+    <lastmod>2026-01-22T21:56:21.491Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/slides/lab-03.html</loc>
-    <lastmod>2026-01-27T14:08:20.623Z</lastmod>
+    <loc>https://sta221-sp26.github.io/slides/lab-01.html</loc>
+    <lastmod>2026-01-16T01:38:43.290Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/slides/lab-00.html</loc>
-    <lastmod>2026-01-13T18:34:54.468Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta221-sp26.github.io/slides/01-welcome-notes.html</loc>
+    <loc>https://sta221-sp26.github.io/slides/02-slr-notes.html</loc>
     <lastmod>2026-01-13T18:34:54.434Z</lastmod>
   </url>
   <url>
-    <loc>https://sta221-sp26.github.io/slides/01-welcome.html</loc>
+    <loc>https://sta221-sp26.github.io/slides/02-slr.html</loc>
     <lastmod>2026-01-13T18:34:54.434Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta221-sp26.github.io/slides/03-slr-model-evaluation-notes.html</loc>
+    <lastmod>2026-01-14T17:40:34.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta221-sp26.github.io/slides/03-slr-model-evaluation.html</loc>
+    <lastmod>2026-01-14T17:40:34.299Z</lastmod>
   </url>
   <url>
     <loc>https://sta221-sp26.github.io/slides/04-slr-matrix-notes.html</loc>

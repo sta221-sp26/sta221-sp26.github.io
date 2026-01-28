@@ -1,7 +1,7 @@
 ---
 title: "Multiple linear regression"
 subtitle: "Types of predictors"
-date: "01-27-2026"
+date: "01-29-2026"
 date-format: "MMMM DD, YYYY"
 footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
 logo: "../images/logo.png"
@@ -35,11 +35,15 @@ webr:
 
 ## Announcements
 
--   Lab 02 due **TODAY** at 11:59pm
-
--   HW 01 due **Thursday, January 29** at 11:59pm
+-   HW 01 due **TODAY** at 11:59pm
 
 -   (Optional) Submit team request by T**hursday, January 29 at 5pm**: <https://forms.office.com/r/3WHjriZjM9>
+
+-   [Statistics experience](../hw/stats-experience.html) due April 2
+
+-   SSMU Mini DataFest - February 8
+
+    -   See [Ed Discussion announcement](https://edstem.org/us/courses/90766/discussion/7577338)
 
 ## Topics
 

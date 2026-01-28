@@ -1,0 +1,127 @@
+---
+title: "Geometric interpretation of least-squares regression"
+author: "Prof. Maria Tackett"
+date: "2025-01-23"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 STA 221 - Spring 2025](https://sta221-sp25.netlify.app)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 05-geometry-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+## Announcements
+
+-   HW 01 due **Thursday, January 30 at 11:59pm**
+
+    -   Released after class.
+
+    -   Make sure you are a member of the course GitHub organization
+
+        -   If you can see the number of people in the org, then you are a member!
+
+## Topics
+
+-   Geometric interpretation of least-squares regression
+
+## Recap: Regression in matrix from
+
+The simple linear regression model can be represented using vectors and matrices as
+
+::: equation
+$$
+\large{\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}}
+$$
+:::
+
+-   $\mathbf{y}$ : Vector of responses
+
+-   $\mathbf{X}$: Design matrix (columns for predictors + intercept)
+
+-   $\boldsymbol{\beta}$: Vector of model coefficients
+
+-   $\boldsymbol{\epsilon}$: Vector of error terms centered at $\mathbf{0}$ with variance $\sigma^2_{\epsilon}\mathbf{I}$
+
+## Recap: Derive $\hat{\boldsymbol{\beta}}$
+
+We used matrix calculus to derive the estimator $\hat{\boldsymbol{\beta}}$ that minimizes $\boldsymbol{\epsilon}^\mathsf{T}\boldsymbol{\epsilon}$
+
+::: equation
+$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}$$
+:::
+
+. . .
+
+Now let's consider how to derive the least-squares estimator using a geometric interpretation of regression
+
+## Geometry of least-squares regression
+
+::: incremental
+-   Let $\text{Col}(\mathbf{X})$ be the **column space** of $\mathbf{X}$: the set all possible linear combinations (span) of the columns of $\mathbf{X}$
+
+-   The vector of responses $\mathbf{y}$ is not in $\text{Col}(\mathbf{X})$.
+
+-   **Goal:** Find another vector $\mathbf{z} = \mathbf{Xb}$ that is in $\text{Col}(\mathbf{X})$ and is as close as possible to $\mathbf{y}$.
+
+    -   $\mathbf{z}$ is a **projection** of $\mathbf{y}$ onto $\text{Col}(\mathbf{X})$ .
+:::
+
+## Geometry of least-squares regression
+
+::: incremental
+-   For any $\mathbf{z} = \mathbf{Xb}$ in $\text{Col}(\mathbf{X})$, the vector $\mathbf{e} = \mathbf{y} - \mathbf{Xb}$ is the difference between $\mathbf{y}$ and $\mathbf{Xb}$.
+
+    -   We want to find $\mathbf{b}$ such that $\mathbf{z} = \mathbf{Xb}$ is as close as possible to $\mathbf{y}$, i.e, we want to minimize the difference $\mathbf{e} = \mathbf{y} - \mathbf{Xb}$
+
+-   This distance is minimized when $\mathbf{e}$ is orthogonal to $\text{Col}(\mathbf{X})$
+:::
+
+## Geometry of least-squares regression
+
+-   **Note:** If $\mathbf{A}$, an $n \times k$ matrix, is orthogonal to an $n \times 1$ vector $\mathbf{c}$, then $\mathbf{A}^\mathsf{T}\mathbf{c} = \mathbf{0}$
+
+-   Therefore, we have $\mathbf{X}^\mathsf{T}\mathbf{e} = \mathbf{0}$ , and thus
+
+    $$
+    \mathbf{X}^\mathsf{T}(\mathbf{y} - \mathbf{Xb}) = \mathbf{0}
+    $$
+
+::: question
+Solve for $\mathbf{b}$ .
+:::
+
+## Hat matrix
+
+-   Recall the hat matrix $\mathbf{H} = \mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}$.
+
+-   $\hat{\mathbf{y}} = \mathbf{Hy}$, so $\mathbf{H}$ is a projection of $\mathbf{y}$ onto $\mathbf{Xb}$
+
+-   Properties of $\mathbf{H}$, a projection matrix
+
+    -   $\mathbf{H}$ is symmetric ($\mathbf{H}^\mathsf{T} = \mathbf{H}$)
+
+    -   $\mathbf{H}$ is idempotent ($\mathbf{H}^2 = \mathbf{H}$)
+
+    -   If $\mathbf{v}$ in $\text{Col}(\mathbf{X})$, then $\mathbf{Hv} = \mathbf{v}$
+
+    -   If $\mathbf{v}$ is orthogonal to $\text{Col}(\mathbf{X})$, then $\mathbf{Hv} = \mathbf{0}$
