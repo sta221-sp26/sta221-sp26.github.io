@@ -10,6 +10,7 @@
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Prof.&nbsp;Maria Tackett">
+  <meta name="dcterms.date" content="2026-02-03">
   <title>STA 221 - Spring 2026 – Inference for regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -206,30 +207,14 @@ Prof.&nbsp;Maria Tackett
 </div>
 </div>
 
-  <p class="date">Feb 04, 2025</p>
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li><p>Lab 03 due <strong>TODAY</strong> at 11:59pm</p></li>
-<li><p><a href="https://prodduke.sharepoint.com/:p:/s/ARCStaff839/EZ4PKTRTlCVMpFZiR6XoRycB4UUlRMuI2_Rda9hKxNZtsA">Click here</a> to learn more about the Academic Resource Center</p></li>
-<li><p><a href="../hw/stats-experience.html">Statistics experience</a> due <strong>Tuesday, April 22</strong></p></li>
-</ul>
-</section>
-<section id="poll-office-hours-availability" class="slide level2">
-<h2>Poll: Office hours availability</h2>
-<center>
-<iframe width="640px" height="480px" src="https://forms.office.com/r/DL8rBQ988y?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen=""> </iframe>
-<p>🔗 <a href="https://forms.office.com/r/DL8rBQ988y" class="uri">https://forms.office.com/r/DL8rBQ988y</a></p>
-</center>
+  <p class="date">February 03, 2026</p>
 </section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
 <ul>
-<li><p>Understand statistical inference in the context of regression</p></li>
-<li><p>Describe the assumptions for regression</p></li>
-<li><p>Understand connection between distribution of residuals and inferential procedures</p></li>
-<li><p>Conduct inference on a single coefficient</p></li>
+<li><p>Introduce statistical inference in the context of regression</p></li>
+<li><p>Describe assumptions on the error terms <span class="math inline">\(\boldsymbol{\epsilon}\)</span></p></li>
+<li><p>Use assumptions of <span class="math inline">\(\boldsymbol{\epsilon}\)</span> to derive distribution of <span class="math inline">\(\mathbf{y}\)</span></p></li>
 </ul>
 </section>
 <section id="computing-setup" class="slide level2">
@@ -350,20 +335,27 @@ Prof.&nbsp;Maria Tackett
 </div>
 </div></div>
 </section>
-<section id="inference-for-linear-regression" class="slide level2">
-<h2>Inference for linear regression</h2>
-<ul>
-<li><p><strong>Inference based on ANOVA</strong></p>
-<ul>
-<li><p>Hypothesis test for the statistical significance of the overall regression model</p></li>
-<li><p>Hypothesis test for a subset of coefficients</p></li>
-</ul></li>
-<li><p><strong>Inference for a single coefficient</strong> <span class="math inline">\(\beta_j\)</span> (today’s focus)</p>
+<section id="inference-for-a-coefficient-beta_j" class="slide level2">
+<h2>Inference for a coefficient <span class="math inline">\(\beta_j\)</span></h2>
 <ul>
 <li><p>Hypothesis test for a coefficient <span class="math inline">\(\beta_j\)</span></p></li>
 <li><p>Confidence interval for a coefficient <span class="math inline">\(\beta_j\)</span></p></li>
-</ul></li>
 </ul>
+</section>
+<section id="inference-framework" class="slide level2 midi">
+<h2>Inference framework</h2>
+<p>Our <strong>objective</strong> is to infer properties about a <em>population</em> using data from observational (or experimental) data collection</p>
+<ul>
+<li><p><strong>Pre data collection</strong>: before collecting the data, the data are unknown and random. <span class="math inline">\(\hat{\beta}\)</span>, which is a function of the data, is also unknown and random</p></li>
+<li><p><strong>Post data collection</strong>: after collecting the data, <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is fixed and known.</p></li>
+<li><p>In all cases, the true population parameter, <span class="math inline">\(\boldsymbol{\beta}\)</span> is <u><strong>fixed</strong></u> but <u><strong>unknown</strong></u>.</p></li>
+</ul>
+<p><strong>Question pre data collection:</strong> is the probability distribution of <span class="math inline">\(\hat{\mathbf{\boldsymbol{\beta}}}\)</span> a meaningful representation of the population? (We will slowly answer this question across the next few classes)</p>
+</section></section>
+<section>
+<section id="distribution-of-mathbfy-in-regression" class="title-slide slide level1 center">
+<h1>Distribution of <span class="math inline">\(\mathbf{y}\)</span> in regression</h1>
+
 </section>
 <section id="linear-regression-model" class="slide level2 midi">
 <h2>Linear regression model</h2>
@@ -395,27 +387,13 @@ Prof.&nbsp;Maria Tackett
 <div class="fragment">
 <ul>
 <li><strong>Independent</strong>: Knowing the error term for one observation doesn’t tell us about the error term for another observation</li>
-<li><strong>Normally distributed</strong>: The distribution follows a particular mathematical model that is unimodal and symmetric</li>
-</ul>
-</div>
-</section>
-<section id="describing-random-phenomena" class="slide level2 midi">
-<h2>Describing random phenomena</h2>
+<li><strong>Normally distributed</strong>: The distribution follows a particular mathematical model that is unimodal and symmetric
 <ul>
-<li class="fragment"><p>There is some uncertainty in the error terms (and thus the response variable), so we use mathematical models to describe that uncertainty.</p></li>
-<li class="fragment"><p>Some terminology:</p>
-<ul>
-<li class="fragment"><p><strong>Sample space</strong>: Set of all possible outcomes</p></li>
-<li class="fragment"><p><strong>Random variable</strong>: Function (mapping) from the sample space onto real numbers</p></li>
-<li class="fragment"><p><strong>Event:</strong> Subset of the sample space, i.e., a set of possible outcomes (possible values the random variable can take)</p></li>
-<li class="fragment"><p><strong>Probability density function:</strong> Mathematical function that produces probability of occurrences for events in the sample space for a continuous random variable</p></li>
+<li><span class="math inline">\(E(\boldsymbol{\epsilon}) = \mathbf{0}\)</span></li>
+<li><span class="math inline">\(Var(\boldsymbol{\epsilon}) = \sigma^2_{\epsilon}\mathbf{I}\)</span></li>
 </ul></li>
 </ul>
-</section>
-<section id="distribution-of-error-terms" class="slide level2">
-<h2>Distribution of error terms</h2>
-<p>The error terms follow a (multivariate) normal distribution with mean <span class="math inline">\(\mathbf{0}\)</span> and variance <span class="math inline">\(\sigma^2\mathbf{I}\)</span></p>
-<p><span class="math display">\[f(\boldsymbol{\epsilon}) = \frac{1}{(2\pi)^{n/2}|\sigma^2_{\epsilon}\mathbf{I}|^{1/2}}\exp\Big\{-\frac{1}{2}(\boldsymbol{\epsilon} - \mathbf{0})^\mathsf{T}(\sigma^2_{\epsilon}\mathbf{I})^{-1}(\boldsymbol{\epsilon}- \mathbf{0})\Big\}\]</span></p>
+</div>
 </section>
 <section id="visualizing-distribution-of-mathbfymathbfx" class="slide level2 midi">
 <h2>Visualizing distribution of <span class="math inline">\(\mathbf{y}|\mathbf{X}\)</span></h2>
@@ -468,15 +446,6 @@ Let <span class="math inline">\(\mathbf{z} = \begin{bmatrix}z_1 \\ \vdots \\z_p\
 <p><span class="math display">\[
 Var(\mathbf{z}) = E[(\mathbf{z} - E(\mathbf{z}))(\mathbf{z} - E(\mathbf{z}))^\mathsf{T}]
 \]</span></p>
-<p><br></p>
-<div class="fragment">
-<p><span class="math display">\[
-\begin{aligned}
-Var(\mathbf{Az}) &amp;= E[(\mathbf{Az} - E(\mathbf{Az}))(\mathbf{Az} - E(\mathbf{Az}))^\mathsf{T}] \\[8pt]
-&amp; = \mathbf{A}Var(\mathbf{z})\mathbf{A}^\mathsf{T}
-\end{aligned}
-\]</span></p>
-</div>
 </section>
 <section id="variance-of-the-response" class="slide level2">
 <h2>Variance of the response</h2>
@@ -489,30 +458,25 @@ Var(\mathbf{y}|\mathbf{X}) = \sigma^2_\epsilon\mathbf{I}
 </section>
 <section id="linear-transformation-of-normal-random-variable" class="slide level2" data-background-color="#ccddeb">
 <h2>Linear transformation of normal random variable</h2>
-<p>Suppose <span class="math inline">\(\mathbf{z}\)</span> is a (multivariate) normal random variable such that <span class="math inline">\(\mathbf{z} \sim N(\boldsymbol{\mu}, \boldsymbol{\Sigma})\)</span></p>
+<p>Suppose <span class="math inline">\(\mathbf{w}\)</span> and <span class="math inline">\(\mathbf{z}\)</span> are (multivariate) normal random variables. Then, <span class="math inline">\(\mathbf{Aw} + \mathbf{Bz}\)</span> is (multivariate) normal for <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> constant matrices.</p>
 <p><br></p>
-<p>A linear transformation of <span class="math inline">\(\mathbf{z}\)</span> is also multivariate normal, such that</p>
-<p><span class="math display">\[
-\mathbf{A}\mathbf{z} + \mathbf{B} \sim N(\mathbf{A}\boldsymbol{\mu} + \mathbf{B}, \mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\mathsf{T})
-\]</span></p>
 <div class="question">
-<p>Explain why <span class="math inline">\(\mathbf{y}|\mathbf{X}\)</span> is normally distributed.</p>
+<p>Show that the distribution of <span class="math inline">\(\mathbf{y}|\mathbf{X}\)</span> is normal.</p>
 </div>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <ul>
 <li><p>Introduced statistical inference in the context of regression</p></li>
-<li><p>Described the assumptions for regression</p></li>
-<li><p>Connected the distribution of residuals and inferential procedures</p></li>
+<li><p>Described assumptions on the error terms <span class="math inline">\(\boldsymbol{\epsilon}\)</span></p></li>
+<li><p>Used assumptions of <span class="math inline">\(\boldsymbol{\epsilon}\)</span> to derive distribution of <span class="math inline">\(\mathbf{y}\)</span></p></li>
 </ul>
 </section>
 <section id="next-class" class="slide level2">
 <h2>Next class</h2>
 <ul>
-<li><p>Confidence intervals for <span class="math inline">\(\hat{\beta}_j\)</span></p></li>
-<li><p>Hypothesis testing based on ANOVA</p></li>
-<li><p>See <a href="https://sta221-sp25.netlify.app/prepare/prepare-lec09">Prepare for Lecture 09</a></p></li>
+<li><p>Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></p></li>
+<li><p>See <a href="../prepare/prepare-lec08.html">Lecture 08 prepare</a></p></li>
 </ul>
 
 
@@ -521,7 +485,7 @@ Var(\mathbf{y}|\mathbf{X}) = \sigma^2_\epsilon\mathbf{I}
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../images/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://sta221-sp25.netlify.app">🔗 STA 221 - Spring 2025</a></p>
+<p><a href="https://sta221-sp26.github.io">🔗 sta221-sp26.github.io</a></p>
 </div>
 </div></div>
 

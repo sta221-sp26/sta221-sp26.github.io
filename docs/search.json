@@ -208,25 +208,11 @@
     "text": "Probability distributions\n\nMultivariate normal distribution\nLet \\(\\mathbf{z}\\) be a \\(p \\times 1\\) vector of random variables, such that \\(\\mathbf{z}\\) follows a multivariate normal distribution with mean \\(\\boldsymbol{\\mu}\\) and variance \\(\\boldsymbol{\\Sigma}\\). Then the probability density function of \\(\\mathbf{z}\\) is\n\\[f(\\mathbf{z}) = \\frac{1}{(2\\pi)^{p/2}|\\boldsymbol{\\Sigma}|^{1/2}}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{z} - \\boldsymbol{\\mu})^\\mathsf{T}\\boldsymbol{\\Sigma}^{-1}(\\mathbf{z}- \\boldsymbol{\\mu})\\Big\\}\\]\n\n\n\n\n\n\nLinear transformation of normal random variable\nSuppose \\(\\mathbf{z}\\) is a multivariate normal random variable with mean \\(\\boldsymbol{\\mu}\\) and variance \\(\\boldsymbol{\\Sigma}\\). A linear transformation of \\(\\mathbf{z}\\) is also multivariate normal, such that\n\\[\n\\mathbf{A}\\mathbf{z} + \\mathbf{B} \\sim N(\\mathbf{A}\\boldsymbol{\\mu} + \\mathbf{B}, \\mathbf{A}\\boldsymbol{\\Sigma}\\mathbf{A}^\\mathsf{T})\n\\]"
   },
   {
-    "objectID": "slides/07-inference.html#announcements",
-    "href": "slides/07-inference.html#announcements",
-    "title": "Inference for regression",
-    "section": "Announcements",
-    "text": "Announcements\n\nLab 03 due TODAY at 11:59pm\nClick here to learn more about the Academic Resource Center\nStatistics experience due Tuesday, April 22"
-  },
-  {
-    "objectID": "slides/07-inference.html#poll-office-hours-availability",
-    "href": "slides/07-inference.html#poll-office-hours-availability",
-    "title": "Inference for regression",
-    "section": "Poll: Office hours availability",
-    "text": "Poll: Office hours availability\n\n \n🔗 https://forms.office.com/r/DL8rBQ988y"
-  },
-  {
     "objectID": "slides/07-inference.html#topics",
     "href": "slides/07-inference.html#topics",
     "title": "Inference for regression",
     "section": "Topics",
-    "text": "Topics\n\nUnderstand statistical inference in the context of regression\nDescribe the assumptions for regression\nUnderstand connection between distribution of residuals and inferential procedures\nConduct inference on a single coefficient"
+    "text": "Topics\n\nIntroduce statistical inference in the context of regression\nDescribe assumptions on the error terms \\(\\boldsymbol{\\epsilon}\\)\nUse assumptions of \\(\\boldsymbol{\\epsilon}\\) to derive distribution of \\(\\mathbf{y}\\)"
   },
   {
     "objectID": "slides/07-inference.html#computing-setup",
@@ -278,11 +264,18 @@
     "text": "Statistical inference\n\n\n\n\nStatistical inference provides methods and tools so we can use the single observed sample to make valid statements (inferences) about the population it comes from\nFor our inferences to be valid, the sample should be representative (ideally random) of the population we’re interested in\n\n\n\n\n\n\nImage source: Eugene Morgan © Penn State"
   },
   {
-    "objectID": "slides/07-inference.html#inference-for-linear-regression",
-    "href": "slides/07-inference.html#inference-for-linear-regression",
+    "objectID": "slides/07-inference.html#inference-for-a-coefficient-beta_j",
+    "href": "slides/07-inference.html#inference-for-a-coefficient-beta_j",
     "title": "Inference for regression",
-    "section": "Inference for linear regression",
-    "text": "Inference for linear regression\n\nInference based on ANOVA\n\nHypothesis test for the statistical significance of the overall regression model\nHypothesis test for a subset of coefficients\n\nInference for a single coefficient \\(\\beta_j\\) (today’s focus)\n\nHypothesis test for a coefficient \\(\\beta_j\\)\nConfidence interval for a coefficient \\(\\beta_j\\)"
+    "section": "Inference for a coefficient \\(\\beta_j\\)",
+    "text": "Inference for a coefficient \\(\\beta_j\\)\n\nHypothesis test for a coefficient \\(\\beta_j\\)\nConfidence interval for a coefficient \\(\\beta_j\\)"
+  },
+  {
+    "objectID": "slides/07-inference.html#inference-framework",
+    "href": "slides/07-inference.html#inference-framework",
+    "title": "Inference for regression",
+    "section": "Inference framework",
+    "text": "Inference framework\nOur objective is to infer properties about a population using data from observational (or experimental) data collection\n\nPre data collection: before collecting the data, the data are unknown and random. \\(\\hat{\\beta}\\), which is a function of the data, is also unknown and random\nPost data collection: after collecting the data, \\(\\hat{\\boldsymbol{\\beta}}\\) is fixed and known.\nIn all cases, the true population parameter, \\(\\boldsymbol{\\beta}\\) is fixed but unknown.\n\nQuestion pre data collection: is the probability distribution of \\(\\hat{\\mathbf{\\boldsymbol{\\beta}}}\\) a meaningful representation of the population? (We will slowly answer this question across the next few classes)"
   },
   {
     "objectID": "slides/07-inference.html#linear-regression-model",
@@ -296,21 +289,7 @@
     "href": "slides/07-inference.html#linear-regression-model-1",
     "title": "Inference for regression",
     "section": "Linear regression model",
-    "text": "Linear regression model\n\\[\\begin{aligned}\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{8mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\end{aligned}\n\\]\nsuch that the errors are independent and normally distributed.\n\n\nIndependent: Knowing the error term for one observation doesn’t tell us about the error term for another observation\nNormally distributed: The distribution follows a particular mathematical model that is unimodal and symmetric"
-  },
-  {
-    "objectID": "slides/07-inference.html#describing-random-phenomena",
-    "href": "slides/07-inference.html#describing-random-phenomena",
-    "title": "Inference for regression",
-    "section": "Describing random phenomena",
-    "text": "Describing random phenomena\n\nThere is some uncertainty in the error terms (and thus the response variable), so we use mathematical models to describe that uncertainty.\nSome terminology:\n\nSample space: Set of all possible outcomes\nRandom variable: Function (mapping) from the sample space onto real numbers\nEvent: Subset of the sample space, i.e., a set of possible outcomes (possible values the random variable can take)\nProbability density function: Mathematical function that produces probability of occurrences for events in the sample space for a continuous random variable"
-  },
-  {
-    "objectID": "slides/07-inference.html#distribution-of-error-terms",
-    "href": "slides/07-inference.html#distribution-of-error-terms",
-    "title": "Inference for regression",
-    "section": "Distribution of error terms",
-    "text": "Distribution of error terms\nThe error terms follow a (multivariate) normal distribution with mean \\(\\mathbf{0}\\) and variance \\(\\sigma^2\\mathbf{I}\\)\n\\[f(\\boldsymbol{\\epsilon}) = \\frac{1}{(2\\pi)^{n/2}|\\sigma^2_{\\epsilon}\\mathbf{I}|^{1/2}}\\exp\\Big\\{-\\frac{1}{2}(\\boldsymbol{\\epsilon} - \\mathbf{0})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\boldsymbol{\\epsilon}- \\mathbf{0})\\Big\\}\\]"
+    "text": "Linear regression model\n\\[\\begin{aligned}\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{8mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\end{aligned}\n\\]\nsuch that the errors are independent and normally distributed.\n\n\nIndependent: Knowing the error term for one observation doesn’t tell us about the error term for another observation\nNormally distributed: The distribution follows a particular mathematical model that is unimodal and symmetric\n\n\\(E(\\boldsymbol{\\epsilon}) = \\mathbf{0}\\)\n\\(Var(\\boldsymbol{\\epsilon}) = \\sigma^2_{\\epsilon}\\mathbf{I}\\)"
   },
   {
     "objectID": "slides/07-inference.html#visualizing-distribution-of-mathbfymathbfx",
@@ -352,7 +331,7 @@
     "href": "slides/07-inference.html#variance-1",
     "title": "Inference for regression",
     "section": "Variance",
-    "text": "Variance\nLet \\(\\mathbf{A}\\) be an \\(n \\times p\\) matrix of constants and \\(\\mathbf{z}\\) a \\(p \\times 1\\) vector of random variables. Then\n\\[\nVar(\\mathbf{z}) = E[(\\mathbf{z} - E(\\mathbf{z}))(\\mathbf{z} - E(\\mathbf{z}))^\\mathsf{T}]\n\\]\n\n\n\\[\n\\begin{aligned}\nVar(\\mathbf{Az}) &= E[(\\mathbf{Az} - E(\\mathbf{Az}))(\\mathbf{Az} - E(\\mathbf{Az}))^\\mathsf{T}] \\\\[8pt]\n& = \\mathbf{A}Var(\\mathbf{z})\\mathbf{A}^\\mathsf{T}\n\\end{aligned}\n\\]"
+    "text": "Variance\nLet \\(\\mathbf{A}\\) be an \\(n \\times p\\) matrix of constants and \\(\\mathbf{z}\\) a \\(p \\times 1\\) vector of random variables. Then\n\\[\nVar(\\mathbf{z}) = E[(\\mathbf{z} - E(\\mathbf{z}))(\\mathbf{z} - E(\\mathbf{z}))^\\mathsf{T}]\n\\]"
   },
   {
     "objectID": "slides/07-inference.html#variance-of-the-response",
@@ -366,203 +345,182 @@
     "href": "slides/07-inference.html#linear-transformation-of-normal-random-variable",
     "title": "Inference for regression",
     "section": "Linear transformation of normal random variable",
-    "text": "Linear transformation of normal random variable\nSuppose \\(\\mathbf{z}\\) is a (multivariate) normal random variable such that \\(\\mathbf{z} \\sim N(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\)\n\nA linear transformation of \\(\\mathbf{z}\\) is also multivariate normal, such that\n\\[\n\\mathbf{A}\\mathbf{z} + \\mathbf{B} \\sim N(\\mathbf{A}\\boldsymbol{\\mu} + \\mathbf{B}, \\mathbf{A}\\boldsymbol{\\Sigma}\\mathbf{A}^\\mathsf{T})\n\\]\n\nExplain why \\(\\mathbf{y}|\\mathbf{X}\\) is normally distributed."
+    "text": "Linear transformation of normal random variable\nSuppose \\(\\mathbf{w}\\) and \\(\\mathbf{z}\\) are (multivariate) normal random variables. Then, \\(\\mathbf{Aw} + \\mathbf{Bz}\\) is (multivariate) normal for \\(\\mathbf{A}\\) and \\(\\mathbf{B}\\) constant matrices.\n\n\nShow that the distribution of \\(\\mathbf{y}|\\mathbf{X}\\) is normal."
   },
   {
     "objectID": "slides/07-inference.html#recap",
     "href": "slides/07-inference.html#recap",
     "title": "Inference for regression",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced statistical inference in the context of regression\nDescribed the assumptions for regression\nConnected the distribution of residuals and inferential procedures"
+    "text": "Recap\n\nIntroduced statistical inference in the context of regression\nDescribed assumptions on the error terms \\(\\boldsymbol{\\epsilon}\\)\nUsed assumptions of \\(\\boldsymbol{\\epsilon}\\) to derive distribution of \\(\\mathbf{y}\\)"
   },
   {
     "objectID": "slides/07-inference.html#next-class",
     "href": "slides/07-inference.html#next-class",
     "title": "Inference for regression",
     "section": "Next class",
-    "text": "Next class\n\nConfidence intervals for \\(\\hat{\\beta}_j\\)\nHypothesis testing based on ANOVA\nSee Prepare for Lecture 09"
+    "text": "Next class\n\nDistribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nSee Lecture 08 prepare"
   },
   {
-    "objectID": "slides/08-inference-notes.html",
-    "href": "slides/08-inference-notes.html",
+    "objectID": "slides/07-inference-notes.html",
+    "href": "slides/07-inference-notes.html",
     "title": "Inference for regression",
     "section": "",
-    "text": "Lab 03 due TODAY at 11:59pm\nClick here to learn more about the Academic Resource Center\nStatistics experience due Tuesday, April 22"
+    "text": "Introduce statistical inference in the context of regression\nDescribe assumptions on the error terms \\(\\boldsymbol{\\epsilon}\\)\nUse assumptions of \\(\\boldsymbol{\\epsilon}\\) to derive distribution of \\(\\mathbf{y}\\)"
   },
   {
-    "objectID": "slides/08-inference-notes.html#announcements",
-    "href": "slides/08-inference-notes.html#announcements",
+    "objectID": "slides/07-inference-notes.html#topics",
+    "href": "slides/07-inference-notes.html#topics",
     "title": "Inference for regression",
     "section": "",
-    "text": "Lab 03 due TODAY at 11:59pm\nClick here to learn more about the Academic Resource Center\nStatistics experience due Tuesday, April 22"
+    "text": "Introduce statistical inference in the context of regression\nDescribe assumptions on the error terms \\(\\boldsymbol{\\epsilon}\\)\nUse assumptions of \\(\\boldsymbol{\\epsilon}\\) to derive distribution of \\(\\mathbf{y}\\)"
   },
   {
-    "objectID": "slides/08-inference-notes.html#poll-office-hours-availability",
-    "href": "slides/08-inference-notes.html#poll-office-hours-availability",
-    "title": "Inference for regression",
-    "section": "Poll: Office hours availability",
-    "text": "Poll: Office hours availability\n\n \n🔗 https://forms.office.com/r/DL8rBQ988y"
-  },
-  {
-    "objectID": "slides/08-inference-notes.html#topics",
-    "href": "slides/08-inference-notes.html#topics",
-    "title": "Inference for regression",
-    "section": "Topics",
-    "text": "Topics\n\nUnderstand statistical inference in the context of regression\nDescribe the assumptions for regression\nUnderstand connection between distribution of residuals and inferential procedures\nConduct inference on a single coefficient"
-  },
-  {
-    "objectID": "slides/08-inference-notes.html#computing-setup",
-    "href": "slides/08-inference-notes.html#computing-setup",
+    "objectID": "slides/07-inference-notes.html#computing-setup",
+    "href": "slides/07-inference-notes.html#computing-setup",
     "title": "Inference for regression",
     "section": "Computing setup",
     "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(kableExtra)  \nlibrary(patchwork)   \n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
   },
   {
-    "objectID": "slides/08-inference-notes.html#data-ncaa-football-expenditures",
-    "href": "slides/08-inference-notes.html#data-ncaa-football-expenditures",
+    "objectID": "slides/07-inference-notes.html#data-ncaa-football-expenditures",
+    "href": "slides/07-inference-notes.html#data-ncaa-football-expenditures",
     "title": "Inference for regression",
     "section": "Data: NCAA Football expenditures",
     "text": "Data: NCAA Football expenditures\nToday’s data come from Equity in Athletics Data Analysis and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a March 2022 Tidy Tuesday.\nWe will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :\n\ntotal_exp_m: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)\nenrollment_th: Total student enrollment in the 2019 - 2020 academic year (in thousands)\ntype: institution type (Public or Private)\n\n\nfootball &lt;- read_csv(\"data/ncaa-football-exp.csv\")"
   },
   {
-    "objectID": "slides/08-inference-notes.html#univariate-eda",
-    "href": "slides/08-inference-notes.html#univariate-eda",
+    "objectID": "slides/07-inference-notes.html#univariate-eda",
+    "href": "slides/07-inference-notes.html#univariate-eda",
     "title": "Inference for regression",
     "section": "Univariate EDA",
     "text": "Univariate EDA"
   },
   {
-    "objectID": "slides/08-inference-notes.html#bivariate-eda",
-    "href": "slides/08-inference-notes.html#bivariate-eda",
+    "objectID": "slides/07-inference-notes.html#bivariate-eda",
+    "href": "slides/07-inference-notes.html#bivariate-eda",
     "title": "Inference for regression",
     "section": "Bivariate EDA",
     "text": "Bivariate EDA"
   },
   {
-    "objectID": "slides/08-inference-notes.html#regression-model",
-    "href": "slides/08-inference-notes.html#regression-model",
+    "objectID": "slides/07-inference-notes.html#regression-model",
+    "href": "slides/07-inference-notes.html#regression-model",
     "title": "Inference for regression",
     "section": "Regression model",
     "text": "Regression model\n\nexp_fit &lt;- lm(total_exp_m ~ enrollment_th + type, data = football)\ntidy(exp_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n\n\n\n\n\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant."
   },
   {
-    "objectID": "slides/08-inference-notes.html#from-sample-to-population",
-    "href": "slides/08-inference-notes.html#from-sample-to-population",
+    "objectID": "slides/07-inference-notes.html#from-sample-to-population",
+    "href": "slides/07-inference-notes.html#from-sample-to-population",
     "title": "Inference for regression",
     "section": "From sample to population",
     "text": "From sample to population\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant.\n\n. . .\n\n\nThis estimate is valid for the single sample of 127 higher education institutions in the 2019 - 2020 academic year.\nBut what if we’re not interested quantifying the relationship between student enrollment, institution type, and football expenditures for this single sample?\nWhat if we want to say something about the relationship between these variables for all colleges and universities with football programs and across different years?"
   },
   {
-    "objectID": "slides/08-inference-notes.html#statistical-inference",
-    "href": "slides/08-inference-notes.html#statistical-inference",
+    "objectID": "slides/07-inference-notes.html#statistical-inference",
+    "href": "slides/07-inference-notes.html#statistical-inference",
     "title": "Inference for regression",
     "section": "Statistical inference",
     "text": "Statistical inference\n\n\n\n\nStatistical inference provides methods and tools so we can use the single observed sample to make valid statements (inferences) about the population it comes from\nFor our inferences to be valid, the sample should be representative (ideally random) of the population we’re interested in\n\n\n\n\n\n\nImage source: Eugene Morgan © Penn State"
   },
   {
-    "objectID": "slides/08-inference-notes.html#inference-for-linear-regression",
-    "href": "slides/08-inference-notes.html#inference-for-linear-regression",
+    "objectID": "slides/07-inference-notes.html#inference-for-a-coefficient-beta_j",
+    "href": "slides/07-inference-notes.html#inference-for-a-coefficient-beta_j",
     "title": "Inference for regression",
-    "section": "Inference for linear regression",
-    "text": "Inference for linear regression\n\nInference based on ANOVA\n\nHypothesis test for the statistical significance of the overall regression model\nHypothesis test for a subset of coefficients\n\nInference for a single coefficient \\(\\beta_j\\) (today’s focus)\n\nHypothesis test for a coefficient \\(\\beta_j\\)\nConfidence interval for a coefficient \\(\\beta_j\\)"
+    "section": "Inference for a coefficient \\(\\beta_j\\)",
+    "text": "Inference for a coefficient \\(\\beta_j\\)\n\nHypothesis test for a coefficient \\(\\beta_j\\)\nConfidence interval for a coefficient \\(\\beta_j\\)"
   },
   {
-    "objectID": "slides/08-inference-notes.html#linear-regression-model",
-    "href": "slides/08-inference-notes.html#linear-regression-model",
+    "objectID": "slides/07-inference-notes.html#inference-framework",
+    "href": "slides/07-inference-notes.html#inference-framework",
+    "title": "Inference for regression",
+    "section": "Inference framework",
+    "text": "Inference framework\nOur objective is to infer properties about a population using data from observational (or experimental) data collection\n\nPre data collection: before collecting the data, the data are unknown and random. \\(\\hat{\\beta}\\), which is a function of the data, is also unknown and random\nPost data collection: after collecting the data, \\(\\hat{\\boldsymbol{\\beta}}\\) is fixed and known.\nIn all cases, the true population parameter, \\(\\boldsymbol{\\beta}\\) is fixed but unknown.\n\nQuestion pre data collection: is the probability distribution of \\(\\hat{\\mathbf{\\boldsymbol{\\beta}}}\\) a meaningful representation of the population? (We will slowly answer this question across the next few classes)"
+  },
+  {
+    "objectID": "slides/07-inference-notes.html#linear-regression-model",
+    "href": "slides/07-inference-notes.html#linear-regression-model",
     "title": "Inference for regression",
     "section": "Linear regression model",
     "text": "Linear regression model\n\\[\n\\begin{aligned}\n\\mathbf{y} &= \\text{Model} + \\text{Error} \\\\[5pt]\n&= f(\\mathbf{X}) + \\boldsymbol{\\epsilon} \\\\[5pt]\n&= E(\\mathbf{y}|\\mathbf{X}) + \\mathbf{\\epsilon} \\\\[5pt]\n&= \\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{\\epsilon}\n\\end{aligned}\n\\]\n. . .\n\n\nWe have discussed multiple ways to find the least squares estimates of \\(\\boldsymbol{\\beta} = \\begin{bmatrix}\\beta_0 \\\\\\beta_1\\end{bmatrix}\\)\n\nNone of these approaches depend on the distribution of \\(\\boldsymbol{\\epsilon}\\)\n\nNow we will use statistical inference to draw conclusions about \\(\\boldsymbol{\\beta}\\) that depend on particular assumptions about the distribution of \\(\\boldsymbol{\\epsilon}\\)"
   },
   {
-    "objectID": "slides/08-inference-notes.html#linear-regression-model-1",
-    "href": "slides/08-inference-notes.html#linear-regression-model-1",
+    "objectID": "slides/07-inference-notes.html#linear-regression-model-1",
+    "href": "slides/07-inference-notes.html#linear-regression-model-1",
     "title": "Inference for regression",
     "section": "Linear regression model",
-    "text": "Linear regression model\n\\[\\begin{aligned}\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{8mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\end{aligned}\n\\]\nsuch that the errors are independent and normally distributed.\n. . .\n\nIndependent: Knowing the error term for one observation doesn’t tell us about the error term for another observation\nNormally distributed: The distribution follows a particular mathematical model that is unimodal and symmetric"
+    "text": "Linear regression model\n\\[\\begin{aligned}\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{8mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\end{aligned}\n\\]\nsuch that the errors are independent and normally distributed.\n. . .\n\nIndependent: Knowing the error term for one observation doesn’t tell us about the error term for another observation\nNormally distributed: The distribution follows a particular mathematical model that is unimodal and symmetric\n\n\\(E(\\boldsymbol{\\epsilon}) = \\mathbf{0}\\)\n\\(Var(\\boldsymbol{\\epsilon}) = \\sigma^2_{\\epsilon}\\mathbf{I}\\)"
   },
   {
-    "objectID": "slides/08-inference-notes.html#describing-random-phenomena",
-    "href": "slides/08-inference-notes.html#describing-random-phenomena",
-    "title": "Inference for regression",
-    "section": "Describing random phenomena",
-    "text": "Describing random phenomena\n\n\nThere is some uncertainty in the error terms (and thus the response variable), so we use mathematical models to describe that uncertainty.\nSome terminology:\n\nSample space: Set of all possible outcomes\nRandom variable: Function (mapping) from the sample space onto real numbers\nEvent: Subset of the sample space, i.e., a set of possible outcomes (possible values the random variable can take)\nProbability density function: Mathematical function that produces probability of occurrences for events in the sample space for a continuous random variable"
-  },
-  {
-    "objectID": "slides/08-inference-notes.html#distribution-of-error-terms",
-    "href": "slides/08-inference-notes.html#distribution-of-error-terms",
-    "title": "Inference for regression",
-    "section": "Distribution of error terms",
-    "text": "Distribution of error terms\nThe error terms follow a (multivariate) normal distribution with mean \\(\\mathbf{0}\\) and variance \\(\\sigma^2\\mathbf{I}\\)\n\\[f(\\boldsymbol{\\epsilon}) = \\frac{1}{(2\\pi)^{n/2}|\\sigma^2_{\\epsilon}\\mathbf{I}|^{1/2}}\\exp\\Big\\{-\\frac{1}{2}(\\boldsymbol{\\epsilon} - \\mathbf{0})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\boldsymbol{\\epsilon}- \\mathbf{0})\\Big\\}\\]"
-  },
-  {
-    "objectID": "slides/08-inference-notes.html#visualizing-distribution-of-mathbfymathbfx",
-    "href": "slides/08-inference-notes.html#visualizing-distribution-of-mathbfymathbfx",
+    "objectID": "slides/07-inference-notes.html#visualizing-distribution-of-mathbfymathbfx",
+    "href": "slides/07-inference-notes.html#visualizing-distribution-of-mathbfymathbfx",
     "title": "Inference for regression",
     "section": "Visualizing distribution of \\(\\mathbf{y}|\\mathbf{X}\\)",
     "text": "Visualizing distribution of \\(\\mathbf{y}|\\mathbf{X}\\)\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\n\n\nImage source: Introduction to the Practice of Statistics (5th ed)"
   },
   {
-    "objectID": "slides/08-inference-notes.html#expected-value",
-    "href": "slides/08-inference-notes.html#expected-value",
+    "objectID": "slides/07-inference-notes.html#expected-value",
+    "href": "slides/07-inference-notes.html#expected-value",
     "title": "Inference for regression",
     "section": "Expected value",
     "text": "Expected value\nLet \\(\\mathbf{z} = \\begin{bmatrix}z_1 \\\\ \\vdots \\\\z_p\\end{bmatrix}\\) be a \\(p \\times 1\\) vector of random variables.\n\n. . .\nThen \\(E(\\mathbf{z}) = E\\begin{bmatrix}z_1 \\\\ \\vdots \\\\ z_p\\end{bmatrix} = \\begin{bmatrix}E(z_1) \\\\ \\vdots \\\\ E(z_p)\\end{bmatrix}\\)"
   },
   {
-    "objectID": "slides/08-inference-notes.html#expected-value-1",
-    "href": "slides/08-inference-notes.html#expected-value-1",
+    "objectID": "slides/07-inference-notes.html#expected-value-1",
+    "href": "slides/07-inference-notes.html#expected-value-1",
     "title": "Inference for regression",
     "section": "Expected value",
     "text": "Expected value\nLet \\(\\mathbf{A}\\) be an \\(n \\times p\\) matrix of constants, \\(\\mathbf{C}\\) a \\(n \\times 1\\) vector of constants, and \\(\\mathbf{z}\\) a \\(p \\times 1\\) vector of random variables. Then\n\\[\nE(\\mathbf{Az}) = \\mathbf{A}E(\\mathbf{z})\n\\]\n\n. . .\n\\[\nE(\\mathbf{Az} + \\mathbf{C}) = E(\\mathbf{Az}) + E(\\mathbf{C}) = \\mathbf{A}E(\\mathbf{z}) + \\mathbf{C}\n\\]"
   },
   {
-    "objectID": "slides/08-inference-notes.html#expected-value-of-the-response",
-    "href": "slides/08-inference-notes.html#expected-value-of-the-response",
+    "objectID": "slides/07-inference-notes.html#expected-value-of-the-response",
+    "href": "slides/07-inference-notes.html#expected-value-of-the-response",
     "title": "Inference for regression",
     "section": "Expected value of the response",
     "text": "Expected value of the response\n\nShow \\[\nE(\\mathbf{y}|\\mathbf{X}) = \\mathbf{X}\\boldsymbol{\\beta}\n\\]"
   },
   {
-    "objectID": "slides/08-inference-notes.html#variance",
-    "href": "slides/08-inference-notes.html#variance",
+    "objectID": "slides/07-inference-notes.html#variance",
+    "href": "slides/07-inference-notes.html#variance",
     "title": "Inference for regression",
     "section": "Variance",
     "text": "Variance\n\nLet \\(\\mathbf{z} = \\begin{bmatrix}z_1 \\\\ \\vdots \\\\z_p\\end{bmatrix}\\) be a \\(p \\times 1\\) vector of random variables.\n\n. . .\nThen \\(Var(\\mathbf{z}) = \\begin{bmatrix}Var(z_1) & Cov(z_1, z_2) & \\dots & Cov(z_1, z_p)\\\\ Cov(z_2, z_1) & Var(z_2) & \\dots & Cov(z_2, z_p) \\\\ \\vdots & \\vdots & \\dots & \\cdot \\\\ Cov(z_p, z_1) & Cov(z_p, z_2) & \\dots & Var(z_p)\\end{bmatrix}\\)"
   },
   {
-    "objectID": "slides/08-inference-notes.html#variance-1",
-    "href": "slides/08-inference-notes.html#variance-1",
+    "objectID": "slides/07-inference-notes.html#variance-1",
+    "href": "slides/07-inference-notes.html#variance-1",
     "title": "Inference for regression",
     "section": "Variance",
-    "text": "Variance\nLet \\(\\mathbf{A}\\) be an \\(n \\times p\\) matrix of constants and \\(\\mathbf{z}\\) a \\(p \\times 1\\) vector of random variables. Then\n\\[\nVar(\\mathbf{z}) = E[(\\mathbf{z} - E(\\mathbf{z}))(\\mathbf{z} - E(\\mathbf{z}))^\\mathsf{T}]\n\\]\n\n. . .\n\\[\n\\begin{aligned}\nVar(\\mathbf{Az}) &= E[(\\mathbf{Az} - E(\\mathbf{Az}))(\\mathbf{Az} - E(\\mathbf{Az}))^\\mathsf{T}] \\\\[8pt]\n& = \\mathbf{A}Var(\\mathbf{z})\\mathbf{A}^\\mathsf{T}\n\\end{aligned}\n\\]"
+    "text": "Variance\nLet \\(\\mathbf{A}\\) be an \\(n \\times p\\) matrix of constants and \\(\\mathbf{z}\\) a \\(p \\times 1\\) vector of random variables. Then\n\\[\nVar(\\mathbf{z}) = E[(\\mathbf{z} - E(\\mathbf{z}))(\\mathbf{z} - E(\\mathbf{z}))^\\mathsf{T}]\n\\]"
   },
   {
-    "objectID": "slides/08-inference-notes.html#variance-of-the-response",
-    "href": "slides/08-inference-notes.html#variance-of-the-response",
+    "objectID": "slides/07-inference-notes.html#variance-of-the-response",
+    "href": "slides/07-inference-notes.html#variance-of-the-response",
     "title": "Inference for regression",
     "section": "Variance of the response",
     "text": "Variance of the response\n\nShow\n\\[\nVar(\\mathbf{y}|\\mathbf{X}) = \\sigma^2_\\epsilon\\mathbf{I}\n\\]"
   },
   {
-    "objectID": "slides/08-inference-notes.html#linear-transformation-of-normal-random-variable",
-    "href": "slides/08-inference-notes.html#linear-transformation-of-normal-random-variable",
+    "objectID": "slides/07-inference-notes.html#linear-transformation-of-normal-random-variable",
+    "href": "slides/07-inference-notes.html#linear-transformation-of-normal-random-variable",
     "title": "Inference for regression",
     "section": "Linear transformation of normal random variable",
-    "text": "Linear transformation of normal random variable\nSuppose \\(\\mathbf{z}\\) is a (multivariate) normal random variable such that \\(\\mathbf{z} \\sim N(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\)\n\nA linear transformation of \\(\\mathbf{z}\\) is also multivariate normal, such that\n\\[\n\\mathbf{A}\\mathbf{z} + \\mathbf{B} \\sim N(\\mathbf{A}\\boldsymbol{\\mu} + \\mathbf{B}, \\mathbf{A}\\boldsymbol{\\Sigma}\\mathbf{A}^\\mathsf{T})\n\\]\n\nExplain why \\(\\mathbf{y}|\\mathbf{X}\\) is normally distributed."
+    "text": "Linear transformation of normal random variable\nSuppose \\(\\mathbf{w}\\) and \\(\\mathbf{z}\\) are (multivariate) normal random variables. Then, \\(\\mathbf{Aw} + \\mathbf{Bz}\\) is (multivariate) normal for \\(\\mathbf{A}\\) and \\(\\mathbf{B}\\) constant matrices.\n\n\nShow that the distribution of \\(\\mathbf{y}|\\mathbf{X}\\) is normal."
   },
   {
-    "objectID": "slides/08-inference-notes.html#recap",
-    "href": "slides/08-inference-notes.html#recap",
+    "objectID": "slides/07-inference-notes.html#recap",
+    "href": "slides/07-inference-notes.html#recap",
     "title": "Inference for regression",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced statistical inference in the context of regression\nDescribed the assumptions for regression\nConnected the distribution of residuals and inferential procedures"
+    "text": "Recap\n\nIntroduced statistical inference in the context of regression\nDescribed assumptions on the error terms \\(\\boldsymbol{\\epsilon}\\)\nUsed assumptions of \\(\\boldsymbol{\\epsilon}\\) to derive distribution of \\(\\mathbf{y}\\)"
   },
   {
-    "objectID": "slides/08-inference-notes.html#next-class",
-    "href": "slides/08-inference-notes.html#next-class",
+    "objectID": "slides/07-inference-notes.html#next-class",
+    "href": "slides/07-inference-notes.html#next-class",
     "title": "Inference for regression",
     "section": "Next class",
-    "text": "Next class\n\nConfidence intervals for \\(\\hat{\\beta}_j\\)\nHypothesis testing based on ANOVA\nSee Prepare for Lecture 09"
+    "text": "Next class\n\nDistribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nSee Lecture 08 prepare"
   },
   {
     "objectID": "slides/06-predictor-types-contd.html#announcements",
@@ -649,92 +607,92 @@
     "text": "Recap\n\nInterpreted categorical predictors\nExplored why the model includes \\(k-1\\) terms for a categorical predictor with \\(k\\) levels\nFit and interpreted models with centered and standardized variables\nInterpreted interaction terms"
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html",
-    "href": "slides/06-predictor-type-contd-notes.html",
+    "objectID": "slides/06-predictor-types-contd-notes.html",
+    "href": "slides/06-predictor-types-contd-notes.html",
     "title": "Multiple linear regression",
     "section": "",
     "text": "Lab 03 due TODAY\n\nOne submission per team\nSelect every team member’s name in Gradescope\n\nStatistics experience due April 2\nSSMU Mini DataFest - February 8\n\nSee Ed Discussion announcement"
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#announcements",
-    "href": "slides/06-predictor-type-contd-notes.html#announcements",
+    "objectID": "slides/06-predictor-types-contd-notes.html#announcements",
+    "href": "slides/06-predictor-types-contd-notes.html#announcements",
     "title": "Multiple linear regression",
     "section": "",
     "text": "Lab 03 due TODAY\n\nOne submission per team\nSelect every team member’s name in Gradescope\n\nStatistics experience due April 2\nSSMU Mini DataFest - February 8\n\nSee Ed Discussion announcement"
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#topics",
-    "href": "slides/06-predictor-type-contd-notes.html#topics",
+    "objectID": "slides/06-predictor-types-contd-notes.html#topics",
+    "href": "slides/06-predictor-types-contd-notes.html#topics",
     "title": "Multiple linear regression",
     "section": "Topics",
     "text": "Topics\n\nInteraction terms"
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#computing-setup",
-    "href": "slides/06-predictor-type-contd-notes.html#computing-setup",
+    "objectID": "slides/06-predictor-types-contd-notes.html#computing-setup",
+    "href": "slides/06-predictor-types-contd-notes.html#computing-setup",
     "title": "Multiple linear regression",
     "section": "Computing setup",
     "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#data-peer-to-peer-lender",
-    "href": "slides/06-predictor-type-contd-notes.html#data-peer-to-peer-lender",
+    "objectID": "slides/06-predictor-types-contd-notes.html#data-peer-to-peer-lender",
+    "href": "slides/06-predictor-types-contd-notes.html#data-peer-to-peer-lender",
     "title": "Multiple linear regression",
     "section": "Data: Peer-to-peer lender",
     "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n# A tibble: 50 × 4\n   annual_income_th debt_to_income verified_income interest_rate\n              &lt;dbl&gt;          &lt;dbl&gt; &lt;fct&gt;                   &lt;dbl&gt;\n 1             59           0.558  Not Verified            10.9 \n 2             60           1.31   Not Verified             9.92\n 3             75           1.06   Verified                26.3 \n 4             75           0.574  Not Verified             9.92\n 5            254           0.238  Not Verified             9.43\n 6             67           1.08   Source Verified          9.92\n 7             28.8         0.0997 Source Verified         17.1 \n 8             80           0.351  Not Verified             6.08\n 9             34           0.698  Not Verified             7.97\n10             80           0.167  Source Verified         12.6 \n# ℹ 40 more rows"
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#variables",
-    "href": "slides/06-predictor-type-contd-notes.html#variables",
+    "objectID": "slides/06-predictor-types-contd-notes.html#variables",
+    "href": "slides/06-predictor-types-contd-notes.html#variables",
     "title": "Multiple linear regression",
     "section": "Variables",
     "text": "Variables\nPredictors:\n\n\nannual_income_th: Annual income (in $1000s)\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\n\nResponse: interest_rate: Interest rate for the loan"
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#interaction-terms-1",
-    "href": "slides/06-predictor-type-contd-notes.html#interaction-terms-1",
+    "objectID": "slides/06-predictor-types-contd-notes.html#interaction-terms-1",
+    "href": "slides/06-predictor-types-contd-notes.html#interaction-terms-1",
     "title": "Multiple linear regression",
     "section": "Interaction terms",
     "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model."
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#interest-rate-vs.-annual-income",
-    "href": "slides/06-predictor-type-contd-notes.html#interest-rate-vs.-annual-income",
+    "objectID": "slides/06-predictor-types-contd-notes.html#interest-rate-vs.-annual-income",
+    "href": "slides/06-predictor-types-contd-notes.html#interest-rate-vs.-annual-income",
     "title": "Multiple linear regression",
     "section": "Interest rate vs. annual income",
     "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is a potential interaction effect. The slope of annual income differs based on the income verification."
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#ae-model-with-interaction-effect",
-    "href": "slides/06-predictor-type-contd-notes.html#ae-model-with-interaction-effect",
+    "objectID": "slides/06-predictor-types-contd-notes.html#ae-model-with-interaction-effect",
+    "href": "slides/06-predictor-types-contd-notes.html#ae-model-with-interaction-effect",
     "title": "Multiple linear regression",
     "section": "AE: Model with interaction effect",
     "text": "AE: Model with interaction effect\n\nFit the model with the predictors debt_to_income, annual_income_th, verified_income , and the interaction between annual_income_th and verified_income.\n\nWrite the estimated regression equation for the people with Not Verified income.\nWrite the estimated regression equation for people with Verified income.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#interaction-term-in-model",
-    "href": "slides/06-predictor-type-contd-notes.html#interaction-term-in-model",
+    "objectID": "slides/06-predictor-types-contd-notes.html#interaction-term-in-model",
+    "href": "slides/06-predictor-types-contd-notes.html#interaction-term-in-model",
     "title": "Multiple linear regression",
     "section": "Interaction term in model",
     "text": "Interaction term in model\n\nint_fit_2 &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_th + verified_income * annual_income_th,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_th\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_th\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_th\n-0.032\n0.033\n-0.979\n0.333"
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#interpreting-interaction-terms",
-    "href": "slides/06-predictor-type-contd-notes.html#interpreting-interaction-terms",
+    "objectID": "slides/06-predictor-types-contd-notes.html#interpreting-interaction-terms",
+    "href": "slides/06-predictor-types-contd-notes.html#interpreting-interaction-terms",
     "title": "Multiple linear regression",
     "section": "Interpreting interaction terms",
     "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.\nInterpreting annual_income for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant."
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#indicators-and-interactions",
-    "href": "slides/06-predictor-type-contd-notes.html#indicators-and-interactions",
+    "objectID": "slides/06-predictor-types-contd-notes.html#indicators-and-interactions",
+    "href": "slides/06-predictor-types-contd-notes.html#indicators-and-interactions",
     "title": "Multiple linear regression",
     "section": "Indicators and interactions",
     "text": "Indicators and interactions\n\nIn general, how do\n\nindicators for categorical predictors impact the model equation?\ninteraction terms impact the model equation?"
   },
   {
-    "objectID": "slides/06-predictor-type-contd-notes.html#recap",
-    "href": "slides/06-predictor-type-contd-notes.html#recap",
+    "objectID": "slides/06-predictor-types-contd-notes.html#recap",
+    "href": "slides/06-predictor-types-contd-notes.html#recap",
     "title": "Multiple linear regression",
     "section": "Recap",
     "text": "Recap\n\nInterpreted categorical predictors\nExplored why the model includes \\(k-1\\) terms for a categorical predictor with \\(k\\) levels\nFit and interpreted models with centered and standardized variables\nInterpreted interaction terms"
@@ -1878,7 +1836,7 @@
     "href": "index.html",
     "title": "STA 221 - Regression Analysis: Theory and Applications",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\nTh\nFeb 5\nInference: Normal assumption\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nTypes of predictors cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\n\n\n\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference: Normal assumption\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
     "crumbs": [
       "Schedule"
     ]

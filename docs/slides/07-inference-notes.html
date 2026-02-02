@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Maria Tackett">
+<meta name="dcterms.date" content="2026-02-03">
 
 <title>Inference for regression – STA 221 - Spring 2026</title>
 <style>
@@ -390,9 +391,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#announcements" id="toc-announcements" class="nav-link active" data-scroll-target="#announcements">Announcements</a></li>
-  <li><a href="#poll-office-hours-availability" id="toc-poll-office-hours-availability" class="nav-link" data-scroll-target="#poll-office-hours-availability">Poll: Office hours availability</a></li>
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link active" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#computing-setup" id="toc-computing-setup" class="nav-link" data-scroll-target="#computing-setup">Computing setup</a></li>
   <li><a href="#data-ncaa-football-expenditures" id="toc-data-ncaa-football-expenditures" class="nav-link" data-scroll-target="#data-ncaa-football-expenditures">Data: NCAA Football expenditures</a></li>
   <li><a href="#univariate-eda" id="toc-univariate-eda" class="nav-link" data-scroll-target="#univariate-eda">Univariate EDA</a></li>
@@ -402,11 +401,13 @@ window.Quarto = {
   <li><a href="#inference-for-regression" id="toc-inference-for-regression" class="nav-link" data-scroll-target="#inference-for-regression">Inference for regression</a>
   <ul class="collapse">
   <li><a href="#statistical-inference" id="toc-statistical-inference" class="nav-link" data-scroll-target="#statistical-inference">Statistical inference</a></li>
-  <li><a href="#inference-for-linear-regression" id="toc-inference-for-linear-regression" class="nav-link" data-scroll-target="#inference-for-linear-regression">Inference for linear regression</a></li>
+  <li><a href="#inference-for-a-coefficient-beta_j" id="toc-inference-for-a-coefficient-beta_j" class="nav-link" data-scroll-target="#inference-for-a-coefficient-beta_j">Inference for a coefficient <span class="math inline">\(\beta_j\)</span></a></li>
+  <li><a href="#inference-framework" id="toc-inference-framework" class="nav-link" data-scroll-target="#inference-framework">Inference framework</a></li>
+  </ul></li>
+  <li><a href="#distribution-of-mathbfy-in-regression" id="toc-distribution-of-mathbfy-in-regression" class="nav-link" data-scroll-target="#distribution-of-mathbfy-in-regression">Distribution of <span class="math inline">\(\mathbf{y}\)</span> in regression</a>
+  <ul class="collapse">
   <li><a href="#linear-regression-model" id="toc-linear-regression-model" class="nav-link" data-scroll-target="#linear-regression-model">Linear regression model</a></li>
   <li><a href="#linear-regression-model-1" id="toc-linear-regression-model-1" class="nav-link" data-scroll-target="#linear-regression-model-1">Linear regression model</a></li>
-  <li><a href="#describing-random-phenomena" id="toc-describing-random-phenomena" class="nav-link" data-scroll-target="#describing-random-phenomena">Describing random phenomena</a></li>
-  <li><a href="#distribution-of-error-terms" id="toc-distribution-of-error-terms" class="nav-link" data-scroll-target="#distribution-of-error-terms">Distribution of error terms</a></li>
   <li><a href="#visualizing-distribution-of-mathbfymathbfx" id="toc-visualizing-distribution-of-mathbfymathbfx" class="nav-link" data-scroll-target="#visualizing-distribution-of-mathbfymathbfx">Visualizing distribution of <span class="math inline">\(\mathbf{y}|\mathbf{X}\)</span></a></li>
   <li><a href="#expected-value" id="toc-expected-value" class="nav-link" data-scroll-target="#expected-value">Expected value</a></li>
   <li><a href="#expected-value-1" id="toc-expected-value-1" class="nav-link" data-scroll-target="#expected-value-1">Expected value</a></li>
@@ -443,7 +444,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Feb 04, 2025</p>
+      <p class="date">February 03, 2026</p>
     </div>
   </div>
   
@@ -455,28 +456,12 @@ window.Quarto = {
 </header>
 
 
-<section id="announcements" class="level2">
-<h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
-<ul>
-<li><p>Lab 03 due <strong>TODAY</strong> at 11:59pm</p></li>
-<li><p><a href="https://prodduke.sharepoint.com/:p:/s/ARCStaff839/EZ4PKTRTlCVMpFZiR6XoRycB4UUlRMuI2_Rda9hKxNZtsA">Click here</a> to learn more about the Academic Resource Center</p></li>
-<li><p><a href="../hw/stats-experience.html">Statistics experience</a> due <strong>Tuesday, April 22</strong></p></li>
-</ul>
-</section>
-<section id="poll-office-hours-availability" class="level2">
-<h2 class="anchored" data-anchor-id="poll-office-hours-availability">Poll: Office hours availability</h2>
-<center>
-<iframe width="640px" height="480px" src="https://forms.office.com/r/DL8rBQ988y?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen=""> </iframe>
-<p>🔗 <a href="https://forms.office.com/r/DL8rBQ988y" class="uri">https://forms.office.com/r/DL8rBQ988y</a></p>
-</center>
-</section>
 <section id="topics" class="level2">
 <h2 class="anchored" data-anchor-id="topics">Topics</h2>
 <ul>
-<li><p>Understand statistical inference in the context of regression</p></li>
-<li><p>Describe the assumptions for regression</p></li>
-<li><p>Understand connection between distribution of residuals and inferential procedures</p></li>
-<li><p>Conduct inference on a single coefficient</p></li>
+<li><p>Introduce statistical inference in the context of regression</p></li>
+<li><p>Describe assumptions on the error terms <span class="math inline">\(\boldsymbol{\epsilon}\)</span></p></li>
+<li><p>Use assumptions of <span class="math inline">\(\boldsymbol{\epsilon}\)</span> to derive distribution of <span class="math inline">\(\mathbf{y}\)</span></p></li>
 </ul>
 </section>
 <section id="computing-setup" class="level2">
@@ -612,21 +597,26 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="inference-for-linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="inference-for-linear-regression">Inference for linear regression</h2>
-<ul>
-<li><p><strong>Inference based on ANOVA</strong></p>
-<ul>
-<li><p>Hypothesis test for the statistical significance of the overall regression model</p></li>
-<li><p>Hypothesis test for a subset of coefficients</p></li>
-</ul></li>
-<li><p><strong>Inference for a single coefficient</strong> <span class="math inline">\(\beta_j\)</span> (today’s focus)</p>
+<section id="inference-for-a-coefficient-beta_j" class="level2">
+<h2 class="anchored" data-anchor-id="inference-for-a-coefficient-beta_j">Inference for a coefficient <span class="math inline">\(\beta_j\)</span></h2>
 <ul>
 <li><p>Hypothesis test for a coefficient <span class="math inline">\(\beta_j\)</span></p></li>
 <li><p>Confidence interval for a coefficient <span class="math inline">\(\beta_j\)</span></p></li>
-</ul></li>
 </ul>
 </section>
+<section id="inference-framework" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="inference-framework">Inference framework</h2>
+<p>Our <strong>objective</strong> is to infer properties about a <em>population</em> using data from observational (or experimental) data collection</p>
+<ul>
+<li><p><strong>Pre data collection</strong>: before collecting the data, the data are unknown and random. <span class="math inline">\(\hat{\beta}\)</span>, which is a function of the data, is also unknown and random</p></li>
+<li><p><strong>Post data collection</strong>: after collecting the data, <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is fixed and known.</p></li>
+<li><p>In all cases, the true population parameter, <span class="math inline">\(\boldsymbol{\beta}\)</span> is <u><strong>fixed</strong></u> but <u><strong>unknown</strong></u>.</p></li>
+</ul>
+<p><strong>Question pre data collection:</strong> is the probability distribution of <span class="math inline">\(\hat{\mathbf{\boldsymbol{\beta}}}\)</span> a meaningful representation of the population? (We will slowly answer this question across the next few classes)</p>
+</section>
+</section>
+<section id="distribution-of-mathbfy-in-regression" class="level1">
+<h1>Distribution of <span class="math inline">\(\mathbf{y}\)</span> in regression</h1>
 <section id="linear-regression-model" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="linear-regression-model">Linear regression model</h2>
 <p><span class="math display">\[
@@ -658,28 +648,12 @@ window.Quarto = {
 <p>. . .</p>
 <ul>
 <li><strong>Independent</strong>: Knowing the error term for one observation doesn’t tell us about the error term for another observation</li>
-<li><strong>Normally distributed</strong>: The distribution follows a particular mathematical model that is unimodal and symmetric</li>
-</ul>
-</section>
-<section id="describing-random-phenomena" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="describing-random-phenomena">Describing random phenomena</h2>
-<div class="incremental">
-<ul class="incremental">
-<li><p>There is some uncertainty in the error terms (and thus the response variable), so we use mathematical models to describe that uncertainty.</p></li>
-<li><p>Some terminology:</p>
-<ul class="incremental">
-<li><p><strong>Sample space</strong>: Set of all possible outcomes</p></li>
-<li><p><strong>Random variable</strong>: Function (mapping) from the sample space onto real numbers</p></li>
-<li><p><strong>Event:</strong> Subset of the sample space, i.e., a set of possible outcomes (possible values the random variable can take)</p></li>
-<li><p><strong>Probability density function:</strong> Mathematical function that produces probability of occurrences for events in the sample space for a continuous random variable</p></li>
+<li><strong>Normally distributed</strong>: The distribution follows a particular mathematical model that is unimodal and symmetric
+<ul>
+<li><span class="math inline">\(E(\boldsymbol{\epsilon}) = \mathbf{0}\)</span></li>
+<li><span class="math inline">\(Var(\boldsymbol{\epsilon}) = \sigma^2_{\epsilon}\mathbf{I}\)</span></li>
 </ul></li>
 </ul>
-</div>
-</section>
-<section id="distribution-of-error-terms" class="level2">
-<h2 class="anchored" data-anchor-id="distribution-of-error-terms">Distribution of error terms</h2>
-<p>The error terms follow a (multivariate) normal distribution with mean <span class="math inline">\(\mathbf{0}\)</span> and variance <span class="math inline">\(\sigma^2\mathbf{I}\)</span></p>
-<p><span class="math display">\[f(\boldsymbol{\epsilon}) = \frac{1}{(2\pi)^{n/2}|\sigma^2_{\epsilon}\mathbf{I}|^{1/2}}\exp\Big\{-\frac{1}{2}(\boldsymbol{\epsilon} - \mathbf{0})^\mathsf{T}(\sigma^2_{\epsilon}\mathbf{I})^{-1}(\boldsymbol{\epsilon}- \mathbf{0})\Big\}\]</span></p>
 </section>
 <section id="visualizing-distribution-of-mathbfymathbfx" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="visualizing-distribution-of-mathbfymathbfx">Visualizing distribution of <span class="math inline">\(\mathbf{y}|\mathbf{X}\)</span></h2>
@@ -734,14 +708,6 @@ Let <span class="math inline">\(\mathbf{z} = \begin{bmatrix}z_1 \\ \vdots \\z_p\
 <p><span class="math display">\[
 Var(\mathbf{z}) = E[(\mathbf{z} - E(\mathbf{z}))(\mathbf{z} - E(\mathbf{z}))^\mathsf{T}]
 \]</span></p>
-<p><br></p>
-<p>. . .</p>
-<p><span class="math display">\[
-\begin{aligned}
-Var(\mathbf{Az}) &amp;= E[(\mathbf{Az} - E(\mathbf{Az}))(\mathbf{Az} - E(\mathbf{Az}))^\mathsf{T}] \\[8pt]
-&amp; = \mathbf{A}Var(\mathbf{z})\mathbf{A}^\mathsf{T}
-\end{aligned}
-\]</span></p>
 </section>
 <section id="variance-of-the-response" class="level2">
 <h2 class="anchored" data-anchor-id="variance-of-the-response">Variance of the response</h2>
@@ -754,30 +720,25 @@ Var(\mathbf{y}|\mathbf{X}) = \sigma^2_\epsilon\mathbf{I}
 </section>
 <section id="linear-transformation-of-normal-random-variable" class="level2" data-background-color="#ccddeb">
 <h2 data-background-color="#ccddeb" class="anchored" data-anchor-id="linear-transformation-of-normal-random-variable">Linear transformation of normal random variable</h2>
-<p>Suppose <span class="math inline">\(\mathbf{z}\)</span> is a (multivariate) normal random variable such that <span class="math inline">\(\mathbf{z} \sim N(\boldsymbol{\mu}, \boldsymbol{\Sigma})\)</span></p>
+<p>Suppose <span class="math inline">\(\mathbf{w}\)</span> and <span class="math inline">\(\mathbf{z}\)</span> are (multivariate) normal random variables. Then, <span class="math inline">\(\mathbf{Aw} + \mathbf{Bz}\)</span> is (multivariate) normal for <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> constant matrices.</p>
 <p><br></p>
-<p>A linear transformation of <span class="math inline">\(\mathbf{z}\)</span> is also multivariate normal, such that</p>
-<p><span class="math display">\[
-\mathbf{A}\mathbf{z} + \mathbf{B} \sim N(\mathbf{A}\boldsymbol{\mu} + \mathbf{B}, \mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\mathsf{T})
-\]</span></p>
 <div class="question">
-<p>Explain why <span class="math inline">\(\mathbf{y}|\mathbf{X}\)</span> is normally distributed.</p>
+<p>Show that the distribution of <span class="math inline">\(\mathbf{y}|\mathbf{X}\)</span> is normal.</p>
 </div>
 </section>
 <section id="recap" class="level2">
 <h2 class="anchored" data-anchor-id="recap">Recap</h2>
 <ul>
 <li><p>Introduced statistical inference in the context of regression</p></li>
-<li><p>Described the assumptions for regression</p></li>
-<li><p>Connected the distribution of residuals and inferential procedures</p></li>
+<li><p>Described assumptions on the error terms <span class="math inline">\(\boldsymbol{\epsilon}\)</span></p></li>
+<li><p>Used assumptions of <span class="math inline">\(\boldsymbol{\epsilon}\)</span> to derive distribution of <span class="math inline">\(\mathbf{y}\)</span></p></li>
 </ul>
 </section>
 <section id="next-class" class="level2">
 <h2 class="anchored" data-anchor-id="next-class">Next class</h2>
 <ul>
-<li><p>Confidence intervals for <span class="math inline">\(\hat{\beta}_j\)</span></p></li>
-<li><p>Hypothesis testing based on ANOVA</p></li>
-<li><p>See <a href="https://sta221-sp25.netlify.app/prepare/prepare-lec09">Prepare for Lecture 09</a></p></li>
+<li><p>Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></p></li>
+<li><p>See <a href="../prepare/prepare-lec08.html">Lecture 08 prepare</a></p></li>
 </ul>
 
 

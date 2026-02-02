@@ -1,9 +1,9 @@
 ---
 title: "Inference for regression"
 author: "Prof. Maria Tackett"
-date: "2025-02-04"
-date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 221 - Spring 2025](https://sta221-sp25.netlify.app)"
+date: "02-03-2026"
+date-format: "MMMM DD, YYYY"
+footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
 logo: "../images/logo.png"
 format: 
   revealjs: 
@@ -15,7 +15,7 @@ format:
     chalkboard: true
     include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
   html: 
-    output-file: 08-inference-notes.html
+    output-file: 07-inference-notes.html
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -46,35 +46,13 @@ knitr::opts_chunk$set(
 options(scipen=999)
 ```
 
-## Announcements
-
--   Lab 03 due **TODAY** at 11:59pm
-
--   [Click here](https://prodduke.sharepoint.com/:p:/s/ARCStaff839/EZ4PKTRTlCVMpFZiR6XoRycB4UUlRMuI2_Rda9hKxNZtsA) to learn more about the Academic Resource Center
-
--   [Statistics experience](../hw/stats-experience.html) due **Tuesday, April 22**
-
-## Poll: Office hours availability
-
-<center>
-
-```{=html}
-<iframe width="640px" height="480px" src="https://forms.office.com/r/DL8rBQ988y?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
-```
-
-🔗 <https://forms.office.com/r/DL8rBQ988y>
-
-</center>
-
 ## Topics
 
--   Understand statistical inference in the context of regression
+-   Introduce statistical inference in the context of regression
 
--   Describe the assumptions for regression
+-   Describe assumptions on the error terms $\boldsymbol{\epsilon}$
 
--   Understand connection between distribution of residuals and inferential procedures
-
--   Conduct inference on a single coefficient
+-   Use assumptions of $\boldsymbol{\epsilon}$ to derive distribution of $\mathbf{y}$
 
 ## Computing setup
 
@@ -217,19 +195,25 @@ For every additional 1,000 students, we expect an institution's total expenditur
 :::
 ::::::
 
-## Inference for linear regression
+## Inference for a coefficient $\beta_j$
 
--   **Inference based on ANOVA**
+-   Hypothesis test for a coefficient $\beta_j$
 
-    -   Hypothesis test for the statistical significance of the overall regression model
+-   Confidence interval for a coefficient $\beta_j$
 
-    -   Hypothesis test for a subset of coefficients
+## Inference framework   {.midi}
 
--   **Inference for a single coefficient** $\beta_j$ (today's focus)
+Our **objective** is to infer properties about a *population* using data from observational (or experimental) data collection
 
-    -   Hypothesis test for a coefficient $\beta_j$
+-   **Pre data collection**: before collecting the data, the data are unknown and random. $\hat{\beta}$, which is a function of the data, is also unknown and random
 
-    -   Confidence interval for a coefficient $\beta_j$
+-   **Post data collection**: after collecting the data, $\hat{\boldsymbol{\beta}}$ is fixed and known.
+
+-   In all cases, the true population parameter, $\boldsymbol{\beta}$ is [**fixed**]{.underline} but [**unknown**]{.underline}.
+
+**Question pre data collection:** is the probability distribution of $\hat{\mathbf{\boldsymbol{\beta}}}$ a meaningful representation of the population? (We will slowly answer this question across the next few classes)
+
+# Distribution of $\mathbf{y}$ in regression
 
 ## Linear regression model {.midi}
 
@@ -265,28 +249,8 @@ such that the errors are independent and normally distributed.
 
 -   **Independent**: Knowing the error term for one observation doesn't tell us about the error term for another observation
 -   **Normally distributed**: The distribution follows a particular mathematical model that is unimodal and symmetric
-
-## Describing random phenomena {.midi}
-
-::: incremental
--   There is some uncertainty in the error terms (and thus the response variable), so we use mathematical models to describe that uncertainty.
-
--   Some terminology:
-
-    -   **Sample space**: Set of all possible outcomes
-
-    -   **Random variable**: Function (mapping) from the sample space onto real numbers
-
-    -   **Event:** Subset of the sample space, i.e., a set of possible outcomes (possible values the random variable can take)
-
-    -   **Probability density function:** Mathematical function that produces probability of occurrences for events in the sample space for a continuous random variable
-:::
-
-## Distribution of error terms
-
-The error terms follow a (multivariate) normal distribution with mean $\mathbf{0}$ and variance $\sigma^2\mathbf{I}$
-
-$$f(\boldsymbol{\epsilon}) = \frac{1}{(2\pi)^{n/2}|\sigma^2_{\epsilon}\mathbf{I}|^{1/2}}\exp\Big\{-\frac{1}{2}(\boldsymbol{\epsilon} - \mathbf{0})^\mathsf{T}(\sigma^2_{\epsilon}\mathbf{I})^{-1}(\boldsymbol{\epsilon}- \mathbf{0})\Big\}$$
+    -   $E(\boldsymbol{\epsilon}) = \mathbf{0}$
+    -   $Var(\boldsymbol{\epsilon}) = \sigma^2_{\epsilon}\mathbf{I}$
 
 ## Visualizing distribution of $\mathbf{y}|\mathbf{X}$ {.midi}
 
@@ -349,17 +313,6 @@ $$
 Var(\mathbf{z}) = E[(\mathbf{z} - E(\mathbf{z}))(\mathbf{z} - E(\mathbf{z}))^\mathsf{T}]
 $$
 
-<br>
-
-. . .
-
-$$
-\begin{aligned}
-Var(\mathbf{Az}) &= E[(\mathbf{Az} - E(\mathbf{Az}))(\mathbf{Az} - E(\mathbf{Az}))^\mathsf{T}] \\[8pt]
-& = \mathbf{A}Var(\mathbf{z})\mathbf{A}^\mathsf{T}
-\end{aligned}
-$$
-
 ## Variance of the response
 
 ::: question
@@ -372,32 +325,24 @@ $$
 
 ## Linear transformation of normal random variable {background-color="#ccddeb"}
 
-Suppose $\mathbf{z}$ is a (multivariate) normal random variable such that $\mathbf{z} \sim N(\boldsymbol{\mu}, \boldsymbol{\Sigma})$
+Suppose $\mathbf{w}$ and $\mathbf{z}$ are (multivariate) normal random variables. Then, $\mathbf{Aw} + \mathbf{Bz}$ is (multivariate) normal for $\mathbf{A}$ and $\mathbf{B}$ constant matrices.
 
 <br>
 
-A linear transformation of $\mathbf{z}$ is also multivariate normal, such that
-
-$$
-\mathbf{A}\mathbf{z} + \mathbf{B} \sim N(\mathbf{A}\boldsymbol{\mu} + \mathbf{B}, \mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\mathsf{T})
-$$
-
 ::: question
-Explain why $\mathbf{y}|\mathbf{X}$ is normally distributed.
+Show that the distribution of $\mathbf{y}|\mathbf{X}$ is normal.
 :::
 
 ## Recap
 
 -   Introduced statistical inference in the context of regression
 
--   Described the assumptions for regression
+-   Described assumptions on the error terms $\boldsymbol{\epsilon}$
 
--   Connected the distribution of residuals and inferential procedures
+-   Used assumptions of $\boldsymbol{\epsilon}$ to derive distribution of $\mathbf{y}$
 
 ## Next class
 
--   Confidence intervals for $\hat{\beta}_j$
+-   Distribution of $\hat{\boldsymbol{\beta}}$
 
--   Hypothesis testing based on ANOVA
-
--   See [Prepare for Lecture 09](https://sta221-sp25.netlify.app/prepare/prepare-lec09)
+-   See [Lecture 08 prepare](../prepare/prepare-lec08.html)
