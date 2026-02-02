@@ -1,0 +1,210 @@
+---
+title: "Multiple linear regression"
+subtitle: "Types of predictors cont'd"
+date: "02-03-2026"
+date-format: "MMMM DD, YYYY"
+footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 06-predictor-type-contd-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+filters: 
+  - webr
+webr: 
+  packages: ['tidyverse', 'broom', 'openintro']
+---
+
+## Announcements
+
+-   Lab 03 due **TODAY**
+
+    -   One submission per team
+
+    -   Select every team member's name in Gradescope
+
+-   [Statistics experience](../hw/stats-experience.html) due April 2
+
+-   SSMU Mini DataFest - February 8
+
+    -   See [Ed Discussion announcement](https://edstem.org/us/courses/90766/discussion/7577338)
+
+## Topics
+
+-   Interaction terms
+
+## Computing setup
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)
+library(tidymodels)
+library(openintro)
+library(patchwork)
+library(knitr)
+library(kableExtra)
+library(viridis) #adjust color palette
+
+# set default theme and larger font size for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))
+```
+
+```{webr-r}
+#| context: setup
+
+loan50 <- loan50 |>
+  mutate(
+    not_verified = factor(if_else(verified_income == "Not Verified", 1, 0)),
+    source_verified = factor(if_else(verified_income == "Source Verified", 1, 0)),
+    verified = factor(if_else(verified_income == "Verified", 1, 0)),
+    annual_income_th = annual_income / 1000) |>
+  filter(verified_income %in% c("Not Verified", "Source Verified", "Verified"))
+
+# get rid of the hidden blank column of verified income 
+loan50$verified_income <- droplevels(loan50$verified_income)
+
+```
+
+## Data: Peer-to-peer lender
+
+Today's data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the `loan50` data frame in the **openintro** R package.
+
+```{r}
+#| echo: false
+
+loan50 <- loan50 |>
+  mutate(annual_income_th = annual_income / 1000)
+
+loan50 |>
+  select(annual_income_th, debt_to_income, verified_income, interest_rate)
+
+# get rid of the hidden blank column of verified income 
+loan50$verified_income <- droplevels(loan50$verified_income)
+```
+
+## Variables
+
+**Predictors**:
+
+::: nonincremental
+-   `annual_income_th`: Annual income (in \$1000s)
+-   `debt_to_income`: Debt-to-income ratio, i.e. the percentage of a borrower's total debt divided by their total income
+-   `verified_income`: Whether borrower's income source and amount have been verified (`Not Verified`, `Source Verified`, `Verified`)
+:::
+
+**Response**: `interest_rate`: Interest rate for the loan
+
+# Interaction terms
+
+## Interaction terms
+
+-   Sometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.
+-   This is an **interaction effect**.
+-   To account for this, we can include **interaction terms** in the model.
+
+## Interest rate vs. annual income
+
+The lines are not parallel indicating there is a potential **interaction effect**. The slope of annual income differs based on the income verification.
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| warning: false
+#| message: false
+
+p1 <- ggplot(loan50, 
+             aes(x = annual_income_th, y = interest_rate)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    x = "Annual income (in $1000s)",
+    y = "Interest rate"
+  )
+
+p2 <- ggplot(loan50, 
+             aes(x = annual_income_th, y = interest_rate,
+                 color = verified_income)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Annual income (in $1000s)", y = NULL, color = NULL) +
+  theme(legend.position = c(0.6, 0.9)) +
+  scale_color_viridis_d(end = 0.9)
+
+p1 + p2 +
+  plot_annotation(title = "Interest rate vs. annual income")
+```
+
+## AE: Model with interaction effect {.midi}
+
+::: question
+Fit the model with the predictors `debt_to_income`, `annual_income_th`, `verified_income` , and the interaction between `annual_income_th` and `verified_income`.
+
+-   Write the estimated regression equation for the people with `Not Verified` income.
+
+-   Write the estimated regression equation for people with `Verified` income.
+:::
+
+```{webr-r}
+# code to fit and display model with interaction
+```
+
+## Interaction term in model {.smaller}
+
+```{r}
+#| echo: true
+int_fit_2 <- lm(interest_rate ~ debt_to_income + verified_income + annual_income_th + verified_income * annual_income_th,
+      data = loan50)
+```
+
+```{r}
+#| echo: false
+tidy(int_fit_2) |>
+  kable(digits = 3) |>
+  row_spec(c(6,7), background = "#dce5b2")
+```
+
+## Interpreting interaction terms
+
+-   What the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.
+-   Interpreting `annual_income` for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant.
+
+## Indicators and interactions
+
+::: question
+In general, how do
+
+-   indicators for categorical predictors impact the model equation?
+
+-   interaction terms impact the model equation?
+:::
+
+## Recap
+
+-   Interpreted categorical predictors
+
+-   Explored why the model includes $k-1$ terms for a categorical predictor with $k$ levels
+
+-   Fit and interpreted models with centered and standardized variables
+
+-   Interpreted interaction terms

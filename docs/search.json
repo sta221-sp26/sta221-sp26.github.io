@@ -208,459 +208,536 @@
     "text": "Probability distributions\n\nMultivariate normal distribution\nLet \\(\\mathbf{z}\\) be a \\(p \\times 1\\) vector of random variables, such that \\(\\mathbf{z}\\) follows a multivariate normal distribution with mean \\(\\boldsymbol{\\mu}\\) and variance \\(\\boldsymbol{\\Sigma}\\). Then the probability density function of \\(\\mathbf{z}\\) is\n\\[f(\\mathbf{z}) = \\frac{1}{(2\\pi)^{p/2}|\\boldsymbol{\\Sigma}|^{1/2}}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{z} - \\boldsymbol{\\mu})^\\mathsf{T}\\boldsymbol{\\Sigma}^{-1}(\\mathbf{z}- \\boldsymbol{\\mu})\\Big\\}\\]\n\n\n\n\n\n\nLinear transformation of normal random variable\nSuppose \\(\\mathbf{z}\\) is a multivariate normal random variable with mean \\(\\boldsymbol{\\mu}\\) and variance \\(\\boldsymbol{\\Sigma}\\). A linear transformation of \\(\\mathbf{z}\\) is also multivariate normal, such that\n\\[\n\\mathbf{A}\\mathbf{z} + \\mathbf{B} \\sim N(\\mathbf{A}\\boldsymbol{\\mu} + \\mathbf{B}, \\mathbf{A}\\boldsymbol{\\Sigma}\\mathbf{A}^\\mathsf{T})\n\\]"
   },
   {
-    "objectID": "slides/05-mlr.html#announcements",
-    "href": "slides/05-mlr.html#announcements",
+    "objectID": "slides/07-inference.html#announcements",
+    "href": "slides/07-inference.html#announcements",
+    "title": "Inference for regression",
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 03 due TODAY at 11:59pm\nClick here to learn more about the Academic Resource Center\nStatistics experience due Tuesday, April 22"
+  },
+  {
+    "objectID": "slides/07-inference.html#poll-office-hours-availability",
+    "href": "slides/07-inference.html#poll-office-hours-availability",
+    "title": "Inference for regression",
+    "section": "Poll: Office hours availability",
+    "text": "Poll: Office hours availability\n\n \n🔗 https://forms.office.com/r/DL8rBQ988y"
+  },
+  {
+    "objectID": "slides/07-inference.html#topics",
+    "href": "slides/07-inference.html#topics",
+    "title": "Inference for regression",
+    "section": "Topics",
+    "text": "Topics\n\nUnderstand statistical inference in the context of regression\nDescribe the assumptions for regression\nUnderstand connection between distribution of residuals and inferential procedures\nConduct inference on a single coefficient"
+  },
+  {
+    "objectID": "slides/07-inference.html#computing-setup",
+    "href": "slides/07-inference.html#computing-setup",
+    "title": "Inference for regression",
+    "section": "Computing setup",
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(kableExtra)  \nlibrary(patchwork)   \n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+  },
+  {
+    "objectID": "slides/07-inference.html#data-ncaa-football-expenditures",
+    "href": "slides/07-inference.html#data-ncaa-football-expenditures",
+    "title": "Inference for regression",
+    "section": "Data: NCAA Football expenditures",
+    "text": "Data: NCAA Football expenditures\nToday’s data come from Equity in Athletics Data Analysis and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a March 2022 Tidy Tuesday.\nWe will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :\n\ntotal_exp_m: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)\nenrollment_th: Total student enrollment in the 2019 - 2020 academic year (in thousands)\ntype: institution type (Public or Private)\n\n\nfootball &lt;- read_csv(\"data/ncaa-football-exp.csv\")"
+  },
+  {
+    "objectID": "slides/07-inference.html#univariate-eda",
+    "href": "slides/07-inference.html#univariate-eda",
+    "title": "Inference for regression",
+    "section": "Univariate EDA",
+    "text": "Univariate EDA"
+  },
+  {
+    "objectID": "slides/07-inference.html#bivariate-eda",
+    "href": "slides/07-inference.html#bivariate-eda",
+    "title": "Inference for regression",
+    "section": "Bivariate EDA",
+    "text": "Bivariate EDA"
+  },
+  {
+    "objectID": "slides/07-inference.html#regression-model",
+    "href": "slides/07-inference.html#regression-model",
+    "title": "Inference for regression",
+    "section": "Regression model",
+    "text": "Regression model\n\nexp_fit &lt;- lm(total_exp_m ~ enrollment_th + type, data = football)\ntidy(exp_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n\n\n\n\n\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant."
+  },
+  {
+    "objectID": "slides/07-inference.html#from-sample-to-population",
+    "href": "slides/07-inference.html#from-sample-to-population",
+    "title": "Inference for regression",
+    "section": "From sample to population",
+    "text": "From sample to population\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant.\n\n\n\nThis estimate is valid for the single sample of 127 higher education institutions in the 2019 - 2020 academic year.\nBut what if we’re not interested quantifying the relationship between student enrollment, institution type, and football expenditures for this single sample?\nWhat if we want to say something about the relationship between these variables for all colleges and universities with football programs and across different years?"
+  },
+  {
+    "objectID": "slides/07-inference.html#statistical-inference",
+    "href": "slides/07-inference.html#statistical-inference",
+    "title": "Inference for regression",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\n\n\n\nStatistical inference provides methods and tools so we can use the single observed sample to make valid statements (inferences) about the population it comes from\nFor our inferences to be valid, the sample should be representative (ideally random) of the population we’re interested in\n\n\n\n\n\n\nImage source: Eugene Morgan © Penn State"
+  },
+  {
+    "objectID": "slides/07-inference.html#inference-for-linear-regression",
+    "href": "slides/07-inference.html#inference-for-linear-regression",
+    "title": "Inference for regression",
+    "section": "Inference for linear regression",
+    "text": "Inference for linear regression\n\nInference based on ANOVA\n\nHypothesis test for the statistical significance of the overall regression model\nHypothesis test for a subset of coefficients\n\nInference for a single coefficient \\(\\beta_j\\) (today’s focus)\n\nHypothesis test for a coefficient \\(\\beta_j\\)\nConfidence interval for a coefficient \\(\\beta_j\\)"
+  },
+  {
+    "objectID": "slides/07-inference.html#linear-regression-model",
+    "href": "slides/07-inference.html#linear-regression-model",
+    "title": "Inference for regression",
+    "section": "Linear regression model",
+    "text": "Linear regression model\n\\[\n\\begin{aligned}\n\\mathbf{y} &= \\text{Model} + \\text{Error} \\\\[5pt]\n&= f(\\mathbf{X}) + \\boldsymbol{\\epsilon} \\\\[5pt]\n&= E(\\mathbf{y}|\\mathbf{X}) + \\mathbf{\\epsilon} \\\\[5pt]\n&= \\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{\\epsilon}\n\\end{aligned}\n\\]\n\n\nWe have discussed multiple ways to find the least squares estimates of \\(\\boldsymbol{\\beta} = \\begin{bmatrix}\\beta_0 \\\\\\beta_1\\end{bmatrix}\\)\n\nNone of these approaches depend on the distribution of \\(\\boldsymbol{\\epsilon}\\)\n\nNow we will use statistical inference to draw conclusions about \\(\\boldsymbol{\\beta}\\) that depend on particular assumptions about the distribution of \\(\\boldsymbol{\\epsilon}\\)"
+  },
+  {
+    "objectID": "slides/07-inference.html#linear-regression-model-1",
+    "href": "slides/07-inference.html#linear-regression-model-1",
+    "title": "Inference for regression",
+    "section": "Linear regression model",
+    "text": "Linear regression model\n\\[\\begin{aligned}\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{8mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\end{aligned}\n\\]\nsuch that the errors are independent and normally distributed.\n\n\nIndependent: Knowing the error term for one observation doesn’t tell us about the error term for another observation\nNormally distributed: The distribution follows a particular mathematical model that is unimodal and symmetric"
+  },
+  {
+    "objectID": "slides/07-inference.html#describing-random-phenomena",
+    "href": "slides/07-inference.html#describing-random-phenomena",
+    "title": "Inference for regression",
+    "section": "Describing random phenomena",
+    "text": "Describing random phenomena\n\nThere is some uncertainty in the error terms (and thus the response variable), so we use mathematical models to describe that uncertainty.\nSome terminology:\n\nSample space: Set of all possible outcomes\nRandom variable: Function (mapping) from the sample space onto real numbers\nEvent: Subset of the sample space, i.e., a set of possible outcomes (possible values the random variable can take)\nProbability density function: Mathematical function that produces probability of occurrences for events in the sample space for a continuous random variable"
+  },
+  {
+    "objectID": "slides/07-inference.html#distribution-of-error-terms",
+    "href": "slides/07-inference.html#distribution-of-error-terms",
+    "title": "Inference for regression",
+    "section": "Distribution of error terms",
+    "text": "Distribution of error terms\nThe error terms follow a (multivariate) normal distribution with mean \\(\\mathbf{0}\\) and variance \\(\\sigma^2\\mathbf{I}\\)\n\\[f(\\boldsymbol{\\epsilon}) = \\frac{1}{(2\\pi)^{n/2}|\\sigma^2_{\\epsilon}\\mathbf{I}|^{1/2}}\\exp\\Big\\{-\\frac{1}{2}(\\boldsymbol{\\epsilon} - \\mathbf{0})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\boldsymbol{\\epsilon}- \\mathbf{0})\\Big\\}\\]"
+  },
+  {
+    "objectID": "slides/07-inference.html#visualizing-distribution-of-mathbfymathbfx",
+    "href": "slides/07-inference.html#visualizing-distribution-of-mathbfymathbfx",
+    "title": "Inference for regression",
+    "section": "Visualizing distribution of \\(\\mathbf{y}|\\mathbf{X}\\)",
+    "text": "Visualizing distribution of \\(\\mathbf{y}|\\mathbf{X}\\)\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\nImage source: Introduction to the Practice of Statistics (5th ed)"
+  },
+  {
+    "objectID": "slides/07-inference.html#expected-value",
+    "href": "slides/07-inference.html#expected-value",
+    "title": "Inference for regression",
+    "section": "Expected value",
+    "text": "Expected value\nLet \\(\\mathbf{z} = \\begin{bmatrix}z_1 \\\\ \\vdots \\\\z_p\\end{bmatrix}\\) be a \\(p \\times 1\\) vector of random variables.\n\n\nThen \\(E(\\mathbf{z}) = E\\begin{bmatrix}z_1 \\\\ \\vdots \\\\ z_p\\end{bmatrix} = \\begin{bmatrix}E(z_1) \\\\ \\vdots \\\\ E(z_p)\\end{bmatrix}\\)"
+  },
+  {
+    "objectID": "slides/07-inference.html#expected-value-1",
+    "href": "slides/07-inference.html#expected-value-1",
+    "title": "Inference for regression",
+    "section": "Expected value",
+    "text": "Expected value\nLet \\(\\mathbf{A}\\) be an \\(n \\times p\\) matrix of constants, \\(\\mathbf{C}\\) a \\(n \\times 1\\) vector of constants, and \\(\\mathbf{z}\\) a \\(p \\times 1\\) vector of random variables. Then\n\\[\nE(\\mathbf{Az}) = \\mathbf{A}E(\\mathbf{z})\n\\]\n\n\n\\[\nE(\\mathbf{Az} + \\mathbf{C}) = E(\\mathbf{Az}) + E(\\mathbf{C}) = \\mathbf{A}E(\\mathbf{z}) + \\mathbf{C}\n\\]"
+  },
+  {
+    "objectID": "slides/07-inference.html#expected-value-of-the-response",
+    "href": "slides/07-inference.html#expected-value-of-the-response",
+    "title": "Inference for regression",
+    "section": "Expected value of the response",
+    "text": "Expected value of the response\n\nShow \\[\nE(\\mathbf{y}|\\mathbf{X}) = \\mathbf{X}\\boldsymbol{\\beta}\n\\]"
+  },
+  {
+    "objectID": "slides/07-inference.html#variance",
+    "href": "slides/07-inference.html#variance",
+    "title": "Inference for regression",
+    "section": "Variance",
+    "text": "Variance\n\nLet \\(\\mathbf{z} = \\begin{bmatrix}z_1 \\\\ \\vdots \\\\z_p\\end{bmatrix}\\) be a \\(p \\times 1\\) vector of random variables.\n\n\nThen \\(Var(\\mathbf{z}) = \\begin{bmatrix}Var(z_1) & Cov(z_1, z_2) & \\dots & Cov(z_1, z_p)\\\\ Cov(z_2, z_1) & Var(z_2) & \\dots & Cov(z_2, z_p) \\\\ \\vdots & \\vdots & \\dots & \\cdot \\\\ Cov(z_p, z_1) & Cov(z_p, z_2) & \\dots & Var(z_p)\\end{bmatrix}\\)"
+  },
+  {
+    "objectID": "slides/07-inference.html#variance-1",
+    "href": "slides/07-inference.html#variance-1",
+    "title": "Inference for regression",
+    "section": "Variance",
+    "text": "Variance\nLet \\(\\mathbf{A}\\) be an \\(n \\times p\\) matrix of constants and \\(\\mathbf{z}\\) a \\(p \\times 1\\) vector of random variables. Then\n\\[\nVar(\\mathbf{z}) = E[(\\mathbf{z} - E(\\mathbf{z}))(\\mathbf{z} - E(\\mathbf{z}))^\\mathsf{T}]\n\\]\n\n\n\\[\n\\begin{aligned}\nVar(\\mathbf{Az}) &= E[(\\mathbf{Az} - E(\\mathbf{Az}))(\\mathbf{Az} - E(\\mathbf{Az}))^\\mathsf{T}] \\\\[8pt]\n& = \\mathbf{A}Var(\\mathbf{z})\\mathbf{A}^\\mathsf{T}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/07-inference.html#variance-of-the-response",
+    "href": "slides/07-inference.html#variance-of-the-response",
+    "title": "Inference for regression",
+    "section": "Variance of the response",
+    "text": "Variance of the response\n\nShow\n\\[\nVar(\\mathbf{y}|\\mathbf{X}) = \\sigma^2_\\epsilon\\mathbf{I}\n\\]"
+  },
+  {
+    "objectID": "slides/07-inference.html#linear-transformation-of-normal-random-variable",
+    "href": "slides/07-inference.html#linear-transformation-of-normal-random-variable",
+    "title": "Inference for regression",
+    "section": "Linear transformation of normal random variable",
+    "text": "Linear transformation of normal random variable\nSuppose \\(\\mathbf{z}\\) is a (multivariate) normal random variable such that \\(\\mathbf{z} \\sim N(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\)\n\nA linear transformation of \\(\\mathbf{z}\\) is also multivariate normal, such that\n\\[\n\\mathbf{A}\\mathbf{z} + \\mathbf{B} \\sim N(\\mathbf{A}\\boldsymbol{\\mu} + \\mathbf{B}, \\mathbf{A}\\boldsymbol{\\Sigma}\\mathbf{A}^\\mathsf{T})\n\\]\n\nExplain why \\(\\mathbf{y}|\\mathbf{X}\\) is normally distributed."
+  },
+  {
+    "objectID": "slides/07-inference.html#recap",
+    "href": "slides/07-inference.html#recap",
+    "title": "Inference for regression",
+    "section": "Recap",
+    "text": "Recap\n\nIntroduced statistical inference in the context of regression\nDescribed the assumptions for regression\nConnected the distribution of residuals and inferential procedures"
+  },
+  {
+    "objectID": "slides/07-inference.html#next-class",
+    "href": "slides/07-inference.html#next-class",
+    "title": "Inference for regression",
+    "section": "Next class",
+    "text": "Next class\n\nConfidence intervals for \\(\\hat{\\beta}_j\\)\nHypothesis testing based on ANOVA\nSee Prepare for Lecture 09"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html",
+    "href": "slides/08-inference-notes.html",
+    "title": "Inference for regression",
+    "section": "",
+    "text": "Lab 03 due TODAY at 11:59pm\nClick here to learn more about the Academic Resource Center\nStatistics experience due Tuesday, April 22"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#announcements",
+    "href": "slides/08-inference-notes.html#announcements",
+    "title": "Inference for regression",
+    "section": "",
+    "text": "Lab 03 due TODAY at 11:59pm\nClick here to learn more about the Academic Resource Center\nStatistics experience due Tuesday, April 22"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#poll-office-hours-availability",
+    "href": "slides/08-inference-notes.html#poll-office-hours-availability",
+    "title": "Inference for regression",
+    "section": "Poll: Office hours availability",
+    "text": "Poll: Office hours availability\n\n \n🔗 https://forms.office.com/r/DL8rBQ988y"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#topics",
+    "href": "slides/08-inference-notes.html#topics",
+    "title": "Inference for regression",
+    "section": "Topics",
+    "text": "Topics\n\nUnderstand statistical inference in the context of regression\nDescribe the assumptions for regression\nUnderstand connection between distribution of residuals and inferential procedures\nConduct inference on a single coefficient"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#computing-setup",
+    "href": "slides/08-inference-notes.html#computing-setup",
+    "title": "Inference for regression",
+    "section": "Computing setup",
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(kableExtra)  \nlibrary(patchwork)   \n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#data-ncaa-football-expenditures",
+    "href": "slides/08-inference-notes.html#data-ncaa-football-expenditures",
+    "title": "Inference for regression",
+    "section": "Data: NCAA Football expenditures",
+    "text": "Data: NCAA Football expenditures\nToday’s data come from Equity in Athletics Data Analysis and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a March 2022 Tidy Tuesday.\nWe will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :\n\ntotal_exp_m: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)\nenrollment_th: Total student enrollment in the 2019 - 2020 academic year (in thousands)\ntype: institution type (Public or Private)\n\n\nfootball &lt;- read_csv(\"data/ncaa-football-exp.csv\")"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#univariate-eda",
+    "href": "slides/08-inference-notes.html#univariate-eda",
+    "title": "Inference for regression",
+    "section": "Univariate EDA",
+    "text": "Univariate EDA"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#bivariate-eda",
+    "href": "slides/08-inference-notes.html#bivariate-eda",
+    "title": "Inference for regression",
+    "section": "Bivariate EDA",
+    "text": "Bivariate EDA"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#regression-model",
+    "href": "slides/08-inference-notes.html#regression-model",
+    "title": "Inference for regression",
+    "section": "Regression model",
+    "text": "Regression model\n\nexp_fit &lt;- lm(total_exp_m ~ enrollment_th + type, data = football)\ntidy(exp_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n\n\n\n\n\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant."
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#from-sample-to-population",
+    "href": "slides/08-inference-notes.html#from-sample-to-population",
+    "title": "Inference for regression",
+    "section": "From sample to population",
+    "text": "From sample to population\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant.\n\n. . .\n\n\nThis estimate is valid for the single sample of 127 higher education institutions in the 2019 - 2020 academic year.\nBut what if we’re not interested quantifying the relationship between student enrollment, institution type, and football expenditures for this single sample?\nWhat if we want to say something about the relationship between these variables for all colleges and universities with football programs and across different years?"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#statistical-inference",
+    "href": "slides/08-inference-notes.html#statistical-inference",
+    "title": "Inference for regression",
+    "section": "Statistical inference",
+    "text": "Statistical inference\n\n\n\n\nStatistical inference provides methods and tools so we can use the single observed sample to make valid statements (inferences) about the population it comes from\nFor our inferences to be valid, the sample should be representative (ideally random) of the population we’re interested in\n\n\n\n\n\n\nImage source: Eugene Morgan © Penn State"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#inference-for-linear-regression",
+    "href": "slides/08-inference-notes.html#inference-for-linear-regression",
+    "title": "Inference for regression",
+    "section": "Inference for linear regression",
+    "text": "Inference for linear regression\n\nInference based on ANOVA\n\nHypothesis test for the statistical significance of the overall regression model\nHypothesis test for a subset of coefficients\n\nInference for a single coefficient \\(\\beta_j\\) (today’s focus)\n\nHypothesis test for a coefficient \\(\\beta_j\\)\nConfidence interval for a coefficient \\(\\beta_j\\)"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#linear-regression-model",
+    "href": "slides/08-inference-notes.html#linear-regression-model",
+    "title": "Inference for regression",
+    "section": "Linear regression model",
+    "text": "Linear regression model\n\\[\n\\begin{aligned}\n\\mathbf{y} &= \\text{Model} + \\text{Error} \\\\[5pt]\n&= f(\\mathbf{X}) + \\boldsymbol{\\epsilon} \\\\[5pt]\n&= E(\\mathbf{y}|\\mathbf{X}) + \\mathbf{\\epsilon} \\\\[5pt]\n&= \\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{\\epsilon}\n\\end{aligned}\n\\]\n. . .\n\n\nWe have discussed multiple ways to find the least squares estimates of \\(\\boldsymbol{\\beta} = \\begin{bmatrix}\\beta_0 \\\\\\beta_1\\end{bmatrix}\\)\n\nNone of these approaches depend on the distribution of \\(\\boldsymbol{\\epsilon}\\)\n\nNow we will use statistical inference to draw conclusions about \\(\\boldsymbol{\\beta}\\) that depend on particular assumptions about the distribution of \\(\\boldsymbol{\\epsilon}\\)"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#linear-regression-model-1",
+    "href": "slides/08-inference-notes.html#linear-regression-model-1",
+    "title": "Inference for regression",
+    "section": "Linear regression model",
+    "text": "Linear regression model\n\\[\\begin{aligned}\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{8mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\end{aligned}\n\\]\nsuch that the errors are independent and normally distributed.\n. . .\n\nIndependent: Knowing the error term for one observation doesn’t tell us about the error term for another observation\nNormally distributed: The distribution follows a particular mathematical model that is unimodal and symmetric"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#describing-random-phenomena",
+    "href": "slides/08-inference-notes.html#describing-random-phenomena",
+    "title": "Inference for regression",
+    "section": "Describing random phenomena",
+    "text": "Describing random phenomena\n\n\nThere is some uncertainty in the error terms (and thus the response variable), so we use mathematical models to describe that uncertainty.\nSome terminology:\n\nSample space: Set of all possible outcomes\nRandom variable: Function (mapping) from the sample space onto real numbers\nEvent: Subset of the sample space, i.e., a set of possible outcomes (possible values the random variable can take)\nProbability density function: Mathematical function that produces probability of occurrences for events in the sample space for a continuous random variable"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#distribution-of-error-terms",
+    "href": "slides/08-inference-notes.html#distribution-of-error-terms",
+    "title": "Inference for regression",
+    "section": "Distribution of error terms",
+    "text": "Distribution of error terms\nThe error terms follow a (multivariate) normal distribution with mean \\(\\mathbf{0}\\) and variance \\(\\sigma^2\\mathbf{I}\\)\n\\[f(\\boldsymbol{\\epsilon}) = \\frac{1}{(2\\pi)^{n/2}|\\sigma^2_{\\epsilon}\\mathbf{I}|^{1/2}}\\exp\\Big\\{-\\frac{1}{2}(\\boldsymbol{\\epsilon} - \\mathbf{0})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\boldsymbol{\\epsilon}- \\mathbf{0})\\Big\\}\\]"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#visualizing-distribution-of-mathbfymathbfx",
+    "href": "slides/08-inference-notes.html#visualizing-distribution-of-mathbfymathbfx",
+    "title": "Inference for regression",
+    "section": "Visualizing distribution of \\(\\mathbf{y}|\\mathbf{X}\\)",
+    "text": "Visualizing distribution of \\(\\mathbf{y}|\\mathbf{X}\\)\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\n\n\nImage source: Introduction to the Practice of Statistics (5th ed)"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#expected-value",
+    "href": "slides/08-inference-notes.html#expected-value",
+    "title": "Inference for regression",
+    "section": "Expected value",
+    "text": "Expected value\nLet \\(\\mathbf{z} = \\begin{bmatrix}z_1 \\\\ \\vdots \\\\z_p\\end{bmatrix}\\) be a \\(p \\times 1\\) vector of random variables.\n\n. . .\nThen \\(E(\\mathbf{z}) = E\\begin{bmatrix}z_1 \\\\ \\vdots \\\\ z_p\\end{bmatrix} = \\begin{bmatrix}E(z_1) \\\\ \\vdots \\\\ E(z_p)\\end{bmatrix}\\)"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#expected-value-1",
+    "href": "slides/08-inference-notes.html#expected-value-1",
+    "title": "Inference for regression",
+    "section": "Expected value",
+    "text": "Expected value\nLet \\(\\mathbf{A}\\) be an \\(n \\times p\\) matrix of constants, \\(\\mathbf{C}\\) a \\(n \\times 1\\) vector of constants, and \\(\\mathbf{z}\\) a \\(p \\times 1\\) vector of random variables. Then\n\\[\nE(\\mathbf{Az}) = \\mathbf{A}E(\\mathbf{z})\n\\]\n\n. . .\n\\[\nE(\\mathbf{Az} + \\mathbf{C}) = E(\\mathbf{Az}) + E(\\mathbf{C}) = \\mathbf{A}E(\\mathbf{z}) + \\mathbf{C}\n\\]"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#expected-value-of-the-response",
+    "href": "slides/08-inference-notes.html#expected-value-of-the-response",
+    "title": "Inference for regression",
+    "section": "Expected value of the response",
+    "text": "Expected value of the response\n\nShow \\[\nE(\\mathbf{y}|\\mathbf{X}) = \\mathbf{X}\\boldsymbol{\\beta}\n\\]"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#variance",
+    "href": "slides/08-inference-notes.html#variance",
+    "title": "Inference for regression",
+    "section": "Variance",
+    "text": "Variance\n\nLet \\(\\mathbf{z} = \\begin{bmatrix}z_1 \\\\ \\vdots \\\\z_p\\end{bmatrix}\\) be a \\(p \\times 1\\) vector of random variables.\n\n. . .\nThen \\(Var(\\mathbf{z}) = \\begin{bmatrix}Var(z_1) & Cov(z_1, z_2) & \\dots & Cov(z_1, z_p)\\\\ Cov(z_2, z_1) & Var(z_2) & \\dots & Cov(z_2, z_p) \\\\ \\vdots & \\vdots & \\dots & \\cdot \\\\ Cov(z_p, z_1) & Cov(z_p, z_2) & \\dots & Var(z_p)\\end{bmatrix}\\)"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#variance-1",
+    "href": "slides/08-inference-notes.html#variance-1",
+    "title": "Inference for regression",
+    "section": "Variance",
+    "text": "Variance\nLet \\(\\mathbf{A}\\) be an \\(n \\times p\\) matrix of constants and \\(\\mathbf{z}\\) a \\(p \\times 1\\) vector of random variables. Then\n\\[\nVar(\\mathbf{z}) = E[(\\mathbf{z} - E(\\mathbf{z}))(\\mathbf{z} - E(\\mathbf{z}))^\\mathsf{T}]\n\\]\n\n. . .\n\\[\n\\begin{aligned}\nVar(\\mathbf{Az}) &= E[(\\mathbf{Az} - E(\\mathbf{Az}))(\\mathbf{Az} - E(\\mathbf{Az}))^\\mathsf{T}] \\\\[8pt]\n& = \\mathbf{A}Var(\\mathbf{z})\\mathbf{A}^\\mathsf{T}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#variance-of-the-response",
+    "href": "slides/08-inference-notes.html#variance-of-the-response",
+    "title": "Inference for regression",
+    "section": "Variance of the response",
+    "text": "Variance of the response\n\nShow\n\\[\nVar(\\mathbf{y}|\\mathbf{X}) = \\sigma^2_\\epsilon\\mathbf{I}\n\\]"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#linear-transformation-of-normal-random-variable",
+    "href": "slides/08-inference-notes.html#linear-transformation-of-normal-random-variable",
+    "title": "Inference for regression",
+    "section": "Linear transformation of normal random variable",
+    "text": "Linear transformation of normal random variable\nSuppose \\(\\mathbf{z}\\) is a (multivariate) normal random variable such that \\(\\mathbf{z} \\sim N(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\)\n\nA linear transformation of \\(\\mathbf{z}\\) is also multivariate normal, such that\n\\[\n\\mathbf{A}\\mathbf{z} + \\mathbf{B} \\sim N(\\mathbf{A}\\boldsymbol{\\mu} + \\mathbf{B}, \\mathbf{A}\\boldsymbol{\\Sigma}\\mathbf{A}^\\mathsf{T})\n\\]\n\nExplain why \\(\\mathbf{y}|\\mathbf{X}\\) is normally distributed."
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#recap",
+    "href": "slides/08-inference-notes.html#recap",
+    "title": "Inference for regression",
+    "section": "Recap",
+    "text": "Recap\n\nIntroduced statistical inference in the context of regression\nDescribed the assumptions for regression\nConnected the distribution of residuals and inferential procedures"
+  },
+  {
+    "objectID": "slides/08-inference-notes.html#next-class",
+    "href": "slides/08-inference-notes.html#next-class",
+    "title": "Inference for regression",
+    "section": "Next class",
+    "text": "Next class\n\nConfidence intervals for \\(\\hat{\\beta}_j\\)\nHypothesis testing based on ANOVA\nSee Prepare for Lecture 09"
+  },
+  {
+    "objectID": "slides/06-predictor-types-contd.html#announcements",
+    "href": "slides/06-predictor-types-contd.html#announcements",
     "title": "Multiple linear regression",
     "section": "Announcements",
-    "text": "Announcements\n\nHW 01 - due Thursday, January 29 at 11:59pm"
+    "text": "Announcements\n\nLab 03 due TODAY\n\nOne submission per team\nSelect every team member’s name in Gradescope\n\nStatistics experience due April 2\nSSMU Mini DataFest - February 8\n\nSee Ed Discussion announcement"
   },
   {
-    "objectID": "slides/05-mlr.html#topics",
-    "href": "slides/05-mlr.html#topics",
+    "objectID": "slides/06-predictor-types-contd.html#topics",
+    "href": "slides/06-predictor-types-contd.html#topics",
     "title": "Multiple linear regression",
     "section": "Topics",
-    "text": "Topics\n\nIntroducing multiple linear regression\n\nExploratory data analysis for multiple linear regression\nFitting the least squares line\nInterpreting coefficients for quantitative predictors\nPrediction\n\nComparing models"
+    "text": "Topics\n\nInteraction terms"
   },
   {
-    "objectID": "slides/05-mlr.html#computing-setup",
-    "href": "slides/05-mlr.html#computing-setup",
+    "objectID": "slides/06-predictor-types-contd.html#computing-setup",
+    "href": "slides/06-predictor-types-contd.html#computing-setup",
     "title": "Multiple linear regression",
     "section": "Computing setup",
-    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/05-mlr.html#data-peer-to-peer-lender",
-    "href": "slides/05-mlr.html#data-peer-to-peer-lender",
+    "objectID": "slides/06-predictor-types-contd.html#data-peer-to-peer-lender",
+    "href": "slides/06-predictor-types-contd.html#data-peer-to-peer-lender",
     "title": "Multiple linear regression",
     "section": "Data: Peer-to-peer lender",
-    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n# A tibble: 50 × 4\n   annual_income debt_to_income verified_income interest_rate\n           &lt;dbl&gt;          &lt;dbl&gt; &lt;fct&gt;                   &lt;dbl&gt;\n 1         59000         0.558  Not Verified            10.9 \n 2         60000         1.31   Not Verified             9.92\n 3         75000         1.06   Verified                26.3 \n 4         75000         0.574  Not Verified             9.92\n 5        254000         0.238  Not Verified             9.43\n 6         67000         1.08   Source Verified          9.92\n 7         28800         0.0997 Source Verified         17.1 \n 8         80000         0.351  Not Verified             6.08\n 9         34000         0.698  Not Verified             7.97\n10         80000         0.167  Source Verified         12.6 \n# ℹ 40 more rows"
+    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n# A tibble: 50 × 4\n   annual_income_th debt_to_income verified_income interest_rate\n              &lt;dbl&gt;          &lt;dbl&gt; &lt;fct&gt;                   &lt;dbl&gt;\n 1             59           0.558  Not Verified            10.9 \n 2             60           1.31   Not Verified             9.92\n 3             75           1.06   Verified                26.3 \n 4             75           0.574  Not Verified             9.92\n 5            254           0.238  Not Verified             9.43\n 6             67           1.08   Source Verified          9.92\n 7             28.8         0.0997 Source Verified         17.1 \n 8             80           0.351  Not Verified             6.08\n 9             34           0.698  Not Verified             7.97\n10             80           0.167  Source Verified         12.6 \n# ℹ 40 more rows"
   },
   {
-    "objectID": "slides/05-mlr.html#variables",
-    "href": "slides/05-mlr.html#variables",
+    "objectID": "slides/06-predictor-types-contd.html#variables",
+    "href": "slides/06-predictor-types-contd.html#variables",
     "title": "Multiple linear regression",
     "section": "Variables",
-    "text": "Variables\nPredictors:\n\nannual_income: Annual income\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\nResponse: interest_rate: Interest rate for the loan"
+    "text": "Variables\nPredictors:\n\nannual_income_th: Annual income (in $1000s)\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\nResponse: interest_rate: Interest rate for the loan"
   },
   {
-    "objectID": "slides/05-mlr.html#response-interest_rate",
-    "href": "slides/05-mlr.html#response-interest_rate",
+    "objectID": "slides/06-predictor-types-contd.html#interaction-terms-1",
+    "href": "slides/06-predictor-types-contd.html#interaction-terms-1",
     "title": "Multiple linear regression",
-    "section": "Response: interest_rate",
-    "text": "Response: interest_rate\n\n\n\n\n\n\nMin\nMedian\nMax\nIQR\n\n\n\n\n5.31\n9.93\n26.3\n5.755"
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model."
   },
   {
-    "objectID": "slides/05-mlr.html#predictors",
-    "href": "slides/05-mlr.html#predictors",
+    "objectID": "slides/06-predictor-types-contd.html#interest-rate-vs.-annual-income",
+    "href": "slides/06-predictor-types-contd.html#interest-rate-vs.-annual-income",
     "title": "Multiple linear regression",
-    "section": "Predictors",
-    "text": "Predictors"
+    "section": "Interest rate vs. annual income",
+    "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is a potential interaction effect. The slope of annual income differs based on the income verification."
   },
   {
-    "objectID": "slides/05-mlr.html#data-manipulation-1-rescale-income",
-    "href": "slides/05-mlr.html#data-manipulation-1-rescale-income",
+    "objectID": "slides/06-predictor-types-contd.html#ae-model-with-interaction-effect",
+    "href": "slides/06-predictor-types-contd.html#ae-model-with-interaction-effect",
     "title": "Multiple linear regression",
-    "section": "Data manipulation 1: Rescale income",
-    "text": "Data manipulation 1: Rescale income\n\nloan50 &lt;- loan50 |&gt;\n  mutate(annual_income_th = annual_income / 1000)\n\n\n\n\nWhy did we rescale income?"
+    "section": "AE: Model with interaction effect",
+    "text": "AE: Model with interaction effect\n\nFit the model with the predictors debt_to_income, annual_income_th, verified_income , and the interaction between annual_income_th and verified_income.\n\nWrite the estimated regression equation for the people with Not Verified income.\nWrite the estimated regression equation for people with Verified income.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/05-mlr.html#outcome-vs.-predictors",
-    "href": "slides/05-mlr.html#outcome-vs.-predictors",
+    "objectID": "slides/06-predictor-types-contd.html#interaction-term-in-model",
+    "href": "slides/06-predictor-types-contd.html#interaction-term-in-model",
     "title": "Multiple linear regression",
-    "section": "Outcome vs. predictors",
-    "text": "Outcome vs. predictors\n\n\nGoal: Use these predictors in a single model to understand variability in interest rate.\n\n\n\nWhy do we want to use a single model versus 3 separate simple linear regression models?"
+    "section": "Interaction term in model",
+    "text": "Interaction term in model\n\nint_fit_2 &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_th + verified_income * annual_income_th,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_th\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_th\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_th\n-0.032\n0.033\n-0.979\n0.333"
   },
   {
-    "objectID": "slides/05-mlr.html#multiple-linear-regression-mlr-1",
-    "href": "slides/05-mlr.html#multiple-linear-regression-mlr-1",
+    "objectID": "slides/06-predictor-types-contd.html#interpreting-interaction-terms",
+    "href": "slides/06-predictor-types-contd.html#interpreting-interaction-terms",
     "title": "Multiple linear regression",
-    "section": "Multiple linear regression (MLR)",
-    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\text{interest_rate} ~ =\n\\beta_0 & + \\beta_1 ~ \\text{debt_to_income} \\\\ & + \\beta_2 ~ \\text{verified_income}_1 \\\\ &+ \\beta_3 ~ \\text{verified_income}_2 \\\\\n&+\\beta_4~ \\text{annual_income_th} \\\\\n& +\\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\end{aligned}\n\\]"
+    "section": "Interpreting interaction terms",
+    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.\nInterpreting annual_income for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant."
   },
   {
-    "objectID": "slides/05-mlr.html#multiple-linear-regression",
-    "href": "slides/05-mlr.html#multiple-linear-regression",
+    "objectID": "slides/06-predictor-types-contd.html#indicators-and-interactions",
+    "href": "slides/06-predictor-types-contd.html#indicators-and-interactions",
     "title": "Multiple linear regression",
-    "section": "Multiple linear regression",
-    "text": "Multiple linear regression\nRecall: The simple linear regression model\n\\[\nY = \\beta_0 + \\beta_1~ X + \\epsilon\n\\]\n\nThe form of the multiple linear regression model is\n\\[\nY = \\beta_0 + \\beta_1X_1 +  \\dots + \\beta_pX_p + \\epsilon\n\\]\n\n\n\nTherefore,\n\\[\nE(Y|X_1, \\ldots, X_p) = \\beta_0 + \\beta_1X_1 +  \\dots + \\beta_pX_p\n\\]"
+    "section": "Indicators and interactions",
+    "text": "Indicators and interactions\n\nIn general, how do\n\nindicators for categorical predictors impact the model equation?\ninteraction terms impact the model equation?"
   },
   {
-    "objectID": "slides/05-mlr.html#fitting-the-least-squares-line",
-    "href": "slides/05-mlr.html#fitting-the-least-squares-line",
-    "title": "Multiple linear regression",
-    "section": "Fitting the least squares line",
-    "text": "Fitting the least squares line\nSimilar to simple linear regression, we want to find estimates for \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\) that minimize\n\\[\n\\sum_{i=1}^{n}\\epsilon_i^2 = \\sum_{i=1}^n[y_i - \\hat{y}_i]^2 = \\sum_{i=1}^n[y_i - (\\beta_0 + \\beta_1x_{i1} + \\dots + \\beta_px_{ip})]^2\n\\]\n\n\nThe calculations can be very tedious, especially if \\(p\\) is large"
-  },
-  {
-    "objectID": "slides/05-mlr.html#matrix-form-of-multiple-linear-regression",
-    "href": "slides/05-mlr.html#matrix-form-of-multiple-linear-regression",
-    "title": "Multiple linear regression",
-    "section": "Matrix form of multiple linear regression",
-    "text": "Matrix form of multiple linear regression\nSuppose we have \\(n\\) observations, a quantitative response variable, and \\(p\\) &gt; 1 predictors \\[\n\\underbrace{\n\\begin{bmatrix}\ny_1 \\\\\n\\vdots \\\\\ny_n\n\\end{bmatrix} }_\n{\\mathbf{y}} \\hspace{3mm}\n=\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n1 &x_{11} & \\dots & x_{1p}\\\\\n\\vdots & \\vdots &\\ddots & \\vdots \\\\\n1 &  x_{n1} & \\dots &x_{np}\n\\end{bmatrix}\n}_{\\mathbf{X}}\n\\hspace{2mm}\n\\underbrace{\n\\begin{bmatrix}\n\\beta_0 \\\\\n\\beta_1 \\\\\n\\vdots \\\\\n\\beta_p\n\\end{bmatrix}\n}_{\\boldsymbol{\\beta}}\n\\hspace{3mm}\n+\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n\\epsilon_1 \\\\\n\\vdots\\\\\n\\epsilon_n\n\\end{bmatrix}\n}_\\boldsymbol{\\epsilon}\n\\]\n\nWhat are the dimensions of \\(\\mathbf{y}\\), \\(\\mathbf{X}\\), \\(\\boldsymbol{\\beta}\\), \\(\\boldsymbol{\\epsilon}\\)?"
-  },
-  {
-    "objectID": "slides/05-mlr.html#matrix-form-of-multiple-linear-regression-1",
-    "href": "slides/05-mlr.html#matrix-form-of-multiple-linear-regression-1",
-    "title": "Multiple linear regression",
-    "section": "Matrix form of multiple linear regression",
-    "text": "Matrix form of multiple linear regression\nAs with simple linear regression, we have\n\\[\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]\n\nGeneralizing the derivations from SLR to \\(p &gt; 2\\), we have\n\\[\n\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\n\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\nas before."
-  },
-  {
-    "objectID": "slides/05-mlr.html#model-fit-in-r",
-    "href": "slides/05-mlr.html#model-fit-in-r",
-    "title": "Multiple linear regression",
-    "section": "Model fit in R",
-    "text": "Model fit in R\n\nint_fit &lt;- lm(interest_rate ~ debt_to_income + verified_income  + annual_income_th,\n              data = loan50)\n\ntidy(int_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078"
-  },
-  {
-    "objectID": "slides/05-mlr.html#model-equation",
-    "href": "slides/05-mlr.html#model-equation",
-    "title": "Multiple linear regression",
-    "section": "Model equation",
-    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{interest_rate}} =  10.726 &+0.671 \\times \\text{debt_to_income}\\\\\n&+ 2.211 \\times \\text{source_verified}\\\\  \n&+ 6.880 \\times \\text{verified}\\\\\n& -0.021 \\times \\text{annual_income_th}\n\\end{align}\n\\]\n\n\n\n\n\n\nNote\n\n\nWe will talk about why there are only two terms in the model for verified_income soon!"
-  },
-  {
-    "objectID": "slides/05-mlr.html#interpreting-hatbeta_j",
-    "href": "slides/05-mlr.html#interpreting-hatbeta_j",
-    "title": "Multiple linear regression",
-    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient \\(\\hat{\\beta}_j\\) is the expected change in the mean of \\(Y\\) when \\(X_j\\) increases by one unit, holding the values of all other predictor variables constant.\n\n\n\nExample: The estimated coefficient for debt_to_income is 0.671. This means for each point in an borrower’s debt to income ratio, the interest rate on the loan is expected to be greater by 0.671%, on average, holding annual income and income verification constant."
-  },
-  {
-    "objectID": "slides/05-mlr.html#interpreting-hatbeta_j-1",
-    "href": "slides/05-mlr.html#interpreting-hatbeta_j-1",
-    "title": "Multiple linear regression",
-    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient for annual_income_th is -0.021. Interpret this coefficient in the context of the data.\n\n\n\n\nWhy do we need to include a statement about holding all other predictors constant?"
-  },
-  {
-    "objectID": "slides/05-mlr.html#interpreting-hatbeta_0",
-    "href": "slides/05-mlr.html#interpreting-hatbeta_0",
-    "title": "Multiple linear regression",
-    "section": "Interpreting \\(\\hat{\\beta}_0\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_0\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078\n-0.043\n0.002\n\n\n\n\n\n\n\n\nDescribe the subset of borrowers who are expected to get an interest rate of 10.726% based on our model. Is this interpretation meaningful? Why or why not?"
-  },
-  {
-    "objectID": "slides/05-mlr.html#prediction",
-    "href": "slides/05-mlr.html#prediction",
-    "title": "Multiple linear regression",
-    "section": "Prediction",
-    "text": "Prediction\n\nWhat is the predicted interest rate for an borrower with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000?\n\n\n\n10.726 + 0.671 * 0.558 + 2.211 * 0 + 6.880 * 0 - 0.021 * 59\n\n[1] 9.861418\n\n\n\nThe predicted interest rate for an borrower with with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000 is 9.86%."
-  },
-  {
-    "objectID": "slides/05-mlr.html#prediction-in-r",
-    "href": "slides/05-mlr.html#prediction-in-r",
-    "title": "Multiple linear regression",
-    "section": "Prediction in R",
-    "text": "Prediction in R\nJust like with simple linear regression, we can use the predict() function in R to calculate the appropriate intervals for our predicted values:\n\nnew_borrower &lt;- tibble(\n  debt_to_income  = 0.558, \n  verified_income = \"Not Verified\", \n  annual_income_th = 59\n)\n\npredict(int_fit, new_borrower)\n\n       1 \n9.890888 \n\n\n\n\n\n\n\n\nNote\n\n\nDifference in predicted value due to rounding the coefficients on the previous slide."
-  },
-  {
-    "objectID": "slides/05-mlr.html#cautions",
-    "href": "slides/05-mlr.html#cautions",
-    "title": "Multiple linear regression",
-    "section": "Cautions",
-    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study (causal inference)"
-  },
-  {
-    "objectID": "slides/05-mlr.html#model-evaluation-rmse-r2",
-    "href": "slides/05-mlr.html#model-evaluation-rmse-r2",
-    "title": "Multiple linear regression",
-    "section": "Model evaluation: RMSE & \\(R^2\\)",
-    "text": "Model evaluation: RMSE & \\(R^2\\)\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\nR-squared, \\(R^2\\) : Percentage of variability in the outcome explained by the regression model"
-  },
-  {
-    "objectID": "slides/05-mlr.html#comparing-models",
-    "href": "slides/05-mlr.html#comparing-models",
-    "title": "Multiple linear regression",
-    "section": "Comparing models",
-    "text": "Comparing models\nLet’s consider the following models:\n\n\n\n\n\nterm\nModel 1\nModel 2\n\n\n\n\n(Intercept)\n10.726\n9.560\n\n\ndebt_to_income\n0.671\n0.691\n\n\nverified_incomeSource Verified\n2.211\n3.577\n\n\nverified_incomeVerified\n6.880\n9.923\n\n\nannual_income_th\n-0.021\n-0.007\n\n\nverified_incomeSource Verified:annual_income_th\nNA\n-0.016\n\n\nverified_incomeVerified:annual_income_th\nNA\n-0.032\n\n\n\n\n\n\n\nHow do we decide which model to choose?"
-  },
-  {
-    "objectID": "slides/05-mlr.html#comparing-models-1",
-    "href": "slides/05-mlr.html#comparing-models-1",
-    "title": "Multiple linear regression",
-    "section": "Comparing models",
-    "text": "Comparing models\n\nWhen comparing models, do we prefer the model with the lower or higher RMSE?\nThough we use \\(R^2\\) to assess the model fit, it is generally unreliable for comparing models with different number of predictors. Why?\n\n\\(R^2\\) will stay the same or increase as we add more variables to the model.\nIf we only use \\(R^2\\) to choose a best fit model, we will be prone to choose the model with the most predictor variables."
-  },
-  {
-    "objectID": "slides/05-mlr.html#adjusted-r2",
-    "href": "slides/05-mlr.html#adjusted-r2",
-    "title": "Multiple linear regression",
-    "section": "Adjusted \\(R^2\\)",
-    "text": "Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\): measure that includes a penalty for unnecessary predictor variables\nSimilar to \\(R^2\\), it is a measure of the amount of variation in the response that is explained by the regression model\nUse the glance() function to get \\(Adj. R^2\\) in R\n\n\nglance(int_fit)$adj.r.squared\n\n[1] 0.215841"
-  },
-  {
-    "objectID": "slides/05-mlr.html#r2-and-adjusted-r2",
-    "href": "slides/05-mlr.html#r2-and-adjusted-r2",
-    "title": "Multiple linear regression",
-    "section": "\\(R^2\\) and Adjusted \\(R^2\\)",
-    "text": "\\(R^2\\) and Adjusted \\(R^2\\)\n\\[R^2 = \\frac{SSM}{SST} = 1 - \\frac{SSR}{SST}\\]\n\n\n\\[R^2_{adj} = 1 - \\frac{SSR/(n-p-1)}{SST/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of non-intercept terms in the model"
-  },
-  {
-    "objectID": "slides/05-mlr.html#using-r2-and-adjusted-r2",
-    "href": "slides/05-mlr.html#using-r2-and-adjusted-r2",
-    "title": "Multiple linear regression",
-    "section": "Using \\(R^2\\) and Adjusted \\(R^2\\)",
-    "text": "Using \\(R^2\\) and Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\) can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment\nUse \\(R^2\\) when describing the relationship between the response and predictor variables"
-  },
-  {
-    "objectID": "slides/05-mlr.html#comparing-interest-rate-models",
-    "href": "slides/05-mlr.html#comparing-interest-rate-models",
-    "title": "Multiple linear regression",
-    "section": "Comparing interest rate models",
-    "text": "Comparing interest rate models\n\n\nModel 1\nModel without interaction\n\n# r-squared\nglance(int_fit)$r.squared\n\n[1] 0.279854\n\n\n\n\n# adj-r-squared\nglance(int_fit)$adj.r.squared\n\n[1] 0.215841\n\n\n\nModel 2\nModel with interaction\n\n# r-squared\nglance(int_fit_2)$r.squared\n\n[1] 0.2963437\n\n\n\n\n# adj-r-squared\nglance(int_fit_2)$adj.r.squared\n\n[1] 0.1981591"
-  },
-  {
-    "objectID": "slides/05-mlr.html#recap",
-    "href": "slides/05-mlr.html#recap",
+    "objectID": "slides/06-predictor-types-contd.html#recap",
+    "href": "slides/06-predictor-types-contd.html#recap",
     "title": "Multiple linear regression",
     "section": "Recap",
-    "text": "Recap\n\nShowed exploratory data analysis for multiple linear regression\nUsed least squares to fit the regression line\nInterpreted the coefficients for quantitative predictors\nPredicted the response for new observations\nIntroduced \\(Adj. R^2\\) for comparing models"
+    "text": "Recap\n\nInterpreted categorical predictors\nExplored why the model includes \\(k-1\\) terms for a categorical predictor with \\(k\\) levels\nFit and interpreted models with centered and standardized variables\nInterpreted interaction terms"
   },
   {
-    "objectID": "slides/05-mlr.html#questions",
-    "href": "slides/05-mlr.html#questions",
-    "title": "Multiple linear regression",
-    "section": "Questions",
-    "text": "Questions\n\n \n\n🔗 https://forms.office.com/r/h4BdM85Bjf"
-  },
-  {
-    "objectID": "slides/05-mlr.html#for-next-class",
-    "href": "slides/05-mlr.html#for-next-class",
-    "title": "Multiple linear regression",
-    "section": "For next class",
-    "text": "For next class\n\nTypes of predictors\nComplete Lecture 06 prepare"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html",
-    "href": "slides/05-mlr-notes.html",
+    "objectID": "slides/06-predictor-type-contd-notes.html",
+    "href": "slides/06-predictor-type-contd-notes.html",
     "title": "Multiple linear regression",
     "section": "",
-    "text": "HW 01 - due Thursday, January 29 at 11:59pm"
+    "text": "Lab 03 due TODAY\n\nOne submission per team\nSelect every team member’s name in Gradescope\n\nStatistics experience due April 2\nSSMU Mini DataFest - February 8\n\nSee Ed Discussion announcement"
   },
   {
-    "objectID": "slides/05-mlr-notes.html#announcements",
-    "href": "slides/05-mlr-notes.html#announcements",
+    "objectID": "slides/06-predictor-type-contd-notes.html#announcements",
+    "href": "slides/06-predictor-type-contd-notes.html#announcements",
     "title": "Multiple linear regression",
     "section": "",
-    "text": "HW 01 - due Thursday, January 29 at 11:59pm"
+    "text": "Lab 03 due TODAY\n\nOne submission per team\nSelect every team member’s name in Gradescope\n\nStatistics experience due April 2\nSSMU Mini DataFest - February 8\n\nSee Ed Discussion announcement"
   },
   {
-    "objectID": "slides/05-mlr-notes.html#topics",
-    "href": "slides/05-mlr-notes.html#topics",
+    "objectID": "slides/06-predictor-type-contd-notes.html#topics",
+    "href": "slides/06-predictor-type-contd-notes.html#topics",
     "title": "Multiple linear regression",
     "section": "Topics",
-    "text": "Topics\n\nIntroducing multiple linear regression\n\nExploratory data analysis for multiple linear regression\nFitting the least squares line\nInterpreting coefficients for quantitative predictors\nPrediction\n\nComparing models"
+    "text": "Topics\n\nInteraction terms"
   },
   {
-    "objectID": "slides/05-mlr-notes.html#computing-setup",
-    "href": "slides/05-mlr-notes.html#computing-setup",
+    "objectID": "slides/06-predictor-type-contd-notes.html#computing-setup",
+    "href": "slides/06-predictor-type-contd-notes.html#computing-setup",
     "title": "Multiple linear regression",
     "section": "Computing setup",
-    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/05-mlr-notes.html#data-peer-to-peer-lender",
-    "href": "slides/05-mlr-notes.html#data-peer-to-peer-lender",
+    "objectID": "slides/06-predictor-type-contd-notes.html#data-peer-to-peer-lender",
+    "href": "slides/06-predictor-type-contd-notes.html#data-peer-to-peer-lender",
     "title": "Multiple linear regression",
     "section": "Data: Peer-to-peer lender",
-    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n# A tibble: 50 × 4\n   annual_income debt_to_income verified_income interest_rate\n           &lt;dbl&gt;          &lt;dbl&gt; &lt;fct&gt;                   &lt;dbl&gt;\n 1         59000         0.558  Not Verified            10.9 \n 2         60000         1.31   Not Verified             9.92\n 3         75000         1.06   Verified                26.3 \n 4         75000         0.574  Not Verified             9.92\n 5        254000         0.238  Not Verified             9.43\n 6         67000         1.08   Source Verified          9.92\n 7         28800         0.0997 Source Verified         17.1 \n 8         80000         0.351  Not Verified             6.08\n 9         34000         0.698  Not Verified             7.97\n10         80000         0.167  Source Verified         12.6 \n# ℹ 40 more rows"
+    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n# A tibble: 50 × 4\n   annual_income_th debt_to_income verified_income interest_rate\n              &lt;dbl&gt;          &lt;dbl&gt; &lt;fct&gt;                   &lt;dbl&gt;\n 1             59           0.558  Not Verified            10.9 \n 2             60           1.31   Not Verified             9.92\n 3             75           1.06   Verified                26.3 \n 4             75           0.574  Not Verified             9.92\n 5            254           0.238  Not Verified             9.43\n 6             67           1.08   Source Verified          9.92\n 7             28.8         0.0997 Source Verified         17.1 \n 8             80           0.351  Not Verified             6.08\n 9             34           0.698  Not Verified             7.97\n10             80           0.167  Source Verified         12.6 \n# ℹ 40 more rows"
   },
   {
-    "objectID": "slides/05-mlr-notes.html#variables",
-    "href": "slides/05-mlr-notes.html#variables",
+    "objectID": "slides/06-predictor-type-contd-notes.html#variables",
+    "href": "slides/06-predictor-type-contd-notes.html#variables",
     "title": "Multiple linear regression",
     "section": "Variables",
-    "text": "Variables\nPredictors:\n\n\nannual_income: Annual income\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\n\nResponse: interest_rate: Interest rate for the loan"
+    "text": "Variables\nPredictors:\n\n\nannual_income_th: Annual income (in $1000s)\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\n\nResponse: interest_rate: Interest rate for the loan"
   },
   {
-    "objectID": "slides/05-mlr-notes.html#response-interest_rate",
-    "href": "slides/05-mlr-notes.html#response-interest_rate",
+    "objectID": "slides/06-predictor-type-contd-notes.html#interaction-terms-1",
+    "href": "slides/06-predictor-type-contd-notes.html#interaction-terms-1",
     "title": "Multiple linear regression",
-    "section": "Response: interest_rate",
-    "text": "Response: interest_rate\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMin\nMedian\nMax\nIQR\n\n\n\n\n5.31\n9.93\n26.3\n5.755"
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model."
   },
   {
-    "objectID": "slides/05-mlr-notes.html#predictors",
-    "href": "slides/05-mlr-notes.html#predictors",
+    "objectID": "slides/06-predictor-type-contd-notes.html#interest-rate-vs.-annual-income",
+    "href": "slides/06-predictor-type-contd-notes.html#interest-rate-vs.-annual-income",
     "title": "Multiple linear regression",
-    "section": "Predictors",
-    "text": "Predictors"
+    "section": "Interest rate vs. annual income",
+    "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is a potential interaction effect. The slope of annual income differs based on the income verification."
   },
   {
-    "objectID": "slides/05-mlr-notes.html#data-manipulation-1-rescale-income",
-    "href": "slides/05-mlr-notes.html#data-manipulation-1-rescale-income",
+    "objectID": "slides/06-predictor-type-contd-notes.html#ae-model-with-interaction-effect",
+    "href": "slides/06-predictor-type-contd-notes.html#ae-model-with-interaction-effect",
     "title": "Multiple linear regression",
-    "section": "Data manipulation 1: Rescale income",
-    "text": "Data manipulation 1: Rescale income\n\nloan50 &lt;- loan50 |&gt;\n  mutate(annual_income_th = annual_income / 1000)\n\n\n\n\n\n\n\n\n\n\n. . .\n\nWhy did we rescale income?"
+    "section": "AE: Model with interaction effect",
+    "text": "AE: Model with interaction effect\n\nFit the model with the predictors debt_to_income, annual_income_th, verified_income , and the interaction between annual_income_th and verified_income.\n\nWrite the estimated regression equation for the people with Not Verified income.\nWrite the estimated regression equation for people with Verified income.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "slides/05-mlr-notes.html#outcome-vs.-predictors",
-    "href": "slides/05-mlr-notes.html#outcome-vs.-predictors",
+    "objectID": "slides/06-predictor-type-contd-notes.html#interaction-term-in-model",
+    "href": "slides/06-predictor-type-contd-notes.html#interaction-term-in-model",
     "title": "Multiple linear regression",
-    "section": "Outcome vs. predictors",
-    "text": "Outcome vs. predictors\n\n\n\n\n\n\n\n\n\n. . .\nGoal: Use these predictors in a single model to understand variability in interest rate.\n. . .\n\nWhy do we want to use a single model versus 3 separate simple linear regression models?"
+    "section": "Interaction term in model",
+    "text": "Interaction term in model\n\nint_fit_2 &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_th + verified_income * annual_income_th,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_th\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_th\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_th\n-0.032\n0.033\n-0.979\n0.333"
   },
   {
-    "objectID": "slides/05-mlr-notes.html#multiple-linear-regression-mlr-1",
-    "href": "slides/05-mlr-notes.html#multiple-linear-regression-mlr-1",
+    "objectID": "slides/06-predictor-type-contd-notes.html#interpreting-interaction-terms",
+    "href": "slides/06-predictor-type-contd-notes.html#interpreting-interaction-terms",
     "title": "Multiple linear regression",
-    "section": "Multiple linear regression (MLR)",
-    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\text{interest_rate} ~ =\n\\beta_0 & + \\beta_1 ~ \\text{debt_to_income} \\\\ & + \\beta_2 ~ \\text{verified_income}_1 \\\\ &+ \\beta_3 ~ \\text{verified_income}_2 \\\\\n&+\\beta_4~ \\text{annual_income_th} \\\\\n& +\\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\end{aligned}\n\\]"
+    "section": "Interpreting interaction terms",
+    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.\nInterpreting annual_income for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant."
   },
   {
-    "objectID": "slides/05-mlr-notes.html#multiple-linear-regression",
-    "href": "slides/05-mlr-notes.html#multiple-linear-regression",
+    "objectID": "slides/06-predictor-type-contd-notes.html#indicators-and-interactions",
+    "href": "slides/06-predictor-type-contd-notes.html#indicators-and-interactions",
     "title": "Multiple linear regression",
-    "section": "Multiple linear regression",
-    "text": "Multiple linear regression\nRecall: The simple linear regression model\n\\[\nY = \\beta_0 + \\beta_1~ X + \\epsilon\n\\]\n. . .\nThe form of the multiple linear regression model is\n\\[\nY = \\beta_0 + \\beta_1X_1 +  \\dots + \\beta_pX_p + \\epsilon\n\\]\n\n. . .\nTherefore,\n\\[\nE(Y|X_1, \\ldots, X_p) = \\beta_0 + \\beta_1X_1 +  \\dots + \\beta_pX_p\n\\]"
+    "section": "Indicators and interactions",
+    "text": "Indicators and interactions\n\nIn general, how do\n\nindicators for categorical predictors impact the model equation?\ninteraction terms impact the model equation?"
   },
   {
-    "objectID": "slides/05-mlr-notes.html#fitting-the-least-squares-line",
-    "href": "slides/05-mlr-notes.html#fitting-the-least-squares-line",
-    "title": "Multiple linear regression",
-    "section": "Fitting the least squares line",
-    "text": "Fitting the least squares line\nSimilar to simple linear regression, we want to find estimates for \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\) that minimize\n\\[\n\\sum_{i=1}^{n}\\epsilon_i^2 = \\sum_{i=1}^n[y_i - \\hat{y}_i]^2 = \\sum_{i=1}^n[y_i - (\\beta_0 + \\beta_1x_{i1} + \\dots + \\beta_px_{ip})]^2\n\\]\n\n. . .\nThe calculations can be very tedious, especially if \\(p\\) is large"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#matrix-form-of-multiple-linear-regression",
-    "href": "slides/05-mlr-notes.html#matrix-form-of-multiple-linear-regression",
-    "title": "Multiple linear regression",
-    "section": "Matrix form of multiple linear regression",
-    "text": "Matrix form of multiple linear regression\nSuppose we have \\(n\\) observations, a quantitative response variable, and \\(p\\) &gt; 1 predictors \\[\n\\underbrace{\n\\begin{bmatrix}\ny_1 \\\\\n\\vdots \\\\\ny_n\n\\end{bmatrix} }_\n{\\mathbf{y}} \\hspace{3mm}\n=\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n1 &x_{11} & \\dots & x_{1p}\\\\\n\\vdots & \\vdots &\\ddots & \\vdots \\\\\n1 &  x_{n1} & \\dots &x_{np}\n\\end{bmatrix}\n}_{\\mathbf{X}}\n\\hspace{2mm}\n\\underbrace{\n\\begin{bmatrix}\n\\beta_0 \\\\\n\\beta_1 \\\\\n\\vdots \\\\\n\\beta_p\n\\end{bmatrix}\n}_{\\boldsymbol{\\beta}}\n\\hspace{3mm}\n+\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n\\epsilon_1 \\\\\n\\vdots\\\\\n\\epsilon_n\n\\end{bmatrix}\n}_\\boldsymbol{\\epsilon}\n\\]\n\nWhat are the dimensions of \\(\\mathbf{y}\\), \\(\\mathbf{X}\\), \\(\\boldsymbol{\\beta}\\), \\(\\boldsymbol{\\epsilon}\\)?"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#matrix-form-of-multiple-linear-regression-1",
-    "href": "slides/05-mlr-notes.html#matrix-form-of-multiple-linear-regression-1",
-    "title": "Multiple linear regression",
-    "section": "Matrix form of multiple linear regression",
-    "text": "Matrix form of multiple linear regression\nAs with simple linear regression, we have\n\\[\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]\n. . .\nGeneralizing the derivations from SLR to \\(p &gt; 2\\), we have\n\\[\n\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\n\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\nas before."
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#model-fit-in-r",
-    "href": "slides/05-mlr-notes.html#model-fit-in-r",
-    "title": "Multiple linear regression",
-    "section": "Model fit in R",
-    "text": "Model fit in R\n\nint_fit &lt;- lm(interest_rate ~ debt_to_income + verified_income  + annual_income_th,\n              data = loan50)\n\ntidy(int_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#model-equation",
-    "href": "slides/05-mlr-notes.html#model-equation",
-    "title": "Multiple linear regression",
-    "section": "Model equation",
-    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{interest_rate}} =  10.726 &+0.671 \\times \\text{debt_to_income}\\\\\n&+ 2.211 \\times \\text{source_verified}\\\\  \n&+ 6.880 \\times \\text{verified}\\\\\n& -0.021 \\times \\text{annual_income_th}\n\\end{align}\n\\]\n\n\n\n\n\n\nNote\n\n\n\nWe will talk about why there are only two terms in the model for verified_income soon!"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#interpreting-hatbeta_j",
-    "href": "slides/05-mlr-notes.html#interpreting-hatbeta_j",
-    "title": "Multiple linear regression",
-    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient \\(\\hat{\\beta}_j\\) is the expected change in the mean of \\(Y\\) when \\(X_j\\) increases by one unit, holding the values of all other predictor variables constant.\n\n. . .\n\nExample: The estimated coefficient for debt_to_income is 0.671. This means for each point in an borrower’s debt to income ratio, the interest rate on the loan is expected to be greater by 0.671%, on average, holding annual income and income verification constant."
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#interpreting-hatbeta_j-1",
-    "href": "slides/05-mlr-notes.html#interpreting-hatbeta_j-1",
-    "title": "Multiple linear regression",
-    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient for annual_income_th is -0.021. Interpret this coefficient in the context of the data.\n\n\n\n\nWhy do we need to include a statement about holding all other predictors constant?"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#interpreting-hatbeta_0",
-    "href": "slides/05-mlr-notes.html#interpreting-hatbeta_0",
-    "title": "Multiple linear regression",
-    "section": "Interpreting \\(\\hat{\\beta}_0\\)",
-    "text": "Interpreting \\(\\hat{\\beta}_0\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078\n-0.043\n0.002\n\n\n\n\n\n. . .\n\n\nDescribe the subset of borrowers who are expected to get an interest rate of 10.726% based on our model. Is this interpretation meaningful? Why or why not?"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#prediction",
-    "href": "slides/05-mlr-notes.html#prediction",
-    "title": "Multiple linear regression",
-    "section": "Prediction",
-    "text": "Prediction\n\nWhat is the predicted interest rate for an borrower with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000?\n\n\n\n10.726 + 0.671 * 0.558 + 2.211 * 0 + 6.880 * 0 - 0.021 * 59\n\n[1] 9.861418\n\n\n. . .\nThe predicted interest rate for an borrower with with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000 is 9.86%."
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#prediction-in-r",
-    "href": "slides/05-mlr-notes.html#prediction-in-r",
-    "title": "Multiple linear regression",
-    "section": "Prediction in R",
-    "text": "Prediction in R\nJust like with simple linear regression, we can use the predict() function in R to calculate the appropriate intervals for our predicted values:\n\nnew_borrower &lt;- tibble(\n  debt_to_income  = 0.558, \n  verified_income = \"Not Verified\", \n  annual_income_th = 59\n)\n\npredict(int_fit, new_borrower)\n\n       1 \n9.890888 \n\n\n\n\n\n\n\n\nNote\n\n\n\nDifference in predicted value due to rounding the coefficients on the previous slide."
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#cautions",
-    "href": "slides/05-mlr-notes.html#cautions",
-    "title": "Multiple linear regression",
-    "section": "Cautions",
-    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study (causal inference)"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#model-evaluation-rmse-r2",
-    "href": "slides/05-mlr-notes.html#model-evaluation-rmse-r2",
-    "title": "Multiple linear regression",
-    "section": "Model evaluation: RMSE & \\(R^2\\)",
-    "text": "Model evaluation: RMSE & \\(R^2\\)\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\nR-squared, \\(R^2\\) : Percentage of variability in the outcome explained by the regression model"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#comparing-models",
-    "href": "slides/05-mlr-notes.html#comparing-models",
-    "title": "Multiple linear regression",
-    "section": "Comparing models",
-    "text": "Comparing models\nLet’s consider the following models:\n\n\n\n\n\nterm\nModel 1\nModel 2\n\n\n\n\n(Intercept)\n10.726\n9.560\n\n\ndebt_to_income\n0.671\n0.691\n\n\nverified_incomeSource Verified\n2.211\n3.577\n\n\nverified_incomeVerified\n6.880\n9.923\n\n\nannual_income_th\n-0.021\n-0.007\n\n\nverified_incomeSource Verified:annual_income_th\nNA\n-0.016\n\n\nverified_incomeVerified:annual_income_th\nNA\n-0.032\n\n\n\n\n\n\n\nHow do we decide which model to choose?"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#comparing-models-1",
-    "href": "slides/05-mlr-notes.html#comparing-models-1",
-    "title": "Multiple linear regression",
-    "section": "Comparing models",
-    "text": "Comparing models\n\n\nWhen comparing models, do we prefer the model with the lower or higher RMSE?\nThough we use \\(R^2\\) to assess the model fit, it is generally unreliable for comparing models with different number of predictors. Why?\n\n\\(R^2\\) will stay the same or increase as we add more variables to the model.\nIf we only use \\(R^2\\) to choose a best fit model, we will be prone to choose the model with the most predictor variables."
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#adjusted-r2",
-    "href": "slides/05-mlr-notes.html#adjusted-r2",
-    "title": "Multiple linear regression",
-    "section": "Adjusted \\(R^2\\)",
-    "text": "Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\): measure that includes a penalty for unnecessary predictor variables\nSimilar to \\(R^2\\), it is a measure of the amount of variation in the response that is explained by the regression model\nUse the glance() function to get \\(Adj. R^2\\) in R\n\n\nglance(int_fit)$adj.r.squared\n\n[1] 0.215841"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#r2-and-adjusted-r2",
-    "href": "slides/05-mlr-notes.html#r2-and-adjusted-r2",
-    "title": "Multiple linear regression",
-    "section": "\\(R^2\\) and Adjusted \\(R^2\\)",
-    "text": "\\(R^2\\) and Adjusted \\(R^2\\)\n\\[R^2 = \\frac{SSM}{SST} = 1 - \\frac{SSR}{SST}\\]\n\n. . .\n\\[R^2_{adj} = 1 - \\frac{SSR/(n-p-1)}{SST/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of non-intercept terms in the model"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#using-r2-and-adjusted-r2",
-    "href": "slides/05-mlr-notes.html#using-r2-and-adjusted-r2",
-    "title": "Multiple linear regression",
-    "section": "Using \\(R^2\\) and Adjusted \\(R^2\\)",
-    "text": "Using \\(R^2\\) and Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\) can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment\nUse \\(R^2\\) when describing the relationship between the response and predictor variables"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#comparing-interest-rate-models",
-    "href": "slides/05-mlr-notes.html#comparing-interest-rate-models",
-    "title": "Multiple linear regression",
-    "section": "Comparing interest rate models",
-    "text": "Comparing interest rate models\n\n\nModel 1\nModel without interaction\n\n# r-squared\nglance(int_fit)$r.squared\n\n[1] 0.279854\n\n\n\n\n# adj-r-squared\nglance(int_fit)$adj.r.squared\n\n[1] 0.215841\n\n\n\nModel 2\nModel with interaction\n\n# r-squared\nglance(int_fit_2)$r.squared\n\n[1] 0.2963437\n\n\n\n\n# adj-r-squared\nglance(int_fit_2)$adj.r.squared\n\n[1] 0.1981591"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#recap",
-    "href": "slides/05-mlr-notes.html#recap",
+    "objectID": "slides/06-predictor-type-contd-notes.html#recap",
+    "href": "slides/06-predictor-type-contd-notes.html#recap",
     "title": "Multiple linear regression",
     "section": "Recap",
-    "text": "Recap\n\nShowed exploratory data analysis for multiple linear regression\nUsed least squares to fit the regression line\nInterpreted the coefficients for quantitative predictors\nPredicted the response for new observations\nIntroduced \\(Adj. R^2\\) for comparing models"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#questions",
-    "href": "slides/05-mlr-notes.html#questions",
-    "title": "Multiple linear regression",
-    "section": "Questions",
-    "text": "Questions\n\n \n\n🔗 https://forms.office.com/r/h4BdM85Bjf"
-  },
-  {
-    "objectID": "slides/05-mlr-notes.html#for-next-class",
-    "href": "slides/05-mlr-notes.html#for-next-class",
-    "title": "Multiple linear regression",
-    "section": "For next class",
-    "text": "For next class\n\nTypes of predictors\nComplete Lecture 06 prepare"
+    "text": "Recap\n\nInterpreted categorical predictors\nExplored why the model includes \\(k-1\\) terms for a categorical predictor with \\(k\\) levels\nFit and interpreted models with centered and standardized variables\nInterpreted interaction terms"
   },
   {
     "objectID": "slides/06-predictor-types.html#announcements",
@@ -4424,6 +4501,461 @@
     "title": "Sum of squares",
     "section": "",
     "text": "In this document, we show how the equality in Equation 1 holds.\n\\[\n\\begin{aligned}\nSST &= SSM + SSR \\\\[10pt]\n\\sum_{i=1}^{n}(y_i - \\bar{y})^2 &= \\sum_{i=1}^{n}(\\hat{y}_i - \\bar{y})^2 + \\sum_{i=1}^{n}(y_i -\\hat{y}_i)^2\n\\end{aligned}\n\\tag{1}\\]\nwhere \\(n\\) is the number of observations.\nWe start with the fact \\((y_i - \\bar{y}) = (\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)\\).\nThen, \\[\n\\begin{aligned}\n(y_i - \\bar{y})^2 &= [(\\hat{y}_i - \\bar{y}) + (y_i - \\hat{y}_i)]^2\\\\[10pt]\n& = (\\hat{y}_i - \\bar{y})^2 + 2(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + (y_i - \\hat{y}_i)^2\n\\end{aligned}\n\\]\nWe can sum over both sides to get\n\\[\n\\sum_{i=1}^n(y_i - \\bar{y})^2 = \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\n\\tag{2}\\]\nFor now, let’s focus on the middle term: \\(2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i)\\)\n\\[\n\\begin{aligned}\n2\\sum_{i=1}^n(\\hat{y}_i - \\bar{y})(y_i - \\hat{y}_i) &= 2\\sum_{i=1}^n(\\hat{y}_iy_i - \\hat{y}_i^2 - \\bar{y}y_i + \\bar{y}\\hat{y}_i)\\\\[10pt]\n& = 2\\sum_{i=1}^n\\hat{y}_i(y_i - \\hat{y}_i) - 2\\bar{y}\\sum_{i=1}^n(y_i - \\hat{y}_i) \\\\[10pt]\n&=2\\sum_{i=1}^n\\hat{y}_ie_i - 2\\bar{y}\\sum_{i=1}^ne_i\\\\[10pt]\n&= 0 \\quad(\\text{ given }\\sum_{i=1}^ne_i = 0)\n\\end{aligned}\n\\tag{3}\\]\nPlugging Equation 3 back into Equation 2, we have\n\\[\n\\begin{aligned}\n\\sum_{i=1}^n(y_i - \\bar{y})^2 &= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 + 0 + \\sum_{i=1}^n(y_i - \\hat{y}_i)^2 \\\\[10pt]\n&= \\sum_{i=1}^n(\\hat{y}_i - \\bar{y})^2 +  \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\\\\[10pt]\n\\end{aligned}\n\\]\nThus \\(SST = SSM + SSR\\)"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html",
+    "href": "slides/05-mlr-notes.html",
+    "title": "Multiple linear regression",
+    "section": "",
+    "text": "HW 01 - due Thursday, January 29 at 11:59pm"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#announcements",
+    "href": "slides/05-mlr-notes.html#announcements",
+    "title": "Multiple linear regression",
+    "section": "",
+    "text": "HW 01 - due Thursday, January 29 at 11:59pm"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#topics",
+    "href": "slides/05-mlr-notes.html#topics",
+    "title": "Multiple linear regression",
+    "section": "Topics",
+    "text": "Topics\n\nIntroducing multiple linear regression\n\nExploratory data analysis for multiple linear regression\nFitting the least squares line\nInterpreting coefficients for quantitative predictors\nPrediction\n\nComparing models"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#computing-setup",
+    "href": "slides/05-mlr-notes.html#computing-setup",
+    "title": "Multiple linear regression",
+    "section": "Computing setup",
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#data-peer-to-peer-lender",
+    "href": "slides/05-mlr-notes.html#data-peer-to-peer-lender",
+    "title": "Multiple linear regression",
+    "section": "Data: Peer-to-peer lender",
+    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n# A tibble: 50 × 4\n   annual_income debt_to_income verified_income interest_rate\n           &lt;dbl&gt;          &lt;dbl&gt; &lt;fct&gt;                   &lt;dbl&gt;\n 1         59000         0.558  Not Verified            10.9 \n 2         60000         1.31   Not Verified             9.92\n 3         75000         1.06   Verified                26.3 \n 4         75000         0.574  Not Verified             9.92\n 5        254000         0.238  Not Verified             9.43\n 6         67000         1.08   Source Verified          9.92\n 7         28800         0.0997 Source Verified         17.1 \n 8         80000         0.351  Not Verified             6.08\n 9         34000         0.698  Not Verified             7.97\n10         80000         0.167  Source Verified         12.6 \n# ℹ 40 more rows"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#variables",
+    "href": "slides/05-mlr-notes.html#variables",
+    "title": "Multiple linear regression",
+    "section": "Variables",
+    "text": "Variables\nPredictors:\n\n\nannual_income: Annual income\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\n\nResponse: interest_rate: Interest rate for the loan"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#response-interest_rate",
+    "href": "slides/05-mlr-notes.html#response-interest_rate",
+    "title": "Multiple linear regression",
+    "section": "Response: interest_rate",
+    "text": "Response: interest_rate\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMin\nMedian\nMax\nIQR\n\n\n\n\n5.31\n9.93\n26.3\n5.755"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#predictors",
+    "href": "slides/05-mlr-notes.html#predictors",
+    "title": "Multiple linear regression",
+    "section": "Predictors",
+    "text": "Predictors"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#data-manipulation-1-rescale-income",
+    "href": "slides/05-mlr-notes.html#data-manipulation-1-rescale-income",
+    "title": "Multiple linear regression",
+    "section": "Data manipulation 1: Rescale income",
+    "text": "Data manipulation 1: Rescale income\n\nloan50 &lt;- loan50 |&gt;\n  mutate(annual_income_th = annual_income / 1000)\n\n\n\n\n\n\n\n\n\n\n. . .\n\nWhy did we rescale income?"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#outcome-vs.-predictors",
+    "href": "slides/05-mlr-notes.html#outcome-vs.-predictors",
+    "title": "Multiple linear regression",
+    "section": "Outcome vs. predictors",
+    "text": "Outcome vs. predictors\n\n\n\n\n\n\n\n\n\n. . .\nGoal: Use these predictors in a single model to understand variability in interest rate.\n. . .\n\nWhy do we want to use a single model versus 3 separate simple linear regression models?"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#multiple-linear-regression-mlr-1",
+    "href": "slides/05-mlr-notes.html#multiple-linear-regression-mlr-1",
+    "title": "Multiple linear regression",
+    "section": "Multiple linear regression (MLR)",
+    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\text{interest_rate} ~ =\n\\beta_0 & + \\beta_1 ~ \\text{debt_to_income} \\\\ & + \\beta_2 ~ \\text{verified_income}_1 \\\\ &+ \\beta_3 ~ \\text{verified_income}_2 \\\\\n&+\\beta_4~ \\text{annual_income_th} \\\\\n& +\\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#multiple-linear-regression",
+    "href": "slides/05-mlr-notes.html#multiple-linear-regression",
+    "title": "Multiple linear regression",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nRecall: The simple linear regression model\n\\[\nY = \\beta_0 + \\beta_1~ X + \\epsilon\n\\]\n. . .\nThe form of the multiple linear regression model is\n\\[\nY = \\beta_0 + \\beta_1X_1 +  \\dots + \\beta_pX_p + \\epsilon\n\\]\n\n. . .\nTherefore,\n\\[\nE(Y|X_1, \\ldots, X_p) = \\beta_0 + \\beta_1X_1 +  \\dots + \\beta_pX_p\n\\]"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#fitting-the-least-squares-line",
+    "href": "slides/05-mlr-notes.html#fitting-the-least-squares-line",
+    "title": "Multiple linear regression",
+    "section": "Fitting the least squares line",
+    "text": "Fitting the least squares line\nSimilar to simple linear regression, we want to find estimates for \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\) that minimize\n\\[\n\\sum_{i=1}^{n}\\epsilon_i^2 = \\sum_{i=1}^n[y_i - \\hat{y}_i]^2 = \\sum_{i=1}^n[y_i - (\\beta_0 + \\beta_1x_{i1} + \\dots + \\beta_px_{ip})]^2\n\\]\n\n. . .\nThe calculations can be very tedious, especially if \\(p\\) is large"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#matrix-form-of-multiple-linear-regression",
+    "href": "slides/05-mlr-notes.html#matrix-form-of-multiple-linear-regression",
+    "title": "Multiple linear regression",
+    "section": "Matrix form of multiple linear regression",
+    "text": "Matrix form of multiple linear regression\nSuppose we have \\(n\\) observations, a quantitative response variable, and \\(p\\) &gt; 1 predictors \\[\n\\underbrace{\n\\begin{bmatrix}\ny_1 \\\\\n\\vdots \\\\\ny_n\n\\end{bmatrix} }_\n{\\mathbf{y}} \\hspace{3mm}\n=\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n1 &x_{11} & \\dots & x_{1p}\\\\\n\\vdots & \\vdots &\\ddots & \\vdots \\\\\n1 &  x_{n1} & \\dots &x_{np}\n\\end{bmatrix}\n}_{\\mathbf{X}}\n\\hspace{2mm}\n\\underbrace{\n\\begin{bmatrix}\n\\beta_0 \\\\\n\\beta_1 \\\\\n\\vdots \\\\\n\\beta_p\n\\end{bmatrix}\n}_{\\boldsymbol{\\beta}}\n\\hspace{3mm}\n+\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n\\epsilon_1 \\\\\n\\vdots\\\\\n\\epsilon_n\n\\end{bmatrix}\n}_\\boldsymbol{\\epsilon}\n\\]\n\nWhat are the dimensions of \\(\\mathbf{y}\\), \\(\\mathbf{X}\\), \\(\\boldsymbol{\\beta}\\), \\(\\boldsymbol{\\epsilon}\\)?"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#matrix-form-of-multiple-linear-regression-1",
+    "href": "slides/05-mlr-notes.html#matrix-form-of-multiple-linear-regression-1",
+    "title": "Multiple linear regression",
+    "section": "Matrix form of multiple linear regression",
+    "text": "Matrix form of multiple linear regression\nAs with simple linear regression, we have\n\\[\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]\n. . .\nGeneralizing the derivations from SLR to \\(p &gt; 2\\), we have\n\\[\n\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\n\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\nas before."
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#model-fit-in-r",
+    "href": "slides/05-mlr-notes.html#model-fit-in-r",
+    "title": "Multiple linear regression",
+    "section": "Model fit in R",
+    "text": "Model fit in R\n\nint_fit &lt;- lm(interest_rate ~ debt_to_income + verified_income  + annual_income_th,\n              data = loan50)\n\ntidy(int_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#model-equation",
+    "href": "slides/05-mlr-notes.html#model-equation",
+    "title": "Multiple linear regression",
+    "section": "Model equation",
+    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{interest_rate}} =  10.726 &+0.671 \\times \\text{debt_to_income}\\\\\n&+ 2.211 \\times \\text{source_verified}\\\\  \n&+ 6.880 \\times \\text{verified}\\\\\n& -0.021 \\times \\text{annual_income_th}\n\\end{align}\n\\]\n\n\n\n\n\n\nNote\n\n\n\nWe will talk about why there are only two terms in the model for verified_income soon!"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#interpreting-hatbeta_j",
+    "href": "slides/05-mlr-notes.html#interpreting-hatbeta_j",
+    "title": "Multiple linear regression",
+    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
+    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient \\(\\hat{\\beta}_j\\) is the expected change in the mean of \\(Y\\) when \\(X_j\\) increases by one unit, holding the values of all other predictor variables constant.\n\n. . .\n\nExample: The estimated coefficient for debt_to_income is 0.671. This means for each point in an borrower’s debt to income ratio, the interest rate on the loan is expected to be greater by 0.671%, on average, holding annual income and income verification constant."
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#interpreting-hatbeta_j-1",
+    "href": "slides/05-mlr-notes.html#interpreting-hatbeta_j-1",
+    "title": "Multiple linear regression",
+    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
+    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient for annual_income_th is -0.021. Interpret this coefficient in the context of the data.\n\n\n\n\nWhy do we need to include a statement about holding all other predictors constant?"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#interpreting-hatbeta_0",
+    "href": "slides/05-mlr-notes.html#interpreting-hatbeta_0",
+    "title": "Multiple linear regression",
+    "section": "Interpreting \\(\\hat{\\beta}_0\\)",
+    "text": "Interpreting \\(\\hat{\\beta}_0\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078\n-0.043\n0.002\n\n\n\n\n\n. . .\n\n\nDescribe the subset of borrowers who are expected to get an interest rate of 10.726% based on our model. Is this interpretation meaningful? Why or why not?"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#prediction",
+    "href": "slides/05-mlr-notes.html#prediction",
+    "title": "Multiple linear regression",
+    "section": "Prediction",
+    "text": "Prediction\n\nWhat is the predicted interest rate for an borrower with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000?\n\n\n\n10.726 + 0.671 * 0.558 + 2.211 * 0 + 6.880 * 0 - 0.021 * 59\n\n[1] 9.861418\n\n\n. . .\nThe predicted interest rate for an borrower with with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000 is 9.86%."
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#prediction-in-r",
+    "href": "slides/05-mlr-notes.html#prediction-in-r",
+    "title": "Multiple linear regression",
+    "section": "Prediction in R",
+    "text": "Prediction in R\nJust like with simple linear regression, we can use the predict() function in R to calculate the appropriate intervals for our predicted values:\n\nnew_borrower &lt;- tibble(\n  debt_to_income  = 0.558, \n  verified_income = \"Not Verified\", \n  annual_income_th = 59\n)\n\npredict(int_fit, new_borrower)\n\n       1 \n9.890888 \n\n\n\n\n\n\n\n\nNote\n\n\n\nDifference in predicted value due to rounding the coefficients on the previous slide."
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#cautions",
+    "href": "slides/05-mlr-notes.html#cautions",
+    "title": "Multiple linear regression",
+    "section": "Cautions",
+    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study (causal inference)"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#model-evaluation-rmse-r2",
+    "href": "slides/05-mlr-notes.html#model-evaluation-rmse-r2",
+    "title": "Multiple linear regression",
+    "section": "Model evaluation: RMSE & \\(R^2\\)",
+    "text": "Model evaluation: RMSE & \\(R^2\\)\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\nR-squared, \\(R^2\\) : Percentage of variability in the outcome explained by the regression model"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#comparing-models",
+    "href": "slides/05-mlr-notes.html#comparing-models",
+    "title": "Multiple linear regression",
+    "section": "Comparing models",
+    "text": "Comparing models\nLet’s consider the following models:\n\n\n\n\n\nterm\nModel 1\nModel 2\n\n\n\n\n(Intercept)\n10.726\n9.560\n\n\ndebt_to_income\n0.671\n0.691\n\n\nverified_incomeSource Verified\n2.211\n3.577\n\n\nverified_incomeVerified\n6.880\n9.923\n\n\nannual_income_th\n-0.021\n-0.007\n\n\nverified_incomeSource Verified:annual_income_th\nNA\n-0.016\n\n\nverified_incomeVerified:annual_income_th\nNA\n-0.032\n\n\n\n\n\n\n\nHow do we decide which model to choose?"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#comparing-models-1",
+    "href": "slides/05-mlr-notes.html#comparing-models-1",
+    "title": "Multiple linear regression",
+    "section": "Comparing models",
+    "text": "Comparing models\n\n\nWhen comparing models, do we prefer the model with the lower or higher RMSE?\nThough we use \\(R^2\\) to assess the model fit, it is generally unreliable for comparing models with different number of predictors. Why?\n\n\\(R^2\\) will stay the same or increase as we add more variables to the model.\nIf we only use \\(R^2\\) to choose a best fit model, we will be prone to choose the model with the most predictor variables."
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#adjusted-r2",
+    "href": "slides/05-mlr-notes.html#adjusted-r2",
+    "title": "Multiple linear regression",
+    "section": "Adjusted \\(R^2\\)",
+    "text": "Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\): measure that includes a penalty for unnecessary predictor variables\nSimilar to \\(R^2\\), it is a measure of the amount of variation in the response that is explained by the regression model\nUse the glance() function to get \\(Adj. R^2\\) in R\n\n\nglance(int_fit)$adj.r.squared\n\n[1] 0.215841"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#r2-and-adjusted-r2",
+    "href": "slides/05-mlr-notes.html#r2-and-adjusted-r2",
+    "title": "Multiple linear regression",
+    "section": "\\(R^2\\) and Adjusted \\(R^2\\)",
+    "text": "\\(R^2\\) and Adjusted \\(R^2\\)\n\\[R^2 = \\frac{SSM}{SST} = 1 - \\frac{SSR}{SST}\\]\n\n. . .\n\\[R^2_{adj} = 1 - \\frac{SSR/(n-p-1)}{SST/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of non-intercept terms in the model"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#using-r2-and-adjusted-r2",
+    "href": "slides/05-mlr-notes.html#using-r2-and-adjusted-r2",
+    "title": "Multiple linear regression",
+    "section": "Using \\(R^2\\) and Adjusted \\(R^2\\)",
+    "text": "Using \\(R^2\\) and Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\) can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment\nUse \\(R^2\\) when describing the relationship between the response and predictor variables"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#comparing-interest-rate-models",
+    "href": "slides/05-mlr-notes.html#comparing-interest-rate-models",
+    "title": "Multiple linear regression",
+    "section": "Comparing interest rate models",
+    "text": "Comparing interest rate models\n\n\nModel 1\nModel without interaction\n\n# r-squared\nglance(int_fit)$r.squared\n\n[1] 0.279854\n\n\n\n\n# adj-r-squared\nglance(int_fit)$adj.r.squared\n\n[1] 0.215841\n\n\n\nModel 2\nModel with interaction\n\n# r-squared\nglance(int_fit_2)$r.squared\n\n[1] 0.2963437\n\n\n\n\n# adj-r-squared\nglance(int_fit_2)$adj.r.squared\n\n[1] 0.1981591"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#recap",
+    "href": "slides/05-mlr-notes.html#recap",
+    "title": "Multiple linear regression",
+    "section": "Recap",
+    "text": "Recap\n\nShowed exploratory data analysis for multiple linear regression\nUsed least squares to fit the regression line\nInterpreted the coefficients for quantitative predictors\nPredicted the response for new observations\nIntroduced \\(Adj. R^2\\) for comparing models"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#questions",
+    "href": "slides/05-mlr-notes.html#questions",
+    "title": "Multiple linear regression",
+    "section": "Questions",
+    "text": "Questions\n\n \n\n🔗 https://forms.office.com/r/h4BdM85Bjf"
+  },
+  {
+    "objectID": "slides/05-mlr-notes.html#for-next-class",
+    "href": "slides/05-mlr-notes.html#for-next-class",
+    "title": "Multiple linear regression",
+    "section": "For next class",
+    "text": "For next class\n\nTypes of predictors\nComplete Lecture 06 prepare"
+  },
+  {
+    "objectID": "slides/05-mlr.html#announcements",
+    "href": "slides/05-mlr.html#announcements",
+    "title": "Multiple linear regression",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 01 - due Thursday, January 29 at 11:59pm"
+  },
+  {
+    "objectID": "slides/05-mlr.html#topics",
+    "href": "slides/05-mlr.html#topics",
+    "title": "Multiple linear regression",
+    "section": "Topics",
+    "text": "Topics\n\nIntroducing multiple linear regression\n\nExploratory data analysis for multiple linear regression\nFitting the least squares line\nInterpreting coefficients for quantitative predictors\nPrediction\n\nComparing models"
+  },
+  {
+    "objectID": "slides/05-mlr.html#computing-setup",
+    "href": "slides/05-mlr.html#computing-setup",
+    "title": "Multiple linear regression",
+    "section": "Computing setup",
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
+  },
+  {
+    "objectID": "slides/05-mlr.html#data-peer-to-peer-lender",
+    "href": "slides/05-mlr.html#data-peer-to-peer-lender",
+    "title": "Multiple linear regression",
+    "section": "Data: Peer-to-peer lender",
+    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n# A tibble: 50 × 4\n   annual_income debt_to_income verified_income interest_rate\n           &lt;dbl&gt;          &lt;dbl&gt; &lt;fct&gt;                   &lt;dbl&gt;\n 1         59000         0.558  Not Verified            10.9 \n 2         60000         1.31   Not Verified             9.92\n 3         75000         1.06   Verified                26.3 \n 4         75000         0.574  Not Verified             9.92\n 5        254000         0.238  Not Verified             9.43\n 6         67000         1.08   Source Verified          9.92\n 7         28800         0.0997 Source Verified         17.1 \n 8         80000         0.351  Not Verified             6.08\n 9         34000         0.698  Not Verified             7.97\n10         80000         0.167  Source Verified         12.6 \n# ℹ 40 more rows"
+  },
+  {
+    "objectID": "slides/05-mlr.html#variables",
+    "href": "slides/05-mlr.html#variables",
+    "title": "Multiple linear regression",
+    "section": "Variables",
+    "text": "Variables\nPredictors:\n\nannual_income: Annual income\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\nResponse: interest_rate: Interest rate for the loan"
+  },
+  {
+    "objectID": "slides/05-mlr.html#response-interest_rate",
+    "href": "slides/05-mlr.html#response-interest_rate",
+    "title": "Multiple linear regression",
+    "section": "Response: interest_rate",
+    "text": "Response: interest_rate\n\n\n\n\n\n\nMin\nMedian\nMax\nIQR\n\n\n\n\n5.31\n9.93\n26.3\n5.755"
+  },
+  {
+    "objectID": "slides/05-mlr.html#predictors",
+    "href": "slides/05-mlr.html#predictors",
+    "title": "Multiple linear regression",
+    "section": "Predictors",
+    "text": "Predictors"
+  },
+  {
+    "objectID": "slides/05-mlr.html#data-manipulation-1-rescale-income",
+    "href": "slides/05-mlr.html#data-manipulation-1-rescale-income",
+    "title": "Multiple linear regression",
+    "section": "Data manipulation 1: Rescale income",
+    "text": "Data manipulation 1: Rescale income\n\nloan50 &lt;- loan50 |&gt;\n  mutate(annual_income_th = annual_income / 1000)\n\n\n\n\nWhy did we rescale income?"
+  },
+  {
+    "objectID": "slides/05-mlr.html#outcome-vs.-predictors",
+    "href": "slides/05-mlr.html#outcome-vs.-predictors",
+    "title": "Multiple linear regression",
+    "section": "Outcome vs. predictors",
+    "text": "Outcome vs. predictors\n\n\nGoal: Use these predictors in a single model to understand variability in interest rate.\n\n\n\nWhy do we want to use a single model versus 3 separate simple linear regression models?"
+  },
+  {
+    "objectID": "slides/05-mlr.html#multiple-linear-regression-mlr-1",
+    "href": "slides/05-mlr.html#multiple-linear-regression-mlr-1",
+    "title": "Multiple linear regression",
+    "section": "Multiple linear regression (MLR)",
+    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\text{interest_rate} ~ =\n\\beta_0 & + \\beta_1 ~ \\text{debt_to_income} \\\\ & + \\beta_2 ~ \\text{verified_income}_1 \\\\ &+ \\beta_3 ~ \\text{verified_income}_2 \\\\\n&+\\beta_4~ \\text{annual_income_th} \\\\\n& +\\epsilon, \\quad \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/05-mlr.html#multiple-linear-regression",
+    "href": "slides/05-mlr.html#multiple-linear-regression",
+    "title": "Multiple linear regression",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\nRecall: The simple linear regression model\n\\[\nY = \\beta_0 + \\beta_1~ X + \\epsilon\n\\]\n\nThe form of the multiple linear regression model is\n\\[\nY = \\beta_0 + \\beta_1X_1 +  \\dots + \\beta_pX_p + \\epsilon\n\\]\n\n\n\nTherefore,\n\\[\nE(Y|X_1, \\ldots, X_p) = \\beta_0 + \\beta_1X_1 +  \\dots + \\beta_pX_p\n\\]"
+  },
+  {
+    "objectID": "slides/05-mlr.html#fitting-the-least-squares-line",
+    "href": "slides/05-mlr.html#fitting-the-least-squares-line",
+    "title": "Multiple linear regression",
+    "section": "Fitting the least squares line",
+    "text": "Fitting the least squares line\nSimilar to simple linear regression, we want to find estimates for \\(\\beta_0, \\beta_1, \\ldots, \\beta_p\\) that minimize\n\\[\n\\sum_{i=1}^{n}\\epsilon_i^2 = \\sum_{i=1}^n[y_i - \\hat{y}_i]^2 = \\sum_{i=1}^n[y_i - (\\beta_0 + \\beta_1x_{i1} + \\dots + \\beta_px_{ip})]^2\n\\]\n\n\nThe calculations can be very tedious, especially if \\(p\\) is large"
+  },
+  {
+    "objectID": "slides/05-mlr.html#matrix-form-of-multiple-linear-regression",
+    "href": "slides/05-mlr.html#matrix-form-of-multiple-linear-regression",
+    "title": "Multiple linear regression",
+    "section": "Matrix form of multiple linear regression",
+    "text": "Matrix form of multiple linear regression\nSuppose we have \\(n\\) observations, a quantitative response variable, and \\(p\\) &gt; 1 predictors \\[\n\\underbrace{\n\\begin{bmatrix}\ny_1 \\\\\n\\vdots \\\\\ny_n\n\\end{bmatrix} }_\n{\\mathbf{y}} \\hspace{3mm}\n=\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n1 &x_{11} & \\dots & x_{1p}\\\\\n\\vdots & \\vdots &\\ddots & \\vdots \\\\\n1 &  x_{n1} & \\dots &x_{np}\n\\end{bmatrix}\n}_{\\mathbf{X}}\n\\hspace{2mm}\n\\underbrace{\n\\begin{bmatrix}\n\\beta_0 \\\\\n\\beta_1 \\\\\n\\vdots \\\\\n\\beta_p\n\\end{bmatrix}\n}_{\\boldsymbol{\\beta}}\n\\hspace{3mm}\n+\n\\hspace{3mm}\n\\underbrace{\n\\begin{bmatrix}\n\\epsilon_1 \\\\\n\\vdots\\\\\n\\epsilon_n\n\\end{bmatrix}\n}_\\boldsymbol{\\epsilon}\n\\]\n\nWhat are the dimensions of \\(\\mathbf{y}\\), \\(\\mathbf{X}\\), \\(\\boldsymbol{\\beta}\\), \\(\\boldsymbol{\\epsilon}\\)?"
+  },
+  {
+    "objectID": "slides/05-mlr.html#matrix-form-of-multiple-linear-regression-1",
+    "href": "slides/05-mlr.html#matrix-form-of-multiple-linear-regression-1",
+    "title": "Multiple linear regression",
+    "section": "Matrix form of multiple linear regression",
+    "text": "Matrix form of multiple linear regression\nAs with simple linear regression, we have\n\\[\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]\n\nGeneralizing the derivations from SLR to \\(p &gt; 2\\), we have\n\\[\n\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^\n\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\nas before."
+  },
+  {
+    "objectID": "slides/05-mlr.html#model-fit-in-r",
+    "href": "slides/05-mlr.html#model-fit-in-r",
+    "title": "Multiple linear regression",
+    "section": "Model fit in R",
+    "text": "Model fit in R\n\nint_fit &lt;- lm(interest_rate ~ debt_to_income + verified_income  + annual_income_th,\n              data = loan50)\n\ntidy(int_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078"
+  },
+  {
+    "objectID": "slides/05-mlr.html#model-equation",
+    "href": "slides/05-mlr.html#model-equation",
+    "title": "Multiple linear regression",
+    "section": "Model equation",
+    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{interest_rate}} =  10.726 &+0.671 \\times \\text{debt_to_income}\\\\\n&+ 2.211 \\times \\text{source_verified}\\\\  \n&+ 6.880 \\times \\text{verified}\\\\\n& -0.021 \\times \\text{annual_income_th}\n\\end{align}\n\\]\n\n\n\n\n\n\nNote\n\n\nWe will talk about why there are only two terms in the model for verified_income soon!"
+  },
+  {
+    "objectID": "slides/05-mlr.html#interpreting-hatbeta_j",
+    "href": "slides/05-mlr.html#interpreting-hatbeta_j",
+    "title": "Multiple linear regression",
+    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
+    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient \\(\\hat{\\beta}_j\\) is the expected change in the mean of \\(Y\\) when \\(X_j\\) increases by one unit, holding the values of all other predictor variables constant.\n\n\n\nExample: The estimated coefficient for debt_to_income is 0.671. This means for each point in an borrower’s debt to income ratio, the interest rate on the loan is expected to be greater by 0.671%, on average, holding annual income and income verification constant."
+  },
+  {
+    "objectID": "slides/05-mlr.html#interpreting-hatbeta_j-1",
+    "href": "slides/05-mlr.html#interpreting-hatbeta_j-1",
+    "title": "Multiple linear regression",
+    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
+    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient for annual_income_th is -0.021. Interpret this coefficient in the context of the data.\n\n\n\n\nWhy do we need to include a statement about holding all other predictors constant?"
+  },
+  {
+    "objectID": "slides/05-mlr.html#interpreting-hatbeta_0",
+    "href": "slides/05-mlr.html#interpreting-hatbeta_0",
+    "title": "Multiple linear regression",
+    "section": "Interpreting \\(\\hat{\\beta}_0\\)",
+    "text": "Interpreting \\(\\hat{\\beta}_0\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n10.726\n1.507\n7.116\n0.000\n7.690\n13.762\n\n\ndebt_to_income\n0.671\n0.676\n0.993\n0.326\n-0.690\n2.033\n\n\nverified_incomeSource Verified\n2.211\n1.399\n1.581\n0.121\n-0.606\n5.028\n\n\nverified_incomeVerified\n6.880\n1.801\n3.820\n0.000\n3.253\n10.508\n\n\nannual_income_th\n-0.021\n0.011\n-1.804\n0.078\n-0.043\n0.002\n\n\n\n\n\n\n\n\nDescribe the subset of borrowers who are expected to get an interest rate of 10.726% based on our model. Is this interpretation meaningful? Why or why not?"
+  },
+  {
+    "objectID": "slides/05-mlr.html#prediction",
+    "href": "slides/05-mlr.html#prediction",
+    "title": "Multiple linear regression",
+    "section": "Prediction",
+    "text": "Prediction\n\nWhat is the predicted interest rate for an borrower with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000?\n\n\n\n10.726 + 0.671 * 0.558 + 2.211 * 0 + 6.880 * 0 - 0.021 * 59\n\n[1] 9.861418\n\n\n\nThe predicted interest rate for an borrower with with an debt-to-income ratio of 0.558, whose income is not verified, and who has an annual income of $59,000 is 9.86%."
+  },
+  {
+    "objectID": "slides/05-mlr.html#prediction-in-r",
+    "href": "slides/05-mlr.html#prediction-in-r",
+    "title": "Multiple linear regression",
+    "section": "Prediction in R",
+    "text": "Prediction in R\nJust like with simple linear regression, we can use the predict() function in R to calculate the appropriate intervals for our predicted values:\n\nnew_borrower &lt;- tibble(\n  debt_to_income  = 0.558, \n  verified_income = \"Not Verified\", \n  annual_income_th = 59\n)\n\npredict(int_fit, new_borrower)\n\n       1 \n9.890888 \n\n\n\n\n\n\n\n\nNote\n\n\nDifference in predicted value due to rounding the coefficients on the previous slide."
+  },
+  {
+    "objectID": "slides/05-mlr.html#cautions",
+    "href": "slides/05-mlr.html#cautions",
+    "title": "Multiple linear regression",
+    "section": "Cautions",
+    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study (causal inference)"
+  },
+  {
+    "objectID": "slides/05-mlr.html#model-evaluation-rmse-r2",
+    "href": "slides/05-mlr.html#model-evaluation-rmse-r2",
+    "title": "Multiple linear regression",
+    "section": "Model evaluation: RMSE & \\(R^2\\)",
+    "text": "Model evaluation: RMSE & \\(R^2\\)\n\nRoot mean square error, RMSE: A measure of the average error (average difference between observed and predicted values of the outcome)\nR-squared, \\(R^2\\) : Percentage of variability in the outcome explained by the regression model"
+  },
+  {
+    "objectID": "slides/05-mlr.html#comparing-models",
+    "href": "slides/05-mlr.html#comparing-models",
+    "title": "Multiple linear regression",
+    "section": "Comparing models",
+    "text": "Comparing models\nLet’s consider the following models:\n\n\n\n\n\nterm\nModel 1\nModel 2\n\n\n\n\n(Intercept)\n10.726\n9.560\n\n\ndebt_to_income\n0.671\n0.691\n\n\nverified_incomeSource Verified\n2.211\n3.577\n\n\nverified_incomeVerified\n6.880\n9.923\n\n\nannual_income_th\n-0.021\n-0.007\n\n\nverified_incomeSource Verified:annual_income_th\nNA\n-0.016\n\n\nverified_incomeVerified:annual_income_th\nNA\n-0.032\n\n\n\n\n\n\n\nHow do we decide which model to choose?"
+  },
+  {
+    "objectID": "slides/05-mlr.html#comparing-models-1",
+    "href": "slides/05-mlr.html#comparing-models-1",
+    "title": "Multiple linear regression",
+    "section": "Comparing models",
+    "text": "Comparing models\n\nWhen comparing models, do we prefer the model with the lower or higher RMSE?\nThough we use \\(R^2\\) to assess the model fit, it is generally unreliable for comparing models with different number of predictors. Why?\n\n\\(R^2\\) will stay the same or increase as we add more variables to the model.\nIf we only use \\(R^2\\) to choose a best fit model, we will be prone to choose the model with the most predictor variables."
+  },
+  {
+    "objectID": "slides/05-mlr.html#adjusted-r2",
+    "href": "slides/05-mlr.html#adjusted-r2",
+    "title": "Multiple linear regression",
+    "section": "Adjusted \\(R^2\\)",
+    "text": "Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\): measure that includes a penalty for unnecessary predictor variables\nSimilar to \\(R^2\\), it is a measure of the amount of variation in the response that is explained by the regression model\nUse the glance() function to get \\(Adj. R^2\\) in R\n\n\nglance(int_fit)$adj.r.squared\n\n[1] 0.215841"
+  },
+  {
+    "objectID": "slides/05-mlr.html#r2-and-adjusted-r2",
+    "href": "slides/05-mlr.html#r2-and-adjusted-r2",
+    "title": "Multiple linear regression",
+    "section": "\\(R^2\\) and Adjusted \\(R^2\\)",
+    "text": "\\(R^2\\) and Adjusted \\(R^2\\)\n\\[R^2 = \\frac{SSM}{SST} = 1 - \\frac{SSR}{SST}\\]\n\n\n\\[R^2_{adj} = 1 - \\frac{SSR/(n-p-1)}{SST/(n-1)}\\]\nwhere\n\n\\(n\\) is the number of observations used to fit the model\n\\(p\\) is the number of non-intercept terms in the model"
+  },
+  {
+    "objectID": "slides/05-mlr.html#using-r2-and-adjusted-r2",
+    "href": "slides/05-mlr.html#using-r2-and-adjusted-r2",
+    "title": "Multiple linear regression",
+    "section": "Using \\(R^2\\) and Adjusted \\(R^2\\)",
+    "text": "Using \\(R^2\\) and Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\) can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment\nUse \\(R^2\\) when describing the relationship between the response and predictor variables"
+  },
+  {
+    "objectID": "slides/05-mlr.html#comparing-interest-rate-models",
+    "href": "slides/05-mlr.html#comparing-interest-rate-models",
+    "title": "Multiple linear regression",
+    "section": "Comparing interest rate models",
+    "text": "Comparing interest rate models\n\n\nModel 1\nModel without interaction\n\n# r-squared\nglance(int_fit)$r.squared\n\n[1] 0.279854\n\n\n\n\n# adj-r-squared\nglance(int_fit)$adj.r.squared\n\n[1] 0.215841\n\n\n\nModel 2\nModel with interaction\n\n# r-squared\nglance(int_fit_2)$r.squared\n\n[1] 0.2963437\n\n\n\n\n# adj-r-squared\nglance(int_fit_2)$adj.r.squared\n\n[1] 0.1981591"
+  },
+  {
+    "objectID": "slides/05-mlr.html#recap",
+    "href": "slides/05-mlr.html#recap",
+    "title": "Multiple linear regression",
+    "section": "Recap",
+    "text": "Recap\n\nShowed exploratory data analysis for multiple linear regression\nUsed least squares to fit the regression line\nInterpreted the coefficients for quantitative predictors\nPredicted the response for new observations\nIntroduced \\(Adj. R^2\\) for comparing models"
+  },
+  {
+    "objectID": "slides/05-mlr.html#questions",
+    "href": "slides/05-mlr.html#questions",
+    "title": "Multiple linear regression",
+    "section": "Questions",
+    "text": "Questions\n\n \n\n🔗 https://forms.office.com/r/h4BdM85Bjf"
+  },
+  {
+    "objectID": "slides/05-mlr.html#for-next-class",
+    "href": "slides/05-mlr.html#for-next-class",
+    "title": "Multiple linear regression",
+    "section": "For next class",
+    "text": "For next class\n\nTypes of predictors\nComplete Lecture 06 prepare"
   },
   {
     "objectID": "about.html",
