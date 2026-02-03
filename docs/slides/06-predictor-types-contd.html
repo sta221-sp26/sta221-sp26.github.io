@@ -242,18 +242,6 @@
 <span id="cb1-10"><a></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
 <span id="cb1-11"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>#| context: setup</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a>loan50 &lt;- loan50 |&gt;</span>
-<span id="cb2-4"><a></a>  mutate(</span>
-<span id="cb2-5"><a></a>    not_verified = factor(if_else(verified_income == "Not Verified", 1, 0)),</span>
-<span id="cb2-6"><a></a>    source_verified = factor(if_else(verified_income == "Source Verified", 1, 0)),</span>
-<span id="cb2-7"><a></a>    verified = factor(if_else(verified_income == "Verified", 1, 0)),</span>
-<span id="cb2-8"><a></a>    annual_income_th = annual_income / 1000) |&gt;</span>
-<span id="cb2-9"><a></a>  filter(verified_income %in% c("Not Verified", "Source Verified", "Verified"))</span>
-<span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a># get rid of the hidden blank column of verified income </span>
-<span id="cb2-12"><a></a>loan50$verified_income &lt;- droplevels(loan50$verified_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="data-peer-to-peer-lender" class="slide level2">
 <h2>Data: Peer-to-peer lender</h2>
@@ -305,18 +293,11 @@
 <p>The lines are not parallel indicating there is a potential <strong>interaction effect</strong>. The slope of annual income differs based on the income verification.</p>
 
 <img data-src="06-predictor-types-contd_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="ae-model-with-interaction-effect" class="slide level2 midi">
-<h2>AE: Model with interaction effect</h2>
-<div class="question">
-
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a># code to fit and display model with interaction</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
 <section id="model-with-interaction-terms" class="slide level2 smaller">
 <h2>Model with interaction terms</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>int_fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(interest_rate <span class="sc">~</span> debt_to_income <span class="sc">+</span> verified_income <span class="sc">+</span> annual_income_th <span class="sc">+</span> verified_income <span class="sc">*</span> annual_income_th,</span>
-<span id="cb5-2"><a></a>      <span class="at">data =</span> loan50)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>int_fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(interest_rate <span class="sc">~</span> debt_to_income <span class="sc">+</span> verified_income <span class="sc">+</span> annual_income_th <span class="sc">+</span> verified_income <span class="sc">*</span> annual_income_th,</span>
+<span id="cb3-2"><a></a>      <span class="at">data =</span> loan50)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">

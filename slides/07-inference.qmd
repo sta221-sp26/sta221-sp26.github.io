@@ -205,11 +205,13 @@ For every additional 1,000 students, we expect an institution's total expenditur
 
 Our **objective** is to infer properties about a *population* using data from observational (or experimental) data collection
 
+::: incremental
 -   **Pre data collection**: Before collecting the data, the data are unknown and random. $\hat{\beta}$, which is a function of the data, is also [unknown]{.underline} and [random.]{.underline}
 
 -   **Post data collection**: After collecting the data, $\hat{\boldsymbol{\beta}}$ is [fixed]{.underline} and [known]{.underline}.
 
 -   **In all cases**: The true population parameter, $\boldsymbol{\beta}$ is [fixed]{.underline} but [unknown]{.underline}.
+:::
 
 **Question pre data collection:** Is the probability distribution of $\hat{\mathbf{\boldsymbol{\beta}}}$ a meaningful representation of the population? (We will slowly answer this question across the next few classes)
 

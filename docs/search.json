@@ -541,7 +541,7 @@
     "href": "slides/06-predictor-types-contd.html#computing-setup",
     "title": "Multiple linear regression",
     "section": "Computing setup",
-    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n#| context: setup\n\nloan50 &lt;- loan50 |&gt;\n  mutate(\n    not_verified = factor(if_else(verified_income == \"Not Verified\", 1, 0)),\n    source_verified = factor(if_else(verified_income == \"Source Verified\", 1, 0)),\n    verified = factor(if_else(verified_income == \"Verified\", 1, 0)),\n    annual_income_th = annual_income / 1000) |&gt;\n  filter(verified_income %in% c(\"Not Verified\", \"Source Verified\", \"Verified\"))\n\n# get rid of the hidden blank column of verified income \nloan50$verified_income &lt;- droplevels(loan50$verified_income)"
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
   },
   {
     "objectID": "slides/06-predictor-types-contd.html#data-peer-to-peer-lender",
@@ -570,13 +570,6 @@
     "title": "Multiple linear regression",
     "section": "Interest rate vs. annual income",
     "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is a potential interaction effect. The slope of annual income differs based on the income verification."
-  },
-  {
-    "objectID": "slides/06-predictor-types-contd.html#ae-model-with-interaction-effect",
-    "href": "slides/06-predictor-types-contd.html#ae-model-with-interaction-effect",
-    "title": "Multiple linear regression",
-    "section": "AE: Model with interaction effect",
-    "text": "AE: Model with interaction effect\n\n\n\n# code to fit and display model with interaction"
   },
   {
     "objectID": "slides/06-predictor-types-contd.html#model-with-interaction-terms",
@@ -639,7 +632,7 @@
     "href": "slides/06-predictor-types-contd-notes.html#computing-setup",
     "title": "Multiple linear regression",
     "section": "Computing setup",
-    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n#| context: setup\n\nloan50 &lt;- loan50 |&gt;\n  mutate(\n    not_verified = factor(if_else(verified_income == \"Not Verified\", 1, 0)),\n    source_verified = factor(if_else(verified_income == \"Source Verified\", 1, 0)),\n    verified = factor(if_else(verified_income == \"Verified\", 1, 0)),\n    annual_income_th = annual_income / 1000) |&gt;\n  filter(verified_income %in% c(\"Not Verified\", \"Source Verified\", \"Verified\"))\n\n# get rid of the hidden blank column of verified income \nloan50$verified_income &lt;- droplevels(loan50$verified_income)"
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))"
   },
   {
     "objectID": "slides/06-predictor-types-contd-notes.html#data-peer-to-peer-lender",
@@ -668,13 +661,6 @@
     "title": "Multiple linear regression",
     "section": "Interest rate vs. annual income",
     "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is a potential interaction effect. The slope of annual income differs based on the income verification."
-  },
-  {
-    "objectID": "slides/06-predictor-types-contd-notes.html#ae-model-with-interaction-effect",
-    "href": "slides/06-predictor-types-contd-notes.html#ae-model-with-interaction-effect",
-    "title": "Multiple linear regression",
-    "section": "AE: Model with interaction effect",
-    "text": "AE: Model with interaction effect\n\n\n\n# code to fit and display model with interaction"
   },
   {
     "objectID": "slides/06-predictor-types-contd-notes.html#model-with-interaction-terms",

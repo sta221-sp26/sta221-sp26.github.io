@@ -372,7 +372,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#interaction-terms-1" id="toc-interaction-terms-1" class="nav-link" data-scroll-target="#interaction-terms-1">Interaction terms</a></li>
   <li><a href="#interest-rate-vs.-annual-income" id="toc-interest-rate-vs.-annual-income" class="nav-link" data-scroll-target="#interest-rate-vs.-annual-income">Interest rate vs.&nbsp;annual income</a></li>
-  <li><a href="#ae-model-with-interaction-effect" id="toc-ae-model-with-interaction-effect" class="nav-link" data-scroll-target="#ae-model-with-interaction-effect">AE: Model with interaction effect</a></li>
   <li><a href="#model-with-interaction-terms" id="toc-model-with-interaction-terms" class="nav-link" data-scroll-target="#model-with-interaction-terms">Model with interaction terms</a></li>
   <li><a href="#model-with-interaction-terms-1" id="toc-model-with-interaction-terms-1" class="nav-link" data-scroll-target="#model-with-interaction-terms-1">Model with interaction terms</a></li>
   <li><a href="#interpreting-interaction-terms" id="toc-interpreting-interaction-terms" class="nav-link" data-scroll-target="#interpreting-interaction-terms">Interpreting interaction terms</a></li>
@@ -447,19 +446,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<pre class="{webr-r}"><code>#| context: setup
-
-loan50 &lt;- loan50 |&gt;
-  mutate(
-    not_verified = factor(if_else(verified_income == "Not Verified", 1, 0)),
-    source_verified = factor(if_else(verified_income == "Source Verified", 1, 0)),
-    verified = factor(if_else(verified_income == "Verified", 1, 0)),
-    annual_income_th = annual_income / 1000) |&gt;
-  filter(verified_income %in% c("Not Verified", "Source Verified", "Verified"))
-
-# get rid of the hidden blank column of verified income 
-loan50$verified_income &lt;- droplevels(loan50$verified_income)
-</code></pre>
 </section>
 <section id="data-peer-to-peer-lender" class="level2">
 <h2 class="anchored" data-anchor-id="data-peer-to-peer-lender">Data: Peer-to-peer lender</h2>
@@ -518,18 +504,11 @@ loan50$verified_income &lt;- droplevels(loan50$verified_income)
 </div>
 </div>
 </section>
-<section id="ae-model-with-interaction-effect" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="ae-model-with-interaction-effect">AE: Model with interaction effect</h2>
-<div class="question">
-
-</div>
-<pre class="{webr-r}"><code># code to fit and display model with interaction</code></pre>
-</section>
 <section id="model-with-interaction-terms" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="model-with-interaction-terms">Model with interaction terms</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>int_fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(interest_rate <span class="sc">~</span> debt_to_income <span class="sc">+</span> verified_income <span class="sc">+</span> annual_income_th <span class="sc">+</span> verified_income <span class="sc">*</span> annual_income_th,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> loan50)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>int_fit_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(interest_rate <span class="sc">~</span> debt_to_income <span class="sc">+</span> verified_income <span class="sc">+</span> annual_income_th <span class="sc">+</span> verified_income <span class="sc">*</span> annual_income_th,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> loan50)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
