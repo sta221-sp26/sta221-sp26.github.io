@@ -254,7 +254,7 @@
     "href": "slides/07-inference.html#from-sample-to-population",
     "title": "Inference for regression",
     "section": "From sample to population",
-    "text": "From sample to population\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant.\n\n\n\nThis estimate is valid for the single sample of 127 higher education institutions in the 2019 - 2020 academic year.\nBut what if we’re not interested quantifying the relationship between student enrollment, institution type, and football expenditures for this single sample?\nWhat if we want to say something about the relationship between these variables for all colleges and universities with football programs and across different years?"
+    "text": "From sample to population\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant.\n\n\n\nThis is the exact relationship between expenditure and enrollment for the single sample of 127 higher education institutions in the 2019 - 2020 academic year.\nBut what if we’re not interested quantifying the relationship between student enrollment, institution type, and football expenditures for this single sample?\nWhat if we want to say something about the relationship between these variables for all colleges and universities with football programs and across different years?"
   },
   {
     "objectID": "slides/07-inference.html#statistical-inference",
@@ -275,7 +275,7 @@
     "href": "slides/07-inference.html#inference-framework",
     "title": "Inference for regression",
     "section": "Inference framework",
-    "text": "Inference framework\nOur objective is to infer properties about a population using data from observational (or experimental) data collection\n\nPre data collection: before collecting the data, the data are unknown and random. \\(\\hat{\\beta}\\), which is a function of the data, is also unknown and random\nPost data collection: after collecting the data, \\(\\hat{\\boldsymbol{\\beta}}\\) is fixed and known.\nIn all cases, the true population parameter, \\(\\boldsymbol{\\beta}\\) is fixed but unknown.\n\nQuestion pre data collection: is the probability distribution of \\(\\hat{\\mathbf{\\boldsymbol{\\beta}}}\\) a meaningful representation of the population? (We will slowly answer this question across the next few classes)"
+    "text": "Inference framework\nOur objective is to infer properties about a population using data from observational (or experimental) data collection\n\nPre data collection: Before collecting the data, the data are unknown and random. \\(\\hat{\\beta}\\), which is a function of the data, is also unknown and random.\nPost data collection: After collecting the data, \\(\\hat{\\boldsymbol{\\beta}}\\) is fixed and known.\nIn all cases: The true population parameter, \\(\\boldsymbol{\\beta}\\) is fixed but unknown.\n\nQuestion pre data collection: Is the probability distribution of \\(\\hat{\\mathbf{\\boldsymbol{\\beta}}}\\) a meaningful representation of the population? (We will slowly answer this question across the next few classes)"
   },
   {
     "objectID": "slides/07-inference.html#linear-regression-model",
@@ -415,7 +415,7 @@
     "href": "slides/07-inference-notes.html#from-sample-to-population",
     "title": "Inference for regression",
     "section": "From sample to population",
-    "text": "From sample to population\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant.\n\n. . .\n\n\nThis estimate is valid for the single sample of 127 higher education institutions in the 2019 - 2020 academic year.\nBut what if we’re not interested quantifying the relationship between student enrollment, institution type, and football expenditures for this single sample?\nWhat if we want to say something about the relationship between these variables for all colleges and universities with football programs and across different years?"
+    "text": "From sample to population\n\nFor every additional 1,000 students, we expect an institution’s total expenditures on football to increase by $780,000, on average, holding institution type constant.\n\n. . .\n\n\nThis is the exact relationship between expenditure and enrollment for the single sample of 127 higher education institutions in the 2019 - 2020 academic year.\nBut what if we’re not interested quantifying the relationship between student enrollment, institution type, and football expenditures for this single sample?\nWhat if we want to say something about the relationship between these variables for all colleges and universities with football programs and across different years?"
   },
   {
     "objectID": "slides/07-inference-notes.html#statistical-inference",
@@ -436,7 +436,7 @@
     "href": "slides/07-inference-notes.html#inference-framework",
     "title": "Inference for regression",
     "section": "Inference framework",
-    "text": "Inference framework\nOur objective is to infer properties about a population using data from observational (or experimental) data collection\n\nPre data collection: before collecting the data, the data are unknown and random. \\(\\hat{\\beta}\\), which is a function of the data, is also unknown and random\nPost data collection: after collecting the data, \\(\\hat{\\boldsymbol{\\beta}}\\) is fixed and known.\nIn all cases, the true population parameter, \\(\\boldsymbol{\\beta}\\) is fixed but unknown.\n\nQuestion pre data collection: is the probability distribution of \\(\\hat{\\mathbf{\\boldsymbol{\\beta}}}\\) a meaningful representation of the population? (We will slowly answer this question across the next few classes)"
+    "text": "Inference framework\nOur objective is to infer properties about a population using data from observational (or experimental) data collection\n\nPre data collection: Before collecting the data, the data are unknown and random. \\(\\hat{\\beta}\\), which is a function of the data, is also unknown and random.\nPost data collection: After collecting the data, \\(\\hat{\\boldsymbol{\\beta}}\\) is fixed and known.\nIn all cases: The true population parameter, \\(\\boldsymbol{\\beta}\\) is fixed but unknown.\n\nQuestion pre data collection: Is the probability distribution of \\(\\hat{\\mathbf{\\boldsymbol{\\beta}}}\\) a meaningful representation of the population? (We will slowly answer this question across the next few classes)"
   },
   {
     "objectID": "slides/07-inference-notes.html#linear-regression-model",
@@ -541,7 +541,7 @@
     "href": "slides/06-predictor-types-contd.html#computing-setup",
     "title": "Multiple linear regression",
     "section": "Computing setup",
-    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n#| context: setup\n\nloan50 &lt;- loan50 |&gt;\n  mutate(\n    not_verified = factor(if_else(verified_income == \"Not Verified\", 1, 0)),\n    source_verified = factor(if_else(verified_income == \"Source Verified\", 1, 0)),\n    verified = factor(if_else(verified_income == \"Verified\", 1, 0)),\n    annual_income_th = annual_income / 1000) |&gt;\n  filter(verified_income %in% c(\"Not Verified\", \"Source Verified\", \"Verified\"))\n\n# get rid of the hidden blank column of verified income \nloan50$verified_income &lt;- droplevels(loan50$verified_income)"
   },
   {
     "objectID": "slides/06-predictor-types-contd.html#data-peer-to-peer-lender",
@@ -576,14 +576,21 @@
     "href": "slides/06-predictor-types-contd.html#ae-model-with-interaction-effect",
     "title": "Multiple linear regression",
     "section": "AE: Model with interaction effect",
-    "text": "AE: Model with interaction effect\n\nFit the model with the predictors debt_to_income, annual_income_th, verified_income , and the interaction between annual_income_th and verified_income.\n\nWrite the estimated regression equation for the people with Not Verified income.\nWrite the estimated regression equation for people with Verified income.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "AE: Model with interaction effect\n\n\n\n# code to fit and display model with interaction"
   },
   {
-    "objectID": "slides/06-predictor-types-contd.html#interaction-term-in-model",
-    "href": "slides/06-predictor-types-contd.html#interaction-term-in-model",
+    "objectID": "slides/06-predictor-types-contd.html#model-with-interaction-terms",
+    "href": "slides/06-predictor-types-contd.html#model-with-interaction-terms",
     "title": "Multiple linear regression",
-    "section": "Interaction term in model",
-    "text": "Interaction term in model\n\nint_fit_2 &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_th + verified_income * annual_income_th,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_th\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_th\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_th\n-0.032\n0.033\n-0.979\n0.333"
+    "section": "Model with interaction terms",
+    "text": "Model with interaction terms\n\nint_fit_2 &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_th + verified_income * annual_income_th,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_th\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_th\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_th\n-0.032\n0.033\n-0.979\n0.333"
+  },
+  {
+    "objectID": "slides/06-predictor-types-contd.html#model-with-interaction-terms-1",
+    "href": "slides/06-predictor-types-contd.html#model-with-interaction-terms-1",
+    "title": "Multiple linear regression",
+    "section": "Model with interaction terms",
+    "text": "Model with interaction terms\n\n\nWrite the estimated regression equation for the people with Not Verified income.\nWrite the estimated regression equation for people with Verified income."
   },
   {
     "objectID": "slides/06-predictor-types-contd.html#interpreting-interaction-terms",
@@ -604,7 +611,7 @@
     "href": "slides/06-predictor-types-contd.html#recap",
     "title": "Multiple linear regression",
     "section": "Recap",
-    "text": "Recap\n\nInterpreted categorical predictors\nExplored why the model includes \\(k-1\\) terms for a categorical predictor with \\(k\\) levels\nFit and interpreted models with centered and standardized variables\nInterpreted interaction terms"
+    "text": "Recap\n\nInterpreted interaction terms"
   },
   {
     "objectID": "slides/06-predictor-types-contd-notes.html",
@@ -632,7 +639,7 @@
     "href": "slides/06-predictor-types-contd-notes.html#computing-setup",
     "title": "Multiple linear regression",
     "section": "Computing setup",
-    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(viridis) #adjust color palette\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n#| context: setup\n\nloan50 &lt;- loan50 |&gt;\n  mutate(\n    not_verified = factor(if_else(verified_income == \"Not Verified\", 1, 0)),\n    source_verified = factor(if_else(verified_income == \"Source Verified\", 1, 0)),\n    verified = factor(if_else(verified_income == \"Verified\", 1, 0)),\n    annual_income_th = annual_income / 1000) |&gt;\n  filter(verified_income %in% c(\"Not Verified\", \"Source Verified\", \"Verified\"))\n\n# get rid of the hidden blank column of verified income \nloan50$verified_income &lt;- droplevels(loan50$verified_income)"
   },
   {
     "objectID": "slides/06-predictor-types-contd-notes.html#data-peer-to-peer-lender",
@@ -667,14 +674,21 @@
     "href": "slides/06-predictor-types-contd-notes.html#ae-model-with-interaction-effect",
     "title": "Multiple linear regression",
     "section": "AE: Model with interaction effect",
-    "text": "AE: Model with interaction effect\n\nFit the model with the predictors debt_to_income, annual_income_th, verified_income , and the interaction between annual_income_th and verified_income.\n\nWrite the estimated regression equation for the people with Not Verified income.\nWrite the estimated regression equation for people with Verified income.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "AE: Model with interaction effect\n\n\n\n# code to fit and display model with interaction"
   },
   {
-    "objectID": "slides/06-predictor-types-contd-notes.html#interaction-term-in-model",
-    "href": "slides/06-predictor-types-contd-notes.html#interaction-term-in-model",
+    "objectID": "slides/06-predictor-types-contd-notes.html#model-with-interaction-terms",
+    "href": "slides/06-predictor-types-contd-notes.html#model-with-interaction-terms",
     "title": "Multiple linear regression",
-    "section": "Interaction term in model",
-    "text": "Interaction term in model\n\nint_fit_2 &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_th + verified_income * annual_income_th,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_th\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_th\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_th\n-0.032\n0.033\n-0.979\n0.333"
+    "section": "Model with interaction terms",
+    "text": "Model with interaction terms\n\nint_fit_2 &lt;- lm(interest_rate ~ debt_to_income + verified_income + annual_income_th + verified_income * annual_income_th,\n      data = loan50)\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.560\n2.034\n4.700\n0.000\n\n\ndebt_to_income\n0.691\n0.685\n1.009\n0.319\n\n\nverified_incomeSource Verified\n3.577\n2.539\n1.409\n0.166\n\n\nverified_incomeVerified\n9.923\n3.654\n2.716\n0.009\n\n\nannual_income_th\n-0.007\n0.020\n-0.341\n0.735\n\n\nverified_incomeSource Verified:annual_income_th\n-0.016\n0.026\n-0.643\n0.523\n\n\nverified_incomeVerified:annual_income_th\n-0.032\n0.033\n-0.979\n0.333"
+  },
+  {
+    "objectID": "slides/06-predictor-types-contd-notes.html#model-with-interaction-terms-1",
+    "href": "slides/06-predictor-types-contd-notes.html#model-with-interaction-terms-1",
+    "title": "Multiple linear regression",
+    "section": "Model with interaction terms",
+    "text": "Model with interaction terms\n\n\nWrite the estimated regression equation for the people with Not Verified income.\nWrite the estimated regression equation for people with Verified income."
   },
   {
     "objectID": "slides/06-predictor-types-contd-notes.html#interpreting-interaction-terms",
@@ -695,7 +709,7 @@
     "href": "slides/06-predictor-types-contd-notes.html#recap",
     "title": "Multiple linear regression",
     "section": "Recap",
-    "text": "Recap\n\nInterpreted categorical predictors\nExplored why the model includes \\(k-1\\) terms for a categorical predictor with \\(k\\) levels\nFit and interpreted models with centered and standardized variables\nInterpreted interaction terms"
+    "text": "Recap\n\nInterpreted interaction terms"
   },
   {
     "objectID": "slides/06-predictor-types.html#announcements",

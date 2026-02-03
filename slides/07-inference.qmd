@@ -172,7 +172,7 @@ For every additional 1,000 students, we expect an institution's total expenditur
 . . .
 
 ::: incremental
--   This estimate is valid for the single sample of `r nrow(football)` higher education institutions in the 2019 - 2020 academic year.
+-   This is the exact relationship between expenditure and enrollment for the single sample of `r nrow(football)` higher education institutions in the 2019 - 2020 academic year.
 -   But what if we're not interested quantifying the relationship between student enrollment, institution type, and football expenditures for this single sample?
 -   What if we want to say something about the relationship between these variables for all colleges and universities with football programs and across different years?
 :::
@@ -201,17 +201,17 @@ For every additional 1,000 students, we expect an institution's total expenditur
 
 -   Confidence interval for a coefficient $\beta_j$
 
-## Inference framework   {.midi}
+## Inference framework {.midi}
 
 Our **objective** is to infer properties about a *population* using data from observational (or experimental) data collection
 
--   **Pre data collection**: before collecting the data, the data are unknown and random. $\hat{\beta}$, which is a function of the data, is also unknown and random
+-   **Pre data collection**: Before collecting the data, the data are unknown and random. $\hat{\beta}$, which is a function of the data, is also [unknown]{.underline} and [random.]{.underline}
 
--   **Post data collection**: after collecting the data, $\hat{\boldsymbol{\beta}}$ is fixed and known.
+-   **Post data collection**: After collecting the data, $\hat{\boldsymbol{\beta}}$ is [fixed]{.underline} and [known]{.underline}.
 
--   In all cases, the true population parameter, $\boldsymbol{\beta}$ is [**fixed**]{.underline} but [**unknown**]{.underline}.
+-   **In all cases**: The true population parameter, $\boldsymbol{\beta}$ is [fixed]{.underline} but [unknown]{.underline}.
 
-**Question pre data collection:** is the probability distribution of $\hat{\mathbf{\boldsymbol{\beta}}}$ a meaningful representation of the population? (We will slowly answer this question across the next few classes)
+**Question pre data collection:** Is the probability distribution of $\hat{\mathbf{\boldsymbol{\beta}}}$ a meaningful representation of the population? (We will slowly answer this question across the next few classes)
 
 # Distribution of $\mathbf{y}$ in regression
 

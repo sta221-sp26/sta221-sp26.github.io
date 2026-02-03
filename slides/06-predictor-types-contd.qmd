@@ -27,10 +27,6 @@ knitr:
     R.options:      
     width: 200
 bibliography: references.bib
-filters: 
-  - webr
-webr: 
-  packages: ['tidyverse', 'broom', 'openintro']
 ---
 
 ## Announcements
@@ -158,18 +154,13 @@ p1 + p2 +
 ## AE: Model with interaction effect {.midi}
 
 ::: question
-Fit the model with the predictors `debt_to_income`, `annual_income_th`, `verified_income` , and the interaction between `annual_income_th` and `verified_income`.
-
--   Write the estimated regression equation for the people with `Not Verified` income.
-
--   Write the estimated regression equation for people with `Verified` income.
 :::
 
 ```{webr-r}
 # code to fit and display model with interaction
 ```
 
-## Interaction term in model {.smaller}
+## Model with interaction terms {.smaller}
 
 ```{r}
 #| echo: true
@@ -183,6 +174,14 @@ tidy(int_fit_2) |>
   kable(digits = 3) |>
   row_spec(c(6,7), background = "#dce5b2")
 ```
+
+## Model with interaction terms 
+
+::: question
+-   Write the estimated regression equation for the people with `Not Verified` income.
+
+-   Write the estimated regression equation for people with `Verified` income.
+:::
 
 ## Interpreting interaction terms
 
@@ -200,11 +199,5 @@ In general, how do
 :::
 
 ## Recap
-
--   Interpreted categorical predictors
-
--   Explored why the model includes $k-1$ terms for a categorical predictor with $k$ levels
-
--   Fit and interpreted models with centered and standardized variables
 
 -   Interpreted interaction terms
