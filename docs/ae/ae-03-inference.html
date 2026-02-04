@@ -394,21 +394,22 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#data-ncaa-football-expenditures" id="toc-data-ncaa-football-expenditures" class="nav-link" data-scroll-target="#data-ncaa-football-expenditures">Data: NCAA football expenditures</a></li>
   </ul></li>
-  <li><a href="#regression-model" id="toc-regression-model" class="nav-link" data-scroll-target="#regression-model">Regression model</a>
+  <li><a href="#regression-model" id="toc-regression-model" class="nav-link" data-scroll-target="#regression-model">Regression model</a></li>
+  <li><a href="#part-1-distribution-of-hatboldsymbolbeta" id="toc-part-1-distribution-of-hatboldsymbolbeta" class="nav-link" data-scroll-target="#part-1-distribution-of-hatboldsymbolbeta">Part 1: Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></a>
   <ul class="collapse">
-  <li><a href="#part-1-distribution-of-hatboldsymbolbeta" id="toc-part-1-distribution-of-hatboldsymbolbeta" class="nav-link" data-scroll-target="#part-1-distribution-of-hatboldsymbolbeta">Part 1: Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   </ul></li>
-  <li><a href="#hypothesis-test" id="toc-hypothesis-test" class="nav-link" data-scroll-target="#hypothesis-test">Hypothesis test</a>
+  <li><a href="#part-2-hypothesis-test" id="toc-part-2-hypothesis-test" class="nav-link" data-scroll-target="#part-2-hypothesis-test">Part 2: Hypothesis test</a>
   <ul class="collapse">
-  <li><a href="#exercise-3-1" id="toc-exercise-3-1" class="nav-link" data-scroll-target="#exercise-3-1">Exercise 3</a></li>
-  <li><a href="#exercise-4-1" id="toc-exercise-4-1" class="nav-link" data-scroll-target="#exercise-4-1">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   </ul></li>
+  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -451,7 +452,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Go to the <a href="https://github.com/sta221-sp26">course GitHub organization</a> and locate your <code>ae-01</code> repo to get started.</p>
+<p>Go to the <a href="https://github.com/sta221-sp26">course GitHub organization</a> and locate your <code>ae-03</code> repo to get started.</p>
 </div>
 </div>
 <section id="set-up" class="level1">
@@ -465,8 +466,8 @@ Important
 </div>
 <section id="data-ncaa-football-expenditures" class="level2">
 <h2 class="anchored" data-anchor-id="data-ncaa-football-expenditures">Data: NCAA football expenditures</h2>
-<p>Today’s data come from <a href="https://ope.ed.gov/athletics/#/datafile/list">Equity in Athletics Data Analysis</a> and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-29/readme.md">March 2022 Tidy Tuesday</a>.</p>
-<p>We will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :</p>
+<p>Today’s data set comes from <a href="https://ope.ed.gov/athletics/#/datafile/list">Equity in Athletics Data Analysis</a> and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-29/readme.md">March 2022 Tidy Tuesday</a>.</p>
+<p>We will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The following variables are used in this analysis:</p>
 <ul>
 <li><p><code>total_exp_m</code>: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)</p></li>
 <li><p><code>enrollment_th</code>: Total student enrollment in the 2019 - 2020 academic year (in thousands)</p></li>
@@ -518,78 +519,82 @@ Important
 </table>
 </div>
 </div>
-<section id="part-1-distribution-of-hatboldsymbolbeta" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-distribution-of-hatboldsymbolbeta">Part 1: Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
-<p>Our ultimate goal is to use statistical inference to draw conclusions about the relationship between student enrollment and spending on football programs, after accounting for the institution type.</p>
 </section>
+<section id="part-1-distribution-of-hatboldsymbolbeta" class="level1">
+<h1>Part 1: Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h1>
+<p>Our ultimate goal is to use statistical inference to draw conclusions about the relationship between student enrollment and spending on football programs, after accounting for the institution type.</p>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>We will use the vector of responses <span class="math inline">\(\mathbf{y}\)</span> and the design matrix <span class="math inline">\(\mathbf{X}\)</span> to compute the values needed for inference.</p>
-<p>Get <span class="math inline">\(\mathbf{y}\)</span> and <span class="math inline">\(\mathbf{X}\)</span> from the football data frame. What are their dimensions?</p>
+<p>Obtain <span class="math inline">\(\mathbf{y}\)</span> and <span class="math inline">\(\mathbf{X}\)</span> from the football data frame. What are their dimensions?</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Use <span class="math inline">\(\mathbf{y}\)</span> and <span class="math inline">\(\mathbf{X}\)</span> compute the estimated coefficients <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span>.</p>
+<p>Use <span class="math inline">\(\mathbf{y}\)</span> and <span class="math inline">\(\mathbf{X}\)</span> to compute the estimated coefficients <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span>.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <ul>
-<li><p>Compute the residuals using the vector / matrix notation. You do not need to print the residuals.</p></li>
+<li><p>Compute the residuals using the matrix/vector notation. You do not need to print the residuals.</p></li>
 <li><p>Use the residuals to compute <span class="math inline">\(\hat{\sigma}^2_{\epsilon}\)</span>.</p></li>
 </ul>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
 <ul>
-<li><p>Compute <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span> . What are its dimensions.</p></li>
-<li><p>Explain how the standard error for <span class="math inline">\(\beta_j\)</span>, the coefficient of <code>enrollment_th</code> is computed from <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>.</p></li>
+<li><p>Compute <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>. What are its dimensions?</p></li>
+<li><p>Explain how the standard error for <span class="math inline">\(\hat{\beta}_j\)</span>, the estimated coefficient of <code>enrollment_th</code>, is computed from <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>.</p></li>
 </ul>
 </section>
 </section>
-<section id="hypothesis-test" class="level1">
-<h1>Hypothesis test</h1>
-<p>We want to conduct a hypothesis test to determine if there is a linear relationship between enrollment and football expenditures after accounting for institution type.</p>
-<p>We’ll start by getting estimates for statistics we’ll need for inference.</p>
-<section id="exercise-3-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-1">Exercise 3</h2>
-<p>Now we’re ready to conduct the hypothesis test between enrollment and football expenditures. State the null and alternative hypotheses in words and using mathematical notation.</p>
-</section>
-<section id="exercise-4-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-1">Exercise 4</h2>
-<p>Calculate <span class="math inline">\(SE(\hat{\beta}_j)\)</span>, then use this value to calculate the test statistic for the hypothesis test.</p>
-</section>
+<section id="part-2-hypothesis-test" class="level1">
+<h1>Part 2: Hypothesis test</h1>
+<p>We want to conduct a hypothesis test to determine if there is a linear relationship between enrollment and football expenditures, after accounting for institution type.</p>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Now we need to calculate p-value to help make our final conclusion.</p>
-<ul>
-<li><p>State the distribution used to calculate the p-value.</p></li>
-<li><p>Fill in the code below to calculate the p-value. Remove <code>#| eval: false</code> once you’ve filled in the code.</p></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pt</span>([test<span class="sc">-</span>statistic], [df], <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>State the null and alternative hypotheses in words and using mathematical notation.</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>State your conclusion in the context of the data. Use a threshold of <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p>Compute the test statistic for this hypothesis test.</p>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Now we will compute a p-value to help make our final conclusion.</p>
+<ul>
+<li><p>State the distribution used to calculate the p-value. Be specific.</p></li>
+<li><p>Fill in the code below to calculate the p-value. Remove <code>#| eval: false</code> once you’ve filled in the code.</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pt</span>(test<span class="sc">-</span>statistic, df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>State the conclusion in the context of the data. Use a threshold of <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+</section>
+</section>
+<section id="wrapping-up" class="level1">
+<h1>Wrapping up</h1>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Submission
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To submit the AE:</p>
-<p>Render the document to produce the PDF with all of your work from today’s class.</p>
-<p>Push all your work to your AE repo on GitHub. You’re done! 🎉</p>
+<p>Once you’ve completed the AE:</p>
+<ul>
+<li>Render the document to produce the PDF with all of your work from today’s class.</li>
+<li>Push all your work to your AE repo on GitHub. You’re done! 🎉</li>
+</ul>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -47,20 +47,19 @@ knitr::opts_chunk$set(
 options(scipen=999)
 ```
 
-## Announcements - UPDATE
+## Announcements 
 
--   HW 02 due Thursday, February 12 at 11:59pm
+-   HW 02 due **Thursday, February 12** at 11:59pm
 
     -   Released after class
 
--   Lecture recordings available until start of exam, February 18 at 10:05am
+-   Lecture recordings available until start of exam, February 17 at 10:05am
 
     -   See link under "Exam 01" on menu of course website
 
 ## Topics
 
 -   Derive distribution of $\hat{\boldsymbol{\beta}}_j$
--   Introduce hypothesis test for $\beta_j$ (time permitting)
 
 ## Computing setup
 
@@ -84,7 +83,7 @@ ggplot2::theme_set(ggplot2::theme_bw())
 
 Today's data come from [Equity in Athletics Data Analysis](https://ope.ed.gov/athletics/#/datafile/list) and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a [March 2022 Tidy Tuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-29/readme.md).
 
-We will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :
+We will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The following variables are used in this analysis:
 
 -   `total_exp_m`: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)
 
@@ -141,7 +140,7 @@ p5 <- ggplot(data = football, aes(x = type, y = total_exp_m, fill = type)) +
 p4 + p5
 ```
 
-## Regression model
+## Regression model {.midi}
 
 ```{r}
 #| echo: true
@@ -204,7 +203,7 @@ $$
 \mathbf{y}|\mathbf{X} \sim N(\mathbf{X}\boldsymbol{\beta}, \sigma_\epsilon^2\mathbf{I})
 $$
 
-![Image source: *Introduction to the Practice of Statistics (5th ed)*](images/08/regression.png){fig-align="center" width="80%"}
+![Image source: *Introduction to the Practice of Statistics (5th ed)*](images/08/regression.png){fig-align="center" width="60%"}
 
 Last time we showed $E(\mathbf{y}|\mathbf{X}) = \mathbf{X}\boldsymbol{\beta}$ and $Var(\mathbf{y}|\mathbf{X}) = \sigma^2_{\epsilon}\mathbf{I}$
 
@@ -242,16 +241,14 @@ $$
 :::::
 
 ::: callout-note
-We will assume these assumptions hold for now and show how to check them after Exam 01.
+We will assume these hold for now and show how to check the assumptions after Exam 01.
 :::
 
 ## Estimating $\sigma^2_{\epsilon}$ {.midi}
 
--   We have shown how to estimate $\boldsymbol{\beta}$
-
 -   Once we fit the model, we can use the residuals to estimate $\sigma_{\epsilon}^2$
 
--   The estimated value $\hat{\sigma}^2_{\epsilon}$ is needed for hypothesis testing and constructing confidence intervals for regression
+-   The estimated value $\hat{\sigma}^2_{\epsilon}$ is needed for inference on the coefficients
 
 $$
 \hat{\sigma}^2_\epsilon = \frac{SSR}{n - p - 1} = \frac{\mathbf{e}^\mathsf{T}\mathbf{e}}{n-p-1} 
@@ -335,14 +332,19 @@ Let $\mathbf{C} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}$. Then, for each coeffi
 **Part 1**
 :::
 
-## What questions do you have?
+## Questions
 
-\[Add form\]
+```{=html}
+<center>
+<iframe width="640px" height="480px" src="https://forms.office.com/r/h4BdM85Bjf?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+</center>
+```
+
+🔗 <https://forms.office.com/r/h4BdM85Bjf>
 
 ## Recap
 
 -   Derived the distribution of the coefficients $\hat{\boldsymbol{\beta}}$
--   Introduced hypothesis test for $\beta_j$ (time permitting)
 
 ## Next class
 
