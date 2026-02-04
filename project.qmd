@@ -24,8 +24,6 @@ library(broom)
 
 [Reproducibility + organization](#reproducibility-organization) due Tuesday, April 21
 
-<br>
-
 ## Introduction
 
 The goal of the final project is for you to use regression to analyze data and explore a research question of your choice. The data may be from an existing data set or you may collect your own data from the internet.
