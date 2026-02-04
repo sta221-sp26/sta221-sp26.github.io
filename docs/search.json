@@ -144,7 +144,7 @@
     "href": "project.html",
     "title": "Final project",
     "section": "",
-    "text": "Research topics due Tuesday February 10\nProject proposal due Tuesday, February 24\nExploratory data analysis due Thursday, March 19\nPresentation + Presentation comments Friday, March 27 (in lab)\nAnalysis draft + peer review Friday, April 10 (peer review in lab)\nWritten report due Tuesday, April 21\nReproducibility + organization due Tuesday, April 21\n\nMore details posted when the project is assigned.",
+    "text": "Research topics due Tuesday February 10\nProject proposal due Tuesday, February 24\nExploratory data analysis due Thursday, March 19\nPresentation + Presentation comments Friday, March 27 (in lab)\nAnalysis draft + peer review Friday, April 10 (peer review in lab)\nWritten report due Tuesday, April 21\nReproducibility + organization due Tuesday, April 21",
     "crumbs": [
       "Project",
       "Instructions"
@@ -155,7 +155,139 @@
     "href": "project.html#project-milestones",
     "title": "Final project",
     "section": "",
-    "text": "Research topics due Tuesday February 10\nProject proposal due Tuesday, February 24\nExploratory data analysis due Thursday, March 19\nPresentation + Presentation comments Friday, March 27 (in lab)\nAnalysis draft + peer review Friday, April 10 (peer review in lab)\nWritten report due Tuesday, April 21\nReproducibility + organization due Tuesday, April 21\n\nMore details posted when the project is assigned.",
+    "text": "Research topics due Tuesday February 10\nProject proposal due Tuesday, February 24\nExploratory data analysis due Thursday, March 19\nPresentation + Presentation comments Friday, March 27 (in lab)\nAnalysis draft + peer review Friday, April 10 (peer review in lab)\nWritten report due Tuesday, April 21\nReproducibility + organization due Tuesday, April 21",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#introduction",
+    "href": "project.html#introduction",
+    "title": "Final project",
+    "section": "Introduction",
+    "text": "Introduction\nThe goal of the final project is for you to use regression to analyze data and explore a research question of your choice. The data may be from an existing data set or you may collect your own data from the internet.\nChoose the data based on your group’s interests or work you all have done in other courses or research projects. The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like!) and apply them to a data set to analyze it in a meaningful way.\n\n\n\n\n\n\nImportant\n\n\n\nAll analyses must be done in RStudio using Quarto and GitHub, and your analysis and written report must be reproducible.\n\n\n\nLogistics\nYou will complete the project as a lab team. The primary deliverables for the project are the following:\n\nAn in-person presentation about the exploratory data analysis and initial modeling\nA written, reproducible final report detailing your analysis\nA summary of your project highlights to share with the class\nA GitHub repository containing all work from the project\n\nThere are intermediate milestones and peer review assignments throughout the semester to help you work towards the primary deliverables. These milestones are described below.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#research-topics",
+    "href": "project.html#research-topics",
+    "title": "Final project",
+    "section": "Research topics",
+    "text": "Research topics\n\n\n\n\n\n\nImportantSubmission\n\n\n\nWrite your responses in research-topics.qmd in your team’s project GitHub repo. Push both the .qmd and rendered .pdf to GitHub by the deadline, Tuesday, February 10 at 11:59pm. There is no Gradescope submission.\n\n\nThe goal of this milestone is to discuss topics and develop potential research questions your team is interested in exploring for the project. You are only developing ideas at this point; you do not need to have a data set identified right now.\nDevelop three potential research topics. Include the following for each of the three topics:\n\nA brief description of the topic\nA statement about your motivation for investigating this topic\nThe potential audience(s), i.e., who might be most interested in this research? For example: policymakers, researchers, industry professionals, the general public, etc.\nTwo or three potential research questions you could analyze about this topic. (Note: These are draft questions at this point. These questions may change in the next step of the project as you learn more about the data.)\nIdeas about the type of data you might use to answer this question or potential data sets you’re interested in using. (Note: The goal is to generate ideas at this point, so it is fine if you have not identified any particular data set at this point.)\n\nAI Disclosure: Provide a brief description of how your team used AI (if at all) to complete the research topics milestone. If you used AI, include the name and version of the AI tool(s) used. If you did not use AI, you can state “We did not use AI to complete this milestone.” Note: AI use will not negatively affect your grade, provided it is accurately disclosed and in alignment with the course’s academic honesty policy.\n\nGrading (5pts)\nThe anticipated length is 1 - 3 pages.\nThe research topics milestone is worth 5 points and will be graded based on accurately and comprehensively addressing the criteria stated above.\n\nExcellent (5 pts): All required elements are completed. This includes meeting the stated criteria for three distinct research topics and the AI disclosure.\nStrong (3 - 4 pts): Requirements are mostly met, but there are some elements that are incomplete or inaccurate.\nSatisfactory (2 pts): Requirements partially met, but there are some elements that are incomplete and/or inaccurate.\nNeeds Improvement (1 pts): Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate.\nNo submission (0 pts): No work submitted by the deadline.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#project-proposal",
+    "href": "project.html#project-proposal",
+    "title": "Final project",
+    "section": "Project proposal",
+    "text": "Project proposal\nThe purpose of the project proposal is for your team to identify the data set you’re interested in analyzing to investigate one of your potential research topics. You will also do some preliminary exploration of the response variable and begin thinking about the modeling strategy. If you’re unsure where to find data, you can use the list of potential data sources on the Tips + resources page as a starting point.\n\n\n\n\n\n\nImportant\n\n\n\nYou must use the data set(s) in the proposal for the final project, unless instructed otherwise when given feedback.\n\n\nThe data set must meet the following criteria:\n\nAt least 500 observations\nAt least 10 columns, such that at least 6 of the columns are useful and unique predictor variables.\n\ne.g., identifier variables such as “name”, “ID number”, etc. are not useful predictor variables.\ne.g., if you have multiple columns with the same information (e.g. “state abbreviation” and “state name”), then they are not unique predictors.\n\nAt least one variable that can be identified as a reasonable response variable.\n\nThe response variable can be quantitative or categorical.\n\nA mix of quantitative and categorical variables that can be used as predictors.\nMay not be data that has previously been used in any course materials, or any derivation of data that has been used in course materials.\n\n\n\n\n\n\n\nWarningTypes of data sets to avoid\n\n\n\n\nData that are likely violate the independence condition. Therefore, avoid data with repeated measures, data collected over time, etc.\nData sets in which there is no information about how the data were originally collected\nData sets in which there are missing or unclear definitions about the observations and/or variables\n\n\n\nAsk a member of the teaching team if you’re unsure whether your data set meets the criteria.\nThe proposal will include the following sections:\n\nSection 1: Introduction\n\n\n\n\n\n\nTip\n\n\n\nReuse and iterate on the work from the Research Topics milestone.\n\n\n\nAn introduction to the subject matter you’re investigating (citing any relevant literature)\nStatement of a well-developed research question.\nThe motivation for your research question and why it is important\nYour team’s hypotheses regarding the research question\n\nThis is a narrative about what you think regarding the research question, not formal statistical hypotheses.\n\n\n\n\nSection 2: Data description\n\nThe source of the data set\nA description of when and how the data were originally collected (by the original data curator, not necessarily how you found the data)\nA description of the observations and general characteristics being measured\n\n\n\nSection 3: Data processing\n\nDescription of data processing you need to do to prepare for analysis, such as joining multiple data sets, handling missing data, etc.\nVisualizations, summary statistics, and narrative to describe the distribution of the response variable.\n\n\n\nSection 4: Analysis approach\n\na description of the potential predictor variables of interest\nregression model technique (multiple linear regression for quantitative response variable or logistic regression for a categorical response variable)\n\n\n\nData dictionary (aka code book)\nSubmit a data dictionary for all the variables in your data set in the README of the data folder. You do not need to include the data dictionary in the PDF document.\n\n\nSubmission\nWrite your narrative and analysis for Sections 1 - 4 in the proposal.qmd file in your team’s GitHub repo. Put the data set and the data dictionary in the data folder in the repo. Push the qmd and rendered pdf documents to GitHub by the deadline, Tuesday, February 25 at 11:59pm.\n\n\nGrading\nThe anticipated length, including all graphs, tables, narrative, etc., is 2 -4 pages.\nThe proposal is worth 5 points and will be graded based on accurately and comprehensively addressing the criteria stated above. Points will be assigned based on a holistic review of the project proposal.\n\nExcellent (5 points) : All required elements are completed and are accurate. The data set meets the requirements (or the team has otherwise discussed the data with Professor Tackett) and the data do not pose obvious violations to the modeling assumptions. There is a thoughtful and comprehensive description of the data, any data processing, and exploration of the response variable as described above. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.\nStrong (3 - 4 points): Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Some minor revision of the work required before team is ready for modeling.\nSatisfactory (2 points): Requirements partially met, but there are some elements that are incomplete and/or inaccurate. Major revision of the work required before team is ready for modeling.\nNeeds Improvement (1 point): Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#exploratory-data-analysis",
+    "href": "project.html#exploratory-data-analysis",
+    "title": "Final project",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n[To be posted.]",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#presentation",
+    "href": "project.html#presentation",
+    "title": "Final project",
+    "section": "Presentation",
+    "text": "Presentation\n[To be posted.]",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#presentation-comments",
+    "href": "project.html#presentation-comments",
+    "title": "Final project",
+    "section": "Presentation comments",
+    "text": "Presentation comments\n[To be posted.]",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#draft-report",
+    "href": "project.html#draft-report",
+    "title": "Final project",
+    "section": "Draft report",
+    "text": "Draft report\n[To be posted.]",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#peer-review",
+    "href": "project.html#peer-review",
+    "title": "Final project",
+    "section": "Peer review",
+    "text": "Peer review\n[To be posted.]",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#written-report",
+    "href": "project.html#written-report",
+    "title": "Final project",
+    "section": "Written report",
+    "text": "Written report\n[To be posted.]",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#reproducibility-organization",
+    "href": "project.html#reproducibility-organization",
+    "title": "Final project",
+    "section": "Reproducibility + organization",
+    "text": "Reproducibility + organization\nAll written work (with exception of presentation slides) should be reproducible, and the GitHub repo should be neatly organized.\nThe GitHub repo should have the following structure:\n\nREADME: Project title and team name\n\nOptional: Short project summary\n\nwritten-report.qmd & written-report.pdf: Final written report\nproposal.qmd & proposal.pdf: Project proposal\nresearch-topics.qmd & research-topics.pdf: Proposed research questions\n/data: Folder that contains the data set for the final project.\n\n/data/README.md: Data dictionary and source for data set\n\nproject.Rproj: File specifying the RStudio project\n/presentation: Folder with the presentation slides or link to slides.\n.gitignore: File that lists all files that are in the local RStudio project but not the GitHub repo\n/.github: Folder for peer review issue template\nAny other files should be neatly organized into clearly labeled folders.\n\nUpdate the README of the project repo with your project title and team members’ names.\nPoints for reproducibility + organization will be based on the reproducibility of the written report and the organization of the project GitHub repo. The repo should be neatly organized as described above, there should be no extraneous files, all text in the README should be easily readable.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#overall-grading",
+    "href": "project.html#overall-grading",
+    "title": "Final project",
+    "section": "Overall grading",
+    "text": "Overall grading\nThe grade breakdown is as follows:\n\n\n\nTotal\n100 pts\n\n\n\n\nResearch topics\n5 pts\n\n\nProject proposal\n10 pts\n\n\nExploratory data analysis\n15 pts\n\n\nPresentation\n10 pts\n\n\nPresentation comments\n2 pts\n\n\nDraft report + peer review\n15 pts\n\n\nWritten report\n40 pts\n\n\nReproducibility + organization\n3 pts\n\n\n\n\nGrading summary\nGrading of the project will take into account the following:\n\nContent - What is the quality of research and/or policy question and relevancy of data to those questions?\nCorrectness - Are statistical procedures carried out and explained correctly?\nWriting and Presentation - What is the quality of the statistical presentation, writing, and explanations?\nCreativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?\nA general breakdown of scoring is as follows:\n\n90%-100%: Outstanding effort. Team understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.\n80%-89%: Good effort. Team understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.\n70%-79%: Passing effort. Team has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.\n60%-69%: Struggling effort. Team is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.\nBelow 60%*: Team is not making a sufficient effort.",
+    "crumbs": [
+      "Project",
+      "Instructions"
+    ]
+  },
+  {
+    "objectID": "project.html#late-work-policy",
+    "href": "project.html#late-work-policy",
+    "title": "Final project",
+    "section": "Late work policy",
+    "text": "Late work policy\nThere is no late work accepted on the draft report or presentation. Other components of the project may be accepted up to 48 hours late. A 10% late deduction will apply for each 24-hour period late.\nBe sure to turn in your work early to avoid any technological mishaps.",
     "crumbs": [
       "Project",
       "Instructions"

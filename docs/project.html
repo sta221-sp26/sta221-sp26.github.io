@@ -328,6 +328,36 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#project-milestones" id="toc-project-milestones" class="nav-link active" data-scroll-target="#project-milestones">Project milestones</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
+  </ul></li>
+  <li><a href="#research-topics" id="toc-research-topics" class="nav-link" data-scroll-target="#research-topics">Research topics</a>
+  <ul class="collapse">
+  <li><a href="#grading-5pts" id="toc-grading-5pts" class="nav-link" data-scroll-target="#grading-5pts">Grading (5pts)</a></li>
+  </ul></li>
+  <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Project proposal</a>
+  <ul class="collapse">
+  <li><a href="#section-1-introduction" id="toc-section-1-introduction" class="nav-link" data-scroll-target="#section-1-introduction">Section 1: Introduction</a></li>
+  <li><a href="#section-2-data-description" id="toc-section-2-data-description" class="nav-link" data-scroll-target="#section-2-data-description">Section 2: Data description</a></li>
+  <li><a href="#section-3-data-processing" id="toc-section-3-data-processing" class="nav-link" data-scroll-target="#section-3-data-processing">Section 3: Data processing</a></li>
+  <li><a href="#section-4-analysis-approach" id="toc-section-4-analysis-approach" class="nav-link" data-scroll-target="#section-4-analysis-approach">Section 4: Analysis approach</a></li>
+  <li><a href="#data-dictionary-aka-code-book" id="toc-data-dictionary-aka-code-book" class="nav-link" data-scroll-target="#data-dictionary-aka-code-book">Data dictionary (aka code book)</a></li>
+  <li><a href="#submission-1" id="toc-submission-1" class="nav-link" data-scroll-target="#submission-1">Submission</a></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  </ul></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory data analysis</a></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation">Presentation</a></li>
+  <li><a href="#presentation-comments" id="toc-presentation-comments" class="nav-link" data-scroll-target="#presentation-comments">Presentation comments</a></li>
+  <li><a href="#draft-report" id="toc-draft-report" class="nav-link" data-scroll-target="#draft-report">Draft report</a></li>
+  <li><a href="#peer-review" id="toc-peer-review" class="nav-link" data-scroll-target="#peer-review">Peer review</a></li>
+  <li><a href="#written-report" id="toc-written-report" class="nav-link" data-scroll-target="#written-report">Written report</a></li>
+  <li><a href="#reproducibility-organization" id="toc-reproducibility-organization" class="nav-link" data-scroll-target="#reproducibility-organization">Reproducibility + organization</a></li>
+  <li><a href="#overall-grading" id="toc-overall-grading" class="nav-link" data-scroll-target="#overall-grading">Overall grading</a>
+  <ul class="collapse">
+  <li><a href="#grading-summary" id="toc-grading-summary" class="nav-link" data-scroll-target="#grading-summary">Grading summary</a></li>
+  </ul></li>
+  <li><a href="#late-work-policy" id="toc-late-work-policy" class="nav-link" data-scroll-target="#late-work-policy">Late work policy</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -363,7 +393,308 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="#written-report">Written report</a> due Tuesday, April 21</p>
 <p><a href="#reproducibility-organization">Reproducibility + organization</a> due Tuesday, April 21</p>
 <p><br></p>
-<p><strong>More details posted when the project is assigned.</strong></p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The goal of the final project is for you to use regression to analyze data and explore a research question of your choice. The data may be from an existing data set or you may collect your own data from the internet.</p>
+<p>Choose the data based on your group’s interests or work you all have done in other courses or research projects. The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like!) and apply them to a data set to analyze it in a meaningful way.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>All analyses must be done in RStudio using Quarto and GitHub, and your analysis and written report must be reproducible.</strong></p>
+</div>
+</div>
+<section id="logistics" class="level3">
+<h3 class="anchored" data-anchor-id="logistics">Logistics</h3>
+<p>You will complete the project as a lab team. The primary deliverables for the project are the following:</p>
+<ol type="1">
+<li><p>An in-person presentation about the exploratory data analysis and initial modeling</p></li>
+<li><p>A written, reproducible final report detailing your analysis</p></li>
+<li><p>A summary of your project highlights to share with the class</p></li>
+<li><p>A GitHub repository containing all work from the project</p></li>
+</ol>
+<p>There are intermediate milestones and peer review assignments throughout the semester to help you work towards the primary deliverables. These milestones are described below.</p>
+</section>
+</section>
+<section id="research-topics" class="level2">
+<h2 class="anchored" data-anchor-id="research-topics">Research topics</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Submission
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write your responses in <code>research-topics.qmd</code> in your team’s project GitHub repo. Push both the <code>.qmd</code> and rendered <code>.pdf</code> to GitHub by the deadline, <strong>Tuesday, February 10 at 11:59pm</strong>. There is no Gradescope submission.</p>
+</div>
+</div>
+<p>The goal of this milestone is to discuss topics and develop potential research questions your team is interested in exploring for the project. You are only developing ideas at this point; you do not need to have a data set identified right now.</p>
+<p>Develop three potential research topics. Include the following for <u><b></b>each</u> of the three topics:</p>
+<ol type="1">
+<li>A brief description of the topic</li>
+<li>A statement about your motivation for investigating this topic</li>
+<li>The potential audience(s), i.e., who might be most interested in this research? For example: policymakers, researchers, industry professionals, the general public, etc.</li>
+<li>Two or three potential research questions you could analyze about this topic. <em>(Note: These are draft questions at this point. These questions may change in the next step of the project as you learn more about the data.)</em></li>
+<li>Ideas about the type of data you might use to answer this question or potential data sets you’re interested in using. (<em>Note: The goal is to generate ideas at this point, so it is fine if you have not identified any particular data set at this point.)</em></li>
+</ol>
+<p><strong>AI Disclosure:</strong> Provide a brief description of how your team used AI (if at all) to complete the research topics milestone. If you used AI, include the name and version of the AI tool(s) used. If you did not use AI, you can state “We did not use AI to complete this milestone.” <em>Note: AI use will not negatively affect your grade, provided it is accurately disclosed and in alignment with the course’s academic honesty policy.</em></p>
+<section id="grading-5pts" class="level3">
+<h3 class="anchored" data-anchor-id="grading-5pts">Grading (5pts)</h3>
+<p>The anticipated length is 1 - 3 pages.</p>
+<p>The research topics milestone is worth 5 points and will be graded based on accurately and comprehensively addressing the criteria stated above.</p>
+<ul>
+<li><p><strong>Excellent (5 pts):</strong> All required elements are completed. This includes meeting the stated criteria for three distinct research topics and the AI disclosure.</p></li>
+<li><p><strong>Strong (3 - 4 pts):</strong> Requirements are mostly met, but there are some elements that are incomplete or inaccurate.</p></li>
+<li><p><strong>Satisfactory (2 pts):</strong> Requirements partially met, but there are some elements that are incomplete and/or inaccurate.</p></li>
+<li><p><strong>Needs Improvement (1 pts):</strong> Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate.</p></li>
+<li><p><strong>No submission (0 pts)</strong>: No work submitted by the deadline.</p></li>
+</ul>
+</section>
+</section>
+<section id="project-proposal" class="level2">
+<h2 class="anchored" data-anchor-id="project-proposal">Project proposal</h2>
+<p>The purpose of the project proposal is for your team to identify the data set you’re interested in analyzing to investigate one of your potential research topics. You will also do some preliminary exploration of the response variable and begin thinking about the modeling strategy. If you’re unsure where to find data, you can use the list of potential data sources on the <a href="https://sta221-sp25.netlify.app/project-tips">Tips + resources</a> page as a starting point.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You must use the data set(s) in the proposal for the final project, unless instructed otherwise when given feedback.</p>
+</div>
+</div>
+<p>The data set must meet the following criteria:</p>
+<ul>
+<li><p>At least 500 observations</p></li>
+<li><p>At least 10 columns, such that at least 6 of the columns are useful and unique predictor variables.</p>
+<ul>
+<li><p>e.g., identifier variables such as “name”, “ID number”, etc. are <u>not</u> useful predictor variables.</p></li>
+<li><p>e.g., if you have multiple columns with the same information (e.g.&nbsp;“state abbreviation” and “state name”), then they are not unique predictors.</p></li>
+</ul></li>
+<li><p>At least one variable that can be identified as a reasonable response variable.</p>
+<ul>
+<li>The response variable can be quantitative or categorical.</li>
+</ul></li>
+<li><p>A mix of quantitative and categorical variables that can be used as predictors.</p></li>
+<li><p>May not be data that has previously been used in any course materials, or any derivation of data that has been used in course materials.</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Types of data sets to avoid
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Data that are likely violate the independence condition. Therefore, avoid data with repeated measures, data collected over time, etc.</p></li>
+<li><p>Data sets in which there is no information about how the data were originally collected</p></li>
+<li><p>Data sets in which there are missing or unclear definitions about the observations and/or variables</p></li>
+</ul>
+</div>
+</div>
+<p><strong>Ask a member of the teaching team if you’re unsure whether your data set meets the criteria.</strong></p>
+<p>The proposal will include the following sections:</p>
+<section id="section-1-introduction" class="level3">
+<h3 class="anchored" data-anchor-id="section-1-introduction">Section 1: Introduction</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Reuse and iterate on the work from the Research Topics milestone.</p>
+</div>
+</div>
+<ul>
+<li><p>An introduction to the subject matter you’re investigating (citing any relevant literature)</p></li>
+<li><p>Statement of a well-developed research question.</p></li>
+<li><p>The motivation for your research question and why it is important</p></li>
+<li><p>Your team’s hypotheses regarding the research question</p>
+<ul>
+<li>This is a narrative about what you think regarding the research question, not formal statistical hypotheses.</li>
+</ul></li>
+</ul>
+</section>
+<section id="section-2-data-description" class="level3">
+<h3 class="anchored" data-anchor-id="section-2-data-description">Section 2: Data description</h3>
+<ul>
+<li><p>The source of the data set</p></li>
+<li><p>A description of when and how the data were originally collected (by the original data curator, not necessarily how you found the data)</p></li>
+<li><p>A description of the observations and general characteristics being measured</p></li>
+</ul>
+</section>
+<section id="section-3-data-processing" class="level3">
+<h3 class="anchored" data-anchor-id="section-3-data-processing">Section 3: Data processing</h3>
+<ul>
+<li><p>Description of data processing you need to do to prepare for analysis, such as joining multiple data sets, handling missing data, etc.</p></li>
+<li><p>Visualizations, summary statistics, and narrative to describe the distribution of the <u><strong>response</strong></u> variable.</p></li>
+</ul>
+</section>
+<section id="section-4-analysis-approach" class="level3">
+<h3 class="anchored" data-anchor-id="section-4-analysis-approach">Section 4: Analysis approach</h3>
+<ul>
+<li><p>a description of the potential predictor variables of interest</p></li>
+<li><p>regression model technique (multiple linear regression for quantitative response variable or logistic regression for a categorical response variable)</p></li>
+</ul>
+</section>
+<section id="data-dictionary-aka-code-book" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary-aka-code-book">Data dictionary (aka code book)</h3>
+<p>Submit a data dictionary for all the variables in your data set in the <code>README</code> of the <code>data</code> folder. You do <u>not</u> need to include the data dictionary in the PDF document.</p>
+</section>
+<section id="submission-1" class="level3">
+<h3 class="anchored" data-anchor-id="submission-1">Submission</h3>
+<p>Write your narrative and analysis for Sections 1 - 4 in the <code>proposal.qmd</code> file in your team’s GitHub repo. Put the data set and the data dictionary in the <code>data</code> folder in the repo. Push the qmd and rendered pdf documents to GitHub by the deadline, <strong>Tuesday, February 25 at 11:59pm.</strong></p>
+</section>
+<section id="grading" class="level3">
+<h3 class="anchored" data-anchor-id="grading">Grading</h3>
+<p>The anticipated length, including all graphs, tables, narrative, etc., is 2 -4 pages.</p>
+<p>The proposal is worth 5 points and will be graded based on accurately and comprehensively addressing the criteria stated above. Points will be assigned based on a holistic review of the project proposal.</p>
+<ul>
+<li><p><strong>Excellent (5 points) :</strong> All required elements are completed and are accurate. The data set meets the requirements (or the team has otherwise discussed the data with Professor Tackett) and the data do not pose obvious violations to the modeling assumptions. There is a thoughtful and comprehensive description of the data, any data processing, and exploration of the response variable as described above. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.</p></li>
+<li><p><strong>Strong (3 - 4 points)</strong>: Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Some minor revision of the work required before team is ready for modeling.</p></li>
+<li><p><strong>Satisfactory (2 points):</strong> Requirements partially met, but there are some elements that are incomplete and/or inaccurate. Major revision of the work required before team is ready for modeling.</p></li>
+<li><p><strong>Needs Improvement (1 point):</strong> Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.</p></li>
+</ul>
+</section>
+</section>
+<section id="exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
+<p>[To be posted.]</p>
+</section>
+<section id="presentation" class="level2">
+<h2 class="anchored" data-anchor-id="presentation">Presentation</h2>
+<p>[To be posted.]</p>
+</section>
+<section id="presentation-comments" class="level2">
+<h2 class="anchored" data-anchor-id="presentation-comments">Presentation comments</h2>
+<p>[To be posted.]</p>
+</section>
+<section id="draft-report" class="level2">
+<h2 class="anchored" data-anchor-id="draft-report">Draft report</h2>
+<p>[To be posted.]</p>
+</section>
+<section id="peer-review" class="level2">
+<h2 class="anchored" data-anchor-id="peer-review">Peer review</h2>
+<p>[To be posted.]</p>
+</section>
+<section id="written-report" class="level2">
+<h2 class="anchored" data-anchor-id="written-report">Written report</h2>
+<p>[To be posted.]</p>
+</section>
+<section id="reproducibility-organization" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-organization">Reproducibility + organization</h2>
+<p>All written work (with exception of presentation slides) should be reproducible, and the GitHub repo should be neatly organized.</p>
+<p>The GitHub repo should have the following structure:</p>
+<ul>
+<li><p><code>README</code>: Project title and team name</p>
+<ul>
+<li>Optional: Short project summary</li>
+</ul></li>
+<li><p><code>written-report.qmd</code> &amp; <code>written-report.pdf</code>: Final written report</p></li>
+<li><p><code>proposal.qmd</code> &amp; <code>proposal.pdf</code>: Project proposal</p></li>
+<li><p><code>research-topics.qmd</code> &amp; <code>research-topics.pdf</code>: Proposed research questions</p></li>
+<li><p><code>/data</code>: Folder that contains the data set for the final project.</p>
+<ul>
+<li><code>/data/README.md</code>: Data dictionary and source for data set</li>
+</ul></li>
+<li><p><code>project.Rproj</code>: File specifying the RStudio project</p></li>
+<li><p><code>/presentation</code>: Folder with the presentation slides or link to slides.</p></li>
+<li><p><code>.gitignore</code>: File that lists all files that are in the local RStudio project but not the GitHub repo</p></li>
+<li><p><code>/.github</code>: Folder for peer review issue template</p></li>
+<li><p>Any other files should be neatly organized into clearly labeled folders.</p></li>
+</ul>
+<p>Update the README of the project repo with your project title and team members’ names.</p>
+<p>Points for reproducibility + organization will be based on the reproducibility of the written report and the organization of the project GitHub repo. The repo should be neatly organized as described above, there should be no extraneous files, all text in the <code>README</code> should be easily readable.</p>
+</section>
+<section id="overall-grading" class="level2">
+<h2 class="anchored" data-anchor-id="overall-grading">Overall grading</h2>
+<p>The grade breakdown is as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Total</th>
+<th>100 pts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Research topics</td>
+<td>5 pts</td>
+</tr>
+<tr class="even">
+<td>Project proposal</td>
+<td>10 pts</td>
+</tr>
+<tr class="odd">
+<td>Exploratory data analysis</td>
+<td>15 pts</td>
+</tr>
+<tr class="even">
+<td>Presentation</td>
+<td>10 pts</td>
+</tr>
+<tr class="odd">
+<td>Presentation comments</td>
+<td>2 pts</td>
+</tr>
+<tr class="even">
+<td>Draft report + peer review</td>
+<td>15 pts</td>
+</tr>
+<tr class="odd">
+<td>Written report</td>
+<td>40 pts</td>
+</tr>
+<tr class="even">
+<td>Reproducibility + organization</td>
+<td>3 pts</td>
+</tr>
+</tbody>
+</table>
+<section id="grading-summary" class="level3">
+<h3 class="anchored" data-anchor-id="grading-summary">Grading summary</h3>
+<p>Grading of the project will take into account the following:</p>
+<ul>
+<li><p>Content - What is the quality of research and/or policy question and relevancy of data to those questions?</p></li>
+<li><p>Correctness - Are statistical procedures carried out and explained correctly?</p></li>
+<li><p>Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?</p></li>
+<li><p>Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?</p></li>
+<li><p>A general breakdown of scoring is as follows:</p>
+<ul>
+<li><p>90%-100%: Outstanding effort. Team understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.</p></li>
+<li><p>80%-89%: Good effort. Team understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.</p></li>
+<li><p>70%-79%: Passing effort. Team has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.</p></li>
+<li><p>60%-69%: Struggling effort. Team is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.</p></li>
+<li><p>Below 60%*: Team is not making a sufficient effort.</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="late-work-policy" class="level2">
+<h2 class="anchored" data-anchor-id="late-work-policy">Late work policy</h2>
+<p>There is no late work accepted on the draft report or presentation. Other components of the project may be accepted up to 48 hours late. A 10% late deduction will apply for each 24-hour period late.</p>
+<p><strong>Be sure to turn in your work early to avoid any technological mishaps.</strong></p>
 
 
 </section>
