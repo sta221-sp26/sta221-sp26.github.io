@@ -29,7 +29,7 @@ In this assignment, you will…
 
 # Getting started
 
--   Go to the [sta221-sp26](https://www.github.com/sta221-sp26) organization on GitHub. Click on the repo with the prefix **hw-01**. It contains the starter documents you need to complete the lab.
+-   Go to the [sta221-sp26](https://www.github.com/sta221-sp26) organization on GitHub. Click on the repo with the prefix **hw-01**. It contains the starter documents you need to complete the assignment.
 
 -   Clone the repo and start a new project in RStudio. See the [Lab 00 instructions](../labs/lab-00.html) for details on cloning a repo and starting a new project in R.
 
@@ -175,7 +175,7 @@ b\. A lemur named Strawberry (`dlc_id = 6582`) weighed 475.0 grams when she was 
 
 Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste [**all**]{.underline} statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps me learn how students are most effectively using AI.
 
--   I didn't an LLM / Generative AI tool.
+-   I didn't use an LLM / Generative AI tool.
 -   I asked it to clarify one or more exercises.
 -   I asked it clarifying questions to better understand a concept.
 -   I asked it to help write code to complete an exercise.
@@ -209,7 +209,7 @@ To submit your assignment:
 
 -   Click on the assignment, and you’ll be prompted to submit it.
 
--   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).
+-   Mark the pages associated with each exercise. All of the pages of your assignment should be associated with at least one question (i.e., should be “checked”).
 
 -   Select the first page of your .PDF submission to be associated with the *“Workflow & formatting”* section.
 

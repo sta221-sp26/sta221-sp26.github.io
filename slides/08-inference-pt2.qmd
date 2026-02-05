@@ -47,15 +47,11 @@ knitr::opts_chunk$set(
 options(scipen=999)
 ```
 
-## Announcements 
+## Announcements
 
 -   HW 02 due **Thursday, February 12** at 11:59pm
 
     -   Released after class
-
--   Lecture recordings available until start of exam, February 17 at 10:05am
-
-    -   See link under "Exam 01" on menu of course website
 
 ## Topics
 
@@ -149,7 +145,7 @@ tidy(exp_fit) |>
   kable(digits = 3)
 ```
 
--   0.780 is the exact relationship between football expenditure and enrollment for these `nrow(football)` institutions in 2019-2020.
+-   0.780 is the exact relationship between football expenditure and enrollment for these `r nrow(football)` institutions in 2019-2020.
 
 -   What if we want to say something about the relationship between these variables for all colleges and universities with football programs and across different years?
 

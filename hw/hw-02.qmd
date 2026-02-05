@@ -1,5 +1,221 @@
 ---
-title: "HW 02"
+title: "HW 02: Multiple linear regression"
+
+bibliography: references.bib
 ---
 
-To be posted.
+::: callout-important
+## Due date
+
+This assignment is due on **Thursday, February 12 at 11:59pm**. To be considered on time, the following must be done by the due date:
+
+-   Final `.qmd` and `.pdf` files pushed to your GitHub repo
+-   Final `.pdf` file submitted on Gradescope
+:::
+
+# Introduction
+
+In this analysis you will use multiple linear regression to describe the relationship between the Amazon.com price and various features of LEGO<sup>®</sup> sets based on data from brickset.com. You will also use statistical inference to draw conclusions about the relationships.
+
+# **Learning goals**
+
+In this assignment, you will…
+
+-   explore mathematical properties of linear regression models.
+-   use multiple linear regression to model the relationship between three or more variables.
+-   draw conclusions from the model using statistical inference.
+-   fit and interpret models with interaction terms.
+
+# **Getting started**
+
+-   Go to the [sta221-sp26](https://www.github.com/sta221-sp26) organization on GitHub. Click on the repo with the prefix **hw-02**. It contains the starter documents you need to complete the assignment.
+
+-   Clone the repo and start a new project in RStudio. See the [Lab 00 instructions](../labs/lab-00.html) for details on cloning a repo and starting a new project in R.
+
+# Packages
+
+The following packages are used in this assignment:
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+
+# load other packages as needed
+```
+
+# Conceptual exercises
+
+::: callout-important
+## Instructions
+
+The conceptual exercises focus on explaining concepts and deriving results mathematically. Show your work for each question.
+
+**You may write the answers and associated work for conceptual exercises by hand or type them in your Quarto document.**
+:::
+
+## Exercise 1
+
+a.  Show that the following is true for the vector of residuals: $\mathbf{e} = (\mathbf{I} - \mathbf{H})\boldsymbol{\epsilon}$
+
+b.  Use the result from part (a) to derive $E(\mathbf{e})$.
+
+c.  Use the result from part (a) to derive $Var(\mathbf{e})$.
+
+## Exercise 2
+
+Show how $\boldsymbol{\epsilon}$ being normally distributed means that $\hat{\boldsymbol{\beta}}$ is normally distributed.
+
+## Exercise 3
+
+*This exercise is adapted from @montgomery2021introduction*.
+
+Suppose we fit the model $\mathbf{y} = \mathbf{X}_1\boldsymbol{\beta}_1 + \boldsymbol{\epsilon}$ when the true model is actually given by $\mathbf{y} = \mathbf{X}_1\boldsymbol{\beta}_1 + \mathbf{X}_2\boldsymbol{\beta}_2 + \boldsymbol{\epsilon}$. Assume $E(\boldsymbol{\epsilon}) = \mathbf{0}$ for both models.
+
+a.  Find $E(\hat{\boldsymbol{\beta}}_1)$, the expected value of the least-squares estimator $\hat{\boldsymbol{\beta}}_1$.
+
+b.  Under what condition does $E(\hat{\boldsymbol{\beta}}_1) = \boldsymbol{\beta}_1$? What is the relationship between $\mathbf{X}_1$ and $\mathbf{X}_2$ under this condition?
+
+## Exercise 4
+
+Describe, in your own words, the difference between $\boldsymbol{\beta}$ and $\hat{\boldsymbol{\beta}}$, as well as the difference between $\mathbf{y}$ and $\hat{\mathbf{y}}$. In your explanation, specifically identify whether each is *random* or *fixed*, *known* or *unknown* both before and after collecting data.
+
+# Applied exercises
+
+::: callout-important
+## Instructions
+
+The applied exercises focus on using the methods from the course to analyze data and answer questions about real-world phenomena.
+
+**All work for the applied exercises must be typed in your Quarto document. Remember to render, commit, and push your work to GitHub regularly.**
+
+Write all narrative responses using complete sentences. Include informative axis labels and titles on all visualizations.
+:::
+
+## Data: LEGO<sup>®</sup> sets
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+legos <- read_csv("data/lego-sample.csv")
+```
+
+The data set includes information about LEGO<sup>®</sup> sets from themes produced between January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from @peterson2021.
+
+You will work with data on `r nrow(legos)` randomly selected LEGO<sup>®</sup> sets produced during this time period. The primary variables of interest in this analysis are
+
+-   `Pieces`: Number of pieces in the set from brickset.com.
+-   `Minifigures`: Number of minifigures (LEGO<sup>®</sup> people) in the set scraped from brickset.com.
+-   `Amazon_Price`: Price of the set on Amazon.com (in U.S. dollars)
+-   `Size`: General size of the interlocking bricks
+    -   Large = LEGO Duplo<sup>®</sup> sets - which include large brick pieces safe for children ages 1 to 5
+    -   Small = LEGO<sup>®</sup> sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends
+
+The data are contained in `lego-sample.csv`.
+
+```{r}
+#| echo: true
+#| eval: false
+legos <- read_csv("data/lego-sample.csv")
+```
+
+::: callout-note
+## Analysis goal
+
+We want to fit a multiple linear regression model to predict the price of LEGO<sup>®</sup> sets on Amazon.com based on `Pieces`, `Size`, and `Minifigures`.
+:::
+
+## Exercise 5
+
+a.  Instead of using the number of minifigures in the model, we decide to create an indicator variable for whether or not there are any minifigures in the set.
+
+    Create an indicator variable that takes the value "No" if there are zero minifigures in the LEGO<sup>®</sup> set, and "Yes" if there is at least one minifigure.
+
+b.  Fit the main effects model using the number of pieces, size of the blocks, and the indicator for minifigures to predict the price on Amazon. Neatly display the results using three decimal places.
+
+## Exercise 6
+
+We want to understand the relationship between `Pieces` and `Amazon_Price` in the model from the previous exercise.
+
+We are convinced from the model output that there is evidence of a linear relationship between the two variables. Now we want to be more specific and test whether the slope is actually [**different from 0.1**]{.underline} (\$10 increase in the price for every 100 additional pieces).
+
+a.  Write the null and alternative hypotheses for this test using words and mathematical notation.
+b.  Compute the test statistic for this test. Show the code used to compute the test statistic; you may use any relevant output from the model in the previous exercise.
+c.  What is the distribution of the test statistic under the null hypothesis? Specify the distribution specifically for this problem.
+d.  Compute the p-value and state your conclusion in the context of the data using a threshold of $\alpha = 0.05$.
+
+## Exercise 7
+
+a.  We hypothesize that the relationship between the Amazon.com price and number of pieces may differ based on whether or not there are minifigures in the set.
+
+    Make a plot to visualize this potential effect. Does the relationship between Amazon.com price and number of pieces seem to differ based on the inclusion of minifigures? Briefly explain.
+
+b.  Fit a model using the number of pieces, size of the blocks, and presence of minifigures to predict the price on Amazon.com. Fit the model such that the intercept has a meaningful interpretation and that the effect of pieces may differ based on the presence of minifigures.
+
+c.  Interpret the intercept in the context of the data.
+
+## Exercise 8
+
+Which model is a better fit for the data - the model in [Exercise 5] or the model in [Exercise 7]? Briefly explain your choice using relevant statistics to support your response.
+
+# AI disclosure
+
+Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste [**all**]{.underline} statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps me learn how students are most effectively using AI.
+
+-   I didn't use an LLM / Generative AI tool.
+-   I asked it to clarify one or more exercises.
+-   I asked it clarifying questions to better understand a concept.
+-   I asked it to help write code to complete an exercise.
+-   I gave it my code and asked it to help me fix it.
+-   I asked it about an error or why code would do something I didn't want.
+-   I pasted the exercise prompt in AI and asked for help, but I wrote my answer myself.
+-   I pasted the exercise prompt in AI and copied and pasted at least some of the answer into my Quarto document.
+-   Other:\_\_\_\_\_\_
+
+# Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+
+Remember: you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
+
+If you write your responses to conceptual exercises by hand, you will need to combine your written work to the completed PDF for the applied exercises before submitting on Gradescope.
+
+Instructions to combine PDFs:
+
+-   Preview (Mac): [support.apple.com/guide/preview/combine-pdfs-prvw43696/mac](https://support.apple.com/guide/preview/combine-pdfs-prvw43696/mac)
+
+-   Adobe (Mac or PC): [helpx.adobe.com/acrobat/using/merging-files-single-pdf.html](https://helpx.adobe.com/acrobat/using/merging-files-single-pdf.html)
+
+    -   Get free access to Adobe Acrobat as a Duke student: [oit.duke.edu/help/articles/kb0030141/](https://oit.duke.edu/help/articles/kb0030141/)
+:::
+
+To submit your assignment:
+
+-   Access Gradescope through the menu on the [STA 221 Canvas site.](https://canvas.duke.edu/courses/73984)
+
+-   Click on the assignment, and you’ll be prompted to submit it.
+
+-   Mark the pages associated with each exercise. All of the pages of your assignment should be associated with at least one question (i.e., should be “checked”).
+
+-   Select the first page of your .PDF submission to be associated with the *“Workflow & formatting”* section.
+
+# Grading
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1                  | 6      |
+| Ex 2                  | 6      |
+| Ex 3                  | 6      |
+| Ex 4                  | 6      |
+| Ex 5                  | 4      |
+| Ex 6                  | 8      |
+| Ex 7                  | 7      |
+| Ex 8                  | 3      |
+| AI Disclosure         | 1      |
+| Workflow & formatting | 3      |
+
+The "Workflow & formatting" grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.
