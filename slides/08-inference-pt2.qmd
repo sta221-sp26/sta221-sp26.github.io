@@ -53,6 +53,8 @@ options(scipen=999)
 
     -   Released after class
 
+-   Exam 01 practice problems + lecture recordings posted on menu of course website
+
 ## Topics
 
 -   Derive distribution of $\hat{\boldsymbol{\beta}}_j$

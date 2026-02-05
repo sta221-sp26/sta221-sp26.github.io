@@ -11,6 +11,8 @@ Go to the [course GitHub organization](https://github.com/sta221-sp26) and locat
 
 # Set up
 
+Run the code below to load the required packages and data.
+
 ```{r}
 #| label: load-packages-data
 #| message: false
@@ -43,7 +45,7 @@ tidy(exp_fit)|>
   kable(digits = 3)
 ```
 
-# Part 1: Distribution of $\hat{\boldsymbol{\beta}}$ 
+# Part 1: Distribution of $\hat{\boldsymbol{\beta}}$
 
 Our ultimate goal is to use statistical inference to draw conclusions about the relationship between student enrollment and spending on football programs, after accounting for the institution type.
 
@@ -101,7 +103,7 @@ Now we will compute a p-value to help make our final conclusion.
 
 State the conclusion in the context of the data. Use a threshold of $\alpha = 0.05$.
 
-# Wrapping up 
+# Wrapping up
 
 ::: callout-important
 Once you've completed the AE:
