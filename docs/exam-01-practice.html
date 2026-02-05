@@ -449,12 +449,12 @@ Important
 <div class="callout-body-container callout-body">
 <p>This page contains practice problems to help prepare for Exam 01. This set of practice problems is <u><strong>not</strong></u> comprehensive.<br>
 <br>
-There is no answer key for these problems. You may ask questions in office hours and on Ed Discussion.</p>
+There is no answer key for these problems. You are encouraged to ask questions during office hours or on Ed Discussion.</p>
 </div>
 </div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>We will use data from <code>nrow(penguins)</code> penguins at Palmer Station in Antartica to fit linear regression model model using species (Adelie, Chinstrap, or Gentoo), flipper length (in millimeters), and bill depth (in millimeters) to predict its body mass (in grams). <a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">Click here</a> to read more about the variables.</p>
+<p>We will use data from 342 penguins at Palmer Station in Antarctica to fit linear regression model using species (Adelie, Chinstrap, or Gentoo), flipper length (in millimeters), and bill depth (in millimeters) to predict the body mass of penguins (in grams). <a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">Click here</a> to read more about the variables.</p>
 <p>The linear regression model has the form</p>
 <p><span class="math display">\[
 \mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}
@@ -465,18 +465,11 @@ There is no answer key for these problems. You may ask questions in office hours
 <p>The output for the model described in Exercise 1, along with 95% confidence intervals for the model coefficients, is shown below:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>penguins_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> species <span class="sc">+</span> flipper_length_mm <span class="sc">+</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                     bill_depth_mm <span class="sc">+</span> body_mass_g, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in model.matrix.default(mt, mf, contrasts): the response appeared on
-the right-hand side and was dropped</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in model.matrix.default(mt, mf, contrasts): problem with term 4 in
-model.matrix: no columns are assigned</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(penguins_fit,<span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                     bill_depth_mm, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> penguins)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(penguins_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -559,12 +552,12 @@ model.matrix: no columns are assigned</code></pre>
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <ul>
 <li><p>Does the intercept have a meaningful interpretation?</p></li>
-<li><p>If not, what are some strategies we can use to fit a model such that the intercept is meaningful?</p></li>
+<li><p>If not, what are some strategies we can use to fit a model in which the intercept is meaningful?</p></li>
 </ul>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>There are three species in the data set (Adelie, Chinstrap, Gentoo), but only two terms for species in the model. Use the design matrix to show why we cannot put indicators for all three species and the intercept in the model.</p>
+<p>There are three species in the data set (Adelie, Chinstrap, Gentoo), but only two terms for species in the model. Use the design matrix to show why we cannot put indicators for all three species along with the intercept in the model.</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
@@ -590,7 +583,7 @@ model.matrix: no columns are assigned</code></pre>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Sketch a scatterplot of the relationship between bill depth and body mass such that the effect of bill depth differs by species.</p>
+<p>Sketch a scatterplot of the relationship between bill depth and body mass that shows the effect of bill depth differing by species.</p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
@@ -606,7 +599,7 @@ model.matrix: no columns are assigned</code></pre>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>We conduct inference on the coefficients <span class="math inline">\(\boldsymbol{\beta}\)</span> assuming that the variability of <span class="math inline">\(\mathbf{y}|\mathbf{X}\)</span> is constant for value (or combination) of predictors. Briefly explain why is assumption is important.</p>
+<p>We conduct inference on the coefficients <span class="math inline">\(\boldsymbol{\beta}\)</span> assuming that the variability of <span class="math inline">\(\mathbf{y}|\mathbf{X}\)</span> is equal for all values (or combination of values) of the predictor(s). Briefly explain why this assumption is important.</p>
 </section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
@@ -616,7 +609,7 @@ model.matrix: no columns are assigned</code></pre>
 <section id="exercise-11" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
 <p>Given the model <span class="math inline">\(\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}\)</span>, derive the least-squares estimator <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> using the geometric interpretation of the model.</p>
-<p>See January 23 lecture <a href="../slides/04-slr-matrix.html">SLR: Matrix representation</a> to check your work.</p>
+<p>See the lecture <a href="../slides/04-slr-matrix.html">SLR: Matrix representation</a> to check your work.</p>
 </section>
 <section id="exercise-12" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-12">Exercise 12</h2>
@@ -641,7 +634,7 @@ model.matrix: no columns are assigned</code></pre>
 </section>
 <section id="relevant-lectures-assignments-and-aes" class="level2">
 <h2 class="anchored" data-anchor-id="relevant-lectures-assignments-and-aes">Relevant lectures, assignments and AEs</h2>
-<p>Ask yourself “why” questions as you the slides, review your answers, process, and derivations on these assignments. It may also be helpful to explain your process to others.</p>
+<p>Ask yourself “why” questions as you review the slides, along with your answers, problem-solving process, and derivations on the lectures and assignments. It can also be helpful to explain your process to others.</p>
 <ul>
 <li><p>Lectures: January 8 - February 12 (February 12 lecture is an exam review)</p></li>
 <li><p>HW 01 - 02</p></li>

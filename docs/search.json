@@ -2439,7 +2439,7 @@
     "href": "exam-01-practice.html",
     "title": "Exam 01 practice",
     "section": "",
-    "text": "Important\n\n\n\nThis page contains practice problems to help prepare for Exam 01. This set of practice problems is not comprehensive.\n\nThere is no answer key for these problems. You may ask questions in office hours and on Ed Discussion.",
+    "text": "Important\n\n\n\nThis page contains practice problems to help prepare for Exam 01. This set of practice problems is not comprehensive.\n\nThere is no answer key for these problems. You are encouraged to ask questions during office hours or on Ed Discussion.",
     "crumbs": [
       "Exam 01 Practice"
     ]
@@ -2449,7 +2449,7 @@
     "href": "exam-01-practice.html#exercise-1",
     "title": "Exam 01 practice",
     "section": "Exercise 1",
-    "text": "Exercise 1\nWe will use data from nrow(penguins) penguins at Palmer Station in Antartica to fit linear regression model model using species (Adelie, Chinstrap, or Gentoo), flipper length (in millimeters), and bill depth (in millimeters) to predict its body mass (in grams). Click here to read more about the variables.\nThe linear regression model has the form\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]Write the dimensions of \\(\\mathbf{y}, \\mathbf{X},\\boldsymbol{\\beta}, \\boldsymbol{\\epsilon}\\) specifically for this analysis.",
+    "text": "Exercise 1\nWe will use data from 342 penguins at Palmer Station in Antarctica to fit linear regression model using species (Adelie, Chinstrap, or Gentoo), flipper length (in millimeters), and bill depth (in millimeters) to predict the body mass of penguins (in grams). Click here to read more about the variables.\nThe linear regression model has the form\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]Write the dimensions of \\(\\mathbf{y}, \\mathbf{X},\\boldsymbol{\\beta}, \\boldsymbol{\\epsilon}\\) specifically for this analysis.",
     "crumbs": [
       "Exam 01 Practice"
     ]
@@ -2459,7 +2459,7 @@
     "href": "exam-01-practice.html#exercise-2",
     "title": "Exam 01 practice",
     "section": "Exercise 2",
-    "text": "Exercise 2\nThe output for the model described in Exercise 1, along with 95% confidence intervals for the model coefficients, is shown below:\n\npenguins_fit &lt;- lm(body_mass_g ~ species + flipper_length_mm + \n                     bill_depth_mm + body_mass_g, \n                   data = penguins)\n\nWarning in model.matrix.default(mt, mf, contrasts): the response appeared on\nthe right-hand side and was dropped\n\n\nWarning in model.matrix.default(mt, mf, contrasts): problem with term 4 in\nmodel.matrix: no columns are assigned\n\ntidy(penguins_fit,conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-4526.887\n516.931\n-8.757\n0.000\n-5543.705\n-3510.068\n\n\nspeciesChinstrap\n-131.968\n51.400\n-2.567\n0.011\n-233.073\n-30.863\n\n\nspeciesGentoo\n1288.968\n132.774\n9.708\n0.000\n1027.798\n1550.138\n\n\nflipper_length_mm\n25.700\n3.098\n8.295\n0.000\n19.606\n31.794\n\n\nbill_depth_mm\n182.364\n18.358\n9.934\n0.000\n146.252\n218.475\n\n\n\n\n\n\nInterpret the coefficient of flipper_length_mm in the context of the data.\nWhat is the baseline category for speices?\nInterpret the coefficient of speciesChinstrap in the context of the data.",
+    "text": "Exercise 2\nThe output for the model described in Exercise 1, along with 95% confidence intervals for the model coefficients, is shown below:\n\npenguins_fit &lt;- lm(body_mass_g ~ species + flipper_length_mm + \n                     bill_depth_mm, \n                   data = penguins)\n\ntidy(penguins_fit, conf.int = TRUE) |&gt;\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-4526.887\n516.931\n-8.757\n0.000\n-5543.705\n-3510.068\n\n\nspeciesChinstrap\n-131.968\n51.400\n-2.567\n0.011\n-233.073\n-30.863\n\n\nspeciesGentoo\n1288.968\n132.774\n9.708\n0.000\n1027.798\n1550.138\n\n\nflipper_length_mm\n25.700\n3.098\n8.295\n0.000\n19.606\n31.794\n\n\nbill_depth_mm\n182.364\n18.358\n9.934\n0.000\n146.252\n218.475\n\n\n\n\n\n\nInterpret the coefficient of flipper_length_mm in the context of the data.\nWhat is the baseline category for speices?\nInterpret the coefficient of speciesChinstrap in the context of the data.",
     "crumbs": [
       "Exam 01 Practice"
     ]
@@ -2469,7 +2469,7 @@
     "href": "exam-01-practice.html#exercise-3",
     "title": "Exam 01 practice",
     "section": "Exercise 3",
-    "text": "Exercise 3\n\nDoes the intercept have a meaningful interpretation?\nIf not, what are some strategies we can use to fit a model such that the intercept is meaningful?",
+    "text": "Exercise 3\n\nDoes the intercept have a meaningful interpretation?\nIf not, what are some strategies we can use to fit a model in which the intercept is meaningful?",
     "crumbs": [
       "Exam 01 Practice"
     ]
@@ -2479,7 +2479,7 @@
     "href": "exam-01-practice.html#exercise-4",
     "title": "Exam 01 practice",
     "section": "Exercise 4",
-    "text": "Exercise 4\nThere are three species in the data set (Adelie, Chinstrap, Gentoo), but only two terms for species in the model. Use the design matrix to show why we cannot put indicators for all three species and the intercept in the model.",
+    "text": "Exercise 4\nThere are three species in the data set (Adelie, Chinstrap, Gentoo), but only two terms for species in the model. Use the design matrix to show why we cannot put indicators for all three species along with the intercept in the model.",
     "crumbs": [
       "Exam 01 Practice"
     ]
@@ -2509,7 +2509,7 @@
     "href": "exam-01-practice.html#exercise-7",
     "title": "Exam 01 practice",
     "section": "Exercise 7",
-    "text": "Exercise 7\nSketch a scatterplot of the relationship between bill depth and body mass such that the effect of bill depth differs by species.",
+    "text": "Exercise 7\nSketch a scatterplot of the relationship between bill depth and body mass that shows the effect of bill depth differing by species.",
     "crumbs": [
       "Exam 01 Practice"
     ]
@@ -2529,7 +2529,7 @@
     "href": "exam-01-practice.html#exercise-9",
     "title": "Exam 01 practice",
     "section": "Exercise 9",
-    "text": "Exercise 9\nWe conduct inference on the coefficients \\(\\boldsymbol{\\beta}\\) assuming that the variability of \\(\\mathbf{y}|\\mathbf{X}\\) is constant for value (or combination) of predictors. Briefly explain why is assumption is important.",
+    "text": "Exercise 9\nWe conduct inference on the coefficients \\(\\boldsymbol{\\beta}\\) assuming that the variability of \\(\\mathbf{y}|\\mathbf{X}\\) is equal for all values (or combination of values) of the predictor(s). Briefly explain why this assumption is important.",
     "crumbs": [
       "Exam 01 Practice"
     ]
@@ -2549,7 +2549,7 @@
     "href": "exam-01-practice.html#exercise-11",
     "title": "Exam 01 practice",
     "section": "Exercise 11",
-    "text": "Exercise 11\nGiven the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\), derive the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) using the geometric interpretation of the model.\nSee January 23 lecture SLR: Matrix representation to check your work.",
+    "text": "Exercise 11\nGiven the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\), derive the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) using the geometric interpretation of the model.\nSee the lecture SLR: Matrix representation to check your work.",
     "crumbs": [
       "Exam 01 Practice"
     ]
@@ -2599,7 +2599,7 @@
     "href": "exam-01-practice.html#relevant-lectures-assignments-and-aes",
     "title": "Exam 01 practice",
     "section": "Relevant lectures, assignments and AEs",
-    "text": "Relevant lectures, assignments and AEs\nAsk yourself “why” questions as you the slides, review your answers, process, and derivations on these assignments. It may also be helpful to explain your process to others.\n\nLectures: January 8 - February 12 (February 12 lecture is an exam review)\nHW 01 - 02\nLab 01 - 04 (Lab 04 is an exam review)\nAE 01 - 04 (AE 04 is an exam review)",
+    "text": "Relevant lectures, assignments and AEs\nAsk yourself “why” questions as you review the slides, along with your answers, problem-solving process, and derivations on the lectures and assignments. It can also be helpful to explain your process to others.\n\nLectures: January 8 - February 12 (February 12 lecture is an exam review)\nHW 01 - 02\nLab 01 - 04 (Lab 04 is an exam review)\nAE 01 - 04 (AE 04 is an exam review)",
     "crumbs": [
       "Exam 01 Practice"
     ]
