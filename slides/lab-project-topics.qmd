@@ -26,22 +26,18 @@ knitr:
 bibliography: references.bib
 ---
 
-# Welcome
+## Today's agenda
 
+-   AE 03 (Part 1)
 -   Final project - research topics
 
-## Icebreaker
+## AE 03
 
--   Get into your lab teams.
--   Choose a reporter
-    -   Need help choosing? Person with birthday closest to today’s date.
--   Identify **8 things** everyone in the group has in common (\~ 5 minutes)
-    -   Not being a Duke student
+::: appex
+📋 [sta221-sp26.github.io/ae/ae-03-inference](../ae/ae-03-inference.html)
 
-    -   Not clothes (e.g., we’re all wearing socks)
-
-    -   Not body parts (e.g., we all have a nose)
--   Reporter will share list with the class.
+**Part 1**
+:::
 
 ## Final team project {.midi}
 
