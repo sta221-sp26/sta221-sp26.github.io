@@ -1,6 +1,6 @@
 ---
 title: "Project: Research Topics"
-date: "02-04-2026"
+date: "02-06-2026"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
 logo: "../images/logo.png"
