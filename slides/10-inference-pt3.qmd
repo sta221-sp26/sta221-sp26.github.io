@@ -1,0 +1,371 @@
+---
+title: "Inference for regression"
+subtitle: "Cont'd"
+author: "Prof. Maria Tackett"
+date: "2025-02-11"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 STA 221 - Spring 2025](https://sta221-sp25.netlify.app)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 10-inference-pt3-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r setup}
+#| include: false
+
+library(countdown)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+
+options(scipen=999)
+```
+
+## Announcements
+
+-   Research topics due TODAY at 11:59pm on GitHub
+
+-   HW 02 due Thursday at 11:59pm
+
+-   [Statistics experience](../hw/stats-experience.html) due **Tuesday, April 22**
+
+## Exam 01
+
+-   50 points total
+
+    -   in-class: 35-40 points
+    -   take-home: 10 - 15 points
+
+-   In-class (35 -40 pts): 75 minutes during February 18 lecture
+
+    -   Will be randomly assigned to exam room
+
+-   Take-home (10 -15 pts): released after class on Tuesday
+
+-   If you miss any part of the exam for an excused absence (with academic dean’s note or other official documentation), your Exam 02 score will be counted twice
+
+## Resources
+
+-   [Exam 01 practice](../exam-01-practice.html)
+
+-   [Lecture recordings](https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=0b5392d5-d61b-465a-80eb-b25e014a75a9)
+
+-   Prepare readings (see course schedule)
+
+-   Lecture notes (use search bar to find specific topics)
+
+-   AEs
+
+-   Assignments
+
+## Topics
+
+-   Conduct inference on a single coefficient
+
+## Computing setup
+
+```{r packages}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)  
+library(tidymodels)  
+library(knitr)       
+library(kableExtra)  
+library(patchwork)   
+
+# set default theme in ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+## Data: NCAA Football expenditures {.midi}
+
+Today's data come from [Equity in Athletics Data Analysis](https://ope.ed.gov/athletics/#/datafile/list) and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a [March 2022 Tidy Tuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-29/readme.md).
+
+We will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :
+
+-   `total_exp_m`: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)
+
+-   `enrollment_th`: Total student enrollment in the 2019 - 2020 academic year (in thousands)
+
+-   `type`: institution type (Public or Private)
+
+```{r}
+#| include: false
+#| eval: false
+
+## code to make data set for these notes
+
+sports <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-03-29/sports.csv') 
+
+# filter data to only include D1 football for the year 2019
+
+sports |>
+  filter(sports == "Football", 
+         classification_name == "NCAA Division I-FBS", year == 2019) |>
+  mutate(type = if_else(sector_name == "Private nonprofit, 4-year or above", "Private", "Public"), 
+         enrollment_th = ef_total_count / 1000,
+         total_exp_m = total_exp_menwomen/ 1000000) |>
+  select(year, institution_name, city_txt, state_cd, zip_text, type,
+         enrollment_th, 
+         total_exp_m) |> 
+  write_csv("data/ncaa-football-exp.csv")
+
+
+```
+
+```{r}
+football <- read_csv("data/ncaa-football-exp.csv")
+```
+
+## Regression model
+
+```{r}
+#| echo: true
+exp_fit <- lm(total_exp_m ~ enrollment_th + type, data = football)
+tidy(exp_fit) |>
+  kable(digits = 3)
+```
+
+# Inference for a single coefficient
+
+## Inference for $\beta_j$
+
+We often want to conduct inference on individual model coefficients
+
+-   **Hypothesis test:** Is there a linear relationship between the response and $x_j$?
+
+-   **Confidence interval**: What is a plausible range of values $\beta_j$ can take?
+
+## Sampling distribution of $\hat{\beta}$ {.midi}
+
+-   A **sampling distribution** is the probability distribution of a statistic for a large number of random samples of size $n$ from a population
+
+-   The sampling distribution of $\hat{\boldsymbol{\beta}}$ is the probability distribution of the estimated coefficients if we repeatedly took samples of size $n$ and fit the regression model
+
+$$
+\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \sigma^2_\epsilon(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1})
+$$
+
+The estimated coefficients $\hat{\boldsymbol{\beta}}$ are **normally distributed** with
+
+$$
+E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta} \hspace{10mm} Var(\hat{\boldsymbol{\beta}}) = \sigma^2_{\epsilon}(\boldsymbol{X}^\mathsf{T}\boldsymbol{X})^{-1}
+$$
+
+## Sampling distribution of $\hat{\beta}_j$
+
+$$
+\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \sigma^2_\epsilon(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1})
+$$
+
+Let $\mathbf{C} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}$. Then, for each coefficient $\hat{\beta}_j$,
+
+::: incremental
+-   $E(\hat{\beta}_j) = \boldsymbol{\beta}_j$, the $j^{th}$ element of $\boldsymbol{\beta}$
+
+-   $Var(\hat{\beta}_j) = \sigma^2_{\epsilon}C_{jj}$
+
+-   $Cov(\hat{\beta}_i, \hat{\beta}_j) = \sigma^2_{\epsilon}C_{ij}$
+:::
+
+# Hypothesis test for $\beta_j$
+
+## Steps for a hypothesis test
+
+1.  State the null and alternative hypotheses.
+2.  Calculate a test statistic.
+3.  Calculate the p-value.
+4.  State the conclusion.
+
+<br>
+
+::: question
+Let's walk through the steps to test $\beta_j$, the coefficient for `typePublic` .
+:::
+
+## Hypothesis test for $\beta_j$: Hypotheses
+
+-   **Null:** There is no linear relationship between institution type and football expenditure, after adjusting for enrollment $H_0: \beta_j = 0$
+
+-   **Alternative:** There is a linear relationship between institution type and football expenditure, after adjusting for enrollment $H_a: \beta_j \neq 0$
+
+## Hypothesis test for $\beta_j$: Test statistic {.midi}
+
+```{r}
+#| echo: false
+
+tidy(exp_fit) |>
+  kable(digits = 3)
+```
+
+**Test statistic:** Number of standard errors the estimate is away from the null
+
+$$
+\text{Test Statistic} = \frac{\text{Estimate - Null}}{\text{Standard error}} = \frac{-13.226 - 0}{3.153} = -4.195 \\
+$$
+
+. . .
+
+This means the estimated slope of -13.226 is 4.195 standard errors below the hypothesized mean of 0.
+
+## Hypothesis test for $\beta_j$: p-value {.midi}
+
+-   The test statistic follows a $t$ distribution with `r nrow(football) - 2 - 1` degrees of freedom.
+
+$$
+p-value = P(|T| > |-4.195|)
+$$
+
+. . .
+
+```{r}
+2 * pt(4.195, df = nrow(football) - 2 - 1, lower.tail = FALSE)
+```
+
+<br>
+
+. . .
+
+Given $\beta_j = 0$ ( $H_0$ is true), the probability of observing a slope of -13.226 or more extreme is $\approx 0$ .
+
+## Hypothesis test for $\beta_j$: Conclusion
+
+-   The p-value is $\approx 0$, so we **reject** $H_0$.
+
+-   The data provide sufficient evidence that $\beta_j \neq 0$, meaning evidence there is a linear relationship between institution type and football expenditure, after adjusting for enrollment.
+
+# Confidence interval for $\beta_j$
+
+## Confidence interval for $\beta_j$ {.midi}
+
+::: incremental
+-   A plausible range of values for a population parameter is called a **confidence interval**
+
+-   Using only a single point estimate is like fishing in a murky lake with a spear, and using a confidence interval is like fishing with a net
+
+    -   We can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish
+
+    -   Similarly, if we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter
+:::
+
+## What "confidence" means {.midi}
+
+::: incremental
+-   We will construct $C\%$ confidence intervals.
+
+    -   The confidence level impacts the width of the interval
+
+-   "Confident" means if we were to take repeated samples of the same size as our data, fit regression lines using the same predictors, and calculate $C\%$ Cs for the coefficient of $x_j$, then $C\%$ of those intervals will contain the true value of the coefficient $\beta_j$
+
+-   Balance precision and accuracy when selecting a confidence level
+:::
+
+## Confidence interval for $\beta_j$
+
+$$
+\text{Estimate} \pm \text{ (critical value) } \times \text{SE}
+$$
+
+<br>
+
+. . .
+
+$$
+\hat{\beta}_1 \pm t^* \times SE({\hat{\beta}_j})
+$$
+
+where $t^*$ is calculated from a $t$ distribution with $n-p-1$ degrees of freedom
+
+## Confidence interval: Critical value
+
+::: {.fragment fragment-index="1"}
+```{r}
+#| echo: true
+
+# confidence level: 95%
+qt(0.975, df = nrow(football) - 2 - 1)
+```
+:::
+
+<br>
+
+::: {.fragment fragment-index="2"}
+```{r}
+# confidence level: 90%
+qt(0.95, df = nrow(football) - 2 - 1)
+```
+:::
+
+<br>
+
+::: {.fragment fragment-index="3"}
+```{r}
+# confidence level: 99%
+qt(0.995, df = nrow(football) - 2 - 1)
+```
+:::
+
+## 95% CI for $\beta_j$: Calculation
+
+```{r}
+#| echo: false
+tidy(exp_fit) |> 
+  kable(digits = 3)
+```
+
+## 95% CI for $\beta_j$ in R
+
+```{r}
+#| echo: true
+
+tidy(exp_fit, conf.int = TRUE, conf.level = 0.95) |> 
+  kable(digits = 3)
+```
+
+<br>
+
+**Interpretation**: We are 95% confident that for each additional 1,000 students enrolled, the institution's expenditures on football will be greater by \$562,000 to \$999,000, on average, holding institution type constant.
+
+# Application exercise
+
+::: appex
+📋 [sta221-sp25.netlify.app/ae/ae-03-inference.html](../ae/ae-03-inference.html)
+:::
+
+## Recap
+
+-   Conducted hypothesis tests for a single coefficient $\beta_j$
+
+-   Computed and interpreted confidence intervals for a single coefficient $\beta_j$
+
+## Next class
+
+-   Exam 01 review

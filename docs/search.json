@@ -1663,6 +1663,335 @@
     "text": "Next class\n\nHypothesis tests and confidence intervals for a coefficient \\(\\beta_j\\)\nComplete Lecture 09 prepare"
   },
   {
+    "objectID": "slides/10-inference-pt3.html#announcements",
+    "href": "slides/10-inference-pt3.html#announcements",
+    "title": "Inference for regression",
+    "section": "Announcements",
+    "text": "Announcements\n\nResearch topics due TODAY at 11:59pm on GitHub\nHW 02 due Thursday at 11:59pm\nStatistics experience due Tuesday, April 22"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#exam-01",
+    "href": "slides/10-inference-pt3.html#exam-01",
+    "title": "Inference for regression",
+    "section": "Exam 01",
+    "text": "Exam 01\n\n50 points total\n\nin-class: 35-40 points\ntake-home: 10 - 15 points\n\nIn-class (35 -40 pts): 75 minutes during February 18 lecture\n\nWill be randomly assigned to exam room\n\nTake-home (10 -15 pts): released after class on Tuesday\nIf you miss any part of the exam for an excused absence (with academic dean’s note or other official documentation), your Exam 02 score will be counted twice"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#resources",
+    "href": "slides/10-inference-pt3.html#resources",
+    "title": "Inference for regression",
+    "section": "Resources",
+    "text": "Resources\n\nExam 01 practice\nLecture recordings\nPrepare readings (see course schedule)\nLecture notes (use search bar to find specific topics)\nAEs\nAssignments"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#topics",
+    "href": "slides/10-inference-pt3.html#topics",
+    "title": "Inference for regression",
+    "section": "Topics",
+    "text": "Topics\n\nConduct inference on a single coefficient"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#computing-setup",
+    "href": "slides/10-inference-pt3.html#computing-setup",
+    "title": "Inference for regression",
+    "section": "Computing setup",
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(kableExtra)  \nlibrary(patchwork)   \n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#data-ncaa-football-expenditures",
+    "href": "slides/10-inference-pt3.html#data-ncaa-football-expenditures",
+    "title": "Inference for regression",
+    "section": "Data: NCAA Football expenditures",
+    "text": "Data: NCAA Football expenditures\nToday’s data come from Equity in Athletics Data Analysis and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a March 2022 Tidy Tuesday.\nWe will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :\n\ntotal_exp_m: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)\nenrollment_th: Total student enrollment in the 2019 - 2020 academic year (in thousands)\ntype: institution type (Public or Private)\n\n\nfootball &lt;- read_csv(\"data/ncaa-football-exp.csv\")"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#regression-model",
+    "href": "slides/10-inference-pt3.html#regression-model",
+    "title": "Inference for regression",
+    "section": "Regression model",
+    "text": "Regression model\n\nexp_fit &lt;- lm(total_exp_m ~ enrollment_th + type, data = football)\ntidy(exp_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#inference-for-beta_j",
+    "href": "slides/10-inference-pt3.html#inference-for-beta_j",
+    "title": "Inference for regression",
+    "section": "Inference for \\(\\beta_j\\)",
+    "text": "Inference for \\(\\beta_j\\)\nWe often want to conduct inference on individual model coefficients\n\nHypothesis test: Is there a linear relationship between the response and \\(x_j\\)?\nConfidence interval: What is a plausible range of values \\(\\beta_j\\) can take?"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#sampling-distribution-of-hatbeta",
+    "href": "slides/10-inference-pt3.html#sampling-distribution-of-hatbeta",
+    "title": "Inference for regression",
+    "section": "Sampling distribution of \\(\\hat{\\beta}\\)",
+    "text": "Sampling distribution of \\(\\hat{\\beta}\\)\n\nA sampling distribution is the probability distribution of a statistic for a large number of random samples of size \\(n\\) from a population\nThe sampling distribution of \\(\\hat{\\boldsymbol{\\beta}}\\) is the probability distribution of the estimated coefficients if we repeatedly took samples of size \\(n\\) and fit the regression model\n\n\\[\n\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\n\\]\nThe estimated coefficients \\(\\hat{\\boldsymbol{\\beta}}\\) are normally distributed with\n\\[\nE(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta} \\hspace{10mm} Var(\\hat{\\boldsymbol{\\beta}}) = \\sigma^2_{\\epsilon}(\\boldsymbol{X}^\\mathsf{T}\\boldsymbol{X})^{-1}\n\\]"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#sampling-distribution-of-hatbeta_j",
+    "href": "slides/10-inference-pt3.html#sampling-distribution-of-hatbeta_j",
+    "title": "Inference for regression",
+    "section": "Sampling distribution of \\(\\hat{\\beta}_j\\)",
+    "text": "Sampling distribution of \\(\\hat{\\beta}_j\\)\n\\[\n\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\n\\]\nLet \\(\\mathbf{C} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\). Then, for each coefficient \\(\\hat{\\beta}_j\\),\n\n\\(E(\\hat{\\beta}_j) = \\boldsymbol{\\beta}_j\\), the \\(j^{th}\\) element of \\(\\boldsymbol{\\beta}\\)\n\\(Var(\\hat{\\beta}_j) = \\sigma^2_{\\epsilon}C_{jj}\\)\n\\(Cov(\\hat{\\beta}_i, \\hat{\\beta}_j) = \\sigma^2_{\\epsilon}C_{ij}\\)"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#steps-for-a-hypothesis-test",
+    "href": "slides/10-inference-pt3.html#steps-for-a-hypothesis-test",
+    "title": "Inference for regression",
+    "section": "Steps for a hypothesis test",
+    "text": "Steps for a hypothesis test\n\nState the null and alternative hypotheses.\nCalculate a test statistic.\nCalculate the p-value.\nState the conclusion.\n\n\n\nLet’s walk through the steps to test \\(\\beta_j\\), the coefficient for typePublic ."
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#hypothesis-test-for-beta_j-hypotheses",
+    "href": "slides/10-inference-pt3.html#hypothesis-test-for-beta_j-hypotheses",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Hypotheses",
+    "text": "Hypothesis test for \\(\\beta_j\\): Hypotheses\n\nNull: There is no linear relationship between institution type and football expenditure, after adjusting for enrollment \\(H_0: \\beta_j = 0\\)\nAlternative: There is a linear relationship between institution type and football expenditure, after adjusting for enrollment \\(H_a: \\beta_j \\neq 0\\)"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#hypothesis-test-for-beta_j-test-statistic",
+    "href": "slides/10-inference-pt3.html#hypothesis-test-for-beta_j-test-statistic",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n\n\n\n\n\nTest statistic: Number of standard errors the estimate is away from the null\n\\[\n\\text{Test Statistic} = \\frac{\\text{Estimate - Null}}{\\text{Standard error}} = \\frac{-13.226 - 0}{3.153} = -4.195 \\\\\n\\]\n\nThis means the estimated slope of -13.226 is 4.195 standard errors below the hypothesized mean of 0."
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#hypothesis-test-for-beta_j-p-value",
+    "href": "slides/10-inference-pt3.html#hypothesis-test-for-beta_j-p-value",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): p-value",
+    "text": "Hypothesis test for \\(\\beta_j\\): p-value\n\nThe test statistic follows a \\(t\\) distribution with 124 degrees of freedom.\n\n\\[\np-value = P(|T| &gt; |-4.195|)\n\\]\n\n\n2 * pt(4.195, df = nrow(football) - 2 - 1, lower.tail = FALSE)\n\n[1] 0.00005153923\n\n\n\n\n\nGiven \\(\\beta_j = 0\\) ( \\(H_0\\) is true), the probability of observing a slope of -13.226 or more extreme is \\(\\approx 0\\) ."
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#hypothesis-test-for-beta_j-conclusion",
+    "href": "slides/10-inference-pt3.html#hypothesis-test-for-beta_j-conclusion",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Conclusion",
+    "text": "Hypothesis test for \\(\\beta_j\\): Conclusion\n\nThe p-value is \\(\\approx 0\\), so we reject \\(H_0\\).\nThe data provide sufficient evidence that \\(\\beta_j \\neq 0\\), meaning evidence there is a linear relationship between institution type and football expenditure, after adjusting for enrollment."
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#confidence-interval-for-beta_j-1",
+    "href": "slides/10-inference-pt3.html#confidence-interval-for-beta_j-1",
+    "title": "Inference for regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nA plausible range of values for a population parameter is called a confidence interval\nUsing only a single point estimate is like fishing in a murky lake with a spear, and using a confidence interval is like fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nSimilarly, if we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#what-confidence-means",
+    "href": "slides/10-inference-pt3.html#what-confidence-means",
+    "title": "Inference for regression",
+    "section": "What “confidence” means",
+    "text": "What “confidence” means\n\nWe will construct \\(C\\%\\) confidence intervals.\n\nThe confidence level impacts the width of the interval\n\n“Confident” means if we were to take repeated samples of the same size as our data, fit regression lines using the same predictors, and calculate \\(C\\%\\) Cs for the coefficient of \\(x_j\\), then \\(C\\%\\) of those intervals will contain the true value of the coefficient \\(\\beta_j\\)\nBalance precision and accuracy when selecting a confidence level"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#confidence-interval-for-beta_j-2",
+    "href": "slides/10-inference-pt3.html#confidence-interval-for-beta_j-2",
+    "title": "Inference for regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\\[\n\\text{Estimate} \\pm \\text{ (critical value) } \\times \\text{SE}\n\\]\n\n\n\\[\n\\hat{\\beta}_1 \\pm t^* \\times SE({\\hat{\\beta}_j})\n\\]\nwhere \\(t^*\\) is calculated from a \\(t\\) distribution with \\(n-p-1\\) degrees of freedom"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#confidence-interval-critical-value",
+    "href": "slides/10-inference-pt3.html#confidence-interval-critical-value",
+    "title": "Inference for regression",
+    "section": "Confidence interval: Critical value",
+    "text": "Confidence interval: Critical value\n\n\n# confidence level: 95%\nqt(0.975, df = nrow(football) - 2 - 1)\n\n[1] 1.97928\n\n\n\n\n\n\n# confidence level: 90%\nqt(0.95, df = nrow(football) - 2 - 1)\n\n[1] 1.657235\n\n\n\n\n\n\n# confidence level: 99%\nqt(0.995, df = nrow(football) - 2 - 1)\n\n[1] 2.61606"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#ci-for-beta_j-calculation",
+    "href": "slides/10-inference-pt3.html#ci-for-beta_j-calculation",
+    "title": "Inference for regression",
+    "section": "95% CI for \\(\\beta_j\\): Calculation",
+    "text": "95% CI for \\(\\beta_j\\): Calculation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#ci-for-beta_j-in-r",
+    "href": "slides/10-inference-pt3.html#ci-for-beta_j-in-r",
+    "title": "Inference for regression",
+    "section": "95% CI for \\(\\beta_j\\) in R",
+    "text": "95% CI for \\(\\beta_j\\) in R\n\ntidy(exp_fit, conf.int = TRUE, conf.level = 0.95) |&gt; \n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n13.426\n25.239\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n0.562\n0.999\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n-19.466\n-6.986\n\n\n\n\n\n\nInterpretation: We are 95% confident that for each additional 1,000 students enrolled, the institution’s expenditures on football will be greater by $562,000 to $999,000, on average, holding institution type constant."
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#recap",
+    "href": "slides/10-inference-pt3.html#recap",
+    "title": "Inference for regression",
+    "section": "Recap",
+    "text": "Recap\n\nConducted hypothesis tests for a single coefficient \\(\\beta_j\\)\nComputed and interpreted confidence intervals for a single coefficient \\(\\beta_j\\)"
+  },
+  {
+    "objectID": "slides/10-inference-pt3.html#next-class",
+    "href": "slides/10-inference-pt3.html#next-class",
+    "title": "Inference for regression",
+    "section": "Next class",
+    "text": "Next class\n\nExam 01 review"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html",
+    "href": "slides/10-inference-pt3-notes.html",
+    "title": "Inference for regression",
+    "section": "",
+    "text": "Research topics due TODAY at 11:59pm on GitHub\nHW 02 due Thursday at 11:59pm\nStatistics experience due Tuesday, April 22"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#announcements",
+    "href": "slides/10-inference-pt3-notes.html#announcements",
+    "title": "Inference for regression",
+    "section": "",
+    "text": "Research topics due TODAY at 11:59pm on GitHub\nHW 02 due Thursday at 11:59pm\nStatistics experience due Tuesday, April 22"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#exam-01",
+    "href": "slides/10-inference-pt3-notes.html#exam-01",
+    "title": "Inference for regression",
+    "section": "Exam 01",
+    "text": "Exam 01\n\n50 points total\n\nin-class: 35-40 points\ntake-home: 10 - 15 points\n\nIn-class (35 -40 pts): 75 minutes during February 18 lecture\n\nWill be randomly assigned to exam room\n\nTake-home (10 -15 pts): released after class on Tuesday\nIf you miss any part of the exam for an excused absence (with academic dean’s note or other official documentation), your Exam 02 score will be counted twice"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#resources",
+    "href": "slides/10-inference-pt3-notes.html#resources",
+    "title": "Inference for regression",
+    "section": "Resources",
+    "text": "Resources\n\nExam 01 practice\nLecture recordings\nPrepare readings (see course schedule)\nLecture notes (use search bar to find specific topics)\nAEs\nAssignments"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#topics",
+    "href": "slides/10-inference-pt3-notes.html#topics",
+    "title": "Inference for regression",
+    "section": "Topics",
+    "text": "Topics\n\nConduct inference on a single coefficient"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#computing-setup",
+    "href": "slides/10-inference-pt3-notes.html#computing-setup",
+    "title": "Inference for regression",
+    "section": "Computing setup",
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(kableExtra)  \nlibrary(patchwork)   \n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#data-ncaa-football-expenditures",
+    "href": "slides/10-inference-pt3-notes.html#data-ncaa-football-expenditures",
+    "title": "Inference for regression",
+    "section": "Data: NCAA Football expenditures",
+    "text": "Data: NCAA Football expenditures\nToday’s data come from Equity in Athletics Data Analysis and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a March 2022 Tidy Tuesday.\nWe will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :\n\ntotal_exp_m: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)\nenrollment_th: Total student enrollment in the 2019 - 2020 academic year (in thousands)\ntype: institution type (Public or Private)\n\n\nfootball &lt;- read_csv(\"data/ncaa-football-exp.csv\")"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#regression-model",
+    "href": "slides/10-inference-pt3-notes.html#regression-model",
+    "title": "Inference for regression",
+    "section": "Regression model",
+    "text": "Regression model\n\nexp_fit &lt;- lm(total_exp_m ~ enrollment_th + type, data = football)\ntidy(exp_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#inference-for-beta_j",
+    "href": "slides/10-inference-pt3-notes.html#inference-for-beta_j",
+    "title": "Inference for regression",
+    "section": "Inference for \\(\\beta_j\\)",
+    "text": "Inference for \\(\\beta_j\\)\nWe often want to conduct inference on individual model coefficients\n\nHypothesis test: Is there a linear relationship between the response and \\(x_j\\)?\nConfidence interval: What is a plausible range of values \\(\\beta_j\\) can take?"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#sampling-distribution-of-hatbeta",
+    "href": "slides/10-inference-pt3-notes.html#sampling-distribution-of-hatbeta",
+    "title": "Inference for regression",
+    "section": "Sampling distribution of \\(\\hat{\\beta}\\)",
+    "text": "Sampling distribution of \\(\\hat{\\beta}\\)\n\nA sampling distribution is the probability distribution of a statistic for a large number of random samples of size \\(n\\) from a population\nThe sampling distribution of \\(\\hat{\\boldsymbol{\\beta}}\\) is the probability distribution of the estimated coefficients if we repeatedly took samples of size \\(n\\) and fit the regression model\n\n\\[\n\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\n\\]\nThe estimated coefficients \\(\\hat{\\boldsymbol{\\beta}}\\) are normally distributed with\n\\[\nE(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta} \\hspace{10mm} Var(\\hat{\\boldsymbol{\\beta}}) = \\sigma^2_{\\epsilon}(\\boldsymbol{X}^\\mathsf{T}\\boldsymbol{X})^{-1}\n\\]"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#sampling-distribution-of-hatbeta_j",
+    "href": "slides/10-inference-pt3-notes.html#sampling-distribution-of-hatbeta_j",
+    "title": "Inference for regression",
+    "section": "Sampling distribution of \\(\\hat{\\beta}_j\\)",
+    "text": "Sampling distribution of \\(\\hat{\\beta}_j\\)\n\\[\n\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\n\\]\nLet \\(\\mathbf{C} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\). Then, for each coefficient \\(\\hat{\\beta}_j\\),\n\n\n\\(E(\\hat{\\beta}_j) = \\boldsymbol{\\beta}_j\\), the \\(j^{th}\\) element of \\(\\boldsymbol{\\beta}\\)\n\\(Var(\\hat{\\beta}_j) = \\sigma^2_{\\epsilon}C_{jj}\\)\n\\(Cov(\\hat{\\beta}_i, \\hat{\\beta}_j) = \\sigma^2_{\\epsilon}C_{ij}\\)"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#steps-for-a-hypothesis-test",
+    "href": "slides/10-inference-pt3-notes.html#steps-for-a-hypothesis-test",
+    "title": "Inference for regression",
+    "section": "Steps for a hypothesis test",
+    "text": "Steps for a hypothesis test\n\nState the null and alternative hypotheses.\nCalculate a test statistic.\nCalculate the p-value.\nState the conclusion.\n\n\n\nLet’s walk through the steps to test \\(\\beta_j\\), the coefficient for typePublic ."
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#hypothesis-test-for-beta_j-hypotheses",
+    "href": "slides/10-inference-pt3-notes.html#hypothesis-test-for-beta_j-hypotheses",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Hypotheses",
+    "text": "Hypothesis test for \\(\\beta_j\\): Hypotheses\n\nNull: There is no linear relationship between institution type and football expenditure, after adjusting for enrollment \\(H_0: \\beta_j = 0\\)\nAlternative: There is a linear relationship between institution type and football expenditure, after adjusting for enrollment \\(H_a: \\beta_j \\neq 0\\)"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#hypothesis-test-for-beta_j-test-statistic",
+    "href": "slides/10-inference-pt3-notes.html#hypothesis-test-for-beta_j-test-statistic",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n\n\n\n\n\nTest statistic: Number of standard errors the estimate is away from the null\n\\[\n\\text{Test Statistic} = \\frac{\\text{Estimate - Null}}{\\text{Standard error}} = \\frac{-13.226 - 0}{3.153} = -4.195 \\\\\n\\]\n. . .\nThis means the estimated slope of -13.226 is 4.195 standard errors below the hypothesized mean of 0."
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#hypothesis-test-for-beta_j-p-value",
+    "href": "slides/10-inference-pt3-notes.html#hypothesis-test-for-beta_j-p-value",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): p-value",
+    "text": "Hypothesis test for \\(\\beta_j\\): p-value\n\nThe test statistic follows a \\(t\\) distribution with 124 degrees of freedom.\n\n\\[\np-value = P(|T| &gt; |-4.195|)\n\\]\n. . .\n\n2 * pt(4.195, df = nrow(football) - 2 - 1, lower.tail = FALSE)\n\n[1] 0.00005153923\n\n\n\n. . .\nGiven \\(\\beta_j = 0\\) ( \\(H_0\\) is true), the probability of observing a slope of -13.226 or more extreme is \\(\\approx 0\\) ."
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#hypothesis-test-for-beta_j-conclusion",
+    "href": "slides/10-inference-pt3-notes.html#hypothesis-test-for-beta_j-conclusion",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Conclusion",
+    "text": "Hypothesis test for \\(\\beta_j\\): Conclusion\n\nThe p-value is \\(\\approx 0\\), so we reject \\(H_0\\).\nThe data provide sufficient evidence that \\(\\beta_j \\neq 0\\), meaning evidence there is a linear relationship between institution type and football expenditure, after adjusting for enrollment."
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#confidence-interval-for-beta_j-1",
+    "href": "slides/10-inference-pt3-notes.html#confidence-interval-for-beta_j-1",
+    "title": "Inference for regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\n\nA plausible range of values for a population parameter is called a confidence interval\nUsing only a single point estimate is like fishing in a murky lake with a spear, and using a confidence interval is like fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nSimilarly, if we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#what-confidence-means",
+    "href": "slides/10-inference-pt3-notes.html#what-confidence-means",
+    "title": "Inference for regression",
+    "section": "What “confidence” means",
+    "text": "What “confidence” means\n\n\nWe will construct \\(C\\%\\) confidence intervals.\n\nThe confidence level impacts the width of the interval\n\n“Confident” means if we were to take repeated samples of the same size as our data, fit regression lines using the same predictors, and calculate \\(C\\%\\) Cs for the coefficient of \\(x_j\\), then \\(C\\%\\) of those intervals will contain the true value of the coefficient \\(\\beta_j\\)\nBalance precision and accuracy when selecting a confidence level"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#confidence-interval-for-beta_j-2",
+    "href": "slides/10-inference-pt3-notes.html#confidence-interval-for-beta_j-2",
+    "title": "Inference for regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\\[\n\\text{Estimate} \\pm \\text{ (critical value) } \\times \\text{SE}\n\\]\n\n. . .\n\\[\n\\hat{\\beta}_1 \\pm t^* \\times SE({\\hat{\\beta}_j})\n\\]\nwhere \\(t^*\\) is calculated from a \\(t\\) distribution with \\(n-p-1\\) degrees of freedom"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#confidence-interval-critical-value",
+    "href": "slides/10-inference-pt3-notes.html#confidence-interval-critical-value",
+    "title": "Inference for regression",
+    "section": "Confidence interval: Critical value",
+    "text": "Confidence interval: Critical value\n\n\n# confidence level: 95%\nqt(0.975, df = nrow(football) - 2 - 1)\n\n[1] 1.97928\n\n\n\n\n\n\n# confidence level: 90%\nqt(0.95, df = nrow(football) - 2 - 1)\n\n[1] 1.657235\n\n\n\n\n\n\n# confidence level: 99%\nqt(0.995, df = nrow(football) - 2 - 1)\n\n[1] 2.61606"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#ci-for-beta_j-calculation",
+    "href": "slides/10-inference-pt3-notes.html#ci-for-beta_j-calculation",
+    "title": "Inference for regression",
+    "section": "95% CI for \\(\\beta_j\\): Calculation",
+    "text": "95% CI for \\(\\beta_j\\): Calculation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#ci-for-beta_j-in-r",
+    "href": "slides/10-inference-pt3-notes.html#ci-for-beta_j-in-r",
+    "title": "Inference for regression",
+    "section": "95% CI for \\(\\beta_j\\) in R",
+    "text": "95% CI for \\(\\beta_j\\) in R\n\ntidy(exp_fit, conf.int = TRUE, conf.level = 0.95) |&gt; \n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n13.426\n25.239\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n0.562\n0.999\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n-19.466\n-6.986\n\n\n\n\n\n\nInterpretation: We are 95% confident that for each additional 1,000 students enrolled, the institution’s expenditures on football will be greater by $562,000 to $999,000, on average, holding institution type constant."
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#recap",
+    "href": "slides/10-inference-pt3-notes.html#recap",
+    "title": "Inference for regression",
+    "section": "Recap",
+    "text": "Recap\n\nConducted hypothesis tests for a single coefficient \\(\\beta_j\\)\nComputed and interpreted confidence intervals for a single coefficient \\(\\beta_j\\)"
+  },
+  {
+    "objectID": "slides/10-inference-pt3-notes.html#next-class",
+    "href": "slides/10-inference-pt3-notes.html#next-class",
+    "title": "Inference for regression",
+    "section": "Next class",
+    "text": "Next class\n\nExam 01 review"
+  },
+  {
     "objectID": "slides/01-welcome.html#meet-prof.-tackett",
     "href": "slides/01-welcome.html#meet-prof.-tackett",
     "title": "Welcome to STA 221!",
@@ -4384,6 +4713,447 @@
     "title": "Simple linear regression",
     "section": "Next time",
     "text": "Next time\n\nModel assessment for simple linear regression\n\nComplete Lecture 03 prepare\n\nIn-class activity on Thursday\n\nBring fully-charged laptop / device to access RStudio container"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html",
+    "href": "slides/09-inference-pt2-notes.html",
+    "title": "Inference for regression",
+    "section": "",
+    "text": "HW 02 due Thursday, February 13 at 11:59pm\n\nReleased after class\n\nLecture recordings available until start of exam, February 18 at 10:05am\n\nSee link under “Exam 01” on menu of course website\n\nbook extra credit?"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#announcements---update",
+    "href": "slides/09-inference-pt2-notes.html#announcements---update",
+    "title": "Inference for regression",
+    "section": "",
+    "text": "HW 02 due Thursday, February 13 at 11:59pm\n\nReleased after class\n\nLecture recordings available until start of exam, February 18 at 10:05am\n\nSee link under “Exam 01” on menu of course website\n\nbook extra credit?"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#topics",
+    "href": "slides/09-inference-pt2-notes.html#topics",
+    "title": "Inference for regression",
+    "section": "Topics",
+    "text": "Topics\n\nHypothesis tests for a coefficient \\(\\beta_j\\)\nConfidence intervals for a coefficient \\(\\beta_j\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#computing-setup",
+    "href": "slides/09-inference-pt2-notes.html#computing-setup",
+    "title": "Inference for regression",
+    "section": "Computing setup",
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(kableExtra)  \nlibrary(patchwork)   \n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#data-ncaa-football-expenditures",
+    "href": "slides/09-inference-pt2-notes.html#data-ncaa-football-expenditures",
+    "title": "Inference for regression",
+    "section": "Data: NCAA Football expenditures",
+    "text": "Data: NCAA Football expenditures\nToday’s data come from Equity in Athletics Data Analysis and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a March 2022 Tidy Tuesday.\nWe will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :\n\ntotal_exp_m: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)\nenrollment_th: Total student enrollment in the 2019 - 2020 academic year (in thousands)\ntype: institution type (Public or Private)\n\n\nfootball &lt;- read_csv(\"data/ncaa-football-exp.csv\")"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#regression-model",
+    "href": "slides/09-inference-pt2-notes.html#regression-model",
+    "title": "Inference for regression",
+    "section": "Regression model",
+    "text": "Regression model\n\nexp_fit &lt;- lm(total_exp_m ~ enrollment_th + type, data = football)\ntidy(exp_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#linear-regression-model",
+    "href": "slides/09-inference-pt2-notes.html#linear-regression-model",
+    "title": "Inference for regression",
+    "section": "Linear regression model",
+    "text": "Linear regression model\n\\[\\begin{aligned}\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{8mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\end{aligned}\n\\]\nsuch that the errors are independent and normally distributed.\n\nIndependent: Knowing the error term for one observation doesn’t tell us about the error term for another observation\nNormally distributed: The distribution follows a particular mathematical model that is unimodal and symmetric\n\n\\(E(\\boldsymbol{\\epsilon}) = \\mathbf{0}\\)\n\\(Var(\\boldsymbol{\\epsilon}) = \\sigma^2_{\\epsilon}\\mathbf{I}\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#assumptions-for-regression",
+    "href": "slides/09-inference-pt2-notes.html#assumptions-for-regression",
+    "title": "Inference for regression",
+    "section": "Assumptions for regression",
+    "text": "Assumptions for regression\n\n\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\n\n\nImage source: Introduction to the Practice of Statistics (5th ed)\n\n\n\n\nLinearity: There is a linear relationship between the response and predictor variables.\nConstant Variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the residuals is approximately normal.\nIndependence: The residuals are independent from one another."
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#estimating-sigma2_epsilon",
+    "href": "slides/09-inference-pt2-notes.html#estimating-sigma2_epsilon",
+    "title": "Inference for regression",
+    "section": "Estimating \\(\\sigma^2_{\\epsilon}\\)",
+    "text": "Estimating \\(\\sigma^2_{\\epsilon}\\)\n\nOnce we fit the model, we can use the residuals to estimate \\(\\sigma_{\\epsilon}^2\\)\nThe estimated value \\(\\hat{\\sigma}^2_{\\epsilon}\\) is needed for hypothesis testing and constructing confidence intervals for regression\n\n\\[\n\\hat{\\sigma}^2_\\epsilon = \\frac{SSR}{n - p - 1} = \\frac{\\mathbf{e}^\\mathsf{T}\\mathbf{e}}{n-p-1}\n\\]\n\nThe regression standard error \\(\\hat{\\sigma}_{\\epsilon}\\) is a measure of the average distance between the observations and regression line\n\n\\[\n\\hat{\\sigma}_\\epsilon = \\sqrt{\\frac{SSR}{n - p - 1}} = \\sqrt{\\frac{\\mathbf{e}^\\mathsf{T}\\mathbf{e}}{n - p - 1}}\n\\]"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#sampling-distribution-of-hatbeta",
+    "href": "slides/09-inference-pt2-notes.html#sampling-distribution-of-hatbeta",
+    "title": "Inference for regression",
+    "section": "Sampling distribution of \\(\\hat{\\beta}\\)",
+    "text": "Sampling distribution of \\(\\hat{\\beta}\\)\n\nA sampling distribution is the probability distribution of a statistic for a large number of random samples of size \\(n\\) from a population\nThe sampling distribution of \\(\\hat{\\boldsymbol{\\beta}}\\) is the probability distribution of the estimated coefficients if we repeatedly took samples of size \\(n\\) and fit the regression model\n\n\\[\n\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\n\\]\n. . .\nThe estimated coefficients \\(\\hat{\\boldsymbol{\\beta}}\\) are normally distributed with\n\\[\nE(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta} \\hspace{10mm} Var(\\hat{\\boldsymbol{\\beta}}) = \\sigma^2_{\\epsilon}(\\boldsymbol{X}^\\mathsf{T}\\boldsymbol{X})^{-1}\n\\]"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#expected-value-of-boldsymbolhatbeta",
+    "href": "slides/09-inference-pt2-notes.html#expected-value-of-boldsymbolhatbeta",
+    "title": "Inference for regression",
+    "section": "Expected value of \\(\\boldsymbol{\\hat{\\beta}}\\)",
+    "text": "Expected value of \\(\\boldsymbol{\\hat{\\beta}}\\)\n\nShow\n\\[E(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta}\\]\n\n\nWill show \\(Var(\\hat{\\boldsymbol{\\beta}})\\) in homework"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#sampling-distribution-of-hatbeta_j",
+    "href": "slides/09-inference-pt2-notes.html#sampling-distribution-of-hatbeta_j",
+    "title": "Inference for regression",
+    "section": "Sampling distribution of \\(\\hat{\\beta}_j\\)",
+    "text": "Sampling distribution of \\(\\hat{\\beta}_j\\)\n\\[\n\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\n\\]\nLet \\(\\mathbf{C} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\). Then, for each coefficient \\(\\hat{\\beta}_j\\),\n\n\\(E(\\hat{\\beta}_j) = \\boldsymbol{\\beta}_j\\), the \\(j^{th}\\) element of \\(\\boldsymbol{\\beta}\\)\n\\(Var(\\hat{\\beta}_j) = \\sigma^2_{\\epsilon}C_{jj}\\)\n\\(Cov(\\hat{\\beta}_i, \\hat{\\beta}_j) = \\sigma^2_{\\epsilon}C_{ij}\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#varhatboldsymbolbeta-for-ncaa-data",
+    "href": "slides/09-inference-pt2-notes.html#varhatboldsymbolbeta-for-ncaa-data",
+    "title": "Inference for regression",
+    "section": "\\(Var(\\hat{\\boldsymbol{\\beta}})\\) for NCAA data",
+    "text": "\\(Var(\\hat{\\boldsymbol{\\beta}})\\) for NCAA data\n\nX &lt;- model.matrix(total_exp_m ~ enrollment_th + type, \n                  data = football)\nsigma_sq &lt;- glance(exp_fit)$sigma^2\n\nvar_beta &lt;- sigma_sq * solve(t(X) %*% X)\nvar_beta\n\n              (Intercept) enrollment_th typePublic\n(Intercept)     8.9054556   -0.13323338 -6.0899556\nenrollment_th  -0.1332334    0.01216984 -0.1239408\ntypePublic     -6.0899556   -0.12394079  9.9388370"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#sehatboldsymbolbeta-for-ncaa-data",
+    "href": "slides/09-inference-pt2-notes.html#sehatboldsymbolbeta-for-ncaa-data",
+    "title": "Inference for regression",
+    "section": "\\(SE(\\hat{\\boldsymbol{\\beta}})\\) for NCAA data",
+    "text": "\\(SE(\\hat{\\boldsymbol{\\beta}})\\) for NCAA data\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n\n\n\n\n\n\n\nsqrt(diag(var_beta))\n\n  (Intercept) enrollment_th    typePublic \n     2.984201      0.110317      3.152592"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#hypothesis-testing-as-a-us-court-trial",
+    "href": "slides/09-inference-pt2-notes.html#hypothesis-testing-as-a-us-court-trial",
+    "title": "Inference for regression",
+    "section": "Hypothesis testing as a US court trial",
+    "text": "Hypothesis testing as a US court trial\n\nNull hypothesis, \\(H_0\\) : Defendant is innocent\nAlternative hypothesis, \\(H_a\\) : Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_a\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#steps-for-a-hypothesis-test",
+    "href": "slides/09-inference-pt2-notes.html#steps-for-a-hypothesis-test",
+    "title": "Inference for regression",
+    "section": "Steps for a hypothesis test",
+    "text": "Steps for a hypothesis test\n\nState the null and alternative hypotheses.\nCompute a test statistic.\nCompute the p-value.\nState the conclusion."
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-hypotheses",
+    "href": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-hypotheses",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Hypotheses",
+    "text": "Hypothesis test for \\(\\beta_j\\): Hypotheses\nWe will generally test the hypotheses:\n\\[\n\\begin{aligned}\n&H_0: \\beta_j = 0 \\\\\n&H_a: \\beta_j \\neq 0\n\\end{aligned}\n\\]\n\nState these hypotheses in words."
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-test-statistic",
+    "href": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-test-statistic",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\nTest statistic: Number of standard errors the estimate is away from the null\n\\[\n\\text{Test Statistic} = \\frac{\\text{Estimate - Null}}{\\text{Standard error}} \\\\\n\\]\n. . .\nIf \\(\\sigma^2_{\\epsilon}\\) was known, the test statistic would be\n\\[Z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\sigma^2_\\epsilon C_{jj}}} ~\\sim ~ N(0, 1)\n\\]\n. . .\nIn practice, \\(\\sigma^2_{\\epsilon}\\) is not known, so we use \\(\\hat{\\sigma}_{\\epsilon}^2\\) to calculate \\(SE(\\hat{\\beta}_j)\\)\n\\[T = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\hat{\\sigma}^2_\\epsilon C_{jj}}} ~\\sim ~ t_{n-p-1}\n\\]"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-test-statistic-1",
+    "href": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-test-statistic-1",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\n\nThe test statistic \\(T\\) follows a \\(t\\) distribution with \\(n - p -1\\) degrees of freedom.\nWe need to account for the additional variability introduced by computing \\(SE(\\hat{\\beta}_j)\\) using an estimated value instead of a fixed, known value"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#t-vs.-n01",
+    "href": "slides/09-inference-pt2-notes.html#t-vs.-n01",
+    "title": "Inference for regression",
+    "section": "t vs. N(0,1)",
+    "text": "t vs. N(0,1)\n\n\n\n\n\n\n\n\nFigure 1: Standard normal vs. t distributions"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-p-value",
+    "href": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-p-value",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): P-value",
+    "text": "Hypothesis test for \\(\\beta_j\\): P-value\nThe p-value measures how likely it is to see results at least as extreme as the observed result, given the null hypothesis is true.\n\\[\n\\text{p-value} = P(|t| &gt; |T|),\n\\]\ncalculated from a \\(t\\) distribution with \\(n- p - 1\\) degrees of freedom\n. . .\n\nWhy do we take into account the high and low ends of the distribution to define “extreme” for this test?"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#understanding-the-p-value",
+    "href": "slides/09-inference-pt2-notes.html#understanding-the-p-value",
+    "title": "Inference for regression",
+    "section": "Understanding the p-value",
+    "text": "Understanding the p-value\n\n\n\nMagnitude of p-value\nInterpretation\n\n\n\n\np-value &lt; 0.01\nstrong evidence against \\(H_0\\)\n\n\n0.01 &lt; p-value &lt; 0.05\nmoderate evidence against \\(H_0\\)\n\n\n0.05 &lt; p-value &lt; 0.1\nweak evidence against \\(H_0\\)\n\n\np-value &gt; 0.1\neffectively no evidence against \\(H_0\\)\n\n\n\n\nThese are general guidelines. The strength of evidence depends on the context of the problem."
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-conclusion",
+    "href": "slides/09-inference-pt2-notes.html#hypothesis-test-for-beta_j-conclusion",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Conclusion",
+    "text": "Hypothesis test for \\(\\beta_j\\): Conclusion\nThere are two parts to the conclusion\n\nMake a conclusion by comparing the p-value to a predetermined decision-making threshold called the significance level ( \\(\\alpha\\) level)\n\nIf \\(\\text{p-value} &lt; \\alpha\\): Reject \\(H_0\\)\nIf \\(\\text{p-value} \\geq \\alpha\\): Fail to reject \\(H_0\\)\n\nState the conclusion in the context of the data"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#confidence-interval-for-beta_j-1",
+    "href": "slides/09-inference-pt2-notes.html#confidence-interval-for-beta_j-1",
+    "title": "Inference for regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\n\nA plausible range of values for a population parameter is called a confidence interval\nUsing only a single point estimate is like fishing in a murky lake with a spear, and using a confidence interval is like fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nSimilarly, if we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#what-confidence-means",
+    "href": "slides/09-inference-pt2-notes.html#what-confidence-means",
+    "title": "Inference for regression",
+    "section": "What “confidence” means",
+    "text": "What “confidence” means\n\n\nWe will construct \\(C\\%\\) confidence intervals.\n\nThe confidence level impacts the width of the interval\n\n“Confident” means if we were to take repeated samples of the same size as our data, fit regression lines using the same predictors, and calculate \\(C\\%\\) CIs for the coefficient of \\(x_j\\), then \\(C\\%\\) of those intervals will contain the true value of the coefficient \\(\\beta_j\\)\nBalance precision and accuracy when selecting a confidence level\n\n\n. . .\n\nWhat is the probability \\(\\beta_j\\) is in the 95% confidence interval\n\npre data collection?\npost data collection?"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#confidence-interval-for-beta_j-2",
+    "href": "slides/09-inference-pt2-notes.html#confidence-interval-for-beta_j-2",
+    "title": "Inference for regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\\[\n\\text{Estimate} \\pm \\text{ (critical value) } \\times \\text{SE}\n\\]\n. . .\n\\[\n\\hat{\\beta}_1 \\pm t^* \\times SE({\\hat{\\beta}_j})\n\\]\nwhere \\(t^*\\) is calculated from a \\(t\\) distribution with \\(n-p-1\\) degrees of freedom"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#confidence-interval-critical-value",
+    "href": "slides/09-inference-pt2-notes.html#confidence-interval-critical-value",
+    "title": "Inference for regression",
+    "section": "Confidence interval: Critical value",
+    "text": "Confidence interval: Critical value\n\n\n# confidence level: 95%\nqt(0.975, df = nrow(football) - 2 - 1)\n\n[1] 1.97928\n\n\n\n\n\n\n# confidence level: 90%\nqt(0.95, df = nrow(football) - 2 - 1)\n\n[1] 1.657235\n\n\n\n\n\n\n# confidence level: 99%\nqt(0.995, df = nrow(football) - 2 - 1)\n\n[1] 2.61606"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#ci-for-beta_j-calculation",
+    "href": "slides/09-inference-pt2-notes.html#ci-for-beta_j-calculation",
+    "title": "Inference for regression",
+    "section": "95% CI for \\(\\beta_j\\): Calculation",
+    "text": "95% CI for \\(\\beta_j\\): Calculation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#ci-for-beta_j-in-r",
+    "href": "slides/09-inference-pt2-notes.html#ci-for-beta_j-in-r",
+    "title": "Inference for regression",
+    "section": "95% CI for \\(\\beta_j\\) in R",
+    "text": "95% CI for \\(\\beta_j\\) in R\n\ntidy(exp_fit, conf.int = TRUE, conf.level = 0.95) |&gt; \n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n13.426\n25.239\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n0.562\n0.999\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n-19.466\n-6.986\n\n\n\n\n\nInterpretation: We are 95% confident that for each additional 1,000 students enrolled, the institution’s expenditures on football will be greater by $562,000 to $999,000, on average, holding institution type constant."
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#confidence-intervals-hypothesis-tests",
+    "href": "slides/09-inference-pt2-notes.html#confidence-intervals-hypothesis-tests",
+    "title": "Inference for regression",
+    "section": "Confidence intervals & hypothesis tests",
+    "text": "Confidence intervals & hypothesis tests\n\nA \\(C\\%\\) confidence interval corresponds to a two-sided hypothesis test with \\(\\alpha\\)-level of \\((100 - C)\\%\\)\nUsing a confidence interval for a two-sided test:\n\nIf the hypothesized value is in the interval \\(\\Rightarrow\\) Fail to reject \\(H_0\\)\nIf the hypothesized value is not in the interval \\(\\Rightarrow\\) Reject \\(H_0\\)\n\n\n\nThe 95% confidence interval for typePublic is -19.466 to -6.986. Do we reject or fail to reject the null hypothesis that \\(\\beta_{\\text{typePublic}} = 0\\) ?"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#recap",
+    "href": "slides/09-inference-pt2-notes.html#recap",
+    "title": "Inference for regression",
+    "section": "Recap",
+    "text": "Recap\n\nConducted a hypothesis test for a coefficient \\(\\beta_j\\)\nConstructed and interpreted a confidence interval for a coefficient \\(\\beta_j\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt2-notes.html#next-class",
+    "href": "slides/09-inference-pt2-notes.html#next-class",
+    "title": "Inference for regression",
+    "section": "Next class",
+    "text": "Next class\n\nExam 01 review\nNo prepare assignment"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#announcements---update",
+    "href": "slides/09-inference-pt3.html#announcements---update",
+    "title": "Inference for regression",
+    "section": "Announcements - UPDATE",
+    "text": "Announcements - UPDATE\n\nHW 02 due Thursday, February 13 at 11:59pm\n\nReleased after class\n\nLecture recordings available until start of exam, February 18 at 10:05am\n\nSee link under “Exam 01” on menu of course website\n\nbook extra credit?"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#topics",
+    "href": "slides/09-inference-pt3.html#topics",
+    "title": "Inference for regression",
+    "section": "Topics",
+    "text": "Topics\n\nHypothesis tests for a coefficient \\(\\beta_j\\)\nConfidence intervals for a coefficient \\(\\beta_j\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#computing-setup",
+    "href": "slides/09-inference-pt3.html#computing-setup",
+    "title": "Inference for regression",
+    "section": "Computing setup",
+    "text": "Computing setup\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(kableExtra)  \nlibrary(patchwork)   \n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#data-ncaa-football-expenditures",
+    "href": "slides/09-inference-pt3.html#data-ncaa-football-expenditures",
+    "title": "Inference for regression",
+    "section": "Data: NCAA Football expenditures",
+    "text": "Data: NCAA Football expenditures\nToday’s data come from Equity in Athletics Data Analysis and includes information about sports expenditures and revenues for colleges and universities in the United States. This data set was featured in a March 2022 Tidy Tuesday.\nWe will focus on the 2019 - 2020 season expenditures on football for institutions in the NCAA - Division 1 FBS. The variables are :\n\ntotal_exp_m: Total expenditures on football in the 2019 - 2020 academic year (in millions USD)\nenrollment_th: Total student enrollment in the 2019 - 2020 academic year (in thousands)\ntype: institution type (Public or Private)\n\n\nfootball &lt;- read_csv(\"data/ncaa-football-exp.csv\")"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#regression-model",
+    "href": "slides/09-inference-pt3.html#regression-model",
+    "title": "Inference for regression",
+    "section": "Regression model",
+    "text": "Regression model\n\nexp_fit &lt;- lm(total_exp_m ~ enrollment_th + type, data = football)\ntidy(exp_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#linear-regression-model",
+    "href": "slides/09-inference-pt3.html#linear-regression-model",
+    "title": "Inference for regression",
+    "section": "Linear regression model",
+    "text": "Linear regression model\n\\[\\begin{aligned}\n\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{8mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\end{aligned}\n\\]\nsuch that the errors are independent and normally distributed.\n\nIndependent: Knowing the error term for one observation doesn’t tell us about the error term for another observation\nNormally distributed: The distribution follows a particular mathematical model that is unimodal and symmetric\n\n\\(E(\\boldsymbol{\\epsilon}) = \\mathbf{0}\\)\n\\(Var(\\boldsymbol{\\epsilon}) = \\sigma^2_{\\epsilon}\\mathbf{I}\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#assumptions-for-regression",
+    "href": "slides/09-inference-pt3.html#assumptions-for-regression",
+    "title": "Inference for regression",
+    "section": "Assumptions for regression",
+    "text": "Assumptions for regression\n\n\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\n\n\nImage source: Introduction to the Practice of Statistics (5th ed)\n\n\n\n\nLinearity: There is a linear relationship between the response and predictor variables.\nConstant Variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the residuals is approximately normal.\nIndependence: The residuals are independent from one another."
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#estimating-sigma2_epsilon",
+    "href": "slides/09-inference-pt3.html#estimating-sigma2_epsilon",
+    "title": "Inference for regression",
+    "section": "Estimating \\(\\sigma^2_{\\epsilon}\\)",
+    "text": "Estimating \\(\\sigma^2_{\\epsilon}\\)\n\nOnce we fit the model, we can use the residuals to estimate \\(\\sigma_{\\epsilon}^2\\)\nThe estimated value \\(\\hat{\\sigma}^2_{\\epsilon}\\) is needed for hypothesis testing and constructing confidence intervals for regression\n\n\\[\n\\hat{\\sigma}^2_\\epsilon = \\frac{SSR}{n - p - 1} = \\frac{\\mathbf{e}^\\mathsf{T}\\mathbf{e}}{n-p-1}\n\\]\n\nThe regression standard error \\(\\hat{\\sigma}_{\\epsilon}\\) is a measure of the average distance between the observations and regression line\n\n\\[\n\\hat{\\sigma}_\\epsilon = \\sqrt{\\frac{SSR}{n - p - 1}} = \\sqrt{\\frac{\\mathbf{e}^\\mathsf{T}\\mathbf{e}}{n - p - 1}}\n\\]"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#sampling-distribution-of-hatbeta",
+    "href": "slides/09-inference-pt3.html#sampling-distribution-of-hatbeta",
+    "title": "Inference for regression",
+    "section": "Sampling distribution of \\(\\hat{\\beta}\\)",
+    "text": "Sampling distribution of \\(\\hat{\\beta}\\)\n\nA sampling distribution is the probability distribution of a statistic for a large number of random samples of size \\(n\\) from a population\nThe sampling distribution of \\(\\hat{\\boldsymbol{\\beta}}\\) is the probability distribution of the estimated coefficients if we repeatedly took samples of size \\(n\\) and fit the regression model\n\n\\[\n\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\n\\]\n\nThe estimated coefficients \\(\\hat{\\boldsymbol{\\beta}}\\) are normally distributed with\n\\[\nE(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta} \\hspace{10mm} Var(\\hat{\\boldsymbol{\\beta}}) = \\sigma^2_{\\epsilon}(\\boldsymbol{X}^\\mathsf{T}\\boldsymbol{X})^{-1}\n\\]"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#expected-value-of-boldsymbolhatbeta",
+    "href": "slides/09-inference-pt3.html#expected-value-of-boldsymbolhatbeta",
+    "title": "Inference for regression",
+    "section": "Expected value of \\(\\boldsymbol{\\hat{\\beta}}\\)",
+    "text": "Expected value of \\(\\boldsymbol{\\hat{\\beta}}\\)\n\nShow\n\\[E(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta}\\]\n\n\nWill show \\(Var(\\hat{\\boldsymbol{\\beta}})\\) in homework"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#sampling-distribution-of-hatbeta_j",
+    "href": "slides/09-inference-pt3.html#sampling-distribution-of-hatbeta_j",
+    "title": "Inference for regression",
+    "section": "Sampling distribution of \\(\\hat{\\beta}_j\\)",
+    "text": "Sampling distribution of \\(\\hat{\\beta}_j\\)\n\\[\n\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\n\\]\nLet \\(\\mathbf{C} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\). Then, for each coefficient \\(\\hat{\\beta}_j\\),\n\n\\(E(\\hat{\\beta}_j) = \\boldsymbol{\\beta}_j\\), the \\(j^{th}\\) element of \\(\\boldsymbol{\\beta}\\)\n\\(Var(\\hat{\\beta}_j) = \\sigma^2_{\\epsilon}C_{jj}\\)\n\\(Cov(\\hat{\\beta}_i, \\hat{\\beta}_j) = \\sigma^2_{\\epsilon}C_{ij}\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#varhatboldsymbolbeta-for-ncaa-data",
+    "href": "slides/09-inference-pt3.html#varhatboldsymbolbeta-for-ncaa-data",
+    "title": "Inference for regression",
+    "section": "\\(Var(\\hat{\\boldsymbol{\\beta}})\\) for NCAA data",
+    "text": "\\(Var(\\hat{\\boldsymbol{\\beta}})\\) for NCAA data\n\nX &lt;- model.matrix(total_exp_m ~ enrollment_th + type, \n                  data = football)\nsigma_sq &lt;- glance(exp_fit)$sigma^2\n\nvar_beta &lt;- sigma_sq * solve(t(X) %*% X)\nvar_beta\n\n              (Intercept) enrollment_th typePublic\n(Intercept)     8.9054556   -0.13323338 -6.0899556\nenrollment_th  -0.1332334    0.01216984 -0.1239408\ntypePublic     -6.0899556   -0.12394079  9.9388370"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#sehatboldsymbolbeta-for-ncaa-data",
+    "href": "slides/09-inference-pt3.html#sehatboldsymbolbeta-for-ncaa-data",
+    "title": "Inference for regression",
+    "section": "\\(SE(\\hat{\\boldsymbol{\\beta}})\\) for NCAA data",
+    "text": "\\(SE(\\hat{\\boldsymbol{\\beta}})\\) for NCAA data\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n\n\n\n\n\n\n\nsqrt(diag(var_beta))\n\n  (Intercept) enrollment_th    typePublic \n     2.984201      0.110317      3.152592"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#hypothesis-testing-as-a-us-court-trial",
+    "href": "slides/09-inference-pt3.html#hypothesis-testing-as-a-us-court-trial",
+    "title": "Inference for regression",
+    "section": "Hypothesis testing as a US court trial",
+    "text": "Hypothesis testing as a US court trial\n\nNull hypothesis, \\(H_0\\) : Defendant is innocent\nAlternative hypothesis, \\(H_a\\) : Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_a\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#steps-for-a-hypothesis-test",
+    "href": "slides/09-inference-pt3.html#steps-for-a-hypothesis-test",
+    "title": "Inference for regression",
+    "section": "Steps for a hypothesis test",
+    "text": "Steps for a hypothesis test\n\nState the null and alternative hypotheses.\nCompute a test statistic.\nCompute the p-value.\nState the conclusion."
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-hypotheses",
+    "href": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-hypotheses",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Hypotheses",
+    "text": "Hypothesis test for \\(\\beta_j\\): Hypotheses\nWe will generally test the hypotheses:\n\\[\n\\begin{aligned}\n&H_0: \\beta_j = 0 \\\\\n&H_a: \\beta_j \\neq 0\n\\end{aligned}\n\\]\n\nState these hypotheses in words."
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-test-statistic",
+    "href": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-test-statistic",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\nTest statistic: Number of standard errors the estimate is away from the null\n\\[\n\\text{Test Statistic} = \\frac{\\text{Estimate - Null}}{\\text{Standard error}} \\\\\n\\]\n\nIf \\(\\sigma^2_{\\epsilon}\\) was known, the test statistic would be\n\\[Z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\sigma^2_\\epsilon C_{jj}}} ~\\sim ~ N(0, 1)\n\\]\n\n\nIn practice, \\(\\sigma^2_{\\epsilon}\\) is not known, so we use \\(\\hat{\\sigma}_{\\epsilon}^2\\) to calculate \\(SE(\\hat{\\beta}_j)\\)\n\\[T = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\hat{\\sigma}^2_\\epsilon C_{jj}}} ~\\sim ~ t_{n-p-1}\n\\]"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-test-statistic-1",
+    "href": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-test-statistic-1",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\n\nThe test statistic \\(T\\) follows a \\(t\\) distribution with \\(n - p -1\\) degrees of freedom.\nWe need to account for the additional variability introduced by computing \\(SE(\\hat{\\beta}_j)\\) using an estimated value instead of a fixed, known value"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#t-vs.-n01",
+    "href": "slides/09-inference-pt3.html#t-vs.-n01",
+    "title": "Inference for regression",
+    "section": "t vs. N(0,1)",
+    "text": "t vs. N(0,1)\n\n\nFigure 1: Standard normal vs. t distributions"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-p-value",
+    "href": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-p-value",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): P-value",
+    "text": "Hypothesis test for \\(\\beta_j\\): P-value\nThe p-value measures how likely it is to see results at least as extreme as the observed result, given the null hypothesis is true.\n\\[\n\\text{p-value} = P(|t| &gt; |T|),\n\\]\ncalculated from a \\(t\\) distribution with \\(n- p - 1\\) degrees of freedom\n\n\nWhy do we take into account the high and low ends of the distribution to define “extreme” for this test?"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#understanding-the-p-value",
+    "href": "slides/09-inference-pt3.html#understanding-the-p-value",
+    "title": "Inference for regression",
+    "section": "Understanding the p-value",
+    "text": "Understanding the p-value\n\n\n\nMagnitude of p-value\nInterpretation\n\n\n\n\np-value &lt; 0.01\nstrong evidence against \\(H_0\\)\n\n\n0.01 &lt; p-value &lt; 0.05\nmoderate evidence against \\(H_0\\)\n\n\n0.05 &lt; p-value &lt; 0.1\nweak evidence against \\(H_0\\)\n\n\np-value &gt; 0.1\neffectively no evidence against \\(H_0\\)\n\n\n\n\nThese are general guidelines. The strength of evidence depends on the context of the problem."
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-conclusion",
+    "href": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-conclusion",
+    "title": "Inference for regression",
+    "section": "Hypothesis test for \\(\\beta_j\\): Conclusion",
+    "text": "Hypothesis test for \\(\\beta_j\\): Conclusion\nThere are two parts to the conclusion\n\nMake a conclusion by comparing the p-value to a predetermined decision-making threshold called the significance level ( \\(\\alpha\\) level)\n\nIf \\(\\text{p-value} &lt; \\alpha\\): Reject \\(H_0\\)\nIf \\(\\text{p-value} \\geq \\alpha\\): Fail to reject \\(H_0\\)\n\nState the conclusion in the context of the data"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#confidence-interval-for-beta_j-1",
+    "href": "slides/09-inference-pt3.html#confidence-interval-for-beta_j-1",
+    "title": "Inference for regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nA plausible range of values for a population parameter is called a confidence interval\nUsing only a single point estimate is like fishing in a murky lake with a spear, and using a confidence interval is like fishing with a net\n\nWe can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish\nSimilarly, if we report a point estimate, we probably will not hit the exact population parameter, but if we report a range of plausible values we have a good shot at capturing the parameter"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#what-confidence-means",
+    "href": "slides/09-inference-pt3.html#what-confidence-means",
+    "title": "Inference for regression",
+    "section": "What “confidence” means",
+    "text": "What “confidence” means\n\nWe will construct \\(C\\%\\) confidence intervals.\n\nThe confidence level impacts the width of the interval\n\n“Confident” means if we were to take repeated samples of the same size as our data, fit regression lines using the same predictors, and calculate \\(C\\%\\) CIs for the coefficient of \\(x_j\\), then \\(C\\%\\) of those intervals will contain the true value of the coefficient \\(\\beta_j\\)\nBalance precision and accuracy when selecting a confidence level\n\n\n\nWhat is the probability \\(\\beta_j\\) is in the 95% confidence interval\n\npre data collection?\npost data collection?"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#confidence-interval-for-beta_j-2",
+    "href": "slides/09-inference-pt3.html#confidence-interval-for-beta_j-2",
+    "title": "Inference for regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\\[\n\\text{Estimate} \\pm \\text{ (critical value) } \\times \\text{SE}\n\\]\n\n\\[\n\\hat{\\beta}_1 \\pm t^* \\times SE({\\hat{\\beta}_j})\n\\]\nwhere \\(t^*\\) is calculated from a \\(t\\) distribution with \\(n-p-1\\) degrees of freedom"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#confidence-interval-critical-value",
+    "href": "slides/09-inference-pt3.html#confidence-interval-critical-value",
+    "title": "Inference for regression",
+    "section": "Confidence interval: Critical value",
+    "text": "Confidence interval: Critical value\n\n\n# confidence level: 95%\nqt(0.975, df = nrow(football) - 2 - 1)\n\n[1] 1.97928\n\n\n\n\n\n\n# confidence level: 90%\nqt(0.95, df = nrow(football) - 2 - 1)\n\n[1] 1.657235\n\n\n\n\n\n\n# confidence level: 99%\nqt(0.995, df = nrow(football) - 2 - 1)\n\n[1] 2.61606"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#ci-for-beta_j-calculation",
+    "href": "slides/09-inference-pt3.html#ci-for-beta_j-calculation",
+    "title": "Inference for regression",
+    "section": "95% CI for \\(\\beta_j\\): Calculation",
+    "text": "95% CI for \\(\\beta_j\\): Calculation\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#ci-for-beta_j-in-r",
+    "href": "slides/09-inference-pt3.html#ci-for-beta_j-in-r",
+    "title": "Inference for regression",
+    "section": "95% CI for \\(\\beta_j\\) in R",
+    "text": "95% CI for \\(\\beta_j\\) in R\n\ntidy(exp_fit, conf.int = TRUE, conf.level = 0.95) |&gt; \n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n19.332\n2.984\n6.478\n0\n13.426\n25.239\n\n\nenrollment_th\n0.780\n0.110\n7.074\n0\n0.562\n0.999\n\n\ntypePublic\n-13.226\n3.153\n-4.195\n0\n-19.466\n-6.986\n\n\n\n\n\nInterpretation: We are 95% confident that for each additional 1,000 students enrolled, the institution’s expenditures on football will be greater by $562,000 to $999,000, on average, holding institution type constant."
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#confidence-intervals-hypothesis-tests",
+    "href": "slides/09-inference-pt3.html#confidence-intervals-hypothesis-tests",
+    "title": "Inference for regression",
+    "section": "Confidence intervals & hypothesis tests",
+    "text": "Confidence intervals & hypothesis tests\n\nA \\(C\\%\\) confidence interval corresponds to a two-sided hypothesis test with \\(\\alpha\\)-level of \\((100 - C)\\%\\)\nUsing a confidence interval for a two-sided test:\n\nIf the hypothesized value is in the interval \\(\\Rightarrow\\) Fail to reject \\(H_0\\)\nIf the hypothesized value is not in the interval \\(\\Rightarrow\\) Reject \\(H_0\\)\n\n\n\nThe 95% confidence interval for typePublic is -19.466 to -6.986. Do we reject or fail to reject the null hypothesis that \\(\\beta_{\\text{typePublic}} = 0\\) ?"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#recap",
+    "href": "slides/09-inference-pt3.html#recap",
+    "title": "Inference for regression",
+    "section": "Recap",
+    "text": "Recap\n\nConducted a hypothesis test for a coefficient \\(\\beta_j\\)\nConstructed and interpreted a confidence interval for a coefficient \\(\\beta_j\\)"
+  },
+  {
+    "objectID": "slides/09-inference-pt3.html#next-class",
+    "href": "slides/09-inference-pt3.html#next-class",
+    "title": "Inference for regression",
+    "section": "Next class",
+    "text": "Next class\n\nExam 01 review\nNo prepare assignment"
   },
   {
     "objectID": "slides/03-slr-model-evaluation-notes.html",
