@@ -4064,6 +4064,16 @@
     ]
   },
   {
+    "objectID": "exam-01-practice.html#exercise-16",
+    "href": "exam-01-practice.html#exercise-16",
+    "title": "Exam 01 practice",
+    "section": "Exercise 16",
+    "text": "Exercise 16\nAssume \\(Var(\\boldsymbol{\\epsilon})\\) = \\(\\mathbf{XV}\\), such that \\(\\mathbf{V}\\) has the appropriate dimensions. Derive \\(Var(\\hat{\\boldsymbol{\\beta}})\\). What are the dimensions of \\(\\mathbf{V}\\)?",
+    "crumbs": [
+      "Exam 01 Practice"
+    ]
+  },
+  {
     "objectID": "exam-01-practice.html#relevant-lectures-assignments-and-aes",
     "href": "exam-01-practice.html#relevant-lectures-assignments-and-aes",
     "title": "Exam 01 practice",

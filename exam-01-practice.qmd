@@ -135,6 +135,10 @@ Rework Exercises 1 - 5 in [HW 01](/hw/hw-01.html) for more practice with theory 
 
 Rework Exercises 1 - 4 in [HW 02](/hw/hw-02.html) for more practice with theory and math.
 
+## Exercise 16
+
+Assume $Var(\boldsymbol{\epsilon})$ = $\mathbf{XV}$, such that $\mathbf{V}$ has the appropriate dimensions. Derive $Var(\hat{\boldsymbol{\beta}})$. What are the dimensions of $\mathbf{V}$?
+
 ## Relevant lectures, assignments and AEs
 
 Ask yourself "why" questions as you review the slides, along with your answers, problem-solving process, and derivations on the lectures and assignments. It can also be helpful to explain your process to others.
