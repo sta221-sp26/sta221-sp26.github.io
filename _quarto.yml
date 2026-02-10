@@ -104,8 +104,8 @@ website:
      #   text: Exam 02 Practice
       - href: https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=e9dd03b6-5301-4acd-acea-b3c9014d1010
         text: Lecture recordings
-   #   - href: math-rules.qmd
-    #    text: Math rules
+      - href: math-rules.qmd
+        text: Math rules
         
 
 format:

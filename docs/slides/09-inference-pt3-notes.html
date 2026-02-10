@@ -386,6 +386,12 @@ window.Quarto = {
  <span class="menu-text">Lecture recordings</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../math-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Math rules</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -398,25 +404,30 @@ window.Quarto = {
   <ul>
   <li><a href="#announcements" id="toc-announcements" class="nav-link active" data-scroll-target="#announcements">Announcements</a></li>
   <li><a href="#exam-01" id="toc-exam-01" class="nav-link" data-scroll-target="#exam-01">Exam 01</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#computing-setup" id="toc-computing-setup" class="nav-link" data-scroll-target="#computing-setup">Computing setup</a></li>
   <li><a href="#data-ncaa-football-expenditures" id="toc-data-ncaa-football-expenditures" class="nav-link" data-scroll-target="#data-ncaa-football-expenditures">Data: NCAA Football expenditures</a></li>
   <li><a href="#regression-model" id="toc-regression-model" class="nav-link" data-scroll-target="#regression-model">Regression model</a></li>
-  <li><a href="#inference-for-a-single-coefficient" id="toc-inference-for-a-single-coefficient" class="nav-link" data-scroll-target="#inference-for-a-single-coefficient">Inference for a single coefficient</a>
-  <ul class="collapse">
-  <li><a href="#inference-for-beta_j" id="toc-inference-for-beta_j" class="nav-link" data-scroll-target="#inference-for-beta_j">Inference for <span class="math inline">\(\beta_j\)</span></a></li>
+  <li><a href="#linear-regression-model" id="toc-linear-regression-model" class="nav-link" data-scroll-target="#linear-regression-model">Linear regression model</a></li>
+  <li><a href="#assumptions-for-regression" id="toc-assumptions-for-regression" class="nav-link" data-scroll-target="#assumptions-for-regression">Assumptions for regression</a></li>
+  <li><a href="#estimating-sigma2_epsilon" id="toc-estimating-sigma2_epsilon" class="nav-link" data-scroll-target="#estimating-sigma2_epsilon">Estimating <span class="math inline">\(\sigma^2_{\epsilon}\)</span></a></li>
   <li><a href="#sampling-distribution-of-hatbeta" id="toc-sampling-distribution-of-hatbeta" class="nav-link" data-scroll-target="#sampling-distribution-of-hatbeta">Sampling distribution of <span class="math inline">\(\hat{\beta}\)</span></a></li>
   <li><a href="#sampling-distribution-of-hatbeta_j" id="toc-sampling-distribution-of-hatbeta_j" class="nav-link" data-scroll-target="#sampling-distribution-of-hatbeta_j">Sampling distribution of <span class="math inline">\(\hat{\beta}_j\)</span></a></li>
-  </ul></li>
+  <li><a href="#varhatboldsymbolbeta-for-ncaa-data" id="toc-varhatboldsymbolbeta-for-ncaa-data" class="nav-link" data-scroll-target="#varhatboldsymbolbeta-for-ncaa-data"><span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span> for NCAA data</a></li>
+  <li><a href="#sehatboldsymbolbeta-for-ncaa-data" id="toc-sehatboldsymbolbeta-for-ncaa-data" class="nav-link" data-scroll-target="#sehatboldsymbolbeta-for-ncaa-data"><span class="math inline">\(SE(\hat{\boldsymbol{\beta}})\)</span> for NCAA data</a></li>
   <li><a href="#hypothesis-test-for-beta_j" id="toc-hypothesis-test-for-beta_j" class="nav-link" data-scroll-target="#hypothesis-test-for-beta_j">Hypothesis test for <span class="math inline">\(\beta_j\)</span></a>
   <ul class="collapse">
+  <li><a href="#hypothesis-testing-as-a-us-court-trial" id="toc-hypothesis-testing-as-a-us-court-trial" class="nav-link" data-scroll-target="#hypothesis-testing-as-a-us-court-trial">Hypothesis testing as a US court trial</a></li>
   <li><a href="#steps-for-a-hypothesis-test" id="toc-steps-for-a-hypothesis-test" class="nav-link" data-scroll-target="#steps-for-a-hypothesis-test">Steps for a hypothesis test</a></li>
   <li><a href="#hypothesis-test-for-beta_j-hypotheses" id="toc-hypothesis-test-for-beta_j-hypotheses" class="nav-link" data-scroll-target="#hypothesis-test-for-beta_j-hypotheses">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Hypotheses</a></li>
   <li><a href="#hypothesis-test-for-beta_j-test-statistic" id="toc-hypothesis-test-for-beta_j-test-statistic" class="nav-link" data-scroll-target="#hypothesis-test-for-beta_j-test-statistic">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Test statistic</a></li>
-  <li><a href="#hypothesis-test-for-beta_j-p-value" id="toc-hypothesis-test-for-beta_j-p-value" class="nav-link" data-scroll-target="#hypothesis-test-for-beta_j-p-value">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: p-value</a></li>
+  <li><a href="#hypothesis-test-for-beta_j-test-statistic-1" id="toc-hypothesis-test-for-beta_j-test-statistic-1" class="nav-link" data-scroll-target="#hypothesis-test-for-beta_j-test-statistic-1">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Test statistic</a></li>
+  <li><a href="#t-vs.-n01" id="toc-t-vs.-n01" class="nav-link" data-scroll-target="#t-vs.-n01"><em>t</em> vs.&nbsp;N(0,1)</a></li>
+  <li><a href="#hypothesis-test-for-beta_j-p-value" id="toc-hypothesis-test-for-beta_j-p-value" class="nav-link" data-scroll-target="#hypothesis-test-for-beta_j-p-value">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: P-value</a></li>
+  <li><a href="#understanding-the-p-value" id="toc-understanding-the-p-value" class="nav-link" data-scroll-target="#understanding-the-p-value">Understanding the p-value</a></li>
   <li><a href="#hypothesis-test-for-beta_j-conclusion" id="toc-hypothesis-test-for-beta_j-conclusion" class="nav-link" data-scroll-target="#hypothesis-test-for-beta_j-conclusion">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Conclusion</a></li>
   </ul></li>
+  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a></li>
   <li><a href="#confidence-interval-for-beta_j" id="toc-confidence-interval-for-beta_j" class="nav-link" data-scroll-target="#confidence-interval-for-beta_j">Confidence interval for <span class="math inline">\(\beta_j\)</span></a>
   <ul class="collapse">
   <li><a href="#confidence-interval-for-beta_j-1" id="toc-confidence-interval-for-beta_j-1" class="nav-link" data-scroll-target="#confidence-interval-for-beta_j-1">Confidence interval for <span class="math inline">\(\beta_j\)</span></a></li>
@@ -425,14 +436,12 @@ window.Quarto = {
   <li><a href="#confidence-interval-critical-value" id="toc-confidence-interval-critical-value" class="nav-link" data-scroll-target="#confidence-interval-critical-value">Confidence interval: Critical value</a></li>
   <li><a href="#ci-for-beta_j-calculation" id="toc-ci-for-beta_j-calculation" class="nav-link" data-scroll-target="#ci-for-beta_j-calculation">95% CI for <span class="math inline">\(\beta_j\)</span>: Calculation</a></li>
   <li><a href="#ci-for-beta_j-in-r" id="toc-ci-for-beta_j-in-r" class="nav-link" data-scroll-target="#ci-for-beta_j-in-r">95% CI for <span class="math inline">\(\beta_j\)</span> in R</a></li>
-  </ul></li>
-  <li><a href="#application-exercise" id="toc-application-exercise" class="nav-link" data-scroll-target="#application-exercise">Application exercise</a>
-  <ul class="collapse">
+  <li><a href="#confidence-intervals-hypothesis-tests" id="toc-confidence-intervals-hypothesis-tests" class="nav-link" data-scroll-target="#confidence-intervals-hypothesis-tests">Confidence intervals &amp; hypothesis tests</a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#next-class" id="toc-next-class" class="nav-link" data-scroll-target="#next-class">Next class</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="10-inference-pt3.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="09-inference-pt3.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -440,7 +449,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Inference for regression</h1>
-<p class="subtitle lead">Cont’d</p>
+<p class="subtitle lead">Hypothesis tests + confidence intervals</p>
 </div>
 
 
@@ -457,7 +466,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Feb 11, 2025</p>
+      <p class="date">Feb 10, 2026</p>
     </div>
   </div>
   
@@ -472,42 +481,27 @@ window.Quarto = {
 <section id="announcements" class="level2">
 <h2 class="anchored" data-anchor-id="announcements">Announcements</h2>
 <ul>
-<li><p>Research topics due TODAY at 11:59pm on GitHub</p></li>
-<li><p>HW 02 due Thursday at 11:59pm</p></li>
-<li><p><a href="../hw/stats-experience.html">Statistics experience</a> due <strong>Tuesday, April 22</strong></p></li>
+<li><p>Research topics <strong>due TODAY</strong> at 11:59pm on GitHub</p></li>
+<li><p>HW 02 due <strong>Thursday, February 12</strong> at 11:59pm</p></li>
 </ul>
 </section>
 <section id="exam-01" class="level2">
 <h2 class="anchored" data-anchor-id="exam-01">Exam 01</h2>
 <ul>
-<li><p>50 points total</p>
-<ul>
-<li>in-class: 35-40 points</li>
-<li>take-home: 10 - 15 points</li>
-</ul></li>
-<li><p>In-class (35 -40 pts): 75 minutes during February 18 lecture</p>
-<ul>
-<li>Will be randomly assigned to exam room</li>
-</ul></li>
-<li><p>Take-home (10 -15 pts): released after class on Tuesday</p></li>
-<li><p>If you miss any part of the exam for an excused absence (with academic dean’s note or other official documentation), your Exam 02 score will be counted twice</p></li>
-</ul>
-</section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<ul>
-<li><p><a href="../exam-01-practice.html">Exam 01 practice</a></p></li>
-<li><p><a href="https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=0b5392d5-d61b-465a-80eb-b25e014a75a9">Lecture recordings</a></p></li>
-<li><p>Prepare readings (see course schedule)</p></li>
-<li><p>Lecture notes (use search bar to find specific topics)</p></li>
-<li><p>AEs</p></li>
-<li><p>Assignments</p></li>
+<li><a href="../exam-01-practice.html">Exam 01 practice</a></li>
+<li><a href="../math-rules.html">Math rules</a> (will be provided on exam)</li>
+<li><a href="https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=e9dd03b6-5301-4acd-acea-b3c9014d1010">Lecture recordings</a></li>
+<li>Prepare readings (see course schedule)</li>
+<li>Lecture notes</li>
+<li>AEs</li>
+<li>Lab and HW assignments</li>
 </ul>
 </section>
 <section id="topics" class="level2">
 <h2 class="anchored" data-anchor-id="topics">Topics</h2>
 <ul>
-<li>Conduct inference on a single coefficient</li>
+<li><p>Hypothesis tests for a coefficient <span class="math inline">\(\beta_j\)</span></p></li>
+<li><p>Confidence intervals for a coefficient <span class="math inline">\(\beta_j\)</span></p></li>
 </ul>
 </section>
 <section id="computing-setup" class="level2">
@@ -581,15 +575,60 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="inference-for-a-single-coefficient" class="level1">
-<h1>Inference for a single coefficient</h1>
-<section id="inference-for-beta_j" class="level2">
-<h2 class="anchored" data-anchor-id="inference-for-beta_j">Inference for <span class="math inline">\(\beta_j\)</span></h2>
-<p>We often want to conduct inference on individual model coefficients</p>
+<section id="linear-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression-model">Linear regression model</h2>
+<p><span class="math display">\[\begin{aligned}
+\mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}, \hspace{8mm} \boldsymbol{\epsilon} \sim N(\mathbf{0}, \sigma^2_{\epsilon}\mathbf{I})
+\end{aligned}
+\]</span></p>
+<p>such that the errors are independent and normally distributed.</p>
 <ul>
-<li><p><strong>Hypothesis test:</strong> Is there a linear relationship between the response and <span class="math inline">\(x_j\)</span>?</p></li>
-<li><p><strong>Confidence interval</strong>: What is a plausible range of values <span class="math inline">\(\beta_j\)</span> can take?</p></li>
+<li><strong>Independent</strong>: Knowing the error term for one observation doesn’t tell us about the error term for another observation</li>
+<li><strong>Normally distributed</strong>: The distribution follows a particular mathematical model that is unimodal and symmetric
+<ul>
+<li><span class="math inline">\(E(\boldsymbol{\epsilon}) = \mathbf{0}\)</span></li>
+<li><span class="math inline">\(Var(\boldsymbol{\epsilon}) = \sigma^2_{\epsilon}\mathbf{I}\)</span></li>
+</ul></li>
 </ul>
+</section>
+<section id="assumptions-for-regression" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="assumptions-for-regression">Assumptions for regression</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+\mathbf{y}|\mathbf{X} \sim N(\mathbf{X}\boldsymbol{\beta}, \sigma_\epsilon^2\mathbf{I})
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/08/regression.png" class="img-fluid figure-img"></p>
+<figcaption>Image source: <em>Introduction to the Practice of Statistics (5th ed)</em></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<ol type="1">
+<li><strong>Linearity:</strong> There is a linear relationship between the response and predictor variables.</li>
+<li><strong>Constant Variance:</strong> The variability about the least squares line is generally constant.</li>
+<li><strong>Normality:</strong> The distribution of the residuals is approximately normal.</li>
+<li><strong>Independence:</strong> The residuals are independent from one another.</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="estimating-sigma2_epsilon" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="estimating-sigma2_epsilon">Estimating <span class="math inline">\(\sigma^2_{\epsilon}\)</span></h2>
+<ul>
+<li><p>Once we fit the model, we can use the residuals to estimate <span class="math inline">\(\sigma_{\epsilon}^2\)</span></p></li>
+<li><p>The estimated value <span class="math inline">\(\hat{\sigma}^2_{\epsilon}\)</span> is needed for hypothesis testing and constructing confidence intervals for regression</p></li>
+</ul>
+<p><span class="math display">\[
+\hat{\sigma}^2_\epsilon = \frac{SSR}{n - p - 1} = \frac{\mathbf{e}^\mathsf{T}\mathbf{e}}{n-p-1}
+\]</span></p>
+<ul>
+<li>The <strong>regression standard error</strong> <span class="math inline">\(\hat{\sigma}_{\epsilon}\)</span> is a measure of the average distance between the observations and regression line</li>
+</ul>
+<p><span class="math display">\[
+\hat{\sigma}_\epsilon = \sqrt{\frac{SSR}{n - p - 1}} = \sqrt{\frac{\mathbf{e}^\mathsf{T}\mathbf{e}}{n - p - 1}}
+\]</span></p>
 </section>
 <section id="sampling-distribution-of-hatbeta" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="sampling-distribution-of-hatbeta">Sampling distribution of <span class="math inline">\(\hat{\beta}\)</span></h2>
@@ -600,6 +639,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \sigma^2_\epsilon(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1})
 \]</span></p>
+<p>. . .</p>
 <p>The estimated coefficients <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> are <strong>normally distributed</strong> with</p>
 <p><span class="math display">\[
 E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta} \hspace{10mm} Var(\hat{\boldsymbol{\beta}}) = \sigma^2_{\epsilon}(\boldsymbol{X}^\mathsf{T}\boldsymbol{X})^{-1}
@@ -611,39 +651,31 @@ E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta} \hspace{10mm} Var(\hat{\boldsym
 \hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \sigma^2_\epsilon(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1})
 \]</span></p>
 <p>Let <span class="math inline">\(\mathbf{C} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\)</span>. Then, for each coefficient <span class="math inline">\(\hat{\beta}_j\)</span>,</p>
-<div class="incremental">
-<ul class="incremental">
+<ul>
 <li><p><span class="math inline">\(E(\hat{\beta}_j) = \boldsymbol{\beta}_j\)</span>, the <span class="math inline">\(j^{th}\)</span> element of <span class="math inline">\(\boldsymbol{\beta}\)</span></p></li>
 <li><p><span class="math inline">\(Var(\hat{\beta}_j) = \sigma^2_{\epsilon}C_{jj}\)</span></p></li>
 <li><p><span class="math inline">\(Cov(\hat{\beta}_i, \hat{\beta}_j) = \sigma^2_{\epsilon}C_{ij}\)</span></p></li>
 </ul>
+</section>
+<section id="varhatboldsymbolbeta-for-ncaa-data" class="level2">
+<h2 class="anchored" data-anchor-id="varhatboldsymbolbeta-for-ncaa-data"><span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span> for NCAA data</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(total_exp_m <span class="sc">~</span> enrollment_th <span class="sc">+</span> type, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> football)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sigma_sq <span class="ot">&lt;-</span> <span class="fu">glance</span>(exp_fit)<span class="sc">$</span>sigma<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>var_beta <span class="ot">&lt;-</span> sigma_sq <span class="sc">*</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>var_beta</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              (Intercept) enrollment_th typePublic
+(Intercept)     8.9054556   -0.13323338 -6.0899556
+enrollment_th  -0.1332334    0.01216984 -0.1239408
+typePublic     -6.0899556   -0.12394079  9.9388370</code></pre>
+</div>
 </div>
 </section>
-</section>
-<section id="hypothesis-test-for-beta_j" class="level1">
-<h1>Hypothesis test for <span class="math inline">\(\beta_j\)</span></h1>
-<section id="steps-for-a-hypothesis-test" class="level2">
-<h2 class="anchored" data-anchor-id="steps-for-a-hypothesis-test">Steps for a hypothesis test</h2>
-<ol type="1">
-<li>State the null and alternative hypotheses.</li>
-<li>Calculate a test statistic.</li>
-<li>Calculate the p-value.</li>
-<li>State the conclusion.</li>
-</ol>
-<p><br></p>
-<div class="question">
-<p>Let’s walk through the steps to test <span class="math inline">\(\beta_j\)</span>, the coefficient for <code>typePublic</code> .</p>
-</div>
-</section>
-<section id="hypothesis-test-for-beta_j-hypotheses" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis-test-for-beta_j-hypotheses">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Hypotheses</h2>
-<ul>
-<li><p><strong>Null:</strong> There is no linear relationship between institution type and football expenditure, after adjusting for enrollment <span class="math inline">\(H_0: \beta_j = 0\)</span></p></li>
-<li><p><strong>Alternative:</strong> There is a linear relationship between institution type and football expenditure, after adjusting for enrollment <span class="math inline">\(H_a: \beta_j \neq 0\)</span></p></li>
-</ul>
-</section>
-<section id="hypothesis-test-for-beta_j-test-statistic" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="hypothesis-test-for-beta_j-test-statistic">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Test statistic</h2>
+<section id="sehatboldsymbolbeta-for-ncaa-data" class="level2">
+<h2 class="anchored" data-anchor-id="sehatboldsymbolbeta-for-ncaa-data"><span class="math inline">\(SE(\hat{\boldsymbol{\beta}})\)</span> for NCAA data</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -682,39 +714,153 @@ E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta} \hspace{10mm} Var(\hat{\boldsym
 </table>
 </div>
 </div>
+<p><br></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">diag</span>(var_beta))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  (Intercept) enrollment_th    typePublic 
+     2.984201      0.110317      3.152592 </code></pre>
+</div>
+</div>
+</section>
+<section id="hypothesis-test-for-beta_j" class="level1">
+<h1>Hypothesis test for <span class="math inline">\(\beta_j\)</span></h1>
+<section id="hypothesis-testing-as-a-us-court-trial" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing-as-a-us-court-trial">Hypothesis testing as a US court trial</h2>
+<ul>
+<li><p><strong>Null hypothesis</strong>, <span class="math inline">\(H_0\)</span> : Defendant is innocent</p></li>
+<li><p><strong>Alternative hypothesis</strong>, <span class="math inline">\(H_a\)</span> : Defendant is guilty</p></li>
+<li><p><strong>Present the evidence:</strong> Collect data</p></li>
+<li><p><strong>Judge the evidence:</strong> “Could these data plausibly have happened by chance if the null hypothesis were true?”</p>
+<ul>
+<li><p>Yes: Fail to reject <span class="math inline">\(H_0\)</span></p></li>
+<li><p>No: Reject <span class="math inline">\(H_a\)</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="steps-for-a-hypothesis-test" class="level2">
+<h2 class="anchored" data-anchor-id="steps-for-a-hypothesis-test">Steps for a hypothesis test</h2>
+<ol type="1">
+<li>State the null and alternative hypotheses.</li>
+<li>Compute a test statistic.</li>
+<li>Compute the p-value.</li>
+<li>State the conclusion.</li>
+</ol>
+</section>
+<section id="hypothesis-test-for-beta_j-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-test-for-beta_j-hypotheses">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Hypotheses</h2>
+<p>We will generally test the hypotheses:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;H_0: \beta_j = 0 \\
+&amp;H_a: \beta_j \neq 0
+\end{aligned}
+\]</span></p>
+<div class="question">
+<p>State these hypotheses in words.</p>
+</div>
+</section>
+<section id="hypothesis-test-for-beta_j-test-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-test-for-beta_j-test-statistic">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Test statistic</h2>
 <p><strong>Test statistic:</strong> Number of standard errors the estimate is away from the null</p>
 <p><span class="math display">\[
-\text{Test Statistic} = \frac{\text{Estimate - Null}}{\text{Standard error}} = \frac{-13.226 - 0}{3.153} = -4.195 \\
+\text{Test Statistic} = \frac{\text{Estimate - Null}}{\text{Standard error}} \\
 \]</span></p>
 <p>. . .</p>
-<p>This means the estimated slope of -13.226 is 4.195 standard errors below the hypothesized mean of 0.</p>
+<p>If <span class="math inline">\(\sigma^2_{\epsilon}\)</span> was known, the test statistic would be</p>
+<p><span class="math display">\[Z = \frac{\hat{\beta}_j - 0}{SE(\hat{\beta}_j)} ~ = ~\frac{\hat{\beta}_j - 0}{\sqrt{\sigma^2_\epsilon C_{jj}}} ~\sim ~ N(0, 1)
+\]</span></p>
+<p>. . .</p>
+<p>In practice, <span class="math inline">\(\sigma^2_{\epsilon}\)</span> is <u><strong>not</strong></u> known, so we use <span class="math inline">\(\hat{\sigma}_{\epsilon}^2\)</span> to calculate <span class="math inline">\(SE(\hat{\beta}_j)\)</span></p>
+<p><span class="math display">\[T = \frac{\hat{\beta}_j - 0}{SE(\hat{\beta}_j)} ~ = ~\frac{\hat{\beta}_j - 0}{\sqrt{\hat{\sigma}^2_\epsilon C_{jj}}} ~\sim ~ t_{n-p-1}
+\]</span></p>
 </section>
-<section id="hypothesis-test-for-beta_j-p-value" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="hypothesis-test-for-beta_j-p-value">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: p-value</h2>
+<section id="hypothesis-test-for-beta_j-test-statistic-1" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="hypothesis-test-for-beta_j-test-statistic-1">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Test statistic</h2>
 <ul>
-<li>The test statistic follows a <span class="math inline">\(t\)</span> distribution with 124 degrees of freedom.</li>
+<li><p>The test statistic <span class="math inline">\(T\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n - p -1\)</span> degrees of freedom.</p></li>
+<li><p>We need to account for the additional variability introduced by computing <span class="math inline">\(SE(\hat{\beta}_j)\)</span> using an estimated value instead of a fixed, known value</p></li>
 </ul>
-<p><span class="math display">\[
-p-value = P(|T| &gt; |-4.195|)
-\]</span></p>
-<p>. . .</p>
+</section>
+<section id="t-vs.-n01" class="level2">
+<h2 class="anchored" data-anchor-id="t-vs.-n01"><em>t</em> vs.&nbsp;N(0,1)</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pt</span>(<span class="fl">4.195</span>, <span class="at">df =</span> <span class="fu">nrow</span>(football) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.00005153923</code></pre>
+<div class="cell-output-display">
+<div id="fig-normal-t-curves" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normal-t-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="09-inference-pt3_files/figure-revealjs/fig-normal-t-curves-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-t-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Standard normal vs.&nbsp;t distributions
+</figcaption>
+</figure>
 </div>
 </div>
-<p><br></p>
+</div>
+</section>
+<section id="hypothesis-test-for-beta_j-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-test-for-beta_j-p-value">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: P-value</h2>
+<p>The <strong>p-value</strong> measures how likely it is to see results at least as extreme as the observed result, given the null hypothesis is true.</p>
+<p><span class="math display">\[
+\text{p-value} = P(|t| &gt; |T|),
+\]</span></p>
+<p>calculated from a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n- p - 1\)</span> degrees of freedom</p>
 <p>. . .</p>
-<p>Given <span class="math inline">\(\beta_j = 0\)</span> ( <span class="math inline">\(H_0\)</span> is true), the probability of observing a slope of -13.226 or more extreme is <span class="math inline">\(\approx 0\)</span> .</p>
+<div class="question">
+<p>Why do we take into account the high and low ends of the distribution to define “extreme” for this test?</p>
+</div>
+</section>
+<section id="understanding-the-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-p-value">Understanding the p-value</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Magnitude of p-value</th>
+<th style="text-align: left;">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">p-value &lt; 0.01</td>
+<td style="text-align: left;">strong evidence against <span class="math inline">\(H_0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0.01 &lt; p-value &lt; 0.05</td>
+<td style="text-align: left;">moderate evidence against <span class="math inline">\(H_0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0.05 &lt; p-value &lt; 0.1</td>
+<td style="text-align: left;">weak evidence against <span class="math inline">\(H_0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p-value &gt; 0.1</td>
+<td style="text-align: left;">effectively no evidence against <span class="math inline">\(H_0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>These are general guidelines. The strength of evidence depends on the context of the problem.</strong></p>
 </section>
 <section id="hypothesis-test-for-beta_j-conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="hypothesis-test-for-beta_j-conclusion">Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Conclusion</h2>
+<p><strong>There are two parts to the conclusion</strong></p>
 <ul>
-<li><p>The p-value is <span class="math inline">\(\approx 0\)</span>, so we <strong>reject</strong> <span class="math inline">\(H_0\)</span>.</p></li>
-<li><p>The data provide sufficient evidence that <span class="math inline">\(\beta_j \neq 0\)</span>, meaning evidence there is a linear relationship between institution type and football expenditure, after adjusting for enrollment.</p></li>
+<li><p>Make a conclusion by comparing the p-value to a predetermined decision-making threshold called the significance level ( <span class="math inline">\(\alpha\)</span> level)</p>
+<ul>
+<li><p>If <span class="math inline">\(\text{p-value} &lt; \alpha\)</span>: Reject <span class="math inline">\(H_0\)</span></p></li>
+<li><p>If <span class="math inline">\(\text{p-value} \geq \alpha\)</span>: Fail to reject <span class="math inline">\(H_0\)</span></p></li>
+</ul></li>
+<li><p>State the conclusion in the context of the data</p></li>
 </ul>
 </section>
+</section>
+<section id="application-exercise" class="level1">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="../ae/ae-03-inference.html">sta221-sp26.github.io/ae/ae-03-inference</a></p>
+<p><strong>Part 2</strong></p>
+</div>
 </section>
 <section id="confidence-interval-for-beta_j" class="level1">
 <h1>Confidence interval for <span class="math inline">\(\beta_j\)</span></h1>
@@ -739,8 +885,16 @@ p-value = P(|T| &gt; |-4.195|)
 <ul class="incremental">
 <li>The confidence level impacts the width of the interval</li>
 </ul></li>
-<li><p>“Confident” means if we were to take repeated samples of the same size as our data, fit regression lines using the same predictors, and calculate <span class="math inline">\(C\%\)</span> Cs for the coefficient of <span class="math inline">\(x_j\)</span>, then <span class="math inline">\(C\%\)</span> of those intervals will contain the true value of the coefficient <span class="math inline">\(\beta_j\)</span></p></li>
+<li><p>“Confident” means if we were to take repeated samples of the same size as our data, fit regression lines using the same predictors, and calculate <span class="math inline">\(C\%\)</span> CIs for the coefficient of <span class="math inline">\(x_j\)</span>, then <span class="math inline">\(C\%\)</span> of those intervals will contain the true value of the coefficient <span class="math inline">\(\beta_j\)</span></p></li>
 <li><p>Balance precision and accuracy when selecting a confidence level</p></li>
+</ul>
+</div>
+<p>. . .</p>
+<div class="question">
+<p>What is the probability <span class="math inline">\(\beta_j\)</span> is in the 95% confidence interval</p>
+<ul>
+<li><p>pre data collection?</p></li>
+<li><p>post data collection?</p></li>
 </ul>
 </div>
 </section>
@@ -749,7 +903,6 @@ p-value = P(|T| &gt; |-4.195|)
 <p><span class="math display">\[
 \text{Estimate} \pm \text{ (critical value) } \times \text{SE}
 \]</span></p>
-<p><br></p>
 <p>. . .</p>
 <p><span class="math display">\[
 \hat{\beta}_1 \pm t^* \times SE({\hat{\beta}_j})
@@ -760,8 +913,8 @@ p-value = P(|T| &gt; |-4.195|)
 <h2 class="anchored" data-anchor-id="confidence-interval-critical-value">Confidence interval: Critical value</h2>
 <div class="fragment" data-fragment-index="1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confidence level: 95%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">nrow</span>(football) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confidence level: 95%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">nrow</span>(football) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.97928</code></pre>
 </div>
@@ -770,8 +923,8 @@ p-value = P(|T| &gt; |-4.195|)
 <p><br></p>
 <div class="fragment" data-fragment-index="2">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confidence level: 90%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>, <span class="at">df =</span> <span class="fu">nrow</span>(football) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confidence level: 90%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>, <span class="at">df =</span> <span class="fu">nrow</span>(football) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.657235</code></pre>
 </div>
@@ -780,8 +933,8 @@ p-value = P(|T| &gt; |-4.195|)
 <p><br></p>
 <div class="fragment" data-fragment-index="3">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confidence level: 99%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.995</span>, <span class="at">df =</span> <span class="fu">nrow</span>(football) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confidence level: 99%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.995</span>, <span class="at">df =</span> <span class="fu">nrow</span>(football) <span class="sc">-</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.61606</code></pre>
 </div>
@@ -832,8 +985,8 @@ p-value = P(|T| &gt; |-4.195|)
 <section id="ci-for-beta_j-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="ci-for-beta_j-in-r">95% CI for <span class="math inline">\(\beta_j\)</span> in R</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(exp_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(exp_fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -888,26 +1041,34 @@ p-value = P(|T| &gt; |-4.195|)
 </table>
 </div>
 </div>
-<p><br></p>
 <p><strong>Interpretation</strong>: We are 95% confident that for each additional 1,000 students enrolled, the institution’s expenditures on football will be greater by $562,000 to $999,000, on average, holding institution type constant.</p>
 </section>
-</section>
-<section id="application-exercise" class="level1">
-<h1>Application exercise</h1>
-<div class="appex">
-<p>📋 <a href="../ae/ae-03-inference.html">sta221-sp25.netlify.app/ae/ae-03-inference.html</a></p>
+<section id="confidence-intervals-hypothesis-tests" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-intervals-hypothesis-tests">Confidence intervals &amp; hypothesis tests</h2>
+<ul>
+<li><p>A <span class="math inline">\(C\%\)</span> confidence interval corresponds to a two-sided hypothesis test with <span class="math inline">\(\alpha\)</span>-level of <span class="math inline">\((100 - C)\%\)</span></p></li>
+<li><p>Using a confidence interval for a two-sided test:</p>
+<ul>
+<li><p>If the hypothesized value is in the interval <span class="math inline">\(\Rightarrow\)</span> Fail to reject <span class="math inline">\(H_0\)</span></p></li>
+<li><p>If the hypothesized value is not in the interval <span class="math inline">\(\Rightarrow\)</span> Reject <span class="math inline">\(H_0\)</span></p></li>
+</ul></li>
+</ul>
+<div class="question">
+<p>The 95% confidence interval for <code>typePublic</code> is -19.466 to -6.986. Do we reject or fail to reject the null hypothesis that <span class="math inline">\(\beta_{\text{typePublic}} = 0\)</span> ?</p>
 </div>
+</section>
 <section id="recap" class="level2">
 <h2 class="anchored" data-anchor-id="recap">Recap</h2>
 <ul>
-<li><p>Conducted hypothesis tests for a single coefficient <span class="math inline">\(\beta_j\)</span></p></li>
-<li><p>Computed and interpreted confidence intervals for a single coefficient <span class="math inline">\(\beta_j\)</span></p></li>
+<li><p>Conducted a hypothesis test for a coefficient <span class="math inline">\(\beta_j\)</span></p></li>
+<li><p>Constructed and interpreted a confidence interval for a coefficient <span class="math inline">\(\beta_j\)</span></p></li>
 </ul>
 </section>
 <section id="next-class" class="level2">
 <h2 class="anchored" data-anchor-id="next-class">Next class</h2>
 <ul>
 <li>Exam 01 review</li>
+<li>No prepare assignment</li>
 </ul>
 
 

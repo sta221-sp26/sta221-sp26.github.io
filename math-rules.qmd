@@ -4,40 +4,24 @@ title: Math rules
 
 This page contains mathematical rules we'll use in this course that may be beyond what is covered in a linear algebra course.
 
-## Matrix calculus
+## Matrix calculus 
 
-### Definition of gradient
+### Derivative of $\mathbf{x}^\mathsf{T}\mathbf{z}$
 
-Let $\mathbf{x} = \begin{bmatrix}x_1 \\ x_2 \\ \vdots \\x_k\end{bmatrix}$be a $k \times 1$ vector and $f(\mathbf{x})$ be a function of $\mathbf{x}$.
-
-Then $\nabla_\mathbf{x}f$, the **gradient** of $f$ with respect to $\mathbf{x}$ is
+Let $\mathbf{x}$ be a $k \times 1$ vector and $\mathbf{z}$ be a $k \times 1$ vector, such that $\mathbf{z}$ is not a function of $\mathbf{x}$ . The derivative of $\mathbf{x}^\mathsf{T}\mathbf{z}$ with respect to $\mathbf{x}$ is
 
 $$
-\nabla_\mathbf{x}f = \begin{bmatrix}\frac{\partial f}{\partial x_1} \\ \frac{\partial f}{\partial x_2} \\ \vdots \\ \frac{\partial f}{\partial x_k}\end{bmatrix}
+\frac{\partial}{\partial \mathbf{x}}\hspace{1mm} \mathbf{x}^\mathsf{T}\mathbf{z} = \frac{\partial}{\partial \mathbf{x}} \hspace{1mm} \mathbf{z}^\mathsf{T}\mathbf{x} =  \mathbf{z}
 $$
 
 <hr>
 
-### Gradient of $\mathbf{x}^\mathsf{T}\mathbf{z}$
+### Derivative of $\mathbf{x}^\mathsf{T}\mathbf{A}\mathbf{x}$
 
-Let $\mathbf{x}$ be a $k \times 1$ vector and $\mathbf{z}$ be a $k \times 1$ vector, such that $\mathbf{z}$ is not a function of $\mathbf{x}$ .
-
-The gradient of $\mathbf{x}^\mathsf{T}\mathbf{z}$ with respect to $\mathbf{x}$ is
+Let $\mathbf{x}$ be a $k \times 1$ vector and $\mathbf{A}$ be a $k \times k$ matrix, such that $\mathbf{A}$ is not a function of $\mathbf{x}$ . The derivative of $\mathbf{x}^\mathsf{T}\mathbf{A}\mathbf{x}$ with respect to $\mathbf{x}$ is
 
 $$
-\nabla_\mathbf{x} \hspace{1mm} \mathbf{x}^\mathsf{T}\mathbf{z} = \mathbf{z}
-$$
-
-<hr>
-
-### Gradient of $\mathbf{x}^\mathsf{T}\mathbf{A}\mathbf{x}$
-
-Let $\mathbf{x}$ be a $k \times 1$ vector and $\mathbf{A}$ be a $k \times k$ matrix, such that $\mathbf{A}$ is not a function of $\mathbf{x}$ .
-
-Then the gradient of $\mathbf{x}^\mathsf{T}\mathbf{A}\mathbf{x}$ with respect to $\mathbf{x}$ is
-
-$$
-\nabla_\mathbf{x} \hspace{1mm} \mathbf{x}^\mathsf{T}\mathbf{A}\mathbf{x} = (\mathbf{A}\mathbf{x} + \mathbf{A}^\mathsf{T} \mathbf{x}) = (\mathbf{A} + \mathbf{A}^\mathsf{T})\mathbf{x}
+\frac{\partial}{\partial \mathbf{x}} \hspace{1mm} \mathbf{x}^\mathsf{T}\mathbf{A}\mathbf{x} = (\mathbf{A}\mathbf{x} + \mathbf{A}^\mathsf{T} \mathbf{x}) = (\mathbf{A} + \mathbf{A}^\mathsf{T})\mathbf{x}
 $$
 
 If $\mathbf{A}$ is symmetric, then
@@ -48,132 +32,40 @@ $$
 
 <hr>
 
-### Hessian matrix
+## Derivative of $\mathbf{x}^\mathsf{T}\mathbf{x}$
 
-The **Hessian** matrix, $\nabla_\mathbf{x}^2f$ is a $k \times k$ matrix of partial second derivatives
-
-$$
-\nabla_{\mathbf{x}}^2f = \begin{bmatrix} \frac{\partial^2f}{\partial x_1^2} & \frac{\partial^2f}{\partial x_1 \partial x_2} & \dots & \frac{\partial^2f}{\partial x_1\partial x_k} \\ 
-\frac{\partial^2f}{\partial\ x_2 \partial x_1} & \frac{\partial^2f}{\partial x_2^2} & \dots & \frac{\partial^2f}{\partial x_2 \partial x_k} \\
-\vdots & \vdots & \ddots & \vdots \\ 
-\frac{\partial^2f}{\partial x_k\partial x_1} & \frac{\partial^2f}{\partial x_k\partial x_2} & \dots & \frac{\partial^2f}{\partial x_k^2} \end{bmatrix}
-$$
-
-## Expected value
-
-### Expected value of random variable $X$
-
-The **expected value** of a random variable $\mathbf{X}$ is a weighted average, i.e., the mean value of the possible values a random variable can take weighted by the probability of the outcomes.
-
-Let $f_X(x)$ be the probability distribution of $X$. If $X$ is continuous then
+Let $\mathbf{x}$ be a $k \times 1$ vector, then
 
 $$
-E(X) = \int_{-\infty}^{\infty}xf_X(x)dx
+\frac{\partial}{\partial \mathbf{x}} \hspace{1mm} \mathbf{x}^\mathsf{T}\mathbf{x} = 2\mathbf{x}
 $$
 
-If $X$ is discrete then
-
-$$
-E(X) = \sum_{x \in X}xf_X(x) = \sum_{x\in X}xP(X = x)
-$$
-
-<hr>
-
-### Expected value of vector $\mathbf{z}$
-
-Let $\mathbf{z} = \begin{bmatrix}z_1 \\ \vdots \\z_p\end{bmatrix}$ be a $p \times 1$ vector of random variables.
-
-<br>
-
-Then $E(\mathbf{z}) = E\begin{bmatrix}z_1 \\ \vdots \\ z_p\end{bmatrix} = \begin{bmatrix}E(z_1) \\ \vdots \\ E(z_p)\end{bmatrix}$
-
-<hr>
-
-### Expected value of vector $\mathbf{Az}$ {background-color="#ccddeb"}
-
-Let $\mathbf{A}$ be an $n \times p$ matrix of constants and $\mathbf{z}$ a $p \times 1$ vector of random variables. Then
-
-$$
-E(\mathbf{Az}) = \mathbf{A}E(\mathbf{z})
-$$
-
-<hr>
+## Expected value & Variance
 
 ### Expected value of $\mathbf{Az} + \mathbf{C}$
 
-Let $\mathbf{A}$ be an $n \times p$ matrix of constants, $\mathbf{C}$ a $n \times 1$ vector of constants, and $\mathbf{z}$ a $p \times 1$ vector of random variables. Then
+Let $\mathbf{A}$ be an $n \times k$ matrix of constants, $\mathbf{C}$ a $n \times 1$ vector of constants, and $\mathbf{z}$ a $k \times 1$ vector of random variables. Then
 
 $$
 E(\mathbf{Az} + \mathbf{C}) = E(\mathbf{Az}) + E(\mathbf{C}) = \mathbf{A}E(\mathbf{z}) + \mathbf{C}
 $$
 
+<hr>
+
 ### Expected value of $\mathbf{AXA}\mathsf{^T}$
 
-Let $\mathbf{A}$ be an $n\times p$ matrix of constants and $\mathbf{X}$ a $p \times p$ matrix. Then
+Let $\mathbf{A}$ be an $n\times k$ matrix of constants and $\mathbf{X}$ a $k \times k$ matrix. Then
 
 $$
 E(\mathbf{AXA}^\mathsf{T}) = \mathbf{A}E(\mathbf{X})\mathbf{A}^\mathsf{T}
-$$
-
-## Variance
-
-### Variance of random variable $X$
-
-The **variance** of a random variable $X$ is a measure of the spread of a distribution about its mean.
-
-$$
-Var(X) = E[(X - E(X))^2] = E(X^2) - E(X)^2
 $$
 
 <hr>
 
 ### Variance of vector $\mathbf{z}$
 
-Let $\mathbf{z} = \begin{bmatrix}z_1 \\ \vdots \\z_p\end{bmatrix}$ be a $p \times 1$ vector of random variables. Then
+Let $\mathbf{z}$ be a $k \times 1$ vector of random variables. Then
 
 $$
 Var(\mathbf{z}) = E[(\mathbf{z} - E(\mathbf{z}))(\mathbf{z} - E(\mathbf{z}))^\mathsf{T}]
-$$
-
-<br>
-
-This produced the variance-covariance matrix
-
-$Var(\mathbf{z}) = \begin{bmatrix}Var(z_1) & Cov(z_1, z_2) & \dots & Cov(z_1, z_p)\\ Cov(z_2, z_1) & Var(z_2) & \dots & Cov(z_2, z_p) \\ \vdots & \vdots & \dots & \cdot \\ Cov(z_p, z_1) & Cov(z_p, z_2) & \dots & Var(z_p)\end{bmatrix}$
-
-<hr>
-
-### Variance of $\mathbf{Az}$ 
-
-Let $\mathbf{A}$ be an $n \times p$ matrix of constants and $\mathbf{z}$ a $p \times 1$ vector of random variables. Then
-
-$$
-\begin{aligned}
-Var(\mathbf{Az}) &= E[(\mathbf{Az} - E(\mathbf{Az}))(\mathbf{Az} - E(\mathbf{Az}))^\mathsf{T}] \\
-& = \mathbf{A}Var(\mathbf{z})\mathbf{A}^\mathsf{T}
-\end{aligned}
-$$
-
-## Probability distributions
-
-### Multivariate normal distribution
-
-Let $\mathbf{z}$ be a $p \times 1$ vector of random variables, such that $\mathbf{z}$ follows a multivariate normal distribution with mean $\boldsymbol{\mu}$ and variance $\boldsymbol{\Sigma}$. Then the probability density function of $\mathbf{z}$ is
-
-$$f(\mathbf{z}) = \frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}|^{1/2}}\exp\Big\{-\frac{1}{2}(\mathbf{z} - \boldsymbol{\mu})^\mathsf{T}\boldsymbol{\Sigma}^{-1}(\mathbf{z}- \boldsymbol{\mu})\Big\}$$
-
-<!-- Let $X$ be a random variable, such that $X \sim N(\mu, \sigma^2)$. Then the probability function is -->
-
-<!-- $$ -->
-
-<!-- P(X = x | \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\Big\{-{\frac{1}{2\sigma^2}(x - \mu)^2}\Big\} -->
-
-<!-- $$ -->
-
-### Linear transformation of normal random variable {background-color="#ccddeb"}
-
-Suppose $\mathbf{z}$ is a multivariate normal random variable with mean $\boldsymbol{\mu}$ and variance $\boldsymbol{\Sigma}$. A linear transformation of $\mathbf{z}$ is also multivariate normal, such that
-
-$$
-\mathbf{A}\mathbf{z} + \mathbf{B} \sim N(\mathbf{A}\boldsymbol{\mu} + \mathbf{B}, \mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^\mathsf{T})
 $$

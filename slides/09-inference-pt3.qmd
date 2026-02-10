@@ -1,6 +1,6 @@
 ---
 title: "Inference for regression"
-subtitle: "Cont'd"
+subtitle: "Hypothesis tests + confidence intervals"
 author: "Prof. Maria Tackett"
 date: "2026-02-10"
 date-format: "MMM DD, YYYY"
@@ -16,7 +16,7 @@ format:
     chalkboard: true
     include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
   html: 
-    output-file: 09-inference-pt2-notes.html
+    output-file: 09-inference-pt3-notes.html
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -47,17 +47,21 @@ knitr::opts_chunk$set(
 options(scipen=999)
 ```
 
-## Announcements  - UPDATE
+## Announcements
 
--   HW 02 due Thursday, February 13 at 11:59pm
+-   Research topics **due TODAY** at 11:59pm on GitHub
 
-    -   Released after class
+-   HW 02 due **Thursday, February 12** at 11:59pm
 
--   Lecture recordings available until start of exam, February 18 at 10:05am
+## Exam 01
 
-    -   See link under "Exam 01" on menu of course website
-
--   book extra credit?
+-   [Exam 01 practice](../exam-01-practice.html)
+-   [Math rules](../math-rules.html) (will be provided on exam)
+-   [Lecture recordings](https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=e9dd03b6-5301-4acd-acea-b3c9014d1010)
+-   Prepare readings (see course schedule)
+-   Lecture notes
+-   AEs
+-   Lab and HW assignments
 
 ## Topics
 
@@ -198,18 +202,6 @@ $$
 E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta} \hspace{10mm} Var(\hat{\boldsymbol{\beta}}) = \sigma^2_{\epsilon}(\boldsymbol{X}^\mathsf{T}\boldsymbol{X})^{-1}
 $$
 
-## Expected value of $\boldsymbol{\hat{\beta}}$
-
-::: question
-Show
-
-$$E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta}$$
-:::
-
-<br>
-
-Will show $Var(\hat{\boldsymbol{\beta}})$ in homework
-
 ## Sampling distribution of $\hat{\beta}_j$
 
 $$
@@ -250,7 +242,7 @@ sqrt(diag(var_beta))
 
 # Hypothesis test for $\beta_j$
 
-## Hypothesis testing as a US court trial 
+## Hypothesis testing as a US court trial
 
 -   **Null hypothesis**, $H_0$ : Defendant is innocent
 
@@ -286,7 +278,7 @@ $$
 State these hypotheses in words.
 :::
 
-## Hypothesis test for $\beta_j$: Test statistic {.midi}
+## Hypothesis test for $\beta_j$: Test statistic
 
 **Test statistic:** Number of standard errors the estimate is away from the null
 
@@ -485,7 +477,7 @@ tidy(exp_fit, conf.int = TRUE, conf.level = 0.95) |>
 
 **Interpretation**: We are 95% confident that for each additional 1,000 students enrolled, the institution's expenditures on football will be greater by \$562,000 to \$999,000, on average, holding institution type constant.
 
-## Confidence intervals & hypothesis tests {.midi}
+## Confidence intervals & hypothesis tests
 
 -   A $C\%$ confidence interval corresponds to a two-sided hypothesis test with $\alpha$-level of $(100 - C)\%$
 
