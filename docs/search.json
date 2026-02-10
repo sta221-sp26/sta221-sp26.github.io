@@ -1675,11 +1675,11 @@
     "text": "Announcements\n\nResearch topics due TODAY at 11:59pm on GitHub\nHW 02 due Thursday, February 12 at 11:59pm"
   },
   {
-    "objectID": "slides/09-inference-pt3.html#exam-01",
-    "href": "slides/09-inference-pt3.html#exam-01",
+    "objectID": "slides/09-inference-pt3.html#exam-01-resources",
+    "href": "slides/09-inference-pt3.html#exam-01-resources",
     "title": "Inference for regression",
-    "section": "Exam 01",
-    "text": "Exam 01\n\nExam 01 practice\nMath rules (will be provided on exam)\nLecture recordings\nPrepare readings (see course schedule)\nLecture notes\nAEs\nLab and HW assignments"
+    "section": "Exam 01 resources",
+    "text": "Exam 01 resources\n\nExam 01 practice\nMath rules (will be provided on exam)\nLecture recordings\nPrepare readings (see course schedule)\nLecture notes\nAEs\nLab and HW assignments"
   },
   {
     "objectID": "slides/09-inference-pt3.html#topics",
@@ -1763,7 +1763,7 @@
     "href": "slides/09-inference-pt3.html#hypothesis-testing-as-a-us-court-trial",
     "title": "Inference for regression",
     "section": "Hypothesis testing as a US court trial",
-    "text": "Hypothesis testing as a US court trial\n\nNull hypothesis, \\(H_0\\) : Defendant is innocent\nAlternative hypothesis, \\(H_a\\) : Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_a\\)"
+    "text": "Hypothesis testing as a US court trial\n\nNull hypothesis, \\(H_0\\) : Defendant is innocent\nAlternative hypothesis, \\(H_a\\) : Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_0\\)"
   },
   {
     "objectID": "slides/09-inference-pt3.html#steps-for-a-hypothesis-test",
@@ -1784,14 +1784,14 @@
     "href": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-test-statistic",
     "title": "Inference for regression",
     "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
-    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\nTest statistic: Number of standard errors the estimate is away from the null\n\\[\n\\text{Test Statistic} = \\frac{\\text{Estimate - Null}}{\\text{Standard error}} \\\\\n\\]\n\nIf \\(\\sigma^2_{\\epsilon}\\) was known, the test statistic would be\n\\[Z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\sigma^2_\\epsilon C_{jj}}} ~\\sim ~ N(0, 1)\n\\]\n\n\nIn practice, \\(\\sigma^2_{\\epsilon}\\) is not known, so we use \\(\\hat{\\sigma}_{\\epsilon}^2\\) to calculate \\(SE(\\hat{\\beta}_j)\\)\n\\[T = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\hat{\\sigma}^2_\\epsilon C_{jj}}} ~\\sim ~ t_{n-p-1}\n\\]"
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\nTest statistic: Number of standard errors the estimate is away from the null\n\\[\n\\text{Test Statistic} = \\frac{\\text{Estimate - Null}}{\\text{Standard error}} \\\\\n\\]\n\nIf \\(\\sigma^2_{\\epsilon}\\) was known, the test statistic would be\n\\[Z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\sigma^2_\\epsilon C_{jj}}} ~\\sim ~ N(0, 1)\n\\]"
   },
   {
     "objectID": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-test-statistic-1",
     "href": "slides/09-inference-pt3.html#hypothesis-test-for-beta_j-test-statistic-1",
     "title": "Inference for regression",
     "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
-    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\n\nThe test statistic \\(T\\) follows a \\(t\\) distribution with \\(n - p -1\\) degrees of freedom.\nWe need to account for the additional variability introduced by computing \\(SE(\\hat{\\beta}_j)\\) using an estimated value instead of a fixed, known value"
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\nIn practice, \\(\\sigma^2_{\\epsilon}\\) is not known, so we use \\(\\hat{\\sigma}_{\\epsilon}^2\\) to calculate \\(SE(\\hat{\\beta}_j)\\)\n\\[T = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\hat{\\sigma}^2_\\epsilon C_{jj}}} ~\\sim ~ t_{n-p-1}\n\\]\n\n\n\\(T\\) follows a \\(t\\) distribution with \\(n - p -1\\) degrees of freedom.\nWe need to account for the additional variability introduced by computing \\(SE(\\hat{\\beta}_j)\\) using an estimated value instead of a fixed, known value"
   },
   {
     "objectID": "slides/09-inference-pt3.html#t-vs.-n01",
@@ -1899,11 +1899,11 @@
     "text": "Research topics due TODAY at 11:59pm on GitHub\nHW 02 due Thursday, February 12 at 11:59pm"
   },
   {
-    "objectID": "slides/09-inference-pt3-notes.html#exam-01",
-    "href": "slides/09-inference-pt3-notes.html#exam-01",
+    "objectID": "slides/09-inference-pt3-notes.html#exam-01-resources",
+    "href": "slides/09-inference-pt3-notes.html#exam-01-resources",
     "title": "Inference for regression",
-    "section": "Exam 01",
-    "text": "Exam 01\n\nExam 01 practice\nMath rules (will be provided on exam)\nLecture recordings\nPrepare readings (see course schedule)\nLecture notes\nAEs\nLab and HW assignments"
+    "section": "Exam 01 resources",
+    "text": "Exam 01 resources\n\nExam 01 practice\nMath rules (will be provided on exam)\nLecture recordings\nPrepare readings (see course schedule)\nLecture notes\nAEs\nLab and HW assignments"
   },
   {
     "objectID": "slides/09-inference-pt3-notes.html#topics",
@@ -1987,7 +1987,7 @@
     "href": "slides/09-inference-pt3-notes.html#hypothesis-testing-as-a-us-court-trial",
     "title": "Inference for regression",
     "section": "Hypothesis testing as a US court trial",
-    "text": "Hypothesis testing as a US court trial\n\nNull hypothesis, \\(H_0\\) : Defendant is innocent\nAlternative hypothesis, \\(H_a\\) : Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_a\\)"
+    "text": "Hypothesis testing as a US court trial\n\nNull hypothesis, \\(H_0\\) : Defendant is innocent\nAlternative hypothesis, \\(H_a\\) : Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_0\\)"
   },
   {
     "objectID": "slides/09-inference-pt3-notes.html#steps-for-a-hypothesis-test",
@@ -2008,14 +2008,14 @@
     "href": "slides/09-inference-pt3-notes.html#hypothesis-test-for-beta_j-test-statistic",
     "title": "Inference for regression",
     "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
-    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\nTest statistic: Number of standard errors the estimate is away from the null\n\\[\n\\text{Test Statistic} = \\frac{\\text{Estimate - Null}}{\\text{Standard error}} \\\\\n\\]\n. . .\nIf \\(\\sigma^2_{\\epsilon}\\) was known, the test statistic would be\n\\[Z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\sigma^2_\\epsilon C_{jj}}} ~\\sim ~ N(0, 1)\n\\]\n. . .\nIn practice, \\(\\sigma^2_{\\epsilon}\\) is not known, so we use \\(\\hat{\\sigma}_{\\epsilon}^2\\) to calculate \\(SE(\\hat{\\beta}_j)\\)\n\\[T = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\hat{\\sigma}^2_\\epsilon C_{jj}}} ~\\sim ~ t_{n-p-1}\n\\]"
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\nTest statistic: Number of standard errors the estimate is away from the null\n\\[\n\\text{Test Statistic} = \\frac{\\text{Estimate - Null}}{\\text{Standard error}} \\\\\n\\]\n. . .\nIf \\(\\sigma^2_{\\epsilon}\\) was known, the test statistic would be\n\\[Z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\sigma^2_\\epsilon C_{jj}}} ~\\sim ~ N(0, 1)\n\\]"
   },
   {
     "objectID": "slides/09-inference-pt3-notes.html#hypothesis-test-for-beta_j-test-statistic-1",
     "href": "slides/09-inference-pt3-notes.html#hypothesis-test-for-beta_j-test-statistic-1",
     "title": "Inference for regression",
     "section": "Hypothesis test for \\(\\beta_j\\): Test statistic",
-    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\n\nThe test statistic \\(T\\) follows a \\(t\\) distribution with \\(n - p -1\\) degrees of freedom.\nWe need to account for the additional variability introduced by computing \\(SE(\\hat{\\beta}_j)\\) using an estimated value instead of a fixed, known value"
+    "text": "Hypothesis test for \\(\\beta_j\\): Test statistic\nIn practice, \\(\\sigma^2_{\\epsilon}\\) is not known, so we use \\(\\hat{\\sigma}_{\\epsilon}^2\\) to calculate \\(SE(\\hat{\\beta}_j)\\)\n\\[T = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)} ~ = ~\\frac{\\hat{\\beta}_j - 0}{\\sqrt{\\hat{\\sigma}^2_\\epsilon C_{jj}}} ~\\sim ~ t_{n-p-1}\n\\]\n. . .\n\n\\(T\\) follows a \\(t\\) distribution with \\(n - p -1\\) degrees of freedom.\nWe need to account for the additional variability introduced by computing \\(SE(\\hat{\\beta}_j)\\) using an estimated value instead of a fixed, known value"
   },
   {
     "objectID": "slides/09-inference-pt3-notes.html#t-vs.-n01",

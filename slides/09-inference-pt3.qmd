@@ -53,7 +53,7 @@ options(scipen=999)
 
 -   HW 02 due **Thursday, February 12** at 11:59pm
 
-## Exam 01
+## Exam 01 resources
 
 -   [Exam 01 practice](../exam-01-practice.html)
 -   [Math rules](../math-rules.html) (will be provided on exam)
@@ -254,7 +254,7 @@ sqrt(diag(var_beta))
 
     -   Yes: Fail to reject $H_0$
 
-    -   No: Reject $H_a$
+    -   No: Reject $H_0$
 
 ## Steps for a hypothesis test
 
@@ -293,16 +293,16 @@ If $\sigma^2_{\epsilon}$ was known, the test statistic would be
 $$Z = \frac{\hat{\beta}_j - 0}{SE(\hat{\beta}_j)} ~ = ~\frac{\hat{\beta}_j - 0}{\sqrt{\sigma^2_\epsilon C_{jj}}} ~\sim ~ N(0, 1)
 $$
 
-. . .
+## Hypothesis test for $\beta_j$: Test statistic
 
 In practice, $\sigma^2_{\epsilon}$ is [**not**]{.underline} known, so we use $\hat{\sigma}_{\epsilon}^2$ to calculate $SE(\hat{\beta}_j)$
 
 $$T = \frac{\hat{\beta}_j - 0}{SE(\hat{\beta}_j)} ~ = ~\frac{\hat{\beta}_j - 0}{\sqrt{\hat{\sigma}^2_\epsilon C_{jj}}} ~\sim ~ t_{n-p-1}
 $$
 
-## Hypothesis test for $\beta_j$: Test statistic {.midi}
+. . .
 
--   The test statistic $T$ follows a $t$ distribution with $n - p -1$ degrees of freedom.
+-    $T$ follows a $t$ distribution with $n - p -1$ degrees of freedom.
 
 -   We need to account for the additional variability introduced by computing $SE(\hat{\beta}_j)$ using an estimated value instead of a fixed, known value
 
@@ -477,7 +477,7 @@ tidy(exp_fit, conf.int = TRUE, conf.level = 0.95) |>
 
 **Interpretation**: We are 95% confident that for each additional 1,000 students enrolled, the institution's expenditures on football will be greater by \$562,000 to \$999,000, on average, holding institution type constant.
 
-## Confidence intervals & hypothesis tests
+## Confidence intervals & hypothesis tests {.midi}
 
 -   A $C\%$ confidence interval corresponds to a two-sided hypothesis test with $\alpha$-level of $(100 - C)\%$
 

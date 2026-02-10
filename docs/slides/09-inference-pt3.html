@@ -216,8 +216,8 @@ Prof.&nbsp;Maria Tackett
 <li><p>HW 02 due <strong>Thursday, February 12</strong> at 11:59pm</p></li>
 </ul>
 </section>
-<section id="exam-01" class="slide level2">
-<h2>Exam 01</h2>
+<section id="exam-01-resources" class="slide level2">
+<h2>Exam 01 resources</h2>
 <ul>
 <li><a href="../exam-01-practice.html">Exam 01 practice</a></li>
 <li><a href="../math-rules.html">Math rules</a> (will be provided on exam)</li>
@@ -468,7 +468,7 @@ typePublic     -6.0899556   -0.12394079  9.9388370</code></pre>
 <li><p><strong>Judge the evidence:</strong> “Could these data plausibly have happened by chance if the null hypothesis were true?”</p>
 <ul>
 <li><p>Yes: Fail to reject <span class="math inline">\(H_0\)</span></p></li>
-<li><p>No: Reject <span class="math inline">\(H_a\)</span></p></li>
+<li><p>No: Reject <span class="math inline">\(H_0\)</span></p></li>
 </ul></li>
 </ul>
 </section>
@@ -505,18 +505,18 @@ typePublic     -6.0899556   -0.12394079  9.9388370</code></pre>
 <p><span class="math display">\[Z = \frac{\hat{\beta}_j - 0}{SE(\hat{\beta}_j)} ~ = ~\frac{\hat{\beta}_j - 0}{\sqrt{\sigma^2_\epsilon C_{jj}}} ~\sim ~ N(0, 1)
 \]</span></p>
 </div>
-<div class="fragment">
+</section>
+<section id="hypothesis-test-for-beta_j-test-statistic-1" class="slide level2">
+<h2>Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Test statistic</h2>
 <p>In practice, <span class="math inline">\(\sigma^2_{\epsilon}\)</span> is <u><strong>not</strong></u> known, so we use <span class="math inline">\(\hat{\sigma}_{\epsilon}^2\)</span> to calculate <span class="math inline">\(SE(\hat{\beta}_j)\)</span></p>
 <p><span class="math display">\[T = \frac{\hat{\beta}_j - 0}{SE(\hat{\beta}_j)} ~ = ~\frac{\hat{\beta}_j - 0}{\sqrt{\hat{\sigma}^2_\epsilon C_{jj}}} ~\sim ~ t_{n-p-1}
 \]</span></p>
-</div>
-</section>
-<section id="hypothesis-test-for-beta_j-test-statistic-1" class="slide level2 midi">
-<h2>Hypothesis test for <span class="math inline">\(\beta_j\)</span>: Test statistic</h2>
+<div class="fragment">
 <ul>
-<li><p>The test statistic <span class="math inline">\(T\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n - p -1\)</span> degrees of freedom.</p></li>
+<li><p><span class="math inline">\(T\)</span> follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n - p -1\)</span> degrees of freedom.</p></li>
 <li><p>We need to account for the additional variability introduced by computing <span class="math inline">\(SE(\hat{\beta}_j)\)</span> using an estimated value instead of a fixed, known value</p></li>
 </ul>
+</div>
 </section>
 <section id="t-vs.-n01" class="slide level2">
 <h2><em>t</em> vs.&nbsp;N(0,1)</h2>
@@ -770,7 +770,7 @@ Figure&nbsp;1: Standard normal vs.&nbsp;t distributions
 </div>
 <p><strong>Interpretation</strong>: We are 95% confident that for each additional 1,000 students enrolled, the institution’s expenditures on football will be greater by $562,000 to $999,000, on average, holding institution type constant.</p>
 </section>
-<section id="confidence-intervals-hypothesis-tests" class="slide level2">
+<section id="confidence-intervals-hypothesis-tests" class="slide level2 midi">
 <h2>Confidence intervals &amp; hypothesis tests</h2>
 <ul>
 <li><p>A <span class="math inline">\(C\%\)</span> confidence interval corresponds to a two-sided hypothesis test with <span class="math inline">\(\alpha\)</span>-level of <span class="math inline">\((100 - C)\%\)</span></p></li>
