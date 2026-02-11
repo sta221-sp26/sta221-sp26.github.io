@@ -1,0 +1,48 @@
+---
+title: "Lab 04"
+subtitle: "Exam 01 Review"
+date: "02-13-2026"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+# Welcome
+
+## Reminders
+
+-   Exam 01 will be during lecture on Tuesday, February 17
+
+-   Exam 01 take home will be released Tuesday and is due Thursday, February 19 at 9am
+
+-   Next week:
+
+    -   No office hours Tuesday - Wednesday
+
+    -   Ed Discussion will be read-only Tuesday - Thursday morning
+
+## Today's lab: Exam 01 review
+
+This lab is a review for Exam 01. **It is due on Sunday, February 15 at 11:59pm.** Solutions will be released Monday morning.
+
+🔗 [sta221-sp26.github.io/labs/lab-04.html](https://sta221-sp26.github.io/labs/lab-04.html)
