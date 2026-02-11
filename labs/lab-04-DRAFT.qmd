@@ -229,20 +229,20 @@ This lab will be graded based on completion and workflow & formatting. The point
 
 | Component             | Points |
 |-----------------------|--------|
-| Complete exercises    | 7      |
+| Complete exercises    | 8      |
 | Workflow & formatting | 2      |
 
 : **Completion:** Points will be awarded for completion based on the following:
 
--   7 pts: Complete all exercises
+-   8 pts: Complete all exercises
 
--   6 pts: Complete 5 exercises
+-   7 pts: Complete 5 exercises
 
--   5 pts: Complete 4 exercises
+-   6 pts: Complete 4 exercises
 
--   4 pts: Complete 3 exercises
+-   5 pts: Complete 3 exercises
 
--   3 pts: Complete 2 exercises
+-   4 pts: Complete 2 exercises
 
 -   0 pts: Complete \< 2 exercises
 
