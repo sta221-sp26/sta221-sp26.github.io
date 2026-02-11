@@ -302,7 +302,7 @@ $$
 
 . . .
 
--    $T$ follows a $t$ distribution with $n - p -1$ degrees of freedom.
+-   $T$ follows a $t$ distribution with $n - p -1$ degrees of freedom.
 
 -   We need to account for the additional variability introduced by computing $SE(\hat{\beta}_j)$ using an estimated value instead of a fixed, known value
 
