@@ -39,15 +39,13 @@ bibliography: references.bib
 
 ## Exam 01
 
--   50 points total
-
 -   In-class: 75 minutes during February 17 lecture
 
 -   Take-home: due **February 19 at 9am**
 
     -   Will have lecture on February 19
 
--   If you miss any part of the exam for an excused absence (with academic dean’s note), the final exam score will be imputed
+-   If you miss any part of the exam for an excused absence (with academic dean’s note or other official documentation), the final exam grade will be imputed for the exam 01 grade
 
 ## Outline of in-class portion {.midi}
 
@@ -87,7 +85,7 @@ bibliography: references.bib
 
 -   Model evaluation
 
--   Different types of predictor
+-   Different types of predictors
 
 -   Inference for regression
 :::
@@ -145,11 +143,27 @@ $$
 2.  What does this model tell us about the distribution of $\mathbf{y}$ ?
 :::
 
-## Find least-squares estimator $\hat{\boldsymbol{\beta}}$
+## Least-squares estimator $\hat{\boldsymbol{\beta}}$
 
 ## Expected value of $\hat{\boldsymbol{\beta}}$
 
 ## Variance of $\hat{\boldsymbol{\beta}}$
+
+::: question
+Find $Var(\hat{\boldsymbol{\beta}})$ under the usual assumptions.
+:::
+
+<br>
+
+. . .
+
+::: question
+Assume $Var(\boldsymbol{\epsilon}) =  \mathbf{XV}$, such that $\mathbf{V}$ has the appropriate dimensions. All other assumptions hold.
+
+-   What are the dimensions of $\mathbf{XV}$?
+
+-   Derive $Var(\hat{\boldsymbol{\beta}})$. What are the dimensions of $\mathbf{V}$?
+:::
 
 ## SSR
 

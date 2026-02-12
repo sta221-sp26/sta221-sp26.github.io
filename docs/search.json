@@ -4965,7 +4965,7 @@
     "href": "slides/10-exam-01-review-notes.html#exam-01",
     "title": "Exam 01 review",
     "section": "Exam 01",
-    "text": "Exam 01\n\n50 points total\nIn-class: 75 minutes during February 17 lecture\nTake-home: due February 19 at 9am\n\nWill have lecture on February 19\n\nIf you miss any part of the exam for an excused absence (with academic dean’s note), the final exam score will be imputed"
+    "text": "Exam 01\n\nIn-class: 75 minutes during February 17 lecture\nTake-home: due February 19 at 9am\n\nWill have lecture on February 19\n\nIf you miss any part of the exam for an excused absence (with academic dean’s note or other official documentation), the final exam grade will be imputed for the exam 01 grade"
   },
   {
     "objectID": "slides/10-exam-01-review-notes.html#outline-of-in-class-portion",
@@ -4993,7 +4993,7 @@
     "href": "slides/10-exam-01-review-notes.html#content-weeks-1---6",
     "title": "Exam 01 review",
     "section": "Content: Weeks 1 - 6",
-    "text": "Content: Weeks 1 - 6\n\n\n\nExploratory data analysis\nFitting and interpreting linear regression models\nModel evaluation\nDifferent types of predictor\nInference for regression\n\n\n\nMatrix representation of regression\nHat matrix\nFinding the least-squares estimator\nAssumptions for least-squares regression"
+    "text": "Content: Weeks 1 - 6\n\n\n\nExploratory data analysis\nFitting and interpreting linear regression models\nModel evaluation\nDifferent types of predictors\nInference for regression\n\n\n\nMatrix representation of regression\nHat matrix\nFinding the least-squares estimator\nAssumptions for least-squares regression"
   },
   {
     "objectID": "slides/10-exam-01-review-notes.html#population-level-vs.-sample-level-models",
@@ -5017,11 +5017,11 @@
     "text": "Model in matrix form\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]\n\n\n\nWhat assumptions do we make about \\(\\boldsymbol{\\epsilon}\\) making given this model?\nWhat does this model tell us about the distribution of \\(\\mathbf{y}\\) ?"
   },
   {
-    "objectID": "slides/10-exam-01-review-notes.html#find-least-squares-estimator-hatboldsymbolbeta",
-    "href": "slides/10-exam-01-review-notes.html#find-least-squares-estimator-hatboldsymbolbeta",
+    "objectID": "slides/10-exam-01-review-notes.html#least-squares-estimator-hatboldsymbolbeta",
+    "href": "slides/10-exam-01-review-notes.html#least-squares-estimator-hatboldsymbolbeta",
     "title": "Exam 01 review",
-    "section": "Find least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Find least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\)"
+    "section": "Least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\)"
   },
   {
     "objectID": "slides/10-exam-01-review-notes.html#expected-value-of-hatboldsymbolbeta",
@@ -5035,7 +5035,7 @@
     "href": "slides/10-exam-01-review-notes.html#variance-of-hatboldsymbolbeta",
     "title": "Exam 01 review",
     "section": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)"
+    "text": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\nFind \\(Var(\\hat{\\boldsymbol{\\beta}})\\) under the usual assumptions.\n\n\n. . .\n\nAssume \\(Var(\\boldsymbol{\\epsilon}) =  \\mathbf{XV}\\), such that \\(\\mathbf{V}\\) has the appropriate dimensions. All other assumptions hold.\n\nWhat are the dimensions of \\(\\mathbf{XV}\\)?\nDerive \\(Var(\\hat{\\boldsymbol{\\beta}})\\). What are the dimensions of \\(\\mathbf{V}\\)?"
   },
   {
     "objectID": "slides/10-exam-01-review-notes.html#ssr",
@@ -5056,7 +5056,7 @@
     "href": "slides/10-exam-01-review.html#exam-01",
     "title": "Exam 01 review",
     "section": "Exam 01",
-    "text": "Exam 01\n\n50 points total\nIn-class: 75 minutes during February 17 lecture\nTake-home: due February 19 at 9am\n\nWill have lecture on February 19\n\nIf you miss any part of the exam for an excused absence (with academic dean’s note), the final exam score will be imputed"
+    "text": "Exam 01\n\nIn-class: 75 minutes during February 17 lecture\nTake-home: due February 19 at 9am\n\nWill have lecture on February 19\n\nIf you miss any part of the exam for an excused absence (with academic dean’s note or other official documentation), the final exam grade will be imputed for the exam 01 grade"
   },
   {
     "objectID": "slides/10-exam-01-review.html#outline-of-in-class-portion",
@@ -5084,7 +5084,7 @@
     "href": "slides/10-exam-01-review.html#content-weeks-1---6",
     "title": "Exam 01 review",
     "section": "Content: Weeks 1 - 6",
-    "text": "Content: Weeks 1 - 6\n\n\n\nExploratory data analysis\nFitting and interpreting linear regression models\nModel evaluation\nDifferent types of predictor\nInference for regression\n\n\n\nMatrix representation of regression\nHat matrix\nFinding the least-squares estimator\nAssumptions for least-squares regression"
+    "text": "Content: Weeks 1 - 6\n\n\n\nExploratory data analysis\nFitting and interpreting linear regression models\nModel evaluation\nDifferent types of predictors\nInference for regression\n\n\n\nMatrix representation of regression\nHat matrix\nFinding the least-squares estimator\nAssumptions for least-squares regression"
   },
   {
     "objectID": "slides/10-exam-01-review.html#population-level-vs.-sample-level-models",
@@ -5108,11 +5108,11 @@
     "text": "Model in matrix form\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\n\\]\n\n\n\nWhat assumptions do we make about \\(\\boldsymbol{\\epsilon}\\) making given this model?\nWhat does this model tell us about the distribution of \\(\\mathbf{y}\\) ?"
   },
   {
-    "objectID": "slides/10-exam-01-review.html#find-least-squares-estimator-hatboldsymbolbeta",
-    "href": "slides/10-exam-01-review.html#find-least-squares-estimator-hatboldsymbolbeta",
+    "objectID": "slides/10-exam-01-review.html#least-squares-estimator-hatboldsymbolbeta",
+    "href": "slides/10-exam-01-review.html#least-squares-estimator-hatboldsymbolbeta",
     "title": "Exam 01 review",
-    "section": "Find least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Find least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\)"
+    "section": "Least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\)"
   },
   {
     "objectID": "slides/10-exam-01-review.html#expected-value-of-hatboldsymbolbeta",
@@ -5126,7 +5126,7 @@
     "href": "slides/10-exam-01-review.html#variance-of-hatboldsymbolbeta",
     "title": "Exam 01 review",
     "section": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)"
+    "text": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\nFind \\(Var(\\hat{\\boldsymbol{\\beta}})\\) under the usual assumptions.\n\n\n\n\nAssume \\(Var(\\boldsymbol{\\epsilon}) =  \\mathbf{XV}\\), such that \\(\\mathbf{V}\\) has the appropriate dimensions. All other assumptions hold.\n\nWhat are the dimensions of \\(\\mathbf{XV}\\)?\nDerive \\(Var(\\hat{\\boldsymbol{\\beta}})\\). What are the dimensions of \\(\\mathbf{V}\\)?"
   },
   {
     "objectID": "slides/10-exam-01-review.html#ssr",

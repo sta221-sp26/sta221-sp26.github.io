@@ -4,7 +4,7 @@ title: Math rules
 
 This page contains mathematical rules we'll use in this course that may be beyond what is covered in a linear algebra course.
 
-## Matrix calculus 
+## Matrix calculus
 
 ### Derivative of $\mathbf{x}^\mathsf{T}\mathbf{z}$
 
