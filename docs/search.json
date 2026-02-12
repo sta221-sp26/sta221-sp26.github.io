@@ -5042,7 +5042,7 @@
     "href": "slides/10-exam-01-review-notes.html#ssr",
     "title": "Exam 01 review",
     "section": "SSR",
-    "text": "SSR\n\nShow\n\\[\nSSR = \\mathbf{y}^\\mathsf{T}\\mathbf{y} - \\hat{\\boldsymbol{\\beta}}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]"
+    "text": "SSR\n\nShow\n\\[\nSSR = \\mathbf{y}^\\mathsf{T}\\mathbf{y} - \\hat{\\boldsymbol{\\beta}}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]"
   },
   {
     "objectID": "slides/10-exam-01-review.html#announcements",
@@ -5133,7 +5133,7 @@
     "href": "slides/10-exam-01-review.html#ssr",
     "title": "Exam 01 review",
     "section": "SSR",
-    "text": "SSR\n\nShow\n\\[\nSSR = \\mathbf{y}^\\mathsf{T}\\mathbf{y} - \\hat{\\boldsymbol{\\beta}}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]"
+    "text": "SSR\n\nShow\n\\[\nSSR = \\mathbf{y}^\\mathsf{T}\\mathbf{y} - \\hat{\\boldsymbol{\\beta}}^\\mathsf{T}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]"
   },
   {
     "objectID": "slides/03-slr-model-evaluation-notes.html",

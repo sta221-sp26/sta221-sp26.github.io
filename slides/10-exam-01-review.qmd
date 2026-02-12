@@ -37,7 +37,7 @@ bibliography: references.bib
 
 -   Friday's lab: Exam 01 review - due **Sunday at 11:59pm**
 
-## Exam 01 
+## Exam 01
 
 -   50 points total
 
@@ -157,6 +157,6 @@ $$
 Show
 
 $$
-SSR = \mathbf{y}^\mathsf{T}\mathbf{y} - \hat{\boldsymbol{\beta}}\mathbf{X}^\mathsf{T}\mathbf{y}
+SSR = \mathbf{y}^\mathsf{T}\mathbf{y} - \hat{\boldsymbol{\beta}}^\mathsf{T}\mathbf{X}^\mathsf{T}\mathbf{y}
 $$
 :::
