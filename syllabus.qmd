@@ -142,7 +142,7 @@ There will be two midterm exams and one final exam in this course. Each midterm 
 
 There are no make-up exams. If you miss Exam 01 or Exam 02 due to a reason documented by a Dean's Excuse, the final exam score will replace the missed exam score. If you miss the final exam due to a reason documented by a Dean's Excuse, you will receive an "Incomplete" in the course and take the final exam at a later date.
 
-For students who take all three exams, the final exam score will replace the lower of the two mid-term scores, if the final exam score is higher than the Exam 01 and/or Exam 02 score.
+For students who take all three exams <!--# need to update this to say in-class exams, so a student can't just take the take-home to count-->, the final exam score will replace the lower of the two mid-term scores, if the final exam score is higher than the Exam 01 and/or Exam 02 score.
 
 ### Project
 
