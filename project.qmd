@@ -10,7 +10,7 @@ library(broom)
 
 ## Project milestones
 
-[Research topics] due Tuesday February 10
+[Research topics](#research-topics) due Tuesday February 10
 
 [Project proposal](#project-proposal) due Tuesday, February 24
 
@@ -51,7 +51,7 @@ There are intermediate milestones and peer review assignments throughout the sem
 ## Research topics {#research-topics}
 
 ::: callout-important
-## Submission 
+## Submission
 
 Write your responses in `research-topics.qmd` in your team's project GitHub repo. Push both the `.qmd` and rendered `.pdf` to GitHub by the deadline, **Tuesday, February 10 at 11:59pm**. There is no Gradescope submission.
 :::
@@ -82,9 +82,17 @@ The research topics milestone is worth 5 points and will be graded based on accu
 
 -   **Needs Improvement (1 pts):** Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate.
 
--    **No submission (0 pts)**: No work submitted by the deadline.
+-   **No submission (0 pts)**: No work submitted by the deadline.
 
 ## Project proposal {#project-proposal}
+
+::: callout-important
+## Submission
+
+Write your narrative and analysis for Sections 1 - 4 in the `proposal.qmd` file in your team's GitHub repo. Put the data set and the data dictionary in the `data` folder in the repo. Push the `qmd` and rendered `pdf` documents to GitHub by the deadline, **Tuesday, February 24 at 11:59pm.**
+
+There is no Gradescope submission.
+:::
 
 The purpose of the project proposal is for your team to identify the data set you're interested in analyzing to investigate one of your potential research topics. You will also do some preliminary exploration of the response variable and begin thinking about the modeling strategy. If you're unsure where to find data, you can use the list of potential data sources on the [Tips + resources](https://sta221-sp25.netlify.app/project-tips) page as a starting point.
 
@@ -166,31 +174,31 @@ Submit a data dictionary for all the variables in your data set in the `README` 
 
 ### Submission
 
-Write your narrative and analysis for Sections 1 - 4 in the `proposal.qmd` file in your team's GitHub repo. Put the data set and the data dictionary in the `data` folder in the repo. Push the qmd and rendered pdf documents to GitHub by the deadline, **Tuesday, February 25 at 11:59pm.**
+Write your narrative and analysis for Sections 1 - 4 in the `proposal.qmd` file in your team's GitHub repo. Put the data set and the data dictionary in the `data` folder in the repo.
 
 ### Grading
 
 The anticipated length, including all graphs, tables, narrative, etc., is 2 -4 pages.
 
-The proposal is worth 5 points and will be graded based on accurately and comprehensively addressing the criteria stated above. Points will be assigned based on a holistic review of the project proposal.
+The proposal is worth 10 points and will be graded based on accurately and comprehensively addressing the criteria stated above. Points will be assigned based on a holistic review of the project proposal.
 
--   **Excellent (5 points) :** All required elements are completed and are accurate. The data set meets the requirements (or the team has otherwise discussed the data with Professor Tackett) and the data do not pose obvious violations to the modeling assumptions. There is a thoughtful and comprehensive description of the data, any data processing, and exploration of the response variable as described above. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.
+-   **Excellent (10 pts) :** All required elements are completed and are accurate. The data set meets the requirements (or the team has otherwise discussed the data with Professor Tackett) and the data do not pose obvious violations to the modeling assumptions. There is a thoughtful and comprehensive description of the data, any data processing, and exploration of the response variable as described above. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.
 
--   **Strong (3 - 4 points)**: Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Some minor revision of the work required before team is ready for modeling.
+-   **Strong (8 - 9 pts)**: Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Some minor revision of the work required before team is ready for modeling.
 
--   **Satisfactory (2 points):** Requirements partially met, but there are some elements that are incomplete and/or inaccurate. Major revision of the work required before team is ready for modeling.
+-   **Satisfactory (6 - 7 pts):** Requirements partially met, but there are some elements that are incomplete and/or inaccurate. Major revision of the work required before team is ready for modeling.
 
--   **Needs Improvement (1 point):** Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.
+-   **Needs Improvement (4 - 5 pts):** Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.
 
-## Exploratory data analysis 
-
-\[To be posted.\]
-
-## Presentation
+## Exploratory data analysis
 
 \[To be posted.\]
 
-## Presentation comments 
+## Presentation {#presentation}
+
+\[To be posted.\]
+
+## Presentation comments {#presentation-comments}
 
 \[To be posted.\]
 
@@ -202,11 +210,11 @@ The proposal is worth 5 points and will be graded based on accurately and compre
 
 \[To be posted.\]
 
-## Written report 
+## Written report {#written-report}
 
 \[To be posted.\]
 
-## Reproducibility + organization 
+## Reproducibility + organization {#reproducibility-organization}
 
 All written work (with exception of presentation slides) should be reproducible, and the GitHub repo should be neatly organized.
 
