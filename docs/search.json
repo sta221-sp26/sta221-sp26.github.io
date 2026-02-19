@@ -405,7 +405,14 @@
     "href": "slides/11-conditions-diagnostics.html#assumptions-for-regression",
     "title": "Model conditions + diagnostics",
     "section": "Assumptions for regression",
-    "text": "Assumptions for regression\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\nLinearity: There is a linear relationship between the response and predictor variables.\nEqual variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the errors (residuals) is approximately normal.\nIndependence: The errors (residuals) are independent from one another.\n\n\n\nHow do we know if these assumptions hold in our data?"
+    "text": "Assumptions for regression\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\nImage source: Introduction to the Practice of Statistics (5th ed)"
+  },
+  {
+    "objectID": "slides/11-conditions-diagnostics.html#assumptions-for-regression-1",
+    "href": "slides/11-conditions-diagnostics.html#assumptions-for-regression-1",
+    "title": "Model conditions + diagnostics",
+    "section": "Assumptions for regression",
+    "text": "Assumptions for regression\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\nLinearity: There is a linear relationship between the response and predictor variables.\nEqual variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the errors (residuals) is approximately normal.\nIndependence: The errors (residuals) are independent from one another.\n\n\n\nAfter fitting a model, we check a set of conditions to evaluate whether these assumptions hold in the data."
   },
   {
     "objectID": "slides/11-conditions-diagnostics.html#linearity",
@@ -419,14 +426,14 @@
     "href": "slides/11-conditions-diagnostics.html#linearity-1",
     "title": "Model conditions + diagnostics",
     "section": "Linearity",
-    "text": "Linearity\n\nLook at plot of residuals versus fitted (predicted) values.\nLinearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around \\(residuals = 0\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinearity is satisfied"
+    "text": "Linearity\n\nLook at plot of residuals versus fitted (predicted) values.\nLinearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around \\(residuals = 0\\)\n\n\n\n\nLinearity is satisfied"
   },
   {
     "objectID": "slides/11-conditions-diagnostics.html#example-linearity-not-satisfied",
     "href": "slides/11-conditions-diagnostics.html#example-linearity-not-satisfied",
     "title": "Model conditions + diagnostics",
     "section": "Example: Linearity not satisfied",
-    "text": "Example: Linearity not satisfied\n\n\n\nIf linearity is not satisfied, examine the plots of residuals versus each predictor (for multiple linear regression).\nAdd higher order term(s), as needed."
+    "text": "Example: Linearity not satisfied\n\nPlot made from simulated data produced by ChatGPT\n\nFor multiple linear regression: if linearity is not satisfied, examine the plots of residuals versus each predictor to figure out which relationship is non-linear\nAdd higher order term(s), as needed."
   },
   {
     "objectID": "slides/11-conditions-diagnostics.html#equal-variance",
@@ -440,7 +447,7 @@
     "href": "slides/11-conditions-diagnostics.html#example-equal-variance-not-satisfied",
     "title": "Model conditions + diagnostics",
     "section": "Example: Equal variance not satisfied",
-    "text": "Example: Equal variance not satisfied\n\n\n\nEqual variance is critical for reliable inference\nAddress violations by applying transformation on the response"
+    "text": "Example: Equal variance not satisfied\n\nPlot made from simulated data produced by ChatGPT\n\nEqual variance is critical for reliable inference\nAddress violations by applying transformation on the response"
   },
   {
     "objectID": "slides/11-conditions-diagnostics.html#normality",
@@ -625,6 +632,13 @@
     "text": "Recap\n\nModel conditions\nInfluential points\nModel diagnostics\n\nLeverage\nStudentized residuals\n\n\nCook’s Distance"
   },
   {
+    "objectID": "slides/11-conditions-diagnostics.html#next-class",
+    "href": "slides/11-conditions-diagnostics.html#next-class",
+    "title": "Model conditions + diagnostics",
+    "section": "Next class",
+    "text": "Next class\n\nMulticollinearity\nComplete Lecture 12 prepare"
+  },
+  {
     "objectID": "slides/11-conditions-diagnostics-notes.html",
     "href": "slides/11-conditions-diagnostics-notes.html",
     "title": "Model conditions + diagnostics",
@@ -692,7 +706,14 @@
     "href": "slides/11-conditions-diagnostics-notes.html#assumptions-for-regression",
     "title": "Model conditions + diagnostics",
     "section": "Assumptions for regression",
-    "text": "Assumptions for regression\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\nLinearity: There is a linear relationship between the response and predictor variables.\nEqual variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the errors (residuals) is approximately normal.\nIndependence: The errors (residuals) are independent from one another.\n\n. . .\n\nHow do we know if these assumptions hold in our data?"
+    "text": "Assumptions for regression\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\n\n\nImage source: Introduction to the Practice of Statistics (5th ed)"
+  },
+  {
+    "objectID": "slides/11-conditions-diagnostics-notes.html#assumptions-for-regression-1",
+    "href": "slides/11-conditions-diagnostics-notes.html#assumptions-for-regression-1",
+    "title": "Model conditions + diagnostics",
+    "section": "Assumptions for regression",
+    "text": "Assumptions for regression\n\\[\n\\mathbf{y}|\\mathbf{X} \\sim N(\\mathbf{X}\\boldsymbol{\\beta}, \\sigma_\\epsilon^2\\mathbf{I})\n\\]\n\nLinearity: There is a linear relationship between the response and predictor variables.\nEqual variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the errors (residuals) is approximately normal.\nIndependence: The errors (residuals) are independent from one another.\n\n. . .\n\nAfter fitting a model, we check a set of conditions to evaluate whether these assumptions hold in the data."
   },
   {
     "objectID": "slides/11-conditions-diagnostics-notes.html#linearity",
@@ -706,14 +727,14 @@
     "href": "slides/11-conditions-diagnostics-notes.html#linearity-1",
     "title": "Model conditions + diagnostics",
     "section": "Linearity",
-    "text": "Linearity\n\nLook at plot of residuals versus fitted (predicted) values.\nLinearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around \\(residuals = 0\\)\n\n. . .\n\n\n\n\n\n\n\n\n\n. . .\n\nLinearity is satisfied"
+    "text": "Linearity\n\nLook at plot of residuals versus fitted (predicted) values.\nLinearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around \\(residuals = 0\\)\n\n\n\n\n\n\n\n\n\n\n. . .\n\nLinearity is satisfied"
   },
   {
     "objectID": "slides/11-conditions-diagnostics-notes.html#example-linearity-not-satisfied",
     "href": "slides/11-conditions-diagnostics-notes.html#example-linearity-not-satisfied",
     "title": "Model conditions + diagnostics",
     "section": "Example: Linearity not satisfied",
-    "text": "Example: Linearity not satisfied\n\n\n\n\n\n\n\n\n\n. . .\n\nIf linearity is not satisfied, examine the plots of residuals versus each predictor (for multiple linear regression).\nAdd higher order term(s), as needed."
+    "text": "Example: Linearity not satisfied\n\n\n\n\n\nPlot made from simulated data produced by ChatGPT\n\n\n\n\n. . .\n\nFor multiple linear regression: if linearity is not satisfied, examine the plots of residuals versus each predictor to figure out which relationship is non-linear\nAdd higher order term(s), as needed."
   },
   {
     "objectID": "slides/11-conditions-diagnostics-notes.html#equal-variance",
@@ -727,7 +748,7 @@
     "href": "slides/11-conditions-diagnostics-notes.html#example-equal-variance-not-satisfied",
     "title": "Model conditions + diagnostics",
     "section": "Example: Equal variance not satisfied",
-    "text": "Example: Equal variance not satisfied\n\n\n\n\n\n\n\n\n\n. . .\n\nEqual variance is critical for reliable inference\nAddress violations by applying transformation on the response"
+    "text": "Example: Equal variance not satisfied\n\n\n\n\n\nPlot made from simulated data produced by ChatGPT\n\n\n\n\n. . .\n\nEqual variance is critical for reliable inference\nAddress violations by applying transformation on the response"
   },
   {
     "objectID": "slides/11-conditions-diagnostics-notes.html#normality",
@@ -910,6 +931,13 @@
     "title": "Model conditions + diagnostics",
     "section": "Recap",
     "text": "Recap\n\nModel conditions\nInfluential points\nModel diagnostics\n\nLeverage\nStudentized residuals\n\n\nCook’s Distance"
+  },
+  {
+    "objectID": "slides/11-conditions-diagnostics-notes.html#next-class",
+    "href": "slides/11-conditions-diagnostics-notes.html#next-class",
+    "title": "Model conditions + diagnostics",
+    "section": "Next class",
+    "text": "Next class\n\nMulticollinearity\nComplete Lecture 12 prepare"
   },
   {
     "objectID": "slides/05-mlr.html#announcements",

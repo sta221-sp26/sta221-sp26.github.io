@@ -325,7 +325,14 @@ Prof.&nbsp;Maria Tackett
 </ul></li>
 </ul>
 </section>
-<section id="assumptions-for-regression" class="slide level2 midi">
+<section id="assumptions-for-regression" class="slide level2">
+<h2>Assumptions for regression</h2>
+<p><span class="math display">\[
+\mathbf{y}|\mathbf{X} \sim N(\mathbf{X}\boldsymbol{\beta}, \sigma_\epsilon^2\mathbf{I})
+\]</span></p>
+
+<img data-src="images/08/regression.png" class="r-stretch quarto-figure-center"><p class="caption">Image source: <em>Introduction to the Practice of Statistics (5th ed)</em></p></section>
+<section id="assumptions-for-regression-1" class="slide level2 midi">
 <h2>Assumptions for regression</h2>
 <p><span class="math display">\[
 \mathbf{y}|\mathbf{X} \sim N(\mathbf{X}\boldsymbol{\beta}, \sigma_\epsilon^2\mathbf{I})
@@ -338,7 +345,7 @@ Prof.&nbsp;Maria Tackett
 </ol>
 <div class="fragment">
 <div class="question">
-<p>How do we know if these assumptions hold in our data?</p>
+<p>After fitting a model, we check a set of conditions to evaluate whether these assumptions hold in the data.</p>
 </div>
 </div>
 </section>
@@ -371,18 +378,8 @@ Prof.&nbsp;Maria Tackett
 <li>Look at plot of residuals versus fitted (predicted) values.</li>
 <li>Linearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around <span class="math inline">\(residuals = 0\)</span></li>
 </ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
+
+<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><div class="fragment">
 <center>
 <strong>Linearity is</strong> <strong>satisfied</strong>
 </center>
@@ -391,9 +388,9 @@ Prof.&nbsp;Maria Tackett
 <section id="example-linearity-not-satisfied" class="slide level2">
 <h2>Example: Linearity not satisfied</h2>
 
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div class="fragment">
+<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Plot made from simulated data produced by ChatGPT</p><div class="fragment">
 <ul>
-<li>If linearity is not satisfied, examine the plots of residuals versus each predictor (for multiple linear regression).</li>
+<li>For multiple linear regression: if linearity is not satisfied, examine the plots of residuals versus each predictor to figure out which relationship is non-linear</li>
 <li>Add higher order term(s), as needed.</li>
 </ul>
 </div>
@@ -424,7 +421,7 @@ Prof.&nbsp;Maria Tackett
 <section id="example-equal-variance-not-satisfied" class="slide level2">
 <h2>Example: Equal variance not satisfied</h2>
 
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div class="fragment">
+<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Plot made from simulated data produced by ChatGPT</p><div class="fragment">
 <ul>
 <li><p>Equal variance is critical for reliable inference</p></li>
 <li><p>Address violations by applying transformation on the response</p></li>
@@ -819,6 +816,13 @@ r_i = \frac{e_{i}}{\sqrt{\hat{\sigma}^2_{\epsilon}(1 - h_{ii})}}
 </ul></li>
 </ul>
 <p>Cook’s Distance</p>
+</section>
+<section id="next-class" class="slide level2">
+<h2>Next class</h2>
+<ul>
+<li><p>Multicollinearity</p></li>
+<li><p>Complete <a href="../prepare/prepare-lec12.html">Lecture 12 prepare</a></p></li>
+</ul>
 
 
 </section></section>

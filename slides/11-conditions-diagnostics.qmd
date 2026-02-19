@@ -35,7 +35,7 @@ Upcoming events:
 
 -   February 25, 5-6 pm \@ East Duke 108: Duke Sports Analytics Club is hosting **Sam Marks**, Director of Business Strategy and Analytics at the Boston Bruins
 
-    -    [Click here](https://docs.google.com/forms/d/e/1FAIpQLSdethCogomC5DTNwSyQy5N_R5fOkT5LfJGR27VSEHGfWIH-cw/viewform) to register
+    -   [Click here](https://docs.google.com/forms/d/e/1FAIpQLSdethCogomC5DTNwSyQy5N_R5fOkT5LfJGR27VSEHGfWIH-cw/viewform) to register
 
 -   March 20 - 22: ASA DataFest at Duke
 
@@ -147,6 +147,14 @@ such that the errors are independent and normally distributed.
     -   $E(\boldsymbol{\epsilon}) = \mathbf{0}$
     -   $Var(\boldsymbol{\epsilon}) = \sigma^2_{\epsilon}\mathbf{I}$
 
+## Assumptions for regression 
+
+$$
+\mathbf{y}|\mathbf{X} \sim N(\mathbf{X}\boldsymbol{\beta}, \sigma_\epsilon^2\mathbf{I})
+$$
+
+![Image source: *Introduction to the Practice of Statistics (5th ed)*](images/08/regression.png){alt="Image source: Introduction to the Practice of Statistics (5th ed)" fig-align="center"}
+
 ## Assumptions for regression {.midi}
 
 $$
@@ -161,7 +169,7 @@ $$
 . . .
 
 ::: question
-How do we know if these assumptions hold in our data?
+After fitting a model, we check a set of conditions to evaluate whether these assumptions hold in the data.
 :::
 
 ## Linearity {.midi}
@@ -196,8 +204,6 @@ Why does seeing no discernible pattern mean linearity is satisfied?
 -   Look at plot of residuals versus fitted (predicted) values.
 -   Linearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around $residuals = 0$
 
-. . .
-
 ```{r}
 #| echo: false
 #| out-width: 65%
@@ -221,6 +227,7 @@ ggplot(data = lemurs_aug, aes(x = .fitted, y = .resid)) +
 ```{r}
 #| echo: false
 #| fig-align: center
+#| fig-cap: Plot made from simulated data produced by ChatGPT
 #| 
 # code produced by chatgpt
 # https://chatgpt.com/c/67bd1e0e-7650-8002-b467-1bcab2e3e172
@@ -255,7 +262,7 @@ ggplot(data, aes(x = fitted, y = residuals)) +
 
 . . .
 
--   If linearity is not satisfied, examine the plots of residuals versus each predictor (for multiple linear regression).
+-   For multiple linear regression: if linearity is not satisfied, examine the plots of residuals versus each predictor to figure out which relationship is non-linear
 -   Add higher order term(s), as needed.
 
 ## Equal variance {.midi}
@@ -269,6 +276,7 @@ ggplot(data, aes(x = fitted, y = residuals)) +
 #| echo: false
 #| out-width: 65%
 #| fig-align: center
+
 lemurs_aug <- augment(lemurs_fit)
 
 ggplot(data = lemurs_aug, aes(x = .fitted, y = .resid)) +
@@ -288,7 +296,7 @@ ggplot(data = lemurs_aug, aes(x = .fitted, y = .resid)) +
 ```{r}
 #| echo: false
 #| fig-align: center
-#| 
+#| fig-cap: Plot made from simulated data produced by ChatGPT
 
 
 # simulation code from Chat gpt: 
@@ -758,3 +766,9 @@ ggplot(aes(x = age_at_wt_mo, y = weight_g, color = influential)) +
     -   Studentized residuals
 
 Cook's Distance
+
+## Next class
+
+-   Multicollinearity
+
+-   Complete [Lecture 12 prepare](../prepare/prepare-lec12.html)

@@ -313,8 +313,7 @@ Let $\mathbf{A}$ be an $n \times p$ matrix of constants and $\mathbf{z}$ a $p \t
 
 $$
 Var(\mathbf{z}) = E[(\mathbf{z} - E(\mathbf{z}))(\mathbf{z} - E(\mathbf{z}))^\mathsf{T}]
-$$
-<!--# need to add Var(ay) = avar(y)a^t back to the notes-->
+$$ <!--# need to add Var(ay) = avar(y)a^t back to the notes-->
 
 ## Variance of the response
 
