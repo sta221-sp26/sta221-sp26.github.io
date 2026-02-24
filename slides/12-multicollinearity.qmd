@@ -175,7 +175,7 @@ lemurs_aug <- augment(lemurs_fit)
 
 -   An observation has **large leverage** if $$h_{ii} > \frac{2(p+1)}{n}$$
 
-## Scaled residuals 
+## Scaled residuals
 
 -   What is the best way to identify outlier points that don't fit the pattern from the regression line?
 

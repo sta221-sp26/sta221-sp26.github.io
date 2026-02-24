@@ -1,6 +1,6 @@
 ---
 title: "AE 04: Multicollinearity"
-date: "February 26, 2026"
+date: "February 24, 2026"
 editor: visual
 ---
 
