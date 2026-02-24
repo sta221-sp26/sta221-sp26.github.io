@@ -147,13 +147,13 @@ such that the errors are independent and normally distributed.
     -   $E(\boldsymbol{\epsilon}) = \mathbf{0}$
     -   $Var(\boldsymbol{\epsilon}) = \sigma^2_{\epsilon}\mathbf{I}$
 
-## Assumptions for regression 
+## Assumptions for regression
 
 $$
 \mathbf{y}|\mathbf{X} \sim N(\mathbf{X}\boldsymbol{\beta}, \sigma_\epsilon^2\mathbf{I})
 $$
 
-![Image source: *Introduction to the Practice of Statistics (5th ed)*](images/08/regression.png){alt="Image source: Introduction to the Practice of Statistics (5th ed)" fig-align="center"}
+![Image source: Introduction to the Practice of Statistics (5th ed)](images/08/regression.png){fig-align="center"}
 
 ## Assumptions for regression {.midi}
 
@@ -604,11 +604,7 @@ lemurs_aug %>%
 If there is point with high leverage, ask
 
 -   ❓ Is there a data entry error?
-
-<!-- -->
-
 -   ❓ Is this observation within the scope of individuals for which you want to make predictions and draw conclusions?
-
 -   ❓ Is this observation impacting the estimates of the model coefficients? (Need more information!)
 
 . . .

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Prof.&nbsp;Maria Tackett">
-  <title>STA 221 - Spring 2026 – Model conditions + diagnostics</title>
+  <title>STA 221 - Spring 2026 – Multicollinearity</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -94,7 +94,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0bee4b0efcfe25bf6913d7c82528d6e8.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -196,7 +216,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Model conditions + diagnostics</h1>
+  <h1 class="title">Multicollinearity</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -206,16 +226,17 @@ Prof.&nbsp;Maria Tackett
 </div>
 </div>
 
-  <p class="date">Feb 19, 2026</p>
+  <p class="date">Feb 24, 2026</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
-<p>Upcoming events:</p>
 <ul>
+<li><p>Project proposal due <strong>TODAY</strong> at 11:59pm on GitHub</p></li>
 <li><p>February 25, 5-6 pm @ East Duke 108: Duke Sports Analytics Club is hosting <strong>Sam Marks</strong>,&nbsp;Director of Business Strategy and Analytics at the Boston Bruins</p>
 <ul>
 <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdethCogomC5DTNwSyQy5N_R5fOkT5LfJGR27VSEHGfWIH-cw/viewform">Click here</a> to register</li>
 </ul></li>
+<li><p>SSMU Mini DataFest #2: February 27 - March 1. <a href="https://edstem.org/us/courses/90766/discussion/7720392">Click here</a> for announcement</p></li>
 <li><p>March 20 - 22: ASA DataFest at Duke</p>
 <ul>
 <li>Learn more and register:&nbsp;<a href="https://dukestatsci.github.io/datafest/#signup" class="uri">https://dukestatsci.github.io/datafest/#signup</a>&nbsp;</li>
@@ -229,110 +250,32 @@ Prof.&nbsp;Maria Tackett
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)  </span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(tidymodels)  </span>
 <span id="cb1-4"><a></a><span class="fu">library</span>(knitr)       </span>
-<span id="cb1-5"><a></a><span class="fu">library</span>(patchwork)   </span>
-<span id="cb1-6"><a></a><span class="fu">library</span>(viridis)</span>
-<span id="cb1-7"><a></a></span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(GGally)   <span class="co"># for pairwise plot matrix</span></span>
+<span id="cb1-7"><a></a><span class="fu">library</span>(corrplot) <span class="co"># for correlation matrix</span></span>
 <span id="cb1-8"><a></a><span class="co"># set default theme in ggplot2</span></span>
-<span id="cb1-9"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-9"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
 <ul>
-<li><p>Model conditions</p></li>
-<li><p>Influential points</p></li>
-<li><p>Model diagnostics</p>
+<li><p>Model conditions and diagnostics</p></li>
+<li><p>Multicollinearity</p>
 <ul>
-<li><p>Leverage</p></li>
-<li><p>Studentized residuals</p></li>
-<li><p>Cook’s Distance</p></li>
+<li><p>Definition</p></li>
+<li><p>How it impacts the model</p></li>
+<li><p>How to detect it</p></li>
+<li><p>What to do about it</p></li>
 </ul></li>
 </ul>
-</section>
-<section id="data-duke-lemurs" class="slide level2 midi">
-<h2>Data: Duke lemurs</h2>
-<p>Today’s data contains a subset of the original Duke Lemur data set available in the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-08-24/readme.md">TidyTuesday GitHub repo</a>. This data includes information on “young adult” lemurs from the <a href="https://lemur.duke.edu/discover/meet-the-lemurs/coquerels-sifaka/">Coquerel’s sifaka species</a> (PCOQ), the largest species at the Duke Lemur Center. The analysis will focus on the following variables:</p>
-<ul>
-<li><p><code>age_at_wt_mo</code>: Age in months: Age of the animal when the weight was taken, in months (((Weight_Date-DOB)/365)*12)</p></li>
-<li><p><code>weight_g</code>: Weight: Animal weight, in grams. Weights under 500g generally to nearest 0.1-1g; Weights &gt;500g generally to the nearest 1-20g.</p></li>
-</ul>
-<p><strong>The goal of the analysis is to use the age of the lemurs to understand variability in the weight.</strong></p>
-</section>
-<section id="eda" class="slide level2">
-<h2>EDA</h2>
-
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="eda-1" class="slide level2">
-<h2>EDA</h2>
-
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="fit-model" class="slide level2">
-<h2>Fit model</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>lemurs_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight_g <span class="sc">~</span> age_at_wt_mo, <span class="at">data =</span> lemurs)</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="fu">tidy</span>(lemurs_fit) <span class="sc">|&gt;</span> </span>
-<span id="cb2-4"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-12314.360</td>
-<td style="text-align: right;">4252.696</td>
-<td style="text-align: right;">-2.896</td>
-<td style="text-align: right;">0.005</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age_at_wt_mo</td>
-<td style="text-align: right;">496.591</td>
-<td style="text-align: right;">131.225</td>
-<td style="text-align: right;">3.784</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 </section>
 <section>
-<section id="model-conditions" class="title-slide slide level1 center">
-<h1>Model conditions</h1>
+<section id="model-conditions-and-diagnostics" class="title-slide slide level1 center">
+<h1>Model conditions and diagnostics</h1>
 
 </section>
-<section id="linear-regression-model" class="slide level2">
-<h2>Linear regression model</h2>
-<p><span class="math display">\[\begin{aligned}
-\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}, \hspace{8mm} \boldsymbol{\epsilon} \sim N(\mathbf{0}, \sigma^2_{\epsilon}\mathbf{I})
-\end{aligned}
-\]</span></p>
-<p>such that the errors are independent and normally distributed.</p>
-<ul>
-<li><strong>Independent</strong>: Knowing the error term for one observation doesn’t tell us about the error term for another observation</li>
-<li><strong>Normally distributed</strong>: The distribution follows a particular mathematical model that is unimodal and symmetric
-<ul>
-<li><span class="math inline">\(E(\boldsymbol{\epsilon}) = \mathbf{0}\)</span></li>
-<li><span class="math inline">\(Var(\boldsymbol{\epsilon}) = \sigma^2_{\epsilon}\mathbf{I}\)</span></li>
-</ul></li>
-</ul>
-</section>
-<section id="assumptions-for-regression" class="slide level2">
-<h2>Assumptions for regression</h2>
-<p><span class="math display">\[
-\mathbf{y}|\mathbf{X} \sim N(\mathbf{X}\boldsymbol{\beta}, \sigma_\epsilon^2\mathbf{I})
-\]</span></p>
-
-<img data-src="images/08/regression.png" class="r-stretch quarto-figure-center"><p class="caption">Image source: Introduction to the Practice of Statistics (5th ed)</p></section>
-<section id="assumptions-for-regression-1" class="slide level2 midi">
+<section id="assumptions-for-regression" class="slide level2 midi">
 <h2>Assumptions for regression</h2>
 <p><span class="math display">\[
 \mathbf{y}|\mathbf{X} \sim N(\mathbf{X}\boldsymbol{\beta}, \sigma_\epsilon^2\mathbf{I})
@@ -343,208 +286,24 @@ Prof.&nbsp;Maria Tackett
 <li><strong>Normality:</strong> The distribution of the errors (residuals) is approximately normal.</li>
 <li><strong>Independence:</strong> The errors (residuals) are independent from one another.</li>
 </ol>
-<div class="fragment">
-<div class="question">
-<p>After fitting a model, we check a set of conditions to evaluate whether these assumptions hold in the data.</p>
-</div>
-</div>
-</section>
-<section id="linearity" class="slide level2 midi">
-<h2>Linearity</h2>
-<ul>
-<li>Look at plot of residuals versus fitted (predicted) values.</li>
-<li>Linearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around <span class="math inline">\(residuals = 0\)</span></li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="question">
-<p>Why does seeing no discernible pattern mean linearity is satisfied?</p>
-</div>
-</div>
-</section>
-<section id="linearity-1" class="slide level2 midi">
-<h2>Linearity</h2>
-<ul>
-<li>Look at plot of residuals versus fitted (predicted) values.</li>
-<li>Linearity is satisfied if there is no discernible pattern in the plot (i.e., points randomly scattered around <span class="math inline">\(residuals = 0\)</span></li>
-</ul>
-
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><div class="fragment">
-<center>
-<strong>Linearity is</strong> <strong>satisfied</strong>
-</center>
-</div>
-</section>
-<section id="example-linearity-not-satisfied" class="slide level2">
-<h2>Example: Linearity not satisfied</h2>
-
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Plot made from simulated data produced by ChatGPT</p><div class="fragment">
-<ul>
-<li>For multiple linear regression: if linearity is not satisfied, examine the plots of residuals versus each predictor to figure out which relationship is non-linear</li>
-<li>Add higher order term(s), as needed.</li>
-</ul>
-</div>
-</section>
-<section id="equal-variance" class="slide level2 midi">
-<h2>Equal variance</h2>
-<ul>
-<li>Look at plot of residuals versus fitted (predicted) values.</li>
-<li>Equal variance is satisfied if the vertical spread of the points is approximately equal for all fitted values</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<center>
-<strong>Equal variance is</strong> <strong>satisfied</strong>
-</center>
-</div>
-</section>
-<section id="example-equal-variance-not-satisfied" class="slide level2">
-<h2>Example: Equal variance not satisfied</h2>
-
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Plot made from simulated data produced by ChatGPT</p><div class="fragment">
-<ul>
-<li><p>Equal variance is critical for reliable inference</p></li>
-<li><p>Address violations by applying transformation on the response</p></li>
-</ul>
-</div>
-</section>
-<section id="normality" class="slide level2 midi">
-<h2>Normality</h2>
-<ul>
-<li>Look at the distribution of the residuals</li>
-<li>Normality is satisfied if the distribution is approximately unimodal and symmetric. Inference robust to violations if <span class="math inline">\(n &gt; 30\)</span></li>
-</ul>
-
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><div class="fragment">
-<center>
-Distribution approximately unimodal and symmetric, aside from the outlier. There are 62 observations, so inference robust to departures.
-</center>
-</div>
-</section>
-<section id="independence" class="slide level2">
-<h2>Independence</h2>
-<ul>
-<li><p>We can often check the independence condition based on the context of the data and how the observations were collected.</p></li>
-<li><p>If the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected.</p></li>
-<li><p>If data has spatial element, plot residuals on a map to examine potential spatial correlation.</p></li>
-</ul>
-<div class="fragment">
-<center>
-<strong>The independence condition is</strong> <strong>satisfied</strong>. The lemurs could reasonably be treated as independent.
-</center>
-</div>
-</section></section>
-<section>
-<section id="model-diagnostics" class="title-slide slide level1 center">
-<h1>Model diagnostics</h1>
-
-</section>
-<section id="model-diagnostics-1" class="slide level2">
-<h2>Model diagnostics</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>lemurs_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(lemurs_fit)</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a>lemurs_aug <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 8
-   weight_g age_at_wt_mo .fitted .resid   .hat .sigma  .cooksd .std.resid
-      &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
- 1     3400         32.0   3557. -157.  0.0302   494. 0.00164      -0.324
- 2     3620         33.0   4063. -443.  0.0399   491. 0.0176       -0.922
- 3     3720         32.4   3800.  -80.0 0.0163   495. 0.000224     -0.164
- 4     4440         32.6   3850.  590.  0.0177   489. 0.0132        1.21 
- 5     3770         31.8   3457.  313.  0.0458   493. 0.0102        0.652
- 6     3920         31.9   3522.  398.  0.0350   492. 0.0124        0.826
- 7     4520         32.8   3979.  541.  0.0279   490. 0.0180        1.12 
- 8     3700         33.2   4177. -477.  0.0626   491. 0.0337       -1.01 
- 9     3690         31.9   3537.  153.  0.0329   494. 0.00172       0.318
-10     3790         32.8   3949. -159.  0.0247   494. 0.00136      -0.328</code></pre>
-</div>
-</div>
-</section>
-<section id="model-diagnostics-in-r" class="slide level2 midi">
-<h2>Model diagnostics in R</h2>
-<p>Use the <code>augment()</code> function in the broom package to output the model diagnostics (along with the predicted values and residuals)</p>
-<ul>
-<li>response and predictor variables in the model</li>
-<li><code>.fitted</code>: predicted values</li>
-<li><code>.se.fit</code>: standard errors of predicted values</li>
-<li><code>.resid</code>: residuals</li>
-<li><code>.hat</code>: leverage</li>
-<li><code>.sigma</code>: estimate of residual standard deviation when the corresponding observation is dropped from model</li>
-<li><code>.cooksd</code>: Cook’s distance</li>
-<li><code>.std.resid</code>: standardized residuals</li>
-</ul>
 </section>
 <section id="influential-point" class="slide level2">
 <h2>Influential Point</h2>
 <p>An observation is <strong>influential</strong> if removing has a noticeable impact on the regression coefficients</p>
 
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
-<section id="influential-points" class="slide level2">
-<h2>Influential points</h2>
-<ul>
-<li class="fragment">Influential points have a noticeable impact on the coefficients and standard errors used for inference</li>
-<li class="fragment">These points can sometimes be identified in a scatterplot if there is only one predictor variable
-<ul>
-<li class="fragment">This is often not the case when there are multiple predictors</li>
-</ul></li>
-<li class="fragment">We will use measures to quantify an individual observation’s influence on the regression model
-<ul>
-<li class="fragment"><strong>leverage</strong>, <strong>standardized &amp; studentized residuals</strong>, and <strong>Cook’s distance</strong></li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="cooks-distance" class="title-slide slide level1 center">
-<h1>Cook’s Distance</h1>
-
-</section>
-<section id="motivating-cooks-distance" class="slide level2">
-<h2>Motivating Cook’s Distance</h2>
-<ul>
-<li><p>An observation’s influence on the regression line depends on</p>
-<ul>
-<li><p>How close it lies to the general trend of the data</p></li>
-<li><p>Its leverage</p></li>
-</ul></li>
-<li><p><strong>Cook’s Distance</strong> is a statistic that includes both of these components to measure an observation’s overall impact on the model</p></li>
-</ul>
-</section>
-<section id="cooks-distance-1" class="slide level2">
+<img data-src="12-multicollinearity_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="cooks-distance" class="slide level2">
 <h2>Cook’s Distance</h2>
 <p>Cook’s distance for the <span class="math inline">\(i^{th}\)</span> observation is</p>
 <p><span class="math display">\[
 D_i = \frac{r^2_i}{p + 1}\Big(\frac{h_{ii}}{1 - h_{ii}}\Big)
 \]</span></p>
 <p>where <span class="math inline">\(r_i\)</span> is the studentized residual and <span class="math inline">\(h_{ii}\)</span> is the leverage for the <span class="math inline">\(i^{th}\)</span> observation</p>
-<div class="fragment">
 <p>This measure is a combination of</p>
 <ul>
-<li><p>How well the model fits the <span class="math inline">\(i^{th}\)</span> observation (magnitude of residuals)</p></li>
-<li><p>How far the <span class="math inline">\(i^{th}\)</span> observation is from the rest of the data (where the point is in the <span class="math inline">\(x\)</span> space)</p></li>
+<li><p>How well the model fits the <span class="math inline">\(i^{th}\)</span> observation</p></li>
+<li><p>How far the <span class="math inline">\(i^{th}\)</span> observation is from the rest of the data</p></li>
 </ul>
-</div>
 </section>
 <section id="using-cooks-distance" class="slide level2">
 <h2>Using Cook’s Distance</h2>
@@ -557,171 +316,31 @@ D_i = \frac{r^2_i}{p + 1}\Big(\frac{h_{ii}}{1 - h_{ii}}\Big)
 </ul></li>
 </ul>
 </section>
-<section id="cooks-distance-2" class="slide level2">
-<h2>Cook’s Distance</h2>
-<p>Cook’s Distance is in the column <code>.cooksd</code> in the output from the <code>augment()</code> function</p>
+<section id="lemurs-data" class="slide level2">
+<h2>Lemurs data</h2>
 
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
-<section id="comparing-models" class="slide level2 midi">
-<h2>Comparing models</h2>
-<p><strong>With influential point</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-12314.360</td>
-<td style="text-align: right;">4252.696</td>
-<td style="text-align: right;">-2.896</td>
-<td style="text-align: right;">0.005</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age_at_wt_mo</td>
-<td style="text-align: right;">496.591</td>
-<td style="text-align: right;">131.225</td>
-<td style="text-align: right;">3.784</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><br></p>
-<p><strong>Without influential point</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-6670.958</td>
-<td style="text-align: right;">3495.136</td>
-<td style="text-align: right;">-1.909</td>
-<td style="text-align: right;">0.061</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age_at_wt_mo</td>
-<td style="text-align: right;">321.209</td>
-<td style="text-align: right;">107.904</td>
-<td style="text-align: right;">2.977</td>
-<td style="text-align: right;">0.004</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="fragment">
-<div class="question">
-<p>Let’s better understand the influential point.</p>
-</div>
-</div>
-</section></section>
-<section>
-<section id="leverage" class="title-slide slide level1 center">
-<h1>Leverage</h1>
-
-</section>
-<section id="leverage-1" class="slide level2 midi">
-<h2>Leverage</h2>
-<ul>
-<li class="fragment"><p>Recall the <strong>hat matrix</strong> <span class="math inline">\(\mathbf{H} = \mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\)</span></p></li>
-<li class="fragment"><p>We focus on the diagonal elements</p>
-<p><span class="math display">\[
-h_{ii} = \mathbf{x}_i^\mathsf{T}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{x}_i
-\]</span>such that <span class="math inline">\(\mathbf{x}^\mathsf{T}_i\)</span> is the <span class="math inline">\(i^{th}\)</span> row of <span class="math inline">\(\mathbf{X}\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(h_{ii}\)</span> is the <strong>leverage</strong>: a measure of the distance of the <span class="math inline">\(i^{th}\)</span> observation from the center (or centroid) of the <span class="math inline">\(x\)</span> space</p></li>
-<li class="fragment"><p>Observations with large values of <span class="math inline">\(h_{ii}\)</span> are far away from the typical value (or combination of values) of the <u>predictors</u> in the data</p></li>
-</ul>
-</section>
-<section id="large-leverage" class="slide level2">
+<img data-src="12-multicollinearity_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="large-leverage" class="slide level2 midi">
 <h2>Large leverage</h2>
 <ul>
-<li class="fragment"><p>The sum of the leverages for all points is <span class="math inline">\(p + 1\)</span>, where <span class="math inline">\(p\)</span> is the number of predictors in the model . More specifically</p>
+<li><p>Measure of how far the predictor (combination of predictors) is from the typical value (combination)</p></li>
+<li><p>The sum of the leverages for all points is <span class="math inline">\(p + 1\)</span>, where <span class="math inline">\(p\)</span> is the number of predictors in the model . More specifically</p>
 <p><span class="math display">\[
 \sum_{i=1}^n h_{ii} = \text{rank}(\mathbf{H}) = \text{rank}(\mathbf{X}) = p+1
 \]</span></p></li>
-<li class="fragment"><p>The average value of leverage, <span class="math inline">\(h_{ii}\)</span>, is <span class="math inline">\(\bar{h} =  \frac{(p+1)}{n}\)</span></p></li>
-<li class="fragment"><p>An observation has <strong>large leverage</strong> if <span class="math display">\[h_{ii} &gt; \frac{2(p+1)}{n}\]</span></p></li>
+<li><p>The average value of leverage, <span class="math inline">\(h_{ii}\)</span>, is <span class="math inline">\(\bar{h} =  \frac{(p+1)}{n}\)</span></p></li>
+<li><p>An observation has <strong>large leverage</strong> if <span class="math display">\[h_{ii} &gt; \frac{2(p+1)}{n}\]</span></p></li>
 </ul>
 </section>
-<section id="lemurs-leverage" class="slide level2">
-<h2>Lemurs: Leverage</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>h_threshold <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">/</span> <span class="fu">nrow</span>(lemurs)</span>
-<span id="cb5-2"><a></a>h_threshold</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.06451613</code></pre>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>lemurs_aug <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">filter</span>(.hat <span class="sc">&gt;</span> h_threshold)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 8
-  weight_g age_at_wt_mo .fitted .resid   .hat .sigma .cooksd .std.resid
-     &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
-1     4040         33.5   4336.  -296. 0.107    493.  0.0244     -0.639
-2     6519         33.4   4272.  2247. 0.0871   389.  1.10        4.79 </code></pre>
-</div>
-</div>
-<p><br></p>
-</div>
-<div class="fragment">
-<div class="question">
-<p>Why do you think these points have large leverage?</p>
-</div>
-</div>
-</section>
-<section id="lets-look-at-the-data" class="slide level2">
-<h2>Let’s look at the data</h2>
-
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
-<section id="large-leverage-1" class="slide level2">
-<h2>Large leverage</h2>
-<p>If there is point with high leverage, ask</p>
-<ul>
-<li>❓ Is there a data entry error?</li>
-<li>❓ Is this observation within the scope of individuals for which you want to make predictions and draw conclusions?</li>
-<li>❓ Is this observation impacting the estimates of the model coefficients? (Need more information!)</li>
-</ul>
-<div class="fragment">
-<p>Just because a point has high leverage does not necessarily mean it will have a substantial impact on the regression. Therefore we need to check other measures.</p>
-</div>
-</section></section>
-<section>
-<section id="scaled-residuals" class="title-slide slide level1 center">
-<h1>Scaled residuals</h1>
-
-</section>
-<section id="scaled-residuals-1" class="slide level2">
+<section id="scaled-residuals" class="slide level2">
 <h2>Scaled residuals</h2>
 <ul>
-<li class="fragment"><p>What is the best way to identify outlier points that don’t fit the pattern from the regression line?</p>
+<li><p>What is the best way to identify outlier points that don’t fit the pattern from the regression line?</p>
 <ul>
-<li class="fragment">Look for points that have large residuals</li>
+<li>Look for points that have large residuals</li>
 </ul></li>
-<li class="fragment"><p>We can rescale residuals and put them on a common scale to more easily identify “large” residuals</p></li>
-<li class="fragment"><p>We will consider two types of scaled residuals: standardized residuals and studentized residuals</p></li>
+<li><p>We can rescale residuals and put them on a common scale to more easily identify “large” residuals</p></li>
+<li><p>We will consider two types of scaled residuals: standardized residuals and studentized residuals</p></li>
 </ul>
 </section>
 <section id="standardized-residuals" class="slide level2">
@@ -739,15 +358,10 @@ std.res_i = \frac{e_i}{\sqrt{MSR}}
 <h2>Using standardized residuals</h2>
 <p>We can examine the standardized residuals directly from the output from the <code>augment()</code> function</p>
 
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/std residuals vs fitted-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><ul>
+<img data-src="12-multicollinearity_files/figure-revealjs/std residuals vs fitted-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><ul>
 <li>An observation is a <em>potential outlier</em> if its standardized residual is beyond <span class="math inline">\(\pm 3\)</span></li>
 </ul>
 </section>
-<section id="digging-in-to-the-data" class="slide level2">
-<h2>Digging in to the data</h2>
-<p>Let’s look at the value of the response variable to better understand potential outliers</p>
-
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
 <section id="studentized-residuals" class="slide level2 midi">
 <h2>Studentized residuals</h2>
 <ul>
@@ -778,7 +392,7 @@ r_i = \frac{e_{i}}{\sqrt{\hat{\sigma}^2_{\epsilon}(1 - h_{ii})}}
 <section id="back-to-the-influential-point" class="slide level2">
 <h2>Back to the influential point</h2>
 
-<img data-src="11-conditions-diagnostics_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="12-multicollinearity_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="what-to-do-with-outliersinfluential-points" class="slide level2">
 <h2>What to do with outliers/influential points?</h2>
 <ul>
@@ -800,28 +414,215 @@ r_i = \frac{e_{i}}{\sqrt{\hat{\sigma}^2_{\epsilon}(1 - h_{ii})}}
 </ul></li>
 <li class="fragment"><p>A general strategy when there are influential points is to fit the model with and without the influential points and compare the outcomes</p></li>
 </ul>
+</section></section>
+<section>
+<section id="multicollinearity" class="title-slide slide level1 center">
+<h1>Multicollinearity</h1>
+
+</section>
+<section id="data-trail-users" class="slide level2 midi">
+<h2>Data: Trail users</h2>
+<ul>
+<li>The Pioneer Valley Planning Commission (PVPC) collected data at the beginning a trail in Florence, MA for ninety days from April 5, 2005 to November 15, 2005 to</li>
+<li>Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  volume hightemp avgtemp season cloudcover precip day_type
+   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   
+1    501       83    66.5 Summer       7.60  0     Weekday 
+2    419       73    61   Summer       6.30  0.290 Weekday 
+3    397       74    63   Spring       7.5   0.320 Weekday 
+4    385       95    78   Summer       2.60  0     Weekend 
+5    200       44    48   Spring      10     0.140 Weekday </code></pre>
+</div>
+</div>
+<p>Source: <a href="http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf">Pioneer Valley Planning Commission</a> via the <strong>mosaicData</strong> package.</p>
+</section>
+<section id="variables" class="slide level2">
+<h2>Variables</h2>
+<p><strong>Response</strong></p>
+<ul>
+<li><code>volume</code> estimated number of trail users that day (number of breaks recorded)</li>
+</ul>
+<p><strong>Predictors</strong></p>
+<ul>
+<li><p><code>hightemp</code> daily high temperature (in degrees Fahrenheit)</p></li>
+<li><p><code>avgtemp</code> average of daily low and daily high temperature (in degrees Fahrenheit)</p></li>
+<li><p><code>season</code> one of “Fall”, “Spring”, or “Summer”</p></li>
+<li><p><code>precip</code> measure of precipitation (in inches)</p></li>
+</ul>
+</section>
+<section id="eda-relationship-between-predictors" class="slide level2">
+<h2>EDA: Relationship between predictors</h2>
+<p>We can create a pairwise plot matrix using the <code>ggpairs</code> function from the <strong>GGally</strong> R package</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>rail_trail <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">select</span>(hightemp, avgtemp, season, precip) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">ggpairs</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="eda-relationship-between-predictors-1" class="slide level2 midi">
+<h2>EDA: Relationship between predictors</h2>
+
+<img data-src="12-multicollinearity_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="eda-correlation-matrix" class="slide level2">
+<h2>EDA: Correlation matrix</h2>
+<p>We can. use <code>corrplot()</code> in the <strong>corrplot</strong> R package to make a matrix of pairwise correlations between <u>quantitative</u> predictors</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>correlations <span class="ot">&lt;-</span> rail_trail <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">select</span>(hightemp, avgtemp, precip) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">cor</span>()</span>
+<span id="cb4-4"><a></a></span>
+<span id="cb4-5"><a></a><span class="fu">corrplot</span>(correlations, <span class="at">method =</span> <span class="st">"number"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="eda-correlation-matrix-1" class="slide level2 midi">
+<h2>EDA: Correlation matrix</h2>
+
+<img data-src="12-multicollinearity_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div class="question">
+<p>What might be a potential concern with a model that uses high temperature, average temperature, season, and precipitation to predict volume?</p>
+</div>
+</section></section>
+<section>
+<section id="multicollinearity-1" class="title-slide slide level1 center">
+<h1>Multicollinearity</h1>
+
+</section>
+<section id="multicollinearity-2" class="slide level2">
+<h2>Multicollinearity</h2>
+<ul>
+<li class="fragment"><p>Ideally the predictors are orthogonal, meaning they are completely independent of one another</p></li>
+<li class="fragment"><p>In practice, there is typically some dependence between predictors but it is often not a major issue in the model</p></li>
+<li class="fragment"><p>If there is linear dependence among (a subset of) the predictors, we cannot find <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></p></li>
+<li class="fragment"><p>If there are near-linear dependencies, we can find <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> but there may be other issues with the model</p></li>
+<li class="fragment"><p><strong>Multicollinearity</strong>: near-linear dependence among predictors</p></li>
+</ul>
+</section>
+<section id="sources-of-multicollinearity" class="slide level2">
+<h2>Sources of multicollinearity</h2>
+<ul>
+<li class="fragment"><p>Data collection method - only sample from a subspace of the region of predictors</p></li>
+<li class="fragment"><p>Constraints in the population - e.g., predictors family income and size of house</p></li>
+<li class="fragment"><p>Choice of model - e.g., adding high order terms to the model</p></li>
+<li class="fragment"><p>Overdefined model - have more predictors than observations</p></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="montgomery2021introduction">Montgomery, Peck, and Vining (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></p>
+</div></aside></section>
+<section id="detecting-multicollinearity" class="slide level2">
+<h2>Detecting multicollinearity</h2>
+<ul>
+<li class="fragment">Recall <span class="math inline">\(Var(\hat{\boldsymbol{\beta}}) = \sigma^2_{\epsilon}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\)</span></li>
+<li class="fragment">Let <span class="math inline">\(\mathbf{C} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\)</span>. Then <span class="math inline">\(Var(\hat{\beta}_j) = \sigma^2_{\epsilon}C_{jj}\)</span></li>
+<li class="fragment">When there are near-linear dependencies, <span class="math inline">\(C_{jj}\)</span> increases and thus <span class="math inline">\(Var(\hat{\beta}_j)\)</span> becomes inflated</li>
+<li class="fragment"><span class="math inline">\(C_{jj}\)</span> is associated with how much <span class="math inline">\(Var(\hat{\beta}_j)\)</span> is inflated due to <span class="math inline">\(x_j\)</span> dependencies with other predictors</li>
+</ul>
+</section>
+<section id="variance-inflation-factor" class="slide level2 midi">
+<h2>Variance inflation factor</h2>
+<ul>
+<li>The <strong>variance inflation factor (VIF)</strong> measures how much the linear dependencies impact the variance of the predictors</li>
+</ul>
+<p><span class="math display">\[
+VIF_{j} = \frac{1}{1 - R^2_j}
+\]</span></p>
+<p>where <span class="math inline">\(R^2_j\)</span> is the proportion of variation in <span class="math inline">\(x_j\)</span> that is explained by a linear combination of all the other predictors</p>
+<div class="fragment">
+<ul>
+<li>When the response and predictors are scaled in a particular way, <span class="math inline">\(C_{jj} = VIF_{j}\)</span>. <a href="variance-inflation-factors.html">Click here</a> to see how.</li>
+</ul>
+</div>
+</section>
+<section id="detecting-multicollinearity-1" class="slide level2">
+<h2>Detecting multicollinearity</h2>
+<ul>
+<li><p>Common practice uses threshold <span class="math inline">\(VIF &gt; 10\)</span> as indication of concerning multicollinearity (some say VIF &gt; 5 is worth investigation)</p></li>
+<li><p>Variables with similar values of VIF are typically the ones correlated with each other</p></li>
+<li><p>Use the <code>vif()</code> function in the <strong>rms</strong> R package to calculate VIF</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(rms)</span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a>trail_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(volume <span class="sc">~</span> hightemp <span class="sc">+</span> avgtemp <span class="sc">+</span> precip, <span class="at">data =</span> rail_trail)</span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a><span class="fu">vif</span>(trail_fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hightemp  avgtemp   precip 
+7.161882 7.597154 1.193431 </code></pre>
+</div>
+</div>
+</section>
+<section id="how-multicollinearity-impacts-model" class="slide level2 midi">
+<h2>How multicollinearity impacts model</h2>
+<ul>
+<li class="fragment"><p>Large variance for the model coefficients that are collinear</p>
+<ul>
+<li class="fragment">Different combinations of coefficient estimates produce equally good model fits</li>
+</ul></li>
+<li class="fragment"><p>Unreliable statistical inference results</p>
+<ul>
+<li class="fragment">May conclude coefficients are not statistically significant when there is, in fact, a relationship between the predictors and response</li>
+</ul></li>
+<li class="fragment"><p>Interpretation of coefficient is no longer “holding all other variables constant”, since this would be impossible for correlated predictors</p></li>
+</ul>
+</section></section>
+<section>
+<section id="application-exercise" class="title-slide slide level1 center">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="../ae/ae-04-multicollinearity.html">sta221-sp26.github.io/ae/ae-04-multicollinearity.html</a></p>
+<p>Part 1</p>
+</div>
+</section>
+<section id="dealing-with-multicollinearity" class="slide level2">
+<h2>Dealing with multicollinearity</h2>
+<ul>
+<li class="fragment"><p>Collect more data (often not feasible given practical constraints)</p></li>
+<li class="fragment"><p>Redefine the correlated predictors to keep the information from predictors but eliminate collinearity</p>
+<ul>
+<li class="fragment">e.g., if <span class="math inline">\(x_1, x_2, x_3\)</span> are correlated, use a new variable <span class="math inline">\((x_1 + x_2) / x_3\)</span> in the model</li>
+</ul></li>
+<li class="fragment"><p>For categorical predictors, avoid using levels with very few observations as the baseline</p></li>
+<li class="fragment"><p>Remove one of the correlated variables</p>
+<ul>
+<li class="fragment">Be careful about substantially reducing predictive power of the model</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="application-exercise-1" class="title-slide slide level1 center">
+<h1>Application exercise</h1>
+<div class="appex">
+<p>📋 <a href="../ae/ae-04-multicollinearity.html">sta221-sp26.github.io/ae/ae-04-multicollinearity.html</a></p>
+<p>Part 2</p>
+</div>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <ul>
-<li><p>Model conditions</p></li>
-<li><p>Influential points</p></li>
-<li><p>Model diagnostics</p>
-<ul>
-<li><p>Leverage</p></li>
-<li><p>Studentized residuals</p></li>
-</ul></li>
+<li><p>Reviewed model conditions and diagnostics</p></li>
+<li><p>Introduced multicollinearity and how it impacts a model</p></li>
 </ul>
-<p>Cook’s Distance</p>
 </section>
 <section id="next-class" class="slide level2">
 <h2>Next class</h2>
 <ul>
-<li><p>Multicollinearity</p></li>
-<li><p>Complete <a href="../prepare/prepare-lec12.html">Lecture 12 prepare</a></p></li>
+<li><p>Variable transformations</p></li>
+<li><p>Complete <a href="../prepare/prepare-lec13.html">Lecture 13 prepare</a></p></li>
 </ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-montgomery2021introduction" class="csl-entry" role="listitem">
+Montgomery, Douglas C, Elizabeth A Peck, and G Geoffrey Vining. 2021. <em>Introduction to Linear Regression Analysis</em>. John Wiley &amp; Sons.
+</div>
+</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
