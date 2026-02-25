@@ -42,9 +42,7 @@ You will complete the project as a lab team. The primary deliverables for the pr
 
 2.  A written, reproducible final report detailing your analysis
 
-3.  A summary of your project highlights to share with the class
-
-4.  A GitHub repository containing all work from the project
+3.  A GitHub repository containing all work from the project
 
 There are intermediate milestones and peer review assignments throughout the semester to help you work towards the primary deliverables. These milestones are described below.
 
