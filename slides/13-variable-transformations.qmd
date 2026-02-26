@@ -99,8 +99,6 @@ There are `r nrow(health_data)` countries (observations) in the data set.
 
 -   `health_expend`: Per capita current spending on on healthcare goods and services, expressed in respective currency - international Purchasing Power Parity (PPP) dollar ([from the World Health Organization](https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4952))
 
-# Transformation on $\mathbf{y}$ 
-
 ## Exploratory data analysis
 
 ```{r}
@@ -158,7 +156,7 @@ resid_orig <- ggplot(data = health_aug, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.7) + 
   geom_hline(yintercept = 0,color = "red", linetype. = 2) + 
   labs(x = "Predicted", y = "Residuals", 
-       title = "Original model: Residuals vs. Predicted")
+       title = "Model for original y")
 
 resid_orig
 ```
@@ -199,7 +197,9 @@ p4 <- ggplot(data=health_data, aes(x=log(income_inequality), y=log(health_expend
 (p1 + p2) / (p3 + p4)
 ```
 
-## Identifying a need to transform $\mathbf{y}$  {.midi}
+# Transformation on $\mathbf{y}$
+
+## Identifying a need to transform $\mathbf{y}$ {.midi}
 
 ::: incremental
 -   Typically, a “fan-shaped” residual plot indicates the need for a transformation on $\mathbf{y} = [y_1 \dots y_n]^\mathsf{T}$
@@ -231,7 +231,61 @@ $$
 
 $$\widehat{\log(\mathbf{y})} = \mathbf{X}\hat{\boldsymbol{\beta}}$$
 
-## Model interpretation {.midi}
+## Distribution of $\mathbf{y}$ and $\log(\mathbf{y})$
+
+```{r}
+#| echo: false
+
+y_orig <- ggplot(data = health_data, aes(x = health_expenditure)) + 
+  geom_histogram(fill = "steelblue", color = "black") + 
+  labs(x = "",
+       title = "Original")
+
+y_transformed <- ggplot(data = health_data, aes(x = log(health_expenditure))) + 
+  geom_histogram(fill = "darkcyan", color = "black") + 
+  labs(x = "",
+       title = "Log-transformed")
+
+y_orig + y_transformed + plot_annotation(title = "Original vs. transformed healthcare expenditure")
+```
+
+## Model with $\log(\mathbf{y})$
+
+```{r}
+health_logy_fit <- lm(log(health_expenditure) ~ income_inequality + education, 
+                      data = health_data)
+```
+
+```{r}
+#| echo: false
+
+tidy(health_logy_fit) |>
+  kable(digits = 3)
+```
+
+## Model with $\log(\mathbf{y})$: Residuals
+
+```{r echo=F}
+health_logy_aug <- augment(health_logy_fit)
+
+resid_logy <- ggplot(data = health_logy_aug, aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.7) + 
+  geom_hline(yintercept=0, color="red") +
+  labs(x="Predicted", y="Residuals",
+       title="Model for log(y)")
+
+resid_logy
+```
+
+## Compare residual plots
+
+```{r}
+#| echo: false
+
+resid_orig + resid_logy
+```
+
+## Model interpretation in terms of $\mathbf{y}$  {.midi}
 
 Let $\mathbf{x}_i^\mathsf{T}$ be the $i^{th}$ row of $\mathbf{X}$. Then,
 
@@ -246,13 +300,10 @@ $$\begin{align}
 
 -   **Coefficient of** $X_j$: For every one unit increase in $x_{ij}$, $y_{i}$ is expected to multiply by a factor of $e^{\hat{\beta}_j}$, holding all else constant.
 
-## Model with $\log(\mathbf{y})$ 
+## Interpretation
 
 ```{r}
 #| echo: false
-#fit model
-health_logy_fit <- lm(log(health_expenditure) ~ income_inequality + education, 
-                      data = health_data)
 
 tidy(health_logy_fit) |>
   kable(digits = 3)
@@ -260,7 +311,8 @@ tidy(health_logy_fit) |>
 
 <br>
 
-::: question
+:::: question
+::: midi
 Interpret each of the following in terms of healthcare expenditure
 
 -   Intercept
@@ -269,34 +321,26 @@ Interpret each of the following in terms of healthcare expenditure
 
 -   `education`
 :::
+::::
 
-## Model with $\log(\mathbf{y})$: Residuals
-
-```{r echo=F}
-health_logy_aug <- augment(health_logy_fit)
-
-resid_logy <- ggplot(data = health_logy_aug, aes(x = .fitted, y = .resid)) +
-  geom_point(alpha = 0.7) + 
-  geom_hline(yintercept=0, color="red") +
-  labs(x="Predicted", y="Residuals",
-       title="Model 2: Residuals vs. Predicted")
-
-resid_logy
-```
-
-## Compare residual plots
-
-```{r}
-#| echo: false
-
-resid_orig + resid_logy
-```
-
-# Transformation on $x_j$ 
+# Transformation on $x_j$
 
 ## Variability in life expectancy
 
 Let's consider a model using a country's healthcare expenditure, income inequality, and education understand variability in its life expectancy.
+
+```{r}
+#| echo: false
+#| fig-align: center
+
+ggplot(data = health_data, aes(x = life_exp)) + 
+  geom_histogram(color = "black", fill = "steelblue") +
+  labs(x = "",
+       title = "Life expectancy in years")
+
+```
+
+## Bivariate EDA
 
 ```{r}
 #| echo: false
@@ -412,7 +456,7 @@ resid1 <-  ggplot(data = life_exp_aug, aes(x = health_expenditure, y = .resid)) 
 p1 + resid1 + plot_annotation(title = "Healthcare expenditure")
 ```
 
-## EDA
+## Bivariate EDA with log(health_expend)
 
 ```{r}
 #| echo: false
@@ -444,6 +488,43 @@ $$
 \end{aligned}
 $$
 
+## Model with $\log(x_j)$ {.midi}
+
+```{r}
+life_exp_logx_fit <- lm(life_exp ~ log(health_expenditure) + income_inequality 
+                        + education, data = health_data)
+
+```
+
+```{r}
+#| echo: false
+
+tidy(life_exp_logx_fit) |>
+  kable(digits = 3)
+```
+
+## Model with $\log(x_j)$: Residuals
+
+```{r}
+#| echo: false
+life_exp_logx_aug <- augment(life_exp_logx_fit)
+
+resid_logx <- ggplot(data = life_exp_logx_aug, aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.7) + 
+  geom_hline(yintercept=0, color="red") +
+  labs(x="Predicted", y="Residuals",
+       title="Original")
+
+resid_logx
+```
+
+## Comparing residual plots
+
+```{r}
+#| echo: false
+life_exp_resid + resid_logx + plot_annotation(title = "Residuals vs. Predicted")
+```
+
 ## Model interpretation {.midi}
 
 $$
@@ -460,7 +541,7 @@ $$
     -   **Example**: When $x_{ij}$ is multiplied by a factor of 2, $y_i$ is expected to increase by $\hat{\beta}_j\log(2)$ units, on average, holding all else constant.
 :::
 
-## Model with $\log(x_j)$  {.midi}
+## Model with $\log(x_j)$ {.midi}
 
 ```{r}
 life_exp_logx_fit <- lm(life_exp ~ log(health_expenditure) + income_inequality 
@@ -477,49 +558,17 @@ tidy(life_exp_logx_fit) |>
 
 <br>
 
-::: question
+:::: question
+::: midi
 -   Interpret the intercept in the context of the data.
 
 -   Interpret the effect of a 10% increase in healthcare expenditure in the context of the data.
 
 -   Interpret the effect of education in the context of the data.
 :::
+::::
 
-## Model with $\log(x_j)$: Residuals
-
-```{r}
-#| echo: false
-life_exp_logx_aug <- augment(life_exp_logx_fit)
-
-resid_logx <- ggplot(data = life_exp_logx_aug, aes(x = .fitted, y = .resid)) +
-  geom_point(alpha = 0.7) + 
-  geom_hline(yintercept=0, color="red") +
-  labs(x="Predicted", y="Residuals",
-       title="Residuals vs. Predicted")
-
-resid_logx
-```
-
-## Comparing residual plots
-
-```{r}
-#| echo: false
-orig_resid <- ggplot(data = life_exp_aug, aes(x = .fitted, y = .resid)) +
-  geom_point(alpha = 0.7) + 
-  geom_hline(yintercept=0, color="red") +
-  labs(x="Predicted", y="Residuals",
-       title="Original Model: Residuals vs. Predicted")
-
-logx_resid <- resid_logx <- ggplot(data = life_exp_logx_aug, aes(x = .fitted, y = .resid)) +
-  geom_point(alpha = 0.7) + 
-  geom_hline(yintercept=0, color="red") +
-  labs(x="Predicted", y="Residuals",
-       title="Transformed Model: Residuals vs. Predicted")
-
-orig_resid + logx_resid
-```
-
-# Linear model 
+# Linear model
 
 <center>
 
@@ -543,8 +592,7 @@ What does it mean for a model to be a “linear” model?
 
 ## Identify the linear models
 
-:::: extrapad
-::: incremental
+::: extrapad
 1.  $y_i = \beta_0 + \beta_1x_{i1} + \beta_2x_{i1}^2 + \beta_3x_{i2}  + \epsilon_i$
 
 2.  $y_i = \beta_1x_{i1} + \beta_2x_{i2} + \beta_3x_{i1}x_{i2} + \epsilon_i$
@@ -555,7 +603,8 @@ What does it mean for a model to be a “linear” model?
 
 5.  $y_i =e^{(\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + \beta_3x_{i3})} + \epsilon_i$
 :::
-::::
+
+🔗 Submit response: <https://forms.office.com/r/sBjWF7jZ05>
 
 ## Recap
 
