@@ -285,7 +285,7 @@ resid_logy
 resid_orig + resid_logy
 ```
 
-## Model interpretation in terms of $\mathbf{y}$  {.midi}
+## Model interpretation in terms of $\mathbf{y}$ {.midi}
 
 Let $\mathbf{x}_i^\mathsf{T}$ be the $i^{th}$ row of $\mathbf{X}$. Then,
 
@@ -389,7 +389,7 @@ life_exp_resid <- ggplot(data = life_exp_aug, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.7) + 
   geom_hline(yintercept=0, color="red") +
   labs(x="Predicted", y="Residuals",
-       title="Residuals vs. Predicted")
+       title="Original model")
 
 life_exp_resid
 ```
@@ -513,7 +513,7 @@ resid_logx <- ggplot(data = life_exp_logx_aug, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.7) + 
   geom_hline(yintercept=0, color="red") +
   labs(x="Predicted", y="Residuals",
-       title="Original")
+       title="Model with log(x)")
 
 resid_logx
 ```
