@@ -1,9 +1,9 @@
 ---
 title: "Properties of estimators"
 author: "Prof. Maria Tackett"
-date: "2025-03-20"
+date: "03-05-2026"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 STA 221 - Spring 2025](https://sta221-sp25.netlify.app)"
+footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
 logo: "../images/logo.png"
 format: 
   revealjs: 
@@ -15,7 +15,7 @@ format:
     chalkboard: true
     include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
   html: 
-    output-file: 17-prop-of-estimators-notes.html
+    output-file: 15-prop-of-estimators-notes.html
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -48,13 +48,11 @@ options(scipen=999)
 
 ## Announcements
 
--   HW 03 due TODAY at 11:59pm
+-   HW 03 due March 19
 
--   Project exploratory data analysis due TODAY at 11:59pm
+-   Exploratory data analysis due March 19
 
-    -   Next project milestone: Presentations in March 28 lab
-
--   Statistics experience due April 22
+-   Statistics experience due April 2
 
 ## Questions from this week's content?
 
@@ -68,10 +66,10 @@ options(scipen=999)
 
 ## Topics
 
--   Properties of the least squares estimator
+-   Properties of maximum likelihood estimators
 
 ::: callout-note
-This is not a mathematical statistics class. There are semester-long courses that will go into these topics in much more detail; we will barely scratch the surface in this course.
+Today we will scratch the surface on the properties of estimators. This topic is covered in much greater detail in STA 332: Statistical Inference.
 
 Our goals are to understand
 
@@ -490,12 +488,6 @@ Proof of this in a later statistics class.
 
 -   Asymptotic normality ✅
 
-## Questions from this week's content?
+## Next class
 
-<center>
-
-```{=html}
-<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=TsVyyzFKnk2xSh6jbfrJTBw0r2_bKCVMs9lST1_-2sxUQ1JTSFBZNlFMWUJZSDcwTUdaVzgwWUhBMC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
-```
-
-</center>
+☀️ Have a good spring break! ☀️
