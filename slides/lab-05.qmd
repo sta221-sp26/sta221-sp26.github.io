@@ -44,7 +44,7 @@ bibliography: references.bib
 
 **The teaching team appreciates your feedback!**
 
-🔗 UPDATE LINK!
+🔗 <https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g>
 
 ## Lab 05: Expanding multiple linear regression
 

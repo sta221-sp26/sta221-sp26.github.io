@@ -4688,344 +4688,113 @@
     ]
   },
   {
-    "objectID": "labs/lab-06.html",
-    "href": "labs/lab-06.html",
-    "title": "Lab 06",
+    "objectID": "labs/lab-07.html",
+    "href": "labs/lab-07.html",
+    "title": "Lab 07",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 06"
+      "Lab 07"
     ]
   },
   {
-    "objectID": "labs/lab-05.html",
-    "href": "labs/lab-05.html",
-    "title": "Lab 05",
+    "objectID": "labs/lab-04.html",
+    "href": "labs/lab-04.html",
+    "title": "Lab 04: Exam 01 Review",
     "section": "",
-    "text": "To be posted.",
+    "text": "ImportantDue date\n\n\n\nThis lab is due on Sunday, February 15 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your team’s GitHub repo\nFinal .pdf file submitted on Gradescope",
     "crumbs": [
       "Labs",
-      "Lab 05"
+      "Lab 04"
     ]
   },
   {
-    "objectID": "labs/lab-00.html",
-    "href": "labs/lab-00.html",
-    "title": "Lab 00: Getting started",
-    "section": "",
-    "text": "Important\n\n\n\nPlease complete all tasks before leaving lab today.",
+    "objectID": "labs/lab-04.html#exploratory-data-analysis",
+    "href": "labs/lab-04.html#exploratory-data-analysis",
+    "title": "Lab 04: Exam 01 Review",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\np1 &lt;- ggplot(data = tips, aes(x = Tip)) + \n  geom_histogram(color = \"white\", binwidth = 2) +\n  labs(x = \"Tips ($)\",\n       title = \"Tips at local restaurant\")\n\np2 &lt;- ggplot(data = tips, aes(x = Party)) + \n  geom_histogram(color = \"white\") +\n  labs(x = \"Party\",\n       title = \"Number of diners in party\") +\n  xlim(c(0, 7))\n\np3 &lt;- ggplot(data = tips, aes(x = Age)) + \n  geom_bar(color = \"white\") +\n  labs(x = \"\",\n       title = \"Age of Payer\") \n\np1 / (p2 + p3)\n\n\n\n\n\n\n\n\n\np4 &lt;- ggplot(data = tips, aes(x = Party, y = Tip)) + \n  geom_jitter() + \n  labs(x = \"Number of diners in party\", \n       y = \"Tips ($)\",\n       title = \"Tips vs. Party\")\n\np5 &lt;- ggplot(data = tips, aes(x = Age, y = Tip)) + \n  geom_boxplot() + \n  labs(x = \"Age of payer\", \n       y = \"Tips ($)\",\n       title = \"Tips vs. Age\")\n\np4 + p5\n\n\n\n\n\n\n\n\nWe will use the number of diners in the party and age of the payer to understand variability in the tips.",
     "crumbs": [
       "Labs",
-      "Lab 00"
+      "Lab 04"
     ]
   },
   {
-    "objectID": "labs/lab-00.html#rstudio",
-    "href": "labs/lab-00.html#rstudio",
-    "title": "Lab 00: Getting started",
-    "section": "RStudio",
-    "text": "RStudio\n\n\n\n\n\n\nTip\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\nReserve RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers. You will log in using your NetID credentials.\nClick “Reserve STA 221” to reserve an RStudio container. Be sure you reserve the container labeled STA 221 to ensure you have the computing set up you need for the class.\n\nYou only need to reserve a container once per semester.\n\n\nOpen RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers and log in with your Duke NetID and Password.\nClick STA221 to log into the Docker container. You should now see the RStudio environment.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#git-and-github",
-    "href": "labs/lab-00.html#git-and-github",
-    "title": "Lab 00: Getting started",
-    "section": "Git and GitHub",
-    "text": "Git and GitHub\nIn addition to R and RStudio, we will use git and GitHub for version control and collaboration.\n\n\n\n\n\n\nTip\n\n\n\nGit is a version control system (like “Track Changes” features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).\n\n\n\nSign up for GitHub account\nYou will need a GitHub account to access the assignments, project, and in-class exercises for the course.\n\nIf you do not have a GitHub account, go to https://github.com and sign up for an account. If you already have a GitHub account, you can skip to the next step.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for advice on choosing a username.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#connect-rstudio-and-github",
-    "href": "labs/lab-00.html#connect-rstudio-and-github",
-    "title": "Lab 00: Getting started",
-    "section": "Connect RStudio and GitHub",
-    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. An outline of the authentication steps is below; you are encouraged to follow along as your TA demonstrates the steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system.\n\n\n\nStep 0: Open your STA 221 RStudio container.\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., sta221)\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"Maria Tackett\",\n  user.email = \"maria.tackett@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio!",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#getting-started",
-    "href": "labs/lab-00.html#getting-started",
-    "title": "Lab 00: Getting started",
-    "section": "Getting started",
-    "text": "Getting started\n\nClick here to create your individual lab-00 repo: https://classroom.github.com/a/TiUOgn-X\nClick to open your lab-00 repo.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick lab-00.qmd to open the template Quarto file. This is where you will write up your code and narrative for the lab.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#update-the-quarto-document",
-    "href": "labs/lab-00.html#update-the-quarto-document",
-    "title": "Lab 00: Getting started",
-    "section": "Update the Quarto document",
-    "text": "Update the Quarto document\n\nTask 1: Change the author name at the top of the document to your name. Render the document. You will see your name at the top of the rendered PDF.\nTask 2: The plot shows the relationship between the daily temperature and number of bike rentals in Washington, D.C.’s Capital Bikeshare in 2012.\n\n\n\n\n\n\n\n\n\n\nWrite 1 - 2 observations from the plot. Render the document. You will see your response in the rendered PDF.",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-00.html#commit-and-push-changes-to-github",
-    "href": "labs/lab-00.html#commit-and-push-changes-to-github",
-    "title": "Lab 00: Getting started",
-    "section": "Commit and push changes to GitHub",
-    "text": "Commit and push changes to GitHub\n\nOnce you have made your final updates, go to the Git pane in your RStudio instance. This is a tab in the top right corner of the RStudio window.\nCheck the appropriate boxes on every file in the Git pane. All checked files will be sent to GitHub.\nNext, write a meaningful commit message (for instance, “updated author name”) in the Commit message box.\nClick Commit. Note that every commit needs to have a commit message associated with it.\nNow that you have made an update and committed this change, click Push to send the changes to GitHub.\nGo to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!",
-    "crumbs": [
-      "Labs",
-      "Lab 00"
-    ]
-  },
-  {
-    "objectID": "labs/lab-03.html",
-    "href": "labs/lab-03.html",
-    "title": "Lab 03: Multiple Linear Regression",
-    "section": "",
-    "text": "ImportantDue date\n\n\n\nThis lab is due on Tuesday, February 3 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your team’s GitHub repo\nFinal .pdf file submitted on Gradescope",
-    "crumbs": [
-      "Labs",
-      "Lab 03"
-    ]
-  },
-  {
-    "objectID": "labs/lab-03.html#exercise-1",
-    "href": "labs/lab-03.html#exercise-1",
-    "title": "Lab 03: Multiple Linear Regression",
+    "objectID": "labs/lab-04.html#exercise-1",
+    "href": "labs/lab-04.html#exercise-1",
+    "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 1",
-    "text": "Exercise 1\nLet’s start with some exploratory data analysis. Visualize the distribution of the response variable mc_preschool and calculate summary statistics. Describe the distribution of this variable, including the shape, center, spread, and presence of potential outliers.\n\n\n\n\n\n\nImportant\n\n\n\nYou will use the childcare_train for all analysis in Exercises 1 - 7.",
+    "text": "Exercise 1\nWe will start with the main effects model that includes Age and Party.\n\nHow many indicator variables for Age can we create from the data?\nHow many indicator variables for Age will be in the regression model?\nAre the responses to parts a and b equal? If not, explain why not.\nWhich of the following is true for this model? Select all that apply.\n\nThe intercepts are the same for every level of Age.\nThe intercepts differ by Age.\nThe effect of Party is the same for every level of Age.\nThe effect of Party differs by Age.",
     "crumbs": [
       "Labs",
-      "Lab 03"
+      "Lab 04"
     ]
   },
   {
-    "objectID": "labs/lab-03.html#exercise-2",
-    "href": "labs/lab-03.html#exercise-2",
-    "title": "Lab 03: Multiple Linear Regression",
+    "objectID": "labs/lab-04.html#exercise-2",
+    "href": "labs/lab-04.html#exercise-2",
+    "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 2",
-    "text": "Exercise 2\nAs you can see from the data dictionary in the README of the data folder, there are many interesting potential variables that could be included in the model to predict median childcare cost for preschool-age children. Therefore, we will do some feature selection and feature design to choose potential predictors and construct new ones.\nAs a team, select four variables you want to use as predictors for the model. For each variable, state the variable name, definition, and a brief explanation about why your team hypothesizes this will be a relevant predictor of median childcare costs. The explanation may (but is not required to) include some short exploratory analysis.\n\nTeam Member 1: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 1- 2.\nTeam Member 2: It’s your turn! Type the team’s response to exercises 3 - 4.",
+    "text": "Exercise 2\nConsider the main effects model that includes Age and Party.\n\nWhat is the dimension of the design matrix \\(\\mathbf{X}\\) for the main effects model?\nCompute the coefficient estimates \\(\\hat{\\boldsymbol{\\beta}}\\) directly from the data.\nWrite the equation of the estimated regression model.",
     "crumbs": [
       "Labs",
-      "Lab 03"
+      "Lab 04"
     ]
   },
   {
-    "objectID": "labs/lab-03.html#exercise-3",
-    "href": "labs/lab-03.html#exercise-3",
-    "title": "Lab 03: Multiple Linear Regression",
+    "objectID": "labs/lab-04.html#exercise-3",
+    "href": "labs/lab-04.html#exercise-3",
+    "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 3",
-    "text": "Exercise 3\nOnce we’ve identified potential predictor variables, we often need to transform some variables (e.g., change raw counts into proportions) or create new ones (e.g., create a categorical variable out of quantitative data) before fitting the regression model. This process is particularly useful when putting a variable in the model “as-is” may result in interpretation issues.\nChoose one of the variables selected in the previous exercise. For this variable,\n\nTransform the variable or use it to create a new variable. Be sure to save the variable to the childcare_train data frame.\nBriefly explain your reasoning for the transformation or new variable.\nUse visualizations and/or summary statistics to display the distribution of the original variable and the transformed / newly created variable. Note: This is to help ensure the transformation / new variable is what you expect.\n\n\n\n\n\n\n\n\n\n\n\nYou may decide to transform and/or create multiple new variables; however, you will only be graded on the one of them.\n\n\n\n\n\n\nImportant\n\n\n\nYou will use the transformed / new variable (not the original variable) in the model!",
+    "text": "Exercise 3\n\nUse \\(\\mathbf{y}\\) and \\(\\mathbf{X}\\) to compute \\(\\hat{\\sigma}_{\\epsilon}\\) .\nInterpret \\(\\hat{\\sigma}_\\epsilon\\) in the context of the data.\nCompute \\(Var(\\hat{\\boldsymbol{\\beta}})\\).\nYou wish to test whether there is a linear relationship between tips and the number of diners in the party, after adjusting for the age of the payer. Compute the test statistic. Explain what it means in the context of the data.\nUse the code below to compute the p-value and explain what it means in the context of the data.\nState the conclusion from the test in the context of the data.\n\n\n2 * pt(abs(test-statistic), df, lower.tail = FALSE)",
     "crumbs": [
       "Labs",
-      "Lab 03"
+      "Lab 04"
     ]
   },
   {
-    "objectID": "labs/lab-03.html#exercise-4",
-    "href": "labs/lab-03.html#exercise-4",
-    "title": "Lab 03: Multiple Linear Regression",
+    "objectID": "labs/lab-04.html#exercise-4",
+    "href": "labs/lab-04.html#exercise-4",
+    "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 4",
-    "text": "Exercise 4\nNow let’s conduct bivariate exploratory data analysis. Visualize the relationship between the response variable and one of your predictor variables.\nWrite two distinct observations from the visualization.\n\nTeam Member 2: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.\nTeam Member 3: It’s your turn! Type the team’s response to exercises 5 - 6.",
+    "text": "Exercise 4\n\nUse \\(\\mathbf{y}\\) and \\(\\mathbf{X}\\) to compute \\(R^2\\). Interpret this value in the context of the data.\nUse \\(\\mathbf{y}\\) and \\(\\mathbf{X}\\) to compute \\(RMSE\\). Interpret this value in the context of the data.",
     "crumbs": [
       "Labs",
-      "Lab 03"
+      "Lab 04"
     ]
   },
   {
-    "objectID": "labs/lab-03.html#exercise-5",
-    "href": "labs/lab-03.html#exercise-5",
-    "title": "Lab 03: Multiple Linear Regression",
+    "objectID": "labs/lab-04.html#exercise-5",
+    "href": "labs/lab-04.html#exercise-5",
+    "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 5",
-    "text": "Exercise 5\nUse the matrix form of the model to represent the regression model with the variables you selected and transformed/created in exercises 2 and 3 as the predictors. For each symbol in the model\n\ndescribe what it represents, and\nstate the dimensions.\n\nThe description and dimensions should be in the context of these data, not in general.",
+    "text": "Exercise 5\nYou decide to add an interaction effect between Age and Party to the model and fit a model of the following form:\n\\[\n\\begin{aligned}\nTip_i = \\beta_0 &+ \\beta_1Party_i + \\beta_2SenCit_i + \\beta_3Yadult_i \\\\\n&+ \\beta_4Party_i \\times SenCit_i + \\beta_5 Party_i \\times Yadult_i \\\\\n&+ \\epsilon_i\n\\end{aligned}\n\\]\n\nWhich of the following is true for this model? Select all that apply.\n\nThe intercepts are the same for every level of Age.\nThe intercepts differ by Age.\nThe effect of Party is the same for every level of Age.\nThe effect of Party differs by Age.\n\nBy how much does the intercept for tables with young adult payers differ from tables with middle age payers? Write the answer in terms of the \\(\\beta\\)’s.\nWrite the equation of the model for tables in which the payer is a senior citizen. Write the answer in terms of the \\(\\beta\\)’s.\nSuppose you wish to test the hypotheses: \\(H_0: \\beta_5 = 0 \\text{ vs. }H_a: \\beta_5 \\neq 0\\) . State what is being tested in terms of the effect of Party.",
     "crumbs": [
       "Labs",
-      "Lab 03"
+      "Lab 04"
     ]
   },
   {
-    "objectID": "labs/lab-03.html#exercise-6",
-    "href": "labs/lab-03.html#exercise-6",
-    "title": "Lab 03: Multiple Linear Regression",
+    "objectID": "labs/lab-04.html#exercise-6",
+    "href": "labs/lab-04.html#exercise-6",
+    "title": "Lab 04: Exam 01 Review",
     "section": "Exercise 6",
-    "text": "Exercise 6\nUse lm() to fit the regression model you described in the previous exercise.\n\nNeatly display the model using a reasonable number of digits.\nInterpret the coefficient for one predictor in the model.\n\n\nTeam Member 3: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.\nTeam Member 4: It’s your turn! Type the team’s response to exercises 7 - 9.",
+    "text": "Exercise 6\nUse the lm() function to fit the model that includes Age and Party and the interaction between the two variables. Display the 90% confidence interval for the coefficients.\n\nState what the standard error for the coefficient of AgeSenCit means in the context of the data.\nWrite code to show how the 90% confidence interval for AgeSenCit was computed.\nBased on the confidence interval, is there evidence that tables with senior citizen payers tip differently on average than tables with middle age payers?",
     "crumbs": [
       "Labs",
-      "Lab 03"
+      "Lab 04"
     ]
   },
   {
-    "objectID": "labs/lab-03.html#exercise-7",
-    "href": "labs/lab-03.html#exercise-7",
-    "title": "Lab 03: Multiple Linear Regression",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nNow let’s assess the fit of the model.\n\nHow much of the variability in the childcare costs is explained by your chosen predictor variables?\nBased on this, do you think the model explains a significant portion of the variability in childcare costs for preschool-age children in North Carolina? Briefly explain.",
-    "crumbs": [
-      "Labs",
-      "Lab 03"
-    ]
-  },
-  {
-    "objectID": "labs/lab-03.html#exercise-8",
-    "href": "labs/lab-03.html#exercise-8",
-    "title": "Lab 03: Multiple Linear Regression",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nNow let’s use the testing data to explore the predictive power of the model.\n\nAdd the variable you created in Exercise 3 to the testing data.\nThen, use the code below to compute the predicted childcare costs for the observations in the testing data using the predict function.\n\n\n# compute predictions\npred &lt;- predict(childcare_fit, childcare_test)\n\n# add predictions to testing data set\nchildcare_test &lt;- childcare_test |&gt;\n  mutate(pred = pred)",
-    "crumbs": [
-      "Labs",
-      "Lab 03"
-    ]
-  },
-  {
-    "objectID": "labs/lab-03.html#exercise-9",
-    "href": "labs/lab-03.html#exercise-9",
-    "title": "Lab 03: Multiple Linear Regression",
-    "section": "Exercise 9",
-    "text": "Exercise 9\n\nCompute the RMSE for the test set, and compare it to the standard deviation of the response variable mc_preschool.\nHow do these values compare?\nBased on this, how would assess the predictive power of the model?\n\n\nTeam Member 4: Render, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and the rest of the team can see the completed lab.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the team’s completed lab!",
-    "crumbs": [
-      "Labs",
-      "Lab 03"
-    ]
-  },
-  {
-    "objectID": "labs/lab-03.html#team-agreement",
-    "href": "labs/lab-03.html#team-agreement",
-    "title": "Lab 03: Multiple Linear Regression",
-    "section": "Team agreement",
-    "text": "Team agreement\nIf you haven’t already, make sure you have completed the team agreement (see the instructions in [Meet your team!]",
-    "crumbs": [
-      "Labs",
-      "Lab 03"
-    ]
-  },
-  {
-    "objectID": "labs/lab-03.html#footnotes",
-    "href": "labs/lab-03.html#footnotes",
-    "title": "Lab 03: Multiple Linear Regression",
+    "objectID": "labs/lab-04.html#footnotes",
+    "href": "labs/lab-04.html#footnotes",
+    "title": "Lab 04: Exam 01 Review",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nDon’t trust yourself to keep your hands off the keyboard? Put them in your pocket or cross your arms. No matter how silly it might feel, resist the urge to touch your keyboard until otherwise instructed!↩︎",
+    "text": "Footnotes\n\n\nDahlquist, Samantha, and Jin Dong. 2011. “The Effects of Credit Cards on Tipping.” Project for Statistics 212-Statistics for the Sciences, St. Olaf College.↩︎",
     "crumbs": [
       "Labs",
-      "Lab 03"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html",
-    "href": "labs/lab-02.html",
-    "title": "Lab 02: Linear regression",
-    "section": "",
-    "text": "ImportantDue date\n\n\n\nThis lab is due on Tuesday, January 27 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html#learning-goals",
-    "href": "labs/lab-02.html#learning-goals",
-    "title": "Lab 02: Linear regression",
-    "section": "Learning goals",
-    "text": "Learning goals\nBy the end of the lab, you will…\n\nContinue developing a reproducible workflow using RStudio and GitHub\nProduce visualizations and summary statistics to describe distributions\nFit, interpret, and evaluate linear regression models\nUse the matrix representation of the linear regression model to estimate coefficients\nExplore properties of the linear regression model",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html#instructions",
-    "href": "labs/lab-02.html#instructions",
-    "title": "Lab 02: Linear regression",
-    "section": "Instructions",
-    "text": "Instructions\nWrite all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically render your Quarto document to produce the updated PDF, commit the changes in the Git pane, and push the updated files to GitHub.\n\n\n\n\n\n\nImportant\n\n\n\nMake sure we can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (|&gt;) and plus sign (+).",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html#exercise-1",
-    "href": "labs/lab-02.html#exercise-1",
-    "title": "Lab 02: Linear regression",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nWe begin with univariate exploratory data analysis.\n\nVisualize the distribution of the response variable total_cup_points and calculate summary statistics.\nComment on the features of the distribution of this variable by describing the shape, center, spread, and presence of potential outliers.\nBased on this distribution, do you think the data set is representative of all coffee available to consumers? Briefly explain.\n\n\n\n\n\n\n\nTip\n\n\n\nMake sure your data visualizations have clear and informative titles and axis labels.",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html#exercise-2",
-    "href": "labs/lab-02.html#exercise-2",
-    "title": "Lab 02: Linear regression",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nNow let’s consider the relationship between how good a coffee smells and its overall quality.\n\nVisualize the relationship between aroma and total_cup_points.\nDoes there appear to be a relationship between a coffee’s aroma and its overall quality? If so, what is the shape and direction of the relationship?",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html#exercise-3",
-    "href": "labs/lab-02.html#exercise-3",
-    "title": "Lab 02: Linear regression",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nWe have seen the mathematical formulation for simple linear regression in class. In particular, given a response variable \\(Y\\) and predictor variable \\(X\\), the simple linear regression model is \\[Y = \\beta_0 + \\beta_1 X + \\epsilon\\]\nfor some unknown regression coefficients for intercept and slope \\((\\beta_0, \\beta_1)\\) and error terms \\(\\epsilon\\) that are centered at 0 and have variance \\(\\sigma^2_{\\epsilon}\\) . This means that the expected value of each observation lies on the regression line\n\\[ E(Y|X) = \\beta_0 + \\beta_1 X\\]\nAnswer the following questions about simple linear regression. Your response should be in general terms about regression, not be specific to the coffee data.\n\nWhat does \\(E(Y|X) = \\beta_0 + \\beta_1X\\) mean in terms of a given value of \\(X\\)?\nWhat are the interpretations of the coefficients \\(\\beta_0\\) and \\(\\beta_1\\) in terms of the expected value of \\(Y\\)?\n\n\nThis is a good place to render, commit, and push changes to your lab-01 repo on GitHub. Write an informative commit message (e.g., “Completed exercises 1 - 3”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html#exercise-4",
-    "href": "labs/lab-02.html#exercise-4",
-    "title": "Lab 02: Linear regression",
-    "section": "Exercise 4",
-    "text": "Exercise 4\n\nFit the model of the relationship between aroma and total_cup_points. Neatly display the output using 3 digits.\nInterpret the slope in the context of the data.\nWhat is the expected total_cup_points for coffees that receive the worst aroma score of 0? Is this a reliable estimate of the total_cup_points for these coffees? Briefly explain why or why not.",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html#exercise-5",
-    "href": "labs/lab-02.html#exercise-5",
-    "title": "Lab 02: Linear regression",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nNow let’s add flavor to the model, so we will use both flavor and aroma to understand variability in the overall quality of coffees. Use this model for the remainder of the lab.\nIn class we have seen how vectors and matrices can be used to represent the linear regression model:\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{\\epsilon}\n\\]\n\nState the dimensions of \\(\\mathbf{y}, \\mathbf{X}, \\boldsymbol{\\beta}, \\boldsymbol{\\epsilon}\\) for this model. Your answer should have exact values given the coffee data set.\nCompute the estimated regression coefficients using the matrix form of the model. Show the code used to get the answer.\n\n\n\n\n\n\n\nTip\n\n\n\nYou can use the model.matrix() function to get the design matrix. The code takes the general form:\n\nmodel.matrix(y ~ x, data = my_data)\n\nSee Lab 01 for other matrix operations in R.\n\n\n\nCheck your results from part (b) by using the lm function to fit the model. Neatly display your results using 3 digits.\nWrite the estimated regression equation.\n\n\nThis is a good place to render, commit, and push changes to your lab-01 repo on GitHub. Write an informative commit message (e.g., “Completed exercises 4 - 5”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html#exercise-6",
-    "href": "labs/lab-02.html#exercise-6",
-    "title": "Lab 02: Linear regression",
-    "section": "Exercise 6",
-    "text": "Exercise 6\n\nThe coefficient for aroma for the model fit in Exercise 5 is different than the coefficient from the model fit in Exercise 4. Briefly explain why these coefficients are different.\nWould you willingly drink a coffee represented by the intercept of the model in Exercise 5? Briefly explain why or why not.",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
-    ]
-  },
-  {
-    "objectID": "labs/lab-02.html#exercise-7",
-    "href": "labs/lab-02.html#exercise-7",
-    "title": "Lab 02: Linear regression",
-    "section": "Exercise 7",
-    "text": "Exercise 7\n\nCompute \\(\\mathbf{H}\\), the hat matrix corresponding to the model from Exercise 5. Then use \\(\\mathbf{H}\\) to compute the residuals for this model. Do not print out \\(\\mathbf{H}\\) or the residuals.\nCompute the mean and standard deviation of the residuals.\nRecall root mean square error RMSE\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n}}\n\\]\nSimilar to other statistics we’ve seen thus far, we can write the RMSE in matrix form. Compute RMSE for the model from Exercise 5 using matrix form. Show the code used to get the answer.\nHow do the standard deviation of the residuals and RMSE compare?\n\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Lab 02!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.",
-    "crumbs": [
-      "Labs",
-      "Lab 02"
+      "Lab 04"
     ]
   },
   {
@@ -5249,191 +5018,455 @@
     ]
   },
   {
-    "objectID": "labs/lab-04.html",
-    "href": "labs/lab-04.html",
-    "title": "Lab 04: Exam 01 Review",
+    "objectID": "labs/lab-02.html",
+    "href": "labs/lab-02.html",
+    "title": "Lab 02: Linear regression",
     "section": "",
-    "text": "ImportantDue date\n\n\n\nThis lab is due on Sunday, February 15 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your team’s GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "text": "ImportantDue date\n\n\n\nThis lab is due on Tuesday, January 27 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
     "crumbs": [
       "Labs",
-      "Lab 04"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "labs/lab-04.html#exploratory-data-analysis",
-    "href": "labs/lab-04.html#exploratory-data-analysis",
-    "title": "Lab 04: Exam 01 Review",
-    "section": "Exploratory data analysis",
-    "text": "Exploratory data analysis\n\np1 &lt;- ggplot(data = tips, aes(x = Tip)) + \n  geom_histogram(color = \"white\", binwidth = 2) +\n  labs(x = \"Tips ($)\",\n       title = \"Tips at local restaurant\")\n\np2 &lt;- ggplot(data = tips, aes(x = Party)) + \n  geom_histogram(color = \"white\") +\n  labs(x = \"Party\",\n       title = \"Number of diners in party\") +\n  xlim(c(0, 7))\n\np3 &lt;- ggplot(data = tips, aes(x = Age)) + \n  geom_bar(color = \"white\") +\n  labs(x = \"\",\n       title = \"Age of Payer\") \n\np1 / (p2 + p3)\n\n\n\n\n\n\n\n\n\np4 &lt;- ggplot(data = tips, aes(x = Party, y = Tip)) + \n  geom_jitter() + \n  labs(x = \"Number of diners in party\", \n       y = \"Tips ($)\",\n       title = \"Tips vs. Party\")\n\np5 &lt;- ggplot(data = tips, aes(x = Age, y = Tip)) + \n  geom_boxplot() + \n  labs(x = \"Age of payer\", \n       y = \"Tips ($)\",\n       title = \"Tips vs. Age\")\n\np4 + p5\n\n\n\n\n\n\n\n\nWe will use the number of diners in the party and age of the payer to understand variability in the tips.",
+    "objectID": "labs/lab-02.html#learning-goals",
+    "href": "labs/lab-02.html#learning-goals",
+    "title": "Lab 02: Linear regression",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the lab, you will…\n\nContinue developing a reproducible workflow using RStudio and GitHub\nProduce visualizations and summary statistics to describe distributions\nFit, interpret, and evaluate linear regression models\nUse the matrix representation of the linear regression model to estimate coefficients\nExplore properties of the linear regression model",
     "crumbs": [
       "Labs",
-      "Lab 04"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "labs/lab-04.html#exercise-1",
-    "href": "labs/lab-04.html#exercise-1",
-    "title": "Lab 04: Exam 01 Review",
+    "objectID": "labs/lab-02.html#instructions",
+    "href": "labs/lab-02.html#instructions",
+    "title": "Lab 02: Linear regression",
+    "section": "Instructions",
+    "text": "Instructions\nWrite all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically render your Quarto document to produce the updated PDF, commit the changes in the Git pane, and push the updated files to GitHub.\n\n\n\n\n\n\nImportant\n\n\n\nMake sure we can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (|&gt;) and plus sign (+).",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-02.html#exercise-1",
+    "href": "labs/lab-02.html#exercise-1",
+    "title": "Lab 02: Linear regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nWe will start with the main effects model that includes Age and Party.\n\nHow many indicator variables for Age can we create from the data?\nHow many indicator variables for Age will be in the regression model?\nAre the responses to parts a and b equal? If not, explain why not.\nWhich of the following is true for this model? Select all that apply.\n\nThe intercepts are the same for every level of Age.\nThe intercepts differ by Age.\nThe effect of Party is the same for every level of Age.\nThe effect of Party differs by Age.",
+    "text": "Exercise 1\nWe begin with univariate exploratory data analysis.\n\nVisualize the distribution of the response variable total_cup_points and calculate summary statistics.\nComment on the features of the distribution of this variable by describing the shape, center, spread, and presence of potential outliers.\nBased on this distribution, do you think the data set is representative of all coffee available to consumers? Briefly explain.\n\n\n\n\n\n\n\nTip\n\n\n\nMake sure your data visualizations have clear and informative titles and axis labels.",
     "crumbs": [
       "Labs",
-      "Lab 04"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "labs/lab-04.html#exercise-2",
-    "href": "labs/lab-04.html#exercise-2",
-    "title": "Lab 04: Exam 01 Review",
+    "objectID": "labs/lab-02.html#exercise-2",
+    "href": "labs/lab-02.html#exercise-2",
+    "title": "Lab 02: Linear regression",
     "section": "Exercise 2",
-    "text": "Exercise 2\nConsider the main effects model that includes Age and Party.\n\nWhat is the dimension of the design matrix \\(\\mathbf{X}\\) for the main effects model?\nCompute the coefficient estimates \\(\\hat{\\boldsymbol{\\beta}}\\) directly from the data.\nWrite the equation of the estimated regression model.",
+    "text": "Exercise 2\nNow let’s consider the relationship between how good a coffee smells and its overall quality.\n\nVisualize the relationship between aroma and total_cup_points.\nDoes there appear to be a relationship between a coffee’s aroma and its overall quality? If so, what is the shape and direction of the relationship?",
     "crumbs": [
       "Labs",
-      "Lab 04"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "labs/lab-04.html#exercise-3",
-    "href": "labs/lab-04.html#exercise-3",
-    "title": "Lab 04: Exam 01 Review",
+    "objectID": "labs/lab-02.html#exercise-3",
+    "href": "labs/lab-02.html#exercise-3",
+    "title": "Lab 02: Linear regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\n\nUse \\(\\mathbf{y}\\) and \\(\\mathbf{X}\\) to compute \\(\\hat{\\sigma}_{\\epsilon}\\) .\nInterpret \\(\\hat{\\sigma}_\\epsilon\\) in the context of the data.\nCompute \\(Var(\\hat{\\boldsymbol{\\beta}})\\).\nYou wish to test whether there is a linear relationship between tips and the number of diners in the party, after adjusting for the age of the payer. Compute the test statistic. Explain what it means in the context of the data.\nUse the code below to compute the p-value and explain what it means in the context of the data.\nState the conclusion from the test in the context of the data.\n\n\n2 * pt(abs(test-statistic), df, lower.tail = FALSE)",
+    "text": "Exercise 3\nWe have seen the mathematical formulation for simple linear regression in class. In particular, given a response variable \\(Y\\) and predictor variable \\(X\\), the simple linear regression model is \\[Y = \\beta_0 + \\beta_1 X + \\epsilon\\]\nfor some unknown regression coefficients for intercept and slope \\((\\beta_0, \\beta_1)\\) and error terms \\(\\epsilon\\) that are centered at 0 and have variance \\(\\sigma^2_{\\epsilon}\\) . This means that the expected value of each observation lies on the regression line\n\\[ E(Y|X) = \\beta_0 + \\beta_1 X\\]\nAnswer the following questions about simple linear regression. Your response should be in general terms about regression, not be specific to the coffee data.\n\nWhat does \\(E(Y|X) = \\beta_0 + \\beta_1X\\) mean in terms of a given value of \\(X\\)?\nWhat are the interpretations of the coefficients \\(\\beta_0\\) and \\(\\beta_1\\) in terms of the expected value of \\(Y\\)?\n\n\nThis is a good place to render, commit, and push changes to your lab-01 repo on GitHub. Write an informative commit message (e.g., “Completed exercises 1 - 3”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.",
     "crumbs": [
       "Labs",
-      "Lab 04"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "labs/lab-04.html#exercise-4",
-    "href": "labs/lab-04.html#exercise-4",
-    "title": "Lab 04: Exam 01 Review",
+    "objectID": "labs/lab-02.html#exercise-4",
+    "href": "labs/lab-02.html#exercise-4",
+    "title": "Lab 02: Linear regression",
     "section": "Exercise 4",
-    "text": "Exercise 4\n\nUse \\(\\mathbf{y}\\) and \\(\\mathbf{X}\\) to compute \\(R^2\\). Interpret this value in the context of the data.\nUse \\(\\mathbf{y}\\) and \\(\\mathbf{X}\\) to compute \\(RMSE\\). Interpret this value in the context of the data.",
+    "text": "Exercise 4\n\nFit the model of the relationship between aroma and total_cup_points. Neatly display the output using 3 digits.\nInterpret the slope in the context of the data.\nWhat is the expected total_cup_points for coffees that receive the worst aroma score of 0? Is this a reliable estimate of the total_cup_points for these coffees? Briefly explain why or why not.",
     "crumbs": [
       "Labs",
-      "Lab 04"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "labs/lab-04.html#exercise-5",
-    "href": "labs/lab-04.html#exercise-5",
-    "title": "Lab 04: Exam 01 Review",
+    "objectID": "labs/lab-02.html#exercise-5",
+    "href": "labs/lab-02.html#exercise-5",
+    "title": "Lab 02: Linear regression",
     "section": "Exercise 5",
-    "text": "Exercise 5\nYou decide to add an interaction effect between Age and Party to the model and fit a model of the following form:\n\\[\n\\begin{aligned}\nTip_i = \\beta_0 &+ \\beta_1Party_i + \\beta_2SenCit_i + \\beta_3Yadult_i \\\\\n&+ \\beta_4Party_i \\times SenCit_i + \\beta_5 Party_i \\times Yadult_i \\\\\n&+ \\epsilon_i\n\\end{aligned}\n\\]\n\nWhich of the following is true for this model? Select all that apply.\n\nThe intercepts are the same for every level of Age.\nThe intercepts differ by Age.\nThe effect of Party is the same for every level of Age.\nThe effect of Party differs by Age.\n\nBy how much does the intercept for tables with young adult payers differ from tables with middle age payers? Write the answer in terms of the \\(\\beta\\)’s.\nWrite the equation of the model for tables in which the payer is a senior citizen. Write the answer in terms of the \\(\\beta\\)’s.\nSuppose you wish to test the hypotheses: \\(H_0: \\beta_5 = 0 \\text{ vs. }H_a: \\beta_5 \\neq 0\\) . State what is being tested in terms of the effect of Party.",
+    "text": "Exercise 5\nNow let’s add flavor to the model, so we will use both flavor and aroma to understand variability in the overall quality of coffees. Use this model for the remainder of the lab.\nIn class we have seen how vectors and matrices can be used to represent the linear regression model:\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{\\epsilon}\n\\]\n\nState the dimensions of \\(\\mathbf{y}, \\mathbf{X}, \\boldsymbol{\\beta}, \\boldsymbol{\\epsilon}\\) for this model. Your answer should have exact values given the coffee data set.\nCompute the estimated regression coefficients using the matrix form of the model. Show the code used to get the answer.\n\n\n\n\n\n\n\nTip\n\n\n\nYou can use the model.matrix() function to get the design matrix. The code takes the general form:\n\nmodel.matrix(y ~ x, data = my_data)\n\nSee Lab 01 for other matrix operations in R.\n\n\n\nCheck your results from part (b) by using the lm function to fit the model. Neatly display your results using 3 digits.\nWrite the estimated regression equation.\n\n\nThis is a good place to render, commit, and push changes to your lab-01 repo on GitHub. Write an informative commit message (e.g., “Completed exercises 4 - 5”), and push every file to GitHub by clicking the check box next to each file in the Git pane. After you push the changes, the Git pane in RStudio should be empty.",
     "crumbs": [
       "Labs",
-      "Lab 04"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "labs/lab-04.html#exercise-6",
-    "href": "labs/lab-04.html#exercise-6",
-    "title": "Lab 04: Exam 01 Review",
+    "objectID": "labs/lab-02.html#exercise-6",
+    "href": "labs/lab-02.html#exercise-6",
+    "title": "Lab 02: Linear regression",
     "section": "Exercise 6",
-    "text": "Exercise 6\nUse the lm() function to fit the model that includes Age and Party and the interaction between the two variables. Display the 90% confidence interval for the coefficients.\n\nState what the standard error for the coefficient of AgeSenCit means in the context of the data.\nWrite code to show how the 90% confidence interval for AgeSenCit was computed.\nBased on the confidence interval, is there evidence that tables with senior citizen payers tip differently on average than tables with middle age payers?",
+    "text": "Exercise 6\n\nThe coefficient for aroma for the model fit in Exercise 5 is different than the coefficient from the model fit in Exercise 4. Briefly explain why these coefficients are different.\nWould you willingly drink a coffee represented by the intercept of the model in Exercise 5? Briefly explain why or why not.",
     "crumbs": [
       "Labs",
-      "Lab 04"
+      "Lab 02"
     ]
   },
   {
-    "objectID": "labs/lab-04.html#footnotes",
-    "href": "labs/lab-04.html#footnotes",
-    "title": "Lab 04: Exam 01 Review",
+    "objectID": "labs/lab-02.html#exercise-7",
+    "href": "labs/lab-02.html#exercise-7",
+    "title": "Lab 02: Linear regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\n\nCompute \\(\\mathbf{H}\\), the hat matrix corresponding to the model from Exercise 5. Then use \\(\\mathbf{H}\\) to compute the residuals for this model. Do not print out \\(\\mathbf{H}\\) or the residuals.\nCompute the mean and standard deviation of the residuals.\nRecall root mean square error RMSE\n\\[\nRMSE = \\sqrt{\\frac{\\sum_{i=1}^n(y_i - \\hat{y}_i)^2}{n}}\n\\]\nSimilar to other statistics we’ve seen thus far, we can write the RMSE in matrix form. Compute RMSE for the model from Exercise 5 using matrix form. Show the code used to get the answer.\nHow do the standard deviation of the residuals and RMSE compare?\n\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Lab 02!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.",
+    "crumbs": [
+      "Labs",
+      "Lab 02"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html",
+    "href": "labs/lab-03.html",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "",
+    "text": "ImportantDue date\n\n\n\nThis lab is due on Tuesday, February 3 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your team’s GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-1",
+    "href": "labs/lab-03.html#exercise-1",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nLet’s start with some exploratory data analysis. Visualize the distribution of the response variable mc_preschool and calculate summary statistics. Describe the distribution of this variable, including the shape, center, spread, and presence of potential outliers.\n\n\n\n\n\n\nImportant\n\n\n\nYou will use the childcare_train for all analysis in Exercises 1 - 7.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-2",
+    "href": "labs/lab-03.html#exercise-2",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nAs you can see from the data dictionary in the README of the data folder, there are many interesting potential variables that could be included in the model to predict median childcare cost for preschool-age children. Therefore, we will do some feature selection and feature design to choose potential predictors and construct new ones.\nAs a team, select four variables you want to use as predictors for the model. For each variable, state the variable name, definition, and a brief explanation about why your team hypothesizes this will be a relevant predictor of median childcare costs. The explanation may (but is not required to) include some short exploratory analysis.\n\nTeam Member 1: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 1- 2.\nTeam Member 2: It’s your turn! Type the team’s response to exercises 3 - 4.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-3",
+    "href": "labs/lab-03.html#exercise-3",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nOnce we’ve identified potential predictor variables, we often need to transform some variables (e.g., change raw counts into proportions) or create new ones (e.g., create a categorical variable out of quantitative data) before fitting the regression model. This process is particularly useful when putting a variable in the model “as-is” may result in interpretation issues.\nChoose one of the variables selected in the previous exercise. For this variable,\n\nTransform the variable or use it to create a new variable. Be sure to save the variable to the childcare_train data frame.\nBriefly explain your reasoning for the transformation or new variable.\nUse visualizations and/or summary statistics to display the distribution of the original variable and the transformed / newly created variable. Note: This is to help ensure the transformation / new variable is what you expect.\n\n\n\n\n\n\n\n\n\n\n\nYou may decide to transform and/or create multiple new variables; however, you will only be graded on the one of them.\n\n\n\n\n\n\nImportant\n\n\n\nYou will use the transformed / new variable (not the original variable) in the model!",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-4",
+    "href": "labs/lab-03.html#exercise-4",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nNow let’s conduct bivariate exploratory data analysis. Visualize the relationship between the response variable and one of your predictor variables.\nWrite two distinct observations from the visualization.\n\nTeam Member 2: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 3 - 4.\nTeam Member 3: It’s your turn! Type the team’s response to exercises 5 - 6.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-5",
+    "href": "labs/lab-03.html#exercise-5",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nUse the matrix form of the model to represent the regression model with the variables you selected and transformed/created in exercises 2 and 3 as the predictors. For each symbol in the model\n\ndescribe what it represents, and\nstate the dimensions.\n\nThe description and dimensions should be in the context of these data, not in general.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-6",
+    "href": "labs/lab-03.html#exercise-6",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nUse lm() to fit the regression model you described in the previous exercise.\n\nNeatly display the model using a reasonable number of digits.\nInterpret the coefficient for one predictor in the model.\n\n\nTeam Member 3: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the responses to exercises 5 - 6.\nTeam Member 4: It’s your turn! Type the team’s response to exercises 7 - 9.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-7",
+    "href": "labs/lab-03.html#exercise-7",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nNow let’s assess the fit of the model.\n\nHow much of the variability in the childcare costs is explained by your chosen predictor variables?\nBased on this, do you think the model explains a significant portion of the variability in childcare costs for preschool-age children in North Carolina? Briefly explain.",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-8",
+    "href": "labs/lab-03.html#exercise-8",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nNow let’s use the testing data to explore the predictive power of the model.\n\nAdd the variable you created in Exercise 3 to the testing data.\nThen, use the code below to compute the predicted childcare costs for the observations in the testing data using the predict function.\n\n\n# compute predictions\npred &lt;- predict(childcare_fit, childcare_test)\n\n# add predictions to testing data set\nchildcare_test &lt;- childcare_test |&gt;\n  mutate(pred = pred)",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#exercise-9",
+    "href": "labs/lab-03.html#exercise-9",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\n\nCompute the RMSE for the test set, and compare it to the standard deviation of the response variable mc_preschool.\nHow do these values compare?\nBased on this, how would assess the predictive power of the model?\n\n\nTeam Member 4: Render, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and the rest of the team can see the completed lab.\n\n\nAll other team members: Pull to get the updated documents from GitHub. Click on the .qmd file, and you should see the team’s completed lab!",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#team-agreement",
+    "href": "labs/lab-03.html#team-agreement",
+    "title": "Lab 03: Multiple Linear Regression",
+    "section": "Team agreement",
+    "text": "Team agreement\nIf you haven’t already, make sure you have completed the team agreement (see the instructions in [Meet your team!]",
+    "crumbs": [
+      "Labs",
+      "Lab 03"
+    ]
+  },
+  {
+    "objectID": "labs/lab-03.html#footnotes",
+    "href": "labs/lab-03.html#footnotes",
+    "title": "Lab 03: Multiple Linear Regression",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nDahlquist, Samantha, and Jin Dong. 2011. “The Effects of Credit Cards on Tipping.” Project for Statistics 212-Statistics for the Sciences, St. Olaf College.↩︎",
+    "text": "Footnotes\n\n\nDon’t trust yourself to keep your hands off the keyboard? Put them in your pocket or cross your arms. No matter how silly it might feel, resist the urge to touch your keyboard until otherwise instructed!↩︎",
     "crumbs": [
       "Labs",
-      "Lab 04"
+      "Lab 03"
     ]
   },
   {
-    "objectID": "labs/lab-07.html",
-    "href": "labs/lab-07.html",
-    "title": "Lab 07",
+    "objectID": "labs/lab-00.html",
+    "href": "labs/lab-00.html",
+    "title": "Lab 00: Getting started",
+    "section": "",
+    "text": "Important\n\n\n\nPlease complete all tasks before leaving lab today.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#rstudio",
+    "href": "labs/lab-00.html#rstudio",
+    "title": "Lab 00: Getting started",
+    "section": "RStudio",
+    "text": "RStudio\n\n\n\n\n\n\nTip\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\n\nReserve RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers. You will log in using your NetID credentials.\nClick “Reserve STA 221” to reserve an RStudio container. Be sure you reserve the container labeled STA 221 to ensure you have the computing set up you need for the class.\n\nYou only need to reserve a container once per semester.\n\n\nOpen RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers and log in with your Duke NetID and Password.\nClick STA221 to log into the Docker container. You should now see the RStudio environment.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#git-and-github",
+    "href": "labs/lab-00.html#git-and-github",
+    "title": "Lab 00: Getting started",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\nIn addition to R and RStudio, we will use git and GitHub for version control and collaboration.\n\n\n\n\n\n\nTip\n\n\n\nGit is a version control system (like “Track Changes” features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).\n\n\n\nSign up for GitHub account\nYou will need a GitHub account to access the assignments, project, and in-class exercises for the course.\n\nIf you do not have a GitHub account, go to https://github.com and sign up for an account. If you already have a GitHub account, you can skip to the next step.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for advice on choosing a username.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#connect-rstudio-and-github",
+    "href": "labs/lab-00.html#connect-rstudio-and-github",
+    "title": "Lab 00: Getting started",
+    "section": "Connect RStudio and GitHub",
+    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. An outline of the authentication steps is below; you are encouraged to follow along as your TA demonstrates the steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system.\n\n\n\nStep 0: Open your STA 221 RStudio container.\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., sta221)\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"Maria Tackett\",\n  user.email = \"maria.tackett@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio!",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#getting-started",
+    "href": "labs/lab-00.html#getting-started",
+    "title": "Lab 00: Getting started",
+    "section": "Getting started",
+    "text": "Getting started\n\nClick here to create your individual lab-00 repo: https://classroom.github.com/a/TiUOgn-X\nClick to open your lab-00 repo.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File → New Project → Version Control → Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick lab-00.qmd to open the template Quarto file. This is where you will write up your code and narrative for the lab.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#update-the-quarto-document",
+    "href": "labs/lab-00.html#update-the-quarto-document",
+    "title": "Lab 00: Getting started",
+    "section": "Update the Quarto document",
+    "text": "Update the Quarto document\n\nTask 1: Change the author name at the top of the document to your name. Render the document. You will see your name at the top of the rendered PDF.\nTask 2: The plot shows the relationship between the daily temperature and number of bike rentals in Washington, D.C.’s Capital Bikeshare in 2012.\n\n\n\n\n\n\n\n\n\n\nWrite 1 - 2 observations from the plot. Render the document. You will see your response in the rendered PDF.",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-00.html#commit-and-push-changes-to-github",
+    "href": "labs/lab-00.html#commit-and-push-changes-to-github",
+    "title": "Lab 00: Getting started",
+    "section": "Commit and push changes to GitHub",
+    "text": "Commit and push changes to GitHub\n\nOnce you have made your final updates, go to the Git pane in your RStudio instance. This is a tab in the top right corner of the RStudio window.\nCheck the appropriate boxes on every file in the Git pane. All checked files will be sent to GitHub.\nNext, write a meaningful commit message (for instance, “updated author name”) in the Commit message box.\nClick Commit. Note that every commit needs to have a commit message associated with it.\nNow that you have made an update and committed this change, click Push to send the changes to GitHub.\nGo to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!",
+    "crumbs": [
+      "Labs",
+      "Lab 00"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html",
+    "href": "labs/lab-05.html",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "",
+    "text": "ImportantDue date\n\n\n\nThis lab is due on Tuesday, March 3 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your team’s GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-1",
+    "href": "labs/lab-05.html#exercise-1",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWe’ll begin by rescaling the response and some of the predictor variables.\n\nRescale the response variable total_rev_menwomen and the primary predictor variable total_exp_menwomen, so that they are in terms of $100K (100 thousand dollars). Name the new variables rev100k and exp100k, respectively.\nRescale the predictor variable ef_total_count , so it is in terms of thousands of students. Name the new variable students_1k.\nBriefly explain why we might we rescale these variables instead of using them in the original units.",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-2",
+    "href": "labs/lab-05.html#exercise-2",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nBefore modeling, let’s do some exploratory data analysis.\n\nMake a visualization of the relationship between revenue and expenditures. Use the plot to describe the relationship between the two variables.\nHigher values of both expenditures and revenues are associated with greater variability. Transform both variables using a log transformation, to deal with the potential violation of an assumption of linear regression. Name the variables log_exp and log_rev, respectively.\nLarger values of expenditures and revenues seem to follow a slightly different trend and are associated with two sports - football and basketball. Create an indicator variable that takes value 1 if the sport is basketball or football and 0 otherwise. Name the variable bball_football.",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-3",
+    "href": "labs/lab-05.html#exercise-3",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nVisualize the relationship between log_rev and log_exp.\nFrom the visualization, you may notice a lot of observations form a straight diagonal line, indicating a perfect one-to-one relationship between expenses and revenues. Provide a possible interpretation of this phenomenon.\nDo you think it is reasonable to include observations displaying this exact relationship? Briefly explain.\nCreate a new data frame filtering out the observations for which expenditures and revenues are exactly equal. Call the new data frame sports_nolinear.\n\nYou will use sports_nolinear for the remainder of the assignment.",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-4",
+    "href": "labs/lab-05.html#exercise-4",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nUse sports_nolinear to fit a regression model with the log-transformed revenue as the response variable and the following predictors: log-transformed expenditures, student enrollment, institution type, sports type, participation in athletics for men, participation in athletics for women, the basketball/football indicator you created in a previous exercise, and the interaction between the log-transformed expenditures and the basketball/football indicator.\nNeatly display the model using 3 digits.",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-5",
+    "href": "labs/lab-05.html#exercise-5",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nConsider the regression model from the previous exercise.\n\nWhat type of institution and sport correspond to the intercept?\nYou’ll notice that one coefficient has a missing value. Why is the coefficient missing? What is the technical name of this phenomenon?",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-6",
+    "href": "labs/lab-05.html#exercise-6",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nFor the sake of interpretability, it is useful to have a regression model in which no coefficients are missing, and the coefficients for each sport indicator represent the baseline level for such sport. To address this issue, use the code below to fit another regression model that uses the same predictors as before, making sure to drop the unnecessary variables and the intercept (by the the -1 in the formula) to achieve this.\n\nsports_fit_2 &lt;- lm(log_rev ~ -1 + sports + students_1k + sector_name +\n             sum_partic_men + sum_partic_women + log_exp + \n             log_exp*bball_football - bball_football,\n          data = sports_nolinear)\n\n\nWhy is there only one coefficient for institution type, even after the intercept was removed?\nWhich type of institution was chosen to be the baseline in this model?",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-7",
+    "href": "labs/lab-05.html#exercise-7",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nNow that we have an interpretable model, let us assess the model fit and perform diagnostics to verify whether our linear regression assumptions are reasonable for this data.\nAs a first step, provide some overall measures of model fit and comment on whether it seems to have an acceptable predictive power on the response of interest.",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-8",
+    "href": "labs/lab-05.html#exercise-8",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nNext, let’s take a look at the residuals for the model.\nBecause there are multiple sports at every institution, we may be concerned the residuals within an institution are correlated with each other (thus violating the independence assumption).\nDue to the large number of institutions, we will look at randomly selected subset of 20 institutions to evaluate this.\n\nTake a random sample of 20 institutions. Use set.seed(221) to make your results reproducible.\nPlot the residuals versus fitted values, faceted by institution.\nBased on the faceted plot, do the errors appear to be correlated within institutions? Briefly explain your response.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for more detail, code, and examples of faceting in ggplot2.\nYou may need to change the size of the figure so that the faceted lot is fully visible. You can do so using the options #| fig-width and #| fig-height in the code chunk.",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-9",
+    "href": "labs/lab-05.html#exercise-9",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nAfter an examination of all the residuals, we notice a few things:\n\nThere seems to be two groups of observations.\nInstitutions with larger fitted values correspond to lower variance in the residuals compared to the others.\nThere are institutions with lower fitted values that have large negative residuals, potentially indicating outliers and/or influential points.\n\nWe are concerned that these observations may indicate some model misspecification (i.e., the model does not accurately reflect the trends in the data). Therefore, we take a look at the residuals a different way. We plot the standardized residual versus the fitted values, color the points based Cook’s distance, and use shape to indicate whether the sport is basketball or football.\n\nDescribe what you observe from the plot and how your observations compare to the list above.\nDo you think this model is an appropriate fit for the data or is the model misspecified? Briefly explain.",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-05.html#exercise-10",
+    "href": "labs/lab-05.html#exercise-10",
+    "title": "Lab 05: Expanding Multiple Linear Regression",
+    "section": "Exercise 10",
+    "text": "Exercise 10\n\nBased on this model (regardless of your answer to the previous exercise), which variables seem to be useful in explaining the variability in the revenue from collegiate sports?\nInterpret the coefficient for one useful quantitative predictor in terms of the log-transformed revenue.\nInterpret the coefficient for one useful categorical predictor in terms of the log-transformed revenue.",
+    "crumbs": [
+      "Labs",
+      "Lab 05"
+    ]
+  },
+  {
+    "objectID": "labs/lab-06.html",
+    "href": "labs/lab-06.html",
+    "title": "Lab 06",
     "section": "",
     "text": "To be posted.",
     "crumbs": [
       "Labs",
-      "Lab 07"
+      "Lab 06"
     ]
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html",
-    "href": "labs/lab-05-DRAFT.html",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "",
-    "text": "ImportantDue date\n\n\n\nThis lab is due on Tuesday, March 3 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your team’s GitHub repo\nFinal .pdf file submitted on Gradescope"
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-1",
-    "href": "labs/lab-05-DRAFT.html#exercise-1",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nWe’ll begin by rescaling the response and some of the predictor variables.\n\nRescale the response variable total_rev_menwomen and the primary predictor variable total_exp_menwomen, so that they are in terms of $100K (100 thousand dollars). Name the new variables rev100k and exp100k, respectively.\nRescale the predictor variable ef_total_count , so it is in terms of thousands of students. Name the new variable students_1k.\nBriefly explain why we might we rescale these variables instead of using them in the original units."
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-2",
-    "href": "labs/lab-05-DRAFT.html#exercise-2",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nBefore modeling, let’s do some exploratory data analysis.\n\nMake a visualization of the relationship between revenue and expenditures. Use the plot to describe the relationship between the two variables.\nHigher values of both expenditures and revenues are associated with greater variability. Transform both variables using a log transformation, to deal with the potential violation of an assumption of linear regression. Name the variables log_exp and log_rev, respectively.\nLarger values of expenditures and revenues seem to follow a slightly different trend and are associated with two sports - football and basketball. Create an indicator variable that takes value 1 if the sport is basketball or football and 0 otherwise. Name the variable bball_football."
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-3",
-    "href": "labs/lab-05-DRAFT.html#exercise-3",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 3",
-    "text": "Exercise 3\n\nVisualize the relationship between log_rev and log_exp.\nFrom the visualization, you may notice a lot of observations form a straight diagonal line, indicating a perfect one-to-one relationship between expenses and revenues. Provide a possible interpretation of this phenomenon.\nDo you think it is reasonable to include observations displaying this exact relationship? Briefly explain.\nCreate a new data frame filtering out the observations for which expenditures and revenues are exactly equal. Call the new data frame sports_nolinear.\n\nYou will use sports_nolinear for the remainder of the assignment."
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-4",
-    "href": "labs/lab-05-DRAFT.html#exercise-4",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nUse sports_nolinear to fit a regression model with the log-transformed revenue as the response variable and the following predictors: log-transformed expenditures, student enrollment, institution type, sports type, participation in athletics for men, participation in athletics for women, the basketball/football indicator you created in a previous exercise, and the interaction between the log-transformed expenditures and the basketball/football indicator.\nNeatly display the model using 3 digits."
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-5",
-    "href": "labs/lab-05-DRAFT.html#exercise-5",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nConsider the regression model from the previous exercise.\n\nWhat type of institution and sport correspond to the intercept?\nYou’ll notice that one coefficient has a missing value. Why is the coefficient missing? What is the technical name of this phenomenon?"
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-6",
-    "href": "labs/lab-05-DRAFT.html#exercise-6",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nFor the sake of interpretability, it is useful to have a regression model in which no coefficients are missing, and the coefficients for each sport indicator represent the baseline level for such sport. To address this issue, use the code below to fit another regression model that uses the same predictors as before, making sure to drop the unnecessary variables and the intercept (by the the -1 in the formula) to achieve this.\n\nsports_fit_2 &lt;- lm(log_rev ~ -1 + sports + students_1k + sector_name +\n             sum_partic_men + sum_partic_women + log_exp + \n             log_exp*bball_football - bball_football,\n          data = sports_nolinear)\n\n\nWhy is there only one coefficient for institution type, even after the intercept was removed?\nWhich type of institution was chosen to be the baseline in this model?"
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-7",
-    "href": "labs/lab-05-DRAFT.html#exercise-7",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nNow that we have an interpretable model, let us assess the model fit and perform diagnostics to verify whether our linear regression assumptions are reasonable for this data.\nAs a first step, provide some overall measures of model fit and comment on whether it seems to have an acceptable predictive power on the response of interest."
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-8",
-    "href": "labs/lab-05-DRAFT.html#exercise-8",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nNext, let’s take a look at the residuals for the model.\nBecause there are multiple sports at every institution, we may be concerned the residuals within an institution are correlated with each other (thus violating the independence assumption).\nDue to the large number of institutions, we will look at randomly selected subset of 20 institutions to evaluate this.\n\nTake a random sample of 20 institutions. Use set.seed(221) to make your results reproducible.\nPlot the residuals versus fitted values, faceted by institution.\nBased on the faceted plot, do the errors appear to be correlated within institutions? Briefly explain your response.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for more detail, code, and examples of faceting in ggplot2.\nYou may need to change the size of the figure so that the faceted lot is fully visible. You can do so using the options #| fig-width and #| fig-height in the code chunk."
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-9",
-    "href": "labs/lab-05-DRAFT.html#exercise-9",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nAfter an examination of all the residuals, we notice a few things:\n\nThere seems to be two groups of observations.\nInstitutions with larger fitted values correspond to lower variance in the residuals compared to the others.\nThere are institutions with lower fitted values that have large negative residuals, potentially indicating outliers and/or influential points.\n\nWe are concerned that these observations may indicate some model misspecification (i.e., the model does not accurately reflect the trends in the data). Therefore, we take a look at the residuals a different way. We plot the standardized residual versus the fitted values, color the points based Cook’s distance, and use shape to indicate whether the sport is basketball or football.\n\nDescribe what you observe from the plot and how your observations compare to the list above.\nDo you think this model is an appropriate fit for the data or is the model misspecified? Briefly explain."
-  },
-  {
-    "objectID": "labs/lab-05-DRAFT.html#exercise-10",
-    "href": "labs/lab-05-DRAFT.html#exercise-10",
-    "title": "Lab 05: Expanding Multiple Linear Regression",
-    "section": "Exercise 10",
-    "text": "Exercise 10\n\nBased on this model (regardless of your answer to the previous exercise), which variables seem to be useful in explaining the variability in the revenue from collegiate sports?\nInterpret the coefficient for one useful quantitative predictor in terms of the log-transformed revenue.\nInterpret the coefficient for one useful categorical predictor in terms of the log-transformed revenue."
   },
   {
     "objectID": "hw/hw-04.html",
@@ -5771,7 +5804,7 @@
     "href": "index.html",
     "title": "STA 221 - Regression Analysis: Theory and Applications",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nTypes of predictors cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\n\n\n\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference: Distribution of coefficients\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nTypes of predictors cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\n\n\n\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference: Distribution of coefficients\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05: Expanding multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
     "crumbs": [
       "Schedule"
     ]
@@ -6355,7 +6388,7 @@
     "href": "slides/lab-05.html#mid-semester-feedback",
     "title": "Lab 05",
     "section": "Mid-semester feedback",
-    "text": "Mid-semester feedback\n\nPurpose: To give the teaching team feedback on what is working well (or not as well) in helping you learn the course content\nThe feedback is anonymous\nPlease take a few minutes to fill it out during lab today\n\nThe teaching team appreciates your feedback!\n🔗 UPDATE LINK!"
+    "text": "Mid-semester feedback\n\nPurpose: To give the teaching team feedback on what is working well (or not as well) in helping you learn the course content\nThe feedback is anonymous\nPlease take a few minutes to fill it out during lab today\n\nThe teaching team appreciates your feedback!\n🔗 https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
   },
   {
     "objectID": "slides/lab-05.html#lab-05-expanding-multiple-linear-regression",
