@@ -1,6 +1,6 @@
 ---
-title: "HW 03: More multiple linear regression"
-
+title: "HW 03: Multiple linear regression"
+subtitle: "Transformations, diagnostics, and inference"
 bibliography: references.bib
 ---
 
