@@ -37,7 +37,7 @@ bibliography: references.bib
 
     -   Learn more and register: <https://dukestatsci.github.io/datafest/#signup> 
 
--   Please take a moment to provide mid-semester feedback: <https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g>
+-   Please take a moment to provide mid-semester feedback by Friday: <https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g>
 
 ## Topics
 
@@ -179,11 +179,15 @@ $$
 
 ## Likelihood: Three basketball shots
 
+The likelihood function for $p$ given the data $BBM$ is
+
+$$
+L(p|BBM) = p \times p \times (1 - p) = p^2 \times (1 - p)
+$$
+
 <br>
 
 ::: question
--   What is the general formula for the likelihood function for $p$ given the observed data $BBM$?
-
 -   How does assuming independence simplify things?
 
 -   How does having identically distributed data simplify things?
@@ -301,7 +305,7 @@ $$
 ::: incremental
 -   We have discussed least-squares estimation to find $\hat{\boldsymbol{\beta}}$ and $\hat{\sigma}_\epsilon^2$
 -   We have used the fact that $\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \sigma^2_{\epsilon}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1})$ when doing hypothesis testing and confidence intervals.
--   Now we will discuss how we know $\hat{\boldsymbol{\beta}}$ is normally distributed, as we introduce MLE for linear regression
+-   Now we will use the assumptions on $\boldsymbol{\epsilon}$ to show $\hat{\beta}$ is equal to the MLE
 :::
 
 ## Simple linear regression model
@@ -424,11 +428,19 @@ Note: $\tilde{\beta}_1 = \hat{\beta}_1$ and $\tilde{\sigma}^2_{\epsilon} \approx
 
 # MLE in matrix form
 
-## MLE for linear regression in matrix form {.midi}
+## Side note: Multivariate normal distribution {background-color="#ccddeb"}
+
+Let $\mathbf{z}$ be a $k \times 1$ vector such that $\mathbf{z} \sim N(\boldsymbol{\mu}, \boldsymbol{\Sigma})$. Then the probability function is
+
+$$
+P(\mathbf{z}|\boldsymbol{\mu}, \boldsymbol{\Sigma}) =(2\pi)^{-k/2} |\boldsymbol{\Sigma}|^{-1/2}\exp \left(-\frac{1}{2}(\mathbf{z} - \boldsymbol{\mu})^\mathsf{T}\boldsymbol{\Sigma}^{-1}(\mathbf{z} - \boldsymbol{\mu})\right)
+$$
+
+## MLE for linear regression in matrix form {.small}
 
 $$
 \begin{aligned}
-L(\boldsymbol{\beta}, \sigma^2_{\epsilon} | \mathbf{X}, \mathbf{y}) &= (2\pi)^{-n/2}|\text{det}(\sigma^2_\epsilon \mathbf{I})|^{-1/2}\exp\Big\{-\frac{1}{2}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\sigma^2_{\epsilon}\mathbf{I})^{-1}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})\Big\} \\[8pt]
+L(\boldsymbol{\beta}, \sigma^2_{\epsilon} | \mathbf{X}, \mathbf{y}) &= (2\pi)^{-n/2}|\sigma^2_\epsilon \mathbf{I}|^{-1/2}\exp\Big\{-\frac{1}{2}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\sigma^2_{\epsilon}\mathbf{I})^{-1}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})\Big\} \\[8pt]
 & = \frac{1}{(2\pi)^{n/2}\sigma^n_{\epsilon}}\exp\Big\{-\frac{1}{2\sigma^2_{\epsilon}}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})\Big\}
 \end{aligned}
 $$ <br>

@@ -426,6 +426,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#mle-in-matrix-form" id="toc-mle-in-matrix-form" class="nav-link" data-scroll-target="#mle-in-matrix-form">MLE in matrix form</a>
   <ul class="collapse">
+  <li><a href="#side-note-multivariate-normal-distribution" id="toc-side-note-multivariate-normal-distribution" class="nav-link" data-scroll-target="#side-note-multivariate-normal-distribution">Side note: Multivariate normal distribution</a></li>
   <li><a href="#mle-for-linear-regression-in-matrix-form" id="toc-mle-for-linear-regression-in-matrix-form" class="nav-link" data-scroll-target="#mle-for-linear-regression-in-matrix-form">MLE for linear regression in matrix form</a></li>
   <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
   <li><a href="#next-class" id="toc-next-class" class="nav-link" data-scroll-target="#next-class">Next class</a></li>
@@ -476,7 +477,7 @@ window.Quarto = {
 <ul>
 <li>Learn more and register:&nbsp;<a href="https://dukestatsci.github.io/datafest/#signup" class="uri">https://dukestatsci.github.io/datafest/#signup</a>&nbsp;</li>
 </ul></li>
-<li><p>Please take a moment to provide mid-semester feedback: <a href="https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g" class="uri">https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g</a></p></li>
+<li><p>Please take a moment to provide mid-semester feedback by Friday: <a href="https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g" class="uri">https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g</a></p></li>
 </ul>
 </section>
 <section id="topics" class="level2">
@@ -605,10 +606,13 @@ L(p = 0.8|BBM) = 0.8 \times 0.8 \times (1 - 0.8) = 0.128
 </section>
 <section id="likelihood-three-basketball-shots-1" class="level2">
 <h2 class="anchored" data-anchor-id="likelihood-three-basketball-shots-1">Likelihood: Three basketball shots</h2>
+<p>The likelihood function for <span class="math inline">\(p\)</span> given the data <span class="math inline">\(BBM\)</span> is</p>
+<p><span class="math display">\[
+L(p|BBM) = p \times p \times (1 - p) = p^2 \times (1 - p)
+\]</span></p>
 <p><br></p>
 <div class="question">
 <ul>
-<li><p>What is the general formula for the likelihood function for <span class="math inline">\(p\)</span> given the observed data <span class="math inline">\(BBM\)</span>?</p></li>
 <li><p>How does assuming independence simplify things?</p></li>
 <li><p>How does having identically distributed data simplify things?</p></li>
 </ul>
@@ -712,7 +716,7 @@ Note
 <ul class="incremental">
 <li>We have discussed least-squares estimation to find <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> and <span class="math inline">\(\hat{\sigma}_\epsilon^2\)</span></li>
 <li>We have used the fact that <span class="math inline">\(\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \sigma^2_{\epsilon}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1})\)</span> when doing hypothesis testing and confidence intervals.</li>
-<li>Now we will discuss how we know <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is normally distributed, as we introduce MLE for linear regression</li>
+<li>Now we will use the assumptions on <span class="math inline">\(\boldsymbol{\epsilon}\)</span> to show <span class="math inline">\(\hat{\beta}\)</span> is equal to the MLE</li>
 </ul>
 </div>
 </section>
@@ -812,11 +816,18 @@ L(\beta_0, \beta_1, \sigma^2_{\epsilon} &amp;| x_1, \ldots, x_n, y_1, \ldots, y_
 </section>
 <section id="mle-in-matrix-form" class="level1">
 <h1>MLE in matrix form</h1>
-<section id="mle-for-linear-regression-in-matrix-form" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="mle-for-linear-regression-in-matrix-form">MLE for linear regression in matrix form</h2>
+<section id="side-note-multivariate-normal-distribution" class="level2" data-background-color="#ccddeb">
+<h2 data-background-color="#ccddeb" class="anchored" data-anchor-id="side-note-multivariate-normal-distribution">Side note: Multivariate normal distribution</h2>
+<p>Let <span class="math inline">\(\mathbf{z}\)</span> be a <span class="math inline">\(k \times 1\)</span> vector such that <span class="math inline">\(\mathbf{z} \sim N(\boldsymbol{\mu}, \boldsymbol{\Sigma})\)</span>. Then the probability function is</p>
+<p><span class="math display">\[
+P(\mathbf{z}|\boldsymbol{\mu}, \boldsymbol{\Sigma}) =(2\pi)^{-k/2} |\boldsymbol{\Sigma}|^{-1/2}\exp \left(-\frac{1}{2}(\mathbf{z} - \boldsymbol{\mu})^\mathsf{T}\boldsymbol{\Sigma}^{-1}(\mathbf{z} - \boldsymbol{\mu})\right)
+\]</span></p>
+</section>
+<section id="mle-for-linear-regression-in-matrix-form" class="level2 small">
+<h2 class="small anchored" data-anchor-id="mle-for-linear-regression-in-matrix-form">MLE for linear regression in matrix form</h2>
 <p><span class="math display">\[
 \begin{aligned}
-L(\boldsymbol{\beta}, \sigma^2_{\epsilon} | \mathbf{X}, \mathbf{y}) &amp;= (2\pi)^{-n/2}|\text{det}(\sigma^2_\epsilon \mathbf{I})|^{-1/2}\exp\Big\{-\frac{1}{2}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\sigma^2_{\epsilon}\mathbf{I})^{-1}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})\Big\} \\[8pt]
+L(\boldsymbol{\beta}, \sigma^2_{\epsilon} | \mathbf{X}, \mathbf{y}) &amp;= (2\pi)^{-n/2}|\sigma^2_\epsilon \mathbf{I}|^{-1/2}\exp\Big\{-\frac{1}{2}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\sigma^2_{\epsilon}\mathbf{I})^{-1}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})\Big\} \\[8pt]
 &amp; = \frac{1}{(2\pi)^{n/2}\sigma^n_{\epsilon}}\exp\Big\{-\frac{1}{2\sigma^2_{\epsilon}}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})\Big\}
 \end{aligned}
 \]</span> <br></p>

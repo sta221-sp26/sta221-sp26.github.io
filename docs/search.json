@@ -9027,14 +9027,14 @@
     "href": "slides/14-mle-notes.html",
     "title": "Maximum likelihood estimation",
     "section": "",
-    "text": "Lab 05 due TODAY at 11:59pm\nMarch 20 - 22: ASA DataFest at Duke\n\nLearn more and register: https://dukestatsci.github.io/datafest/#signup \n\nPlease take a moment to provide mid-semester feedback: https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
+    "text": "Lab 05 due TODAY at 11:59pm\nMarch 20 - 22: ASA DataFest at Duke\n\nLearn more and register: https://dukestatsci.github.io/datafest/#signup \n\nPlease take a moment to provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
   },
   {
     "objectID": "slides/14-mle-notes.html#announcements",
     "href": "slides/14-mle-notes.html#announcements",
     "title": "Maximum likelihood estimation",
     "section": "",
-    "text": "Lab 05 due TODAY at 11:59pm\nMarch 20 - 22: ASA DataFest at Duke\n\nLearn more and register: https://dukestatsci.github.io/datafest/#signup \n\nPlease take a moment to provide mid-semester feedback: https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
+    "text": "Lab 05 due TODAY at 11:59pm\nMarch 20 - 22: ASA DataFest at Duke\n\nLearn more and register: https://dukestatsci.github.io/datafest/#signup \n\nPlease take a moment to provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
   },
   {
     "objectID": "slides/14-mle-notes.html#topics",
@@ -9104,7 +9104,7 @@
     "href": "slides/14-mle-notes.html#likelihood-three-basketball-shots-1",
     "title": "Maximum likelihood estimation",
     "section": "Likelihood: Three basketball shots",
-    "text": "Likelihood: Three basketball shots\n\n\n\nWhat is the general formula for the likelihood function for \\(p\\) given the observed data \\(BBM\\)?\nHow does assuming independence simplify things?\nHow does having identically distributed data simplify things?"
+    "text": "Likelihood: Three basketball shots\nThe likelihood function for \\(p\\) given the data \\(BBM\\) is\n\\[\nL(p|BBM) = p \\times p \\times (1 - p) = p^2 \\times (1 - p)\n\\]\n\n\n\nHow does assuming independence simplify things?\nHow does having identically distributed data simplify things?"
   },
   {
     "objectID": "slides/14-mle-notes.html#likelihood-three-basketball-shots-2",
@@ -9146,7 +9146,7 @@
     "href": "slides/14-mle-notes.html#linear-regression",
     "title": "Maximum likelihood estimation",
     "section": "Linear regression",
-    "text": "Linear regression\nRecall the linear model\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{10mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\]\n. . .\n\n\nWe have discussed least-squares estimation to find \\(\\hat{\\boldsymbol{\\beta}}\\) and \\(\\hat{\\sigma}_\\epsilon^2\\)\nWe have used the fact that \\(\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\\) when doing hypothesis testing and confidence intervals.\nNow we will discuss how we know \\(\\hat{\\boldsymbol{\\beta}}\\) is normally distributed, as we introduce MLE for linear regression"
+    "text": "Linear regression\nRecall the linear model\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{10mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\]\n. . .\n\n\nWe have discussed least-squares estimation to find \\(\\hat{\\boldsymbol{\\beta}}\\) and \\(\\hat{\\sigma}_\\epsilon^2\\)\nWe have used the fact that \\(\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\\) when doing hypothesis testing and confidence intervals.\nNow we will use the assumptions on \\(\\boldsymbol{\\epsilon}\\) to show \\(\\hat{\\beta}\\) is equal to the MLE"
   },
   {
     "objectID": "slides/14-mle-notes.html#simple-linear-regression-model",
@@ -9205,11 +9205,18 @@
     "text": "MLE for \\(\\beta_1\\) and \\(\\sigma^2_{\\epsilon}\\)\nWe can use a similar process to find the MLEs for \\(\\beta_1\\) and \\(\\sigma^2_{\\epsilon}\\)\n\\[\n\\tilde{\\beta}_1 = \\frac{\\sum_{i=1}^n (y_i - \\bar{y})(x_i - \\bar{x})}{\\sum_{i=1}^n(x_i - \\bar{x})^2}\n\\] \n. . .\n\\[\n\\tilde{\\sigma}^2_{\\epsilon} = \\frac{\\sum_{i=1}^n(y_i - \\tilde{\\beta}_0 - \\tilde{\\beta}_1x_i)^2}{n} = \\frac{\\sum_{i=1}^ne_i^2}{n}\n\\]\n. . .\nNote: \\(\\tilde{\\beta}_1 = \\hat{\\beta}_1\\) and \\(\\tilde{\\sigma}^2_{\\epsilon} \\approx \\hat{\\sigma}^2_{\\epsilon}\\)"
   },
   {
+    "objectID": "slides/14-mle-notes.html#side-note-multivariate-normal-distribution",
+    "href": "slides/14-mle-notes.html#side-note-multivariate-normal-distribution",
+    "title": "Maximum likelihood estimation",
+    "section": "Side note: Multivariate normal distribution",
+    "text": "Side note: Multivariate normal distribution\nLet \\(\\mathbf{z}\\) be a \\(k \\times 1\\) vector such that \\(\\mathbf{z} \\sim N(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\). Then the probability function is\n\\[\nP(\\mathbf{z}|\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma}) =(2\\pi)^{-k/2} |\\boldsymbol{\\Sigma}|^{-1/2}\\exp \\left(-\\frac{1}{2}(\\mathbf{z} - \\boldsymbol{\\mu})^\\mathsf{T}\\boldsymbol{\\Sigma}^{-1}(\\mathbf{z} - \\boldsymbol{\\mu})\\right)\n\\]"
+  },
+  {
     "objectID": "slides/14-mle-notes.html#mle-for-linear-regression-in-matrix-form",
     "href": "slides/14-mle-notes.html#mle-for-linear-regression-in-matrix-form",
     "title": "Maximum likelihood estimation",
     "section": "MLE for linear regression in matrix form",
-    "text": "MLE for linear regression in matrix form\n\\[\n\\begin{aligned}\nL(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon} | \\mathbf{X}, \\mathbf{y}) &= (2\\pi)^{-n/2}|\\text{det}(\\sigma^2_\\epsilon \\mathbf{I})|^{-1/2}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\} \\\\[8pt]\n& = \\frac{1}{(2\\pi)^{n/2}\\sigma^n_{\\epsilon}}\\exp\\Big\\{-\\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\}\n\\end{aligned}\n\\] \n. . .\n\\[\n\\begin{aligned}\n\\log L(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon &| \\mathbf{X}, \\mathbf{y}) \\\\\n& = -\\frac{n}{2}\\log(2\\pi) - n \\log(\\sigma_{\\epsilon}) - \\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\mathbf{\\beta})\n\\end{aligned}\n\\]\n. . .\n\n\nFor a fixed value of \\(\\sigma_\\epsilon\\) , we know that \\(\\log L\\) is maximized when what is true about \\((\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\) ?\nWhat does this tell us about the relationship between the MLE and least-squares estimator for \\(\\boldsymbol{\\beta}\\)?"
+    "text": "MLE for linear regression in matrix form\n\\[\n\\begin{aligned}\nL(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon} | \\mathbf{X}, \\mathbf{y}) &= (2\\pi)^{-n/2}|\\sigma^2_\\epsilon \\mathbf{I}|^{-1/2}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\} \\\\[8pt]\n& = \\frac{1}{(2\\pi)^{n/2}\\sigma^n_{\\epsilon}}\\exp\\Big\\{-\\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\}\n\\end{aligned}\n\\] \n. . .\n\\[\n\\begin{aligned}\n\\log L(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon &| \\mathbf{X}, \\mathbf{y}) \\\\\n& = -\\frac{n}{2}\\log(2\\pi) - n \\log(\\sigma_{\\epsilon}) - \\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\mathbf{\\beta})\n\\end{aligned}\n\\]\n. . .\n\n\nFor a fixed value of \\(\\sigma_\\epsilon\\) , we know that \\(\\log L\\) is maximized when what is true about \\((\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\) ?\nWhat does this tell us about the relationship between the MLE and least-squares estimator for \\(\\boldsymbol{\\beta}\\)?"
   },
   {
     "objectID": "slides/14-mle-notes.html#putting-it-all-together",
@@ -9230,7 +9237,7 @@
     "href": "slides/14-mle.html#announcements",
     "title": "Maximum likelihood estimation",
     "section": "Announcements",
-    "text": "Announcements\n\nLab 05 due TODAY at 11:59pm\nMarch 20 - 22: ASA DataFest at Duke\n\nLearn more and register: https://dukestatsci.github.io/datafest/#signup \n\nPlease take a moment to provide mid-semester feedback: https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
+    "text": "Announcements\n\nLab 05 due TODAY at 11:59pm\nMarch 20 - 22: ASA DataFest at Duke\n\nLearn more and register: https://dukestatsci.github.io/datafest/#signup \n\nPlease take a moment to provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
   },
   {
     "objectID": "slides/14-mle.html#topics",
@@ -9300,7 +9307,7 @@
     "href": "slides/14-mle.html#likelihood-three-basketball-shots-1",
     "title": "Maximum likelihood estimation",
     "section": "Likelihood: Three basketball shots",
-    "text": "Likelihood: Three basketball shots\n\n\n\nWhat is the general formula for the likelihood function for \\(p\\) given the observed data \\(BBM\\)?\nHow does assuming independence simplify things?\nHow does having identically distributed data simplify things?"
+    "text": "Likelihood: Three basketball shots\nThe likelihood function for \\(p\\) given the data \\(BBM\\) is\n\\[\nL(p|BBM) = p \\times p \\times (1 - p) = p^2 \\times (1 - p)\n\\]\n\n\n\nHow does assuming independence simplify things?\nHow does having identically distributed data simplify things?"
   },
   {
     "objectID": "slides/14-mle.html#likelihood-three-basketball-shots-2",
@@ -9342,7 +9349,7 @@
     "href": "slides/14-mle.html#linear-regression",
     "title": "Maximum likelihood estimation",
     "section": "Linear regression",
-    "text": "Linear regression\nRecall the linear model\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{10mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\]\n\n\nWe have discussed least-squares estimation to find \\(\\hat{\\boldsymbol{\\beta}}\\) and \\(\\hat{\\sigma}_\\epsilon^2\\)\nWe have used the fact that \\(\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\\) when doing hypothesis testing and confidence intervals.\nNow we will discuss how we know \\(\\hat{\\boldsymbol{\\beta}}\\) is normally distributed, as we introduce MLE for linear regression"
+    "text": "Linear regression\nRecall the linear model\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}, \\hspace{10mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\]\n\n\nWe have discussed least-squares estimation to find \\(\\hat{\\boldsymbol{\\beta}}\\) and \\(\\hat{\\sigma}_\\epsilon^2\\)\nWe have used the fact that \\(\\hat{\\boldsymbol{\\beta}} \\sim N(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1})\\) when doing hypothesis testing and confidence intervals.\nNow we will use the assumptions on \\(\\boldsymbol{\\epsilon}\\) to show \\(\\hat{\\beta}\\) is equal to the MLE"
   },
   {
     "objectID": "slides/14-mle.html#simple-linear-regression-model",
@@ -9401,11 +9408,18 @@
     "text": "MLE for \\(\\beta_1\\) and \\(\\sigma^2_{\\epsilon}\\)\nWe can use a similar process to find the MLEs for \\(\\beta_1\\) and \\(\\sigma^2_{\\epsilon}\\)\n\\[\n\\tilde{\\beta}_1 = \\frac{\\sum_{i=1}^n (y_i - \\bar{y})(x_i - \\bar{x})}{\\sum_{i=1}^n(x_i - \\bar{x})^2}\n\\] \n\n\\[\n\\tilde{\\sigma}^2_{\\epsilon} = \\frac{\\sum_{i=1}^n(y_i - \\tilde{\\beta}_0 - \\tilde{\\beta}_1x_i)^2}{n} = \\frac{\\sum_{i=1}^ne_i^2}{n}\n\\]\n\n\nNote: \\(\\tilde{\\beta}_1 = \\hat{\\beta}_1\\) and \\(\\tilde{\\sigma}^2_{\\epsilon} \\approx \\hat{\\sigma}^2_{\\epsilon}\\)"
   },
   {
+    "objectID": "slides/14-mle.html#side-note-multivariate-normal-distribution",
+    "href": "slides/14-mle.html#side-note-multivariate-normal-distribution",
+    "title": "Maximum likelihood estimation",
+    "section": "Side note: Multivariate normal distribution",
+    "text": "Side note: Multivariate normal distribution\nLet \\(\\mathbf{z}\\) be a \\(k \\times 1\\) vector such that \\(\\mathbf{z} \\sim N(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\). Then the probability function is\n\\[\nP(\\mathbf{z}|\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma}) =(2\\pi)^{-k/2} |\\boldsymbol{\\Sigma}|^{-1/2}\\exp \\left(-\\frac{1}{2}(\\mathbf{z} - \\boldsymbol{\\mu})^\\mathsf{T}\\boldsymbol{\\Sigma}^{-1}(\\mathbf{z} - \\boldsymbol{\\mu})\\right)\n\\]"
+  },
+  {
     "objectID": "slides/14-mle.html#mle-for-linear-regression-in-matrix-form",
     "href": "slides/14-mle.html#mle-for-linear-regression-in-matrix-form",
     "title": "Maximum likelihood estimation",
     "section": "MLE for linear regression in matrix form",
-    "text": "MLE for linear regression in matrix form\n\\[\n\\begin{aligned}\nL(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon} | \\mathbf{X}, \\mathbf{y}) &= (2\\pi)^{-n/2}|\\text{det}(\\sigma^2_\\epsilon \\mathbf{I})|^{-1/2}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\} \\\\[8pt]\n& = \\frac{1}{(2\\pi)^{n/2}\\sigma^n_{\\epsilon}}\\exp\\Big\\{-\\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\}\n\\end{aligned}\n\\] \n\n\\[\n\\begin{aligned}\n\\log L(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon &| \\mathbf{X}, \\mathbf{y}) \\\\\n& = -\\frac{n}{2}\\log(2\\pi) - n \\log(\\sigma_{\\epsilon}) - \\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\mathbf{\\beta})\n\\end{aligned}\n\\]\n\n\n\n\nFor a fixed value of \\(\\sigma_\\epsilon\\) , we know that \\(\\log L\\) is maximized when what is true about \\((\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\) ?\nWhat does this tell us about the relationship between the MLE and least-squares estimator for \\(\\boldsymbol{\\beta}\\)?"
+    "text": "MLE for linear regression in matrix form\n\\[\n\\begin{aligned}\nL(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon} | \\mathbf{X}, \\mathbf{y}) &= (2\\pi)^{-n/2}|\\sigma^2_\\epsilon \\mathbf{I}|^{-1/2}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\} \\\\[8pt]\n& = \\frac{1}{(2\\pi)^{n/2}\\sigma^n_{\\epsilon}}\\exp\\Big\\{-\\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\}\n\\end{aligned}\n\\] \n\n\\[\n\\begin{aligned}\n\\log L(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon &| \\mathbf{X}, \\mathbf{y}) \\\\\n& = -\\frac{n}{2}\\log(2\\pi) - n \\log(\\sigma_{\\epsilon}) - \\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\mathbf{\\beta})\n\\end{aligned}\n\\]\n\n\n\n\nFor a fixed value of \\(\\sigma_\\epsilon\\) , we know that \\(\\log L\\) is maximized when what is true about \\((\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\) ?\nWhat does this tell us about the relationship between the MLE and least-squares estimator for \\(\\boldsymbol{\\beta}\\)?"
   },
   {
     "objectID": "slides/14-mle.html#putting-it-all-together",
