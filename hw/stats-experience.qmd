@@ -116,7 +116,7 @@ You can find the Quarto documents for current scholars in the data base in the C
 
 ## Part 2: Reflect on your experience
 
-Make one slide summarizing and reflecting on your experience. Post a PDF of the slide in the Statistics experience discussion thread on Canvas.
+Make one slide summarizing and reflecting on your experience. Post a image or PDF of the slide in the Statistics experience discussion thread on Canvas.
 
 Include the following on your slide:
 
@@ -133,4 +133,4 @@ Make sure the slide includes the information mentioned above and is easily reada
 
 ## Submission
 
-This assignment is due on **Thursday, April 2 at 11:59pm.** To be considered on time, the PDF of the slide must be posted to the "Statistics experience" discussion thread on Canvas by the deadline. The standard homework late policy applies.
+This assignment is due on **Thursday, April 2 at 11:59pm.** To be considered on time, the image of the slide must be posted to the "Statistics experience" discussion thread on Canvas by the deadline. The standard homework late policy applies.
