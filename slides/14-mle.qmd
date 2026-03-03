@@ -37,6 +37,8 @@ bibliography: references.bib
 
     -   Learn more and register: <https://dukestatsci.github.io/datafest/#signup> 
 
+-   Please take a moment to provide mid-semester feedback: <https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g>
+
 ## Topics
 
 -   Identifying linear models
