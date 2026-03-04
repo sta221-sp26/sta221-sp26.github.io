@@ -170,10 +170,6 @@ Reuse and iterate on the work from the Research Topics milestone.
 
 Submit a data dictionary for all the variables in your data set in the `README` of the `data` folder. You do <u>not</u> need to include the data dictionary in the PDF document.
 
-### Submission
-
-Write your narrative and analysis for Sections 1 - 4 in the `proposal.qmd` file in your team's GitHub repo. Put the data set and the data dictionary in the `data` folder in the repo.
-
 ### Grading
 
 The anticipated length, including all graphs, tables, narrative, etc., is 2 -4 pages.
@@ -188,9 +184,64 @@ The proposal is worth 10 points and will be graded based on accurately and compr
 
 -   **Needs Improvement (4 - 5 pts):** Requirements are largely unmet, and there are major elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.
 
-## Exploratory data analysis
+## Exploratory data analysis {#eda}
 
-\[To be posted.\]
+::: callout-important
+## Submission
+
+Write your draft introduction and exploratory data analysis in the `written-report.qmd` file in your team's GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub by **Thursday, March 19 at 11:59pm.**
+:::
+
+The purpose of this milestone is to begin exploring the data and get early feedback on your data and analysis. You will submit a draft of the early sections of the report that includes the introduction and exploratory data analysis, with an emphasis on the EDA. It will also help you prepare for the presentation of the exploratory data analysis results.
+
+Below is a brief description of the sections to include in this step:
+
+### Introduction
+
+This section includes an introduction to the project motivation, background, data, and research question. Additionally, comment on any known limitations, missingness, or measurement concerns that may impact the interpretation of your analysis and results.
+
+::: callout-tip
+Reuse and iterate on the work from the previous milestones.
+:::
+
+### Exploratory data analysis
+
+This section includes the following:
+
+-   Description of the data set and key variables.
+
+-   Exploratory data analysis of the response variable and key predictor variables. This includes visualizations, summary statistics, and narrative. Focus on 4 - 6 key predictors that are most relevant to your research question. You may explore additional variables, as appropriate, but prioritize depth over breadth.
+
+    -   Univariate EDA of the response and key predictor variables
+    -   Bivariate EDA of the response and key predictor variables
+    -   Visualizations exploring at least one potential interaction effect
+
+For each visualization and/or set of summary statistics, briefly describe what you learn about the distribution of the variable or relationship between variables. Additionally, comment on how the observations from the EDA may inform your modeling decisions (e.g., use of transformations, quadratic effects, interactions effects, etc.)
+
+### Grading
+
+The anticipated length with code, warnings, and messages suppressed in the rendered `pdf` is about 5 - 7 pages. It is OK to be over this page limit at this stage in the project.
+
+::: callout-tip
+Include the code below in the YAML to suppress code, messages, and warnings in the rendered pdf.
+
+``` r
+execute:
+  echo: false
+  message: false
+  warning: false
+```
+:::
+
+The exploratory data analysis is worth 15 points and will be graded based on accurately and comprehensively addressing the criteria stated above, along with incorporating the feedback from the proposal. Points will be assigned based on a holistic review of the exploratory data analysis.
+
+-   **Excellent (13 - 15 points) :** All required elements are completed and are accurate. There is a thorough exploration of the data as described above, and the team has demonstrated a careful and thoughtful approach exploring the data and preparing it for analysis. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.
+
+-   **Strong (10 - 12 points):** Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Minor gaps or areas needing clarification, but the analysis is sound overall and will be ready for modeling with minor revision.
+
+-   **Satisfactory (7 - 9 points):** Requirements partially met, but there are some elements that are incomplete and/or inaccurate. This may include multiple gaps in the analysis, unclear interpretations, or limited connection between EDA and modeling decisions. Major revision is required before team is ready for modeling.
+
+-   **Needs Improvement (6 points or fewer):** Requirements are largely unmet, and there are large elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.
 
 ## Presentation {#presentation}
 
