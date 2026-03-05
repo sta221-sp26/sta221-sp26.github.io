@@ -8115,13 +8115,6 @@
     "text": "Law of large numbers\nLet \\(X_1, X_2, \\ldots, X_n\\) be independent and identically distributed random variables, such that \\(E(X) = \\mu\\), such that \\(\\mu\\) is finite.\n\\[\n\\displaystyle \\lim_{n\\to\\infty} P(|\\bar{X} - \\mu| \\geq c) = 0\n\\]\nfor every \\(c &gt; 0\\)"
   },
   {
-    "objectID": "slides/15-prop-of-estimators-notes.html#consistency-of-hatboldsymbolbeta",
-    "href": "slides/15-prop-of-estimators-notes.html#consistency-of-hatboldsymbolbeta",
-    "title": "Properties of estimators",
-    "section": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\nShow \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator."
-  },
-  {
     "objectID": "slides/15-prop-of-estimators-notes.html#mean-squared-error-1",
     "href": "slides/15-prop-of-estimators-notes.html#mean-squared-error-1",
     "title": "Properties of estimators",
@@ -8134,6 +8127,13 @@
     "title": "Properties of estimators",
     "section": "Consistency",
     "text": "Consistency\n\n\n\n\n\n\n\n\nImportantTheorem\n\n\n\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of the parameter \\(\\theta\\) if the sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, \\ldots\\) satisfies\n\n\\(\\lim_{n \\to \\infty} Var(\\hat{\\theta}) = 0\\)\n\\(\\lim_{n \\to \\infty} Bias(\\hat{\\theta}) = 0\\)"
+  },
+  {
+    "objectID": "slides/15-prop-of-estimators-notes.html#consistency-of-hatboldsymbolbeta",
+    "href": "slides/15-prop-of-estimators-notes.html#consistency-of-hatboldsymbolbeta",
+    "title": "Properties of estimators",
+    "section": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\nShow \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator."
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#efficiency",
@@ -8318,13 +8318,6 @@
     "text": "Law of large numbers\nLet \\(X_1, X_2, \\ldots, X_n\\) be independent and identically distributed random variables, such that \\(E(X) = \\mu\\), such that \\(\\mu\\) is finite.\n\\[\n\\displaystyle \\lim_{n\\to\\infty} P(|\\bar{X} - \\mu| \\geq c) = 0\n\\]\nfor every \\(c &gt; 0\\)"
   },
   {
-    "objectID": "slides/15-prop-of-estimators.html#consistency-of-hatboldsymbolbeta",
-    "href": "slides/15-prop-of-estimators.html#consistency-of-hatboldsymbolbeta",
-    "title": "Properties of estimators",
-    "section": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\nShow \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator."
-  },
-  {
     "objectID": "slides/15-prop-of-estimators.html#mean-squared-error-1",
     "href": "slides/15-prop-of-estimators.html#mean-squared-error-1",
     "title": "Properties of estimators",
@@ -8337,6 +8330,13 @@
     "title": "Properties of estimators",
     "section": "Consistency",
     "text": "Consistency\n\n\n\n\n\nTheorem\n\n\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of the parameter \\(\\theta\\) if the sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, \\ldots\\) satisfies\n\n\\(\\lim_{n \\to \\infty} Var(\\hat{\\theta}) = 0\\)\n\\(\\lim_{n \\to \\infty} Bias(\\hat{\\theta}) = 0\\)"
+  },
+  {
+    "objectID": "slides/15-prop-of-estimators.html#consistency-of-hatboldsymbolbeta",
+    "href": "slides/15-prop-of-estimators.html#consistency-of-hatboldsymbolbeta",
+    "title": "Properties of estimators",
+    "section": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\nShow \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator."
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#efficiency",

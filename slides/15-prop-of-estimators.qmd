@@ -378,7 +378,7 @@ This means that as the sample size goes to $\infty$ (and thus the sample informa
 Why is this a useful property of an estimator?
 :::
 
-## Law of large numbers  {background-color="#ccddeb"}
+## Law of large numbers {background-color="#ccddeb"}
 
 Let $X_1, X_2, \ldots, X_n$ be independent and identically distributed random variables, such that $E(X) = \mu$, such that $\mu$ is finite.
 
@@ -387,12 +387,6 @@ $$
 $$
 
 for every $c > 0$
-
-## Consistency of $\hat{\boldsymbol{\beta}}$
-
-::: question
-Show $\hat{\boldsymbol{\beta}}$ is a consistent estimator.
-:::
 
 ## Mean squared error
 
@@ -425,6 +419,12 @@ An estimator $\hat{\theta}$ is a consistent estimator of the parameter $\theta$ 
 -   $\lim_{n \to \infty} Var(\hat{\theta}) = 0$
 
 -   $\lim_{n \to \infty} Bias(\hat{\theta}) = 0$
+:::
+
+## Consistency of $\hat{\boldsymbol{\beta}}$
+
+::: question
+Show $\hat{\boldsymbol{\beta}}$ is a consistent estimator.
 :::
 
 ## Efficiency {.midi}
