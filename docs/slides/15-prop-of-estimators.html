@@ -145,16 +145,11 @@ Prof.&nbsp;Maria Tackett
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li><p>HW 03 due March 19</p></li>
-<li><p>Exploratory data analysis due March 19</p></li>
+<li><p>HW 03 due March 19 at 11:59pm</p></li>
+<li><p>Project exploratory data analysis due March 19</p></li>
 <li><p>Statistics experience due April 2</p></li>
+<li><p>Please take a moment to provide mid-semester feedback by Friday: <a href="https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g" class="uri">https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g</a></p></li>
 </ul>
-</section>
-<section id="questions-from-this-weeks-content" class="slide level2">
-<h2>Questions from this week’s content?</h2>
-<center>
-<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=TsVyyzFKnk2xSh6jbfrJTBw0r2_bKCVMs9lST1_-2sxUQ1JTSFBZNlFMWUJZSDcwTUdaVzgwWUhBMC4u&amp;embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen=""> </iframe>
-</center>
 </section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
@@ -248,8 +243,8 @@ Prof.&nbsp;Maria Tackett
 <p><br></p>
 <p><strong>Asymptotic (</strong> <span class="math inline">\(n \rightarrow \infty\)</span> <strong>) properties</strong></p>
 <ul>
-<li><p>Consistent estimator</p></li>
-<li><p>Efficient estimator</p></li>
+<li><p>Consistency</p></li>
+<li><p>Efficiency</p></li>
 <li><p>Asymptotic normality</p></li>
 </ul>
 </section></section>
@@ -273,9 +268,9 @@ Bias(\hat{\theta}) = E(\hat{\theta}) - \theta
 <p><span class="math display">\[
 \begin{aligned}
 E(\hat{\boldsymbol{\beta}}) &amp;= E[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}] \\[8pt]
-&amp; = \class{fragment}{(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}E[\mathbf{y}]} \\[8pt]
-&amp; = \class{fragment}{(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{X}\boldsymbol{\beta}}\\[8pt]
-&amp; = \class{fragment}{\boldsymbol{\beta}}
+&amp; = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}E[\mathbf{y}] \\[8pt]
+&amp; = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{X}\boldsymbol{\beta}\\[8pt]
+&amp; = \boldsymbol{\beta}
 \end{aligned}
 \]</span></p>
 </section>
@@ -286,15 +281,15 @@ E(\hat{\boldsymbol{\beta}}) &amp;= E[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\math
 E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta}
 \]</span></p>
 </section>
-<section id="variance-of-hatboldsymbolbeta" class="slide level2">
+<section id="variance-of-hatboldsymbolbeta" class="slide level2 midi">
 <h2>Variance of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
 <p><span class="math display">\[
 \begin{aligned}
 Var(\hat{\boldsymbol{\beta}}) &amp;= Var((\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}) \\[8pt]
-&amp; = \class{fragment}{[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]Var(\mathbf{y})[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]^\mathsf{T} }\\[8pt]
-&amp; = \class{fragment}{[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]\sigma^2_{\epsilon}\mathbf{I}[\mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}]} \\[8pt]
-&amp; = \class{fragment}{\sigma^2_{\epsilon}[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}]} \\[8pt]
-&amp; = \class{fragment}{\sigma^2_{\epsilon}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}}
+&amp; = {[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]Var(\mathbf{y})[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]^\mathsf{T} }\\[8pt]
+&amp; = [(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]\sigma^2_{\epsilon}\mathbf{I}[\mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}]\\[8pt]
+&amp; = \sigma^2_{\epsilon}[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}] \\[8pt]
+&amp; = \sigma^2_{\epsilon}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}
 \end{aligned}
 \]</span></p>
 <div class="fragment">
@@ -325,7 +320,7 @@ Var(\hat{\boldsymbol{\beta}}) &amp;= Var((\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\
 <p>Let <span class="math inline">\(\mathbf{C} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T} + \mathbf{B}\)</span> for a non-zero matrix <span class="math inline">\(\mathbf{B}\)</span>.</p>
 <p><br></p>
 <div class="question">
-<p>What is the dimension of <span class="math inline">\(\mathbf{B}\)</span>?</p>
+<p>What are the dimensions of <span class="math inline">\(\mathbf{B}\)</span>?</p>
 </div>
 </section>
 <section id="gauss-markov-theorem-proof-1" class="slide level2">
@@ -385,13 +380,7 @@ Var(\hat{\boldsymbol{\beta}}^\prime) &amp;= Var[((\mathbf{X}^\mathsf{T}\mathbf{X
 Var(\hat{\boldsymbol{\beta}}^\prime) = \sigma^2_{\epsilon}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1} + \sigma^2_\epsilon \mathbf{BB}^\mathsf{T}
 \]</span></p>
 <div class="fragment">
-<p>We know that <span class="math inline">\(\sigma^2_{\epsilon}\mathbf{BB}^\mathsf{T} \geq \mathbf{0}\)</span>.</p>
-<p><br></p>
-</div>
-<div class="fragment">
-<div class="question">
-<p>When is <span class="math inline">\(\sigma^2_{\epsilon}\mathbf{BB}^\mathsf{T} = \mathbf{0}\)</span>?</p>
-</div>
+<p><span class="math inline">\(\mathbf{BB}^\mathsf{T}\)</span> is positive semi-definite, so <span class="math inline">\(Var(\hat{\boldsymbol{\beta}}^\prime)\)</span> is “larger” than <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span> by a positive semi-definite matrix.</p>
 </div>
 <div class="fragment">
 <p>Therefore, we have shown that <span class="math inline">\(Var(\hat{\boldsymbol{\beta}}^\prime) &gt; Var(\hat{\boldsymbol{\beta}})\)</span> and have completed the proof.</p>
@@ -474,21 +463,11 @@ MSE(\hat{\theta}) &amp;= E[(\hat{\theta} - \theta)^2] \\
 \]</span></p>
 </div>
 </section>
-<section id="mean-squared-error-1" class="slide level2">
-<h2>Mean squared error</h2>
-<p><span class="math display">\[
-MSE(\hat{\theta}) = Var(\hat{\theta}) + Bias(\hat{\theta})^2
-\]</span></p>
-<p><br></p>
-<div class="fragment">
-<p>The least-squares estimator <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is unbiased, so <span class="math display">\[MSE(\hat{\boldsymbol{\beta}}) = Var(\hat{\boldsymbol{\beta}})\]</span></p>
-</div>
-</section>
 <section id="consistency" class="slide level2">
 <h2>Consistency</h2>
-<p>An estimator <span class="math inline">\(\hat{\theta}\)</span> is a consistent estimator of a parameter <span class="math inline">\(\theta\)</span> if it converges in probability to <span class="math inline">\(\theta\)</span>. Given a sequence of estimators <span class="math inline">\(\hat{\theta}_1, \hat{\theta}_2, . . .\)</span>, then for every <span class="math inline">\(\epsilon &gt; 0\)</span>,</p>
+<p>An estimator <span class="math inline">\(\hat{\theta}\)</span> is a consistent estimator of a parameter <span class="math inline">\(\theta\)</span> if it converges in probability to <span class="math inline">\(\theta\)</span>. Given a sequence of estimators <span class="math inline">\(\hat{\theta}_1, \hat{\theta}_2, . . .\)</span>, then for every <span class="math inline">\(c&gt; 0\)</span>,</p>
 <p><span class="math display">\[
-\displaystyle \lim_{n\to\infty} P(|\hat{\theta}_n - \theta| \geq \epsilon) = 0
+\displaystyle \lim_{n\to\infty} P(|\hat{\theta}_n - \theta| \geq c) = 0
 \]</span></p>
 <div class="fragment">
 <p>This means that as the sample size goes to <span class="math inline">\(\infty\)</span> (and thus the sample information gets better and better), the estimator will be arbitrarily close to the parameter with high probability.</p>
@@ -498,6 +477,35 @@ MSE(\hat{\theta}) = Var(\hat{\theta}) + Bias(\hat{\theta})^2
 </div>
 </div>
 </section>
+<section id="law-of-large-numbers" class="slide level2" data-background-color="#ccddeb">
+<h2>Law of large numbers</h2>
+<p>Let <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> be independent and identically distributed random variables, such that <span class="math inline">\(E(X) = \mu\)</span>, such that <span class="math inline">\(\mu\)</span> is finite.</p>
+<p><span class="math display">\[
+\displaystyle \lim_{n\to\infty} P(|\bar{X} - \mu| \geq c) = 0
+\]</span></p>
+<p>for every <span class="math inline">\(c &gt; 0\)</span></p>
+</section>
+<section id="consistency-of-hatboldsymbolbeta" class="slide level2">
+<h2>Consistency of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
+<div class="question">
+<p>Show <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is a consistent estimator.</p>
+</div>
+</section>
+<section id="mean-squared-error-1" class="slide level2">
+<h2>Mean squared error</h2>
+<p>The <strong>mean squared error (MSE)</strong> is the squared difference between the estimator and parameter.</p>
+<div class="fragment">
+<p>Let <span class="math inline">\(\hat{\theta}\)</span> be an estimator of the parameter <span class="math inline">\(\theta\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+MSE(\hat{\theta}) &amp;= E[(\hat{\theta} - \theta)^2] \\
+&amp; = E(\hat{\theta}^2 - 2\hat{\theta}\theta + \theta^2) \\
+&amp; = E(\hat{\theta}^2) - 2\theta E(\hat{\theta}) + \theta^2 \\
+&amp; = \underbrace{E(\hat{\theta}^2) -  E(\hat{\theta})^2}_{Var(\hat{\theta})} + \underbrace{E(\hat{\theta})^2 - 2\theta E(\hat{\theta}) + \theta^2}_{Bias(\theta)^2}
+\end{aligned}
+\]</span></p>
+</div>
+</section>
 <section id="consistency-1" class="slide level2">
 <h2>Consistency</h2>
 <p><br></p>
@@ -505,10 +513,9 @@ MSE(\hat{\theta}) = Var(\hat{\theta}) + Bias(\hat{\theta})^2
 <div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Important</strong></p>
+<p><strong><strong>Theorem</strong></strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Theorem</strong></p>
 <p>An estimator <span class="math inline">\(\hat{\theta}\)</span> is a consistent estimator of the parameter <span class="math inline">\(\theta\)</span> if the sequence of estimators <span class="math inline">\(\hat{\theta}_1, \hat{\theta}_2, \ldots\)</span> satisfies</p>
 <ul>
 <li><p><span class="math inline">\(\lim_{n \to \infty} Var(\hat{\theta}) = 0\)</span></p></li>
@@ -518,30 +525,12 @@ MSE(\hat{\theta}) = Var(\hat{\theta}) + Bias(\hat{\theta})^2
 </div>
 </div>
 </section>
-<section id="consistency-of-hatboldsymbolbeta" class="slide level2">
-<h2>Consistency of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
-<p><span class="math inline">\(Bias(\hat{\boldsymbol{\beta}}) = \mathbf{0}\)</span>, so <span class="math inline">\(\lim_{n \to \infty} Bias(\hat{\boldsymbol{\beta}}) = \mathbf{0}\)</span></p>
-<p><br></p>
-<div class="fragment">
-<p>Now we need to show that <span class="math inline">\(\lim_{n \to \infty} Var(\hat{\boldsymbol{\beta}}) = \mathbf{0}\)</span></p>
-<div class="question">
-<ul>
-<li><p>What is <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>?</p></li>
-<li><p>Show <span class="math inline">\(Var(\hat{\boldsymbol{\beta}}) \to \mathbf{0}\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p></li>
-</ul>
-</div>
-</div>
-<div class="fragment">
-<p>Therefore <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is a consistent estimator.</p>
-</div>
-</section>
 <section id="efficiency" class="slide level2 midi">
 <h2>Efficiency</h2>
 <ul>
-<li class="fragment"><p>An estimator if <strong>efficient</strong> if it has the smallest variance among a class of estimators as <span class="math inline">\(n \rightarrow \infty\)</span></p></li>
+<li class="fragment"><p>An estimator is <strong>efficient</strong> if it has the smallest variance among a class of estimators</p></li>
 <li class="fragment"><p>By the Gauss-Markov Theorem, we have shown that the least-squares estimator <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is the most efficient among linear unbiased estimators.</p></li>
-<li class="fragment"><p>Maximum Likelihood Estimators are the most efficient among all unbiased estimators.</p></li>
-<li class="fragment"><p>Therefore, <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is the most efficient among all unbiased estimators of <span class="math inline">\(\boldsymbol{\beta}\)</span></p></li>
+<li class="fragment"><p>Maximum Likelihood Estimators are <strong>asymptotically efficient</strong></p></li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -560,7 +549,7 @@ MSE(\hat{\theta}) = Var(\hat{\theta}) + Bias(\hat{\theta})^2
 <section id="asymptotic-normality" class="slide level2">
 <h2>Asymptotic normality</h2>
 <ul>
-<li><p>Maximum Likelihood Estimators are <strong>asymptotically normal</strong>, meaning the distribution of an MLE is normal as <span class="math inline">\(n \rightarrow \infty\)</span></p></li>
+<li><p>Maximum Likelihood Estimators are <strong>asymptotically normal</strong></p></li>
 <li><p>Therefore, we know the distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is normal when <span class="math inline">\(n\)</span> is large, regardless of the underlying data</p></li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -587,8 +576,8 @@ MSE(\hat{\theta}) = Var(\hat{\theta}) + Bias(\hat{\theta})^2
 <p><br></p>
 <p><strong>Asymptotic (</strong> <span class="math inline">\(n \rightarrow \infty\)</span> <strong>) properties</strong></p>
 <ul>
-<li><p>Consistent estimator ✅</p></li>
-<li><p>Efficient estimator ✅</p></li>
+<li><p>Consistency ✅</p></li>
+<li><p>Efficiency ✅</p></li>
 <li><p>Asymptotic normality ✅</p></li>
 </ul>
 </section>

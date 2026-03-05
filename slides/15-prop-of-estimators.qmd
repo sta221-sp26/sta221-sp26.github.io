@@ -48,21 +48,13 @@ options(scipen=999)
 
 ## Announcements
 
--   HW 03 due March 19
+-   HW 03 due March 19 at 11:59pm
 
--   Exploratory data analysis due March 19
+-   Project exploratory data analysis due March 19
 
 -   Statistics experience due April 2
 
-## Questions from this week's content?
-
-<center>
-
-```{=html}
-<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=TsVyyzFKnk2xSh6jbfrJTBw0r2_bKCVMs9lST1_-2sxUQ1JTSFBZNlFMWUJZSDcwTUdaVzgwWUhBMC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
-```
-
-</center>
+-   Please take a moment to provide mid-semester feedback by Friday: <https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g>
 
 ## Topics
 
@@ -146,9 +138,9 @@ Suppose you are throwing darts at a target
 
 **Asymptotic (** $n \rightarrow \infty$ **) properties**
 
--   Consistent estimator
+-   Consistency
 
--   Efficient estimator
+-   Efficiency
 
 -   Asymptotic normality
 
@@ -173,9 +165,9 @@ Let's take a look at the expected value of least-squares estimator:
 $$
 \begin{aligned}
 E(\hat{\boldsymbol{\beta}}) &= E[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}] \\[8pt]
-& = \class{fragment}{(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}E[\mathbf{y}]} \\[8pt]
-& = \class{fragment}{(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{X}\boldsymbol{\beta}}\\[8pt]
- & = \class{fragment}{\boldsymbol{\beta}}
+& = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}E[\mathbf{y}] \\[8pt]
+& = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{X}\boldsymbol{\beta}\\[8pt]
+ & = \boldsymbol{\beta}
 \end{aligned}
 $$
 
@@ -187,15 +179,15 @@ $$
 E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta}
 $$
 
-## Variance of $\hat{\boldsymbol{\beta}}$
+## Variance of $\hat{\boldsymbol{\beta}}$ {.midi}
 
 $$
 \begin{aligned}
 Var(\hat{\boldsymbol{\beta}}) &= Var((\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}) \\[8pt]
-& = \class{fragment}{[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]Var(\mathbf{y})[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]^\mathsf{T} }\\[8pt]
-& = \class{fragment}{[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]\sigma^2_{\epsilon}\mathbf{I}[\mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}]} \\[8pt]
-& = \class{fragment}{\sigma^2_{\epsilon}[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}]} \\[8pt]
-& = \class{fragment}{\sigma^2_{\epsilon}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}}
+& = {[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]Var(\mathbf{y})[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]^\mathsf{T} }\\[8pt]
+& = [(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}]\sigma^2_{\epsilon}\mathbf{I}[\mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}]\\[8pt]
+& = \sigma^2_{\epsilon}[(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{X}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}] \\[8pt]
+& = \sigma^2_{\epsilon}(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}
 \end{aligned}
 $$
 
@@ -230,7 +222,7 @@ Let $\mathbf{C} = (\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T} + 
 <br>
 
 ::: question
-What is the dimension of $\mathbf{B}$?
+What are the dimensions of $\mathbf{B}$?
 :::
 
 ## Gauss-Markov Theorem Proof
@@ -295,15 +287,7 @@ $$
 
 . . .
 
-We know that $\sigma^2_{\epsilon}\mathbf{BB}^\mathsf{T} \geq \mathbf{0}$.
-
-<br>
-
-. . .
-
-::: question
-When is $\sigma^2_{\epsilon}\mathbf{BB}^\mathsf{T} = \mathbf{0}$?
-:::
+$\mathbf{BB}^\mathsf{T}$ is positive semi-definite, so $Var(\hat{\boldsymbol{\beta}}^\prime)$ is "larger" than $Var(\hat{\boldsymbol{\beta}})$ by a positive semi-definite matrix.
 
 . . .
 
@@ -376,26 +360,12 @@ MSE(\hat{\theta}) &= E[(\hat{\theta} - \theta)^2] \\
 \end{aligned}
 $$
 
-. . .
-
-## Mean squared error
-
-$$
-MSE(\hat{\theta}) = Var(\hat{\theta}) + Bias(\hat{\theta})^2
-$$
-
-<br>
-
-. . .
-
-The least-squares estimator $\hat{\boldsymbol{\beta}}$ is unbiased, so $$MSE(\hat{\boldsymbol{\beta}}) = Var(\hat{\boldsymbol{\beta}})$$
-
 ## Consistency
 
-An estimator $\hat{\theta}$ is a consistent estimator of a parameter $\theta$ if it converges in probability to $\theta$. Given a sequence of estimators $\hat{\theta}_1, \hat{\theta}_2, . . .$, then for every $\epsilon > 0$,
+An estimator $\hat{\theta}$ is a consistent estimator of a parameter $\theta$ if it converges in probability to $\theta$. Given a sequence of estimators $\hat{\theta}_1, \hat{\theta}_2, . . .$, then for every $c> 0$,
 
 $$
-\displaystyle \lim_{n\to\infty} P(|\hat{\theta}_n - \theta| \geq \epsilon) = 0
+\displaystyle \lim_{n\to\infty} P(|\hat{\theta}_n - \theta| \geq c) = 0
 $$
 
 . . .
@@ -408,6 +378,39 @@ This means that as the sample size goes to $\infty$ (and thus the sample informa
 Why is this a useful property of an estimator?
 :::
 
+## Law of large numbers  {background-color="#ccddeb"}
+
+Let $X_1, X_2, \ldots, X_n$ be independent and identically distributed random variables, such that $E(X) = \mu$, such that $\mu$ is finite.
+
+$$
+\displaystyle \lim_{n\to\infty} P(|\bar{X} - \mu| \geq c) = 0
+$$
+
+for every $c > 0$
+
+## Consistency of $\hat{\boldsymbol{\beta}}$
+
+::: question
+Show $\hat{\boldsymbol{\beta}}$ is a consistent estimator.
+:::
+
+## Mean squared error
+
+The **mean squared error (MSE)** is the squared difference between the estimator and parameter.
+
+. . .
+
+Let $\hat{\theta}$ be an estimator of the parameter $\theta$. Then
+
+$$
+\begin{aligned}
+MSE(\hat{\theta}) &= E[(\hat{\theta} - \theta)^2] \\
+& = E(\hat{\theta}^2 - 2\hat{\theta}\theta + \theta^2) \\
+& = E(\hat{\theta}^2) - 2\theta E(\hat{\theta}) + \theta^2 \\
+& = \underbrace{E(\hat{\theta}^2) -  E(\hat{\theta})^2}_{Var(\hat{\theta})} + \underbrace{E(\hat{\theta})^2 - 2\theta E(\hat{\theta}) + \theta^2}_{Bias(\theta)^2}
+\end{aligned}
+$$
+
 ## Consistency
 
 <br>
@@ -415,7 +418,7 @@ Why is this a useful property of an estimator?
 <br>
 
 ::: {.callout-important icon="false"}
-**Theorem**
+## **Theorem**
 
 An estimator $\hat{\theta}$ is a consistent estimator of the parameter $\theta$ if the sequence of estimators $\hat{\theta}_1, \hat{\theta}_2, \ldots$ satisfies
 
@@ -424,36 +427,14 @@ An estimator $\hat{\theta}$ is a consistent estimator of the parameter $\theta$ 
 -   $\lim_{n \to \infty} Bias(\hat{\theta}) = 0$
 :::
 
-## Consistency of $\hat{\boldsymbol{\beta}}$
-
-$Bias(\hat{\boldsymbol{\beta}}) = \mathbf{0}$, so $\lim_{n \to \infty} Bias(\hat{\boldsymbol{\beta}}) = \mathbf{0}$
-
-<br>
-
-. . .
-
-Now we need to show that $\lim_{n \to \infty} Var(\hat{\boldsymbol{\beta}}) = \mathbf{0}$
-
-::: question
--   What is $Var(\hat{\boldsymbol{\beta}})$?
-
--   Show $Var(\hat{\boldsymbol{\beta}}) \to \mathbf{0}$ as $n \to \infty$.
-:::
-
-. . .
-
-Therefore $\hat{\boldsymbol{\beta}}$ is a consistent estimator.
-
 ## Efficiency {.midi}
 
 ::: incremental
--   An estimator if **efficient** if it has the smallest variance among a class of estimators as $n \rightarrow \infty$
+-   An estimator is **efficient** if it has the smallest variance among a class of estimators
 
 -   By the Gauss-Markov Theorem, we have shown that the least-squares estimator $\hat{\boldsymbol{\beta}}$ is the most efficient among linear unbiased estimators.
 
--   Maximum Likelihood Estimators are the most efficient among all unbiased estimators.
-
--   Therefore, $\hat{\boldsymbol{\beta}}$ is the most efficient among all unbiased estimators of $\boldsymbol{\beta}$
+-   Maximum Likelihood Estimators are **asymptotically efficient**
 :::
 
 ::: callout-note
@@ -462,7 +443,7 @@ Proof of this in a later statistics class.
 
 ## Asymptotic normality
 
--   Maximum Likelihood Estimators are **asymptotically normal**, meaning the distribution of an MLE is normal as $n \rightarrow \infty$
+-   Maximum Likelihood Estimators are **asymptotically normal**
 
 -   Therefore, we know the distribution of $\hat{\boldsymbol{\beta}}$ is normal when $n$ is large, regardless of the underlying data
 
@@ -482,9 +463,9 @@ Proof of this in a later statistics class.
 
 **Asymptotic (** $n \rightarrow \infty$ **) properties**
 
--   Consistent estimator ✅
+-   Consistency ✅
 
--   Efficient estimator ✅
+-   Efficiency ✅
 
 -   Asymptotic normality ✅
 

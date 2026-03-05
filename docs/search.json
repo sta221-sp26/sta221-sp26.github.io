@@ -6072,7 +6072,7 @@
     "href": "index.html",
     "title": "STA 221 - Regression Analysis: Theory and Applications",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nTypes of predictors cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\n\n\n\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference: Distribution of coefficients\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05: Expanding multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nTypes of predictors cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\n\n\n\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference: Distribution of coefficients\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05: Expanding multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
     "crumbs": [
       "Schedule"
     ]
@@ -7958,21 +7958,14 @@
     "href": "slides/15-prop-of-estimators-notes.html",
     "title": "Properties of estimators",
     "section": "",
-    "text": "HW 03 due March 19\nExploratory data analysis due March 19\nStatistics experience due April 2"
+    "text": "HW 03 due March 19 at 11:59pm\nProject exploratory data analysis due March 19\nStatistics experience due April 2\nPlease take a moment to provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#announcements",
     "href": "slides/15-prop-of-estimators-notes.html#announcements",
     "title": "Properties of estimators",
     "section": "",
-    "text": "HW 03 due March 19\nExploratory data analysis due March 19\nStatistics experience due April 2"
-  },
-  {
-    "objectID": "slides/15-prop-of-estimators-notes.html#questions-from-this-weeks-content",
-    "href": "slides/15-prop-of-estimators-notes.html#questions-from-this-weeks-content",
-    "title": "Properties of estimators",
-    "section": "Questions from this week’s content?",
-    "text": "Questions from this week’s content?"
+    "text": "HW 03 due March 19 at 11:59pm\nProject exploratory data analysis due March 19\nStatistics experience due April 2\nPlease take a moment to provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#topics",
@@ -8014,7 +8007,7 @@
     "href": "slides/15-prop-of-estimators-notes.html#properties-of-hatboldsymbolbeta-1",
     "title": "Properties of estimators",
     "section": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)\nFinite sample ( \\(n\\) ) properties\n\nUnbiased estimator\nBest Linear Unbiased Estimator (BLUE)\n\n\nAsymptotic ( \\(n \\rightarrow \\infty\\) ) properties\n\nConsistent estimator\nEfficient estimator\nAsymptotic normality"
+    "text": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)\nFinite sample ( \\(n\\) ) properties\n\nUnbiased estimator\nBest Linear Unbiased Estimator (BLUE)\n\n\nAsymptotic ( \\(n \\rightarrow \\infty\\) ) properties\n\nConsistency\nEfficiency\nAsymptotic normality"
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#unbiased-estimator",
@@ -8028,7 +8021,7 @@
     "href": "slides/15-prop-of-estimators-notes.html#expected-value-of-hatboldsymbolbeta",
     "title": "Properties of estimators",
     "section": "Expected value of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Expected value of \\(\\hat{\\boldsymbol{\\beta}}\\)\nLet’s take a look at the expected value of least-squares estimator:\n\\[\n\\begin{aligned}\nE(\\hat{\\boldsymbol{\\beta}}) &= E[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}] \\\\[8pt]\n& = \\class{fragment}{(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}E[\\mathbf{y}]} \\\\[8pt]\n& = \\class{fragment}{(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}}\\\\[8pt]\n& = \\class{fragment}{\\boldsymbol{\\beta}}\n\\end{aligned}\n\\]"
+    "text": "Expected value of \\(\\hat{\\boldsymbol{\\beta}}\\)\nLet’s take a look at the expected value of least-squares estimator:\n\\[\n\\begin{aligned}\nE(\\hat{\\boldsymbol{\\beta}}) &= E[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}] \\\\[8pt]\n& = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}E[\\mathbf{y}] \\\\[8pt]\n& = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}\\\\[8pt]\n& = \\boldsymbol{\\beta}\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#expected-value-of-hatboldsymbolbeta-1",
@@ -8042,14 +8035,14 @@
     "href": "slides/15-prop-of-estimators-notes.html#variance-of-hatboldsymbolbeta",
     "title": "Properties of estimators",
     "section": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\\[\n\\begin{aligned}\nVar(\\hat{\\boldsymbol{\\beta}}) &= Var((\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}) \\\\[8pt]\n& = \\class{fragment}{[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]Var(\\mathbf{y})[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]^\\mathsf{T} }\\\\[8pt]\n& = \\class{fragment}{[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]\\sigma^2_{\\epsilon}\\mathbf{I}[\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}]} \\\\[8pt]\n& = \\class{fragment}{\\sigma^2_{\\epsilon}[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}]} \\\\[8pt]\n& = \\class{fragment}{\\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}}\n\\end{aligned}\n\\]\n. . .\nWe will show that \\(\\hat{\\boldsymbol{\\beta}}\\) is the “best” estimator (has the lowest variance) among the class of linear unbiased estimators\n\n\n\n\n\n\n\n\n\n\nImportantGauss-Markov Theorem\n\n\n\nThe least-squares estimator of \\(\\boldsymbol{\\beta}\\) in the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\) is given by \\(\\hat{\\boldsymbol{\\beta}}\\). Given the errors have mean \\(\\mathbf{0}\\) and variance \\(\\sigma^2_{\\epsilon}\\mathbf{I}\\) , then \\(\\hat{\\boldsymbol{\\beta}}\\) is BLUE (best linear unbiased estimator).\n“Best” means \\(\\hat{\\boldsymbol{\\beta}}\\) has the smallest variance among all linear unbiased estimators for \\(\\boldsymbol{\\beta}\\) ."
+    "text": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\\[\n\\begin{aligned}\nVar(\\hat{\\boldsymbol{\\beta}}) &= Var((\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}) \\\\[8pt]\n& = {[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]Var(\\mathbf{y})[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]^\\mathsf{T} }\\\\[8pt]\n& = [(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]\\sigma^2_{\\epsilon}\\mathbf{I}[\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}]\\\\[8pt]\n& = \\sigma^2_{\\epsilon}[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}] \\\\[8pt]\n& = \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\n\\end{aligned}\n\\]\n. . .\nWe will show that \\(\\hat{\\boldsymbol{\\beta}}\\) is the “best” estimator (has the lowest variance) among the class of linear unbiased estimators\n\n\n\n\n\n\n\n\n\n\nImportantGauss-Markov Theorem\n\n\n\nThe least-squares estimator of \\(\\boldsymbol{\\beta}\\) in the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\) is given by \\(\\hat{\\boldsymbol{\\beta}}\\). Given the errors have mean \\(\\mathbf{0}\\) and variance \\(\\sigma^2_{\\epsilon}\\mathbf{I}\\) , then \\(\\hat{\\boldsymbol{\\beta}}\\) is BLUE (best linear unbiased estimator).\n“Best” means \\(\\hat{\\boldsymbol{\\beta}}\\) has the smallest variance among all linear unbiased estimators for \\(\\boldsymbol{\\beta}\\) ."
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#gauss-markov-theorem-proof",
     "href": "slides/15-prop-of-estimators-notes.html#gauss-markov-theorem-proof",
     "title": "Properties of estimators",
     "section": "Gauss-Markov Theorem Proof",
-    "text": "Gauss-Markov Theorem Proof\nSuppose \\(\\hat{\\boldsymbol{\\beta}}^\\prime\\) is another linear unbiased estimator of \\(\\boldsymbol{\\beta}\\) that can be expressed as \\(\\hat{\\boldsymbol{\\beta}}^\\prime = \\mathbf{Cy}\\) , such that \\(\\hat{\\mathbf{y}} = \\mathbf{X}\\hat{\\boldsymbol{\\beta}}^\\prime = \\mathbf{XCy}\\)\n\nLet \\(\\mathbf{C} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T} + \\mathbf{B}\\) for a non-zero matrix \\(\\mathbf{B}\\).\n\n\nWhat is the dimension of \\(\\mathbf{B}\\)?"
+    "text": "Gauss-Markov Theorem Proof\nSuppose \\(\\hat{\\boldsymbol{\\beta}}^\\prime\\) is another linear unbiased estimator of \\(\\boldsymbol{\\beta}\\) that can be expressed as \\(\\hat{\\boldsymbol{\\beta}}^\\prime = \\mathbf{Cy}\\) , such that \\(\\hat{\\mathbf{y}} = \\mathbf{X}\\hat{\\boldsymbol{\\beta}}^\\prime = \\mathbf{XCy}\\)\n\nLet \\(\\mathbf{C} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T} + \\mathbf{B}\\) for a non-zero matrix \\(\\mathbf{B}\\).\n\n\nWhat are the dimensions of \\(\\mathbf{B}\\)?"
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#gauss-markov-theorem-proof-1",
@@ -8084,7 +8077,7 @@
     "href": "slides/15-prop-of-estimators-notes.html#gauss-markov-theorem-proof-5",
     "title": "Properties of estimators",
     "section": "Gauss-Markov Theorem Proof",
-    "text": "Gauss-Markov Theorem Proof\nWe have\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}^\\prime) = \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1} + \\sigma^2_\\epsilon \\mathbf{BB}^\\mathsf{T}\n\\]\n. . .\nWe know that \\(\\sigma^2_{\\epsilon}\\mathbf{BB}^\\mathsf{T} \\geq \\mathbf{0}\\).\n\n. . .\n\nWhen is \\(\\sigma^2_{\\epsilon}\\mathbf{BB}^\\mathsf{T} = \\mathbf{0}\\)?\n\n. . .\nTherefore, we have shown that \\(Var(\\hat{\\boldsymbol{\\beta}}^\\prime) &gt; Var(\\hat{\\boldsymbol{\\beta}})\\) and have completed the proof.\n\n\n\n\n\n\n\n\n\n\nImportantGauss-Markov Theorem\n\n\n\nThe least-squares estimator of \\(\\boldsymbol{\\beta}\\) in the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\) is given by \\(\\hat{\\boldsymbol{\\beta}}\\). Given the errors have mean \\(\\mathbf{0}\\) and variance \\(\\sigma^2_{\\epsilon}\\mathbf{I}\\) , then \\(\\hat{\\boldsymbol{\\beta}}\\) is BLUE (best linear unbiased estimator).\n“Best” means \\(\\hat{\\boldsymbol{\\beta}}\\) has the smallest variance among all linear unbiased estimators for \\(\\boldsymbol{\\beta}\\) ."
+    "text": "Gauss-Markov Theorem Proof\nWe have\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}^\\prime) = \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1} + \\sigma^2_\\epsilon \\mathbf{BB}^\\mathsf{T}\n\\]\n. . .\n\\(\\mathbf{BB}^\\mathsf{T}\\) is positive semi-definite, so \\(Var(\\hat{\\boldsymbol{\\beta}}^\\prime)\\) is “larger” than \\(Var(\\hat{\\boldsymbol{\\beta}})\\) by a positive semi-definite matrix.\n. . .\nTherefore, we have shown that \\(Var(\\hat{\\boldsymbol{\\beta}}^\\prime) &gt; Var(\\hat{\\boldsymbol{\\beta}})\\) and have completed the proof.\n\n\n\n\n\n\n\n\n\n\nImportantGauss-Markov Theorem\n\n\n\nThe least-squares estimator of \\(\\boldsymbol{\\beta}\\) in the model \\(\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon}\\) is given by \\(\\hat{\\boldsymbol{\\beta}}\\). Given the errors have mean \\(\\mathbf{0}\\) and variance \\(\\sigma^2_{\\epsilon}\\mathbf{I}\\) , then \\(\\hat{\\boldsymbol{\\beta}}\\) is BLUE (best linear unbiased estimator).\n“Best” means \\(\\hat{\\boldsymbol{\\beta}}\\) has the smallest variance among all linear unbiased estimators for \\(\\boldsymbol{\\beta}\\) ."
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#properties-of-hatboldsymbolbeta-2",
@@ -8105,56 +8098,63 @@
     "href": "slides/15-prop-of-estimators-notes.html#mean-squared-error",
     "title": "Properties of estimators",
     "section": "Mean squared error",
-    "text": "Mean squared error\nThe mean squared error (MSE) is the squared difference between the estimator and parameter.\n. . .\nLet \\(\\hat{\\theta}\\) be an estimator of the parameter \\(\\theta\\). Then\n\\[\n\\begin{aligned}\nMSE(\\hat{\\theta}) &= E[(\\hat{\\theta} - \\theta)^2] \\\\\n& = E(\\hat{\\theta}^2 - 2\\hat{\\theta}\\theta + \\theta^2) \\\\\n& = E(\\hat{\\theta}^2) - 2\\theta E(\\hat{\\theta}) + \\theta^2 \\\\\n& = \\underbrace{E(\\hat{\\theta}^2) -  E(\\hat{\\theta})^2}_{Var(\\hat{\\theta})} + \\underbrace{E(\\hat{\\theta})^2 - 2\\theta E(\\hat{\\theta}) + \\theta^2}_{Bias(\\theta)^2}\n\\end{aligned}\n\\]\n. . ."
-  },
-  {
-    "objectID": "slides/15-prop-of-estimators-notes.html#mean-squared-error-1",
-    "href": "slides/15-prop-of-estimators-notes.html#mean-squared-error-1",
-    "title": "Properties of estimators",
-    "section": "Mean squared error",
-    "text": "Mean squared error\n\\[\nMSE(\\hat{\\theta}) = Var(\\hat{\\theta}) + Bias(\\hat{\\theta})^2\n\\]\n\n. . .\nThe least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) is unbiased, so \\[MSE(\\hat{\\boldsymbol{\\beta}}) = Var(\\hat{\\boldsymbol{\\beta}})\\]"
+    "text": "Mean squared error\nThe mean squared error (MSE) is the squared difference between the estimator and parameter.\n. . .\nLet \\(\\hat{\\theta}\\) be an estimator of the parameter \\(\\theta\\). Then\n\\[\n\\begin{aligned}\nMSE(\\hat{\\theta}) &= E[(\\hat{\\theta} - \\theta)^2] \\\\\n& = E(\\hat{\\theta}^2 - 2\\hat{\\theta}\\theta + \\theta^2) \\\\\n& = E(\\hat{\\theta}^2) - 2\\theta E(\\hat{\\theta}) + \\theta^2 \\\\\n& = \\underbrace{E(\\hat{\\theta}^2) -  E(\\hat{\\theta})^2}_{Var(\\hat{\\theta})} + \\underbrace{E(\\hat{\\theta})^2 - 2\\theta E(\\hat{\\theta}) + \\theta^2}_{Bias(\\theta)^2}\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#consistency",
     "href": "slides/15-prop-of-estimators-notes.html#consistency",
     "title": "Properties of estimators",
     "section": "Consistency",
-    "text": "Consistency\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of a parameter \\(\\theta\\) if it converges in probability to \\(\\theta\\). Given a sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, . . .\\), then for every \\(\\epsilon &gt; 0\\),\n\\[\n\\displaystyle \\lim_{n\\to\\infty} P(|\\hat{\\theta}_n - \\theta| \\geq \\epsilon) = 0\n\\]\n. . .\nThis means that as the sample size goes to \\(\\infty\\) (and thus the sample information gets better and better), the estimator will be arbitrarily close to the parameter with high probability.\n\n\nWhy is this a useful property of an estimator?"
+    "text": "Consistency\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of a parameter \\(\\theta\\) if it converges in probability to \\(\\theta\\). Given a sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, . . .\\), then for every \\(c&gt; 0\\),\n\\[\n\\displaystyle \\lim_{n\\to\\infty} P(|\\hat{\\theta}_n - \\theta| \\geq c) = 0\n\\]\n. . .\nThis means that as the sample size goes to \\(\\infty\\) (and thus the sample information gets better and better), the estimator will be arbitrarily close to the parameter with high probability.\n\n\nWhy is this a useful property of an estimator?"
   },
   {
-    "objectID": "slides/15-prop-of-estimators-notes.html#consistency-1",
-    "href": "slides/15-prop-of-estimators-notes.html#consistency-1",
+    "objectID": "slides/15-prop-of-estimators-notes.html#law-of-large-numbers",
+    "href": "slides/15-prop-of-estimators-notes.html#law-of-large-numbers",
     "title": "Properties of estimators",
-    "section": "Consistency",
-    "text": "Consistency\n\n\n\n\n\n\n\n\nImportant\n\n\n\nTheorem\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of the parameter \\(\\theta\\) if the sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, \\ldots\\) satisfies\n\n\\(\\lim_{n \\to \\infty} Var(\\hat{\\theta}) = 0\\)\n\\(\\lim_{n \\to \\infty} Bias(\\hat{\\theta}) = 0\\)"
+    "section": "Law of large numbers",
+    "text": "Law of large numbers\nLet \\(X_1, X_2, \\ldots, X_n\\) be independent and identically distributed random variables, such that \\(E(X) = \\mu\\), such that \\(\\mu\\) is finite.\n\\[\n\\displaystyle \\lim_{n\\to\\infty} P(|\\bar{X} - \\mu| \\geq c) = 0\n\\]\nfor every \\(c &gt; 0\\)"
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#consistency-of-hatboldsymbolbeta",
     "href": "slides/15-prop-of-estimators-notes.html#consistency-of-hatboldsymbolbeta",
     "title": "Properties of estimators",
     "section": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\\(Bias(\\hat{\\boldsymbol{\\beta}}) = \\mathbf{0}\\), so \\(\\lim_{n \\to \\infty} Bias(\\hat{\\boldsymbol{\\beta}}) = \\mathbf{0}\\)\n\n. . .\nNow we need to show that \\(\\lim_{n \\to \\infty} Var(\\hat{\\boldsymbol{\\beta}}) = \\mathbf{0}\\)\n\n\nWhat is \\(Var(\\hat{\\boldsymbol{\\beta}})\\)?\nShow \\(Var(\\hat{\\boldsymbol{\\beta}}) \\to \\mathbf{0}\\) as \\(n \\to \\infty\\).\n\n\n. . .\nTherefore \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator."
+    "text": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\nShow \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator."
+  },
+  {
+    "objectID": "slides/15-prop-of-estimators-notes.html#mean-squared-error-1",
+    "href": "slides/15-prop-of-estimators-notes.html#mean-squared-error-1",
+    "title": "Properties of estimators",
+    "section": "Mean squared error",
+    "text": "Mean squared error\nThe mean squared error (MSE) is the squared difference between the estimator and parameter.\n. . .\nLet \\(\\hat{\\theta}\\) be an estimator of the parameter \\(\\theta\\). Then\n\\[\n\\begin{aligned}\nMSE(\\hat{\\theta}) &= E[(\\hat{\\theta} - \\theta)^2] \\\\\n& = E(\\hat{\\theta}^2 - 2\\hat{\\theta}\\theta + \\theta^2) \\\\\n& = E(\\hat{\\theta}^2) - 2\\theta E(\\hat{\\theta}) + \\theta^2 \\\\\n& = \\underbrace{E(\\hat{\\theta}^2) -  E(\\hat{\\theta})^2}_{Var(\\hat{\\theta})} + \\underbrace{E(\\hat{\\theta})^2 - 2\\theta E(\\hat{\\theta}) + \\theta^2}_{Bias(\\theta)^2}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/15-prop-of-estimators-notes.html#consistency-1",
+    "href": "slides/15-prop-of-estimators-notes.html#consistency-1",
+    "title": "Properties of estimators",
+    "section": "Consistency",
+    "text": "Consistency\n\n\n\n\n\n\n\n\nImportantTheorem\n\n\n\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of the parameter \\(\\theta\\) if the sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, \\ldots\\) satisfies\n\n\\(\\lim_{n \\to \\infty} Var(\\hat{\\theta}) = 0\\)\n\\(\\lim_{n \\to \\infty} Bias(\\hat{\\theta}) = 0\\)"
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#efficiency",
     "href": "slides/15-prop-of-estimators-notes.html#efficiency",
     "title": "Properties of estimators",
     "section": "Efficiency",
-    "text": "Efficiency\n\n\nAn estimator if efficient if it has the smallest variance among a class of estimators as \\(n \\rightarrow \\infty\\)\nBy the Gauss-Markov Theorem, we have shown that the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) is the most efficient among linear unbiased estimators.\nMaximum Likelihood Estimators are the most efficient among all unbiased estimators.\nTherefore, \\(\\hat{\\boldsymbol{\\beta}}\\) is the most efficient among all unbiased estimators of \\(\\boldsymbol{\\beta}\\)\n\n\n\n\n\n\n\n\nNote\n\n\n\nProof of this in a later statistics class."
+    "text": "Efficiency\n\n\nAn estimator is efficient if it has the smallest variance among a class of estimators\nBy the Gauss-Markov Theorem, we have shown that the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) is the most efficient among linear unbiased estimators.\nMaximum Likelihood Estimators are asymptotically efficient\n\n\n\n\n\n\n\n\nNote\n\n\n\nProof of this in a later statistics class."
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#asymptotic-normality",
     "href": "slides/15-prop-of-estimators-notes.html#asymptotic-normality",
     "title": "Properties of estimators",
     "section": "Asymptotic normality",
-    "text": "Asymptotic normality\n\nMaximum Likelihood Estimators are asymptotically normal, meaning the distribution of an MLE is normal as \\(n \\rightarrow \\infty\\)\nTherefore, we know the distribution of \\(\\hat{\\boldsymbol{\\beta}}\\) is normal when \\(n\\) is large, regardless of the underlying data\n\n\n\n\n\n\n\nNote\n\n\n\nProof of this in a later statistics class."
+    "text": "Asymptotic normality\n\nMaximum Likelihood Estimators are asymptotically normal\nTherefore, we know the distribution of \\(\\hat{\\boldsymbol{\\beta}}\\) is normal when \\(n\\) is large, regardless of the underlying data\n\n\n\n\n\n\n\nNote\n\n\n\nProof of this in a later statistics class."
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#recap",
     "href": "slides/15-prop-of-estimators-notes.html#recap",
     "title": "Properties of estimators",
     "section": "Recap",
-    "text": "Recap\nFinite sample ( \\(n\\) ) properties\n\nUnbiased estimator ✅\nBest Linear Unbiased Estimator (BLUE) ✅\n\n\nAsymptotic ( \\(n \\rightarrow \\infty\\) ) properties\n\nConsistent estimator ✅\nEfficient estimator ✅\nAsymptotic normality ✅"
+    "text": "Recap\nFinite sample ( \\(n\\) ) properties\n\nUnbiased estimator ✅\nBest Linear Unbiased Estimator (BLUE) ✅\n\n\nAsymptotic ( \\(n \\rightarrow \\infty\\) ) properties\n\nConsistency ✅\nEfficiency ✅\nAsymptotic normality ✅"
   },
   {
     "objectID": "slides/15-prop-of-estimators-notes.html#next-class",
@@ -8168,14 +8168,7 @@
     "href": "slides/15-prop-of-estimators.html#announcements",
     "title": "Properties of estimators",
     "section": "Announcements",
-    "text": "Announcements\n\nHW 03 due March 19\nExploratory data analysis due March 19\nStatistics experience due April 2"
-  },
-  {
-    "objectID": "slides/15-prop-of-estimators.html#questions-from-this-weeks-content",
-    "href": "slides/15-prop-of-estimators.html#questions-from-this-weeks-content",
-    "title": "Properties of estimators",
-    "section": "Questions from this week’s content?",
-    "text": "Questions from this week’s content?"
+    "text": "Announcements\n\nHW 03 due March 19 at 11:59pm\nProject exploratory data analysis due March 19\nStatistics experience due April 2\nPlease take a moment to provide mid-semester feedback by Friday: https://duke.qualtrics.com/jfe/form/SV_8l7HtpcwUODh93g"
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#topics",
@@ -8217,7 +8210,7 @@
     "href": "slides/15-prop-of-estimators.html#properties-of-hatboldsymbolbeta-1",
     "title": "Properties of estimators",
     "section": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)\nFinite sample ( \\(n\\) ) properties\n\nUnbiased estimator\nBest Linear Unbiased Estimator (BLUE)\n\n\nAsymptotic ( \\(n \\rightarrow \\infty\\) ) properties\n\nConsistent estimator\nEfficient estimator\nAsymptotic normality"
+    "text": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)\nFinite sample ( \\(n\\) ) properties\n\nUnbiased estimator\nBest Linear Unbiased Estimator (BLUE)\n\n\nAsymptotic ( \\(n \\rightarrow \\infty\\) ) properties\n\nConsistency\nEfficiency\nAsymptotic normality"
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#unbiased-estimator",
@@ -8231,7 +8224,7 @@
     "href": "slides/15-prop-of-estimators.html#expected-value-of-hatboldsymbolbeta",
     "title": "Properties of estimators",
     "section": "Expected value of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Expected value of \\(\\hat{\\boldsymbol{\\beta}}\\)\nLet’s take a look at the expected value of least-squares estimator:\n\\[\n\\begin{aligned}\nE(\\hat{\\boldsymbol{\\beta}}) &= E[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}] \\\\[8pt]\n& = \\class{fragment}{(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}E[\\mathbf{y}]} \\\\[8pt]\n& = \\class{fragment}{(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}}\\\\[8pt]\n& = \\class{fragment}{\\boldsymbol{\\beta}}\n\\end{aligned}\n\\]"
+    "text": "Expected value of \\(\\hat{\\boldsymbol{\\beta}}\\)\nLet’s take a look at the expected value of least-squares estimator:\n\\[\n\\begin{aligned}\nE(\\hat{\\boldsymbol{\\beta}}) &= E[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}] \\\\[8pt]\n& = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}E[\\mathbf{y}] \\\\[8pt]\n& = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{X}\\boldsymbol{\\beta}\\\\[8pt]\n& = \\boldsymbol{\\beta}\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#expected-value-of-hatboldsymbolbeta-1",
@@ -8245,14 +8238,14 @@
     "href": "slides/15-prop-of-estimators.html#variance-of-hatboldsymbolbeta",
     "title": "Properties of estimators",
     "section": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\\[\n\\begin{aligned}\nVar(\\hat{\\boldsymbol{\\beta}}) &= Var((\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}) \\\\[8pt]\n& = \\class{fragment}{[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]Var(\\mathbf{y})[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]^\\mathsf{T} }\\\\[8pt]\n& = \\class{fragment}{[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]\\sigma^2_{\\epsilon}\\mathbf{I}[\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}]} \\\\[8pt]\n& = \\class{fragment}{\\sigma^2_{\\epsilon}[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}]} \\\\[8pt]\n& = \\class{fragment}{\\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}}\n\\end{aligned}\n\\]\n\nWe will show that \\(\\hat{\\boldsymbol{\\beta}}\\) is the “best” estimator (has the lowest variance) among the class of linear unbiased estimators"
+    "text": "Variance of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\\[\n\\begin{aligned}\nVar(\\hat{\\boldsymbol{\\beta}}) &= Var((\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}) \\\\[8pt]\n& = {[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]Var(\\mathbf{y})[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]^\\mathsf{T} }\\\\[8pt]\n& = [(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}]\\sigma^2_{\\epsilon}\\mathbf{I}[\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}]\\\\[8pt]\n& = \\sigma^2_{\\epsilon}[(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{X}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}] \\\\[8pt]\n& = \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\n\\end{aligned}\n\\]\n\nWe will show that \\(\\hat{\\boldsymbol{\\beta}}\\) is the “best” estimator (has the lowest variance) among the class of linear unbiased estimators"
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#gauss-markov-theorem-proof",
     "href": "slides/15-prop-of-estimators.html#gauss-markov-theorem-proof",
     "title": "Properties of estimators",
     "section": "Gauss-Markov Theorem Proof",
-    "text": "Gauss-Markov Theorem Proof\nSuppose \\(\\hat{\\boldsymbol{\\beta}}^\\prime\\) is another linear unbiased estimator of \\(\\boldsymbol{\\beta}\\) that can be expressed as \\(\\hat{\\boldsymbol{\\beta}}^\\prime = \\mathbf{Cy}\\) , such that \\(\\hat{\\mathbf{y}} = \\mathbf{X}\\hat{\\boldsymbol{\\beta}}^\\prime = \\mathbf{XCy}\\)\n\nLet \\(\\mathbf{C} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T} + \\mathbf{B}\\) for a non-zero matrix \\(\\mathbf{B}\\).\n\n\nWhat is the dimension of \\(\\mathbf{B}\\)?"
+    "text": "Gauss-Markov Theorem Proof\nSuppose \\(\\hat{\\boldsymbol{\\beta}}^\\prime\\) is another linear unbiased estimator of \\(\\boldsymbol{\\beta}\\) that can be expressed as \\(\\hat{\\boldsymbol{\\beta}}^\\prime = \\mathbf{Cy}\\) , such that \\(\\hat{\\mathbf{y}} = \\mathbf{X}\\hat{\\boldsymbol{\\beta}}^\\prime = \\mathbf{XCy}\\)\n\nLet \\(\\mathbf{C} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1}\\mathbf{X}^\\mathsf{T} + \\mathbf{B}\\) for a non-zero matrix \\(\\mathbf{B}\\).\n\n\nWhat are the dimensions of \\(\\mathbf{B}\\)?"
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#gauss-markov-theorem-proof-1",
@@ -8287,7 +8280,7 @@
     "href": "slides/15-prop-of-estimators.html#gauss-markov-theorem-proof-5",
     "title": "Properties of estimators",
     "section": "Gauss-Markov Theorem Proof",
-    "text": "Gauss-Markov Theorem Proof\nWe have\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}^\\prime) = \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1} + \\sigma^2_\\epsilon \\mathbf{BB}^\\mathsf{T}\n\\]\n\nWe know that \\(\\sigma^2_{\\epsilon}\\mathbf{BB}^\\mathsf{T} \\geq \\mathbf{0}\\).\n\n\n\n\nWhen is \\(\\sigma^2_{\\epsilon}\\mathbf{BB}^\\mathsf{T} = \\mathbf{0}\\)?\n\n\n\nTherefore, we have shown that \\(Var(\\hat{\\boldsymbol{\\beta}}^\\prime) &gt; Var(\\hat{\\boldsymbol{\\beta}})\\) and have completed the proof."
+    "text": "Gauss-Markov Theorem Proof\nWe have\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}^\\prime) = \\sigma^2_{\\epsilon}(\\mathbf{X}^\\mathsf{T}\\mathbf{X})^{-1} + \\sigma^2_\\epsilon \\mathbf{BB}^\\mathsf{T}\n\\]\n\n\\(\\mathbf{BB}^\\mathsf{T}\\) is positive semi-definite, so \\(Var(\\hat{\\boldsymbol{\\beta}}^\\prime)\\) is “larger” than \\(Var(\\hat{\\boldsymbol{\\beta}})\\) by a positive semi-definite matrix.\n\n\nTherefore, we have shown that \\(Var(\\hat{\\boldsymbol{\\beta}}^\\prime) &gt; Var(\\hat{\\boldsymbol{\\beta}})\\) and have completed the proof."
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#properties-of-hatboldsymbolbeta-2",
@@ -8311,53 +8304,60 @@
     "text": "Mean squared error\nThe mean squared error (MSE) is the squared difference between the estimator and parameter.\n\nLet \\(\\hat{\\theta}\\) be an estimator of the parameter \\(\\theta\\). Then\n\\[\n\\begin{aligned}\nMSE(\\hat{\\theta}) &= E[(\\hat{\\theta} - \\theta)^2] \\\\\n& = E(\\hat{\\theta}^2 - 2\\hat{\\theta}\\theta + \\theta^2) \\\\\n& = E(\\hat{\\theta}^2) - 2\\theta E(\\hat{\\theta}) + \\theta^2 \\\\\n& = \\underbrace{E(\\hat{\\theta}^2) -  E(\\hat{\\theta})^2}_{Var(\\hat{\\theta})} + \\underbrace{E(\\hat{\\theta})^2 - 2\\theta E(\\hat{\\theta}) + \\theta^2}_{Bias(\\theta)^2}\n\\end{aligned}\n\\]"
   },
   {
-    "objectID": "slides/15-prop-of-estimators.html#mean-squared-error-1",
-    "href": "slides/15-prop-of-estimators.html#mean-squared-error-1",
-    "title": "Properties of estimators",
-    "section": "Mean squared error",
-    "text": "Mean squared error\n\\[\nMSE(\\hat{\\theta}) = Var(\\hat{\\theta}) + Bias(\\hat{\\theta})^2\n\\]\n\n\nThe least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) is unbiased, so \\[MSE(\\hat{\\boldsymbol{\\beta}}) = Var(\\hat{\\boldsymbol{\\beta}})\\]"
-  },
-  {
     "objectID": "slides/15-prop-of-estimators.html#consistency",
     "href": "slides/15-prop-of-estimators.html#consistency",
     "title": "Properties of estimators",
     "section": "Consistency",
-    "text": "Consistency\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of a parameter \\(\\theta\\) if it converges in probability to \\(\\theta\\). Given a sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, . . .\\), then for every \\(\\epsilon &gt; 0\\),\n\\[\n\\displaystyle \\lim_{n\\to\\infty} P(|\\hat{\\theta}_n - \\theta| \\geq \\epsilon) = 0\n\\]\n\nThis means that as the sample size goes to \\(\\infty\\) (and thus the sample information gets better and better), the estimator will be arbitrarily close to the parameter with high probability.\n\n\nWhy is this a useful property of an estimator?"
+    "text": "Consistency\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of a parameter \\(\\theta\\) if it converges in probability to \\(\\theta\\). Given a sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, . . .\\), then for every \\(c&gt; 0\\),\n\\[\n\\displaystyle \\lim_{n\\to\\infty} P(|\\hat{\\theta}_n - \\theta| \\geq c) = 0\n\\]\n\nThis means that as the sample size goes to \\(\\infty\\) (and thus the sample information gets better and better), the estimator will be arbitrarily close to the parameter with high probability.\n\n\nWhy is this a useful property of an estimator?"
   },
   {
-    "objectID": "slides/15-prop-of-estimators.html#consistency-1",
-    "href": "slides/15-prop-of-estimators.html#consistency-1",
+    "objectID": "slides/15-prop-of-estimators.html#law-of-large-numbers",
+    "href": "slides/15-prop-of-estimators.html#law-of-large-numbers",
     "title": "Properties of estimators",
-    "section": "Consistency",
-    "text": "Consistency\n\n\n\n\n\nImportant\n\n\nTheorem\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of the parameter \\(\\theta\\) if the sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, \\ldots\\) satisfies\n\n\\(\\lim_{n \\to \\infty} Var(\\hat{\\theta}) = 0\\)\n\\(\\lim_{n \\to \\infty} Bias(\\hat{\\theta}) = 0\\)"
+    "section": "Law of large numbers",
+    "text": "Law of large numbers\nLet \\(X_1, X_2, \\ldots, X_n\\) be independent and identically distributed random variables, such that \\(E(X) = \\mu\\), such that \\(\\mu\\) is finite.\n\\[\n\\displaystyle \\lim_{n\\to\\infty} P(|\\bar{X} - \\mu| \\geq c) = 0\n\\]\nfor every \\(c &gt; 0\\)"
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#consistency-of-hatboldsymbolbeta",
     "href": "slides/15-prop-of-estimators.html#consistency-of-hatboldsymbolbeta",
     "title": "Properties of estimators",
     "section": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\\(Bias(\\hat{\\boldsymbol{\\beta}}) = \\mathbf{0}\\), so \\(\\lim_{n \\to \\infty} Bias(\\hat{\\boldsymbol{\\beta}}) = \\mathbf{0}\\)\n\n\nNow we need to show that \\(\\lim_{n \\to \\infty} Var(\\hat{\\boldsymbol{\\beta}}) = \\mathbf{0}\\)\n\n\nWhat is \\(Var(\\hat{\\boldsymbol{\\beta}})\\)?\nShow \\(Var(\\hat{\\boldsymbol{\\beta}}) \\to \\mathbf{0}\\) as \\(n \\to \\infty\\).\n\n\n\n\nTherefore \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator."
+    "text": "Consistency of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\nShow \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator."
+  },
+  {
+    "objectID": "slides/15-prop-of-estimators.html#mean-squared-error-1",
+    "href": "slides/15-prop-of-estimators.html#mean-squared-error-1",
+    "title": "Properties of estimators",
+    "section": "Mean squared error",
+    "text": "Mean squared error\nThe mean squared error (MSE) is the squared difference between the estimator and parameter.\n\nLet \\(\\hat{\\theta}\\) be an estimator of the parameter \\(\\theta\\). Then\n\\[\n\\begin{aligned}\nMSE(\\hat{\\theta}) &= E[(\\hat{\\theta} - \\theta)^2] \\\\\n& = E(\\hat{\\theta}^2 - 2\\hat{\\theta}\\theta + \\theta^2) \\\\\n& = E(\\hat{\\theta}^2) - 2\\theta E(\\hat{\\theta}) + \\theta^2 \\\\\n& = \\underbrace{E(\\hat{\\theta}^2) -  E(\\hat{\\theta})^2}_{Var(\\hat{\\theta})} + \\underbrace{E(\\hat{\\theta})^2 - 2\\theta E(\\hat{\\theta}) + \\theta^2}_{Bias(\\theta)^2}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/15-prop-of-estimators.html#consistency-1",
+    "href": "slides/15-prop-of-estimators.html#consistency-1",
+    "title": "Properties of estimators",
+    "section": "Consistency",
+    "text": "Consistency\n\n\n\n\n\nTheorem\n\n\nAn estimator \\(\\hat{\\theta}\\) is a consistent estimator of the parameter \\(\\theta\\) if the sequence of estimators \\(\\hat{\\theta}_1, \\hat{\\theta}_2, \\ldots\\) satisfies\n\n\\(\\lim_{n \\to \\infty} Var(\\hat{\\theta}) = 0\\)\n\\(\\lim_{n \\to \\infty} Bias(\\hat{\\theta}) = 0\\)"
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#efficiency",
     "href": "slides/15-prop-of-estimators.html#efficiency",
     "title": "Properties of estimators",
     "section": "Efficiency",
-    "text": "Efficiency\n\nAn estimator if efficient if it has the smallest variance among a class of estimators as \\(n \\rightarrow \\infty\\)\nBy the Gauss-Markov Theorem, we have shown that the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) is the most efficient among linear unbiased estimators.\nMaximum Likelihood Estimators are the most efficient among all unbiased estimators.\nTherefore, \\(\\hat{\\boldsymbol{\\beta}}\\) is the most efficient among all unbiased estimators of \\(\\boldsymbol{\\beta}\\)\n\n\n\n\n\n\n\nNote\n\n\nProof of this in a later statistics class."
+    "text": "Efficiency\n\nAn estimator is efficient if it has the smallest variance among a class of estimators\nBy the Gauss-Markov Theorem, we have shown that the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) is the most efficient among linear unbiased estimators.\nMaximum Likelihood Estimators are asymptotically efficient\n\n\n\n\n\n\n\nNote\n\n\nProof of this in a later statistics class."
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#asymptotic-normality",
     "href": "slides/15-prop-of-estimators.html#asymptotic-normality",
     "title": "Properties of estimators",
     "section": "Asymptotic normality",
-    "text": "Asymptotic normality\n\nMaximum Likelihood Estimators are asymptotically normal, meaning the distribution of an MLE is normal as \\(n \\rightarrow \\infty\\)\nTherefore, we know the distribution of \\(\\hat{\\boldsymbol{\\beta}}\\) is normal when \\(n\\) is large, regardless of the underlying data\n\n\n\n\n\n\n\nNote\n\n\nProof of this in a later statistics class."
+    "text": "Asymptotic normality\n\nMaximum Likelihood Estimators are asymptotically normal\nTherefore, we know the distribution of \\(\\hat{\\boldsymbol{\\beta}}\\) is normal when \\(n\\) is large, regardless of the underlying data\n\n\n\n\n\n\n\nNote\n\n\nProof of this in a later statistics class."
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#recap",
     "href": "slides/15-prop-of-estimators.html#recap",
     "title": "Properties of estimators",
     "section": "Recap",
-    "text": "Recap\nFinite sample ( \\(n\\) ) properties\n\nUnbiased estimator ✅\nBest Linear Unbiased Estimator (BLUE) ✅\n\n\nAsymptotic ( \\(n \\rightarrow \\infty\\) ) properties\n\nConsistent estimator ✅\nEfficient estimator ✅\nAsymptotic normality ✅"
+    "text": "Recap\nFinite sample ( \\(n\\) ) properties\n\nUnbiased estimator ✅\nBest Linear Unbiased Estimator (BLUE) ✅\n\n\nAsymptotic ( \\(n \\rightarrow \\infty\\) ) properties\n\nConsistency ✅\nEfficiency ✅\nAsymptotic normality ✅"
   },
   {
     "objectID": "slides/15-prop-of-estimators.html#next-class",
@@ -9253,7 +9253,7 @@
     "href": "slides/14-mle-notes.html#mle-for-linear-regression-in-matrix-form",
     "title": "Maximum likelihood estimation",
     "section": "MLE for linear regression in matrix form",
-    "text": "MLE for linear regression in matrix form\n\\[\n\\begin{aligned}\nL(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon} | \\mathbf{X}, \\mathbf{y}) &= (2\\pi)^{-n/2}|\\sigma^2_\\epsilon \\mathbf{I}|^{-1/2}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\} \\\\[8pt]\n& = \\frac{1}{(2\\pi)^{n/2}\\sigma^n_{\\epsilon}}\\exp\\Big\\{-\\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\}\n\\end{aligned}\n\\] \n. . .\n\\[\n\\begin{aligned}\n\\log L(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon &| \\mathbf{X}, \\mathbf{y}) \\\\\n& = -\\frac{n}{2}\\log(2\\pi) - n \\log(\\sigma_{\\epsilon}) - \\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\mathbf{\\beta})\n\\end{aligned}\n\\]\n. . .\n\n\nFor a fixed value of \\(\\sigma_\\epsilon\\) , we know that \\(\\log L\\) is maximized when what is true about \\((\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\) ?\nWhat does this tell us about the relationship between the MLE and least-squares estimator for \\(\\boldsymbol{\\beta}\\)?"
+    "text": "MLE for linear regression in matrix form\n\\[\n\\begin{aligned}\nL(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon} | \\mathbf{X}, \\mathbf{y}) &= (2\\pi)^{-n/2}|\\sigma^2_\\epsilon \\mathbf{I}|^{-1/2}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\} \\\\[8pt]\n& = \\frac{1}{(2\\pi)^{n/2}\\sigma^n_{\\epsilon}}\\exp\\Big\\{-\\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\}\n\\end{aligned}\n\\] \n. . .\n\\[\n\\begin{aligned}\n\\log L(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon &| \\mathbf{X}, \\mathbf{y}) \\\\\n& = -\\frac{n}{2}\\log(2\\pi) - n \\log(\\sigma_{\\epsilon}) - \\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\n\\end{aligned}\n\\]\n. . .\n\n\nFor a fixed value of \\(\\sigma_\\epsilon\\) , we know that \\(\\log L\\) is maximized when what is true about \\((\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\) ?\nWhat does this tell us about the relationship between the MLE and least-squares estimator for \\(\\boldsymbol{\\beta}\\)?"
   },
   {
     "objectID": "slides/14-mle-notes.html#putting-it-all-together",
@@ -9456,7 +9456,7 @@
     "href": "slides/14-mle.html#mle-for-linear-regression-in-matrix-form",
     "title": "Maximum likelihood estimation",
     "section": "MLE for linear regression in matrix form",
-    "text": "MLE for linear regression in matrix form\n\\[\n\\begin{aligned}\nL(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon} | \\mathbf{X}, \\mathbf{y}) &= (2\\pi)^{-n/2}|\\sigma^2_\\epsilon \\mathbf{I}|^{-1/2}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\} \\\\[8pt]\n& = \\frac{1}{(2\\pi)^{n/2}\\sigma^n_{\\epsilon}}\\exp\\Big\\{-\\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\}\n\\end{aligned}\n\\] \n\n\\[\n\\begin{aligned}\n\\log L(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon &| \\mathbf{X}, \\mathbf{y}) \\\\\n& = -\\frac{n}{2}\\log(2\\pi) - n \\log(\\sigma_{\\epsilon}) - \\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\mathbf{\\beta})\n\\end{aligned}\n\\]\n\n\n\n\nFor a fixed value of \\(\\sigma_\\epsilon\\) , we know that \\(\\log L\\) is maximized when what is true about \\((\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\) ?\nWhat does this tell us about the relationship between the MLE and least-squares estimator for \\(\\boldsymbol{\\beta}\\)?"
+    "text": "MLE for linear regression in matrix form\n\\[\n\\begin{aligned}\nL(\\boldsymbol{\\beta}, \\sigma^2_{\\epsilon} | \\mathbf{X}, \\mathbf{y}) &= (2\\pi)^{-n/2}|\\sigma^2_\\epsilon \\mathbf{I}|^{-1/2}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\sigma^2_{\\epsilon}\\mathbf{I})^{-1}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\} \\\\[8pt]\n& = \\frac{1}{(2\\pi)^{n/2}\\sigma^n_{\\epsilon}}\\exp\\Big\\{-\\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\Big\\}\n\\end{aligned}\n\\] \n\n\\[\n\\begin{aligned}\n\\log L(\\boldsymbol{\\beta}, \\sigma^2_\\epsilon &| \\mathbf{X}, \\mathbf{y}) \\\\\n& = -\\frac{n}{2}\\log(2\\pi) - n \\log(\\sigma_{\\epsilon}) - \\frac{1}{2\\sigma^2_{\\epsilon}}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\n\\end{aligned}\n\\]\n\n\n\n\nFor a fixed value of \\(\\sigma_\\epsilon\\) , we know that \\(\\log L\\) is maximized when what is true about \\((\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})\\) ?\nWhat does this tell us about the relationship between the MLE and least-squares estimator for \\(\\boldsymbol{\\beta}\\)?"
   },
   {
     "objectID": "slides/14-mle.html#putting-it-all-together",
