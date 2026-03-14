@@ -144,7 +144,7 @@
     "href": "project.html",
     "title": "Final project",
     "section": "",
-    "text": "Research topics due Tuesday February 10\nProject proposal due Tuesday, February 24\nExploratory data analysis due Thursday, March 19\nPresentation + Presentation comments Friday, March 27 (in lab)\nAnalysis draft + peer review Friday, April 10 (peer review in lab)\nWritten report due Tuesday, April 21\nReproducibility + organization due Tuesday, April 21",
+    "text": "Research topics due Tuesday February 10\nProject proposal due Tuesday, February 24\nExploratory data analysis due Thursday, March 19\nPresentation + Presentation comments Friday, March 27 (in lab)\nDraft report + peer review Friday, April 10 (peer review in lab)\nWritten report due Tuesday, April 21\nReproducibility + organization due Tuesday, April 21",
     "crumbs": [
       "Project",
       "Instructions"
@@ -155,7 +155,7 @@
     "href": "project.html#project-milestones",
     "title": "Final project",
     "section": "",
-    "text": "Research topics due Tuesday February 10\nProject proposal due Tuesday, February 24\nExploratory data analysis due Thursday, March 19\nPresentation + Presentation comments Friday, March 27 (in lab)\nAnalysis draft + peer review Friday, April 10 (peer review in lab)\nWritten report due Tuesday, April 21\nReproducibility + organization due Tuesday, April 21",
+    "text": "Research topics due Tuesday February 10\nProject proposal due Tuesday, February 24\nExploratory data analysis due Thursday, March 19\nPresentation + Presentation comments Friday, March 27 (in lab)\nDraft report + peer review Friday, April 10 (peer review in lab)\nWritten report due Tuesday, April 21\nReproducibility + organization due Tuesday, April 21",
     "crumbs": [
       "Project",
       "Instructions"
@@ -199,7 +199,7 @@
     "href": "project.html#eda",
     "title": "Final project",
     "section": "Exploratory data analysis",
-    "text": "Exploratory data analysis\n\n\n\n\n\n\nImportantSubmission\n\n\n\nWrite your draft introduction and exploratory data analysis in the written-report.qmd file in your team’s GitHub repo. Push the .qmd and rendered .pdf documents to GitHub by Thursday, March 19 at 11:59pm.\n\n\nThe purpose of this milestone is to begin exploring the data and get early feedback on your data and analysis. You will submit a draft of the early sections of the report that includes the introduction and exploratory data analysis, with an emphasis on the EDA. It will also help you prepare for the presentation of the exploratory data analysis results.\nBelow is a brief description of the sections to include in this step:\n\nIntroduction\nThis section includes an introduction to the project motivation, background, data, and research question. Additionally, comment on any known limitations, missingness, or measurement concerns that may impact the interpretation of your analysis and results.\n\n\n\n\n\n\nTip\n\n\n\nReuse and iterate on the work from the previous milestones.\n\n\n\n\nExploratory data analysis\nThis section includes the following:\n\nDescription of the data set and key variables.\nExploratory data analysis of the response variable and key predictor variables. This includes visualizations, summary statistics, and narrative. Focus on 4 - 6 key predictors that are most relevant to your research question. You may explore additional variables, as appropriate, but prioritize depth over breadth.\n\nUnivariate EDA of the response and key predictor variables\nBivariate EDA of the response and key predictor variables\nVisualizations exploring at least one potential interaction effect\n\n\nFor each visualization and/or set of summary statistics, briefly describe what you learn about the distribution of the variable or relationship between variables. Additionally, comment on how the observations from the EDA may inform your modeling decisions (e.g., use of transformations, quadratic effects, interactions effects, etc.)\n\n\nGrading\nThe anticipated length with code, warnings, and messages suppressed in the rendered pdf is about 5 - 7 pages. It is OK to be over this page limit at this stage in the project.\n\n\n\n\n\n\nTip\n\n\n\nInclude the code below in the YAML to suppress code, messages, and warnings in the rendered pdf.\nexecute:\n  echo: false\n  message: false\n  warning: false\n\n\nThe exploratory data analysis is worth 15 points and will be graded based on accurately and comprehensively addressing the criteria stated above, along with incorporating the feedback from the proposal. Points will be assigned based on a holistic review of the exploratory data analysis.\n\nExcellent (13 - 15 points) : All required elements are completed and are accurate. There is a thorough exploration of the data as described above, and the team has demonstrated a careful and thoughtful approach exploring the data and preparing it for analysis. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.\nStrong (10 - 12 points): Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Minor gaps or areas needing clarification, but the analysis is sound overall and will be ready for modeling with minor revision.\nSatisfactory (7 - 9 points): Requirements partially met, but there are some elements that are incomplete and/or inaccurate. This may include multiple gaps in the analysis, unclear interpretations, or limited connection between EDA and modeling decisions. Major revision is required before team is ready for modeling.\nNeeds Improvement (6 points or fewer): Requirements are largely unmet, and there are large elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.",
+    "text": "Exploratory data analysis\n\n\n\n\n\n\nImportantSubmission\n\n\n\nWrite your draft introduction and exploratory data analysis in the written-report.qmd file in your team’s GitHub repo. Push the .qmd and rendered .pdf documents to GitHub by Thursday, March 19 at 11:59pm.\n\n\nThe purpose of this milestone is to begin exploring the data and receive early feedback on your data and analysis. You will submit a draft of the early sections of the report that includes the introduction and exploratory data analysis, with an emphasis on the EDA. It will also help you prepare for the presentation of the exploratory data analysis results.\nBelow is a brief description of the sections to include in this step:\n\nIntroduction\nThis section includes an introduction to the project motivation, background, data, and research question. Additionally, comment on any known limitations, missingness, or measurement concerns that may impact the interpretation of your analysis and results.\n\n\n\n\n\n\nTip\n\n\n\nReuse and iterate on the work from the previous milestones.\n\n\n\n\nExploratory data analysis\nThis section includes the following:\n\nDescription of the data set and key variables.\nExploratory data analysis of the response variable and key predictor variables. This includes visualizations, summary statistics, and narrative. Focus on 4 - 6 key predictors that are most relevant to your research question. You may explore additional variables, as appropriate, but prioritize depth over breadth.\n\nUnivariate EDA of the response and key predictor variables\nBivariate EDA of the response and key predictor variables\nVisualizations exploring at least one potential interaction effect\n\n\nFor each visualization and/or set of summary statistics, briefly describe what you learn about the distribution of the variable or relationship between variables. Additionally, comment on how the observations from the EDA may inform your modeling decisions (e.g., use of transformations, quadratic effects, interactions effects, etc.)\n\n\nGrading\nThe anticipated length with code, warnings, and messages suppressed in the rendered pdf is about 5 - 7 pages. It is OK to be over this page limit at this stage in the project.\n\n\n\n\n\n\nTip\n\n\n\nInclude the code below in the YAML to suppress code, messages, and warnings in the rendered pdf.\nexecute:\n  echo: false\n  message: false\n  warning: false\n\n\nThe exploratory data analysis is worth 15 points and will be graded based on accurately and comprehensively addressing the criteria stated above, along with incorporating the feedback from the proposal. Points will be assigned based on a holistic review of the exploratory data analysis.\n\nExcellent (13 - 15 points) : All required elements are completed and are accurate. There is a thorough exploration of the data as described above, and the team has demonstrated a careful and thoughtful approach exploring the data and preparing it for analysis. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.\nStrong (10 - 12 points): Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Minor gaps or areas needing clarification, but the analysis is sound overall and will be ready for modeling with minor revision.\nSatisfactory (7 - 9 points): Requirements partially met, but there are some elements that are incomplete and/or inaccurate. This may include multiple gaps in the analysis, unclear interpretations, or limited connection between EDA and modeling decisions. Major revision is required before team is ready for modeling.\nNeeds Improvement (6 points or fewer): Requirements are largely unmet, and there are large elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.",
     "crumbs": [
       "Project",
       "Instructions"
@@ -221,29 +221,29 @@
     "href": "project.html#presentation-comments",
     "title": "Final project",
     "section": "Presentation comments",
-    "text": "Presentation comments\n[To be posted.]",
+    "text": "Presentation comments\n\n\n\n\n\n\nImportantSubmission\n\n\n\nPresentation comments must be submitted through the feedback form by the end of your lab session.\nYour feedback assignments and link to the form will be posted the day before the presentations.\n\n\nYou will provide feedback on two teams’ presentations. Please provide all scores and comments by the end of the lab session. There will be a few minutes between each presentation to submit scores and comments.\n\nGrading\nThe presentation comments are worth 2 points. The grade will be based on submitting the scores and comments for both of your assigned teams by the end of your lab. This portion of the project will be assessed individually.",
     "crumbs": [
       "Project",
       "Instructions"
     ]
   },
   {
-    "objectID": "project.html#draft-report",
-    "href": "project.html#draft-report",
+    "objectID": "project.html#draft-report-peer-review",
+    "href": "project.html#draft-report-peer-review",
     "title": "Final project",
-    "section": "Draft report",
-    "text": "Draft report\n[To be posted.]",
+    "section": "Draft report + peer review",
+    "text": "Draft report + peer review",
     "crumbs": [
       "Project",
       "Instructions"
     ]
   },
   {
-    "objectID": "project.html#peer-review",
-    "href": "project.html#peer-review",
+    "objectID": "project.html#submission-5",
+    "href": "project.html#submission-5",
     "title": "Final project",
-    "section": "Peer review",
-    "text": "Peer review\n[To be posted.]",
+    "section": "Submission",
+    "text": "Submission\nWrite your draft report in the written-report.qmd file in your team’s GitHub repo. Push the .qmd and rendered .pdf documents to GitHub before the start of your lab section on April 10.",
     "crumbs": [
       "Project",
       "Instructions"

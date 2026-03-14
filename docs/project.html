@@ -403,7 +403,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#grading-2" id="toc-grading-2" class="nav-link" data-scroll-target="#grading-2">Grading</a></li>
   </ul></li>
-  <li><a href="#presentation-comments" id="toc-presentation-comments" class="nav-link" data-scroll-target="#presentation-comments">Presentation comments</a></li>
+  <li><a href="#presentation-comments" id="toc-presentation-comments" class="nav-link" data-scroll-target="#presentation-comments">Presentation comments</a>
+  <ul class="collapse">
+  <li><a href="#grading-3" id="toc-grading-3" class="nav-link" data-scroll-target="#grading-3">Grading</a></li>
+  </ul></li>
+  <li><a href="#draft-report-peer-review" id="toc-draft-report-peer-review" class="nav-link" data-scroll-target="#draft-report-peer-review">Draft report + peer review</a></li>
+  <li><a href="#submission-5" id="toc-submission-5" class="nav-link" data-scroll-target="#submission-5">Submission</a></li>
   <li><a href="#draft-report" id="toc-draft-report" class="nav-link" data-scroll-target="#draft-report">Draft report</a></li>
   <li><a href="#peer-review" id="toc-peer-review" class="nav-link" data-scroll-target="#peer-review">Peer review</a></li>
   <li><a href="#written-report" id="toc-written-report" class="nav-link" data-scroll-target="#written-report">Written report</a></li>
@@ -440,11 +445,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="project-milestones" class="level2">
 <h2 class="anchored" data-anchor-id="project-milestones">Project milestones</h2>
+<!--# add the peer review issue template to the initial project repos-->
 <p><a href="#research-topics">Research topics</a> due Tuesday February 10</p>
 <p><a href="#project-proposal">Project proposal</a> due Tuesday, February 24</p>
 <p><a href="#eda">Exploratory data analysis</a> due Thursday, March 19</p>
 <p><a href="#presentation">Presentation</a> + <a href="#presentation-comments">Presentation comments</a> Friday, March 27 (in lab)</p>
-<p><a href="#draft-report-peer-review">Analysis draft + peer review</a> Friday, April 10 (peer review in lab)</p>
+<p><a href="#draft-report-peer-review">Draft report + peer review</a> Friday, April 10 (peer review in lab)</p>
 <p><a href="#written-report">Written report</a> due Tuesday, April 21</p>
 <p><a href="#reproducibility-organization">Reproducibility + organization</a> due Tuesday, April 21</p>
 </section>
@@ -656,7 +662,7 @@ Tip
 <p>Write your draft introduction and exploratory data analysis in the <code>written-report.qmd</code> file in your team’s GitHub repo. Push the <code>.qmd</code> and rendered <code>.pdf</code> documents to GitHub by <strong>Thursday, March 19 at 11:59pm.</strong></p>
 </div>
 </div>
-<p>The purpose of this milestone is to begin exploring the data and get early feedback on your data and analysis. You will submit a draft of the early sections of the report that includes the introduction and exploratory data analysis, with an emphasis on the EDA. It will also help you prepare for the presentation of the exploratory data analysis results.</p>
+<p>The purpose of this milestone is to begin exploring the data and receive early feedback on your data and analysis. You will submit a draft of the early sections of the report that includes the introduction and exploratory data analysis, with an emphasis on the EDA. It will also help you prepare for the presentation of the exploratory data analysis results.</p>
 <p>Below is a brief description of the sections to include in this step:</p>
 <section id="introduction-1" class="level3">
 <h3 class="anchored" data-anchor-id="introduction-1">Introduction</h3>
@@ -767,15 +773,102 @@ Tip
 </section>
 <section id="presentation-comments" class="level2">
 <h2 class="anchored" data-anchor-id="presentation-comments">Presentation comments</h2>
-<p>[To be posted.]</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Submission
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Presentation comments must be submitted through the feedback form by the end of your lab session.</p>
+<p>Your feedback assignments and link to the form will be posted the day before the presentations.</p>
+</div>
+</div>
+<p>You will provide feedback on two teams’ presentations. Please provide all scores and comments by the end of the lab session. There will be a few minutes between each presentation to submit scores and comments.</p>
+<section id="grading-3" class="level3">
+<h3 class="anchored" data-anchor-id="grading-3">Grading</h3>
+<p>The presentation comments are worth 2 points. The grade will be based on submitting the scores and comments for both of your assigned teams by the end of your lab. This portion of the project will be assessed individually.</p>
 </section>
-<section id="draft-report" class="level2">
-<h2 class="anchored" data-anchor-id="draft-report">Draft report</h2>
-<p>[To be posted.]</p>
 </section>
-<section id="peer-review" class="level2">
-<h2 class="anchored" data-anchor-id="peer-review">Peer review</h2>
-<p>[To be posted.]</p>
+<section id="draft-report-peer-review" class="level2">
+<h2 class="anchored" data-anchor-id="draft-report-peer-review">Draft report + peer review</h2>
+</section>
+<section id="submission-5" class="level2 .callout-important">
+<h2 class="anchored" data-anchor-id="submission-5">Submission</h2>
+<p>Write your draft report in the <code>written-report.qmd</code> file in your team’s GitHub repo. Push the <code>.qmd</code> and rendered <code>.pdf</code> documents to GitHub before the start of your lab section on <strong>April 10</strong>.</p>
+</section>
+<section id="draft-report" class="level3">
+<h3 class="anchored" data-anchor-id="draft-report">Draft report</h3>
+<p>The purpose of the draft and peer review is to give you an opportunity to receive early feedback on your analysis. Therefore, the draft and peer review will focus primarily on the exploratory data analysis, modeling, and initial interpretations.</p>
+<p>Below is a brief description of the sections to focus on in the draft. Keep in mind that the final report has a strict 10-page limit. For the draft and final written report, additional EDA or supporting analyses can be included in an appendix if needed.</p>
+<section id="introduction-and-data" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h4>
+<p>This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.</p>
+</section>
+<section id="methodology" class="level4">
+<h4 class="anchored" data-anchor-id="methodology">Methodology</h4>
+<p>This section describes your modeling approach and the process used to select the final model. Explain the reasoning for the type of model you’re fitting, the predictor variables considered for the model, including any interactions. Additionally, show how you arrived at the model you are currently considering as the final model by describing the model selection process, any variable transformations (if needed), and any other relevant considerations that were part of the model fitting process.</p>
+<p>This section should focus on the modeling process rather than the numerical results.</p>
+</section>
+<section id="results" class="level4">
+<h4 class="anchored" data-anchor-id="results">Results</h4>
+<p>In this section, you will present the final model and include a brief discussion of the model assumptions, diagnostics, and any relevant model fit statistics.</p>
+<p>This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model.</p>
+</section>
+<section id="grading-4" class="level4">
+<h4 class="anchored" data-anchor-id="grading-4">Grading</h4>
+<p>The draft will be graded based on whether there is demonstration of a reasonable and complete attempt at each section described above in <code>written-report.qmd</code> and the rendered PDF file in your GitHub repo by the deadline.</p>
+</section>
+</section>
+<section id="peer-review" class="level3">
+<h3 class="anchored" data-anchor-id="peer-review">Peer review</h3>
+<p><strong>The peer review is due on Friday, April 11 at 11:59pm</strong>.</p>
+<p>Critically reviewing others’ work is a crucial part of the scientific process, and STA 221 is no exception. Each lab team will be assigned two other teams’ projects to review. Each team should push their draft to their GitHub repo before the start of their lab session on the day of the peer review lab. During lab, your team will have the opportunity to review and provide quality feedback to two other teams.</p>
+<p>During the peer review process, you will be provided read-only access to your partner teams’ GitHub repos. Provide your review in the form of a GitHub issue to the team’s GitHub repo using the issue template provided in the repo.</p>
+<section id="steps-for-peer-review" class="level4">
+<h4 class="anchored" data-anchor-id="steps-for-peer-review">Steps for peer review</h4>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Peer review assignments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Go to the Canvas announcement to see which teams’ projects your team is reviewing. You’ll spend about 30 minutes reviewing each project.</p>
+</div>
+</div>
+<ul>
+<li><p>When you get to lab, you should have access to the GitHub repos for the teams you’re reviewing. In GitHub, search the repositories for <code>project</code>, and you should see the repos for the projects you’re reviewing. You will be able to read the files in the repo and post issues, but you cannot push changes to the repo. You will have access to the repo until the deadline for the peer review.</p></li>
+<li><p>Every team member may choose to work on both peer reviews or have some team members focus on a single peer review. Either way there will be one peer review grade assigned per team.</p></li>
+<li><p>Your feedback should be specific and constructive. Avoid brief comments such as “looks good.” Instead, explain what is effective and suggest concrete improvements where appropriate.</p></li>
+<li><p>For each team you’re reviewing:</p>
+<ul>
+<li><p>Open that team’s repo, read the project draft, and browse the rest of the repo.</p></li>
+<li><p>Go to the <strong>Issues</strong> tab in that repo, click on <strong>New issue</strong>, and click on <strong>Get started</strong> for the Peer Review issue. Write your responses to the prompts in the issue. You will answer the following questions:</p>
+<ul>
+<li><p>Describe the goal of the project.</p></li>
+<li><p>Describe the data set used in the project. What are the observations in the data? What is the source of the data? How were the data originally collected?</p></li>
+<li><p>Consider the exploratory data analysis (EDA). Describe one aspect of the EDA that is effective in helping you understand the data. Provide constructive feedback on how the team might improve the EDA.</p></li>
+<li><p>Describe the statistical methods, analysis approach, and discussion of model assumptions, diagnostics, model fit.</p></li>
+<li><p>Provide constructive feedback on how the team might improve their analysis. Make sure your feedback includes at least one comment on the statistical modeling aspect of the project, but also feel free to comment on aspects beyond the modeling.</p></li>
+<li><p>Provide constructive feedback on the interpretations and initial conclusion. What is most effective in the presentation of the results? What additional detail can the team provide to make the results and conclusions easier for the reader to understand?</p></li>
+<li><p>What aspect of this project are you most interested in and think would be interesting to highlight in the written report?</p></li>
+<li><p>Provide constructive feedback on any issues with file and/or code organization.</p></li>
+<li><p>(Optional) Any further comments or feedback?</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="grading-5" class="level4">
+<h4 class="anchored" data-anchor-id="grading-5">Grading</h4>
+<p>The peer review will be graded based on the extent to which it comprehensively and constructively addresses the components on the peer review form. There will be one peer review grade per team and will reflect the overall quality and thoroughness of the feedback.</p>
+</section>
 </section>
 <section id="written-report" class="level2">
 <h2 class="anchored" data-anchor-id="written-report">Written report</h2>

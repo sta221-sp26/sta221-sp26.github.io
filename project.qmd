@@ -9,6 +9,7 @@ library(broom)
 ```
 
 ## Project milestones
+<!--# add the peer review issue template to the initial project repos-->
 
 [Research topics](#research-topics) due Tuesday February 10
 
@@ -18,7 +19,7 @@ library(broom)
 
 [Presentation](#presentation) + [Presentation comments](#presentation-comments) Friday, March 27 (in lab)
 
-[Analysis draft + peer review](#draft-report-peer-review) Friday, April 10 (peer review in lab)
+[Draft report + peer review](#draft-report-peer-review) Friday, April 10 (peer review in lab)
 
 [Written report](#written-report) due Tuesday, April 21
 
@@ -192,7 +193,7 @@ The proposal is worth 10 points and will be graded based on accurately and compr
 Write your draft introduction and exploratory data analysis in the `written-report.qmd` file in your team's GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub by **Thursday, March 19 at 11:59pm.**
 :::
 
-The purpose of this milestone is to begin exploring the data and get early feedback on your data and analysis. You will submit a draft of the early sections of the report that includes the introduction and exploratory data analysis, with an emphasis on the EDA. It will also help you prepare for the presentation of the exploratory data analysis results.
+The purpose of this milestone is to begin exploring the data and receive early feedback on your data and analysis. You will submit a draft of the early sections of the report that includes the introduction and exploratory data analysis, with an emphasis on the EDA. It will also help you prepare for the presentation of the exploratory data analysis results.
 
 Below is a brief description of the sections to include in this step:
 
@@ -295,15 +296,106 @@ The presentation is worth 10 points. It will be graded based on the following:
 
 ## Presentation comments {#presentation-comments}
 
-\[To be posted.\]
+::: callout-important
+## Submission 
 
-## Draft report
+Presentation comments must be submitted through the feedback form by the end of your lab session. 
 
-\[To be posted.\]
+Your feedback assignments and link to the form will be posted the day before the presentations.
+:::
 
-## Peer review
+You will provide feedback on two teams' presentations. Please provide all scores and comments by the end of the lab session. There will be a few minutes between each presentation to submit scores and comments.
 
-\[To be posted.\]
+### Grading 
+
+The presentation comments are worth 2 points.  The grade will be based on submitting the scores and comments for both of your assigned teams by the end of your lab.  This portion of the project will be assessed individually.
+
+
+## Draft report + peer review {#draft-report-peer-review}
+
+::: .callout-important
+## Submission 
+
+Write your draft report in the `written-report.qmd` file in your team's GitHub repo. Push the `.qmd` and rendered `.pdf` documents to GitHub before the start of your lab section on **April 10**. 
+:::
+
+
+### Draft report
+
+The purpose of the draft and peer review is to give you an opportunity to receive early feedback on your analysis. Therefore, the draft and peer review will focus primarily on the exploratory data analysis, modeling, and initial interpretations.
+
+Below is a brief description of the sections to focus on in the draft. Keep in mind that the final report has a strict 10-page limit. For the draft and final written report, additional EDA or supporting analyses can be included in an appendix if needed.
+
+#### Introduction and data
+
+This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.
+
+#### Methodology
+
+This section describes your modeling approach and the process used to select the final model. Explain the reasoning for the type of model you're fitting, the predictor variables considered for the model, including any interactions. Additionally, show how you arrived at the model you are currently considering as the final model by describing the model selection process, any variable transformations (if needed), and any other relevant considerations that were part of the model fitting process.
+
+This section should focus on the modeling process rather than the numerical results.
+
+#### Results
+
+In this section, you will present the final model and include a brief discussion of the model assumptions, diagnostics, and any relevant model fit statistics.
+
+This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model.
+
+#### Grading
+
+The draft will be graded based on whether there is demonstration of a reasonable and complete attempt at each section described above in `written-report.qmd` and the rendered PDF file in your GitHub repo by the deadline. 
+
+### Peer review
+
+**The peer review is due on Friday, April 11 at 11:59pm**.
+
+Critically reviewing others' work is a crucial part of the scientific process, and STA 221 is no exception. Each lab team will be assigned two other teams' projects to review. Each team should push their draft to their GitHub repo before the start of their lab session on the day of the peer review lab. During lab, your team will have the opportunity to review and provide quality feedback to two other teams.
+
+During the peer review process, you will be provided read-only access to your partner teams' GitHub repos. Provide your review in the form of a GitHub issue to the team's GitHub repo using the issue template provided in the repo.
+
+#### Steps for peer review
+
+::: callout-important
+## Peer review assignments
+
+Go to the Canvas announcement to see which teams' projects your team is reviewing. You'll spend about 30 minutes reviewing each project.
+:::
+
+-   When you get to lab, you should have access to the GitHub repos for the teams you're reviewing. In GitHub, search the repositories for `project`, and you should see the repos for the projects you're reviewing. You will be able to read the files in the repo and post issues, but you cannot push changes to the repo. You will have access to the repo until the deadline for the peer review.
+
+-   Every team member may choose to work on both peer reviews or have some team members focus on a single peer review. Either way there will be one peer review grade assigned per team.
+
+- Your feedback should be specific and constructive. Avoid brief comments such as “looks good.” Instead, explain what is effective and suggest concrete improvements where appropriate.
+
+-   For each team you're reviewing:
+
+    -   Open that team's repo, read the project draft, and browse the rest of the repo.
+
+    -   Go to the **Issues** tab in that repo, click on **New issue**, and click on **Get started** for the Peer Review issue. Write your responses to the prompts in the issue. You will answer the following questions:
+
+        -   Describe the goal of the project.
+
+        -   Describe the data set used in the project. What are the observations in the data? What is the source of the data? How were the data originally collected?
+
+        -   Consider the exploratory data analysis (EDA). Describe one aspect of the EDA that is effective in helping you understand the data. Provide constructive feedback on how the team might improve the EDA.
+
+        -   Describe the statistical methods, analysis approach, and discussion of model assumptions, diagnostics, model fit.
+
+        -   Provide constructive feedback on how the team might improve their analysis. Make sure your feedback includes at least one comment on the statistical modeling aspect of the project, but also feel free to comment on aspects beyond the modeling.
+
+        -   Provide constructive feedback on the interpretations and initial conclusion. What is most effective in the presentation of the results? What additional detail can the team provide to make the results and conclusions easier for the reader to understand?
+
+        -   What aspect of this project are you most interested in and think would be interesting to highlight in the written report?
+
+        -   Provide constructive feedback on any issues with file and/or code organization.
+
+        -   (Optional) Any further comments or feedback?
+
+#### Grading
+
+The peer review will be graded based on the extent to which it comprehensively and constructively addresses the components on the peer review form.  There will be one peer review grade per team and will reflect the overall quality and thoroughness of the feedback.
+
 
 ## Written report {#written-report}
 
