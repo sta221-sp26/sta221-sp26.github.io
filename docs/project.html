@@ -407,10 +407,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#grading-3" id="toc-grading-3" class="nav-link" data-scroll-target="#grading-3">Grading</a></li>
   </ul></li>
-  <li><a href="#draft-report-peer-review" id="toc-draft-report-peer-review" class="nav-link" data-scroll-target="#draft-report-peer-review">Draft report + peer review</a></li>
-  <li><a href="#submission-5" id="toc-submission-5" class="nav-link" data-scroll-target="#submission-5">Submission</a></li>
-  <li><a href="#draft-report" id="toc-draft-report" class="nav-link" data-scroll-target="#draft-report">Draft report</a></li>
-  <li><a href="#peer-review" id="toc-peer-review" class="nav-link" data-scroll-target="#peer-review">Peer review</a></li>
+  <li><a href="#draft-report" id="toc-draft-report" class="nav-link" data-scroll-target="#draft-report">Draft report</a>
+  <ul class="collapse">
+  <li><a href="#introduction-and-data" id="toc-introduction-and-data" class="nav-link" data-scroll-target="#introduction-and-data">Introduction and data</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#grading-4" id="toc-grading-4" class="nav-link" data-scroll-target="#grading-4">Grading</a></li>
+  </ul></li>
+  <li><a href="#peer-review" id="toc-peer-review" class="nav-link" data-scroll-target="#peer-review">Peer review</a>
+  <ul class="collapse">
+  <li><a href="#grading-5" id="toc-grading-5" class="nav-link" data-scroll-target="#grading-5">Grading</a></li>
+  </ul></li>
   <li><a href="#written-report" id="toc-written-report" class="nav-link" data-scroll-target="#written-report">Written report</a></li>
   <li><a href="#reproducibility-organization" id="toc-reproducibility-organization" class="nav-link" data-scroll-target="#reproducibility-organization">Reproducibility + organization</a></li>
   <li><a href="#overall-grading" id="toc-overall-grading" class="nav-link" data-scroll-target="#overall-grading">Overall grading</a>
@@ -450,7 +457,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="#project-proposal">Project proposal</a> due Tuesday, February 24</p>
 <p><a href="#eda">Exploratory data analysis</a> due Thursday, March 19</p>
 <p><a href="#presentation">Presentation</a> + <a href="#presentation-comments">Presentation comments</a> Friday, March 27 (in lab)</p>
-<p><a href="#draft-report-peer-review">Draft report + peer review</a> Friday, April 10 (peer review in lab)</p>
+<p><a href="#draft-report">Draft report</a> + <a href="#peer-review">Peer review</a> Friday, April 10 (peer review in lab)</p>
 <p><a href="#written-report">Written report</a> due Tuesday, April 21</p>
 <p><a href="#reproducibility-organization">Reproducibility + organization</a> due Tuesday, April 21</p>
 </section>
@@ -784,7 +791,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>Presentation comments must be submitted through the feedback form by the end of your lab session.</p>
-<p>Your feedback assignments and link to the form will be posted the day before the presentations.</p>
+<p>See the Canvas announcement the day before presentations for your feedback assignments and link to the feedback form.</p>
 </div>
 </div>
 <p>You will provide feedback on two teams’ presentations. Please provide all scores and comments by the end of the lab session. There will be a few minutes between each presentation to submit scores and comments.</p>
@@ -793,39 +800,57 @@ Tip
 <p>The presentation comments are worth 2 points. The grade will be based on submitting the scores and comments for both of your assigned teams by the end of your lab. This portion of the project will be assessed individually.</p>
 </section>
 </section>
-<section id="draft-report-peer-review" class="level2">
-<h2 class="anchored" data-anchor-id="draft-report-peer-review">Draft report + peer review</h2>
-</section>
-<section id="submission-5" class="level2 .callout-important">
-<h2 class="anchored" data-anchor-id="submission-5">Submission</h2>
-<p>Write your draft report in the <code>written-report.qmd</code> file in your team’s GitHub repo. Push the <code>.qmd</code> and rendered <code>.pdf</code> documents to GitHub before the start of your lab section on <strong>April 10</strong>.</p>
-</section>
-<section id="draft-report" class="level3">
-<h3 class="anchored" data-anchor-id="draft-report">Draft report</h3>
+<section id="draft-report" class="level2">
+<h2 class="anchored" data-anchor-id="draft-report">Draft report</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Submission
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write your draft report in the <code>written-report.qmd</code> file in your team’s GitHub repo. Push the <code>.qmd</code> and rendered <code>.pdf</code> documents to GitHub <strong>before the start of your lab section on</strong> <strong>April 10</strong>.</p>
+</div>
+</div>
 <p>The purpose of the draft and peer review is to give you an opportunity to receive early feedback on your analysis. Therefore, the draft and peer review will focus primarily on the exploratory data analysis, modeling, and initial interpretations.</p>
 <p>Below is a brief description of the sections to focus on in the draft. Keep in mind that the final report has a strict 10-page limit. For the draft and final written report, additional EDA or supporting analyses can be included in an appendix if needed.</p>
-<section id="introduction-and-data" class="level4">
-<h4 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h4>
+<section id="introduction-and-data" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h3>
 <p>This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.</p>
 </section>
-<section id="methodology" class="level4">
-<h4 class="anchored" data-anchor-id="methodology">Methodology</h4>
+<section id="methodology" class="level3">
+<h3 class="anchored" data-anchor-id="methodology">Methodology</h3>
 <p>This section describes your modeling approach and the process used to select the final model. Explain the reasoning for the type of model you’re fitting, the predictor variables considered for the model, including any interactions. Additionally, show how you arrived at the model you are currently considering as the final model by describing the model selection process, any variable transformations (if needed), and any other relevant considerations that were part of the model fitting process.</p>
 <p>This section should focus on the modeling process rather than the numerical results.</p>
 </section>
-<section id="results" class="level4">
-<h4 class="anchored" data-anchor-id="results">Results</h4>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
 <p>In this section, you will present the final model and include a brief discussion of the model assumptions, diagnostics, and any relevant model fit statistics.</p>
 <p>This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model.</p>
 </section>
-<section id="grading-4" class="level4">
-<h4 class="anchored" data-anchor-id="grading-4">Grading</h4>
+<section id="grading-4" class="level3">
+<h3 class="anchored" data-anchor-id="grading-4">Grading</h3>
 <p>The draft will be graded based on whether there is demonstration of a reasonable and complete attempt at each section described above in <code>written-report.qmd</code> and the rendered PDF file in your GitHub repo by the deadline.</p>
 </section>
 </section>
-<section id="peer-review" class="level3">
-<h3 class="anchored" data-anchor-id="peer-review">Peer review</h3>
-<p><strong>The peer review is due on Friday, April 11 at 11:59pm</strong>.</p>
+<section id="peer-review" class="level2">
+<h2 class="anchored" data-anchor-id="peer-review">Peer review</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Submission
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write the peer review in the <code>Peer Review</code> issue in your assigned teams’ GitHub repos by <strong>April 11 at 11:59pm.</strong></p>
+</div>
+</div>
 <p>Critically reviewing others’ work is a crucial part of the scientific process, and STA 221 is no exception. Each lab team will be assigned two other teams’ projects to review. Each team should push their draft to their GitHub repo before the start of their lab session on the day of the peer review lab. During lab, your team will have the opportunity to review and provide quality feedback to two other teams.</p>
 <p>During the peer review process, you will be provided read-only access to your partner teams’ GitHub repos. Provide your review in the form of a GitHub issue to the team’s GitHub repo using the issue template provided in the repo.</p>
 <section id="steps-for-peer-review" class="level4">
@@ -865,8 +890,8 @@ Tip
 </ul></li>
 </ul>
 </section>
-<section id="grading-5" class="level4">
-<h4 class="anchored" data-anchor-id="grading-5">Grading</h4>
+<section id="grading-5" class="level3">
+<h3 class="anchored" data-anchor-id="grading-5">Grading</h3>
 <p>The peer review will be graded based on the extent to which it comprehensively and constructively addresses the components on the peer review form. There will be one peer review grade per team and will reflect the overall quality and thoroughness of the feedback.</p>
 </section>
 </section>
