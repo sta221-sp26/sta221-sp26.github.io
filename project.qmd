@@ -400,22 +400,22 @@ The peer review will be graded based on the extent to which it comprehensively a
 ## Written report {#written-report}
 
 ::: callout-important
-The written report must be completed in the `written-report.qmd` file and must be reproducible. All team members' contribution will be evaluated, in part, through the commit history in the GitHub repo.
+The written report must be completed in the `written-report.qmd` file and must be reproducible. All team members' contributions will be evaluated, in part, based on the commit history in the GitHub repo.
 
 Make sure all code, warnings, and messages are suppressed in the final written report. The report in `written-report.qmd` and the rendered PDF should be pushed to the GitHub repo by **April 21 at 11:59pm.**
 :::
 
 Below are general details about the final written report.
 
--   The rendered PDF must match exactly what is rendered from `written-report.qmd` in your GitHub repo. The mandatory components of the report are below. You are free to add additional sections as necessary. **The report, including tables and visualizations, must be no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address all of the analysis and report.
+-   The rendered PDF must match exactly what is produced when rendering `written-report.qmd` in your GitHub repo. 
 
-<!-- -->
+- **The report, including tables and visualizations, must be no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address the analysis and clearly communicate your findings.
 
 -   Be selective in what you include in your final write-up. The goal is to write a cohesive narrative that demonstrates a thorough and comprehensive analysis rather than explain every step of the analysis.
 
 -   You are welcome to include an appendix with additional work at the end of the written report document, as needed; however, grading will overwhelmingly be based on the content in the main body of the report. You should assume the reader will not see the material in the appendix unless prompted to view it in the main body of the report. The appendix should be neatly formatted and easy for the reader to navigate. The appendix does [**not**]{.underline} count towards the 10-page limit.
 
-Below are the primary components of the written report.
+The mandatory components of the written report are below. You are free to add additional sections as necessary. 
 
 ### Introduction and data
 
@@ -423,7 +423,7 @@ This section includes an introduction to the project motivation, data, and resea
 
 #### Grading criteria
 
-The research question and motivation are clearly stated in the introduction, including citations for the data source and any external research. The data are clearly described, including a description about how the data were originally collected and a concise definition of the variables relevant to understanding the report. The data cleaning process is clearly described, including any decisions made in the process (e.g., creating new variables, removing observations, etc.) The explanatory data analysis helps the reader better understand the observations in the data along with interesting and relevant relationships between the variables. It incorporates appropriate visualizations and summary statistics.
+The research question and motivation are clearly stated in the introduction, including citations for the data source and any external research. The data are clearly described, including a description of how the data were originally collected and a concise definition of the variables relevant to understanding the report. The data cleaning process is clearly described, including any decisions made in the process (e.g., creating new variables, removing observations, etc.) The exploratory data analysis helps the reader better understand the observations in the data along with interesting and relevant relationships between the variables. It incorporates appropriate visualizations and summary statistics.
 
 ### Methodology
 
@@ -433,13 +433,13 @@ This section should focus on the modeling process rather than the numerical resu
 
 #### Grading criteria
 
-The analysis steps are appropriate for the data and research question. The group used a thorough and careful approach to select the variables in the final model; the approach is clearly described in the report. The model selection process took into account potential interaction effects and addressed any violations in model conditions. If violations of model conditions are still present, there was a reasonable attempt to address the violations based on the course content.
+The analysis steps are appropriate for the data and research question. The group used a thorough and careful approach to select the variables in the final model; the approach is clearly described in the report. The model selection process took into account potential interaction effects and addressed any violations of model assumptions. If violations of model assumptions are still present, there was a reasonable attempt to address the violations based on the course content.
 
 ### Results
 
 In this section, you will present the final model and include a brief discussion of the model assumptions, diagnostics, and any relevant model fit statistics.
 
-This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model. The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research questions, using the interpretations to support your conclusions. Focus on the variables that help you answer the research question and that provide relevant context for the reader.
+This section also includes initial interpretations of key model coefficients and discussion of inferential conclusions drawn from the model. The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research question, using the interpretations to support your conclusions. Focus on the variables that help you answer the research question and that provide relevant context for the reader.
 
 #### Grading criteria
 
@@ -459,7 +459,7 @@ This is an assessment of the overall presentation and formatting of the written 
 
 #### Grading criteria
 
-The report neatly written and organized with clear section headers and appropriately sized figures with informative labels. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted and labeled. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.
+The report is neatly written and organized with clear section headers. Figures have informative labels, are appropriately sized, and are easy to read. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted and labeled. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.
 
 ## Reproducibility + organization {#reproducibility-organization}
 
@@ -510,29 +510,6 @@ The grade breakdown is as follows:
 | Written report                 | 40 pts  |
 | Reproducibility + organization | 3 pts   |
 
-### Grading summary
-
-Grading of the project will take into account the following:
-
--   Content - What is the quality of research and/or policy question and relevancy of data to those questions?
-
--   Correctness - Are statistical procedures carried out and explained correctly?
-
--   Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?
-
--   Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?
-
--   A general breakdown of scoring is as follows:
-
-    -   90%-100%: Outstanding effort. Team understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.
-
-    -   80%-89%: Good effort. Team understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.
-
-    -   70%-79%: Passing effort. Team has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.
-
-    -   60%-69%: Struggling effort. Team is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.
-
-    -   Below 60%\*: Team is not making a sufficient effort.
 
 ## Late work policy
 
