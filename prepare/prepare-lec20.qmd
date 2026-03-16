@@ -1,7 +1,7 @@
 ---
-title: "Prepare for Lecture 20: Logistic regression - Prediction"
+title: "Prepare for Lecture 20: LR - Model selection"
 ---
 
 <br>
 
-📖 [Classification](https://developers.google.com/machine-learning/crash-course/classification) module in Google [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/linear-regression)
+📖 Read [Section 12.5](https://intro-regression.github.io/12-logistic-prediction.html#sec-logistic-model-eval)

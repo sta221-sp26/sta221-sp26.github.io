@@ -257,6 +257,8 @@ The slides may be submitted in one of the following ways:
 -   Put a PDF of the slides or Quarto slides in the `presentation` folder in your team's GitHub repo.
 
 -   Put the URL to your slides in the `README` of the `presentation` folder. If you share the URL, please make sure permissions are set so Prof. Tackett can view the slides.
+
+**There is no make up work for the presentation.**
 :::
 
 Your team will do an in-person presentation that summarizes and showcases the work you've done on the project thus far. Because the presentations will take place while you're still working on the project, it will also be an opportunity to receive feedback on your project as well as provide feedback to other teams. Through the presentation, you will introduce the subject matter and research question, showcase key results from the exploratory data analysis, and discuss your proposed modeling strategy. You are not required (or even expected!) to have modeling results. The presentation should be supported by slides that serve as a brief visual aid to the presentation. The presentation and slides will be graded for content accuracy and clarity.
@@ -303,6 +305,8 @@ The presentation is worth 10 points. It will be graded based on the following:
 Presentation comments must be submitted through the feedback form by the end of your lab session.
 
 See the Canvas announcement the day before presentations for your feedback assignments and link to the feedback form.
+
+**There is no make up work for the presentation comments.**
 :::
 
 You will provide feedback on two teams' presentations. Please provide all scores and comments by the end of the lab session. There will be a few minutes between each presentation to submit scores and comments.
@@ -323,7 +327,7 @@ The purpose of the draft and peer review is to give you an opportunity to receiv
 
 Below is a brief description of the sections to focus on in the draft. Keep in mind that the final report has a strict 10-page limit. For the draft and final written report, additional EDA or supporting analyses can be included in an appendix if needed.
 
-### Introduction and data
+### Introduction 
 
 This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.
 
@@ -353,7 +357,7 @@ Write the peer review in the `Peer Review` issue in your assigned teams' GitHub 
 
 Critically reviewing others' work is a crucial part of the scientific process, and STA 221 is no exception. Each lab team will be assigned two other teams' projects to review. Each team should push their draft to their GitHub repo before the start of their lab session on the day of the peer review lab. During lab, your team will have the opportunity to review and provide quality feedback to two other teams.
 
-During the peer review process, you will be provided read-only access to your partner teams' GitHub repos. Provide your review in the form of a GitHub issue to the team's GitHub repo using the issue template provided in the repo.
+During the peer review process, you will be provided read-only access to your partner teams' GitHub repos. Provide your review in the form of a GitHub issue to the team's GitHub repo using the provided peer review issue template. 
 
 #### Steps for peer review
 
@@ -417,7 +421,7 @@ Below are general details about the final written report.
 
 The mandatory components of the written report are below. You are free to add additional sections as necessary. 
 
-### Introduction and data
+### Introduction 
 
 This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.
 
