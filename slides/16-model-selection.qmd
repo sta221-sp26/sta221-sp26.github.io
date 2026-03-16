@@ -1,0 +1,220 @@
+---
+title: "Model selection"
+author: "Prof. Maria Tackett"
+date: "03-17-2026"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 16-model-selection-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r setup}
+#| include: false
+
+library(countdown)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+
+options(scipen=999)
+```
+
+## Announcements
+
+-   HW 03 due March 19 at 11:59pm
+
+-   Project exploratory data analysis due March 19
+
+-   Statistics experience due April 2
+
+-   DataFest March 20 - 22: [[https://dukestatsci.github.io/datafest/]{.underline}](https://dukestatsci.github.io/datafest/ "https://dukestatsci.github.io/datafest/")
+
+## Mid-semester feedback
+
+## Topics
+
+-   Recap: Properties of $\hat{\boldsymbol{\beta}}$
+-   Model selection
+
+# Properties of $\hat{\boldsymbol{\beta}}$
+
+## Finite sample properties
+
+The least-squares estimator has two useful finite-sample properties
+
+-   **Unbiased estimator**
+
+    $$
+    E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta}
+    $$
+
+-   **Best Linear Unbiased Estimator (BLUE)**
+
+    -   "Best" meaning the lowest variance among the class of linear unbiased estimators
+
+    -   Proved the Gauss-Markov Theorem
+
+## Asymptotic properties
+
+The least-squares estimator inherits asymptotic properties of maximum likelihood estimators when $\boldsymbol{\epsilon} \sim N(\mathbf{0}, \sigma^2_{\epsilon}\mathbf{I})$
+
+**Consistency** As $n \rightarrow \infty$, $\hat{\boldsymbol{\beta}}$ will be arbitrarily close to $\boldsymbol{\beta}$ with high probability
+
+$$
+\displaystyle \lim_{n\to\infty} P(|\hat{\boldsymbol{\beta}}_n - \boldsymbol{\beta}| \geq c) = 0
+$$
+
+-   Proved based on theorem by showing
+
+    -   $\lim_{n \to \infty} Var(\hat{\boldsymbol{\beta}}) = 0$
+
+    -   $\lim_{n \to \infty} Bias(\hat{\boldsymbol{\beta}}) = 0$
+
+## Asymptotic properties
+
+The least-squares estimator inherits asymptotic properties of maximum likelihood estimators when $\boldsymbol{\epsilon} \sim N(\mathbf{0}, \sigma^2_{\epsilon}\mathbf{I})$
+
+-   **Efficiency**: Lowest variance among class of estimators
+
+    -   Lowest variance among all unbiased estimators when
+
+-   **Asymptotic normality**: When $n$ is large, distribution of $\hat{\boldsymbol{\beta}}$ is normal regardless of the distribution of the underlying data
+
+# Model selection
+
+## Model selection goals {.small}
+
+-   The principle of **parsimony** is attributed to William of Occam (early 14th-century English nominalist philosopher), who insisted that, given a set of equally good explanations for a given phenomenon, *the correct explanation is the simplest explanation*[^1]
+
+-   Called **Occam’s razor** because he “shaved” his explanations down to the bare minimum
+
+-   Parsimony in modeling:
+
+    -   models should have as few parameters as possible
+
+    -   linear models should be preferred to non-linear models
+
+    -   experiments relying on few assumptions should be preferred to those relying on many
+
+    -   models should be pared down until they are *minimal adequate*
+
+    -   simple explanations should be preferred to complex explanations
+
+[^1]: Source: The R Book by Michael J. Crawley
+
+## In pursuit of Occam’s razor
+
+-   Occam’s razor states that among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected
+
+-   Model selection follows this principle
+
+-   We only want to add another variable to the model if the addition of that variable brings something valuable in terms of predictive power to the model
+
+-   In other words, we prefer the simplest best model, i.e. **parsimonious** model
+
+## Alternate views {.midi}
+
+> Sometimes a simple model will outperform a more complex model . . . Nevertheless, I believe that deliberately limiting the complexity of the model is not fruitful when the problem is evidently complex. Instead, if a simple model is found that outperforms some particular complex model, the appropriate response is to define a different complex model that captures whatever aspect of the problem led to the simple model performing well.
+>
+> <br>
+>
+> Radford Neal - Bayesian Learning for Neural Networks[^2]
+
+[^2]: Suggested blog post: [Occam](https://statmodeling.stat.columbia.edu/2012/06/26/occam-2/) by Andrew Gelman
+
+## Model selection statistics 
+
+You can use multiple statistics to help inform model selection. If the statistics suggest different models, use the primary analysis objective to determine how to proceed.
+
+::: incremental
+-   When primary analysis objective is **explanation**, prioritize
+
+    -   Adj. $R^2$
+
+    -   Akaike’s Information Criterion (AIC)
+
+-   When primary analysis objective is **prediction**, prioritize
+
+    -   Root Mean Square Error (RMSE)
+
+    -   Bayesian Information Criterion (BIC)
+:::
+
+## AIC & BIC
+
+**Akaike's Information Criterion (AIC):** $$AIC = -2 \log L + 2 \times (p + 1) $$ <br>
+
+**Bayesian Information Criterion (BIC)** $$BIC = -2 \log L + \log(n) \times (p + 1)$$
+
+where $\log L$ is the log-likelihood evaluated at the maximum likelihood estimate, $(p + 1)$ is the number of terms in the model, and $n$ is the sample size
+
+## AIC & BIC
+
+$$\begin{aligned} & AIC = -2 \log L + 2 \times (p + 1) \\
+& BIC =-2 \log L + \log(n) \times (p + 1)\end{aligned}$$
+
+. . .
+
+<br>
+
+-   **First Term**: Generally decreases as *p* increases
+
+-   **Second term (the penalty)**: Increases as $p$ increases
+
+::: question
+Do we prefer smaller or larger AIC? BIC?
+:::
+
+## Using AIC & BIC
+
+$$\begin{aligned} & AIC = -2 \log L + 2 \times (p + 1) \\
+& BIC =-2 \log L + \log(n) \times (p + 1)\end{aligned}$$ <br>
+
+-   Choose model with the smaller value of AIC or BIC
+
+    -   See [Table 10.3 in Introduction to Regression Analysis](https://intro-regression.github.io/10-model-eval.html#tbl-aic-bic-guidelines) for comparison guidelines
+
+-   Penalty for BIC increases with the sample size
+
+    ::: question
+    Penalty for BIC is greater than the penalty for AIC when $n >$ \_\_\_\_ ?
+    :::
+
+# Application exercise
+
+::: appex
+📋 [sta221-sp26.github.io/ae/ae-05-model-selection.html](../ae/ae-05-model-selection.html)
+:::
+
+## Next class
+
+-   Ridge regression
+
+-   No prepare assignment
