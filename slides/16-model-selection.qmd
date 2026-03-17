@@ -58,6 +58,20 @@ options(scipen=999)
 
 ## Mid-semester feedback
 
+-   What is helping your learning:
+
+    -   Attending lectures
+
+    -   Working on assignments with others
+
+    -   Getting help during labs and office hours
+
+-   What you want more of to help with learning
+
+    -   More practice - both theory and applied exercises
+
+    -   Review exercises in lab
+
 ## Topics
 
 -   Recap: Properties of $\hat{\boldsymbol{\beta}}$
@@ -149,7 +163,7 @@ The least-squares estimator inherits asymptotic properties of maximum likelihood
 
 [^2]: Suggested blog post: [Occam](https://statmodeling.stat.columbia.edu/2012/06/26/occam-2/) by Andrew Gelman
 
-## Model selection statistics 
+## Model selection statistics
 
 You can use multiple statistics to help inform model selection. If the statistics suggest different models, use the primary analysis objective to determine how to proceed.
 
