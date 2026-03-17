@@ -37,7 +37,7 @@ Today's dataset contains player information and statistics for professional NBA 
 -   `GP`: total number of games played in the season
 -   `MP`: average minutes played per game
 -   `GS`: number of games the player is put in at the start of the game
--   `FG`:  average number of field goals (shots) attempted per game
+-   `FG`: average number of field goals (shots) attempted per game
 -   `FG%`: percentage of shots made
 -   `2PA`: average number of 2-point shots attempted per game
 -   `2P%`: percentage of 2-point shots made
@@ -74,7 +74,12 @@ Using the output from Exercise 3, fit a second model that includes only the pred
 
 -   Compute AIC and BIC for the model from the previous exercise.
 
--   Which model do you choose based on AIC? Based on BIC?
+-   Which model do you choose based on AIC - model from Exercise 3 or Exercise 5?
+
+-   Which model do you choose based on BIC?
+
+```{}
+```
 
 ## Exercise 7
 

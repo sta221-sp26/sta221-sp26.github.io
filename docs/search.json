@@ -4369,7 +4369,7 @@
     "href": "ae/ae-05-model-selection.html#exercise-6",
     "title": "AE 05: Model selection",
     "section": "Exercise 6",
-    "text": "Exercise 6\n\nCompute AIC and BIC for the model from the previous exercise.\nWhich model do you choose based on AIC? Based on BIC?"
+    "text": "Exercise 6\n\nCompute AIC and BIC for the model from the previous exercise.\nWhich model do you choose based on AIC - model from Exercise 3 or Exercise 5?\nWhich model do you choose based on BIC?"
   },
   {
     "objectID": "ae/ae-05-model-selection.html#exercise-7",
