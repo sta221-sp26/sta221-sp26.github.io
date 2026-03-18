@@ -10216,5 +10216,75 @@
       "Computing",
       "Troubleshooting"
     ]
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#computing-set-up",
+    "href": "slides/17-ridge-regression.html#computing-set-up",
+    "title": "Ridge regression",
+    "section": "Computing set up",
+    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(patchwork)\nlibrary(rms)\n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#data-age-of-abalones",
+    "href": "slides/17-ridge-regression.html#data-age-of-abalones",
+    "title": "Ridge regression",
+    "section": "Data: Age of abalones",
+    "text": "Data: Age of abalones\nThe data for this analysis contains measurements for abalones, a type of marine snail. These measurements were collected and analyzed by researchers in Warwick et al. (1994). Click here for the publication.\nThe 4177 abalones in this study can be reasonably treated as a random sample.\nThe goal of this analysis is to use characteristics of the abalones to predict their age."
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#fit-a-model",
+    "href": "slides/17-ridge-regression.html#fit-a-model",
+    "title": "Ridge regression",
+    "section": "Fit a model",
+    "text": "Fit a model\n\nage_fit &lt;- lm(Age ~ Sex + Length + Diameter + Height\n              + Whole_Weight, data = abalones)\n\ntidy(age_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n5.643\n0.336\n16.795\n0.000\n\n\nSexI\n-1.084\n0.119\n-9.151\n0.000\n\n\nSexM\n-0.145\n0.097\n-1.492\n0.136\n\n\nLength\n-0.054\n0.010\n-5.136\n0.000\n\n\nDiameter\n0.114\n0.013\n8.903\n0.000\n\n\nHeight\n0.094\n0.009\n10.590\n0.000\n\n\nWhole_Weight\n-0.001\n0.001\n-0.642\n0.521"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#variables",
+    "href": "slides/17-ridge-regression.html#variables",
+    "title": "Ridge regression",
+    "section": "Variables",
+    "text": "Variables\n\nSex: Male (M), Female (F), Infant (I)\nLength: Longest shell measurement (in millimeters)\nDiameter: Measured perpendicular to length (in millimeters)\nHeight : Measured with meat in shell (in millimeters)\nWhole_Weight: Total weight of abalone (in grams)\nAge: Age (in years)"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#potential-issue",
+    "href": "slides/17-ridge-regression.html#potential-issue",
+    "title": "Ridge regression",
+    "section": "Potential issue",
+    "text": "Potential issue\n\nvif(age_fit)\n\n        SexI         SexM       Length     Diameter       Height Whole_Weight \n    1.950083     1.386901    39.867076    41.170644     3.487132     7.709595 \n\n\n\n\n\nWhat is the potential issue with this model?\nHow does this impact the model results?"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#limitations-of-least-squares-regression",
+    "href": "slides/17-ridge-regression.html#limitations-of-least-squares-regression",
+    "title": "Ridge regression",
+    "section": "Limitations of least-squares regression",
+    "text": "Limitations of least-squares regression\n\nWhen \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) is nearly singular, \\(Var(\\hat{\\boldsymbol{\\beta}})\\) gets large, and thus we have unstable coefficient estimates\nThis occurs when\n\nThe predictors are collinear"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#limitations-of-the-least-squares-estimator",
+    "href": "slides/17-ridge-regression.html#limitations-of-the-least-squares-estimator",
+    "title": "Ridge regression",
+    "section": "Limitations of the least-squares estimator",
+    "text": "Limitations of the least-squares estimator\n\nWhen \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) is nearly singular, \\(Var(\\hat{\\boldsymbol{\\beta}})\\) gets large, and thus we have unstable coefficient estimates . This occurs when\n\nThere are collinear predictors\n\\(p\\) is large relative to \\(n\\)\n\nAdditionally, if \\(p &gt; n\\) , then we cannot find \\(\\hat{\\boldsymbol{\\beta}}\\)\nWe can use a different estimator that does not have these limitations"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#ridge-estimator",
+    "href": "slides/17-ridge-regression.html#ridge-estimator",
+    "title": "Ridge regression",
+    "section": "Ridge estimator",
+    "text": "Ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n\nLike least-square, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)\n\n\nWhat happens as \\(\\lambda \\rightarrow 0\\)? What happens as \\(\\lambda \\rightarrow \\infty\\) ?\n\n$$\n$$"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#finding-the-ridge-estimator",
+    "href": "slides/17-ridge-regression.html#finding-the-ridge-estimator",
+    "title": "Ridge regression",
+    "section": "Finding the ridge estimator",
+    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n\nLike least-squares, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#finding-the-ridge-estimator-1",
+    "href": "slides/17-ridge-regression.html#finding-the-ridge-estimator-1",
+    "title": "Ridge regression",
+    "section": "Finding the ridge estimator",
+    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\n\n\nWhat will happen to \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) as \\(\\lambda \\rightarrow 0\\)? What will happen as\\(\\lambda \\rightarrow \\infty\\) ?"
   }
 ]

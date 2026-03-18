@@ -223,6 +223,20 @@ Prof.&nbsp;Maria Tackett
 <li>Ridge regression</li>
 </ul>
 </section>
+<section id="computing-set-up" class="slide level2">
+<h2>Computing set up</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)  </span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(tidymodels)  </span>
+<span id="cb1-4"><a></a><span class="fu">library</span>(knitr)       </span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-6"><a></a><span class="fu">library</span>(rms)</span>
+<span id="cb1-7"><a></a></span>
+<span id="cb1-8"><a></a><span class="co"># set default theme in ggplot2</span></span>
+<span id="cb1-9"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
 <section id="aic-bic-recap" class="slide level2">
 <h2>AIC / BIC recap</h2>
 </section>
@@ -233,6 +247,148 @@ Prof.&nbsp;Maria Tackett
 <section id="ridge-regression" class="title-slide slide level1 center">
 <h1>Ridge regression</h1>
 
+</section>
+<section id="data-age-of-abalones" class="slide level2">
+<h2>Data: Age of abalones</h2>
+<p>The data for this analysis contains measurements for abalones, a type of marine snail. These measurements were collected and analyzed by researchers in Warwick et al.&nbsp;(<a href="https://sta221-sp26.github.io/hw/hw-03.html#ref-warwick1994population">1994</a>). <a href="https://www.researchgate.net/profile/Warwick-Nash/publication/287546509_7he_Population_Biology_of_Abalone_Haliotis_species_in_Tasmania_I_Blacklip_Abalone_H_rubra_from_the_North_Coast_and_Islands_of_Bass_Strait/links/5d949460458515202b7bf592/7he-Population-Biology-of-Abalone-Haliotis-species-in-Tasmania-I-Blacklip-Abalone-H-rubra-from-the-North-Coast-and-Islands-of-Bass-Strait.pdf">Click here</a> for the publication.</p>
+<p>The 4177 abalones in this study can be reasonably treated as a random sample.</p>
+<p><strong>The goal of this analysis is to use characteristics of the abalones to predict their age.</strong></p>
+</section>
+<section id="variables" class="slide level2">
+<h2>Variables</h2>
+<ul>
+<li><code>Sex</code>: Male (M), Female (F), Infant (I)</li>
+<li><code>Length</code>: Longest shell measurement (in millimeters)</li>
+<li><code>Diameter</code>: Measured perpendicular to length (in millimeters)</li>
+<li><code>Height</code> : Measured with meat in shell (in millimeters)</li>
+<li><code>Whole_Weight</code>: Total weight of abalone (in grams)</li>
+<li><code>Age</code>: Age (in years)</li>
+</ul>
+</section>
+<section id="fit-a-model" class="slide level2 midi">
+<h2>Fit a model</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>age_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Age <span class="sc">~</span> Sex <span class="sc">+</span> Length <span class="sc">+</span> Diameter <span class="sc">+</span> Height</span>
+<span id="cb2-2"><a></a>              <span class="sc">+</span> Whole_Weight, <span class="at">data =</span> abalones)</span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a><span class="fu">tidy</span>(age_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">5.643</td>
+<td style="text-align: right;">0.336</td>
+<td style="text-align: right;">16.795</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SexI</td>
+<td style="text-align: right;">-1.084</td>
+<td style="text-align: right;">0.119</td>
+<td style="text-align: right;">-9.151</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SexM</td>
+<td style="text-align: right;">-0.145</td>
+<td style="text-align: right;">0.097</td>
+<td style="text-align: right;">-1.492</td>
+<td style="text-align: right;">0.136</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Length</td>
+<td style="text-align: right;">-0.054</td>
+<td style="text-align: right;">0.010</td>
+<td style="text-align: right;">-5.136</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Diameter</td>
+<td style="text-align: right;">0.114</td>
+<td style="text-align: right;">0.013</td>
+<td style="text-align: right;">8.903</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Height</td>
+<td style="text-align: right;">0.094</td>
+<td style="text-align: right;">0.009</td>
+<td style="text-align: right;">10.590</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Whole_Weight</td>
+<td style="text-align: right;">-0.001</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">-0.642</td>
+<td style="text-align: right;">0.521</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="potential-issue" class="slide level2">
+<h2>Potential issue</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">vif</span>(age_fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        SexI         SexM       Length     Diameter       Height Whole_Weight 
+    1.950083     1.386901    39.867076    41.170644     3.487132     7.709595 </code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="question">
+<ul>
+<li><p>What is the potential issue with this model?</p></li>
+<li><p>How does this impact the model results?</p></li>
+</ul>
+</div>
+</section>
+<section id="limitations-of-the-least-squares-estimator" class="slide level2">
+<h2>Limitations of the least-squares estimator</h2>
+<ul>
+<li><p>When <span class="math inline">\((\mathbf{X}^\mathsf{T}\mathbf{X})\)</span> is nearly singular, <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span> gets large, and thus we have unstable coefficient estimates . This occurs when</p>
+<ul>
+<li>There are collinear predictors</li>
+<li><span class="math inline">\(p\)</span> is large relative to <span class="math inline">\(n\)</span></li>
+</ul></li>
+<li><p>Additionally, if <span class="math inline">\(p &gt; n\)</span> , then we cannot find <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></p></li>
+<li><p>We can use a different estimator that does not have these limitations</p></li>
+</ul>
+</section>
+<section id="finding-the-ridge-estimator" class="slide level2">
+<h2>Finding the ridge estimator</h2>
+<p>We find the ridge estimator, <span class="math inline">\(\hat{\boldsymbol{\beta}}_{ridge}\)</span> by minimizing</p>
+<p><span class="math display">\[
+\underbrace{(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})}_{\text{SSR}} + \underbrace{\lambda \boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta}}_{\text{penalty}}
+\]</span></p>
+<p>where <span class="math inline">\(\lambda \geq 0\)</span> is the <em>tuning parameter</em> determined by the statistician (more on this later)</p>
+<ul>
+<li><p>Like least-squares, ridge regression seeks to minimize the sum of squares</p></li>
+<li><p>The penalty, <span class="math inline">\(\lambda\boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta} = \lambda\sum_{j = 1}^p\beta_j\)</span> preferences smaller values of <span class="math inline">\(\beta_j\)</span>, so ridge will shrink the coefficients to 0 (this does not apply to the intercept)</p></li>
+</ul>
+</section>
+<section id="finding-the-ridge-estimator-1" class="slide level2">
+<h2>Finding the ridge estimator</h2>
+<p>We find the ridge estimator, <span class="math inline">\(\hat{\boldsymbol{\beta}}_{ridge}\)</span> by minimizing</p>
+<p><span class="math display">\[
+\underbrace{(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})}_{\text{SSR}} + \underbrace{\lambda \boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta}}_{\text{penalty}}
+\]</span></p>
+<p><br></p>
+<div class="question">
+<p>What will happen to <span class="math inline">\(\hat{\boldsymbol{\beta}}_{ridge}\)</span> as <span class="math inline">\(\lambda \rightarrow 0\)</span>? What will happen as<span class="math inline">\(\lambda \rightarrow \infty\)</span> ?</p>
+</div>
 </section>
 <section id="set-up-problem" class="slide level2">
 <h2>Set up problem</h2>
@@ -288,23 +444,23 @@ Prof.&nbsp;Maria Tackett
 <section id="data" class="slide level2">
 <h2>data</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(rms)</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a>nba_salaries <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/nba-salaries-2022-23.csv"</span>)</span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a>nba_salaries <span class="ot">&lt;-</span> nba_salaries <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a></a>  <span class="fu">mutate</span>(<span class="at">PG =</span> <span class="fu">if_else</span>(Position <span class="sc">==</span> <span class="st">"PG"</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a>nba_salaries <span class="ot">&lt;-</span> nba_salaries <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>Position,  <span class="sc">-</span><span class="st">`</span><span class="at">Player Name</span><span class="st">`</span>) </span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a>nba_salaries_scaled <span class="ot">&lt;-</span> nba_salaries <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Salary, <span class="sc">~</span> <span class="cf">if</span>(<span class="fu">is.numeric</span>(.)) <span class="fu">scale</span>(.) <span class="cf">else</span> .))</span>
-<span id="cb1-15"><a></a></span>
-<span id="cb1-16"><a></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Salary <span class="sc">~</span> ., <span class="at">data =</span> nba_salaries)</span>
-<span id="cb1-17"><a></a><span class="fu">tidy</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb5-3"><a></a><span class="fu">library</span>(rms)</span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a>nba_salaries <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/nba-salaries-2022-23.csv"</span>)</span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a>nba_salaries <span class="ot">&lt;-</span> nba_salaries <span class="sc">|&gt;</span></span>
+<span id="cb5-8"><a></a>  <span class="fu">mutate</span>(<span class="at">PG =</span> <span class="fu">if_else</span>(Position <span class="sc">==</span> <span class="st">"PG"</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
+<span id="cb5-9"><a></a></span>
+<span id="cb5-10"><a></a>nba_salaries <span class="ot">&lt;-</span> nba_salaries <span class="sc">|&gt;</span></span>
+<span id="cb5-11"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>Position,  <span class="sc">-</span><span class="st">`</span><span class="at">Player Name</span><span class="st">`</span>) </span>
+<span id="cb5-12"><a></a></span>
+<span id="cb5-13"><a></a>nba_salaries_scaled <span class="ot">&lt;-</span> nba_salaries <span class="sc">|&gt;</span></span>
+<span id="cb5-14"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Salary, <span class="sc">~</span> <span class="cf">if</span>(<span class="fu">is.numeric</span>(.)) <span class="fu">scale</span>(.) <span class="cf">else</span> .))</span>
+<span id="cb5-15"><a></a></span>
+<span id="cb5-16"><a></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Salary <span class="sc">~</span> ., <span class="at">data =</span> nba_salaries)</span>
+<span id="cb5-17"><a></a><span class="fu">tidy</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 5
    term         estimate std.error statistic  p.value
@@ -322,7 +478,7 @@ Prof.&nbsp;Maria Tackett
 11 `AST%`       -0.0840     0.103     -0.817 4.14e- 1
 12 PGTRUE        1.45       1.02       1.42  1.56e- 1</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">vif</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">vif</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Age        GP        MP        GS        FG     `FG%`     `2PA`     `2P%` 
  1.076311  2.053581 11.615463  3.657016 18.774385  2.776211 12.112968  2.765182 
@@ -331,16 +487,16 @@ Prof.&nbsp;Maria Tackett
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># pass standardized data in: </span></span>
-<span id="cb5-2"><a></a>ridge_fit <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">lm.ridge</span>(Salary <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> ., <span class="at">data =</span> nba_salaries_scaled,</span>
-<span id="cb5-3"><a></a>                           <span class="at">lambda =</span> <span class="dv">5000</span>)</span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a>beta_scaled_lmridge <span class="ot">&lt;-</span>  ridge_fit<span class="sc">$</span>coef <span class="co"># scaled space coefficients</span></span>
-<span id="cb5-6"><a></a>beta_unscaled_lmridge <span class="ot">&lt;-</span>  <span class="fu">coef</span>(ridge_fit) <span class="co"># original scale coefficients </span></span>
-<span id="cb5-7"><a></a></span>
-<span id="cb5-8"><a></a><span class="co"># (different than computed above if y and X are not standardized inputs)</span></span>
-<span id="cb5-9"><a></a></span>
-<span id="cb5-10"><a></a><span class="fu">tidy</span>(ridge_fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># pass standardized data in: </span></span>
+<span id="cb9-2"><a></a>ridge_fit <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">lm.ridge</span>(Salary <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> ., <span class="at">data =</span> nba_salaries_scaled,</span>
+<span id="cb9-3"><a></a>                           <span class="at">lambda =</span> <span class="dv">5000</span>)</span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a>beta_scaled_lmridge <span class="ot">&lt;-</span>  ridge_fit<span class="sc">$</span>coef <span class="co"># scaled space coefficients</span></span>
+<span id="cb9-6"><a></a>beta_unscaled_lmridge <span class="ot">&lt;-</span>  <span class="fu">coef</span>(ridge_fit) <span class="co"># original scale coefficients </span></span>
+<span id="cb9-7"><a></a></span>
+<span id="cb9-8"><a></a><span class="co"># (different than computed above if y and X are not standardized inputs)</span></span>
+<span id="cb9-9"><a></a></span>
+<span id="cb9-10"><a></a><span class="fu">tidy</span>(ridge_fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 5
    lambda   GCV term    estimate scale

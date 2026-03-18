@@ -60,13 +60,114 @@ options(scipen=999)
 
 -   Ridge regression
 
+## Computing set up
+
+```{r}
+#| echo: true
+#| message: false
+
+# load packages
+library(tidyverse)  
+library(tidymodels)  
+library(knitr)       
+library(patchwork)
+library(rms)
+
+# set default theme in ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
 ## AIC / BIC recap
 
 ## AIC and BIC in R
 
-# Ridge regression 
+# Ridge regression
 
-## Set up problem 
+## Data: Age of abalones
+
+The data for this analysis contains measurements for abalones, a type of marine snail. These measurements were collected and analyzed by researchers in Warwick et al. ([1994](https://sta221-sp26.github.io/hw/hw-03.html#ref-warwick1994population)). [Click here](https://www.researchgate.net/profile/Warwick-Nash/publication/287546509_7he_Population_Biology_of_Abalone_Haliotis_species_in_Tasmania_I_Blacklip_Abalone_H_rubra_from_the_North_Coast_and_Islands_of_Bass_Strait/links/5d949460458515202b7bf592/7he-Population-Biology-of-Abalone-Haliotis-species-in-Tasmania-I-Blacklip-Abalone-H-rubra-from-the-North-Coast-and-Islands-of-Bass-Strait.pdf) for the publication.
+
+The 4177 abalones in this study can be reasonably treated as a random sample.
+
+**The goal of this analysis is to use characteristics of the abalones to predict their age.**
+
+```{r}
+#| echo: false
+abalones <- read_csv("data/abalone.csv")
+```
+
+## Variables
+
+-   `Sex`: Male (M), Female (F), Infant (I)
+-   `Length`: Longest shell measurement (in millimeters)
+-   `Diameter`: Measured perpendicular to length (in millimeters)
+-   `Height` : Measured with meat in shell (in millimeters)
+-   `Whole_Weight`: Total weight of abalone (in grams)
+-   `Age`: Age (in years)
+
+## Fit a model  {.midi}
+
+```{r}
+age_fit <- lm(Age ~ Sex + Length + Diameter + Height
+              + Whole_Weight, data = abalones)
+
+tidy(age_fit) |> kable(digits = 3)
+```
+
+## Potential issue
+
+```{r}
+vif(age_fit)
+```
+
+<br>
+
+::: question
+-   What is the potential issue with this model?
+
+-   How does this impact the model results?
+:::
+
+## Limitations of the least-squares estimator
+
+-   When $(\mathbf{X}^\mathsf{T}\mathbf{X})$ is nearly singular, $Var(\hat{\boldsymbol{\beta}})$ gets large, and thus we have unstable coefficient estimates . This occurs when
+
+    -   There are collinear predictors
+    -   $p$ is large relative to $n$
+
+-   Additionally, if $p > n$ , then we cannot find $\hat{\boldsymbol{\beta}}$
+
+-   We can use a different estimator that does not have these limitations
+
+## Finding the ridge estimator
+
+We find the ridge estimator, $\hat{\boldsymbol{\beta}}_{ridge}$ by minimizing
+
+$$
+\underbrace{(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})}_{\text{SSR}} + \underbrace{\lambda \boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta}}_{\text{penalty}}
+$$
+
+where $\lambda \geq 0$ is the *tuning parameter* determined by the statistician (more on this later)
+
+-   Like least-squares, ridge regression seeks to minimize the sum of squares
+
+-   The penalty, $\lambda\boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta} = \lambda\sum_{j = 1}^p\beta_j$ preferences smaller values of $\beta_j$, so ridge will shrink the coefficients to 0 (this does not apply to the intercept)
+
+## Finding the ridge estimator
+
+We find the ridge estimator, $\hat{\boldsymbol{\beta}}_{ridge}$ by minimizing
+
+$$
+\underbrace{(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})}_{\text{SSR}} + \underbrace{\lambda \boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta}}_{\text{penalty}}
+$$
+
+<br>
+
+::: question
+What will happen to $\hat{\boldsymbol{\beta}}_{ridge}$ as $\lambda \rightarrow 0$? What will happen as$\lambda \rightarrow \infty$ ?
+:::
+
+## Set up problem
 
 -   Abalone data set
 
@@ -76,7 +177,7 @@ options(scipen=999)
 
 What if we want to keep all the predictors in the model?
 
-## Ridge regression 
+## Ridge regression
 
 -   show optimization
 
@@ -86,7 +187,7 @@ What if we want to keep all the predictors in the model?
 
 -   We will use standardized predictors for ridge regression. why does this matter?
 
-## Estimator 
+## Estimator
 
 -   you found this in exam 01
 
@@ -96,7 +197,7 @@ What if we want to keep all the predictors in the model?
 
 -   This is the bias-variance trade off - we accept a little bias in order to reduce the variance
 
-## When is ridge useful 
+## When is ridge useful
 
 Most useful for models in which the SE of OLS are large and unstable but you want to keep all the predictors
 
@@ -108,7 +209,7 @@ Most useful for models in which the SE of OLS are large and unstable but you wan
 
 -   Makes it possible to estimate coefficients when p \> n (is this true)?
 
-## LImitations 
+## LImitations
 
 -   Ridge will not ever set the coefficients to exactly equal to 0 (limitation if you want to reduce the number of coefficients in th emodel)
 
@@ -116,7 +217,7 @@ Most useful for models in which the SE of OLS are large and unstable but you wan
 
 -   
 
-## Further reading 
+## Further reading
 
 Link to original paper (reprinted version) <https://www.jstor.org/stable/1271436?seq=6>
 
@@ -160,7 +261,7 @@ tidy(ridge_fit)
 
 ```
 
-## Questions 
+## Questions
 
 -   Form for questions to discuss in lab.
 
