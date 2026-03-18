@@ -1,0 +1,64 @@
+---
+title: "Lab 06"
+subtitle: "Maximum likelihood estimation"
+date: "2024-11-18"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 STA 221 - Fall 2024](https://sta221-fa24.netlify.app)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+# Welcome
+
+## Goals
+
+-   Project milestones
+-   Lab 06: Logistic regression
+
+## Upcoming project milestones
+
+-   Next week's lab: Project work day
+-   December 2 (Monday after Thanksgiving break): Project draft due at 10am + peer review in lab
+-   December 6: Deadline for Round 1 submission (optional)
+-   December 12: Final report + organized GitHub repo due
+
+See [project instructions](https://sta221-fa24.netlify.app/project#presentation) for more detail.
+
+## Lab 06: Logistic regression
+
+This lab focuses on
+
+-   fitting and interpreting logistic regression models
+
+-   using the logistic regression model for classification
+
+-   evaluating model fit using testing data
+
+🔗 <https://sta221-fa24.netlify.app/labs/lab-06>
+
+## Reminder: Tips for working on a team
+
+-   Do not pressure each other to finish early; use the time wisely to really learn the material and produce a quality report.
+
+-   The labs are structured to help you learn the steps of a data analysis. Do not split up the lab among the team members; work on it together in its entirety.
+
+-   Everyone has something to contribute! Use the lab groups as an opportunity to share ideas and learn from each other.
