@@ -1,0 +1,171 @@
+---
+title: "Ridge regression"
+author: "Prof. Maria Tackett"
+date: "03-19-2026"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
+logo: "../images/logo.png"
+format: 
+  revealjs: 
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+  html: 
+    output-file: 17-ridge-regression-notes.html
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r setup}
+#| include: false
+
+library(countdown)
+
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.asp = 0.618,
+  fig.retina = 3,
+  dpi = 300,
+  out.width = "80%",
+  fig.align = "center"
+)
+
+options(scipen=999)
+```
+
+## Announcements
+
+-   HW 03 due March 19 at 11:59pm
+
+-   Project exploratory data analysis due March 19
+
+-   Statistics experience due April 2
+
+-   DataFest March 20 - 22: [[https://dukestatsci.github.io/datafest/]{.underline}](https://dukestatsci.github.io/datafest/ "https://dukestatsci.github.io/datafest/")
+
+## Topics
+
+-   Ridge regression
+
+## AIC / BIC recap
+
+## AIC and BIC in R
+
+# Ridge regression 
+
+## Set up problem 
+
+-   Abalone data set
+
+-   Issue with multicollinearity
+
+-   Variances will be high (show X\^TX matrix)
+
+What if we want to keep all the predictors in the model?
+
+## Ridge regression 
+
+-   show optimization
+
+-   describe the penalty
+
+-   what is happening as lambda goes to 0? What about as lambda goes to infinity? (We'll talk about how to find lambda later)
+
+-   We will use standardized predictors for ridge regression. why does this matter?
+
+## Estimator 
+
+-   you found this in exam 01
+
+-   Is it an unbiased estimator?
+
+-   what is the variance? - this may be too long for class?
+
+-   This is the bias-variance trade off - we accept a little bias in order to reduce the variance
+
+## When is ridge useful 
+
+Most useful for models in which the SE of OLS are large and unstable but you want to keep all the predictors
+
+-   That lambda I term helps stablize the variance when x\^tX is nearly singular.
+
+-   So this is the case when there is high multicollinearity
+
+-   when P is close to n
+
+-   Makes it possible to estimate coefficients when p \> n (is this true)?
+
+## LImitations 
+
+-   Ridge will not ever set the coefficients to exactly equal to 0 (limitation if you want to reduce the number of coefficients in th emodel)
+
+    -   Similar method called LASSO that addresses this
+
+-   
+
+## Further reading 
+
+Link to original paper (reprinted version) <https://www.jstor.org/stable/1271436?seq=6>
+
+## data
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+library(rms)
+
+nba_salaries <- read_csv("data/nba-salaries-2022-23.csv")
+
+nba_salaries <- nba_salaries |>
+  mutate(PG = if_else(Position == "PG", TRUE, FALSE))
+
+nba_salaries <- nba_salaries |>
+  select(-Position,  -`Player Name`) 
+
+nba_salaries_scaled <- nba_salaries |>
+  mutate(across(-Salary, ~ if(is.numeric(.)) scale(.) else .))
+
+model1 <- lm(Salary ~ ., data = nba_salaries)
+tidy(model1)
+
+vif(model1)
+```
+
+```{r}
+#| label: ridge-model 
+
+# pass standardized data in: 
+ridge_fit <- MASS::lm.ridge(Salary ~ 0 + ., data = nba_salaries_scaled,
+                           lambda = 5000)
+
+beta_scaled_lmridge <-  ridge_fit$coef # scaled space coefficients
+beta_unscaled_lmridge <-  coef(ridge_fit) # original scale coefficients 
+
+# (different than computed above if y and X are not standardized inputs)
+
+tidy(ridge_fit)
+
+```
+
+## Questions 
+
+-   Form for questions to discuss in lab.
+
+## Next class
+
+-   Ridge regression
+
+-   No prepare assignment
