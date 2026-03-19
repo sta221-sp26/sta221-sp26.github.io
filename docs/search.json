@@ -9897,7 +9897,7 @@
     "href": "slides/17-ridge-regression-notes.html#finding-the-ridge-estimator",
     "title": "Ridge regression",
     "section": "Finding the ridge estimator",
-    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n. . .\n\nLike least-squares, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)"
+    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n. . .\n\nLike least-squares, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta^2_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)"
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#finding-the-ridge-estimator-1",
@@ -9918,7 +9918,7 @@
     "href": "slides/17-ridge-regression-notes.html#ridge-estimator-hatboldsymbolbeta_ridge",
     "title": "Ridge regression",
     "section": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)",
-    "text": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)\nThe ridge estimator is\n\\[\n\\hat{\\boldsymbol{\\beta}}_{ridge} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X} + \\lambda\\mathbf{I})\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\n(see Exam 01 for derivation)\n\nWe have addressed the singularity of \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) by adding the positive constant to the diagonal\n\n\n\nWhat is \\(E(\\hat{\\boldsymbol{\\beta}}_{ridge})\\)?\nIs \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) unbiased?"
+    "text": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)\nThe ridge estimator is\n\\[\n\\hat{\\boldsymbol{\\beta}}_{ridge} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X} + \\lambda\\mathbf{I})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\n(see Exam 01 for derivation)\n\nWe have addressed the singularity of \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) by adding the positive constant to the diagonal\n\n\n\nWhat is \\(E(\\hat{\\boldsymbol{\\beta}}_{ridge})\\)?\nIs \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) unbiased?"
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#bias-variance-trade-off",
@@ -9939,21 +9939,21 @@
     "href": "slides/17-ridge-regression-notes.html#ridge-regression-in-r",
     "title": "Ridge regression",
     "section": "Ridge regression in R",
-    "text": "Ridge regression in R\nFit ridge regression models using lm.ridge() in the MASS package.\n\nlambda &lt;- 1\n\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter +\n                              Height + Whole_Weight,\n                            data = abalones,\n                            lambda = lambda)\n\n\n\n\n\n\n\nTip\n\n\n\nMASS a select() function that will cause issues with select() in dplyr. Therefore, use the package::function() syntax instead of loading MASS."
+    "text": "Ridge regression in R\nFit ridge regression models using lm.ridge() in the MASS package.\n\nlambda &lt;- 5\n\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter +\n                              Height + Whole_Weight,\n                            data = abalones,\n                            lambda = lambda)\n\n\n\n\n\n\n\nTip\n\n\n\nMASS a select() function that will cause issues with select() in dplyr. Therefore, use the package::function() syntax instead of loading MASS."
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#ridge-regression-in-r-1",
     "href": "slides/17-ridge-regression-notes.html#ridge-regression-in-r-1",
     "title": "Ridge regression",
     "section": "Ridge regression in R",
-    "text": "Ridge regression in R\n\n\nCode\ntidy(ridge_fit) |&gt; kable(digits = 3)\n\n\n\n\n\nlambda\nGCV\nterm\nestimate\nscale\n\n\n\n\n1\n0.002\nSexI\n-0.507\n0.467\n\n\n1\n0.002\nSexM\n-0.070\n0.482\n\n\n1\n0.002\nLength\n-1.254\n24.016\n\n\n1\n0.002\nDiameter\n2.231\n19.846\n\n\n1\n0.002\nHeight\n0.784\n8.364\n\n\n1\n0.002\nWhole_Weight\n-0.070\n98.066\n\n\n\n\n\n. . .\n\nlambda: tuning parameter\nGCV: Generalized cross validation\nestimate: ridge coefficient given \\(\\lambda\\)\nscale: standard deviation of \\(x_j\\) (used by R to compute standardized predictors)\n\n\n# short cut to scale all numeric variables except the response\nabalone_scaled &lt;- abalones |&gt;\n  mutate(across(where(is.numeric) & ! all_of(\"Age\"), scale))"
+    "text": "Ridge regression in R\n\n\nCode\ntidy(ridge_fit) |&gt; kable(digits = 3)\n\n\n\n\n\nlambda\nGCV\nterm\nestimate\nscale\n\n\n\n\n5\n0.002\nSexI\n-0.509\n0.467\n\n\n5\n0.002\nSexM\n-0.070\n0.482\n\n\n5\n0.002\nLength\n-1.139\n24.016\n\n\n5\n0.002\nDiameter\n2.112\n19.846\n\n\n5\n0.002\nHeight\n0.784\n8.364\n\n\n5\n0.002\nWhole_Weight\n-0.067\n98.066\n\n\n\n\n\n. . .\n\nlambda: tuning parameter\nGCV: Generalized cross validation\nestimate: ridge coefficient given \\(\\lambda\\)\nscale: standard deviation of \\(x_j\\) (used by R to compute standardized predictors)"
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#try-different-values-of-lambda",
     "href": "slides/17-ridge-regression-notes.html#try-different-values-of-lambda",
     "title": "Ridge regression",
     "section": "Try different values of lambda",
-    "text": "Try different values of lambda\n\n\nCode\nlambdas &lt;- seq(0, 1000, length = 5000)\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter + Height + Whole_Weight, \n                            data = abalones, lambda = lambdas)\n\n# Plot ridge trace\nplot(ridge_fit, type = \"ridge\")\n\n\n\n\n\n\n\n\n\n\nWhat is happening to the coefficients as \\(\\lambda\\) increases?"
+    "text": "Try different values of lambda\n\n\nCode\nlambdas &lt;- seq(0, 1000, length = 5000)\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter + Height + Whole_Weight, \n                            data = abalones, lambda = lambdas)\n\n# Plot ridge trace\nplot(ridge_fit, main = \"Ridge Trace Plot\")\n\ncoef_names &lt;- colnames(coef(ridge_fit))\ncoef_names &lt;- coef_names[coef_names != \"(Intercept)\"]\n\nn &lt;- length(coef_names)\ncolors &lt;- palette()[1:n]          \n\nlegend(\n  x = \"topright\",\n  legend = coef_names,\n  col    = colors,\n  lty    = 1:n,              \n  lwd    = 2,\n  title  = \"Coefficients\",\n  bty    = \"n\",\n  cex    = 0.8\n)\n\n\n\n\n\n\n\n\n\n\nWhat is happening to the coefficients as \\(\\lambda\\) increases?"
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#gcv-to-choose-lambda",
@@ -9974,7 +9974,14 @@
     "href": "slides/17-ridge-regression-notes.html#gcv-to-choose-lambda-2",
     "title": "Ridge regression",
     "section": "GCV to choose \\(\\lambda\\)",
-    "text": "GCV to choose \\(\\lambda\\)\n\nGCV uses the \\(\\bar{h}_{ii} = tr(\\mathbf{H}_\\lambda)/n\\) instead of the individual \\(h_{ii}\\)\n\\[\nGCV (\\lambda) = \\frac{1}{n}\\sum_{i=1}^{n}\\frac{(y_i - \\hat{y}_i)^2}{\\big(1 - \\frac{tr(\\mathbf{H}_\\lambda}{n}\\big)^2}\n\\]\nWe use the select() function in MASS to find \\(\\lambda\\) that minimizes GCV\n\nMASS::select(ridge_fit)\n\nmodified HKB estimator is 3.427088 \nmodified L-W estimator is 6.826774 \nsmallest value of GCV  at 1.40028"
+    "text": "GCV to choose \\(\\lambda\\)\n\nGCV uses the \\(\\bar{h}_{ii} = tr(\\mathbf{H}_\\lambda)/n\\) instead of the individual \\(h_{ii}\\)\n\\[\nGCV (\\lambda) = \\frac{1}{n}\\sum_{i=1}^{n}\\frac{(y_i - \\hat{y}_i)^2}{\\big(1 - \\frac{tr(\\mathbf{H}_\\lambda)}{n}\\big)^2}\n\\]\nWe use the select() function in MASS to find \\(\\lambda\\) that minimizes GCV\n\nMASS::select(ridge_fit)\n\nmodified HKB estimator is 3.427088 \nmodified L-W estimator is 6.826774 \nsmallest value of GCV  at 1.40028"
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#refit-model-with-selected-lambda",
+    "href": "slides/17-ridge-regression-notes.html#refit-model-with-selected-lambda",
+    "title": "Ridge regression",
+    "section": "Refit model with selected \\(\\lambda\\)",
+    "text": "Refit model with selected \\(\\lambda\\)\n\nlambda &lt;- 1.40028\n\nridge_fit_2 &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter +\n                              Height + Whole_Weight,\n                            data = abalones,\n                            lambda = lambda)\n\n\n\n\n\n\nlambda\nGCV\nterm\nestimate\nscale\n\n\n\n\n1.4\n0.002\nSexI\n-0.507\n0.467\n\n\n1.4\n0.002\nSexM\n-0.070\n0.482\n\n\n1.4\n0.002\nLength\n-1.242\n24.016\n\n\n1.4\n0.002\nDiameter\n2.219\n19.846\n\n\n1.4\n0.002\nHeight\n0.784\n8.364\n\n\n1.4\n0.002\nWhole_Weight\n-0.070\n98.066"
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#further-reading",
@@ -10058,7 +10065,7 @@
     "href": "slides/17-ridge-regression.html#finding-the-ridge-estimator",
     "title": "Ridge regression",
     "section": "Finding the ridge estimator",
-    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n\n\nLike least-squares, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)"
+    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n\n\nLike least-squares, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta^2_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)"
   },
   {
     "objectID": "slides/17-ridge-regression.html#finding-the-ridge-estimator-1",
@@ -10079,7 +10086,7 @@
     "href": "slides/17-ridge-regression.html#ridge-estimator-hatboldsymbolbeta_ridge",
     "title": "Ridge regression",
     "section": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)",
-    "text": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)\nThe ridge estimator is\n\\[\n\\hat{\\boldsymbol{\\beta}}_{ridge} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X} + \\lambda\\mathbf{I})\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\n(see Exam 01 for derivation)\n\nWe have addressed the singularity of \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) by adding the positive constant to the diagonal\n\n\n\nWhat is \\(E(\\hat{\\boldsymbol{\\beta}}_{ridge})\\)?\nIs \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) unbiased?"
+    "text": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)\nThe ridge estimator is\n\\[\n\\hat{\\boldsymbol{\\beta}}_{ridge} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X} + \\lambda\\mathbf{I})^{-1}\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\n(see Exam 01 for derivation)\n\nWe have addressed the singularity of \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) by adding the positive constant to the diagonal\n\n\n\nWhat is \\(E(\\hat{\\boldsymbol{\\beta}}_{ridge})\\)?\nIs \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) unbiased?"
   },
   {
     "objectID": "slides/17-ridge-regression.html#bias-variance-trade-off",
@@ -10100,21 +10107,21 @@
     "href": "slides/17-ridge-regression.html#ridge-regression-in-r",
     "title": "Ridge regression",
     "section": "Ridge regression in R",
-    "text": "Ridge regression in R\nFit ridge regression models using lm.ridge() in the MASS package.\n\nlambda &lt;- 1\n\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter +\n                              Height + Whole_Weight,\n                            data = abalones,\n                            lambda = lambda)\n\n\n\n\n\n\n\nTip\n\n\nMASS a select() function that will cause issues with select() in dplyr. Therefore, use the package::function() syntax instead of loading MASS."
+    "text": "Ridge regression in R\nFit ridge regression models using lm.ridge() in the MASS package.\n\nlambda &lt;- 5\n\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter +\n                              Height + Whole_Weight,\n                            data = abalones,\n                            lambda = lambda)\n\n\n\n\n\n\n\nTip\n\n\nMASS a select() function that will cause issues with select() in dplyr. Therefore, use the package::function() syntax instead of loading MASS."
   },
   {
     "objectID": "slides/17-ridge-regression.html#ridge-regression-in-r-1",
     "href": "slides/17-ridge-regression.html#ridge-regression-in-r-1",
     "title": "Ridge regression",
     "section": "Ridge regression in R",
-    "text": "Ridge regression in R\n\n\nCode\ntidy(ridge_fit) |&gt; kable(digits = 3)\n\n\n\n\n\nlambda\nGCV\nterm\nestimate\nscale\n\n\n\n\n1\n0.002\nSexI\n-0.507\n0.467\n\n\n1\n0.002\nSexM\n-0.070\n0.482\n\n\n1\n0.002\nLength\n-1.254\n24.016\n\n\n1\n0.002\nDiameter\n2.231\n19.846\n\n\n1\n0.002\nHeight\n0.784\n8.364\n\n\n1\n0.002\nWhole_Weight\n-0.070\n98.066\n\n\n\n\n\n\n\nlambda: tuning parameter\nGCV: Generalized cross validation\nestimate: ridge coefficient given \\(\\lambda\\)\nscale: standard deviation of \\(x_j\\) (used by R to compute standardized predictors)\n\n\n# short cut to scale all numeric variables except the response\nabalone_scaled &lt;- abalones |&gt;\n  mutate(across(where(is.numeric) & ! all_of(\"Age\"), scale))"
+    "text": "Ridge regression in R\n\n\nCode\ntidy(ridge_fit) |&gt; kable(digits = 3)\n\n\n\n\n\nlambda\nGCV\nterm\nestimate\nscale\n\n\n\n\n5\n0.002\nSexI\n-0.509\n0.467\n\n\n5\n0.002\nSexM\n-0.070\n0.482\n\n\n5\n0.002\nLength\n-1.139\n24.016\n\n\n5\n0.002\nDiameter\n2.112\n19.846\n\n\n5\n0.002\nHeight\n0.784\n8.364\n\n\n5\n0.002\nWhole_Weight\n-0.067\n98.066\n\n\n\n\n\n\n\nlambda: tuning parameter\nGCV: Generalized cross validation\nestimate: ridge coefficient given \\(\\lambda\\)\nscale: standard deviation of \\(x_j\\) (used by R to compute standardized predictors)"
   },
   {
     "objectID": "slides/17-ridge-regression.html#try-different-values-of-lambda",
     "href": "slides/17-ridge-regression.html#try-different-values-of-lambda",
     "title": "Ridge regression",
     "section": "Try different values of lambda",
-    "text": "Try different values of lambda\n\n\nCode\nlambdas &lt;- seq(0, 1000, length = 5000)\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter + Height + Whole_Weight, \n                            data = abalones, lambda = lambdas)\n\n# Plot ridge trace\nplot(ridge_fit, type = \"ridge\")\n\n\n\n\nWhat is happening to the coefficients as \\(\\lambda\\) increases?"
+    "text": "Try different values of lambda\n\n\nCode\nlambdas &lt;- seq(0, 1000, length = 5000)\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter + Height + Whole_Weight, \n                            data = abalones, lambda = lambdas)\n\n# Plot ridge trace\nplot(ridge_fit, main = \"Ridge Trace Plot\")\n\ncoef_names &lt;- colnames(coef(ridge_fit))\ncoef_names &lt;- coef_names[coef_names != \"(Intercept)\"]\n\nn &lt;- length(coef_names)\ncolors &lt;- palette()[1:n]          \n\nlegend(\n  x = \"topright\",\n  legend = coef_names,\n  col    = colors,\n  lty    = 1:n,              \n  lwd    = 2,\n  title  = \"Coefficients\",\n  bty    = \"n\",\n  cex    = 0.8\n)\n\n\n\n\nWhat is happening to the coefficients as \\(\\lambda\\) increases?"
   },
   {
     "objectID": "slides/17-ridge-regression.html#gcv-to-choose-lambda",
@@ -10135,7 +10142,14 @@
     "href": "slides/17-ridge-regression.html#gcv-to-choose-lambda-2",
     "title": "Ridge regression",
     "section": "GCV to choose \\(\\lambda\\)",
-    "text": "GCV to choose \\(\\lambda\\)\n\nGCV uses the \\(\\bar{h}_{ii} = tr(\\mathbf{H}_\\lambda)/n\\) instead of the individual \\(h_{ii}\\)\n\\[\nGCV (\\lambda) = \\frac{1}{n}\\sum_{i=1}^{n}\\frac{(y_i - \\hat{y}_i)^2}{\\big(1 - \\frac{tr(\\mathbf{H}_\\lambda}{n}\\big)^2}\n\\]\nWe use the select() function in MASS to find \\(\\lambda\\) that minimizes GCV\n\nMASS::select(ridge_fit)\n\nmodified HKB estimator is 3.427088 \nmodified L-W estimator is 6.826774 \nsmallest value of GCV  at 1.40028"
+    "text": "GCV to choose \\(\\lambda\\)\n\nGCV uses the \\(\\bar{h}_{ii} = tr(\\mathbf{H}_\\lambda)/n\\) instead of the individual \\(h_{ii}\\)\n\\[\nGCV (\\lambda) = \\frac{1}{n}\\sum_{i=1}^{n}\\frac{(y_i - \\hat{y}_i)^2}{\\big(1 - \\frac{tr(\\mathbf{H}_\\lambda)}{n}\\big)^2}\n\\]\nWe use the select() function in MASS to find \\(\\lambda\\) that minimizes GCV\n\nMASS::select(ridge_fit)\n\nmodified HKB estimator is 3.427088 \nmodified L-W estimator is 6.826774 \nsmallest value of GCV  at 1.40028"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#refit-model-with-selected-lambda",
+    "href": "slides/17-ridge-regression.html#refit-model-with-selected-lambda",
+    "title": "Ridge regression",
+    "section": "Refit model with selected \\(\\lambda\\)",
+    "text": "Refit model with selected \\(\\lambda\\)\n\nlambda &lt;- 1.40028\n\nridge_fit_2 &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter +\n                              Height + Whole_Weight,\n                            data = abalones,\n                            lambda = lambda)\n\n\n\n\n\n\nlambda\nGCV\nterm\nestimate\nscale\n\n\n\n\n1.4\n0.002\nSexI\n-0.507\n0.467\n\n\n1.4\n0.002\nSexM\n-0.070\n0.482\n\n\n1.4\n0.002\nLength\n-1.242\n24.016\n\n\n1.4\n0.002\nDiameter\n2.219\n19.846\n\n\n1.4\n0.002\nHeight\n0.784\n8.364\n\n\n1.4\n0.002\nWhole_Weight\n-0.070\n98.066"
   },
   {
     "objectID": "slides/17-ridge-regression.html#further-reading",

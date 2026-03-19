@@ -58,6 +58,8 @@ options(scipen=999)
 
 **Submit questions by 5pm today. Form at the end of today's notes.**
 
+# AE 05
+
 ## Topics
 
 -   Ridge regression
@@ -149,7 +151,7 @@ where $\lambda \geq 0$ is the *tuning parameter* determined by the statistician 
 
 -   Like least-squares, ridge regression seeks to minimize the sum of squares
 
--   The penalty, $\lambda\boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta} = \lambda\sum_{j = 1}^p\beta_j$ preferences smaller values of $\beta_j$, so ridge will shrink the coefficients to 0 (this does not apply to the intercept)
+-   The penalty, $\lambda\boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta} = \lambda\sum_{j = 1}^p\beta^2_j$ preferences smaller values of $\beta_j$, so ridge will shrink the coefficients to 0 (this does not apply to the intercept)
 
 ## Finding the ridge estimator
 
@@ -175,7 +177,7 @@ $$\text{minimize }(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf
 
 :::::: columns
 ::: {.column width="50%"}
-![Image source: Introduction to Statistical Learning](images/countours-ridge.jpg){alt="Image source: Introduction to Statistical Learning" fig-align="center" width="60%"}
+![Image source: Introduction to Statistical Learning](images/countours-ridge.jpg){fig-align="center" width="55%"}
 :::
 
 :::: {.column width="50%"}
@@ -196,7 +198,7 @@ See Section 1.5 of [Lecture notes on ridge regression](https://arxiv.org/pdf/150
 The ridge estimator is
 
 $$
-\hat{\boldsymbol{\beta}}_{ridge} = (\mathbf{X}^\mathsf{T}\mathbf{X} + \lambda\mathbf{I})\mathbf{X}^\mathsf{T}\mathbf{y}
+\hat{\boldsymbol{\beta}}_{ridge} = (\mathbf{X}^\mathsf{T}\mathbf{X} + \lambda\mathbf{I})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}
 $$
 
 (see Exam 01 for derivation)
@@ -244,7 +246,7 @@ See Section 1.4.2 of [Lecture notes on ridge regression](https://arxiv.org/pdf/1
 Fit ridge regression models using `lm.ridge()` in the **MASS** package.
 
 ```{r}
-lambda <- 1
+lambda <- 5
 
 ridge_fit <- MASS::lm.ridge(Age ~ Sex + Length + Diameter +
                               Height + Whole_Weight,
@@ -271,7 +273,7 @@ tidy(ridge_fit) |> kable(digits = 3)
 -   **scale**: standard deviation of $x_j$ (used by R to compute standardized predictors)
 
 ```{r}
-#| echo: true
+#| echo: false
 
 # short cut to scale all numeric variables except the response
 abalone_scaled <- abalones |>
@@ -287,7 +289,25 @@ ridge_fit <- MASS::lm.ridge(Age ~ Sex + Length + Diameter + Height + Whole_Weigh
                             data = abalones, lambda = lambdas)
 
 # Plot ridge trace
-plot(ridge_fit, type = "ridge")
+plot(ridge_fit, main = "Ridge Trace Plot")
+
+coef_names <- colnames(coef(ridge_fit))
+coef_names <- coef_names[coef_names != "(Intercept)"]
+
+n <- length(coef_names)
+colors <- palette()[1:n]          
+
+legend(
+  x = "topright",
+  legend = coef_names,
+  col    = colors,
+  lty    = 1:n,              
+  lwd    = 2,
+  title  = "Coefficients",
+  bty    = "n",
+  cex    = 0.8
+)
+
 ```
 
 ::: question
@@ -304,7 +324,7 @@ What is happening to the coefficients as $\lambda$ increases?
 
 -   We use the $\lambda$ with the minimum value of GCV
 
-## GCV to choose $\lambda$ 
+## GCV to choose $\lambda$ {.midi}
 
 -   The fitted values from ridge regression can be written as
 
@@ -322,12 +342,12 @@ $$
 
 where $h_{ii}$ is the $i^{th}$ diagonal element of $\mathbf{H}_\lambda$.
 
-## GCV to choose $\lambda$ 
+## GCV to choose $\lambda$
 
 -   GCV uses the $\bar{h}_{ii} = tr(\mathbf{H}_\lambda)/n$ instead of the individual $h_{ii}$
 
     $$
-    GCV (\lambda) = \frac{1}{n}\sum_{i=1}^{n}\frac{(y_i - \hat{y}_i)^2}{\big(1 - \frac{tr(\mathbf{H}_\lambda}{n}\big)^2}
+    GCV (\lambda) = \frac{1}{n}\sum_{i=1}^{n}\frac{(y_i - \hat{y}_i)^2}{\big(1 - \frac{tr(\mathbf{H}_\lambda)}{n}\big)^2}
     $$
 
 -   We use the `select()` function in **MASS** to find $\lambda$ that minimizes GCV
@@ -335,6 +355,23 @@ where $h_{ii}$ is the $i^{th}$ diagonal element of $\mathbf{H}_\lambda$.
     ```{r}
     MASS::select(ridge_fit)
     ```
+
+## Refit model with selected $\lambda$  {.midi}
+
+```{r}
+lambda <- 1.40028
+
+ridge_fit_2 <- MASS::lm.ridge(Age ~ Sex + Length + Diameter +
+                              Height + Whole_Weight,
+                            data = abalones,
+                            lambda = lambda)
+```
+
+```{r}
+#| echo: false
+
+tidy(ridge_fit_2) |> kable(digits = 3)
+```
 
 ## Further reading
 
@@ -348,7 +385,7 @@ where $h_{ii}$ is the $i^{th}$ diagonal element of $\mathbf{H}_\lambda$.
 
     -   [Lecture notes on ridge regression](https://arxiv.org/pdf/1509.09169) by Wessel N. van Wieringen
 
-## Questions 
+## Questions
 
 ```{=html}
 <center>
