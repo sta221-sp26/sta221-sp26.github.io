@@ -211,11 +211,12 @@ Prof.&nbsp;Maria Tackett
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li><p>HW 03 due March 19 at 11:59pm</p></li>
-<li><p>Project exploratory data analysis due March 19</p></li>
+<li><p>HW 03 due TODAY at 11:59pm</p></li>
+<li><p>Project exploratory data analysis due TODAY at 11:59pm (on GitHub)</p></li>
+<li><p>Project presentations - in lab March 27</p></li>
 <li><p>Statistics experience due April 2</p></li>
-<li><p>DataFest March 20 - 22: <a href="https://dukestatsci.github.io/datafest/" title="https://dukestatsci.github.io/datafest/"><u>https://dukestatsci.github.io/datafest/</u></a></p></li>
 </ul>
+<p><strong>Submit questions by 5pm today. Form at the end of today’s notes.</strong></p>
 </section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
@@ -236,17 +237,6 @@ Prof.&nbsp;Maria Tackett
 <span id="cb1-8"><a></a><span class="co"># set default theme in ggplot2</span></span>
 <span id="cb1-9"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="aic-bic-recap" class="slide level2">
-<h2>AIC / BIC recap</h2>
-</section>
-<section id="aic-and-bic-in-r" class="slide level2">
-<h2>AIC and BIC in R</h2>
-</section>
-<section>
-<section id="ridge-regression" class="title-slide slide level1 center">
-<h1>Ridge regression</h1>
-
 </section>
 <section id="data-age-of-abalones" class="slide level2">
 <h2>Data: Age of abalones</h2>
@@ -364,20 +354,22 @@ Prof.&nbsp;Maria Tackett
 <li><span class="math inline">\(p\)</span> is large relative to <span class="math inline">\(n\)</span></li>
 </ul></li>
 <li><p>Additionally, if <span class="math inline">\(p &gt; n\)</span> , then we cannot find <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></p></li>
-<li><p>We can use a different estimator that does not have these limitations</p></li>
+<li><p>We can use a different estimator that addresses these limitations</p></li>
 </ul>
 </section>
-<section id="finding-the-ridge-estimator" class="slide level2">
+<section id="finding-the-ridge-estimator" class="slide level2 midi">
 <h2>Finding the ridge estimator</h2>
 <p>We find the ridge estimator, <span class="math inline">\(\hat{\boldsymbol{\beta}}_{ridge}\)</span> by minimizing</p>
 <p><span class="math display">\[
 \underbrace{(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})}_{\text{SSR}} + \underbrace{\lambda \boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta}}_{\text{penalty}}
 \]</span></p>
 <p>where <span class="math inline">\(\lambda \geq 0\)</span> is the <em>tuning parameter</em> determined by the statistician (more on this later)</p>
+<div class="fragment">
 <ul>
 <li><p>Like least-squares, ridge regression seeks to minimize the sum of squares</p></li>
 <li><p>The penalty, <span class="math inline">\(\lambda\boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta} = \lambda\sum_{j = 1}^p\beta_j\)</span> preferences smaller values of <span class="math inline">\(\beta_j\)</span>, so ridge will shrink the coefficients to 0 (this does not apply to the intercept)</p></li>
 </ul>
+</div>
 </section>
 <section id="finding-the-ridge-estimator-1" class="slide level2">
 <h2>Finding the ridge estimator</h2>
@@ -390,147 +382,267 @@ Prof.&nbsp;Maria Tackett
 <p>What will happen to <span class="math inline">\(\hat{\boldsymbol{\beta}}_{ridge}\)</span> as <span class="math inline">\(\lambda \rightarrow 0\)</span>? What will happen as<span class="math inline">\(\lambda \rightarrow \infty\)</span> ?</p>
 </div>
 </section>
-<section id="set-up-problem" class="slide level2">
-<h2>Set up problem</h2>
+<section id="finding-the-ridge-estimator-2" class="slide level2 midi">
+<h2>Finding the ridge estimator</h2>
+<p>The ridge optimization problem can also be written</p>
+<p><span class="math display">\[\text{minimize }(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta}) \hspace{2mm} \text{subject to} \hspace{2mm} ||\boldsymbol{\beta}||^2_2 \leq c^2\]</span> for some constant <span class="math inline">\(c\)</span> . Note: <span class="math inline">\(||\boldsymbol{\beta}||_2 = \sqrt{\sum_{j=1}^p\beta_j^2}\)</span></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/countours-ridge.jpg" style="width:60.0%"></p>
+<figcaption>Image source: Introduction to Statistical Learning</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
 <ul>
-<li><p>Abalone data set</p></li>
-<li><p>Issue with multicollinearity</p></li>
-<li><p>Variances will be high (show X^TX matrix)</p></li>
+<li><p>Red contours are combinations of <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> that result in same SSR</p></li>
+<li><p>Blue circle is set of possible values of <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> given the constraint</p></li>
+<li><p>Ridge solution at tangent</p></li>
 </ul>
-<p>What if we want to keep all the predictors in the model?</p>
+<div class="small">
+<p>See Section 1.5 of <a href="https://arxiv.org/pdf/1509.09169">Lecture notes on ridge regression</a> for details.</p>
+</div>
+</div></div>
+</div>
 </section>
-<section id="ridge-regression-1" class="slide level2">
-<h2>Ridge regression</h2>
+<section id="ridge-estimator-hatboldsymbolbeta_ridge" class="slide level2">
+<h2>Ridge estimator <span class="math inline">\(\hat{\boldsymbol{\beta}}_{ridge}\)</span></h2>
+<p>The ridge estimator is</p>
+<p><span class="math display">\[
+\hat{\boldsymbol{\beta}}_{ridge} = (\mathbf{X}^\mathsf{T}\mathbf{X} + \lambda\mathbf{I})\mathbf{X}^\mathsf{T}\mathbf{y}
+\]</span></p>
+<p>(see Exam 01 for derivation)</p>
 <ul>
-<li><p>show optimization</p></li>
-<li><p>describe the penalty</p></li>
-<li><p>what is happening as lambda goes to 0? What about as lambda goes to infinity? (We’ll talk about how to find lambda later)</p></li>
-<li><p>We will use standardized predictors for ridge regression. why does this matter?</p></li>
+<li>We have addressed the singularity of <span class="math inline">\((\mathbf{X}^\mathsf{T}\mathbf{X})\)</span> by adding the positive constant to the diagonal</li>
 </ul>
-</section>
-<section id="estimator" class="slide level2">
-<h2>Estimator</h2>
+<div class="question">
 <ul>
-<li><p>you found this in exam 01</p></li>
-<li><p>Is it an unbiased estimator?</p></li>
-<li><p>what is the variance? - this may be too long for class?</p></li>
-<li><p>This is the bias-variance trade off - we accept a little bias in order to reduce the variance</p></li>
+<li><p>What is <span class="math inline">\(E(\hat{\boldsymbol{\beta}}_{ridge})\)</span>?</p></li>
+<li><p>Is <span class="math inline">\(\hat{\boldsymbol{\beta}}_{ridge}\)</span> unbiased?</p></li>
 </ul>
+</div>
 </section>
-<section id="when-is-ridge-useful" class="slide level2">
-<h2>When is ridge useful</h2>
-<p>Most useful for models in which the SE of OLS are large and unstable but you want to keep all the predictors</p>
+<section id="bias-variance-trade-off" class="slide level2">
+<h2>Bias-variance trade-off</h2>
 <ul>
-<li><p>That lambda I term helps stablize the variance when x^tX is nearly singular.</p></li>
-<li><p>So this is the case when there is high multicollinearity</p></li>
-<li><p>when P is close to n</p></li>
-<li><p>Makes it possible to estimate coefficients when p &gt; n (is this true)?</p></li>
+<li><p>The penalty <span class="math inline">\(\lambda\boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta}\)</span> makes the estimated coefficients in ridge regression less variable than least-squares</p></li>
+<li><p>Therefore, by adding some bias, we are able to reduce variance. This is called the <strong>bias-variance trade-off</strong> <!--# add refrence to theorem here--></p></li>
+<li><p>Reducing the variance in coefficients is particularly important when we wish to use a model for prediction on new data</p></li>
 </ul>
+<p><br></p>
+<div class="small">
+<p>See Section 1.4.2 of <a href="https://arxiv.org/pdf/1509.09169">Lecture notes on ridge regression</a> for details.</p>
+</div>
 </section>
-<section id="limitations" class="slide level2">
-<h2>LImitations</h2>
+<section id="fitting-the-model" class="slide level2 midi">
+<h2>Fitting the model</h2>
 <ul>
-<li><p>Ridge will not ever set the coefficients to exactly equal to 0 (limitation if you want to reduce the number of coefficients in th emodel)</p>
+<li class="fragment"><p>We use <strong>standardized values</strong> of the predictors when fitting the ridge regression model</p></li>
+<li class="fragment"><p>Why do we use standardized values? Let’s consider <code>Length</code> (in millimeters) in the <code>abalone</code> data</p>
 <ul>
-<li>Similar method called LASSO that addresses this</li>
+<li class="fragment"><p>Let <span class="math inline">\(\beta_j\)</span> be the coefficient of <code>Length</code>. When finding the ridge estimates, the penalty for the coefficient of <code>Length</code> is <span class="math inline">\(\lambda \beta_j^2\)</span> .</p></li>
+<li class="fragment"><p>Suppose instead of <code>Length</code> in millimeters, we use <code>Length</code> in meters. Then the new coefficient is <span class="math inline">\(1000\beta_j\)</span>. Thus, the penalty on the term would be <span class="math inline">\(\lambda 1000^2\beta_j^2\)</span></p></li>
 </ul></li>
-<li></li>
+<li class="fragment"><p>Standardizing the quantitative predictors ensures the penalty is fairly applied across all predictors (and not dependent on units)</p></li>
+<li class="fragment"><p>Thus, shrinkage in the <span class="math inline">\(\beta_j\)</span> reflects the predictor’s importance on the response</p></li>
+</ul>
+</section>
+<section id="ridge-regression-in-r" class="slide level2">
+<h2>Ridge regression in R</h2>
+<p>Fit ridge regression models using <code>lm.ridge()</code> in the <strong>MASS</strong> package.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>lambda <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a>ridge_fit <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">lm.ridge</span>(Age <span class="sc">~</span> Sex <span class="sc">+</span> Length <span class="sc">+</span> Diameter <span class="sc">+</span></span>
+<span id="cb5-4"><a></a>                              Height <span class="sc">+</span> Whole_Weight,</span>
+<span id="cb5-5"><a></a>                            <span class="at">data =</span> abalones,</span>
+<span id="cb5-6"><a></a>                            <span class="at">lambda =</span> lambda)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>MASS</strong> a <code>select()</code> function that will cause issues with <code>select()</code> in <strong>dplyr</strong>. Therefore, use the <code>package::function()</code> syntax instead of loading <strong>MASS.</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="ridge-regression-in-r-1" class="slide level2 small">
+<h2>Ridge regression in R</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">tidy</span>(ridge_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">lambda</th>
+<th style="text-align: right;">GCV</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">scale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: left;">SexI</td>
+<td style="text-align: right;">-0.507</td>
+<td style="text-align: right;">0.467</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: left;">SexM</td>
+<td style="text-align: right;">-0.070</td>
+<td style="text-align: right;">0.482</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: left;">Length</td>
+<td style="text-align: right;">-1.254</td>
+<td style="text-align: right;">24.016</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: left;">Diameter</td>
+<td style="text-align: right;">2.231</td>
+<td style="text-align: right;">19.846</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: left;">Height</td>
+<td style="text-align: right;">0.784</td>
+<td style="text-align: right;">8.364</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: left;">Whole_Weight</td>
+<td style="text-align: right;">-0.070</td>
+<td style="text-align: right;">98.066</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>lambda</strong>: tuning parameter</li>
+<li><strong>GCV:</strong> Generalized cross validation</li>
+<li><strong>estimate:</strong> ridge coefficient given <span class="math inline">\(\lambda\)</span></li>
+<li><strong>scale</strong>: standard deviation of <span class="math inline">\(x_j\)</span> (used by R to compute standardized predictors)</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># short cut to scale all numeric variables except the response</span></span>
+<span id="cb7-2"><a></a>abalone_scaled <span class="ot">&lt;-</span> abalones <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric) <span class="sc">&amp;</span> <span class="sc">!</span> <span class="fu">all_of</span>(<span class="st">"Age"</span>), scale))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="try-different-values-of-lambda" class="slide level2">
+<h2>Try different values of lambda</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>lambdas <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="at">length =</span> <span class="dv">5000</span>)</span>
+<span id="cb8-2"><a></a>ridge_fit <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">lm.ridge</span>(Age <span class="sc">~</span> Sex <span class="sc">+</span> Length <span class="sc">+</span> Diameter <span class="sc">+</span> Height <span class="sc">+</span> Whole_Weight, </span>
+<span id="cb8-3"><a></a>                            <span class="at">data =</span> abalones, <span class="at">lambda =</span> lambdas)</span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a><span class="co"># Plot ridge trace</span></span>
+<span id="cb8-6"><a></a><span class="fu">plot</span>(ridge_fit, <span class="at">type =</span> <span class="st">"ridge"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+
+</div>
+<img data-src="17-ridge-regression_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"><div class="question">
+<p>What is happening to the coefficients as <span class="math inline">\(\lambda\)</span> increases?</p>
+</div>
+</section>
+<section id="gcv-to-choose-lambda" class="slide level2">
+<h2>GCV to choose <span class="math inline">\(\lambda\)</span></h2>
+<ul>
+<li><p>We’ll choose <span class="math inline">\(\lambda\)</span> by considering how well the model predicts on new data</p></li>
+<li><p>Leave one out cross validation (LOOCV) is a method for evaluating model performance on new data, such that one observation is held out as the new data</p></li>
+<li><p>Generalized cross validation (GCV) is a an approximation of LOOCV where we do not have to compute the model <span class="math inline">\(n\)</span> times for each <span class="math inline">\(\lambda\)</span></p></li>
+<li><p>We use the <span class="math inline">\(\lambda\)</span> with the minimum value of GCV</p></li>
+</ul>
+</section>
+<section id="gcv-to-choose-lambda-1" class="slide level2">
+<h2>GCV to choose <span class="math inline">\(\lambda\)</span></h2>
+<ul>
+<li><p>The fitted values from ridge regression can be written as</p>
+<p><span class="math display">\[
+\hat{\mathbf{y}} = \mathbf{H}_\lambda\mathbf{y}
+\]</span></p></li>
+</ul>
+<p>where <span class="math inline">\(\mathbf{H}_\lambda\)</span> is the hat matrix for a given value of <span class="math inline">\(\lambda\)</span> .</p>
+<ul>
+<li>The average LOOCV for a given <span class="math inline">\(\lambda\)</span> is</li>
+</ul>
+<p><span class="math display">\[
+CV(\lambda) = \frac{1}{n}\sum_{i=1}^{n}\Big(\frac{y_i - \hat{y}_i}{1 - h_{ii}}\Big)^2
+\]</span></p>
+<p>where <span class="math inline">\(h_{ii}\)</span> is the <span class="math inline">\(i^{th}\)</span> diagonal element of <span class="math inline">\(\mathbf{H}_\lambda\)</span>.</p>
+</section>
+<section id="gcv-to-choose-lambda-2" class="slide level2">
+<h2>GCV to choose <span class="math inline">\(\lambda\)</span></h2>
+<ul>
+<li><p>GCV uses the <span class="math inline">\(\bar{h}_{ii} = tr(\mathbf{H}_\lambda)/n\)</span> instead of the individual <span class="math inline">\(h_{ii}\)</span></p>
+<p><span class="math display">\[
+GCV (\lambda) = \frac{1}{n}\sum_{i=1}^{n}\frac{(y_i - \hat{y}_i)^2}{\big(1 - \frac{tr(\mathbf{H}_\lambda}{n}\big)^2}
+\]</span></p></li>
+<li><p>We use the <code>select()</code> function in <strong>MASS</strong> to find <span class="math inline">\(\lambda\)</span> that minimizes GCV</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>MASS<span class="sc">::</span><span class="fu">select</span>(ridge_fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>modified HKB estimator is 3.427088 
+modified L-W estimator is 6.826774 
+smallest value of GCV  at 1.40028 </code></pre>
+</div>
+</div></li>
 </ul>
 </section>
 <section id="further-reading" class="slide level2">
 <h2>Further reading</h2>
-<p>Link to original paper (reprinted version) <a href="https://www.jstor.org/stable/1271436?seq=6" class="uri">https://www.jstor.org/stable/1271436?seq=6</a></p>
-</section>
-<section id="data" class="slide level2">
-<h2>data</h2>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb5-2"><a></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb5-3"><a></a><span class="fu">library</span>(rms)</span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a>nba_salaries <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/nba-salaries-2022-23.csv"</span>)</span>
-<span id="cb5-6"><a></a></span>
-<span id="cb5-7"><a></a>nba_salaries <span class="ot">&lt;-</span> nba_salaries <span class="sc">|&gt;</span></span>
-<span id="cb5-8"><a></a>  <span class="fu">mutate</span>(<span class="at">PG =</span> <span class="fu">if_else</span>(Position <span class="sc">==</span> <span class="st">"PG"</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
-<span id="cb5-9"><a></a></span>
-<span id="cb5-10"><a></a>nba_salaries <span class="ot">&lt;-</span> nba_salaries <span class="sc">|&gt;</span></span>
-<span id="cb5-11"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>Position,  <span class="sc">-</span><span class="st">`</span><span class="at">Player Name</span><span class="st">`</span>) </span>
-<span id="cb5-12"><a></a></span>
-<span id="cb5-13"><a></a>nba_salaries_scaled <span class="ot">&lt;-</span> nba_salaries <span class="sc">|&gt;</span></span>
-<span id="cb5-14"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Salary, <span class="sc">~</span> <span class="cf">if</span>(<span class="fu">is.numeric</span>(.)) <span class="fu">scale</span>(.) <span class="cf">else</span> .))</span>
-<span id="cb5-15"><a></a></span>
-<span id="cb5-16"><a></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Salary <span class="sc">~</span> ., <span class="at">data =</span> nba_salaries)</span>
-<span id="cb5-17"><a></a><span class="fu">tidy</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 5
-   term         estimate std.error statistic  p.value
-   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
- 1 (Intercept) -20.0        2.71      -7.36  8.73e-13
- 2 Age           0.918      0.0722    12.7   8.69e-32
- 3 GP           -0.00880    0.0173    -0.509 6.11e- 1
- 4 MP           -0.219      0.107     -2.05  4.14e- 2
- 5 GS            0.0716     0.0211     3.40  7.41e- 4
- 6 FG            2.52       0.526      4.78  2.39e- 6
- 7 `FG%`        -2.67       4.58      -0.582 5.61e- 1
- 8 `2PA`         0.364      0.290      1.25  2.10e- 1
- 9 `2P%`        -2.51       3.60      -0.699 4.85e- 1
-10 AST           0.611      0.577      1.06  2.90e- 1
-11 `AST%`       -0.0840     0.103     -0.817 4.14e- 1
-12 PGTRUE        1.45       1.02       1.42  1.56e- 1</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">vif</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      Age        GP        MP        GS        FG     `FG%`     `2PA`     `2P%` 
- 1.076311  2.053581 11.615463  3.657016 18.774385  2.776211 12.112968  2.765182 
-      AST    `AST%`    PGTRUE 
-14.244702  8.918924  1.655091 </code></pre>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># pass standardized data in: </span></span>
-<span id="cb9-2"><a></a>ridge_fit <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">lm.ridge</span>(Salary <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> ., <span class="at">data =</span> nba_salaries_scaled,</span>
-<span id="cb9-3"><a></a>                           <span class="at">lambda =</span> <span class="dv">5000</span>)</span>
-<span id="cb9-4"><a></a></span>
-<span id="cb9-5"><a></a>beta_scaled_lmridge <span class="ot">&lt;-</span>  ridge_fit<span class="sc">$</span>coef <span class="co"># scaled space coefficients</span></span>
-<span id="cb9-6"><a></a>beta_unscaled_lmridge <span class="ot">&lt;-</span>  <span class="fu">coef</span>(ridge_fit) <span class="co"># original scale coefficients </span></span>
-<span id="cb9-7"><a></a></span>
-<span id="cb9-8"><a></a><span class="co"># (different than computed above if y and X are not standardized inputs)</span></span>
-<span id="cb9-9"><a></a></span>
-<span id="cb9-10"><a></a><span class="fu">tidy</span>(ridge_fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 5
-   lambda   GCV term    estimate scale
-    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
- 1   5000 0.310 Age       0.349  0.999
- 2   5000 0.310 GP        0.200  0.999
- 3   5000 0.310 MP        0.426  0.999
- 4   5000 0.310 GS        0.401  0.999
- 5   5000 0.310 FG        0.493  0.999
- 6   5000 0.310 `FG%`     0.0631 0.999
- 7   5000 0.310 `2PA`     0.465  0.999
- 8   5000 0.310 `2P%`     0.0302 0.999
- 9   5000 0.310 AST       0.392  0.999
-10   5000 0.310 `AST%`    0.288  0.999
-11   5000 0.310 PGFALSE   0.605  0.913
-12   5000 0.310 PGTRUE    0.365  0.408</code></pre>
-</div>
-</div>
+<ul>
+<li><p>Ridge regression is a form of “penalized regression” and is often called “regularization” or a “shrinkage method”. Other such methods are LASSO and best subset selection.</p></li>
+<li><p>One (potential) limitation of ridge regression is that it keeps all predictors in the models. Methods such as LASSO and best subset selection address this.</p></li>
+<li><p>Resources for further reading:</p>
+<ul>
+<li><p>Early ridge paper: <a href="https://www.jstor.org/stable/1271436?seq=6">Hoerl and Kennard 1970</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1509.09169">Lecture notes on ridge regression</a> by Wessel N. van Wieringen</p></li>
+</ul></li>
+</ul>
 </section>
 <section id="questions" class="slide level2">
 <h2>Questions</h2>
-<ul>
-<li>Form for questions to discuss in lab.</li>
-</ul>
+<center>
+<iframe width="640px" height="480px" src="https://forms.office.com/r/h4BdM85Bjf?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen=""> </iframe>
+</center>
+<p>🔗 <a href="https://forms.office.com/r/h4BdM85Bjf" class="uri">https://forms.office.com/r/h4BdM85Bjf</a></p>
 </section>
 <section id="next-class" class="slide level2">
 <h2>Next class</h2>
 <ul>
-<li><p>Ridge regression</p></li>
-<li><p>No prepare assignment</p></li>
+<li><p>Logistic regression</p></li>
+<li><p>Complete <a href="../prepare/prepare-lec18.html">Lecture 18 prepare</a></p></li>
 </ul>
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../images/logo.png" class="slide-logo"></p>

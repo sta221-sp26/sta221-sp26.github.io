@@ -48,13 +48,15 @@ options(scipen=999)
 
 ## Announcements
 
--   HW 03 due March 19 at 11:59pm
+-   HW 03 due TODAY at 11:59pm
 
--   Project exploratory data analysis due March 19
+-   Project exploratory data analysis due TODAY at 11:59pm (on GitHub)
+
+-   Project presentations - in lab March 27
 
 -   Statistics experience due April 2
 
--   DataFest March 20 - 22: [[https://dukestatsci.github.io/datafest/]{.underline}](https://dukestatsci.github.io/datafest/ "https://dukestatsci.github.io/datafest/")
+**Submit questions by 5pm today. Form at the end of today's notes.**
 
 ## Topics
 
@@ -76,12 +78,6 @@ library(rms)
 # set default theme in ggplot2
 ggplot2::theme_set(ggplot2::theme_bw())
 ```
-
-## AIC / BIC recap
-
-## AIC and BIC in R
-
-# Ridge regression
 
 ## Data: Age of abalones
 
@@ -105,7 +101,7 @@ abalones <- read_csv("data/abalone.csv")
 -   `Whole_Weight`: Total weight of abalone (in grams)
 -   `Age`: Age (in years)
 
-## Fit a model  {.midi}
+## Fit a model {.midi}
 
 ```{r}
 age_fit <- lm(Age ~ Sex + Length + Diameter + Height
@@ -137,9 +133,9 @@ vif(age_fit)
 
 -   Additionally, if $p > n$ , then we cannot find $\hat{\boldsymbol{\beta}}$
 
--   We can use a different estimator that does not have these limitations
+-   We can use a different estimator that addresses these limitations
 
-## Finding the ridge estimator
+## Finding the ridge estimator {.midi}
 
 We find the ridge estimator, $\hat{\boldsymbol{\beta}}_{ridge}$ by minimizing
 
@@ -148,6 +144,8 @@ $$
 $$
 
 where $\lambda \geq 0$ is the *tuning parameter* determined by the statistician (more on this later)
+
+. . .
 
 -   Like least-squares, ridge regression seeks to minimize the sum of squares
 
@@ -167,106 +165,201 @@ $$
 What will happen to $\hat{\boldsymbol{\beta}}_{ridge}$ as $\lambda \rightarrow 0$? What will happen as$\lambda \rightarrow \infty$ ?
 :::
 
-## Set up problem
+## Finding the ridge estimator {.midi}
 
--   Abalone data set
+The ridge optimization problem can also be written
 
--   Issue with multicollinearity
+$$\text{minimize }(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta}) \hspace{2mm} \text{subject to} \hspace{2mm} ||\boldsymbol{\beta}||^2_2 \leq c^2$$ for some constant $c$ . Note: $||\boldsymbol{\beta}||_2 = \sqrt{\sum_{j=1}^p\beta_j^2}$
 
--   Variances will be high (show X\^TX matrix)
+. . .
 
-What if we want to keep all the predictors in the model?
+:::::: columns
+::: {.column width="50%"}
+![Image source: Introduction to Statistical Learning](images/countours-ridge.jpg){alt="Image source: Introduction to Statistical Learning" fig-align="center" width="60%"}
+:::
 
-## Ridge regression
+:::: {.column width="50%"}
+-   Red contours are combinations of $\beta_1$ and $\beta_2$ that result in same SSR
 
--   show optimization
+-   Blue circle is set of possible values of $\beta_1$ and $\beta_2$ given the constraint
 
--   describe the penalty
+-   Ridge solution at tangent
 
--   what is happening as lambda goes to 0? What about as lambda goes to infinity? (We'll talk about how to find lambda later)
+::: small
+See Section 1.5 of [Lecture notes on ridge regression](https://arxiv.org/pdf/1509.09169) for details.
+:::
+::::
+::::::
 
--   We will use standardized predictors for ridge regression. why does this matter?
+## Ridge estimator $\hat{\boldsymbol{\beta}}_{ridge}$
 
-## Estimator
+The ridge estimator is
 
--   you found this in exam 01
+$$
+\hat{\boldsymbol{\beta}}_{ridge} = (\mathbf{X}^\mathsf{T}\mathbf{X} + \lambda\mathbf{I})\mathbf{X}^\mathsf{T}\mathbf{y}
+$$
 
--   Is it an unbiased estimator?
+(see Exam 01 for derivation)
 
--   what is the variance? - this may be too long for class?
+-   We have addressed the singularity of $(\mathbf{X}^\mathsf{T}\mathbf{X})$ by adding the positive constant to the diagonal
 
--   This is the bias-variance trade off - we accept a little bias in order to reduce the variance
+::: question
+-   What is $E(\hat{\boldsymbol{\beta}}_{ridge})$?
 
-## When is ridge useful
+-   Is $\hat{\boldsymbol{\beta}}_{ridge}$ unbiased?
+:::
 
-Most useful for models in which the SE of OLS are large and unstable but you want to keep all the predictors
+## Bias-variance trade-off
 
--   That lambda I term helps stablize the variance when x\^tX is nearly singular.
+-   The penalty $\lambda\boldsymbol{\beta}^\mathsf{T}\boldsymbol{\beta}$ makes the estimated coefficients in ridge regression less variable than least-squares
 
--   So this is the case when there is high multicollinearity
+-   Therefore, by adding some bias, we are able to reduce variance. This is called the **bias-variance trade-off** <!--# add refrence to theorem here-->
 
--   when P is close to n
+-   Reducing the variance in coefficients is particularly important when we wish to use a model for prediction on new data
 
--   Makes it possible to estimate coefficients when p \> n (is this true)?
+<br>
 
-## LImitations
+::: small
+See Section 1.4.2 of [Lecture notes on ridge regression](https://arxiv.org/pdf/1509.09169) for details.
+:::
 
--   Ridge will not ever set the coefficients to exactly equal to 0 (limitation if you want to reduce the number of coefficients in th emodel)
+## Fitting the model {.midi}
 
-    -   Similar method called LASSO that addresses this
+::: incremental
+-   We use **standardized values** of the predictors when fitting the ridge regression model
 
--   
+-   Why do we use standardized values? Let's consider `Length` (in millimeters) in the `abalone` data
+
+    -   Let $\beta_j$ be the coefficient of `Length`. When finding the ridge estimates, the penalty for the coefficient of `Length` is $\lambda \beta_j^2$ .
+
+    -   Suppose instead of `Length` in millimeters, we use `Length` in meters. Then the new coefficient is $1000\beta_j$. Thus, the penalty on the term would be $\lambda 1000^2\beta_j^2$
+
+-   Standardizing the quantitative predictors ensures the penalty is fairly applied across all predictors (and not dependent on units)
+
+-   Thus, shrinkage in the $\beta_j$ reflects the predictor's importance on the response
+:::
+
+## Ridge regression in R
+
+Fit ridge regression models using `lm.ridge()` in the **MASS** package.
+
+```{r}
+lambda <- 1
+
+ridge_fit <- MASS::lm.ridge(Age ~ Sex + Length + Diameter +
+                              Height + Whole_Weight,
+                            data = abalones,
+                            lambda = lambda)
+```
+
+::: callout-tip
+**MASS** a `select()` function that will cause issues with `select()` in **dplyr**. Therefore, use the `package::function()` syntax instead of loading **MASS.**
+:::
+
+## Ridge regression in R {.small}
+
+```{r}
+#| code-fold: true
+tidy(ridge_fit) |> kable(digits = 3)
+```
+
+. . .
+
+-   **lambda**: tuning parameter
+-   **GCV:** Generalized cross validation
+-   **estimate:** ridge coefficient given $\lambda$
+-   **scale**: standard deviation of $x_j$ (used by R to compute standardized predictors)
+
+```{r}
+#| echo: true
+
+# short cut to scale all numeric variables except the response
+abalone_scaled <- abalones |>
+  mutate(across(where(is.numeric) & ! all_of("Age"), scale))
+```
+
+## Try different values of lambda
+
+```{r}
+#| code-fold: true
+lambdas <- seq(0, 1000, length = 5000)
+ridge_fit <- MASS::lm.ridge(Age ~ Sex + Length + Diameter + Height + Whole_Weight, 
+                            data = abalones, lambda = lambdas)
+
+# Plot ridge trace
+plot(ridge_fit, type = "ridge")
+```
+
+::: question
+What is happening to the coefficients as $\lambda$ increases?
+:::
+
+## GCV to choose $\lambda$
+
+-   We'll choose $\lambda$ by considering how well the model predicts on new data
+
+-   Leave one out cross validation (LOOCV) is a method for evaluating model performance on new data, such that one observation is held out as the new data
+
+-   Generalized cross validation (GCV) is a an approximation of LOOCV where we do not have to compute the model $n$ times for each $\lambda$
+
+-   We use the $\lambda$ with the minimum value of GCV
+
+## GCV to choose $\lambda$ 
+
+-   The fitted values from ridge regression can be written as
+
+    $$
+    \hat{\mathbf{y}} = \mathbf{H}_\lambda\mathbf{y}
+    $$
+
+where $\mathbf{H}_\lambda$ is the hat matrix for a given value of $\lambda$ .
+
+-   The average LOOCV for a given $\lambda$ is
+
+$$
+CV(\lambda) = \frac{1}{n}\sum_{i=1}^{n}\Big(\frac{y_i - \hat{y}_i}{1 - h_{ii}}\Big)^2
+$$
+
+where $h_{ii}$ is the $i^{th}$ diagonal element of $\mathbf{H}_\lambda$.
+
+## GCV to choose $\lambda$ 
+
+-   GCV uses the $\bar{h}_{ii} = tr(\mathbf{H}_\lambda)/n$ instead of the individual $h_{ii}$
+
+    $$
+    GCV (\lambda) = \frac{1}{n}\sum_{i=1}^{n}\frac{(y_i - \hat{y}_i)^2}{\big(1 - \frac{tr(\mathbf{H}_\lambda}{n}\big)^2}
+    $$
+
+-   We use the `select()` function in **MASS** to find $\lambda$ that minimizes GCV
+
+    ```{r}
+    MASS::select(ridge_fit)
+    ```
 
 ## Further reading
 
-Link to original paper (reprinted version) <https://www.jstor.org/stable/1271436?seq=6>
+-   Ridge regression is a form of "penalized regression" and is often called "regularization" or a "shrinkage method". Other such methods are LASSO and best subset selection.
 
-## data
+-   One (potential) limitation of ridge regression is that it keeps all predictors in the models. Methods such as LASSO and best subset selection address this.
 
-```{r}
-library(tidyverse)
-library(tidymodels)
-library(rms)
+-   Resources for further reading:
 
-nba_salaries <- read_csv("data/nba-salaries-2022-23.csv")
+    -   Early ridge paper: [Hoerl and Kennard 1970](https://www.jstor.org/stable/1271436?seq=6)
 
-nba_salaries <- nba_salaries |>
-  mutate(PG = if_else(Position == "PG", TRUE, FALSE))
+    -   [Lecture notes on ridge regression](https://arxiv.org/pdf/1509.09169) by Wessel N. van Wieringen
 
-nba_salaries <- nba_salaries |>
-  select(-Position,  -`Player Name`) 
+## Questions 
 
-nba_salaries_scaled <- nba_salaries |>
-  mutate(across(-Salary, ~ if(is.numeric(.)) scale(.) else .))
-
-model1 <- lm(Salary ~ ., data = nba_salaries)
-tidy(model1)
-
-vif(model1)
+```{=html}
+<center>
+<iframe width="640px" height="480px" src="https://forms.office.com/r/h4BdM85Bjf?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+</center>
 ```
 
-```{r}
-#| label: ridge-model 
-
-# pass standardized data in: 
-ridge_fit <- MASS::lm.ridge(Salary ~ 0 + ., data = nba_salaries_scaled,
-                           lambda = 5000)
-
-beta_scaled_lmridge <-  ridge_fit$coef # scaled space coefficients
-beta_unscaled_lmridge <-  coef(ridge_fit) # original scale coefficients 
-
-# (different than computed above if y and X are not standardized inputs)
-
-tidy(ridge_fit)
-
-```
-
-## Questions
-
--   Form for questions to discuss in lab.
+🔗 <https://forms.office.com/r/h4BdM85Bjf>
 
 ## Next class
 
--   Ridge regression
+-   Logistic regression
 
--   No prepare assignment
+-   Complete [Lecture 18 prepare](../prepare/prepare-lec18.html)

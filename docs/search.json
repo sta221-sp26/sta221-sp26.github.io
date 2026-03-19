@@ -4871,7 +4871,7 @@
     "href": "index.html",
     "title": "STA 221 - Regression Analysis: Theory and Applications",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nTypes of predictors cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\n\n\n\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference: Distribution of coefficients\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05: Expanding multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction + Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nTypes of predictors cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\n\n\n\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference: Distribution of coefficients\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05: Expanding multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction + Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
     "crumbs": [
       "Schedule"
     ]
@@ -9834,14 +9834,14 @@
     "href": "slides/17-ridge-regression-notes.html",
     "title": "Ridge regression",
     "section": "",
-    "text": "HW 03 due March 19 at 11:59pm\nProject exploratory data analysis due March 19\nStatistics experience due April 2\nDataFest March 20 - 22: https://dukestatsci.github.io/datafest/"
+    "text": "HW 03 due TODAY at 11:59pm\nProject exploratory data analysis due TODAY at 11:59pm (on GitHub)\nProject presentations - in lab March 27\nStatistics experience due April 2\n\nSubmit questions by 5pm today. Form at the end of today’s notes."
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#announcements",
     "href": "slides/17-ridge-regression-notes.html#announcements",
     "title": "Ridge regression",
     "section": "",
-    "text": "HW 03 due March 19 at 11:59pm\nProject exploratory data analysis due March 19\nStatistics experience due April 2\nDataFest March 20 - 22: https://dukestatsci.github.io/datafest/"
+    "text": "HW 03 due TODAY at 11:59pm\nProject exploratory data analysis due TODAY at 11:59pm (on GitHub)\nProject presentations - in lab March 27\nStatistics experience due April 2\n\nSubmit questions by 5pm today. Form at the end of today’s notes."
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#topics",
@@ -9851,88 +9851,158 @@
     "text": "Topics\n\nRidge regression"
   },
   {
-    "objectID": "slides/17-ridge-regression-notes.html#aic-bic-recap",
-    "href": "slides/17-ridge-regression-notes.html#aic-bic-recap",
+    "objectID": "slides/17-ridge-regression-notes.html#computing-set-up",
+    "href": "slides/17-ridge-regression-notes.html#computing-set-up",
     "title": "Ridge regression",
-    "section": "AIC / BIC recap",
-    "text": "AIC / BIC recap"
+    "section": "Computing set up",
+    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(patchwork)\nlibrary(rms)\n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
   },
   {
-    "objectID": "slides/17-ridge-regression-notes.html#aic-and-bic-in-r",
-    "href": "slides/17-ridge-regression-notes.html#aic-and-bic-in-r",
+    "objectID": "slides/17-ridge-regression-notes.html#data-age-of-abalones",
+    "href": "slides/17-ridge-regression-notes.html#data-age-of-abalones",
     "title": "Ridge regression",
-    "section": "AIC and BIC in R",
-    "text": "AIC and BIC in R"
+    "section": "Data: Age of abalones",
+    "text": "Data: Age of abalones\nThe data for this analysis contains measurements for abalones, a type of marine snail. These measurements were collected and analyzed by researchers in Warwick et al. (1994). Click here for the publication.\nThe 4177 abalones in this study can be reasonably treated as a random sample.\nThe goal of this analysis is to use characteristics of the abalones to predict their age."
   },
   {
-    "objectID": "slides/17-ridge-regression-notes.html#set-up-problem",
-    "href": "slides/17-ridge-regression-notes.html#set-up-problem",
+    "objectID": "slides/17-ridge-regression-notes.html#variables",
+    "href": "slides/17-ridge-regression-notes.html#variables",
     "title": "Ridge regression",
-    "section": "Set up problem",
-    "text": "Set up problem\n\nAbalone data set\nIssue with multicollinearity\nVariances will be high (show X^TX matrix)\n\nWhat if we want to keep all the predictors in the model?"
+    "section": "Variables",
+    "text": "Variables\n\nSex: Male (M), Female (F), Infant (I)\nLength: Longest shell measurement (in millimeters)\nDiameter: Measured perpendicular to length (in millimeters)\nHeight : Measured with meat in shell (in millimeters)\nWhole_Weight: Total weight of abalone (in grams)\nAge: Age (in years)"
   },
   {
-    "objectID": "slides/17-ridge-regression-notes.html#ridge-regression-1",
-    "href": "slides/17-ridge-regression-notes.html#ridge-regression-1",
+    "objectID": "slides/17-ridge-regression-notes.html#fit-a-model",
+    "href": "slides/17-ridge-regression-notes.html#fit-a-model",
     "title": "Ridge regression",
-    "section": "Ridge regression",
-    "text": "Ridge regression\n\nshow optimization\ndescribe the penalty\nwhat is happening as lambda goes to 0? What about as lambda goes to infinity? (We’ll talk about how to find lambda later)\nWe will use standardized predictors for ridge regression. why does this matter?"
+    "section": "Fit a model",
+    "text": "Fit a model\n\nage_fit &lt;- lm(Age ~ Sex + Length + Diameter + Height\n              + Whole_Weight, data = abalones)\n\ntidy(age_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n5.643\n0.336\n16.795\n0.000\n\n\nSexI\n-1.084\n0.119\n-9.151\n0.000\n\n\nSexM\n-0.145\n0.097\n-1.492\n0.136\n\n\nLength\n-0.054\n0.010\n-5.136\n0.000\n\n\nDiameter\n0.114\n0.013\n8.903\n0.000\n\n\nHeight\n0.094\n0.009\n10.590\n0.000\n\n\nWhole_Weight\n-0.001\n0.001\n-0.642\n0.521"
   },
   {
-    "objectID": "slides/17-ridge-regression-notes.html#estimator",
-    "href": "slides/17-ridge-regression-notes.html#estimator",
+    "objectID": "slides/17-ridge-regression-notes.html#potential-issue",
+    "href": "slides/17-ridge-regression-notes.html#potential-issue",
     "title": "Ridge regression",
-    "section": "Estimator",
-    "text": "Estimator\n\nyou found this in exam 01\nIs it an unbiased estimator?\nwhat is the variance? - this may be too long for class?\nThis is the bias-variance trade off - we accept a little bias in order to reduce the variance"
+    "section": "Potential issue",
+    "text": "Potential issue\n\nvif(age_fit)\n\n        SexI         SexM       Length     Diameter       Height Whole_Weight \n    1.950083     1.386901    39.867076    41.170644     3.487132     7.709595 \n\n\n\n\n\nWhat is the potential issue with this model?\nHow does this impact the model results?"
   },
   {
-    "objectID": "slides/17-ridge-regression-notes.html#when-is-ridge-useful",
-    "href": "slides/17-ridge-regression-notes.html#when-is-ridge-useful",
+    "objectID": "slides/17-ridge-regression-notes.html#limitations-of-the-least-squares-estimator",
+    "href": "slides/17-ridge-regression-notes.html#limitations-of-the-least-squares-estimator",
     "title": "Ridge regression",
-    "section": "When is ridge useful",
-    "text": "When is ridge useful\nMost useful for models in which the SE of OLS are large and unstable but you want to keep all the predictors\n\nThat lambda I term helps stablize the variance when x^tX is nearly singular.\nSo this is the case when there is high multicollinearity\nwhen P is close to n\nMakes it possible to estimate coefficients when p &gt; n (is this true)?"
+    "section": "Limitations of the least-squares estimator",
+    "text": "Limitations of the least-squares estimator\n\nWhen \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) is nearly singular, \\(Var(\\hat{\\boldsymbol{\\beta}})\\) gets large, and thus we have unstable coefficient estimates . This occurs when\n\nThere are collinear predictors\n\\(p\\) is large relative to \\(n\\)\n\nAdditionally, if \\(p &gt; n\\) , then we cannot find \\(\\hat{\\boldsymbol{\\beta}}\\)\nWe can use a different estimator that addresses these limitations"
   },
   {
-    "objectID": "slides/17-ridge-regression-notes.html#limitations",
-    "href": "slides/17-ridge-regression-notes.html#limitations",
+    "objectID": "slides/17-ridge-regression-notes.html#finding-the-ridge-estimator",
+    "href": "slides/17-ridge-regression-notes.html#finding-the-ridge-estimator",
     "title": "Ridge regression",
-    "section": "LImitations",
-    "text": "LImitations\n\nRidge will not ever set the coefficients to exactly equal to 0 (limitation if you want to reduce the number of coefficients in th emodel)\n\nSimilar method called LASSO that addresses this"
+    "section": "Finding the ridge estimator",
+    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n. . .\n\nLike least-squares, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)"
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#finding-the-ridge-estimator-1",
+    "href": "slides/17-ridge-regression-notes.html#finding-the-ridge-estimator-1",
+    "title": "Ridge regression",
+    "section": "Finding the ridge estimator",
+    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\n\n\nWhat will happen to \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) as \\(\\lambda \\rightarrow 0\\)? What will happen as\\(\\lambda \\rightarrow \\infty\\) ?"
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#finding-the-ridge-estimator-2",
+    "href": "slides/17-ridge-regression-notes.html#finding-the-ridge-estimator-2",
+    "title": "Ridge regression",
+    "section": "Finding the ridge estimator",
+    "text": "Finding the ridge estimator\nThe ridge optimization problem can also be written\n\\[\\text{minimize }(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta}) \\hspace{2mm} \\text{subject to} \\hspace{2mm} ||\\boldsymbol{\\beta}||^2_2 \\leq c^2\\] for some constant \\(c\\) . Note: \\(||\\boldsymbol{\\beta}||_2 = \\sqrt{\\sum_{j=1}^p\\beta_j^2}\\)\n. . .\n\n\n\n\n\nImage source: Introduction to Statistical Learning\n\n\n\n\nRed contours are combinations of \\(\\beta_1\\) and \\(\\beta_2\\) that result in same SSR\nBlue circle is set of possible values of \\(\\beta_1\\) and \\(\\beta_2\\) given the constraint\nRidge solution at tangent\n\n\nSee Section 1.5 of Lecture notes on ridge regression for details."
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#ridge-estimator-hatboldsymbolbeta_ridge",
+    "href": "slides/17-ridge-regression-notes.html#ridge-estimator-hatboldsymbolbeta_ridge",
+    "title": "Ridge regression",
+    "section": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)",
+    "text": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)\nThe ridge estimator is\n\\[\n\\hat{\\boldsymbol{\\beta}}_{ridge} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X} + \\lambda\\mathbf{I})\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\n(see Exam 01 for derivation)\n\nWe have addressed the singularity of \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) by adding the positive constant to the diagonal\n\n\n\nWhat is \\(E(\\hat{\\boldsymbol{\\beta}}_{ridge})\\)?\nIs \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) unbiased?"
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#bias-variance-trade-off",
+    "href": "slides/17-ridge-regression-notes.html#bias-variance-trade-off",
+    "title": "Ridge regression",
+    "section": "Bias-variance trade-off",
+    "text": "Bias-variance trade-off\n\nThe penalty \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}\\) makes the estimated coefficients in ridge regression less variable than least-squares\nTherefore, by adding some bias, we are able to reduce variance. This is called the bias-variance trade-off \nReducing the variance in coefficients is particularly important when we wish to use a model for prediction on new data\n\n\n\nSee Section 1.4.2 of Lecture notes on ridge regression for details."
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#fitting-the-model",
+    "href": "slides/17-ridge-regression-notes.html#fitting-the-model",
+    "title": "Ridge regression",
+    "section": "Fitting the model",
+    "text": "Fitting the model\n\n\nWe use standardized values of the predictors when fitting the ridge regression model\nWhy do we use standardized values? Let’s consider Length (in millimeters) in the abalone data\n\nLet \\(\\beta_j\\) be the coefficient of Length. When finding the ridge estimates, the penalty for the coefficient of Length is \\(\\lambda \\beta_j^2\\) .\nSuppose instead of Length in millimeters, we use Length in meters. Then the new coefficient is \\(1000\\beta_j\\). Thus, the penalty on the term would be \\(\\lambda 1000^2\\beta_j^2\\)\n\nStandardizing the quantitative predictors ensures the penalty is fairly applied across all predictors (and not dependent on units)\nThus, shrinkage in the \\(\\beta_j\\) reflects the predictor’s importance on the response"
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#ridge-regression-in-r",
+    "href": "slides/17-ridge-regression-notes.html#ridge-regression-in-r",
+    "title": "Ridge regression",
+    "section": "Ridge regression in R",
+    "text": "Ridge regression in R\nFit ridge regression models using lm.ridge() in the MASS package.\n\nlambda &lt;- 1\n\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter +\n                              Height + Whole_Weight,\n                            data = abalones,\n                            lambda = lambda)\n\n\n\n\n\n\n\nTip\n\n\n\nMASS a select() function that will cause issues with select() in dplyr. Therefore, use the package::function() syntax instead of loading MASS."
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#ridge-regression-in-r-1",
+    "href": "slides/17-ridge-regression-notes.html#ridge-regression-in-r-1",
+    "title": "Ridge regression",
+    "section": "Ridge regression in R",
+    "text": "Ridge regression in R\n\n\nCode\ntidy(ridge_fit) |&gt; kable(digits = 3)\n\n\n\n\n\nlambda\nGCV\nterm\nestimate\nscale\n\n\n\n\n1\n0.002\nSexI\n-0.507\n0.467\n\n\n1\n0.002\nSexM\n-0.070\n0.482\n\n\n1\n0.002\nLength\n-1.254\n24.016\n\n\n1\n0.002\nDiameter\n2.231\n19.846\n\n\n1\n0.002\nHeight\n0.784\n8.364\n\n\n1\n0.002\nWhole_Weight\n-0.070\n98.066\n\n\n\n\n\n. . .\n\nlambda: tuning parameter\nGCV: Generalized cross validation\nestimate: ridge coefficient given \\(\\lambda\\)\nscale: standard deviation of \\(x_j\\) (used by R to compute standardized predictors)\n\n\n# short cut to scale all numeric variables except the response\nabalone_scaled &lt;- abalones |&gt;\n  mutate(across(where(is.numeric) & ! all_of(\"Age\"), scale))"
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#try-different-values-of-lambda",
+    "href": "slides/17-ridge-regression-notes.html#try-different-values-of-lambda",
+    "title": "Ridge regression",
+    "section": "Try different values of lambda",
+    "text": "Try different values of lambda\n\n\nCode\nlambdas &lt;- seq(0, 1000, length = 5000)\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter + Height + Whole_Weight, \n                            data = abalones, lambda = lambdas)\n\n# Plot ridge trace\nplot(ridge_fit, type = \"ridge\")\n\n\n\n\n\n\n\n\n\n\nWhat is happening to the coefficients as \\(\\lambda\\) increases?"
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#gcv-to-choose-lambda",
+    "href": "slides/17-ridge-regression-notes.html#gcv-to-choose-lambda",
+    "title": "Ridge regression",
+    "section": "GCV to choose \\(\\lambda\\)",
+    "text": "GCV to choose \\(\\lambda\\)\n\nWe’ll choose \\(\\lambda\\) by considering how well the model predicts on new data\nLeave one out cross validation (LOOCV) is a method for evaluating model performance on new data, such that one observation is held out as the new data\nGeneralized cross validation (GCV) is a an approximation of LOOCV where we do not have to compute the model \\(n\\) times for each \\(\\lambda\\)\nWe use the \\(\\lambda\\) with the minimum value of GCV"
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#gcv-to-choose-lambda-1",
+    "href": "slides/17-ridge-regression-notes.html#gcv-to-choose-lambda-1",
+    "title": "Ridge regression",
+    "section": "GCV to choose \\(\\lambda\\)",
+    "text": "GCV to choose \\(\\lambda\\)\n\nThe fitted values from ridge regression can be written as\n\\[\n\\hat{\\mathbf{y}} = \\mathbf{H}_\\lambda\\mathbf{y}\n\\]\n\nwhere \\(\\mathbf{H}_\\lambda\\) is the hat matrix for a given value of \\(\\lambda\\) .\n\nThe average LOOCV for a given \\(\\lambda\\) is\n\n\\[\nCV(\\lambda) = \\frac{1}{n}\\sum_{i=1}^{n}\\Big(\\frac{y_i - \\hat{y}_i}{1 - h_{ii}}\\Big)^2\n\\]\nwhere \\(h_{ii}\\) is the \\(i^{th}\\) diagonal element of \\(\\mathbf{H}_\\lambda\\)."
+  },
+  {
+    "objectID": "slides/17-ridge-regression-notes.html#gcv-to-choose-lambda-2",
+    "href": "slides/17-ridge-regression-notes.html#gcv-to-choose-lambda-2",
+    "title": "Ridge regression",
+    "section": "GCV to choose \\(\\lambda\\)",
+    "text": "GCV to choose \\(\\lambda\\)\n\nGCV uses the \\(\\bar{h}_{ii} = tr(\\mathbf{H}_\\lambda)/n\\) instead of the individual \\(h_{ii}\\)\n\\[\nGCV (\\lambda) = \\frac{1}{n}\\sum_{i=1}^{n}\\frac{(y_i - \\hat{y}_i)^2}{\\big(1 - \\frac{tr(\\mathbf{H}_\\lambda}{n}\\big)^2}\n\\]\nWe use the select() function in MASS to find \\(\\lambda\\) that minimizes GCV\n\nMASS::select(ridge_fit)\n\nmodified HKB estimator is 3.427088 \nmodified L-W estimator is 6.826774 \nsmallest value of GCV  at 1.40028"
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#further-reading",
     "href": "slides/17-ridge-regression-notes.html#further-reading",
     "title": "Ridge regression",
     "section": "Further reading",
-    "text": "Further reading\nLink to original paper (reprinted version) https://www.jstor.org/stable/1271436?seq=6"
-  },
-  {
-    "objectID": "slides/17-ridge-regression-notes.html#data",
-    "href": "slides/17-ridge-regression-notes.html#data",
-    "title": "Ridge regression",
-    "section": "data",
-    "text": "data\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(rms)\n\nnba_salaries &lt;- read_csv(\"data/nba-salaries-2022-23.csv\")\n\nnba_salaries &lt;- nba_salaries |&gt;\n  mutate(PG = if_else(Position == \"PG\", TRUE, FALSE))\n\nnba_salaries &lt;- nba_salaries |&gt;\n  select(-Position,  -`Player Name`) \n\nnba_salaries_scaled &lt;- nba_salaries |&gt;\n  mutate(across(-Salary, ~ if(is.numeric(.)) scale(.) else .))\n\nmodel1 &lt;- lm(Salary ~ ., data = nba_salaries)\ntidy(model1)\n\n# A tibble: 12 × 5\n   term         estimate std.error statistic  p.value\n   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n 1 (Intercept) -20.0        2.71      -7.36  8.73e-13\n 2 Age           0.918      0.0722    12.7   8.69e-32\n 3 GP           -0.00880    0.0173    -0.509 6.11e- 1\n 4 MP           -0.219      0.107     -2.05  4.14e- 2\n 5 GS            0.0716     0.0211     3.40  7.41e- 4\n 6 FG            2.52       0.526      4.78  2.39e- 6\n 7 `FG%`        -2.67       4.58      -0.582 5.61e- 1\n 8 `2PA`         0.364      0.290      1.25  2.10e- 1\n 9 `2P%`        -2.51       3.60      -0.699 4.85e- 1\n10 AST           0.611      0.577      1.06  2.90e- 1\n11 `AST%`       -0.0840     0.103     -0.817 4.14e- 1\n12 PGTRUE        1.45       1.02       1.42  1.56e- 1\n\nvif(model1)\n\n      Age        GP        MP        GS        FG     `FG%`     `2PA`     `2P%` \n 1.076311  2.053581 11.615463  3.657016 18.774385  2.776211 12.112968  2.765182 \n      AST    `AST%`    PGTRUE \n14.244702  8.918924  1.655091 \n\n\n\n# pass standardized data in: \nridge_fit &lt;- MASS::lm.ridge(Salary ~ 0 + ., data = nba_salaries_scaled,\n                           lambda = 5000)\n\nbeta_scaled_lmridge &lt;-  ridge_fit$coef # scaled space coefficients\nbeta_unscaled_lmridge &lt;-  coef(ridge_fit) # original scale coefficients \n\n# (different than computed above if y and X are not standardized inputs)\n\ntidy(ridge_fit)\n\n# A tibble: 12 × 5\n   lambda   GCV term    estimate scale\n    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;\n 1   5000 0.310 Age       0.349  0.999\n 2   5000 0.310 GP        0.200  0.999\n 3   5000 0.310 MP        0.426  0.999\n 4   5000 0.310 GS        0.401  0.999\n 5   5000 0.310 FG        0.493  0.999\n 6   5000 0.310 `FG%`     0.0631 0.999\n 7   5000 0.310 `2PA`     0.465  0.999\n 8   5000 0.310 `2P%`     0.0302 0.999\n 9   5000 0.310 AST       0.392  0.999\n10   5000 0.310 `AST%`    0.288  0.999\n11   5000 0.310 PGFALSE   0.605  0.913\n12   5000 0.310 PGTRUE    0.365  0.408"
+    "text": "Further reading\n\nRidge regression is a form of “penalized regression” and is often called “regularization” or a “shrinkage method”. Other such methods are LASSO and best subset selection.\nOne (potential) limitation of ridge regression is that it keeps all predictors in the models. Methods such as LASSO and best subset selection address this.\nResources for further reading:\n\nEarly ridge paper: Hoerl and Kennard 1970\nLecture notes on ridge regression by Wessel N. van Wieringen"
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#questions",
     "href": "slides/17-ridge-regression-notes.html#questions",
     "title": "Ridge regression",
     "section": "Questions",
-    "text": "Questions\n\nForm for questions to discuss in lab."
+    "text": "Questions\n\n \n\n🔗 https://forms.office.com/r/h4BdM85Bjf"
   },
   {
     "objectID": "slides/17-ridge-regression-notes.html#next-class",
     "href": "slides/17-ridge-regression-notes.html#next-class",
     "title": "Ridge regression",
     "section": "Next class",
-    "text": "Next class\n\nRidge regression\nNo prepare assignment"
+    "text": "Next class\n\nLogistic regression\nComplete Lecture 18 prepare"
   },
   {
     "objectID": "slides/17-ridge-regression.html#announcements",
     "href": "slides/17-ridge-regression.html#announcements",
     "title": "Ridge regression",
     "section": "Announcements",
-    "text": "Announcements\n\nHW 03 due March 19 at 11:59pm\nProject exploratory data analysis due March 19\nStatistics experience due April 2\nDataFest March 20 - 22: https://dukestatsci.github.io/datafest/"
+    "text": "Announcements\n\nHW 03 due TODAY at 11:59pm\nProject exploratory data analysis due TODAY at 11:59pm (on GitHub)\nProject presentations - in lab March 27\nStatistics experience due April 2\n\nSubmit questions by 5pm today. Form at the end of today’s notes."
   },
   {
     "objectID": "slides/17-ridge-regression.html#topics",
@@ -9942,81 +10012,151 @@
     "text": "Topics\n\nRidge regression"
   },
   {
-    "objectID": "slides/17-ridge-regression.html#aic-bic-recap",
-    "href": "slides/17-ridge-regression.html#aic-bic-recap",
+    "objectID": "slides/17-ridge-regression.html#computing-set-up",
+    "href": "slides/17-ridge-regression.html#computing-set-up",
     "title": "Ridge regression",
-    "section": "AIC / BIC recap",
-    "text": "AIC / BIC recap"
+    "section": "Computing set up",
+    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(patchwork)\nlibrary(rms)\n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
   },
   {
-    "objectID": "slides/17-ridge-regression.html#aic-and-bic-in-r",
-    "href": "slides/17-ridge-regression.html#aic-and-bic-in-r",
+    "objectID": "slides/17-ridge-regression.html#data-age-of-abalones",
+    "href": "slides/17-ridge-regression.html#data-age-of-abalones",
     "title": "Ridge regression",
-    "section": "AIC and BIC in R",
-    "text": "AIC and BIC in R"
+    "section": "Data: Age of abalones",
+    "text": "Data: Age of abalones\nThe data for this analysis contains measurements for abalones, a type of marine snail. These measurements were collected and analyzed by researchers in Warwick et al. (1994). Click here for the publication.\nThe 4177 abalones in this study can be reasonably treated as a random sample.\nThe goal of this analysis is to use characteristics of the abalones to predict their age."
   },
   {
-    "objectID": "slides/17-ridge-regression.html#set-up-problem",
-    "href": "slides/17-ridge-regression.html#set-up-problem",
+    "objectID": "slides/17-ridge-regression.html#variables",
+    "href": "slides/17-ridge-regression.html#variables",
     "title": "Ridge regression",
-    "section": "Set up problem",
-    "text": "Set up problem\n\nAbalone data set\nIssue with multicollinearity\nVariances will be high (show X^TX matrix)\n\nWhat if we want to keep all the predictors in the model?"
+    "section": "Variables",
+    "text": "Variables\n\nSex: Male (M), Female (F), Infant (I)\nLength: Longest shell measurement (in millimeters)\nDiameter: Measured perpendicular to length (in millimeters)\nHeight : Measured with meat in shell (in millimeters)\nWhole_Weight: Total weight of abalone (in grams)\nAge: Age (in years)"
   },
   {
-    "objectID": "slides/17-ridge-regression.html#ridge-regression-1",
-    "href": "slides/17-ridge-regression.html#ridge-regression-1",
+    "objectID": "slides/17-ridge-regression.html#fit-a-model",
+    "href": "slides/17-ridge-regression.html#fit-a-model",
     "title": "Ridge regression",
-    "section": "Ridge regression",
-    "text": "Ridge regression\n\nshow optimization\ndescribe the penalty\nwhat is happening as lambda goes to 0? What about as lambda goes to infinity? (We’ll talk about how to find lambda later)\nWe will use standardized predictors for ridge regression. why does this matter?"
+    "section": "Fit a model",
+    "text": "Fit a model\n\nage_fit &lt;- lm(Age ~ Sex + Length + Diameter + Height\n              + Whole_Weight, data = abalones)\n\ntidy(age_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n5.643\n0.336\n16.795\n0.000\n\n\nSexI\n-1.084\n0.119\n-9.151\n0.000\n\n\nSexM\n-0.145\n0.097\n-1.492\n0.136\n\n\nLength\n-0.054\n0.010\n-5.136\n0.000\n\n\nDiameter\n0.114\n0.013\n8.903\n0.000\n\n\nHeight\n0.094\n0.009\n10.590\n0.000\n\n\nWhole_Weight\n-0.001\n0.001\n-0.642\n0.521"
   },
   {
-    "objectID": "slides/17-ridge-regression.html#estimator",
-    "href": "slides/17-ridge-regression.html#estimator",
+    "objectID": "slides/17-ridge-regression.html#potential-issue",
+    "href": "slides/17-ridge-regression.html#potential-issue",
     "title": "Ridge regression",
-    "section": "Estimator",
-    "text": "Estimator\n\nyou found this in exam 01\nIs it an unbiased estimator?\nwhat is the variance? - this may be too long for class?\nThis is the bias-variance trade off - we accept a little bias in order to reduce the variance"
+    "section": "Potential issue",
+    "text": "Potential issue\n\nvif(age_fit)\n\n        SexI         SexM       Length     Diameter       Height Whole_Weight \n    1.950083     1.386901    39.867076    41.170644     3.487132     7.709595 \n\n\n\n\n\nWhat is the potential issue with this model?\nHow does this impact the model results?"
   },
   {
-    "objectID": "slides/17-ridge-regression.html#when-is-ridge-useful",
-    "href": "slides/17-ridge-regression.html#when-is-ridge-useful",
+    "objectID": "slides/17-ridge-regression.html#limitations-of-the-least-squares-estimator",
+    "href": "slides/17-ridge-regression.html#limitations-of-the-least-squares-estimator",
     "title": "Ridge regression",
-    "section": "When is ridge useful",
-    "text": "When is ridge useful\nMost useful for models in which the SE of OLS are large and unstable but you want to keep all the predictors\n\nThat lambda I term helps stablize the variance when x^tX is nearly singular.\nSo this is the case when there is high multicollinearity\nwhen P is close to n\nMakes it possible to estimate coefficients when p &gt; n (is this true)?"
+    "section": "Limitations of the least-squares estimator",
+    "text": "Limitations of the least-squares estimator\n\nWhen \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) is nearly singular, \\(Var(\\hat{\\boldsymbol{\\beta}})\\) gets large, and thus we have unstable coefficient estimates . This occurs when\n\nThere are collinear predictors\n\\(p\\) is large relative to \\(n\\)\n\nAdditionally, if \\(p &gt; n\\) , then we cannot find \\(\\hat{\\boldsymbol{\\beta}}\\)\nWe can use a different estimator that addresses these limitations"
   },
   {
-    "objectID": "slides/17-ridge-regression.html#limitations",
-    "href": "slides/17-ridge-regression.html#limitations",
+    "objectID": "slides/17-ridge-regression.html#finding-the-ridge-estimator",
+    "href": "slides/17-ridge-regression.html#finding-the-ridge-estimator",
     "title": "Ridge regression",
-    "section": "LImitations",
-    "text": "LImitations\n\nRidge will not ever set the coefficients to exactly equal to 0 (limitation if you want to reduce the number of coefficients in th emodel)\n\nSimilar method called LASSO that addresses this"
+    "section": "Finding the ridge estimator",
+    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n\n\nLike least-squares, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#finding-the-ridge-estimator-1",
+    "href": "slides/17-ridge-regression.html#finding-the-ridge-estimator-1",
+    "title": "Ridge regression",
+    "section": "Finding the ridge estimator",
+    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\n\n\nWhat will happen to \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) as \\(\\lambda \\rightarrow 0\\)? What will happen as\\(\\lambda \\rightarrow \\infty\\) ?"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#finding-the-ridge-estimator-2",
+    "href": "slides/17-ridge-regression.html#finding-the-ridge-estimator-2",
+    "title": "Ridge regression",
+    "section": "Finding the ridge estimator",
+    "text": "Finding the ridge estimator\nThe ridge optimization problem can also be written\n\\[\\text{minimize }(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta}) \\hspace{2mm} \\text{subject to} \\hspace{2mm} ||\\boldsymbol{\\beta}||^2_2 \\leq c^2\\] for some constant \\(c\\) . Note: \\(||\\boldsymbol{\\beta}||_2 = \\sqrt{\\sum_{j=1}^p\\beta_j^2}\\)\n\n\n\n\n\n\nImage source: Introduction to Statistical Learning\n\n\n\n\nRed contours are combinations of \\(\\beta_1\\) and \\(\\beta_2\\) that result in same SSR\nBlue circle is set of possible values of \\(\\beta_1\\) and \\(\\beta_2\\) given the constraint\nRidge solution at tangent\n\n\nSee Section 1.5 of Lecture notes on ridge regression for details."
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#ridge-estimator-hatboldsymbolbeta_ridge",
+    "href": "slides/17-ridge-regression.html#ridge-estimator-hatboldsymbolbeta_ridge",
+    "title": "Ridge regression",
+    "section": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)",
+    "text": "Ridge estimator \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\)\nThe ridge estimator is\n\\[\n\\hat{\\boldsymbol{\\beta}}_{ridge} = (\\mathbf{X}^\\mathsf{T}\\mathbf{X} + \\lambda\\mathbf{I})\\mathbf{X}^\\mathsf{T}\\mathbf{y}\n\\]\n(see Exam 01 for derivation)\n\nWe have addressed the singularity of \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) by adding the positive constant to the diagonal\n\n\n\nWhat is \\(E(\\hat{\\boldsymbol{\\beta}}_{ridge})\\)?\nIs \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) unbiased?"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#bias-variance-trade-off",
+    "href": "slides/17-ridge-regression.html#bias-variance-trade-off",
+    "title": "Ridge regression",
+    "section": "Bias-variance trade-off",
+    "text": "Bias-variance trade-off\n\nThe penalty \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}\\) makes the estimated coefficients in ridge regression less variable than least-squares\nTherefore, by adding some bias, we are able to reduce variance. This is called the bias-variance trade-off \nReducing the variance in coefficients is particularly important when we wish to use a model for prediction on new data\n\n\n\nSee Section 1.4.2 of Lecture notes on ridge regression for details."
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#fitting-the-model",
+    "href": "slides/17-ridge-regression.html#fitting-the-model",
+    "title": "Ridge regression",
+    "section": "Fitting the model",
+    "text": "Fitting the model\n\nWe use standardized values of the predictors when fitting the ridge regression model\nWhy do we use standardized values? Let’s consider Length (in millimeters) in the abalone data\n\nLet \\(\\beta_j\\) be the coefficient of Length. When finding the ridge estimates, the penalty for the coefficient of Length is \\(\\lambda \\beta_j^2\\) .\nSuppose instead of Length in millimeters, we use Length in meters. Then the new coefficient is \\(1000\\beta_j\\). Thus, the penalty on the term would be \\(\\lambda 1000^2\\beta_j^2\\)\n\nStandardizing the quantitative predictors ensures the penalty is fairly applied across all predictors (and not dependent on units)\nThus, shrinkage in the \\(\\beta_j\\) reflects the predictor’s importance on the response"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#ridge-regression-in-r",
+    "href": "slides/17-ridge-regression.html#ridge-regression-in-r",
+    "title": "Ridge regression",
+    "section": "Ridge regression in R",
+    "text": "Ridge regression in R\nFit ridge regression models using lm.ridge() in the MASS package.\n\nlambda &lt;- 1\n\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter +\n                              Height + Whole_Weight,\n                            data = abalones,\n                            lambda = lambda)\n\n\n\n\n\n\n\nTip\n\n\nMASS a select() function that will cause issues with select() in dplyr. Therefore, use the package::function() syntax instead of loading MASS."
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#ridge-regression-in-r-1",
+    "href": "slides/17-ridge-regression.html#ridge-regression-in-r-1",
+    "title": "Ridge regression",
+    "section": "Ridge regression in R",
+    "text": "Ridge regression in R\n\n\nCode\ntidy(ridge_fit) |&gt; kable(digits = 3)\n\n\n\n\n\nlambda\nGCV\nterm\nestimate\nscale\n\n\n\n\n1\n0.002\nSexI\n-0.507\n0.467\n\n\n1\n0.002\nSexM\n-0.070\n0.482\n\n\n1\n0.002\nLength\n-1.254\n24.016\n\n\n1\n0.002\nDiameter\n2.231\n19.846\n\n\n1\n0.002\nHeight\n0.784\n8.364\n\n\n1\n0.002\nWhole_Weight\n-0.070\n98.066\n\n\n\n\n\n\n\nlambda: tuning parameter\nGCV: Generalized cross validation\nestimate: ridge coefficient given \\(\\lambda\\)\nscale: standard deviation of \\(x_j\\) (used by R to compute standardized predictors)\n\n\n# short cut to scale all numeric variables except the response\nabalone_scaled &lt;- abalones |&gt;\n  mutate(across(where(is.numeric) & ! all_of(\"Age\"), scale))"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#try-different-values-of-lambda",
+    "href": "slides/17-ridge-regression.html#try-different-values-of-lambda",
+    "title": "Ridge regression",
+    "section": "Try different values of lambda",
+    "text": "Try different values of lambda\n\n\nCode\nlambdas &lt;- seq(0, 1000, length = 5000)\nridge_fit &lt;- MASS::lm.ridge(Age ~ Sex + Length + Diameter + Height + Whole_Weight, \n                            data = abalones, lambda = lambdas)\n\n# Plot ridge trace\nplot(ridge_fit, type = \"ridge\")\n\n\n\n\nWhat is happening to the coefficients as \\(\\lambda\\) increases?"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#gcv-to-choose-lambda",
+    "href": "slides/17-ridge-regression.html#gcv-to-choose-lambda",
+    "title": "Ridge regression",
+    "section": "GCV to choose \\(\\lambda\\)",
+    "text": "GCV to choose \\(\\lambda\\)\n\nWe’ll choose \\(\\lambda\\) by considering how well the model predicts on new data\nLeave one out cross validation (LOOCV) is a method for evaluating model performance on new data, such that one observation is held out as the new data\nGeneralized cross validation (GCV) is a an approximation of LOOCV where we do not have to compute the model \\(n\\) times for each \\(\\lambda\\)\nWe use the \\(\\lambda\\) with the minimum value of GCV"
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#gcv-to-choose-lambda-1",
+    "href": "slides/17-ridge-regression.html#gcv-to-choose-lambda-1",
+    "title": "Ridge regression",
+    "section": "GCV to choose \\(\\lambda\\)",
+    "text": "GCV to choose \\(\\lambda\\)\n\nThe fitted values from ridge regression can be written as\n\\[\n\\hat{\\mathbf{y}} = \\mathbf{H}_\\lambda\\mathbf{y}\n\\]\n\nwhere \\(\\mathbf{H}_\\lambda\\) is the hat matrix for a given value of \\(\\lambda\\) .\n\nThe average LOOCV for a given \\(\\lambda\\) is\n\n\\[\nCV(\\lambda) = \\frac{1}{n}\\sum_{i=1}^{n}\\Big(\\frac{y_i - \\hat{y}_i}{1 - h_{ii}}\\Big)^2\n\\]\nwhere \\(h_{ii}\\) is the \\(i^{th}\\) diagonal element of \\(\\mathbf{H}_\\lambda\\)."
+  },
+  {
+    "objectID": "slides/17-ridge-regression.html#gcv-to-choose-lambda-2",
+    "href": "slides/17-ridge-regression.html#gcv-to-choose-lambda-2",
+    "title": "Ridge regression",
+    "section": "GCV to choose \\(\\lambda\\)",
+    "text": "GCV to choose \\(\\lambda\\)\n\nGCV uses the \\(\\bar{h}_{ii} = tr(\\mathbf{H}_\\lambda)/n\\) instead of the individual \\(h_{ii}\\)\n\\[\nGCV (\\lambda) = \\frac{1}{n}\\sum_{i=1}^{n}\\frac{(y_i - \\hat{y}_i)^2}{\\big(1 - \\frac{tr(\\mathbf{H}_\\lambda}{n}\\big)^2}\n\\]\nWe use the select() function in MASS to find \\(\\lambda\\) that minimizes GCV\n\nMASS::select(ridge_fit)\n\nmodified HKB estimator is 3.427088 \nmodified L-W estimator is 6.826774 \nsmallest value of GCV  at 1.40028"
   },
   {
     "objectID": "slides/17-ridge-regression.html#further-reading",
     "href": "slides/17-ridge-regression.html#further-reading",
     "title": "Ridge regression",
     "section": "Further reading",
-    "text": "Further reading\nLink to original paper (reprinted version) https://www.jstor.org/stable/1271436?seq=6"
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#data",
-    "href": "slides/17-ridge-regression.html#data",
-    "title": "Ridge regression",
-    "section": "data",
-    "text": "data\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(rms)\n\nnba_salaries &lt;- read_csv(\"data/nba-salaries-2022-23.csv\")\n\nnba_salaries &lt;- nba_salaries |&gt;\n  mutate(PG = if_else(Position == \"PG\", TRUE, FALSE))\n\nnba_salaries &lt;- nba_salaries |&gt;\n  select(-Position,  -`Player Name`) \n\nnba_salaries_scaled &lt;- nba_salaries |&gt;\n  mutate(across(-Salary, ~ if(is.numeric(.)) scale(.) else .))\n\nmodel1 &lt;- lm(Salary ~ ., data = nba_salaries)\ntidy(model1)\n\n# A tibble: 12 × 5\n   term         estimate std.error statistic  p.value\n   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n 1 (Intercept) -20.0        2.71      -7.36  8.73e-13\n 2 Age           0.918      0.0722    12.7   8.69e-32\n 3 GP           -0.00880    0.0173    -0.509 6.11e- 1\n 4 MP           -0.219      0.107     -2.05  4.14e- 2\n 5 GS            0.0716     0.0211     3.40  7.41e- 4\n 6 FG            2.52       0.526      4.78  2.39e- 6\n 7 `FG%`        -2.67       4.58      -0.582 5.61e- 1\n 8 `2PA`         0.364      0.290      1.25  2.10e- 1\n 9 `2P%`        -2.51       3.60      -0.699 4.85e- 1\n10 AST           0.611      0.577      1.06  2.90e- 1\n11 `AST%`       -0.0840     0.103     -0.817 4.14e- 1\n12 PGTRUE        1.45       1.02       1.42  1.56e- 1\n\nvif(model1)\n\n      Age        GP        MP        GS        FG     `FG%`     `2PA`     `2P%` \n 1.076311  2.053581 11.615463  3.657016 18.774385  2.776211 12.112968  2.765182 \n      AST    `AST%`    PGTRUE \n14.244702  8.918924  1.655091 \n\n\n\n# pass standardized data in: \nridge_fit &lt;- MASS::lm.ridge(Salary ~ 0 + ., data = nba_salaries_scaled,\n                           lambda = 5000)\n\nbeta_scaled_lmridge &lt;-  ridge_fit$coef # scaled space coefficients\nbeta_unscaled_lmridge &lt;-  coef(ridge_fit) # original scale coefficients \n\n# (different than computed above if y and X are not standardized inputs)\n\ntidy(ridge_fit)\n\n# A tibble: 12 × 5\n   lambda   GCV term    estimate scale\n    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;\n 1   5000 0.310 Age       0.349  0.999\n 2   5000 0.310 GP        0.200  0.999\n 3   5000 0.310 MP        0.426  0.999\n 4   5000 0.310 GS        0.401  0.999\n 5   5000 0.310 FG        0.493  0.999\n 6   5000 0.310 `FG%`     0.0631 0.999\n 7   5000 0.310 `2PA`     0.465  0.999\n 8   5000 0.310 `2P%`     0.0302 0.999\n 9   5000 0.310 AST       0.392  0.999\n10   5000 0.310 `AST%`    0.288  0.999\n11   5000 0.310 PGFALSE   0.605  0.913\n12   5000 0.310 PGTRUE    0.365  0.408"
+    "text": "Further reading\n\nRidge regression is a form of “penalized regression” and is often called “regularization” or a “shrinkage method”. Other such methods are LASSO and best subset selection.\nOne (potential) limitation of ridge regression is that it keeps all predictors in the models. Methods such as LASSO and best subset selection address this.\nResources for further reading:\n\nEarly ridge paper: Hoerl and Kennard 1970\nLecture notes on ridge regression by Wessel N. van Wieringen"
   },
   {
     "objectID": "slides/17-ridge-regression.html#questions",
     "href": "slides/17-ridge-regression.html#questions",
     "title": "Ridge regression",
     "section": "Questions",
-    "text": "Questions\n\nForm for questions to discuss in lab."
+    "text": "Questions\n\n \n\n🔗 https://forms.office.com/r/h4BdM85Bjf"
   },
   {
     "objectID": "slides/17-ridge-regression.html#next-class",
     "href": "slides/17-ridge-regression.html#next-class",
     "title": "Ridge regression",
     "section": "Next class",
-    "text": "Next class\n\nRidge regression\nNo prepare assignment"
+    "text": "Next class\n\nLogistic regression\nComplete Lecture 18 prepare"
   },
   {
     "objectID": "about.html",
@@ -10216,75 +10356,5 @@
       "Computing",
       "Troubleshooting"
     ]
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#computing-set-up",
-    "href": "slides/17-ridge-regression.html#computing-set-up",
-    "title": "Ridge regression",
-    "section": "Computing set up",
-    "text": "Computing set up\n\n# load packages\nlibrary(tidyverse)  \nlibrary(tidymodels)  \nlibrary(knitr)       \nlibrary(patchwork)\nlibrary(rms)\n\n# set default theme in ggplot2\nggplot2::theme_set(ggplot2::theme_bw())"
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#data-age-of-abalones",
-    "href": "slides/17-ridge-regression.html#data-age-of-abalones",
-    "title": "Ridge regression",
-    "section": "Data: Age of abalones",
-    "text": "Data: Age of abalones\nThe data for this analysis contains measurements for abalones, a type of marine snail. These measurements were collected and analyzed by researchers in Warwick et al. (1994). Click here for the publication.\nThe 4177 abalones in this study can be reasonably treated as a random sample.\nThe goal of this analysis is to use characteristics of the abalones to predict their age."
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#fit-a-model",
-    "href": "slides/17-ridge-regression.html#fit-a-model",
-    "title": "Ridge regression",
-    "section": "Fit a model",
-    "text": "Fit a model\n\nage_fit &lt;- lm(Age ~ Sex + Length + Diameter + Height\n              + Whole_Weight, data = abalones)\n\ntidy(age_fit) |&gt; kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n5.643\n0.336\n16.795\n0.000\n\n\nSexI\n-1.084\n0.119\n-9.151\n0.000\n\n\nSexM\n-0.145\n0.097\n-1.492\n0.136\n\n\nLength\n-0.054\n0.010\n-5.136\n0.000\n\n\nDiameter\n0.114\n0.013\n8.903\n0.000\n\n\nHeight\n0.094\n0.009\n10.590\n0.000\n\n\nWhole_Weight\n-0.001\n0.001\n-0.642\n0.521"
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#variables",
-    "href": "slides/17-ridge-regression.html#variables",
-    "title": "Ridge regression",
-    "section": "Variables",
-    "text": "Variables\n\nSex: Male (M), Female (F), Infant (I)\nLength: Longest shell measurement (in millimeters)\nDiameter: Measured perpendicular to length (in millimeters)\nHeight : Measured with meat in shell (in millimeters)\nWhole_Weight: Total weight of abalone (in grams)\nAge: Age (in years)"
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#potential-issue",
-    "href": "slides/17-ridge-regression.html#potential-issue",
-    "title": "Ridge regression",
-    "section": "Potential issue",
-    "text": "Potential issue\n\nvif(age_fit)\n\n        SexI         SexM       Length     Diameter       Height Whole_Weight \n    1.950083     1.386901    39.867076    41.170644     3.487132     7.709595 \n\n\n\n\n\nWhat is the potential issue with this model?\nHow does this impact the model results?"
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#limitations-of-least-squares-regression",
-    "href": "slides/17-ridge-regression.html#limitations-of-least-squares-regression",
-    "title": "Ridge regression",
-    "section": "Limitations of least-squares regression",
-    "text": "Limitations of least-squares regression\n\nWhen \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) is nearly singular, \\(Var(\\hat{\\boldsymbol{\\beta}})\\) gets large, and thus we have unstable coefficient estimates\nThis occurs when\n\nThe predictors are collinear"
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#limitations-of-the-least-squares-estimator",
-    "href": "slides/17-ridge-regression.html#limitations-of-the-least-squares-estimator",
-    "title": "Ridge regression",
-    "section": "Limitations of the least-squares estimator",
-    "text": "Limitations of the least-squares estimator\n\nWhen \\((\\mathbf{X}^\\mathsf{T}\\mathbf{X})\\) is nearly singular, \\(Var(\\hat{\\boldsymbol{\\beta}})\\) gets large, and thus we have unstable coefficient estimates . This occurs when\n\nThere are collinear predictors\n\\(p\\) is large relative to \\(n\\)\n\nAdditionally, if \\(p &gt; n\\) , then we cannot find \\(\\hat{\\boldsymbol{\\beta}}\\)\nWe can use a different estimator that does not have these limitations"
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#ridge-estimator",
-    "href": "slides/17-ridge-regression.html#ridge-estimator",
-    "title": "Ridge regression",
-    "section": "Ridge estimator",
-    "text": "Ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n\nLike least-square, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)\n\n\nWhat happens as \\(\\lambda \\rightarrow 0\\)? What happens as \\(\\lambda \\rightarrow \\infty\\) ?\n\n$$\n$$"
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#finding-the-ridge-estimator",
-    "href": "slides/17-ridge-regression.html#finding-the-ridge-estimator",
-    "title": "Ridge regression",
-    "section": "Finding the ridge estimator",
-    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\nwhere \\(\\lambda \\geq 0\\) is the tuning parameter determined by the statistician (more on this later)\n\nLike least-squares, ridge regression seeks to minimize the sum of squares\nThe penalty, \\(\\lambda\\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta} = \\lambda\\sum_{j = 1}^p\\beta_j\\) preferences smaller values of \\(\\beta_j\\), so ridge will shrink the coefficients to 0 (this does not apply to the intercept)"
-  },
-  {
-    "objectID": "slides/17-ridge-regression.html#finding-the-ridge-estimator-1",
-    "href": "slides/17-ridge-regression.html#finding-the-ridge-estimator-1",
-    "title": "Ridge regression",
-    "section": "Finding the ridge estimator",
-    "text": "Finding the ridge estimator\nWe find the ridge estimator, \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) by minimizing\n\\[\n\\underbrace{(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})^\\mathsf{T}(\\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta})}_{\\text{SSR}} + \\underbrace{\\lambda \\boldsymbol{\\beta}^\\mathsf{T}\\boldsymbol{\\beta}}_{\\text{penalty}}\n\\]\n\n\nWhat will happen to \\(\\hat{\\boldsymbol{\\beta}}_{ridge}\\) as \\(\\lambda \\rightarrow 0\\)? What will happen as\\(\\lambda \\rightarrow \\infty\\) ?"
   }
 ]
