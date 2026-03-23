@@ -356,7 +356,7 @@ where $h_{ii}$ is the $i^{th}$ diagonal element of $\mathbf{H}_\lambda$.
     MASS::select(ridge_fit)
     ```
 
-## Refit model with selected $\lambda$  {.midi}
+## Refit model with selected $\lambda$ {.midi}
 
 ```{r}
 lambda <- 1.40028
