@@ -29,7 +29,7 @@ knitr:
 bibliography: references.bib
 ---
 
-## Announcements  {.midi}
+## Announcements {.midi}
 
 -   Lab 06 due TODAY at 11:59pm
 
@@ -66,8 +66,6 @@ library(patchwork)
 # set default theme in ggplot2
 ggplot2::theme_set(ggplot2::theme_bw())
 ```
-
-# Example
 
 ## Risk of coronary heart disease {.midi}
 
@@ -157,18 +155,22 @@ p2 <- ggplot(heart_disease, aes(x = education, fill = high_risk)) +
 p1 + p2
 ```
 
-## Linear model? 
+## Linear model?
 
-Let's consider our usual linear model $\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}}$
+Let's consider the linear model $\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}}$
 
 ```{r}
 #| echo: false
+#| fig-align: center
+
 heart_disease <- heart_disease |> 
   mutate(high_risk_num = as.numeric(high_risk))
 
 ggplot(data = heart_disease, aes(x = age, y = high_risk_num)) + 
   geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = FALSE)
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(x = "Age (in years)", 
+       y = "High risk for heart disease")
 ```
 
 ::: question
@@ -194,13 +196,13 @@ Recall in linear regression, we modeled the expected value of $Y_i$ given the pr
 
 Now we have a response variable, such that $E(Y_i | \pi) = \pi$
 
-## Let's try a new model 
+## Let's try a new model
 
 ::: question
 Let's say $\pi = 0.5$. What does $E(Y_i | \pi) = \pi$ mean in the context of the data? Is this assumption realistic in practice?
 :::
 
-## Let's try a new model 
+## Let's try a new model
 
 We want to compute probabilities $\pi$ based on the predictor variables (e.g., use an individual's age and education to evaluate their risk for heart disease).
 
@@ -210,23 +212,25 @@ $$
 \pi_i = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}
 $$
 
+where $x_i^\mathsf{T}$ is the $i^{th}$ row of the design matrix $\mathbf{X}$
+
 ::: question
 What is wrong with using a model of this form?
 :::
 
 ## Logit link function
 
-Instead of modeling $\pi_i$ directly, we will model $\text{logit}(\pi_i) = \text{logit}\big(\frac{\pi_i}{1 - \pi_i}\big)$ such that
+Instead of modeling $\pi_i$ directly, we will model $\text{logit}(\pi_i) = \text{log}\big(\frac{\pi_i}{1 - \pi_i}\big)$ such that
 
 $$
-\text{logit}(\pi_i) = \text{logit}\Big(\frac{\pi_i}{1 - \pi_i}\Big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}
+\text{logit}(\pi_i) = \text{log}\Big(\frac{\pi_i}{1 - \pi_i}\Big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}
 $$
 
 . . .
 
 The logit function links $E(Y_i | \pi)$ to the predictors, so the logit is a **link function*.***
 
-## Logit function 
+## Logit function
 
 The logit function is
 
@@ -239,7 +243,7 @@ $$
 -   What happens as $\pi_i \rightarrow 1$?
 :::
 
-## From logit to probabilities {.incremental}
+## From logit to probability  {.midi}
 
 **Logistic model** $$\text{logit}(\pi_i) = \log\big(\frac{\pi_i}{1-\pi_i}\big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}$$
 
@@ -256,7 +260,7 @@ $$\pi_i = \frac{\exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp\{\ma
 ## Sigmoid function
 
 We call this function relating the probability to the predictors a **sigmoid function** $$
-\sigma(x) = \frac{\exp\{x\}}{1 + \exp\{x\}}= \frac{1}{1+\text{exp}\{-x\}}.$$
+\sigma(z) = \frac{\exp\{z\}}{1 + \exp\{z\}}= \frac{1}{1+\text{exp}\{-z\}}.$$
 
 This is the "S" curve produced by logistic regression.
 
@@ -300,7 +304,7 @@ $$p(y_i | \mathbf{X}, \boldsymbol{\beta}) = \pi^{y_i}_i (1-\pi_i)^{1-y_i}$$
 
 . . .
 
-The likelihood is the joint density of $y_i, \ldots, y_n$ as a function of the unknown $\boldsymbol{\beta}$
+The likelihood is the joint density of $y_1, \ldots, y_n$ as a function of the unknown $\boldsymbol{\beta}$
 
 . . .
 
@@ -316,8 +320,9 @@ The log-likelihood function for $\boldsymbol\beta$ is
 
 $$
 \begin{aligned}
-\log L(\boldsymbol\beta | \mathbf{X}, \mathbf{y}) &= \sum_{i=1}^n\log(\pi_i^{y_i}(1-\pi_i)^{1-y_i})\\[8pt]
-&= \sum_{i=1}^n\left(y_i\log (\pi_i) + (1-y_i)\log(1-\pi_i)\right)\\
+\log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y}) 
+&= \sum_{i=1}^n \log\left(\pi_i^{y_i}(1-\pi_i)^{1-y_i}\right) \\[8pt]
+&= \sum_{i=1}^n y_i \log(\pi_i) + (1-y_i)\log(1-\pi_i)
 \end{aligned}
 $$
 
@@ -327,10 +332,11 @@ Plugging in $\pi_i = \frac{\exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol\beta\}}{1+\
 
 $$
 \begin{aligned}
-\log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y}) &= \sum_{i=1}^n y_i \log\left(\frac{\exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right)+ (1 - y_i)\log\left(\frac{1}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \\[8pt]
-&= \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})
-\end{aligned}
-$$
+\log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y}) = \sum_{i=1}^n &y_i \log\left(\frac{\exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \\
+&+ (1 - y_i)\log\left(\frac{1}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \end{aligned} $$
+<br>
+
+$$= \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})$$
 
 ## Finding the MLE
 
@@ -350,6 +356,15 @@ $$
 . . .
 
 -   R uses numerical approximation to find the MLE.
+
+## Logistic regression in R
+
+```{r}
+heart_disease_fit <- glm(high_risk ~ age + education, 
+                         data  = heart_disease, 
+                         family = "binomial", 
+                        control = glm.control(trace = TRUE)) # just to show estimation 
+```
 
 ## Logistic regression in R
 

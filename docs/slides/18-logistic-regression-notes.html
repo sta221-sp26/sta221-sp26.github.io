@@ -405,8 +405,6 @@ window.Quarto = {
   <li><a href="#announcements" id="toc-announcements" class="nav-link active" data-scroll-target="#announcements">Announcements</a></li>
   <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#computational-setup" id="toc-computational-setup" class="nav-link" data-scroll-target="#computational-setup">Computational setup</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a>
-  <ul class="collapse">
   <li><a href="#risk-of-coronary-heart-disease" id="toc-risk-of-coronary-heart-disease" class="nav-link" data-scroll-target="#risk-of-coronary-heart-disease">Risk of coronary heart disease</a></li>
   <li><a href="#data-heart_disease" id="toc-data-heart_disease" class="nav-link" data-scroll-target="#data-heart_disease">Data: <code>heart_disease</code></a></li>
   <li><a href="#univariate-eda" id="toc-univariate-eda" class="nav-link" data-scroll-target="#univariate-eda">Univariate EDA</a></li>
@@ -417,7 +415,7 @@ window.Quarto = {
   <li><a href="#lets-try-a-new-model-1" id="toc-lets-try-a-new-model-1" class="nav-link" data-scroll-target="#lets-try-a-new-model-1">Let’s try a new model</a></li>
   <li><a href="#logit-link-function" id="toc-logit-link-function" class="nav-link" data-scroll-target="#logit-link-function">Logit link function</a></li>
   <li><a href="#logit-function" id="toc-logit-function" class="nav-link" data-scroll-target="#logit-function">Logit function</a></li>
-  <li><a href="#from-logit-to-probabilities" id="toc-from-logit-to-probabilities" class="nav-link" data-scroll-target="#from-logit-to-probabilities">From logit to probabilities</a></li>
+  <li><a href="#from-logit-to-probability" id="toc-from-logit-to-probability" class="nav-link" data-scroll-target="#from-logit-to-probability">From logit to probability</a></li>
   <li><a href="#sigmoid-function" id="toc-sigmoid-function" class="nav-link" data-scroll-target="#sigmoid-function">Sigmoid function</a></li>
   <li><a href="#sigmoid-function-1" id="toc-sigmoid-function-1" class="nav-link" data-scroll-target="#sigmoid-function-1">Sigmoid function</a></li>
   <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic regression</a></li>
@@ -426,13 +424,13 @@ window.Quarto = {
   <li><a href="#log-likelihood-1" id="toc-log-likelihood-1" class="nav-link" data-scroll-target="#log-likelihood-1">Log-likelihood</a></li>
   <li><a href="#finding-the-mle" id="toc-finding-the-mle" class="nav-link" data-scroll-target="#finding-the-mle">Finding the MLE</a></li>
   <li><a href="#logistic-regression-in-r" id="toc-logistic-regression-in-r" class="nav-link" data-scroll-target="#logistic-regression-in-r">Logistic regression in R</a></li>
+  <li><a href="#logistic-regression-in-r-1" id="toc-logistic-regression-in-r-1" class="nav-link" data-scroll-target="#logistic-regression-in-r-1">Logistic regression in R</a></li>
   <li><a href="#interpretation-in-terms-of-log-odds" id="toc-interpretation-in-terms-of-log-odds" class="nav-link" data-scroll-target="#interpretation-in-terms-of-log-odds">Interpretation in terms of log-odds</a></li>
   <li><a href="#interpretation-in-terms-of-log-odds-1" id="toc-interpretation-in-terms-of-log-odds-1" class="nav-link" data-scroll-target="#interpretation-in-terms-of-log-odds-1">Interpretation in terms of log-odds</a></li>
   <li><a href="#interpretation-in-terms-of-odds" id="toc-interpretation-in-terms-of-odds" class="nav-link" data-scroll-target="#interpretation-in-terms-of-odds">Interpretation in terms of odds</a></li>
   <li><a href="#interpretation-in-terms-of-odds-1" id="toc-interpretation-in-terms-of-odds-1" class="nav-link" data-scroll-target="#interpretation-in-terms-of-odds-1">Interpretation in terms of odds</a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#next-class" id="toc-next-class" class="nav-link" data-scroll-target="#next-class">Next class</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="18-logistic-regression.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -507,8 +505,6 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="example" class="level1">
-<h1>Example</h1>
 <section id="risk-of-coronary-heart-disease" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="risk-of-coronary-heart-disease">Risk of coronary heart disease</h2>
 <p>This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.</p>
@@ -584,12 +580,12 @@ window.Quarto = {
 </section>
 <section id="linear-model" class="level2">
 <h2 class="anchored" data-anchor-id="linear-model">Linear model?</h2>
-<p>Let’s consider our usual linear model <span class="math inline">\(\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}}\)</span></p>
-<div class="cell">
+<p>Let’s consider the linear model <span class="math inline">\(\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}}\)</span></p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="18-logistic-regression_files/figure-revealjs/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="18-logistic-regression_files/figure-revealjs/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -625,15 +621,16 @@ window.Quarto = {
 <p><span class="math display">\[
 \pi_i = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}
 \]</span></p>
+<p>where <span class="math inline">\(x_i^\mathsf{T}\)</span> is the <span class="math inline">\(i^{th}\)</span> row of the design matrix <span class="math inline">\(\mathbf{X}\)</span></p>
 <div class="question">
 <p>What is wrong with using a model of this form?</p>
 </div>
 </section>
 <section id="logit-link-function" class="level2">
 <h2 class="anchored" data-anchor-id="logit-link-function">Logit link function</h2>
-<p>Instead of modeling <span class="math inline">\(\pi_i\)</span> directly, we will model <span class="math inline">\(\text{logit}(\pi_i) = \text{logit}\big(\frac{\pi_i}{1 - \pi_i}\big)\)</span> such that</p>
+<p>Instead of modeling <span class="math inline">\(\pi_i\)</span> directly, we will model <span class="math inline">\(\text{logit}(\pi_i) = \text{log}\big(\frac{\pi_i}{1 - \pi_i}\big)\)</span> such that</p>
 <p><span class="math display">\[
-\text{logit}(\pi_i) = \text{logit}\Big(\frac{\pi_i}{1 - \pi_i}\Big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}
+\text{logit}(\pi_i) = \text{log}\Big(\frac{\pi_i}{1 - \pi_i}\Big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}
 \]</span></p>
 <p>. . .</p>
 <p>The logit function links <span class="math inline">\(E(Y_i | \pi)\)</span> to the predictors, so the logit is a <strong>link function<em>.</em></strong></p>
@@ -650,8 +647,8 @@ window.Quarto = {
 </ul>
 </div>
 </section>
-<section id="from-logit-to-probabilities" class="level2 incremental">
-<h2 class="incremental anchored" data-anchor-id="from-logit-to-probabilities">From logit to probabilities</h2>
+<section id="from-logit-to-probability" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="from-logit-to-probability">From logit to probability</h2>
 <p><strong>Logistic model</strong> <span class="math display">\[\text{logit}(\pi_i) = \log\big(\frac{\pi_i}{1-\pi_i}\big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\]</span></p>
 <p>. . .</p>
 <p><strong>Odds</strong> <span class="math display">\[\exp\big\{\log\big(\frac{\pi_i}{1 - \pi_i}\big)\big\} = \frac{\pi_i}{1-\pi_i}\]</span></p>
@@ -662,7 +659,7 @@ window.Quarto = {
 <section id="sigmoid-function" class="level2">
 <h2 class="anchored" data-anchor-id="sigmoid-function">Sigmoid function</h2>
 <p>We call this function relating the probability to the predictors a <strong>sigmoid function</strong> <span class="math display">\[
-\sigma(x) = \frac{\exp\{x\}}{1 + \exp\{x\}}= \frac{1}{1+\text{exp}\{-x\}}.\]</span></p>
+\sigma(z) = \frac{\exp\{z\}}{1 + \exp\{z\}}= \frac{1}{1+\text{exp}\{-z\}}.\]</span></p>
 <p>This is the “S” curve produced by logistic regression.</p>
 </section>
 <section id="sigmoid-function-1" class="level2">
@@ -691,7 +688,7 @@ window.Quarto = {
 <p>For an individual observation<strong>:</strong></p>
 <p><span class="math display">\[p(y_i | \mathbf{X}, \boldsymbol{\beta}) = \pi^{y_i}_i (1-\pi_i)^{1-y_i}\]</span></p>
 <p>. . .</p>
-<p>The likelihood is the joint density of <span class="math inline">\(y_i, \ldots, y_n\)</span> as a function of the unknown <span class="math inline">\(\boldsymbol{\beta}\)</span></p>
+<p>The likelihood is the joint density of <span class="math inline">\(y_1, \ldots, y_n\)</span> as a function of the unknown <span class="math inline">\(\boldsymbol{\beta}\)</span></p>
 <p>. . .</p>
 <p><span class="math display">\[\begin{aligned}L(\boldsymbol{\beta} | \mathbf{X}, \mathbf{y}) &amp;= p(y_1, \dots, y_n | \mathbf{X}, \boldsymbol{\beta}) \\[8pt]
 &amp; = \prod_{i=1}^n p(y_i | \mathbf{X}, \boldsymbol{\beta})  \\[8pt]
@@ -703,8 +700,9 @@ window.Quarto = {
 <p>The log-likelihood function for <span class="math inline">\(\boldsymbol\beta\)</span> is</p>
 <p><span class="math display">\[
 \begin{aligned}
-\log L(\boldsymbol\beta | \mathbf{X}, \mathbf{y}) &amp;= \sum_{i=1}^n\log(\pi_i^{y_i}(1-\pi_i)^{1-y_i})\\[8pt]
-&amp;= \sum_{i=1}^n\left(y_i\log (\pi_i) + (1-y_i)\log(1-\pi_i)\right)\\
+\log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y})
+&amp;= \sum_{i=1}^n \log\left(\pi_i^{y_i}(1-\pi_i)^{1-y_i}\right) \\[8pt]
+&amp;= \sum_{i=1}^n y_i \log(\pi_i) + (1-y_i)\log(1-\pi_i)
 \end{aligned}
 \]</span></p>
 </section>
@@ -713,10 +711,9 @@ window.Quarto = {
 <p>Plugging in <span class="math inline">\(\pi_i = \frac{\exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol\beta\}}{1+\exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol\beta\}}\)</span>, we get</p>
 <p><span class="math display">\[
 \begin{aligned}
-\log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y}) &amp;= \sum_{i=1}^n y_i \log\left(\frac{\exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right)+ (1 - y_i)\log\left(\frac{1}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \\[8pt]
-&amp;= \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})
-\end{aligned}
-\]</span></p>
+\log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y}) = \sum_{i=1}^n &amp;y_i \log\left(\frac{\exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \\
+&amp;+ (1 - y_i)\log\left(\frac{1}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \end{aligned} \]</span> <br></p>
+<p><span class="math display">\[= \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})\]</span></p>
 </section>
 <section id="finding-the-mle" class="level2">
 <h2 class="anchored" data-anchor-id="finding-the-mle">Finding the MLE</h2>
@@ -740,11 +737,27 @@ window.Quarto = {
 </section>
 <section id="logistic-regression-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="logistic-regression-in-r">Logistic regression in R</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> education, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">data  =</span> heart_disease, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">family =</span> <span class="st">"binomial"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">control =</span> <span class="fu">glm.control</span>(<span class="at">trace =</span> <span class="cn">TRUE</span>)) <span class="co"># just to show estimation </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Deviance = 3336.175 Iterations - 1
+Deviance = 3300.661 Iterations - 2
+Deviance = 3300.136 Iterations - 3
+Deviance = 3300.135 Iterations - 4
+Deviance = 3300.135 Iterations - 5</code></pre>
+</div>
+</div>
+</section>
+<section id="logistic-regression-in-r-1" class="level2">
+<h2 class="anchored" data-anchor-id="logistic-regression-in-r-1">Logistic regression in R</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> education, </span>
-<span id="cb4-2"><a href="#cb4-2"></a>                         <span class="at">data  =</span> heart_disease, </span>
-<span id="cb4-3"><a href="#cb4-3"></a>                         <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> education, </span>
+<span id="cb6-2"><a href="#cb6-2"></a>                         <span class="at">data  =</span> heart_disease, </span>
+<span id="cb6-3"><a href="#cb6-3"></a>                         <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -1042,7 +1055,6 @@ window.Quarto = {
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

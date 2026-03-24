@@ -245,11 +245,6 @@ Prof.&nbsp;Maria Tackett
 <span id="cb1-9"><a></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section>
-<section id="example" class="title-slide slide level1 center">
-<h1>Example</h1>
-
-</section>
 <section id="risk-of-coronary-heart-disease" class="slide level2 midi">
 <h2>Risk of coronary heart disease</h2>
 <p>This data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.</p>
@@ -311,9 +306,9 @@ Prof.&nbsp;Maria Tackett
 <img data-src="18-logistic-regression_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="linear-model" class="slide level2">
 <h2>Linear model?</h2>
-<p>Let’s consider our usual linear model <span class="math inline">\(\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}}\)</span></p>
+<p>Let’s consider the linear model <span class="math inline">\(\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}}\)</span></p>
 
-<img data-src="18-logistic-regression_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><div class="question">
+<img data-src="18-logistic-regression_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div class="question">
 <p>Does the linear model make sense?</p>
 </div>
 </section>
@@ -346,15 +341,16 @@ Prof.&nbsp;Maria Tackett
 <p><span class="math display">\[
 \pi_i = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}
 \]</span></p>
+<p>where <span class="math inline">\(x_i^\mathsf{T}\)</span> is the <span class="math inline">\(i^{th}\)</span> row of the design matrix <span class="math inline">\(\mathbf{X}\)</span></p>
 <div class="question">
 <p>What is wrong with using a model of this form?</p>
 </div>
 </section>
 <section id="logit-link-function" class="slide level2">
 <h2>Logit link function</h2>
-<p>Instead of modeling <span class="math inline">\(\pi_i\)</span> directly, we will model <span class="math inline">\(\text{logit}(\pi_i) = \text{logit}\big(\frac{\pi_i}{1 - \pi_i}\big)\)</span> such that</p>
+<p>Instead of modeling <span class="math inline">\(\pi_i\)</span> directly, we will model <span class="math inline">\(\text{logit}(\pi_i) = \text{log}\big(\frac{\pi_i}{1 - \pi_i}\big)\)</span> such that</p>
 <p><span class="math display">\[
-\text{logit}(\pi_i) = \text{logit}\Big(\frac{\pi_i}{1 - \pi_i}\Big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}
+\text{logit}(\pi_i) = \text{log}\Big(\frac{\pi_i}{1 - \pi_i}\Big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}
 \]</span></p>
 <div class="fragment">
 <p>The logit function links <span class="math inline">\(E(Y_i | \pi)\)</span> to the predictors, so the logit is a <strong>link function<em>.</em></strong></p>
@@ -372,8 +368,8 @@ Prof.&nbsp;Maria Tackett
 </ul>
 </div>
 </section>
-<section id="from-logit-to-probabilities" class="slide level2 incremental">
-<h2>From logit to probabilities</h2>
+<section id="from-logit-to-probability" class="slide level2 midi">
+<h2>From logit to probability</h2>
 <p><strong>Logistic model</strong> <span class="math display">\[\text{logit}(\pi_i) = \log\big(\frac{\pi_i}{1-\pi_i}\big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\]</span></p>
 <div class="fragment">
 <p><strong>Odds</strong> <span class="math display">\[\exp\big\{\log\big(\frac{\pi_i}{1 - \pi_i}\big)\big\} = \frac{\pi_i}{1-\pi_i}\]</span></p>
@@ -386,7 +382,7 @@ Prof.&nbsp;Maria Tackett
 <section id="sigmoid-function" class="slide level2">
 <h2>Sigmoid function</h2>
 <p>We call this function relating the probability to the predictors a <strong>sigmoid function</strong> <span class="math display">\[
-\sigma(x) = \frac{\exp\{x\}}{1 + \exp\{x\}}= \frac{1}{1+\text{exp}\{-x\}}.\]</span></p>
+\sigma(z) = \frac{\exp\{z\}}{1 + \exp\{z\}}= \frac{1}{1+\text{exp}\{-z\}}.\]</span></p>
 <p>This is the “S” curve produced by logistic regression.</p>
 </section>
 <section id="sigmoid-function-1" class="slide level2">
@@ -408,7 +404,7 @@ Prof.&nbsp;Maria Tackett
 <p>For an individual observation<strong>:</strong></p>
 <p><span class="math display">\[p(y_i | \mathbf{X}, \boldsymbol{\beta}) = \pi^{y_i}_i (1-\pi_i)^{1-y_i}\]</span></p>
 <div class="fragment">
-<p>The likelihood is the joint density of <span class="math inline">\(y_i, \ldots, y_n\)</span> as a function of the unknown <span class="math inline">\(\boldsymbol{\beta}\)</span></p>
+<p>The likelihood is the joint density of <span class="math inline">\(y_1, \ldots, y_n\)</span> as a function of the unknown <span class="math inline">\(\boldsymbol{\beta}\)</span></p>
 </div>
 <div class="fragment">
 <p><span class="math display">\[\begin{aligned}L(\boldsymbol{\beta} | \mathbf{X}, \mathbf{y}) &amp;= p(y_1, \dots, y_n | \mathbf{X}, \boldsymbol{\beta}) \\[8pt]
@@ -422,8 +418,9 @@ Prof.&nbsp;Maria Tackett
 <p>The log-likelihood function for <span class="math inline">\(\boldsymbol\beta\)</span> is</p>
 <p><span class="math display">\[
 \begin{aligned}
-\log L(\boldsymbol\beta | \mathbf{X}, \mathbf{y}) &amp;= \sum_{i=1}^n\log(\pi_i^{y_i}(1-\pi_i)^{1-y_i})\\[8pt]
-&amp;= \sum_{i=1}^n\left(y_i\log (\pi_i) + (1-y_i)\log(1-\pi_i)\right)\\
+\log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y})
+&amp;= \sum_{i=1}^n \log\left(\pi_i^{y_i}(1-\pi_i)^{1-y_i}\right) \\[8pt]
+&amp;= \sum_{i=1}^n y_i \log(\pi_i) + (1-y_i)\log(1-\pi_i)
 \end{aligned}
 \]</span></p>
 </section>
@@ -432,10 +429,9 @@ Prof.&nbsp;Maria Tackett
 <p>Plugging in <span class="math inline">\(\pi_i = \frac{\exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol\beta\}}{1+\exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol\beta\}}\)</span>, we get</p>
 <p><span class="math display">\[
 \begin{aligned}
-\log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y}) &amp;= \sum_{i=1}^n y_i \log\left(\frac{\exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right)+ (1 - y_i)\log\left(\frac{1}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \\[8pt]
-&amp;= \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})
-\end{aligned}
-\]</span></p>
+\log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y}) = \sum_{i=1}^n &amp;y_i \log\left(\frac{\exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \\
+&amp;+ (1 - y_i)\log\left(\frac{1}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \end{aligned} \]</span> <br></p>
+<p><span class="math display">\[= \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})\]</span></p>
 </section>
 <section id="finding-the-mle" class="slide level2">
 <h2>Finding the MLE</h2>
@@ -461,11 +457,27 @@ Prof.&nbsp;Maria Tackett
 </section>
 <section id="logistic-regression-in-r" class="slide level2">
 <h2>Logistic regression in R</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> education, </span>
+<span id="cb4-2"><a></a>                         <span class="at">data  =</span> heart_disease, </span>
+<span id="cb4-3"><a></a>                         <span class="at">family =</span> <span class="st">"binomial"</span>, </span>
+<span id="cb4-4"><a></a>                        <span class="at">control =</span> <span class="fu">glm.control</span>(<span class="at">trace =</span> <span class="cn">TRUE</span>)) <span class="co"># just to show estimation </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Deviance = 3336.175 Iterations - 1
+Deviance = 3300.661 Iterations - 2
+Deviance = 3300.136 Iterations - 3
+Deviance = 3300.135 Iterations - 4
+Deviance = 3300.135 Iterations - 5</code></pre>
+</div>
+</div>
+</section>
+<section id="logistic-regression-in-r-1" class="slide level2">
+<h2>Logistic regression in R</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> education, </span>
-<span id="cb4-2"><a></a>                         <span class="at">data  =</span> heart_disease, </span>
-<span id="cb4-3"><a></a>                         <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> education, </span>
+<span id="cb6-2"><a></a>                         <span class="at">data  =</span> heart_disease, </span>
+<span id="cb6-3"><a></a>                         <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -765,7 +777,7 @@ Prof.&nbsp;Maria Tackett
 </ul>
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../images/logo.png" class="slide-logo"></p>
