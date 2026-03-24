@@ -8271,7 +8271,7 @@
     "href": "slides/18-logistic-regression-notes.html#logit-function",
     "title": "Logistic regression",
     "section": "Logit function",
-    "text": "Logit function\nThe logit function is\n\\[\n\\text{logit}(\\pi_i) = \\text{logit}\\Big(\\frac{\\pi_i}{1 - \\pi_i}\\Big) \\]\n\n\nWhat happens to \\(\\text{logit}(\\pi_i)\\) as \\(\\pi_i \\rightarrow 0\\)?\nWhat happens as \\(\\pi_i \\rightarrow 1\\)?"
+    "text": "Logit function\nThe logit function is\n\\[\n\\text{logit}(\\pi_i) = \\text{log}\\Big(\\frac{\\pi_i}{1 - \\pi_i}\\Big) \\]\n\n\nWhat happens to \\(\\text{logit}(\\pi_i)\\) as \\(\\pi_i \\rightarrow 0\\)?\nWhat happens as \\(\\pi_i \\rightarrow 1\\)?"
   },
   {
     "objectID": "slides/18-logistic-regression-notes.html#from-logit-to-probability",
@@ -8334,7 +8334,7 @@
     "href": "slides/18-logistic-regression-notes.html#logistic-regression-in-r",
     "title": "Logistic regression",
     "section": "Logistic regression in R",
-    "text": "Logistic regression in R\n\nheart_disease_fit &lt;- glm(high_risk ~ age + education, \n                         data  = heart_disease, \n                         family = \"binomial\", \n                        control = glm.control(trace = TRUE)) # just to show estimation \n\nDeviance = 3336.175 Iterations - 1\nDeviance = 3300.661 Iterations - 2\nDeviance = 3300.136 Iterations - 3\nDeviance = 3300.135 Iterations - 4\nDeviance = 3300.135 Iterations - 5"
+    "text": "Logistic regression in R\n\nheart_disease_fit &lt;- glm(high_risk ~ age + education, \n                         data  = heart_disease, \n                         family = \"binomial\", \n                        control = glm.control(trace = TRUE)) # just to show estimation \n\nDeviance = 3336.175 Iterations - 1\nDeviance = 3300.661 Iterations - 2\nDeviance = 3300.136 Iterations - 3\nDeviance = 3300.135 Iterations - 4\nDeviance = 3300.135 Iterations - 5\n\n\n\n\n#stop printing for future models\nuntrace(glm.fit)"
   },
   {
     "objectID": "slides/18-logistic-regression-notes.html#logistic-regression-in-r-1",
@@ -8474,7 +8474,7 @@
     "href": "slides/18-logistic-regression.html#logit-function",
     "title": "Logistic regression",
     "section": "Logit function",
-    "text": "Logit function\nThe logit function is\n\\[\n\\text{logit}(\\pi_i) = \\text{logit}\\Big(\\frac{\\pi_i}{1 - \\pi_i}\\Big) \\]\n\n\nWhat happens to \\(\\text{logit}(\\pi_i)\\) as \\(\\pi_i \\rightarrow 0\\)?\nWhat happens as \\(\\pi_i \\rightarrow 1\\)?"
+    "text": "Logit function\nThe logit function is\n\\[\n\\text{logit}(\\pi_i) = \\text{log}\\Big(\\frac{\\pi_i}{1 - \\pi_i}\\Big) \\]\n\n\nWhat happens to \\(\\text{logit}(\\pi_i)\\) as \\(\\pi_i \\rightarrow 0\\)?\nWhat happens as \\(\\pi_i \\rightarrow 1\\)?"
   },
   {
     "objectID": "slides/18-logistic-regression.html#from-logit-to-probability",
@@ -8537,7 +8537,7 @@
     "href": "slides/18-logistic-regression.html#logistic-regression-in-r",
     "title": "Logistic regression",
     "section": "Logistic regression in R",
-    "text": "Logistic regression in R\n\nheart_disease_fit &lt;- glm(high_risk ~ age + education, \n                         data  = heart_disease, \n                         family = \"binomial\", \n                        control = glm.control(trace = TRUE)) # just to show estimation \n\nDeviance = 3336.175 Iterations - 1\nDeviance = 3300.661 Iterations - 2\nDeviance = 3300.136 Iterations - 3\nDeviance = 3300.135 Iterations - 4\nDeviance = 3300.135 Iterations - 5"
+    "text": "Logistic regression in R\n\nheart_disease_fit &lt;- glm(high_risk ~ age + education, \n                         data  = heart_disease, \n                         family = \"binomial\", \n                        control = glm.control(trace = TRUE)) # just to show estimation \n\nDeviance = 3336.175 Iterations - 1\nDeviance = 3300.661 Iterations - 2\nDeviance = 3300.136 Iterations - 3\nDeviance = 3300.135 Iterations - 4\nDeviance = 3300.135 Iterations - 5\n\n\n\n\n#stop printing for future models\nuntrace(glm.fit)"
   },
   {
     "objectID": "slides/18-logistic-regression.html#logistic-regression-in-r-1",

@@ -360,7 +360,7 @@ Prof.&nbsp;Maria Tackett
 <h2>Logit function</h2>
 <p>The logit function is</p>
 <p><span class="math display">\[
-\text{logit}(\pi_i) = \text{logit}\Big(\frac{\pi_i}{1 - \pi_i}\Big) \]</span></p>
+\text{logit}(\pi_i) = \text{log}\Big(\frac{\pi_i}{1 - \pi_i}\Big) \]</span></p>
 <div class="question">
 <ul>
 <li><p>What happens to <span class="math inline">\(\text{logit}(\pi_i)\)</span> as <span class="math inline">\(\pi_i \rightarrow 0\)</span>?</p></li>
@@ -470,14 +470,19 @@ Deviance = 3300.135 Iterations - 4
 Deviance = 3300.135 Iterations - 5</code></pre>
 </div>
 </div>
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co">#stop printing for future models</span></span>
+<span id="cb6-2"><a></a><span class="fu">untrace</span>(glm.fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="logistic-regression-in-r-1" class="slide level2">
 <h2>Logistic regression in R</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> education, </span>
-<span id="cb6-2"><a></a>                         <span class="at">data  =</span> heart_disease, </span>
-<span id="cb6-3"><a></a>                         <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> education, </span>
+<span id="cb7-2"><a></a>                         <span class="at">data  =</span> heart_disease, </span>
+<span id="cb7-3"><a></a>                         <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">

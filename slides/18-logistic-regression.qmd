@@ -235,7 +235,7 @@ The logit function links $E(Y_i | \pi)$ to the predictors, so the logit is a **l
 The logit function is
 
 $$
-\text{logit}(\pi_i) = \text{logit}\Big(\frac{\pi_i}{1 - \pi_i}\Big) $$
+\text{logit}(\pi_i) = \text{log}\Big(\frac{\pi_i}{1 - \pi_i}\Big) $$
 
 ::: question
 -   What happens to $\text{logit}(\pi_i)$ as $\pi_i \rightarrow 0$?
@@ -243,7 +243,7 @@ $$
 -   What happens as $\pi_i \rightarrow 1$?
 :::
 
-## From logit to probability  {.midi}
+## From logit to probability {.midi}
 
 **Logistic model** $$\text{logit}(\pi_i) = \log\big(\frac{\pi_i}{1-\pi_i}\big) = \mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}$$
 
@@ -333,8 +333,7 @@ Plugging in $\pi_i = \frac{\exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol\beta\}}{1+\
 $$
 \begin{aligned}
 \log L(\boldsymbol{\beta} \mid \mathbf{X}, \mathbf{y}) = \sum_{i=1}^n &y_i \log\left(\frac{\exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \\
-&+ (1 - y_i)\log\left(\frac{1}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \end{aligned} $$
-<br>
+&+ (1 - y_i)\log\left(\frac{1}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\right) \end{aligned} $$ <br>
 
 $$= \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})$$
 
@@ -364,6 +363,13 @@ heart_disease_fit <- glm(high_risk ~ age + education,
                          data  = heart_disease, 
                          family = "binomial", 
                         control = glm.control(trace = TRUE)) # just to show estimation 
+```
+
+<br>
+
+```{r}
+#stop printing for future models
+untrace(glm.fit)
 ```
 
 ## Logistic regression in R
