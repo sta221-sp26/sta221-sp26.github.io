@@ -3758,7 +3758,7 @@
     "href": "slides/19-logistic-prediction.html#predicted-probabilities-in-r",
     "title": "Logistic regression",
     "section": "Predicted probabilities in R",
-    "text": "Predicted probabilities in R\nCompute predicted probabilities by adding type.predict = \"response\" argument in augment()\n\n\n\nheart_disease_aug &lt;- augment(heart_disease_fit, type.predict = \"response\")\n\n\n\nPredicted probabilities for Observations 1 -5\n\n\n# A tibble: 6 × 1\n  .fitted\n    &lt;dbl&gt;\n1  0.0446\n2  0.0845\n3  0.145 \n4  0.321 \n5  0.135 \n6  0.0646"
+    "text": "Predicted probabilities in R\nCompute predicted probabilities by adding type.predict = \"response\" argument in augment()\n\n\n\nheart_disease_aug &lt;- augment(heart_disease_fit, type.predict = \"response\")\n\n\n\nPredicted probabilities for Observations 1 -5\n\n\n# A tibble: 5 × 1\n  .fitted\n    &lt;dbl&gt;\n1  0.0446\n2  0.0845\n3  0.145 \n4  0.321 \n5  0.135"
   },
   {
     "objectID": "slides/19-logistic-prediction.html#classifying-observations",
@@ -3779,7 +3779,7 @@
     "href": "slides/19-logistic-prediction.html#classify-using-0.5-as-threshold",
     "title": "Logistic regression",
     "section": "Classify using 0.5 as threshold",
-    "text": "Classify using 0.5 as threshold\nWe can use a threshold of 0.5 to classify observations.\n\nIf \\(\\hat{\\pi} &gt; 0.5\\), classify as 1\nIf \\(\\hat{\\pi} \\leq 0.5\\), classify as 0\n\n\n\n\n# A tibble: 5 × 3\n  high_risk .fitted pred_class\n  &lt;fct&gt;       &lt;dbl&gt; &lt;fct&gt;     \n1 0          0.0446 0         \n2 0          0.0845 0         \n3 0          0.145  0         \n4 1          0.321  0         \n5 0          0.135  0"
+    "text": "Classify using 0.5 as threshold\nWe can use a threshold of 0.5 to classify observations.\n\nIf \\(\\hat{\\pi}_i &gt; 0.5\\), classify as 1\nIf \\(\\hat{\\pi}_i \\leq 0.5\\), classify as 0\n\n\n\nheart_disease_aug &lt;- heart_disease_aug |&gt;\n  mutate(pred_class = factor(if_else(.fitted &gt; 0.5, 1, 0)))\n\n\n\n\n\n# A tibble: 5 × 3\n  high_risk .fitted pred_class\n  &lt;fct&gt;       &lt;dbl&gt; &lt;fct&gt;     \n1 0          0.0446 0         \n2 0          0.0845 0         \n3 0          0.145  0         \n4 1          0.321  0         \n5 0          0.135  0"
   },
   {
     "objectID": "slides/19-logistic-prediction.html#confusion-matrix",
@@ -4003,7 +4003,7 @@
     "href": "slides/19-logistic-prediction-notes.html#predicted-probabilities-in-r",
     "title": "Logistic regression",
     "section": "Predicted probabilities in R",
-    "text": "Predicted probabilities in R\nCompute predicted probabilities by adding type.predict = \"response\" argument in augment()\n\n. . .\n\nheart_disease_aug &lt;- augment(heart_disease_fit, type.predict = \"response\")\n\n. . .\nPredicted probabilities for Observations 1 -5\n\n\n# A tibble: 6 × 1\n  .fitted\n    &lt;dbl&gt;\n1  0.0446\n2  0.0845\n3  0.145 \n4  0.321 \n5  0.135 \n6  0.0646"
+    "text": "Predicted probabilities in R\nCompute predicted probabilities by adding type.predict = \"response\" argument in augment()\n\n. . .\n\nheart_disease_aug &lt;- augment(heart_disease_fit, type.predict = \"response\")\n\n. . .\nPredicted probabilities for Observations 1 -5\n\n\n# A tibble: 5 × 1\n  .fitted\n    &lt;dbl&gt;\n1  0.0446\n2  0.0845\n3  0.145 \n4  0.321 \n5  0.135"
   },
   {
     "objectID": "slides/19-logistic-prediction-notes.html#classifying-observations",
@@ -4024,7 +4024,7 @@
     "href": "slides/19-logistic-prediction-notes.html#classify-using-0.5-as-threshold",
     "title": "Logistic regression",
     "section": "Classify using 0.5 as threshold",
-    "text": "Classify using 0.5 as threshold\nWe can use a threshold of 0.5 to classify observations.\n\nIf \\(\\hat{\\pi} &gt; 0.5\\), classify as 1\nIf \\(\\hat{\\pi} \\leq 0.5\\), classify as 0\n\n. . .\n. . .\n\n\n# A tibble: 5 × 3\n  high_risk .fitted pred_class\n  &lt;fct&gt;       &lt;dbl&gt; &lt;fct&gt;     \n1 0          0.0446 0         \n2 0          0.0845 0         \n3 0          0.145  0         \n4 1          0.321  0         \n5 0          0.135  0"
+    "text": "Classify using 0.5 as threshold\nWe can use a threshold of 0.5 to classify observations.\n\nIf \\(\\hat{\\pi}_i &gt; 0.5\\), classify as 1\nIf \\(\\hat{\\pi}_i \\leq 0.5\\), classify as 0\n\n. . .\n\nheart_disease_aug &lt;- heart_disease_aug |&gt;\n  mutate(pred_class = factor(if_else(.fitted &gt; 0.5, 1, 0)))\n\n. . .\n\n\n# A tibble: 5 × 3\n  high_risk .fitted pred_class\n  &lt;fct&gt;       &lt;dbl&gt; &lt;fct&gt;     \n1 0          0.0446 0         \n2 0          0.0845 0         \n3 0          0.145  0         \n4 1          0.321  0         \n5 0          0.135  0"
   },
   {
     "objectID": "slides/19-logistic-prediction-notes.html#confusion-matrix",

@@ -214,7 +214,7 @@ heart_disease_aug <- augment(heart_disease_fit, type.predict = "response")
 
 ```{r}
 #| echo: false
-heart_disease_aug |> select(.fitted) |> head()
+heart_disease_aug |> select(.fitted) |> slice(1:5)
 ```
 
 ## Classifying observations
@@ -250,13 +250,14 @@ What considerations would you make in determining the threshold?
 
 We can use a threshold of 0.5 to classify observations.
 
--   If $\hat{\pi} > 0.5$, classify as 1
+-   If $\hat{\pi}_i > 0.5$, classify as 1
 
--   If $\hat{\pi} \leq 0.5$, classify as 0
+-   If $\hat{\pi}_i \leq 0.5$, classify as 0
 
 . . .
 
 ```{r}
+#| echo: true
 heart_disease_aug <- heart_disease_aug |>
   mutate(pred_class = factor(if_else(.fitted > 0.5, 1, 0)))
 ```
