@@ -673,10 +673,10 @@ anova(reduced_model, new_model, test = "Chisq") |>
 
     -   Drop-in-deviance test
 
-## Next class 
+## Next class
 
 -   Inference for logistic regression
 
--   Complete [Lecture 21 compare](../prepare/prepare-lec21.html)
+-   Complete [Lecture 21 prepare](../prepare/prepare-lec21.html)
 
 ## References
