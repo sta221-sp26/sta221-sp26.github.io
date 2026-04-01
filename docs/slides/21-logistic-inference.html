@@ -94,7 +94,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0bee4b0efcfe25bf6913d7c82528d6e8.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -231,7 +251,8 @@ Prof.&nbsp;Maria Tackett
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
 <ul>
-<li>Comparing models using AIC and BIC</li>
+<li><p>Comparing models using AIC and BIC</p></li>
+<li><p>Drop-in-deviance test</p></li>
 </ul>
 </section>
 <section id="computational-setup" class="slide level2">
@@ -341,16 +362,16 @@ Prof.&nbsp;Maria Tackett
 1 roc_auc binary         0.697</code></pre>
 </div>
 </div>
-<img data-src="20-logistic-selection_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<img data-src="21-logistic-inference_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="review-classification" class="slide level2">
 <h2>Review: Classification</h2>
 <p>We will use a threshold of 0.2 to classify observations</p>
 
-<img data-src="20-logistic-selection_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<img data-src="21-logistic-inference_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="review-classification-1" class="slide level2 midi">
 <h2>Review: Classification</h2>
 
-<img data-src="20-logistic-selection_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"><div class="question">
+<img data-src="21-logistic-inference_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"><div class="question">
 <ol type="1">
 <li><p>Compute the misclassification rate.</p></li>
 <li><p>Compute sensitivity and explain what it means in the context of the data.</p></li>
@@ -563,13 +584,374 @@ Prof.&nbsp;Maria Tackett
 <div class="question">
 <p>Based on BIC, which model do you select?</p>
 </div>
+</section></section>
+<section>
+<section id="drop-in-deviance-test" class="title-slide slide level1 center">
+<h1>Drop-in-deviance test</h1>
+
+</section>
+<section id="drop-in-deviance-test-1" class="slide level2">
+<h2>Drop-in-deviance test</h2>
+<p>We can use the <strong>drop-in-deviance test</strong> (aka Likelihood Ratio Test) to test</p>
+<ul>
+<li><p>the overall statistical significance of a logistic regression model</p></li>
+<li><p>the statistical significance of a subset of coefficients in the model</p></li>
+</ul>
+</section>
+<section id="deviance" class="slide level2 midi">
+<h2>Deviance</h2>
+<p>The <strong>deviance</strong> is a measure of the degree to which the predicted values are different from the observed values (compares the current model to a “saturated” model)</p>
+<p>In logistic regression,</p>
+<p><span class="math display">\[
+D = -2 \log L
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(D \sim \chi^2_{n - p - 1}\)</span> (<span class="math inline">\(D\)</span> follows a Chi-square distribution with <span class="math inline">\(n - p - 1\)</span> degrees of freedom)<sup>1</sup></p>
+<p><br></p>
+<p>Note: <span class="math inline">\(n - p - 1\)</span> a the degrees of freedom associated with the error in the model (like residuals)</p>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>See <span class="citation" data-cites="wilks1935likelihood">Wilks (<a href="#/references" role="doc-biblioref" onclick="">1935</a>)</span> for explanation of why -2 is included.</p></li></ol></aside></section>
+<section id="chi2-distribution" class="slide level2">
+<h2><span class="math inline">\(\chi^2\)</span> distribution</h2>
+
+<img data-src="21-logistic-inference_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<section id="test-for-overall-significance" class="slide level2">
+<h2>Test for overall significance</h2>
+<p>We can test the overall significance for a logistic regression model, i.e., whether there is at least one predictor with a non-zero coefficient</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;H_0: \beta_1 = \dots = \beta_p = 0 \\
+&amp;H_a: \beta_j \neq 0 \text{ for at least one } j
+\end{aligned}
+\]</span></p>
+<div class="fragment">
+<p>The <strong>drop-in-deviance test for overall significance</strong> compares the fit of a model with no predictors to the current model.</p>
+</div>
+</section>
+<section id="drop-in-deviance-test-statistic" class="slide level2 midi">
+<h2>Drop-in-deviance test statistic</h2>
+<p>Let <span class="math inline">\(L_0\)</span> and <span class="math inline">\(L_a\)</span> be the likelihood functions of the model under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span>, respectively. The <strong>test statistic</strong> is</p>
+<p><span class="math display">\[
+\begin{aligned}
+G = D_0 - D_a &amp;= (-2\log L_0) - (-2\log L_a)\\[5pt]
+&amp; = -2(\log L_0 - \log L_a) \\[5pt]
+&amp;= -2\sum_{i=1}^n \Big[ y_i \log \Big(\frac{\hat{\pi}^0}{\hat{\pi}^a_i}\Big) + (1 - y_i)\log \Big(\frac{1-\hat{\pi}^0}{1-\hat{\pi}^a_i}\Big)\Big]
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\hat{\pi}^0\)</span> is the predicted probability under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(\hat{\pi}_i^a = \frac{\exp \{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp \{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\)</span> is the predicted probability under <span class="math inline">\(H_a\)</span> <sup>1</sup></p>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>See <span class="citation" data-cites="wilks1935likelihood">Wilks (<a href="#/references" role="doc-biblioref" onclick="">1935</a>)</span> for explanation of why -2 is included.</p></li></ol></aside></section>
+<section id="drop-in-deviance-test-statistic-1" class="slide level2">
+<h2>Drop-in-deviance test statistic</h2>
+<p><span class="math display">\[
+G = -2\sum_{i=1}^n \Big[ y_i \log \Big(\frac{\hat{\pi}^0}{\hat{\pi}^a_i}\Big) + (1 - y_i)\log \Big(\frac{1-\hat{\pi}^0}{1-\hat{\pi}^a_i}\Big)\Big]
+\]</span></p>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>When <span class="math inline">\(n\)</span> is large, <span class="math inline">\(G \sim \chi^2_p\)</span>, ( <span class="math inline">\(G\)</span> follows a Chi-square distribution with <span class="math inline">\(p\)</span> degrees of freedom)</p></li>
+<li class="fragment"><p>The p-value is calculated as <span class="math inline">\(P(\chi^2 &gt; G)\)</span></p></li>
+<li class="fragment"><p>Large values of <span class="math inline">\(G\)</span> (small p-values) indicate at least one <span class="math inline">\(\beta_j\)</span> is non-zero</p></li>
+</ul>
+</div>
+</section>
+<section id="heart-disease-model-drop-in-deviance-test" class="slide level2">
+<h2>Heart disease model: drop-in-deviance test</h2>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;H_0: \beta_{age} = \beta_{totChol} = \beta_{currentSmoker} = 0 \\
+&amp;H_a: \beta_j \neq 0 \text{ for at least one }j
+\end{aligned}\]</span></p>
+<div class="fragment">
+<p><strong>Fit the null model</strong> (we’ve already fit the alternative model)</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>null_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-1.72294</td>
+<td style="text-align: right;">0.0436342</td>
+<td style="text-align: right;">-39.486</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="heart-disease-model-drop-in-deviance-test-1" class="slide level2">
+<h2>Heart disease model: drop-in-deviance test</h2>
+<p><strong>Compute the log-likelihoods for the null and alternative models</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>(L_0 <span class="ot">&lt;-</span> <span class="fu">glance</span>(null_model)<span class="sc">$</span>logLik)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1737.735</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>(L_a <span class="ot">&lt;-</span> <span class="fu">glance</span>(high_risk_fit)<span class="sc">$</span>logLik)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1612.406</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Compute the likelihood ratio test statistic</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>(G <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> (L_0 <span class="sc">-</span> L_a))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 250.6572</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="heart-disease-model-likelihood-ratio-test" class="slide level2">
+<h2>Heart disease model: likelihood ratio test</h2>
+<p><strong>Compute the p-value</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">pchisq</span>(G, <span class="at">df =</span> <span class="dv">3</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.717158e-54</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Conclusion</strong></p>
+<p>The p-value is small, so we reject <span class="math inline">\(H_0\)</span>. The data provide evidence that at least one predictor in the model has a non-zero coefficient.</p>
+</div>
+</section>
+<section id="why-use-overall-test" class="slide level2 midi">
+<h2>Why use overall test?</h2>
+<p>Why do we use a test for overall significance instead of just looking at the test for individual coefficients?<sup>1</sup></p>
+<div class="fragment">
+<p>Suppose we have a model such that <span class="math inline">\(p = 100\)</span> and <span class="math inline">\(H_0: \beta_1 = \dots = \beta_{100} = 0\)</span> is true</p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>About 5% of the p-values for individual coefficients will be below 0.05 by chance.</p></li>
+<li class="fragment"><p>So we expect to see 5 small p-values if even no linear association actually exists.</p></li>
+<li class="fragment"><p>Therefore, it is very likely we will see at least one small p-value by chance.</p></li>
+<li class="fragment"><p>The overall test of significance does not have this problem. There is only a 5% chance we will get a p-value below 0.05, if a relationship truly does not exist.</p></li>
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Example from <em>Introduction to Statistical Learning</em></p></li></ol></aside></section></section>
+<section>
+<section id="test-a-subset-of-coefficients" class="title-slide slide level1 center">
+<h1>Test a subset of coefficients</h1>
+
+</section>
+<section id="testing-a-subset-of-coefficients" class="slide level2">
+<h2>Testing a subset of coefficients</h2>
+<ul>
+<li><p>Suppose there are two models:</p>
+<ul>
+<li><p><strong>Reduced Model</strong>: includes predictors <span class="math inline">\(x_1, \ldots, x_q\)</span></p></li>
+<li><p><strong>Full Model</strong>: includes predictors <span class="math inline">\(x_1, \ldots, x_q, x_{q+1}, \ldots, x_p\)</span></p></li>
+</ul></li>
+<li><p>We can use a <strong>drop-in-deviance test</strong> to determine if any of the new predictors are useful</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{aligned}
+&amp;H_0: \beta_{q+1} = \dots = \beta_p = 0\\
+&amp;H_a: \beta_j \neq 0 \text{ for at least one }j
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section id="drop-in-deviance-test-2" class="slide level2 midi">
+<h2>Drop-in-deviance test</h2>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;H_0: \beta_{q+1} = \dots = \beta_p = 0\\
+&amp;H_a: \beta_j \neq 0 \text{ for at least one }j
+\end{aligned}
+\]</span></p>
+<div class="fragment">
+<p>The test statistic is</p>
+<p><span class="math display">\[
+\begin{aligned}
+G = D_{reduced} - D_{full} &amp;= (-2\log L_{reduced}) - (-2 \log L_{full}) \\
+&amp;= -2(\log L_{reduced} - \log L_{full})
+\end{aligned}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>The p-value is calculated using a <span class="math inline">\(\chi_{\Delta df}^2\)</span> distribution, where <span class="math inline">\(\Delta df\)</span> is the number of parameters being tested (the difference in number of parameters between the full and reduced model).</p>
+</div>
+</section>
+<section id="example-include-education" class="slide level2">
+<h2>Example: Include <code>education</code>?</h2>
+<p>Should we include <code>education</code> in the model?</p>
+<ul>
+<li><p>Reduced model: <code>age</code>, <code>totChol</code>, <code>currentSmoker</code></p></li>
+<li><p>Full model: <code>age</code>, <code>totChol</code>, <code>currentSmoker</code> , <code>education</code></p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{aligned}
+&amp;H_0: \beta_{ed2} = \beta_{ed3} = \beta_{ed4} = 0 \\
+&amp;H_a: \beta_j \neq 0 \text{ for at least one }j
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section id="example-include-education-1" class="slide level2">
+<h2>Example: Include <code>education</code>?</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>reduced_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> totChol <span class="sc">+</span> currentSmoker, </span>
+<span id="cb24-2"><a></a>              <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb24-3"><a></a></span>
+<span id="cb24-4"><a></a>full_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> totChol <span class="sc">+</span> currentSmoker <span class="sc">+</span> education, </span>
+<span id="cb24-5"><a></a>              <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p><strong>Compute deviances</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>(deviance_reduced <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">glance</span>(reduced_model)<span class="sc">$</span>logLik)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3224.812</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>(deviance_full <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">glance</span>(full_model)<span class="sc">$</span>logLik)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3217.6</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Compute test statistic</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>(G <span class="ot">&lt;-</span> deviance_reduced <span class="sc">-</span> deviance_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.212113</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="example-include-education-2" class="slide level2">
+<h2>Example: Include <code>education</code>?</h2>
+<p><strong>Compute p-value</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">pchisq</span>(G, <span class="at">df =</span> <span class="dv">3</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.06543567</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="fragment">
+<div class="question">
+<p>What is your conclusion? Would you include <code>education</code> in the model that already has <code>age</code>, <code>totChol</code>, <code>currentSmoker</code>?</p>
+</div>
+</div>
+</section>
+<section id="drop-in-deviance-test-in-r" class="slide level2 midi">
+<h2>Drop-in-deviance test in R</h2>
+<p>Conduct the drop-in-deviance test using the <code>anova()</code> function in R with option <code>test = "Chisq"</code></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">anova</span>(reduced_model, full_model, <span class="at">test =</span> <span class="st">"Chisq"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb33-3"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 51%">
+<col style="width: 11%">
+<col style="width: 17%">
+<col style="width: 2%">
+<col style="width: 8%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">df.residual</th>
+<th style="text-align: right;">residual.deviance</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">deviance</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">high_risk ~ age + totChol + currentSmoker</td>
+<td style="text-align: right;">4082</td>
+<td style="text-align: right;">3224.812</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">high_risk ~ age + totChol + currentSmoker + education</td>
+<td style="text-align: right;">4079</td>
+<td style="text-align: right;">3217.600</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7.212</td>
+<td style="text-align: right;">0.065</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="add-interactions-with-currentsmoker" class="slide level2 midi">
+<h2>Add interactions with <code>currentSmoker</code>?</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 64%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 2%">
+<col style="width: 6%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">df.residual</th>
+<th style="text-align: right;">residual.deviance</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">deviance</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">high_risk ~ age + totChol + currentSmoker</td>
+<td style="text-align: right;">4082</td>
+<td style="text-align: right;">3224.812</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">high_risk ~ age + totChol + currentSmoker + currentSmoker * age + currentSmoker * totChol</td>
+<td style="text-align: right;">4080</td>
+<td style="text-align: right;">3222.377</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.435</td>
+<td style="text-align: right;">0.296</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <ul>
 <li><p>Introduced model selection for logistic regression using</p>
 <ul>
-<li>AIC and BIC</li>
+<li><p>AIC and BIC</p></li>
+<li><p>Drop-in-deviance test</p></li>
 </ul></li>
 </ul>
 </section>
@@ -580,10 +962,15 @@ Prof.&nbsp;Maria Tackett
 <li><p>Complete <a href="../prepare/prepare-lec21.html">Lecture 21 prepare</a></p></li>
 </ul>
 </section>
-<section id="references" class="slide level2">
+<section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-wilks1935likelihood" class="csl-entry" role="listitem">
+Wilks, SS. 1935. <span>“The Likelihood Test of Independence in Contingency Tables.”</span> <em>The Annals of Mathematical Statistics</em> 6 (4): 190–96.
+</div>
+</div>
 </section></section>
 
     </div>
