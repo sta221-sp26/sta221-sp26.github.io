@@ -1,6 +1,6 @@
 ---
 title: "Logistic Regression"
-subtitle: "Model selection"
+subtitle: "Inference"
 author: "Prof. Maria Tackett"
 date: "03-31-2026"
 date-format: "MMM DD, YYYY"
@@ -41,11 +41,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Announcements {.midi}
+## Announcements
 
 -   Statistics experience due TODAY at 11:59pm
 
 -   HW 04 due Thursday, April 9 at 11:59pm
+
+    -   released after class
 
 -   Next project milestone: Draft report due Friday, April 10 (before lab)
 
@@ -111,8 +113,15 @@ heart_disease <- read_csv("data/framingham.csv") |>
 ```{r}
 #| echo: false
 
+high_risk_fit <-  glm(high_risk ~ age + totChol + currentSmoker, 
+              data = heart_disease, family = "binomial")
+
+high_risk_fit_reduced <- high_risk_fit
+
 high_risk_fit2 <- glm(high_risk ~ age + totChol + currentSmoker + education, 
               data = heart_disease, family = "binomial")
+
+high_risk_fit_full <- high_risk_fit2
 ```
 
 ::::: columns
@@ -315,7 +324,7 @@ tidy(null_model) |>
 
 ## Heart disease model: drop-in-deviance test
 
-**Compute the log-likelihoods for the null and alternative models**
+**Compute the log-likelihoods**
 
 ```{r}
 (L_0 <- glance(null_model)$logLik)
@@ -324,7 +333,7 @@ tidy(null_model) |>
 
 . . .
 
-**Compute the likelihood ratio test statistic**
+**Compute the test statistic**
 
 ```{r}
 (G <- -2 * (L_0 - L_a))
@@ -332,7 +341,7 @@ tidy(null_model) |>
 
 . . .
 
-## Heart disease model: likelihood ratio test
+## Heart disease model: drop-in-deviance test
 
 **Compute the p-value**
 
@@ -498,18 +507,189 @@ anova(reduced_model, new_model, test = "Chisq") |>
 
 # Inference for an individual coefficient
 
+## Distribution of $\hat{\boldsymbol{\beta}}$
+
+When $n$ is large, $\hat{\boldsymbol{\beta}}$ is normally distributed
+
+<br>
+
+::: question
+How do we know $\hat{\boldsymbol{\beta}}$ is normally for large $n$?
+:::
+
+## Distribution of $\hat{\boldsymbol{\beta}}$
+
+When $n$ is large...
+
+The expected value of $\hat{\boldsymbol{\beta}}$ is the true parameter, $\boldsymbol{\beta}$, i.e., $E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta}$
+
+. . .
+
+$Var(\hat{\boldsymbol{\beta}})$, the matrix of variances and covariances between estimators
+
+$$
+Var(\hat{\boldsymbol{\beta}}) = (\mathbf{X}^\mathsf{T}\mathbf{V}\mathbf{X})^{-1}
+$$
+
+where $\mathbf{V}$ is a $n\times n$ diagonal matrix, such that $V_{ii}$ is the estimated variance for the $i^{th}$ observation
+
+## Test for a single coefficient
+
+**Hypotheses:** $H_0: \beta_j = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_j \neq 0$, given the other variables in the model
+
+. . .
+
+**(Wald) Test Statistic:** $$z = \frac{\hat{\beta}_j - 0}{SE(\hat{\beta}_j)}$$
+
+where $SE(\hat{\beta}_j)$ is the square root of the $j^{th}$ diagonal element of $Var(\hat{\boldsymbol{\beta}})$
+
+. . .
+
+**P-value:** $P(|Z| > |z|)$, where $Z \sim N(0, 1)$, the Standard Normal distribution
+
+## Confidence interval for $\beta_j$
+
+We can calculate the **C% confidence interval** for $\beta_j$ as the following:
+
+$$
+\Large{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)}
+$$
+
+where $z^*$ is calculated from the $N(0,1)$ distribution
+
+. . .
+
+::: callout-note
+This is an interval for the change in the log-odds for every one unit increase in $x_j$
+:::
+
+## Interpretation in terms of the odds
+
+The change in **odds** for every one unit increase in $x_j$.
+
+$$
+\Large{\exp\{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)\}}
+$$
+
+. . .
+
+**Interpretation:** We are $C\%$ confident that for every one unit increase in $x_j$, the odds multiply by a factor of $\exp\{\hat{\beta}_j - z^* \times SE(\hat{\beta}_j)\}$ to $\exp\{\hat{\beta}_j + z^* \times SE(\hat{\beta}_j)\}$, holding all else constant.
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| label: risk-model-age-highlight
+#| echo: false
+
+heart_disease_fit <- glm(high_risk ~ age + totChol + currentSmoker, 
+              data = heart_disease, family = "binomial")
+
+tidy(heart_disease_fit, conf.int = TRUE) |> 
+  kable(digits = 3) |>
+  row_spec(2, background = "#D9E3E4")
+```
+
+. . .
+
+**Hypotheses:**
+
+$$
+H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq 0
+$$, given total cholesterol and smoking status are in the model.
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Test statistic:**
+
+$$z = \frac{ 0.0825  - 0}{0.00575} = 14.34
+$$
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**P-value:**
+
+$$P(|Z| > |14.34|) \approx 0
+$$
+
+. . .
+
+```{r}
+2 * pnorm(14.34,lower.tail = FALSE)
+```
+
+## Coefficient for `age` {.midi}
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+**Conclusion:**
+
+The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for total cholesterol and smoking status.
+
+## CI for `age`
+
+```{r}
+#| echo: false
+#| ref.label: risk-model-age-highlight
+```
+
+::: question
+Interpret the 95% confidence interval for `age` in terms of the **odds** of being high risk for heart disease.
+:::
+
+## Let's take a look at `education`
+
+```{r}
+#| echo: false
+ 
+tidy(high_risk_fit_full, conf.int = TRUE) |> 
+  kable(digits = 3) 
+```
+
+::: question
+What is your final assessment about including `education` in the model?
+:::
+
+## Overview of testing coefficients
+
+**Test a single coefficient**
+
+-   Drop-in-deviance test
+
+-   Wald hypothesis test and confidence interval
+
+. . .
+
+**Test a subset of coefficients**
+
+-   Drop-in-deviance test
+
+. . .
+
+Can use AIC and BIC to compare models in both scenarios
+
 ## Recap
 
--   Introduced model selection for logistic regression using
+-   Model selection for logistic regression using a drop-in-deviance test
 
-    -   AIC and BIC
-
-    -   Drop-in-deviance test
+-   Inference for an individual coefficient
 
 ## Next class
 
--   Inference for logistic regression
+-   Data science ethics
 
--   Complete [Lecture 21 prepare](../prepare/prepare-lec21.html)
+-   No prepare assignment
 
 ## References

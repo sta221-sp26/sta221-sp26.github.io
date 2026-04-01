@@ -5816,7 +5816,7 @@
     "href": "index.html",
     "title": "STA 221 - Regression Analysis: Theory and Applications",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nTypes of predictors cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\n\n\n\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference: Distribution of coefficients\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05: Expanding multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 0: Maximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction + assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nEthics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nnotes\nae\nhw\nlab\nproject\ndue\n\n\n\n\n1\nTh\nJan 8\nWelcome to STA 221!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 9\nLab 00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\nTu\nJan 13\nSimple linear regression (SLR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nSLR: Model evaluation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 16\nLab 01: Computing + Linear algebra review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTu\nJan 20\nSLR: Matrix representation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 01 due\n\n\n\nTh\nJan 22\nMultiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nJan 23\nLab 02: Linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nNo Class: Cancelled due to weather\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 02 due\n\n\n\nTh\nJan 29\nMLR: Types of predictors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 due, Statstics experience assigned\n\n\n\nF\nJan 30\nLab 03: Multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\nTu\nFeb 3\nTypes of predictors cont'd\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 03 due\n\n\n\n\n\n\nInference for regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nInference: Distribution of coefficients\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 6\nLab: Project research topics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nInference: Hypothesis tests + Confidence intervals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject research topics due\n\n\n\nTh\nFeb 12\nExam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 due\n\n\n\nF\nFeb 13\nLab 04: Exam 01 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\nSu\nFeb 15\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 04 due\n\n\n\nTu\nFeb 17\nExam 01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMLR: Model conditions + diagnostics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake-home exam due at 9am\n\n\n\nF\nFeb 20\nLab: Project proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMLR: Multicollinearity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject proposal due\n\n\n\nTh\nFeb 26\nVariable transformations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nFeb 27\nLab 05: Expanding multiple linear regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\nTu\nMar 3\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 05 due\n\n\n\nTh\nMar 5\nProperties of estimators\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 6\nLab: Project exploratory data analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10\nTu\nMar 10\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNo lecture: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 13\nNo lab: Spring break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nModel selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nRidge regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 due, Project EDA due\n\n\n\nF\nMar 20\nLab 0: Maximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nLogistic regression (LR)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 06 due\n\n\n\nTh\nMar 26\nLR: Prediction + assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nF\nMar 27\nLab: Project presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nLR: Model selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nLR: Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics experience due\n\n\n\nF\nApr 3\nLab 07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nData science ethics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLab 07 due\n\n\n\nTh\nApr 9\nExam 02 review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 04 due\n\n\n\nF\nApr 10\nLab: Project peer review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject peer review due\n\n\n15\nTu\nApr 14\nExam 02\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 16\nSpecial topic/project meetings\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTake home exam due at 9am\n\n\n\nF\nApr 17\nLab: Project work day\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n16\nTu\nApr 21\nFinal exam review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWritten report + GitHub repo due\n\n\nExam period\nTh\nApr 30\nFinal exam (in-class only)",
     "crumbs": [
       "Schedule"
     ]
@@ -9622,14 +9622,14 @@
     "href": "slides/20-logistic-selection-notes.html",
     "title": "Logistic Regression",
     "section": "",
-    "text": "Presentation comments due TODAY at 11:59pm\nStatistics experience due April 2 at 11:59pm\nNext project milestone: Draft report due April 10 (before lab)\nStatistics experience due April 22"
+    "text": "Presentation comments due TODAY at 11:59pm\nStatistics experience due April 2 at 11:59pm\nNext project milestone: Draft report due April 10 (before lab)"
   },
   {
     "objectID": "slides/20-logistic-selection-notes.html#announcements",
     "href": "slides/20-logistic-selection-notes.html#announcements",
     "title": "Logistic Regression",
     "section": "",
-    "text": "Presentation comments due TODAY at 11:59pm\nStatistics experience due April 2 at 11:59pm\nNext project milestone: Draft report due April 10 (before lab)\nStatistics experience due April 22"
+    "text": "Presentation comments due TODAY at 11:59pm\nStatistics experience due April 2 at 11:59pm\nNext project milestone: Draft report due April 10 (before lab)"
   },
   {
     "objectID": "slides/20-logistic-selection-notes.html#topics",
@@ -9776,7 +9776,7 @@
     "href": "slides/20-logistic-selection.html#announcements",
     "title": "Logistic Regression",
     "section": "Announcements",
-    "text": "Announcements\n\nPresentation comments due TODAY at 11:59pm\nStatistics experience due April 2 at 11:59pm\nNext project milestone: Draft report due April 10 (before lab)\nStatistics experience due April 22"
+    "text": "Announcements\n\nPresentation comments due TODAY at 11:59pm\nStatistics experience due April 2 at 11:59pm\nNext project milestone: Draft report due April 10 (before lab)"
   },
   {
     "objectID": "slides/20-logistic-selection.html#topics",
@@ -11463,21 +11463,21 @@
     "href": "slides/21-logistic-inference-notes.html",
     "title": "Logistic Regression",
     "section": "",
-    "text": "Presentation comments due TODAY at 11:59pm\nStatistics experience due April 2 at 11:59pm\nNext project milestone: Draft report due April 10 (before lab)\nStatistics experience due April 22"
+    "text": "Statistics experience due TODAY at 11:59pm\nHW 04 due Thursday, April 9 at 11:59pm\n\nreleased after class\n\nNext project milestone: Draft report due Friday, April 10 (before lab)"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#announcements",
     "href": "slides/21-logistic-inference-notes.html#announcements",
     "title": "Logistic Regression",
     "section": "",
-    "text": "Presentation comments due TODAY at 11:59pm\nStatistics experience due April 2 at 11:59pm\nNext project milestone: Draft report due April 10 (before lab)\nStatistics experience due April 22"
+    "text": "Statistics experience due TODAY at 11:59pm\nHW 04 due Thursday, April 9 at 11:59pm\n\nreleased after class\n\nNext project milestone: Draft report due Friday, April 10 (before lab)"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#topics",
     "href": "slides/21-logistic-inference-notes.html#topics",
     "title": "Logistic Regression",
     "section": "Topics",
-    "text": "Topics\n\nComparing models using AIC and BIC\nDrop-in-deviance test"
+    "text": "Topics\n\nDrop-in-deviance test\nInference for an individual coefficient"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#computational-setup",
@@ -11494,34 +11494,6 @@
     "text": "Risk of coronary heart disease\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.\n\nhigh_risk:\n\n1: High risk of having heart disease in next 10 years\n0: Not high risk of having heart disease in next 10 years\n\nage: Age at exam time (in years)\ntotChol: Total cholesterol (in mg/dL)\ncurrentSmoker: 0 = nonsmoker, 1 = smoker\neducation: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College"
   },
   {
-    "objectID": "slides/21-logistic-inference-notes.html#modeling-risk-of-coronary-heart-disease",
-    "href": "slides/21-logistic-inference-notes.html#modeling-risk-of-coronary-heart-disease",
-    "title": "Logistic Regression",
-    "section": "Modeling risk of coronary heart disease",
-    "text": "Modeling risk of coronary heart disease\nUsing age, totChol, and currentSmoker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#review-roc-curve-model-fit",
-    "href": "slides/21-logistic-inference-notes.html#review-roc-curve-model-fit",
-    "title": "Logistic Regression",
-    "section": "Review: ROC Curve + Model fit",
-    "text": "Review: ROC Curve + Model fit\n\n\n\n\n\n\n\n\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 roc_auc binary         0.697"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#review-classification",
-    "href": "slides/21-logistic-inference-notes.html#review-classification",
-    "title": "Logistic Regression",
-    "section": "Review: Classification",
-    "text": "Review: Classification\nWe will use a threshold of 0.2 to classify observations"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#review-classification-1",
-    "href": "slides/21-logistic-inference-notes.html#review-classification-1",
-    "title": "Logistic Regression",
-    "section": "Review: Classification",
-    "text": "Review: Classification\n\n\n\n\n\n\n\n\n\n\n\nCompute the misclassification rate.\nCompute sensitivity and explain what it means in the context of the data.\nCompute specificity and explain what it means in the context of the data."
-  },
-  {
     "objectID": "slides/21-logistic-inference-notes.html#which-model-do-we-choose",
     "href": "slides/21-logistic-inference-notes.html#which-model-do-we-choose",
     "title": "Logistic Regression",
@@ -11536,53 +11508,11 @@
     "text": "Log-Likelihood\nRecall the log-likelihood function\n\\[\n\\begin{aligned}\n\\log L&(\\boldsymbol{\\beta}|x_1, \\ldots, x_n, y_1, \\dots, y_n) \\\\\n&= \\sum\\limits_{i=1}^n[y_i \\log(\\pi_i) + (1 - y_i)\\log(1 - \\pi_i)]\n\\end{aligned}\n\\]\nwhere \\(\\pi_i = \\frac{\\exp\\{\\mathbf{x}_i^\\mathsf{T}\\boldsymbol{\\beta}\\}}{1 + \\exp\\{\\mathbf{x}_i^\\mathsf{T}\\boldsymbol{\\beta}\\}}\\)"
   },
   {
-    "objectID": "slides/21-logistic-inference-notes.html#aic-bic",
-    "href": "slides/21-logistic-inference-notes.html#aic-bic",
+    "objectID": "slides/21-logistic-inference-notes.html#comparing-the-models-using-aic-and-bic",
+    "href": "slides/21-logistic-inference-notes.html#comparing-the-models-using-aic-and-bic",
     "title": "Logistic Regression",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\nEstimators of prediction error and relative quality of models:\n. . .\nAkaike’s Information Criterion (AIC)1: \\[AIC = -2\\log L + 2 (p+1)\\]\n. . .\nSchwarz’s Bayesian Information Criterion (BIC)2: \\[ BIC = -2\\log L + \\log(n)\\times(p+1)\\]"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#aic-bic-1",
-    "href": "slides/21-logistic-inference-notes.html#aic-bic-1",
-    "title": "Logistic Regression",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\n\\[\n\\begin{aligned}\n& AIC = \\color{blue}{-2\\log L}  \\color{black}{+ 2(p+1)} \\\\\n& BIC = \\color{blue}{-2\\log L}  + \\color{black}{\\log(n)\\times(p+1)}\n\\end{aligned}\n\\]\n. . .\n\nFirst Term: Decreases as p increases"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#aic-bic-2",
-    "href": "slides/21-logistic-inference-notes.html#aic-bic-2",
-    "title": "Logistic Regression",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\n\\[\n\\begin{aligned} & AIC = -2\\log L  + \\color{blue}{2(p+1)} \\\\\n& BIC = -2\\log L + \\color{blue}{\\log(n)\\times (p+1)}\n\\end{aligned}\n\\]\n\nSecond term: Increases as p increases"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#using-aic-bic",
-    "href": "slides/21-logistic-inference-notes.html#using-aic-bic",
-    "title": "Logistic Regression",
-    "section": "Using AIC & BIC",
-    "text": "Using AIC & BIC\n\\[\n\\begin{aligned} & AIC = -2\\log L  + \\color{red}{2(p+1)} \\\\\n& BIC = -2 \\log L  + \\color{red}{\\log(n)\\times(p+1)}\n\\end{aligned}\n\\]\n\nChoose model with the smaller value of AIC or BIC\nIf \\(n \\geq 8\\), the penalty for BIC is larger than that of AIC, so BIC tends to favor more parsimonious models (i.e. models with fewer terms)"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#aic-from-the-glance-function",
-    "href": "slides/21-logistic-inference-notes.html#aic-from-the-glance-function",
-    "title": "Logistic Regression",
-    "section": "AIC from the glance() function",
-    "text": "AIC from the glance() function\nLet’s look at the AIC for the model that includes age, totChol, and currentSmoker\n\nglance(high_risk_fit)$AIC\n\n[1] 3232.812\n\n\n\n. . .\nCalculating AIC\n\n- 2 * glance(high_risk_fit)$logLik + 2 * (3 + 1)\n\n[1] 3232.812"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#comparing-the-models-using-aic",
-    "href": "slides/21-logistic-inference-notes.html#comparing-the-models-using-aic",
-    "title": "Logistic Regression",
-    "section": "Comparing the models using AIC",
-    "text": "Comparing the models using AIC\nLet’s compare the full and reduced models using AIC.\n\n# AIC reduced model \nglance(high_risk_fit_reduced)$AIC\n\n[1] 3232.812\n\n# AIC full model\nglance(high_risk_fit_full)$AIC\n\n[1] 3231.6\n\n\n\n\nBased on AIC, which model do you select?"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#comparing-the-models-using-bic",
-    "href": "slides/21-logistic-inference-notes.html#comparing-the-models-using-bic",
-    "title": "Logistic Regression",
-    "section": "Comparing the models using BIC",
-    "text": "Comparing the models using BIC\nLet’s compare the full and reduced models using BIC\n\n# BIC reduced model\nglance(high_risk_fit_reduced)$BIC\n\n[1] 3258.074\n\n# BIC full model\nglance(high_risk_fit_full)$BIC\n\n[1] 3275.807\n\n\n\n\nBased on BIC, which model do you select?"
+    "section": "Comparing the models using AIC and BIC",
+    "text": "Comparing the models using AIC and BIC\n\n\nAIC\n\n# AIC reduced model \nglance(high_risk_fit_reduced)$AIC\n\n[1] 3232.812\n\n# AIC full model\nglance(high_risk_fit_full)$AIC\n\n[1] 3231.6\n\n\n\nBIC\n\n# BIC reduced model\nglance(high_risk_fit_reduced)$BIC\n\n[1] 3258.074\n\n# BIC full model\nglance(high_risk_fit_full)$BIC\n\n[1] 3275.807"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#drop-in-deviance-test-1",
@@ -11596,7 +11526,7 @@
     "href": "slides/21-logistic-inference-notes.html#deviance",
     "title": "Logistic Regression",
     "section": "Deviance",
-    "text": "Deviance\nThe deviance is a measure of the degree to which the predicted values are different from the observed values (compares the current model to a “saturated” model)\nIn logistic regression,\n\\[\nD = -2 \\log L\n\\]\n\n\\(D \\sim \\chi^2_{n - p - 1}\\) (\\(D\\) follows a Chi-square distribution with \\(n - p - 1\\) degrees of freedom)3\n\nNote: \\(n - p - 1\\) a the degrees of freedom associated with the error in the model (like residuals)"
+    "text": "Deviance\nThe deviance is a measure of the degree to which the predicted values are different from the observed values (compares the current model to a “saturated” model)\nIn logistic regression,\n\\[\nD = -2 \\log L\n\\]\n\n\\(D \\sim \\chi^2_{n - p - 1}\\) (\\(D\\) follows a Chi-square distribution with \\(n - p - 1\\) degrees of freedom)1\n\nNote: \\(n - p - 1\\) a the degrees of freedom associated with the error in the model (like residuals)"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#chi2-distribution",
@@ -11617,7 +11547,7 @@
     "href": "slides/21-logistic-inference-notes.html#drop-in-deviance-test-statistic",
     "title": "Logistic Regression",
     "section": "Drop-in-deviance test statistic",
-    "text": "Drop-in-deviance test statistic\nLet \\(L_0\\) and \\(L_a\\) be the likelihood functions of the model under \\(H_0\\) and \\(H_a\\), respectively. The test statistic is\n\\[\n\\begin{aligned}\nG = D_0 - D_a &= (-2\\log L_0) - (-2\\log L_a)\\\\[5pt]\n& = -2(\\log L_0 - \\log L_a) \\\\[5pt]\n&= -2\\sum_{i=1}^n \\Big[ y_i \\log \\Big(\\frac{\\hat{\\pi}^0}{\\hat{\\pi}^a_i}\\Big) + (1 - y_i)\\log \\Big(\\frac{1-\\hat{\\pi}^0}{1-\\hat{\\pi}^a_i}\\Big)\\Big]\n\\end{aligned}\n\\]\nwhere \\(\\hat{\\pi}^0\\) is the predicted probability under \\(H_0\\) and \\(\\hat{\\pi}_i^a = \\frac{\\exp \\{\\mathbf{x}_i^\\mathsf{T}\\boldsymbol{\\beta}\\}}{1 + \\exp \\{\\mathbf{x}_i^\\mathsf{T}\\boldsymbol{\\beta}\\}}\\) is the predicted probability under \\(H_a\\) 4"
+    "text": "Drop-in-deviance test statistic\nLet \\(L_0\\) and \\(L_a\\) be the likelihood functions of the model under \\(H_0\\) and \\(H_a\\), respectively. The test statistic is\n\\[\n\\begin{aligned}\nG = D_0 - D_a &= (-2\\log L_0) - (-2\\log L_a)\\\\[5pt]\n& = -2(\\log L_0 - \\log L_a) \\\\[5pt]\n&= -2\\sum_{i=1}^n \\Big[ y_i \\log \\Big(\\frac{\\hat{\\pi}^0}{\\hat{\\pi}^a_i}\\Big) + (1 - y_i)\\log \\Big(\\frac{1-\\hat{\\pi}^0}{1-\\hat{\\pi}^a_i}\\Big)\\Big]\n\\end{aligned}\n\\]\nwhere \\(\\hat{\\pi}^0\\) is the predicted probability under \\(H_0\\) and \\(\\hat{\\pi}_i^a = \\frac{\\exp \\{\\mathbf{x}_i^\\mathsf{T}\\boldsymbol{\\beta}\\}}{1 + \\exp \\{\\mathbf{x}_i^\\mathsf{T}\\boldsymbol{\\beta}\\}}\\) is the predicted probability under \\(H_a\\) 2"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#drop-in-deviance-test-statistic-1",
@@ -11638,21 +11568,21 @@
     "href": "slides/21-logistic-inference-notes.html#heart-disease-model-drop-in-deviance-test-1",
     "title": "Logistic Regression",
     "section": "Heart disease model: drop-in-deviance test",
-    "text": "Heart disease model: drop-in-deviance test\nCompute the log-likelihoods for the null and alternative models\n\n(L_0 &lt;- glance(null_model)$logLik)\n\n[1] -1737.735\n\n(L_a &lt;- glance(high_risk_fit)$logLik)\n\n[1] -1612.406\n\n\n. . .\nCompute the likelihood ratio test statistic\n\n(G &lt;- -2 * (L_0 - L_a))\n\n[1] 250.6572\n\n\n. . ."
+    "text": "Heart disease model: drop-in-deviance test\nCompute the log-likelihoods\n\n(L_0 &lt;- glance(null_model)$logLik)\n\n[1] -1737.735\n\n(L_a &lt;- glance(high_risk_fit)$logLik)\n\n[1] -1612.406\n\n\n. . .\nCompute the test statistic\n\n(G &lt;- -2 * (L_0 - L_a))\n\n[1] 250.6572\n\n\n. . ."
   },
   {
-    "objectID": "slides/21-logistic-inference-notes.html#heart-disease-model-likelihood-ratio-test",
-    "href": "slides/21-logistic-inference-notes.html#heart-disease-model-likelihood-ratio-test",
+    "objectID": "slides/21-logistic-inference-notes.html#heart-disease-model-drop-in-deviance-test-2",
+    "href": "slides/21-logistic-inference-notes.html#heart-disease-model-drop-in-deviance-test-2",
     "title": "Logistic Regression",
-    "section": "Heart disease model: likelihood ratio test",
-    "text": "Heart disease model: likelihood ratio test\nCompute the p-value\n\npchisq(G, df = 3, lower.tail = FALSE)\n\n[1] 4.717158e-54\n\n\n. . .\nConclusion\nThe p-value is small, so we reject \\(H_0\\). The data provide evidence that at least one predictor in the model has a non-zero coefficient."
+    "section": "Heart disease model: drop-in-deviance test",
+    "text": "Heart disease model: drop-in-deviance test\nCompute the p-value\n\npchisq(G, df = 3, lower.tail = FALSE)\n\n[1] 4.717158e-54\n\n\n. . .\nConclusion\nThe p-value is small, so we reject \\(H_0\\). The data provide evidence that at least one predictor in the model has a non-zero coefficient."
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#why-use-overall-test",
     "href": "slides/21-logistic-inference-notes.html#why-use-overall-test",
     "title": "Logistic Regression",
     "section": "Why use overall test?",
-    "text": "Why use overall test?\nWhy do we use a test for overall significance instead of just looking at the test for individual coefficients?5\n. . .\nSuppose we have a model such that \\(p = 100\\) and \\(H_0: \\beta_1 = \\dots = \\beta_{100} = 0\\) is true\n. . .\n\n\nAbout 5% of the p-values for individual coefficients will be below 0.05 by chance.\nSo we expect to see 5 small p-values if even no linear association actually exists.\nTherefore, it is very likely we will see at least one small p-value by chance.\nThe overall test of significance does not have this problem. There is only a 5% chance we will get a p-value below 0.05, if a relationship truly does not exist."
+    "text": "Why use overall test?\nWhy do we use a test for overall significance instead of just looking at the test for individual coefficients?3\n. . .\nSuppose we have a model such that \\(p = 100\\) and \\(H_0: \\beta_1 = \\dots = \\beta_{100} = 0\\) is true\n. . .\n\n\nAbout 5% of the p-values for individual coefficients will be below 0.05 by chance.\nSo we expect to see 5 small p-values if even no linear association actually exists.\nTherefore, it is very likely we will see at least one small p-value by chance.\nThe overall test of significance does not have this problem. There is only a 5% chance we will get a p-value below 0.05, if a relationship truly does not exist."
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#testing-a-subset-of-coefficients",
@@ -11704,39 +11634,123 @@
     "text": "Add interactions with currentSmoker?\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.residual\nresidual.deviance\ndf\ndeviance\np.value\n\n\n\n\nhigh_risk ~ age + totChol + currentSmoker\n4082\n3224.812\nNA\nNA\nNA\n\n\nhigh_risk ~ age + totChol + currentSmoker + currentSmoker * age + currentSmoker * totChol\n4080\n3222.377\n2\n2.435\n0.296"
   },
   {
+    "objectID": "slides/21-logistic-inference-notes.html#distribution-of-hatboldsymbolbeta",
+    "href": "slides/21-logistic-inference-notes.html#distribution-of-hatboldsymbolbeta",
+    "title": "Logistic Regression",
+    "section": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nWhen \\(n\\) is large, \\(\\hat{\\boldsymbol{\\beta}}\\) is normally distributed\n\n\nHow do we know \\(\\hat{\\boldsymbol{\\beta}}\\) is normally for large \\(n\\)?"
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#distribution-of-hatboldsymbolbeta-1",
+    "href": "slides/21-logistic-inference-notes.html#distribution-of-hatboldsymbolbeta-1",
+    "title": "Logistic Regression",
+    "section": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nWhen \\(n\\) is large…\nThe expected value of \\(\\hat{\\boldsymbol{\\beta}}\\) is the true parameter, \\(\\boldsymbol{\\beta}\\), i.e., \\(E(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta}\\)\n. . .\n\\(Var(\\hat{\\boldsymbol{\\beta}})\\), the matrix of variances and covariances between estimators\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}) = (\\mathbf{X}^\\mathsf{T}\\mathbf{V}\\mathbf{X})^{-1}\n\\]\nwhere \\(\\mathbf{V}\\) is a \\(n\\times n\\) diagonal matrix, such that \\(V_{ii}\\) is the estimated variance for the \\(i^{th}\\) observation"
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#test-for-a-single-coefficient",
+    "href": "slides/21-logistic-inference-notes.html#test-for-a-single-coefficient",
+    "title": "Logistic Regression",
+    "section": "Test for a single coefficient",
+    "text": "Test for a single coefficient\nHypotheses: \\(H_0: \\beta_j = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_j \\neq 0\\), given the other variables in the model\n. . .\n(Wald) Test Statistic: \\[z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)}\\]\nwhere \\(SE(\\hat{\\beta}_j)\\) is the square root of the \\(j^{th}\\) diagonal element of \\(Var(\\hat{\\boldsymbol{\\beta}})\\)\n. . .\nP-value: \\(P(|Z| &gt; |z|)\\), where \\(Z \\sim N(0, 1)\\), the Standard Normal distribution"
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#confidence-interval-for-beta_j",
+    "href": "slides/21-logistic-inference-notes.html#confidence-interval-for-beta_j",
+    "title": "Logistic Regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\Large{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n. . .\n\n\n\n\n\n\nNote\n\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
+    "href": "slides/21-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
+    "title": "Logistic Regression",
+    "section": "Interpretation in terms of the odds",
+    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\Large{\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)\\}}\n\\]\n. . .\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^* \\times SE(\\hat{\\beta}_j)\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE(\\hat{\\beta}_j)\\}\\), holding all else constant."
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#coefficient-for-age",
+    "href": "slides/21-logistic-inference-notes.html#coefficient-for-age",
+    "title": "Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\n. . .\nHypotheses:\n\\[\nH_0: \\beta_{age} = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_{age} \\neq 0\n\\], given total cholesterol and smoking status are in the model."
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#coefficient-for-age-1",
+    "href": "slides/21-logistic-inference-notes.html#coefficient-for-age-1",
+    "title": "Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\nTest statistic:\n\\[z = \\frac{ 0.0825  - 0}{0.00575} = 14.34\n\\]"
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#coefficient-for-age-2",
+    "href": "slides/21-logistic-inference-notes.html#coefficient-for-age-2",
+    "title": "Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\nP-value:\n\\[P(|Z| &gt; |14.34|) \\approx 0\n\\]\n. . .\n\n2 * pnorm(14.34,lower.tail = FALSE)\n\n[1] 1.230554e-46"
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#coefficient-for-age-3",
+    "href": "slides/21-logistic-inference-notes.html#coefficient-for-age-3",
+    "title": "Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for total cholesterol and smoking status."
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#ci-for-age",
+    "href": "slides/21-logistic-inference-notes.html#ci-for-age",
+    "title": "Logistic Regression",
+    "section": "CI for age",
+    "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\n\nInterpret the 95% confidence interval for age in terms of the odds of being high risk for heart disease."
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#lets-take-a-look-at-education",
+    "href": "slides/21-logistic-inference-notes.html#lets-take-a-look-at-education",
+    "title": "Logistic Regression",
+    "section": "Let’s take a look at education",
+    "text": "Let’s take a look at education\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.456\n0.391\n-16.533\n0.000\n-7.230\n-5.698\n\n\nage\n0.080\n0.006\n13.571\n0.000\n0.068\n0.091\n\n\ntotChol\n0.002\n0.001\n2.086\n0.037\n0.000\n0.004\n\n\ncurrentSmoker1\n0.445\n0.094\n4.747\n0.000\n0.262\n0.630\n\n\neducation2\n-0.270\n0.113\n-2.379\n0.017\n-0.494\n-0.049\n\n\neducation3\n-0.232\n0.135\n-1.714\n0.086\n-0.501\n0.029\n\n\neducation4\n-0.035\n0.150\n-0.232\n0.817\n-0.335\n0.255\n\n\n\n\n\n\nWhat is your final assessment about including education in the model?"
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#overview-of-testing-coefficients",
+    "href": "slides/21-logistic-inference-notes.html#overview-of-testing-coefficients",
+    "title": "Logistic Regression",
+    "section": "Overview of testing coefficients",
+    "text": "Overview of testing coefficients\nTest a single coefficient\n\nDrop-in-deviance test\nWald hypothesis test and confidence interval\n\n. . .\nTest a subset of coefficients\n\nDrop-in-deviance test\n\n. . .\nCan use AIC and BIC to compare models in both scenarios"
+  },
+  {
     "objectID": "slides/21-logistic-inference-notes.html#recap",
     "href": "slides/21-logistic-inference-notes.html#recap",
     "title": "Logistic Regression",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced model selection for logistic regression using\n\nAIC and BIC\nDrop-in-deviance test"
+    "text": "Recap\n\nModel selection for logistic regression using a drop-in-deviance test\nInference for an individual coefficient"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#next-class",
     "href": "slides/21-logistic-inference-notes.html#next-class",
     "title": "Logistic Regression",
     "section": "Next class",
-    "text": "Next class\n\nInference for logistic regression\nComplete Lecture 21 prepare"
+    "text": "Next class\n\nData science ethics\nNo prepare assignment"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#footnotes",
     "href": "slides/21-logistic-inference-notes.html#footnotes",
     "title": "Logistic Regression",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nAkaike, Hirotugu. “A new look at the statistical model identification.” IEEE transactions on automatic control 19.6 (1974): 716-723.↩︎\nSchwarz, Gideon. “Estimating the dimension of a model.” The annals of statistics (1978): 461-464.↩︎\nSee Wilks (1935) for explanation of why -2 is included.↩︎\nSee Wilks (1935) for explanation of why -2 is included.↩︎\nExample from Introduction to Statistical Learning↩︎"
+    "text": "Footnotes\n\n\nSee Wilks (1935) for explanation of why -2 is included.↩︎\nSee Wilks (1935) for explanation of why -2 is included.↩︎\nExample from Introduction to Statistical Learning↩︎"
   },
   {
     "objectID": "slides/21-logistic-inference.html#announcements",
     "href": "slides/21-logistic-inference.html#announcements",
     "title": "Logistic Regression",
     "section": "Announcements",
-    "text": "Announcements\n\nPresentation comments due TODAY at 11:59pm\nStatistics experience due April 2 at 11:59pm\nNext project milestone: Draft report due April 10 (before lab)\nStatistics experience due April 22"
+    "text": "Announcements\n\nStatistics experience due TODAY at 11:59pm\nHW 04 due Thursday, April 9 at 11:59pm\n\nreleased after class\n\nNext project milestone: Draft report due Friday, April 10 (before lab)"
   },
   {
     "objectID": "slides/21-logistic-inference.html#topics",
     "href": "slides/21-logistic-inference.html#topics",
     "title": "Logistic Regression",
     "section": "Topics",
-    "text": "Topics\n\nComparing models using AIC and BIC\nDrop-in-deviance test"
+    "text": "Topics\n\nDrop-in-deviance test\nInference for an individual coefficient"
   },
   {
     "objectID": "slides/21-logistic-inference.html#computational-setup",
@@ -11753,34 +11767,6 @@
     "text": "Risk of coronary heart disease\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.\n\nhigh_risk:\n\n1: High risk of having heart disease in next 10 years\n0: Not high risk of having heart disease in next 10 years\n\nage: Age at exam time (in years)\ntotChol: Total cholesterol (in mg/dL)\ncurrentSmoker: 0 = nonsmoker, 1 = smoker\neducation: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College"
   },
   {
-    "objectID": "slides/21-logistic-inference.html#modeling-risk-of-coronary-heart-disease",
-    "href": "slides/21-logistic-inference.html#modeling-risk-of-coronary-heart-disease",
-    "title": "Logistic Regression",
-    "section": "Modeling risk of coronary heart disease",
-    "text": "Modeling risk of coronary heart disease\nUsing age, totChol, and currentSmoker\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#review-roc-curve-model-fit",
-    "href": "slides/21-logistic-inference.html#review-roc-curve-model-fit",
-    "title": "Logistic Regression",
-    "section": "Review: ROC Curve + Model fit",
-    "text": "Review: ROC Curve + Model fit\n\n\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 roc_auc binary         0.697"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#review-classification",
-    "href": "slides/21-logistic-inference.html#review-classification",
-    "title": "Logistic Regression",
-    "section": "Review: Classification",
-    "text": "Review: Classification\nWe will use a threshold of 0.2 to classify observations"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#review-classification-1",
-    "href": "slides/21-logistic-inference.html#review-classification-1",
-    "title": "Logistic Regression",
-    "section": "Review: Classification",
-    "text": "Review: Classification\n\n\n\nCompute the misclassification rate.\nCompute sensitivity and explain what it means in the context of the data.\nCompute specificity and explain what it means in the context of the data."
-  },
-  {
     "objectID": "slides/21-logistic-inference.html#which-model-do-we-choose",
     "href": "slides/21-logistic-inference.html#which-model-do-we-choose",
     "title": "Logistic Regression",
@@ -11795,53 +11781,11 @@
     "text": "Log-Likelihood\nRecall the log-likelihood function\n\\[\n\\begin{aligned}\n\\log L&(\\boldsymbol{\\beta}|x_1, \\ldots, x_n, y_1, \\dots, y_n) \\\\\n&= \\sum\\limits_{i=1}^n[y_i \\log(\\pi_i) + (1 - y_i)\\log(1 - \\pi_i)]\n\\end{aligned}\n\\]\nwhere \\(\\pi_i = \\frac{\\exp\\{\\mathbf{x}_i^\\mathsf{T}\\boldsymbol{\\beta}\\}}{1 + \\exp\\{\\mathbf{x}_i^\\mathsf{T}\\boldsymbol{\\beta}\\}}\\)"
   },
   {
-    "objectID": "slides/21-logistic-inference.html#aic-bic",
-    "href": "slides/21-logistic-inference.html#aic-bic",
+    "objectID": "slides/21-logistic-inference.html#comparing-the-models-using-aic-and-bic",
+    "href": "slides/21-logistic-inference.html#comparing-the-models-using-aic-and-bic",
     "title": "Logistic Regression",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\nEstimators of prediction error and relative quality of models:\n\nAkaike’s Information Criterion (AIC)1: \\[AIC = -2\\log L + 2 (p+1)\\]\n\n\nSchwarz’s Bayesian Information Criterion (BIC)2: \\[ BIC = -2\\log L + \\log(n)\\times(p+1)\\]\n\nAkaike, Hirotugu. “A new look at the statistical model identification.” IEEE transactions on automatic control 19.6 (1974): 716-723.Schwarz, Gideon. “Estimating the dimension of a model.” The annals of statistics (1978): 461-464."
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#aic-bic-1",
-    "href": "slides/21-logistic-inference.html#aic-bic-1",
-    "title": "Logistic Regression",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\n\\[\n\\begin{aligned}\n& AIC = \\color{blue}{-2\\log L}  \\color{black}{+ 2(p+1)} \\\\\n& BIC = \\color{blue}{-2\\log L}  + \\color{black}{\\log(n)\\times(p+1)}\n\\end{aligned}\n\\]\n\n\nFirst Term: Decreases as p increases"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#aic-bic-2",
-    "href": "slides/21-logistic-inference.html#aic-bic-2",
-    "title": "Logistic Regression",
-    "section": "AIC & BIC",
-    "text": "AIC & BIC\n\\[\n\\begin{aligned} & AIC = -2\\log L  + \\color{blue}{2(p+1)} \\\\\n& BIC = -2\\log L + \\color{blue}{\\log(n)\\times (p+1)}\n\\end{aligned}\n\\]\n\nSecond term: Increases as p increases"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#using-aic-bic",
-    "href": "slides/21-logistic-inference.html#using-aic-bic",
-    "title": "Logistic Regression",
-    "section": "Using AIC & BIC",
-    "text": "Using AIC & BIC\n\\[\n\\begin{aligned} & AIC = -2\\log L  + \\color{red}{2(p+1)} \\\\\n& BIC = -2 \\log L  + \\color{red}{\\log(n)\\times(p+1)}\n\\end{aligned}\n\\]\n\nChoose model with the smaller value of AIC or BIC\nIf \\(n \\geq 8\\), the penalty for BIC is larger than that of AIC, so BIC tends to favor more parsimonious models (i.e. models with fewer terms)"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#aic-from-the-glance-function",
-    "href": "slides/21-logistic-inference.html#aic-from-the-glance-function",
-    "title": "Logistic Regression",
-    "section": "AIC from the glance() function",
-    "text": "AIC from the glance() function\nLet’s look at the AIC for the model that includes age, totChol, and currentSmoker\n\nglance(high_risk_fit)$AIC\n\n[1] 3232.812\n\n\n\n\nCalculating AIC\n\n- 2 * glance(high_risk_fit)$logLik + 2 * (3 + 1)\n\n[1] 3232.812"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#comparing-the-models-using-aic",
-    "href": "slides/21-logistic-inference.html#comparing-the-models-using-aic",
-    "title": "Logistic Regression",
-    "section": "Comparing the models using AIC",
-    "text": "Comparing the models using AIC\nLet’s compare the full and reduced models using AIC.\n\n# AIC reduced model \nglance(high_risk_fit_reduced)$AIC\n\n[1] 3232.812\n\n# AIC full model\nglance(high_risk_fit_full)$AIC\n\n[1] 3231.6\n\n\n\n\nBased on AIC, which model do you select?"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#comparing-the-models-using-bic",
-    "href": "slides/21-logistic-inference.html#comparing-the-models-using-bic",
-    "title": "Logistic Regression",
-    "section": "Comparing the models using BIC",
-    "text": "Comparing the models using BIC\nLet’s compare the full and reduced models using BIC\n\n# BIC reduced model\nglance(high_risk_fit_reduced)$BIC\n\n[1] 3258.074\n\n# BIC full model\nglance(high_risk_fit_full)$BIC\n\n[1] 3275.807\n\n\n\n\nBased on BIC, which model do you select?"
+    "section": "Comparing the models using AIC and BIC",
+    "text": "Comparing the models using AIC and BIC\n\n\nAIC\n\n# AIC reduced model \nglance(high_risk_fit_reduced)$AIC\n\n[1] 3232.812\n\n# AIC full model\nglance(high_risk_fit_full)$AIC\n\n[1] 3231.6\n\n\n\nBIC\n\n# BIC reduced model\nglance(high_risk_fit_reduced)$BIC\n\n[1] 3258.074\n\n# BIC full model\nglance(high_risk_fit_full)$BIC\n\n[1] 3275.807"
   },
   {
     "objectID": "slides/21-logistic-inference.html#drop-in-deviance-test-1",
@@ -11897,14 +11841,14 @@
     "href": "slides/21-logistic-inference.html#heart-disease-model-drop-in-deviance-test-1",
     "title": "Logistic Regression",
     "section": "Heart disease model: drop-in-deviance test",
-    "text": "Heart disease model: drop-in-deviance test\nCompute the log-likelihoods for the null and alternative models\n\n(L_0 &lt;- glance(null_model)$logLik)\n\n[1] -1737.735\n\n(L_a &lt;- glance(high_risk_fit)$logLik)\n\n[1] -1612.406\n\n\n\nCompute the likelihood ratio test statistic\n\n(G &lt;- -2 * (L_0 - L_a))\n\n[1] 250.6572"
+    "text": "Heart disease model: drop-in-deviance test\nCompute the log-likelihoods\n\n(L_0 &lt;- glance(null_model)$logLik)\n\n[1] -1737.735\n\n(L_a &lt;- glance(high_risk_fit)$logLik)\n\n[1] -1612.406\n\n\n\nCompute the test statistic\n\n(G &lt;- -2 * (L_0 - L_a))\n\n[1] 250.6572"
   },
   {
-    "objectID": "slides/21-logistic-inference.html#heart-disease-model-likelihood-ratio-test",
-    "href": "slides/21-logistic-inference.html#heart-disease-model-likelihood-ratio-test",
+    "objectID": "slides/21-logistic-inference.html#heart-disease-model-drop-in-deviance-test-2",
+    "href": "slides/21-logistic-inference.html#heart-disease-model-drop-in-deviance-test-2",
     "title": "Logistic Regression",
-    "section": "Heart disease model: likelihood ratio test",
-    "text": "Heart disease model: likelihood ratio test\nCompute the p-value\n\npchisq(G, df = 3, lower.tail = FALSE)\n\n[1] 4.717158e-54\n\n\n\nConclusion\nThe p-value is small, so we reject \\(H_0\\). The data provide evidence that at least one predictor in the model has a non-zero coefficient."
+    "section": "Heart disease model: drop-in-deviance test",
+    "text": "Heart disease model: drop-in-deviance test\nCompute the p-value\n\npchisq(G, df = 3, lower.tail = FALSE)\n\n[1] 4.717158e-54\n\n\n\nConclusion\nThe p-value is small, so we reject \\(H_0\\). The data provide evidence that at least one predictor in the model has a non-zero coefficient."
   },
   {
     "objectID": "slides/21-logistic-inference.html#why-use-overall-test",
@@ -11963,18 +11907,102 @@
     "text": "Add interactions with currentSmoker?\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.residual\nresidual.deviance\ndf\ndeviance\np.value\n\n\n\n\nhigh_risk ~ age + totChol + currentSmoker\n4082\n3224.812\nNA\nNA\nNA\n\n\nhigh_risk ~ age + totChol + currentSmoker + currentSmoker * age + currentSmoker * totChol\n4080\n3222.377\n2\n2.435\n0.296"
   },
   {
+    "objectID": "slides/21-logistic-inference.html#distribution-of-hatboldsymbolbeta",
+    "href": "slides/21-logistic-inference.html#distribution-of-hatboldsymbolbeta",
+    "title": "Logistic Regression",
+    "section": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nWhen \\(n\\) is large, \\(\\hat{\\boldsymbol{\\beta}}\\) is normally distributed\n\n\nHow do we know \\(\\hat{\\boldsymbol{\\beta}}\\) is normally for large \\(n\\)?"
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#distribution-of-hatboldsymbolbeta-1",
+    "href": "slides/21-logistic-inference.html#distribution-of-hatboldsymbolbeta-1",
+    "title": "Logistic Regression",
+    "section": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nWhen \\(n\\) is large…\nThe expected value of \\(\\hat{\\boldsymbol{\\beta}}\\) is the true parameter, \\(\\boldsymbol{\\beta}\\), i.e., \\(E(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta}\\)\n\n\\(Var(\\hat{\\boldsymbol{\\beta}})\\), the matrix of variances and covariances between estimators\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}) = (\\mathbf{X}^\\mathsf{T}\\mathbf{V}\\mathbf{X})^{-1}\n\\]\nwhere \\(\\mathbf{V}\\) is a \\(n\\times n\\) diagonal matrix, such that \\(V_{ii}\\) is the estimated variance for the \\(i^{th}\\) observation"
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#test-for-a-single-coefficient",
+    "href": "slides/21-logistic-inference.html#test-for-a-single-coefficient",
+    "title": "Logistic Regression",
+    "section": "Test for a single coefficient",
+    "text": "Test for a single coefficient\nHypotheses: \\(H_0: \\beta_j = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_j \\neq 0\\), given the other variables in the model\n\n(Wald) Test Statistic: \\[z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)}\\]\nwhere \\(SE(\\hat{\\beta}_j)\\) is the square root of the \\(j^{th}\\) diagonal element of \\(Var(\\hat{\\boldsymbol{\\beta}})\\)\n\n\nP-value: \\(P(|Z| &gt; |z|)\\), where \\(Z \\sim N(0, 1)\\), the Standard Normal distribution"
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#confidence-interval-for-beta_j",
+    "href": "slides/21-logistic-inference.html#confidence-interval-for-beta_j",
+    "title": "Logistic Regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\Large{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n\n\n\n\n\n\n\nNote\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#interpretation-in-terms-of-the-odds",
+    "href": "slides/21-logistic-inference.html#interpretation-in-terms-of-the-odds",
+    "title": "Logistic Regression",
+    "section": "Interpretation in terms of the odds",
+    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\Large{\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)\\}}\n\\]\n\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^* \\times SE(\\hat{\\beta}_j)\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE(\\hat{\\beta}_j)\\}\\), holding all else constant."
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#coefficient-for-age",
+    "href": "slides/21-logistic-inference.html#coefficient-for-age",
+    "title": "Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\n\nHypotheses:\n\\[\nH_0: \\beta_{age} = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_{age} \\neq 0\n\\], given total cholesterol and smoking status are in the model."
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#coefficient-for-age-1",
+    "href": "slides/21-logistic-inference.html#coefficient-for-age-1",
+    "title": "Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\nTest statistic:\n\\[z = \\frac{ 0.0825  - 0}{0.00575} = 14.34\n\\]"
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#coefficient-for-age-2",
+    "href": "slides/21-logistic-inference.html#coefficient-for-age-2",
+    "title": "Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\nP-value:\n\\[P(|Z| &gt; |14.34|) \\approx 0\n\\]\n\n\n2 * pnorm(14.34,lower.tail = FALSE)\n\n[1] 1.230554e-46"
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#coefficient-for-age-3",
+    "href": "slides/21-logistic-inference.html#coefficient-for-age-3",
+    "title": "Logistic Regression",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for total cholesterol and smoking status."
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#ci-for-age",
+    "href": "slides/21-logistic-inference.html#ci-for-age",
+    "title": "Logistic Regression",
+    "section": "CI for age",
+    "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\n\nInterpret the 95% confidence interval for age in terms of the odds of being high risk for heart disease."
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#lets-take-a-look-at-education",
+    "href": "slides/21-logistic-inference.html#lets-take-a-look-at-education",
+    "title": "Logistic Regression",
+    "section": "Let’s take a look at education",
+    "text": "Let’s take a look at education\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.456\n0.391\n-16.533\n0.000\n-7.230\n-5.698\n\n\nage\n0.080\n0.006\n13.571\n0.000\n0.068\n0.091\n\n\ntotChol\n0.002\n0.001\n2.086\n0.037\n0.000\n0.004\n\n\ncurrentSmoker1\n0.445\n0.094\n4.747\n0.000\n0.262\n0.630\n\n\neducation2\n-0.270\n0.113\n-2.379\n0.017\n-0.494\n-0.049\n\n\neducation3\n-0.232\n0.135\n-1.714\n0.086\n-0.501\n0.029\n\n\neducation4\n-0.035\n0.150\n-0.232\n0.817\n-0.335\n0.255\n\n\n\n\n\n\nWhat is your final assessment about including education in the model?"
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#overview-of-testing-coefficients",
+    "href": "slides/21-logistic-inference.html#overview-of-testing-coefficients",
+    "title": "Logistic Regression",
+    "section": "Overview of testing coefficients",
+    "text": "Overview of testing coefficients\nTest a single coefficient\n\nDrop-in-deviance test\nWald hypothesis test and confidence interval\n\n\nTest a subset of coefficients\n\nDrop-in-deviance test\n\n\n\nCan use AIC and BIC to compare models in both scenarios"
+  },
+  {
     "objectID": "slides/21-logistic-inference.html#recap",
     "href": "slides/21-logistic-inference.html#recap",
     "title": "Logistic Regression",
     "section": "Recap",
-    "text": "Recap\n\nIntroduced model selection for logistic regression using\n\nAIC and BIC\nDrop-in-deviance test"
+    "text": "Recap\n\nModel selection for logistic regression using a drop-in-deviance test\nInference for an individual coefficient"
   },
   {
     "objectID": "slides/21-logistic-inference.html#next-class",
     "href": "slides/21-logistic-inference.html#next-class",
     "title": "Logistic Regression",
     "section": "Next class",
-    "text": "Next class\n\nInference for logistic regression\nComplete Lecture 21 prepare"
+    "text": "Next class\n\nData science ethics\nNo prepare assignment"
   },
   {
     "objectID": "slides/21-logistic-inference.html#references",
