@@ -2,7 +2,7 @@
 title: "Logistic Regression"
 subtitle: "Inference"
 author: "Prof. Maria Tackett"
-date: "03-31-2026"
+date: "04-02-2026"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 sta221-sp26.github.io](https://sta221-sp26.github.io)"
 logo: "../images/logo.png"
