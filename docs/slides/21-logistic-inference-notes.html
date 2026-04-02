@@ -459,7 +459,7 @@ window.Quarto = {
   <li><a href="#inference-for-an-individual-coefficient" id="toc-inference-for-an-individual-coefficient" class="nav-link" data-scroll-target="#inference-for-an-individual-coefficient">Inference for an individual coefficient</a>
   <ul class="collapse">
   <li><a href="#distribution-of-hatboldsymbolbeta" id="toc-distribution-of-hatboldsymbolbeta" class="nav-link" data-scroll-target="#distribution-of-hatboldsymbolbeta">Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></a></li>
-  <li><a href="#distribution-of-hatboldsymbolbeta-1" id="toc-distribution-of-hatboldsymbolbeta-1" class="nav-link" data-scroll-target="#distribution-of-hatboldsymbolbeta-1">Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></a></li>
+  <li><a href="#properties-of-hatboldsymbolbeta" id="toc-properties-of-hatboldsymbolbeta" class="nav-link" data-scroll-target="#properties-of-hatboldsymbolbeta">Properties of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></a></li>
   <li><a href="#test-for-a-single-coefficient" id="toc-test-for-a-single-coefficient" class="nav-link" data-scroll-target="#test-for-a-single-coefficient">Test for a single coefficient</a></li>
   <li><a href="#coefficient-for-age" id="toc-coefficient-for-age" class="nav-link" data-scroll-target="#coefficient-for-age">Coefficient for <code>age</code></a></li>
   <li><a href="#coefficient-for-age-1" id="toc-coefficient-for-age-1" class="nav-link" data-scroll-target="#coefficient-for-age-1">Coefficient for <code>age</code></a></li>
@@ -1162,12 +1162,14 @@ SSR = \sum_{i=1}^n(y_i - \hat{y}_i)^2
 <p>How do we know <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is normally for large <span class="math inline">\(n\)</span>?</p>
 </div>
 </section>
-<section id="distribution-of-hatboldsymbolbeta-1" class="level2">
-<h2 class="anchored" data-anchor-id="distribution-of-hatboldsymbolbeta-1">Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
-<p>When <span class="math inline">\(n\)</span> is large…</p>
-<p>The expected value of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is the true parameter, <span class="math inline">\(\boldsymbol{\beta}\)</span>, i.e., <span class="math inline">\(E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta}\)</span></p>
+<section id="properties-of-hatboldsymbolbeta" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-hatboldsymbolbeta">Properties of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
+<p><span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is a consistent estimator</p>
+<p><span class="math display">\[
+\lim_{n \rightarrow \infty} P(|\hat{\boldsymbol{\beta}} - \boldsymbol{\beta}| \geq c) = 0 \hspace{8mm} \forall ~ c &gt; 0
+\]</span></p>
 <p>. . .</p>
-<p><span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>, the matrix of variances and covariances between estimators</p>
+<p>When <span class="math inline">\(n\)</span> is large, <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>, the matrix of variances and covariances between estimators</p>
 <p><span class="math display">\[
 Var(\hat{\boldsymbol{\beta}}) = (\mathbf{X}^\mathsf{T}\mathbf{V}\mathbf{X})^{-1}
 \]</span></p>

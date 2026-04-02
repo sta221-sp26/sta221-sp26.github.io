@@ -888,12 +888,14 @@ SSR = \sum_{i=1}^n(y_i - \hat{y}_i)^2
 <p>How do we know <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is normally for large <span class="math inline">\(n\)</span>?</p>
 </div>
 </section>
-<section id="distribution-of-hatboldsymbolbeta-1" class="slide level2">
-<h2>Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
-<p>When <span class="math inline">\(n\)</span> is large…</p>
-<p>The expected value of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is the true parameter, <span class="math inline">\(\boldsymbol{\beta}\)</span>, i.e., <span class="math inline">\(E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta}\)</span></p>
+<section id="properties-of-hatboldsymbolbeta" class="slide level2">
+<h2>Properties of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
+<p><span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is a consistent estimator</p>
+<p><span class="math display">\[
+\lim_{n \rightarrow \infty} P(|\hat{\boldsymbol{\beta}} - \boldsymbol{\beta}| \geq c) = 0 \hspace{8mm} \forall ~ c &gt; 0
+\]</span></p>
 <div class="fragment">
-<p><span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>, the matrix of variances and covariances between estimators</p>
+<p>When <span class="math inline">\(n\)</span> is large, <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>, the matrix of variances and covariances between estimators</p>
 <p><span class="math display">\[
 Var(\hat{\boldsymbol{\beta}}) = (\mathbf{X}^\mathsf{T}\mathbf{V}\mathbf{X})^{-1}
 \]</span></p>

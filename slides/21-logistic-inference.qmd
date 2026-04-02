@@ -544,15 +544,17 @@ When $n$ is large, $\hat{\boldsymbol{\beta}}$ is normally distributed
 How do we know $\hat{\boldsymbol{\beta}}$ is normally for large $n$?
 :::
 
-## Distribution of $\hat{\boldsymbol{\beta}}$
+## Properties of $\hat{\boldsymbol{\beta}}$
 
-When $n$ is large...
+$\hat{\boldsymbol{\beta}}$ is a consistent estimator
 
-The expected value of $\hat{\boldsymbol{\beta}}$ is the true parameter, $\boldsymbol{\beta}$, i.e., $E(\hat{\boldsymbol{\beta}}) = \boldsymbol{\beta}$
+$$
+\lim_{n \rightarrow \infty} P(|\hat{\boldsymbol{\beta}} - \boldsymbol{\beta}| \geq c) = 0 \hspace{8mm} \forall ~ c > 0
+$$
 
 . . .
 
-$Var(\hat{\boldsymbol{\beta}})$, the matrix of variances and covariances between estimators
+When $n$ is large, $Var(\hat{\boldsymbol{\beta}})$, the matrix of variances and covariances between estimators
 
 $$
 Var(\hat{\boldsymbol{\beta}}) = (\mathbf{X}^\mathsf{T}\mathbf{V}\mathbf{X})^{-1}

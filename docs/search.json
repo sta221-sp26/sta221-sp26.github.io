@@ -11776,11 +11776,11 @@
     "text": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nWhen \\(n\\) is large, \\(\\hat{\\boldsymbol{\\beta}}\\) is normally distributed\n\n\nHow do we know \\(\\hat{\\boldsymbol{\\beta}}\\) is normally for large \\(n\\)?"
   },
   {
-    "objectID": "slides/21-logistic-inference-notes.html#distribution-of-hatboldsymbolbeta-1",
-    "href": "slides/21-logistic-inference-notes.html#distribution-of-hatboldsymbolbeta-1",
+    "objectID": "slides/21-logistic-inference-notes.html#properties-of-hatboldsymbolbeta",
+    "href": "slides/21-logistic-inference-notes.html#properties-of-hatboldsymbolbeta",
     "title": "Logistic Regression",
-    "section": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nWhen \\(n\\) is large…\nThe expected value of \\(\\hat{\\boldsymbol{\\beta}}\\) is the true parameter, \\(\\boldsymbol{\\beta}\\), i.e., \\(E(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta}\\)\n. . .\n\\(Var(\\hat{\\boldsymbol{\\beta}})\\), the matrix of variances and covariances between estimators\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}) = (\\mathbf{X}^\\mathsf{T}\\mathbf{V}\\mathbf{X})^{-1}\n\\]\nwhere \\(\\mathbf{V}\\) is a \\(n\\times n\\) diagonal matrix, such that \\(V_{ii}\\) is the estimated variance for the \\(i^{th}\\) observation"
+    "section": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator\n\\[\n\\lim_{n \\rightarrow \\infty} P(|\\hat{\\boldsymbol{\\beta}} - \\boldsymbol{\\beta}| \\geq c) = 0 \\hspace{8mm} \\forall ~ c &gt; 0\n\\]\n. . .\nWhen \\(n\\) is large, \\(Var(\\hat{\\boldsymbol{\\beta}})\\), the matrix of variances and covariances between estimators\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}) = (\\mathbf{X}^\\mathsf{T}\\mathbf{V}\\mathbf{X})^{-1}\n\\]\nwhere \\(\\mathbf{V}\\) is a \\(n\\times n\\) diagonal matrix, such that \\(V_{ii}\\) is the estimated variance for the \\(i^{th}\\) observation"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#test-for-a-single-coefficient",
@@ -12056,11 +12056,11 @@
     "text": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nWhen \\(n\\) is large, \\(\\hat{\\boldsymbol{\\beta}}\\) is normally distributed\n\n\nHow do we know \\(\\hat{\\boldsymbol{\\beta}}\\) is normally for large \\(n\\)?"
   },
   {
-    "objectID": "slides/21-logistic-inference.html#distribution-of-hatboldsymbolbeta-1",
-    "href": "slides/21-logistic-inference.html#distribution-of-hatboldsymbolbeta-1",
+    "objectID": "slides/21-logistic-inference.html#properties-of-hatboldsymbolbeta",
+    "href": "slides/21-logistic-inference.html#properties-of-hatboldsymbolbeta",
     "title": "Logistic Regression",
-    "section": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)",
-    "text": "Distribution of \\(\\hat{\\boldsymbol{\\beta}}\\)\nWhen \\(n\\) is large…\nThe expected value of \\(\\hat{\\boldsymbol{\\beta}}\\) is the true parameter, \\(\\boldsymbol{\\beta}\\), i.e., \\(E(\\hat{\\boldsymbol{\\beta}}) = \\boldsymbol{\\beta}\\)\n\n\\(Var(\\hat{\\boldsymbol{\\beta}})\\), the matrix of variances and covariances between estimators\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}) = (\\mathbf{X}^\\mathsf{T}\\mathbf{V}\\mathbf{X})^{-1}\n\\]\nwhere \\(\\mathbf{V}\\) is a \\(n\\times n\\) diagonal matrix, such that \\(V_{ii}\\) is the estimated variance for the \\(i^{th}\\) observation"
+    "section": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)",
+    "text": "Properties of \\(\\hat{\\boldsymbol{\\beta}}\\)\n\\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator\n\\[\n\\lim_{n \\rightarrow \\infty} P(|\\hat{\\boldsymbol{\\beta}} - \\boldsymbol{\\beta}| \\geq c) = 0 \\hspace{8mm} \\forall ~ c &gt; 0\n\\]\n\nWhen \\(n\\) is large, \\(Var(\\hat{\\boldsymbol{\\beta}})\\), the matrix of variances and covariances between estimators\n\\[\nVar(\\hat{\\boldsymbol{\\beta}}) = (\\mathbf{X}^\\mathsf{T}\\mathbf{V}\\mathbf{X})^{-1}\n\\]\nwhere \\(\\mathbf{V}\\) is a \\(n\\times n\\) diagonal matrix, such that \\(V_{ii}\\) is the estimated variance for the \\(i^{th}\\) observation"
   },
   {
     "objectID": "slides/21-logistic-inference.html#test-for-a-single-coefficient",
