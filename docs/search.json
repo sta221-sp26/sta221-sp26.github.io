@@ -7530,7 +7530,7 @@
     "href": "hw/hw-04.html#exercise-3",
     "title": "HW 04: Logistic regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\nRecall the Hessian matrix is the square matrix of second partial derivatives.\n\nShow that the Hessian for the log-likelihood of logistic regression, \\(\\frac{\\partial^2}{\\partial \\boldsymbol{\\beta}\\partial\\boldsymbol{\\beta}^\\mathsf{T}}\\log L\\) , can be written as\n\n\\[\n-\\mathbf{X}^\\mathsf{T}\\mathbf{V}\\mathbf{X}\n\\]where \\(\\mathbf{V}\\) is a diagonal matrix, such that \\(V_{ii} = \\pi_i(1 - \\pi_i)\\), the estimated variance for the \\(i^{th}\\) observation.\n\nThe Hessian in part (a) describes the curvature of the log-likelihood function (i.e., larger magnitude of the Hessian corresponds to a steeper peak). Describe how the curvature of log-likelihood is related to \\(Var(\\hat{\\boldsymbol{\\beta}})\\), the variance of the estimated coefficients.",
+    "text": "Exercise 3\nConsider \\(\\log L\\) the log-likelihood for logistic regression.\n\nShow that \\(\\frac{\\partial}{\\partial \\boldsymbol{\\beta}} \\log L\\) can be written in the following way:\n\\[\n\\mathbf{X}^\\mathsf{T}\\mathbf{y} - \\mathbf{X}^\\mathsf{T}\\boldsymbol{\\pi}\n\\]\nwhere \\(\\boldsymbol{\\pi} = [\\pi_1, \\ldots, \\pi_n]\\).\n\n\n\n\n\n\n\nTip\n\n\n\nNote: You can start with the derivative of the log-likelihood function in the notes and show / explain why the above representation makes sense.\n\n\n\nShow that the Hessian for the log-likelihood of logistic regression, \\(\\frac{\\partial^2}{\\partial \\boldsymbol{\\beta}\\partial\\boldsymbol{\\beta}^\\mathsf{T}}\\log L\\) , can be written as\n\n\\[\n-\\mathbf{X}^\\mathsf{T}\\mathbf{V}\\mathbf{X}\n\\]where \\(\\mathbf{V}\\) is a diagonal matrix, such that \\(V_{ii} = \\pi_i(1 - \\pi_i)\\), the estimated variance for the \\(i^{th}\\) observation.\n\n\n\n\n\n\nTip\n\n\n\nRecall the Hessian matrix is the square matrix of second partial derivatives.\n\n\n\nThe Hessian in part (b) describes the curvature of the log-likelihood function (i.e., larger magnitude of the Hessian corresponds to a steeper peak). Describe how the curvature of log-likelihood is related to \\(Var(\\hat{\\boldsymbol{\\beta}})\\), the variance of the estimated coefficients.",
     "crumbs": [
       "Homework",
       "HW 04"
@@ -7585,7 +7585,7 @@
     "href": "hw/hw-04.html#exercise-7",
     "title": "HW 04: Logistic regression",
     "section": "Exercise 7",
-    "text": "Exercise 7\nProduce the ROC curve for the model from the previous exercise and compute the area under curve (AUC). Write 1 - 2 sentences evaluating the model performance.",
+    "text": "Exercise 7\nThe authors include an interaction effect between nep_high and treatment in one of their models.\n\nExplain what an interaction between nep_high and treatment means in the context of the data.\nCreate a visualization to explore the potential interaction between these two variables. Based on the visualization, does there appear to be an interaction effect? Briefly explain.",
     "crumbs": [
       "Homework",
       "HW 04"
@@ -7596,18 +7596,7 @@
     "href": "hw/hw-04.html#exercise-8",
     "title": "HW 04: Logistic regression",
     "section": "Exercise 8",
-    "text": "Exercise 8\nThe authors include an interaction effect between nep_high and treatment in one of their models.\n\nExplain what an interaction between nep_high and treatment means in the context of the data.\nCreate a visualization to explore the potential interaction between these two variables. Based on the visualization, does there appear to be an interaction effect? Briefly explain.",
-    "crumbs": [
-      "Homework",
-      "HW 04"
-    ]
-  },
-  {
-    "objectID": "hw/hw-04.html#exercise-9",
-    "href": "hw/hw-04.html#exercise-9",
-    "title": "HW 04: Logistic regression",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nConduct a drop-in-deviance test to determine if the interaction between nep_high and treatment should be added to the model fit in Exercise 6. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data.",
+    "text": "Exercise 8\nConduct a drop-in-deviance test to determine if the interaction between nep_high and treatment should be added to the model fit in Exercise 6. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data.",
     "crumbs": [
       "Homework",
       "HW 04"
@@ -7618,7 +7607,7 @@
     "href": "hw/hw-04.html#grading",
     "title": "HW 04: Logistic regression",
     "section": "Grading",
-    "text": "Grading\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n5\n\n\nEx 2\n5\n\n\nEx 3\n6\n\n\nEx 4\n6\n\n\nEx 5\n7\n\n\nEx 6\n5\n\n\nEx 7\n3\n\n\nEx 8\n5\n\n\nEx 9\n4\n\n\nAI Disclosure\n1\n\n\nWorkflow & formatting\n3\n\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.",
+    "text": "Grading\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n5\n\n\nEx 2\n5\n\n\nEx 3\n8\n\n\nEx 4\n7\n\n\nEx 5\n7\n\n\nEx 6\n5\n\n\nEx 7\n5\n\n\nEx 8\n4\n\n\nAI Disclosure\n1\n\n\nWorkflow & formatting\n3\n\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.",
     "crumbs": [
       "Homework",
       "HW 04"

@@ -90,15 +90,31 @@ Provide a brief explanation for each step of your derivation.
 
 ## Exercise 3
 
-Recall the [Hessian matrix](https://sta221-sp26.github.io/slides/04-slr-matrix.html?q=hessian%20matri#/hessian-matrix) is the square matrix of second partial derivatives.
+Consider $\log L$ the log-likelihood for logistic regression.
 
-a.  Show that the Hessian for the log-likelihood of logistic regression, $\frac{\partial^2}{\partial \boldsymbol{\beta}\partial\boldsymbol{\beta}^\mathsf{T}}\log L$ , can be written as
+a.  Show that $\frac{\partial}{\partial \boldsymbol{\beta}} \log L$ can be written in the following way:
+
+    $$
+    \mathbf{X}^\mathsf{T}\mathbf{y} - \mathbf{X}^\mathsf{T}\boldsymbol{\pi}
+    $$
+
+    where $\boldsymbol{\pi} = [\pi_1, \ldots, \pi_n]$.
+
+::: callout-tip
+Note: You can start with the derivative of the log-likelihood function in the notes and show / explain why the above representation makes sense.
+:::
+
+b.  Show that the Hessian for the log-likelihood of logistic regression, $\frac{\partial^2}{\partial \boldsymbol{\beta}\partial\boldsymbol{\beta}^\mathsf{T}}\log L$ , can be written as
 
 $$
 -\mathbf{X}^\mathsf{T}\mathbf{V}\mathbf{X}
 $$where $\mathbf{V}$ is a diagonal matrix, such that $V_{ii} = \pi_i(1 - \pi_i)$, the estimated variance for the $i^{th}$ observation.
 
-b.  The Hessian in part (a) describes the curvature of the log-likelihood function (i.e., larger magnitude of the Hessian corresponds to a steeper peak). Describe how the curvature of log-likelihood is related to $Var(\hat{\boldsymbol{\beta}})$, the variance of the estimated coefficients.
+::: callout-tip
+Recall the [Hessian matrix](https://sta221-sp26.github.io/slides/04-slr-matrix.html?q=hessian%20matri#/hessian-matrix) is the square matrix of second partial derivatives.
+:::
+
+c.  The Hessian in part (b) describes the curvature of the log-likelihood function (i.e., larger magnitude of the Hessian corresponds to a steeper peak). Describe how the curvature of log-likelihood is related to $Var(\hat{\boldsymbol{\beta}})$, the variance of the estimated coefficients.
 
 ## Exercise 4
 
@@ -183,17 +199,13 @@ c.  What group of participants is described by the intercept? What is the predic
 
 ## Exercise 7
 
-Produce the ROC curve for the model from the previous exercise and compute the area under curve (AUC). Write 1 - 2 sentences evaluating the model performance.
-
-## Exercise 8
-
 The authors include an interaction effect between `nep_high` and `treatment` in one of their models.
 
 a.  Explain what an interaction between `nep_high` and `treatment` means in the context of the data.
 
 b.  Create a visualization to explore the potential interaction between these two variables. Based on the visualization, does there appear to be an interaction effect? Briefly explain.
 
-## Exercise 9
+## Exercise 8
 
 Conduct a drop-in-deviance test to determine if the interaction between `nep_high` and `treatment` should be added to the model fit in Exercise 6. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data.
 
@@ -245,13 +257,12 @@ To submit your assignment:
 |-----------------------|--------|
 | Ex 1                  | 5      |
 | Ex 2                  | 5      |
-| Ex 3                  | 6      |
-| Ex 4                  | 6      |
+| Ex 3                  | 8      |
+| Ex 4                  | 7      |
 | Ex 5                  | 7      |
 | Ex 6                  | 5      |
-| Ex 7                  | 3      |
-| Ex 8                  | 5      |
-| Ex 9                  | 4      |
+| Ex 7                  | 5      |
+| Ex 8                  | 4      |
 | AI Disclosure         | 1      |
 | Workflow & formatting | 3      |
 

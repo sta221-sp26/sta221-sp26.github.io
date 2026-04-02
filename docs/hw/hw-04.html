@@ -440,7 +440,6 @@ window.Quarto = {
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   </ul></li>
   <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI disclosure</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a>
@@ -569,15 +568,48 @@ Tip
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Recall the <a href="https://sta221-sp26.github.io/slides/04-slr-matrix.html?q=hessian%20matri#/hessian-matrix">Hessian matrix</a> is the square matrix of second partial derivatives.</p>
+<p>Consider <span class="math inline">\(\log L\)</span> the log-likelihood for logistic regression.</p>
 <ol type="a">
+<li><p>Show that <span class="math inline">\(\frac{\partial}{\partial \boldsymbol{\beta}} \log L\)</span> can be written in the following way:</p>
+<p><span class="math display">\[
+\mathbf{X}^\mathsf{T}\mathbf{y} - \mathbf{X}^\mathsf{T}\boldsymbol{\pi}
+\]</span></p>
+<p>where <span class="math inline">\(\boldsymbol{\pi} = [\pi_1, \ldots, \pi_n]\)</span>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note: You can start with the derivative of the log-likelihood function in the notes and show / explain why the above representation makes sense.</p>
+</div>
+</div>
+<ol start="2" type="a">
 <li>Show that the Hessian for the log-likelihood of logistic regression, <span class="math inline">\(\frac{\partial^2}{\partial \boldsymbol{\beta}\partial\boldsymbol{\beta}^\mathsf{T}}\log L\)</span> , can be written as</li>
 </ol>
 <p><span class="math display">\[
 -\mathbf{X}^\mathsf{T}\mathbf{V}\mathbf{X}
 \]</span>where <span class="math inline">\(\mathbf{V}\)</span> is a diagonal matrix, such that <span class="math inline">\(V_{ii} = \pi_i(1 - \pi_i)\)</span>, the estimated variance for the <span class="math inline">\(i^{th}\)</span> observation.</p>
-<ol start="2" type="a">
-<li>The Hessian in part (a) describes the curvature of the log-likelihood function (i.e., larger magnitude of the Hessian corresponds to a steeper peak). Describe how the curvature of log-likelihood is related to <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>, the variance of the estimated coefficients.</li>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recall the <a href="https://sta221-sp26.github.io/slides/04-slr-matrix.html?q=hessian%20matri#/hessian-matrix">Hessian matrix</a> is the square matrix of second partial derivatives.</p>
+</div>
+</div>
+<ol start="3" type="a">
+<li>The Hessian in part (b) describes the curvature of the log-likelihood function (i.e., larger magnitude of the Hessian corresponds to a steeper peak). Describe how the curvature of log-likelihood is related to <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>, the variance of the estimated coefficients.</li>
 </ol>
 </section>
 <section id="exercise-4" class="level2">
@@ -672,18 +704,14 @@ Tip
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Produce the ROC curve for the model from the previous exercise and compute the area under curve (AUC). Write 1 - 2 sentences evaluating the model performance.</p>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
 <p>The authors include an interaction effect between <code>nep_high</code> and <code>treatment</code> in one of their models.</p>
 <ol type="a">
 <li><p>Explain what an interaction between <code>nep_high</code> and <code>treatment</code> means in the context of the data.</p></li>
 <li><p>Create a visualization to explore the potential interaction between these two variables. Based on the visualization, does there appear to be an interaction effect? Briefly explain.</p></li>
 </ol>
 </section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
 <p>Conduct a drop-in-deviance test to determine if the interaction between <code>nep_high</code> and <code>treatment</code> should be added to the model fit in Exercise 6. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data.</p>
 </section>
 </section>
@@ -754,11 +782,11 @@ Warning
 </tr>
 <tr class="odd">
 <td>Ex 3</td>
-<td>6</td>
+<td>8</td>
 </tr>
 <tr class="even">
 <td>Ex 4</td>
-<td>6</td>
+<td>7</td>
 </tr>
 <tr class="odd">
 <td>Ex 5</td>
@@ -770,21 +798,17 @@ Warning
 </tr>
 <tr class="odd">
 <td>Ex 7</td>
-<td>3</td>
+<td>5</td>
 </tr>
 <tr class="even">
 <td>Ex 8</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Ex 9</td>
 <td>4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>AI Disclosure</td>
 <td>1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Workflow &amp; formatting</td>
 <td>3</td>
 </tr>
