@@ -7495,9 +7495,130 @@
   {
     "objectID": "hw/hw-04.html",
     "href": "hw/hw-04.html",
-    "title": "HW 04",
+    "title": "HW 04: Logistic regression",
     "section": "",
-    "text": "To be posted.",
+    "text": "ImportantDue date\n\n\n\nThis assignment is due on Thursday, April 9 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-1",
+    "href": "hw/hw-04.html#exercise-1",
+    "title": "HW 04: Logistic regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nSuppose we have a linear regression model of the form\n\\[\n\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon} \\hspace{8mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\]\nIn class, we showed that the least-squares estimator \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator by showing \\(\\lim_{n \\rightarrow \\infty} Var(\\hat{\\boldsymbol{\\beta}}) = 0\\) and \\(\\lim_{n \\rightarrow \\infty}Bias(\\hat{\\boldsymbol{\\beta}}) = 0\\). Here, we will show that \\(\\hat{\\boldsymbol{\\beta}}\\) is a consistent estimator using the formal definition of consistency.\nTo do so, show \\(\\hat{\\boldsymbol{\\beta}} - \\boldsymbol{\\beta} \\rightarrow \\mathbf{0}\\) as \\(n \\rightarrow \\infty\\).\n\n\n\n\n\n\nTip\n\n\n\nHint: Recall from HW 02 that \\(\\hat{\\boldsymbol{\\beta}}\\) can be expressed in terms of \\(\\boldsymbol{\\beta}\\).",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-2",
+    "href": "hw/hw-04.html#exercise-2",
+    "title": "HW 04: Logistic regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nShow that the log-likelihood for the logistic regression model can be written as\n\\[\\log L (\\boldsymbol{\\beta}|\\mathbf{X}, \\mathbf{y}) = \\sum_{i=1}^n y_i \\mathbf{x}_i^\\mathsf{T} \\boldsymbol\\beta - \\sum_{i=1}^n \\log(1+ \\exp\\{\\mathbf{x}_i^\\mathsf{T} \\boldsymbol{\\beta}\\})\\]\nProvide a brief explanation for each step of your derivation.",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-3",
+    "href": "hw/hw-04.html#exercise-3",
+    "title": "HW 04: Logistic regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nRecall the Hessian matrix is the square matrix of second partial derivatives.\n\nShow that the Hessian for the log-likelihood of logistic regression, \\(\\frac{\\partial^2}{\\partial \\boldsymbol{\\beta}\\partial\\boldsymbol{\\beta}^\\mathsf{T}}\\log L\\) , can be written as\n\n\\[\n-\\mathbf{X}^\\mathsf{T}\\mathbf{V}\\mathbf{X}\n\\]where \\(\\mathbf{V}\\) is a diagonal matrix, such that \\(V_{ii} = \\pi_i(1 - \\pi_i)\\), the estimated variance for the \\(i^{th}\\) observation.\n\nThe Hessian in part (a) describes the curvature of the log-likelihood function (i.e., larger magnitude of the Hessian corresponds to a steeper peak). Describe how the curvature of log-likelihood is related to \\(Var(\\hat{\\boldsymbol{\\beta}})\\), the variance of the estimated coefficients.",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-4",
+    "href": "hw/hw-04.html#exercise-4",
+    "title": "HW 04: Logistic regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nAdapted from an exercise in Agresti (2013).\nBerry (2001) examined the effect of a player’s draft position among the pool of potential players in a given year to the probability on eventually being named an all star.\nLet \\(d\\) be the draft position \\((d = 1, 2, 3, \\ldots)\\) and \\(\\pi\\) be the probability of eventually being named an all star. The researcher modeled the relationship between \\(d\\) and \\(\\pi\\) using the following model:\n\\[\n\\log\\Big(\\frac{\\pi_i}{1-\\pi_i}\\Big) = \\beta_0 + \\beta_1 \\log d_i\n\\]\n\nUsing this model, show that the odds of being named an all star are \\(e^{\\beta_0}d^{\\beta_1}\\) . Then, show how to calculate \\(\\pi_i\\) based on this model.\nShow that the odds of being named an all star for a first draft pick are \\(e^{\\beta_0}\\).\nIn the study, Berry reported that for professional basketball \\(\\hat{\\beta}_0 = 2.3\\) and \\(\\hat{\\beta}_1 = -1.1\\), and for professional baseball \\(\\hat{\\beta}_0 = 0.7\\) and \\(\\hat{\\beta}_1 = -0.6\\) . Explain why this suggests that (1) being a first draft pick is more crucial for being an all star in basketball than in baseball and (2) players picked in high draft positions are relatively less likely to be all stars.",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#data-understanding-pro-environmental-behavior",
+    "href": "hw/hw-04.html#data-understanding-pro-environmental-behavior",
+    "title": "HW 04: Logistic regression",
+    "section": "Data: Understanding pro-environmental behavior",
+    "text": "Data: Understanding pro-environmental behavior\nIbanez and Roussel (2022) conducted an experiment to understand the impact of watching a nature documentary on pro-environmental behavior. The researchers randomly assigned the 113 participants to watch a video about architecture in NYC (control) or a video about Yellowstone National Park (treatment). As part of the experiment, participants played a game in which they had an opportunity to donate to an environmental organization.\nThe data set is available in nature-experiment.csv in the data folder. We will use the following variables:\n\ndonation_binary:\n\n1 - participant donated to environmental organization\n0 - participant did not donate\n\nage: Age in years\ngender: Participant’s reported gender\n\n1 - male\n0 - non-male\n\ntreatment:\n\n“URBAN (T1)” - the control group\n“NATURE (T2)” - the treatment group\n\nnep_high:\n\n1 - score of 4 or higher on the New Ecological Paradigm (NEP)\n0 - score less than 4\n\n\n\n\n\n\n\n\nTip\n\n\n\nSee the Introduction and Methods sections of Ibanez and Roussel (2022) for more detail about the variables.\nClick here to access the paper online.",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-5",
+    "href": "hw/hw-04.html#exercise-5",
+    "title": "HW 04: Logistic regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\n\nVisualize the relationship between donating and treatment. Use the visualization to describe the relationship between the two variables.\nVisualize the relationship between donating and age. Use the visualization to describe the relationship between the two variables.\nWe would like to use the mean-centered value of age in the model. Create a new variable age_cent that contains the mean-centered ages.",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-6",
+    "href": "hw/hw-04.html#exercise-6",
+    "title": "HW 04: Logistic regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nFit a logistic regression model using age_cent, gender, treatment, and nep_high to predict the odds of donating. Neatly display the model using 3 decimal places.\nThe researchers are most interested in the effect of watching the nature documentary. Describe the effect of treatment in terms of the odds of donating.\nWhat group of participants is described by the intercept? What is the predicted probability a randomly selected individual in this group donates?",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-7",
+    "href": "hw/hw-04.html#exercise-7",
+    "title": "HW 04: Logistic regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nProduce the ROC curve for the model from the previous exercise and compute the area under curve (AUC). Write 1 - 2 sentences evaluating the model performance.",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-8",
+    "href": "hw/hw-04.html#exercise-8",
+    "title": "HW 04: Logistic regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nThe authors include an interaction effect between nep_high and treatment in one of their models.\n\nExplain what an interaction between nep_high and treatment means in the context of the data.\nCreate a visualization to explore the potential interaction between these two variables. Based on the visualization, does there appear to be an interaction effect? Briefly explain.",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-9",
+    "href": "hw/hw-04.html#exercise-9",
+    "title": "HW 04: Logistic regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nConduct a drop-in-deviance test to determine if the interaction between nep_high and treatment should be added to the model fit in Exercise 6. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data.",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#grading",
+    "href": "hw/hw-04.html#grading",
+    "title": "HW 04: Logistic regression",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n5\n\n\nEx 2\n5\n\n\nEx 3\n6\n\n\nEx 4\n6\n\n\nEx 5\n7\n\n\nEx 6\n5\n\n\nEx 7\n3\n\n\nEx 8\n5\n\n\nEx 9\n4\n\n\nAI Disclosure\n1\n\n\nWorkflow & formatting\n3\n\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.",
     "crumbs": [
       "Homework",
       "HW 04"

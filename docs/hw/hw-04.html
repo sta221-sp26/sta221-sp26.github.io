@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 04 – STA 221 - Spring 2026</title>
+<title>HW 04: Logistic regression – STA 221 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -71,6 +126,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -334,15 +418,45 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#conceptual-exercises" id="toc-conceptual-exercises" class="nav-link" data-scroll-target="#conceptual-exercises">Conceptual exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  </ul></li>
+  <li><a href="#applied-exercises" id="toc-applied-exercises" class="nav-link" data-scroll-target="#applied-exercises">Applied exercises</a>
+  <ul class="collapse">
+  <li><a href="#data-understanding-pro-environmental-behavior" id="toc-data-understanding-pro-environmental-behavior" class="nav-link" data-scroll-target="#data-understanding-pro-environmental-behavior">Data: Understanding pro-environmental behavior</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  </ul></li>
+  <li><a href="#ai-disclosure" id="toc-ai-disclosure" class="nav-link" data-scroll-target="#ai-disclosure">AI disclosure</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a>
+  <ul class="collapse">
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-04.html">HW 04</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">HW 04</h1>
+<h1 class="title">HW 04: Logistic regression</h1>
 </div>
 
 
@@ -359,11 +473,344 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To be posted.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Due date
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This assignment is due on <strong>Thursday, April 9 at 11:59pm</strong>. To be considered on time, the following must be done by the due date:</p>
+<ul>
+<li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</li>
+<li>Final <code>.pdf</code> file submitted on Gradescope</li>
+</ul>
+</div>
+</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In this assignment you will use logistic regression to describe the relationship between a binary response variable and multiple predictor variables, along with classifying observations. You will also derive results for logistic regression and some properties of least-squares estimators for linear regression.</p>
+</section>
+<section id="learning-goals" class="level1">
+<h1>Learning goals</h1>
+<p>In this assignment, you will…</p>
+<ul>
+<li><p>Derive properties of the least-squares estimator for linear regression</p></li>
+<li><p>Derive results for logistic regression</p></li>
+<li><p>Use logistic regression to explore the relationship between a binary response variable and multiple predictor variables</p></li>
+<li><p>Conduct exploratory data analysis for logistic regression</p></li>
+<li><p>Interpret coefficients of logistic regression model</p></li>
+<li><p>Use statistics to compare and evaluate logistic regression models</p></li>
+</ul>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<ul>
+<li><p>Go to the <a href="https://www.github.com/sta221-sp26">sta221-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>hw-04</strong>. It contains the starter documents you need to complete the assignment.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00 instructions</a> for details on cloning a repo and starting a new project in R.Packages</p></li>
+</ul>
+<p>The following packages are used in this assignment:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="conceptual-exercises" class="level1">
+<h1>Conceptual exercises</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Instructions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The conceptual exercises focus on explaining concepts and deriving results mathematically. Show your work for each question.</p>
+<p><strong>You may write the answers and associated work for conceptual exercises by hand or type them in your Quarto document.</strong></p>
+</div>
+</div>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Suppose we have a linear regression model of the form</p>
+<p><span class="math display">\[
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon} \hspace{8mm} \boldsymbol{\epsilon} \sim N(\mathbf{0}, \sigma^2_{\epsilon}\mathbf{I})
+\]</span></p>
+<p>In <a href="https://sta221-sp26.github.io/slides/15-prop-of-estimators.html?q=consistent#/consistency-1">class</a>, we showed that the least-squares estimator <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is a consistent estimator by showing <span class="math inline">\(\lim_{n \rightarrow \infty} Var(\hat{\boldsymbol{\beta}}) = 0\)</span> and <span class="math inline">\(\lim_{n \rightarrow \infty}Bias(\hat{\boldsymbol{\beta}}) = 0\)</span>. Here, we will show that <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is a consistent estimator using the formal <a href="https://sta221-sp26.github.io/slides/15-prop-of-estimators.html?q=consistent#/consistency">definition of consistency</a>.</p>
+<p>To do so, show <span class="math inline">\(\hat{\boldsymbol{\beta}} - \boldsymbol{\beta} \rightarrow \mathbf{0}\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hint: Recall from HW 02 that <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> can be expressed in terms of <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<!--# from Alex's Fall 2025 course-->
+<p>Show that the <strong>log-likelihood</strong> for the logistic regression model can be written as</p>
+<p><span class="math display">\[\log L (\boldsymbol{\beta}|\mathbf{X}, \mathbf{y}) = \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})\]</span></p>
+<p>Provide a brief explanation for each step of your derivation.</p>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Recall the <a href="https://sta221-sp26.github.io/slides/04-slr-matrix.html?q=hessian%20matri#/hessian-matrix">Hessian matrix</a> is the square matrix of second partial derivatives.</p>
+<ol type="a">
+<li>Show that the Hessian for the log-likelihood of logistic regression, <span class="math inline">\(\frac{\partial^2}{\partial \boldsymbol{\beta}\partial\boldsymbol{\beta}^\mathsf{T}}\log L\)</span> , can be written as</li>
+</ol>
+<p><span class="math display">\[
+-\mathbf{X}^\mathsf{T}\mathbf{V}\mathbf{X}
+\]</span>where <span class="math inline">\(\mathbf{V}\)</span> is a diagonal matrix, such that <span class="math inline">\(V_{ii} = \pi_i(1 - \pi_i)\)</span>, the estimated variance for the <span class="math inline">\(i^{th}\)</span> observation.</p>
+<ol start="2" type="a">
+<li>The Hessian in part (a) describes the curvature of the log-likelihood function (i.e., larger magnitude of the Hessian corresponds to a steeper peak). Describe how the curvature of log-likelihood is related to <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>, the variance of the estimated coefficients.</li>
+</ol>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p><em>Adapted from an exercise in <span class="citation" data-cites="agresti2013categorical">Agresti (<a href="#ref-agresti2013categorical" role="doc-biblioref">2013</a>)</span>.</em></p>
+<p><span class="citation" data-cites="berry2001statistician">Berry (<a href="#ref-berry2001statistician" role="doc-biblioref">2001</a>)</span> examined the effect of a player’s draft position among the pool of potential players in a given year to the probability on eventually being named an all star.</p>
+<p>Let <span class="math inline">\(d\)</span> be the draft position <span class="math inline">\((d = 1, 2, 3, \ldots)\)</span> and <span class="math inline">\(\pi\)</span> be the probability of eventually being named an all star. The researcher modeled the relationship between <span class="math inline">\(d\)</span> and <span class="math inline">\(\pi\)</span> using the following model:</p>
+<p><span class="math display">\[
+\log\Big(\frac{\pi_i}{1-\pi_i}\Big) = \beta_0 + \beta_1 \log d_i
+\]</span></p>
+<ol type="a">
+<li><p>Using this model, show that the odds of being named an all star are <span class="math inline">\(e^{\beta_0}d^{\beta_1}\)</span> . Then, show how to calculate <span class="math inline">\(\pi_i\)</span> based on this model.</p></li>
+<li><p>Show that the odds of being named an all star for a first draft pick are <span class="math inline">\(e^{\beta_0}\)</span>.</p></li>
+<li><p>In the study, Berry reported that for professional basketball <span class="math inline">\(\hat{\beta}_0 = 2.3\)</span> and <span class="math inline">\(\hat{\beta}_1 = -1.1\)</span>, and for professional baseball <span class="math inline">\(\hat{\beta}_0 = 0.7\)</span> and <span class="math inline">\(\hat{\beta}_1 = -0.6\)</span> . Explain why this suggests that (1) being a first draft pick is more crucial for being an all star in basketball than in baseball and (2) players picked in high draft positions are relatively less likely to be all stars.</p></li>
+</ol>
+</section>
+</section>
+<section id="applied-exercises" class="level1">
+<h1>Applied exercises</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Instructions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The applied exercises focus on using the methods from the course to analyze data and answer questions about real-world phenomena.</p>
+<p><strong>All work for the applied exercises must be typed in your Quarto document. Remember to render, commit, and push your work to GitHub regularly.</strong></p>
+<p>Write all narrative responses using complete sentences. Include informative axis labels and titles on all visualizations.</p>
+</div>
+</div>
+<section id="data-understanding-pro-environmental-behavior" class="level2">
+<h2 class="anchored" data-anchor-id="data-understanding-pro-environmental-behavior">Data: Understanding pro-environmental behavior</h2>
+<p><span class="citation" data-cites="ibanez2022impact">Ibanez and Roussel (<a href="#ref-ibanez2022impact" role="doc-biblioref">2022</a>)</span> conducted an experiment to understand the impact of watching a nature documentary on pro-environmental behavior. The researchers randomly assigned the 113 participants to watch a video about architecture in NYC (control) or a video about Yellowstone National Park (treatment). As part of the experiment, participants played a game in which they had an opportunity to donate to an environmental organization.</p>
+<p>The data set is available in <code>nature-experiment.csv</code> in the <code>data</code> folder. We will use the following variables:</p>
+<ul>
+<li><p><code>donation_binary</code>:</p>
+<ul>
+<li>1 - participant donated to environmental organization</li>
+<li>0 - participant did not donate</li>
+</ul></li>
+<li><p><code>age</code>: Age in years</p></li>
+<li><p><code>gender</code>: Participant’s reported gender</p>
+<ul>
+<li><p>1 - male</p></li>
+<li><p>0 - non-male</p></li>
+</ul></li>
+<li><p><code>treatment</code>:</p>
+<ul>
+<li>“URBAN (T1)” - the control group</li>
+<li>“NATURE (T2)” - the treatment group</li>
+</ul></li>
+<li><p><code>nep_high</code>:</p>
+<ul>
+<li>1 - score of 4 or higher on the New Ecological Paradigm (NEP)</li>
+<li>0 - score less than 4</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See the Introduction and Methods sections of <span class="citation" data-cites="ibanez2022impact">Ibanez and Roussel (<a href="#ref-ibanez2022impact" role="doc-biblioref">2022</a>)</span> for more detail about the variables.</p>
+<p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275806">Click here</a> to access the paper online.</p>
+</div>
+</div>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<ol type="a">
+<li><p>Visualize the relationship between donating and treatment. Use the visualization to describe the relationship between the two variables.</p></li>
+<li><p>Visualize the relationship between donating and age. Use the visualization to describe the relationship between the two variables.</p></li>
+<li><p>We would like to use the mean-centered value of <code>age</code> in the model. Create a new variable <code>age_cent</code> that contains the mean-centered ages.</p></li>
+</ol>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<ol type="a">
+<li><p>Fit a logistic regression model using <code>age_cent</code>, <code>gender</code>, <code>treatment</code>, and <code>nep_high</code> to predict the odds of donating. Neatly display the model using 3 decimal places.</p></li>
+<li><p>The researchers are most interested in the effect of watching the nature documentary. Describe the effect of <code>treatment</code> in terms of the <strong>odds</strong> of donating.</p></li>
+<li><p>What group of participants is described by the intercept? What is the predicted probability a randomly selected individual in this group donates?</p></li>
+</ol>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Produce the ROC curve for the model from the previous exercise and compute the area under curve (AUC). Write 1 - 2 sentences evaluating the model performance.</p>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>The authors include an interaction effect between <code>nep_high</code> and <code>treatment</code> in one of their models.</p>
+<ol type="a">
+<li><p>Explain what an interaction between <code>nep_high</code> and <code>treatment</code> means in the context of the data.</p></li>
+<li><p>Create a visualization to explore the potential interaction between these two variables. Based on the visualization, does there appear to be an interaction effect? Briefly explain.</p></li>
+</ol>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>Conduct a drop-in-deviance test to determine if the interaction between <code>nep_high</code> and <code>treatment</code> should be added to the model fit in Exercise 6. Include the hypotheses in mathematical notation, the output from the test, and the conclusion in the context of the data.</p>
+</section>
+</section>
+<section id="ai-disclosure" class="level1">
+<h1>AI disclosure</h1>
+<p>Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste <u><strong>all</strong></u> statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps me learn how students are most effectively using AI.</p>
+<ul>
+<li>I didn’t use an LLM / Generative AI tool.</li>
+<li>I asked it to clarify one or more exercises.</li>
+<li>I asked it clarifying questions to better understand a concept.</li>
+<li>I asked it to help write code to complete an exercise.</li>
+<li>I gave it my code and asked it to help me fix it.</li>
+<li>I asked it about an error or why code would do something I didn’t want.</li>
+<li>I pasted the exercise prompt in AI and asked for help, but I wrote my answer myself.</li>
+<li>I pasted the exercise prompt in AI and copied and pasted at least some of the answer into my Quarto document.</li>
+<li>Other:______</li>
+</ul>
+</section>
+<section id="submission" class="level1">
+<h1>Submission</h1>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
+<p>Remember: you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+<p>If you write your responses to conceptual exercises by hand, you will need to combine your written work to the completed PDF for the applied exercises before submitting on Gradescope.</p>
+<p>Instructions to combine PDFs:</p>
+<ul>
+<li><p>Preview (Mac): <a href="https://support.apple.com/guide/preview/combine-pdfs-prvw43696/mac">support.apple.com/guide/preview/combine-pdfs-prvw43696/mac</a></p></li>
+<li><p>Adobe (Mac or PC): <a href="https://helpx.adobe.com/acrobat/using/merging-files-single-pdf.html">helpx.adobe.com/acrobat/using/merging-files-single-pdf.html</a></p>
+<ul>
+<li>Get free access to Adobe Acrobat as a Duke student: <a href="https://oit.duke.edu/help/articles/kb0030141/">oit.duke.edu/help/articles/kb0030141/</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<p>To submit your assignment:</p>
+<ul>
+<li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/73984">STA 221 Canvas site.</a></p></li>
+<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
+<li><p>Mark the pages associated with each exercise. All of the pages of your assignment should be associated with at least one question (i.e., should be “checked”).</p></li>
+<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
+</ul>
+<section id="grading" class="level2">
+<h2 class="anchored" data-anchor-id="grading">Grading</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ex 1</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Ex 2</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Ex 3</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>Ex 4</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>Ex 5</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Ex 6</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Ex 7</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Ex 8</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Ex 9</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>AI Disclosure</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Workflow &amp; formatting</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.</p>
+</section>
+</section>
+<section id="references" class="level1">
 
 
 
-</main> <!-- /main -->
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-agresti2013categorical" class="csl-entry" role="listitem">
+Agresti, Alan. 2013. <em>Categorical Data Analysis</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-berry2001statistician" class="csl-entry" role="listitem">
+Berry, Scott M. 2001. <span>“A Statistician Reads the Sports Pages: Luck in Sports.”</span> <em>Chance</em> 14 (1): 52–57.
+</div>
+<div id="ref-ibanez2022impact" class="csl-entry" role="listitem">
+Ibanez, Lisette, and Sébastien Roussel. 2022. <span>“The Impact of Nature Video Exposure on Pro-Environmental Behavior: An Experimental Investigation.”</span> <em>Plos One</em> 17 (11): e0275806.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -784,7 +1231,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
