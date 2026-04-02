@@ -221,7 +221,7 @@ $D \sim \chi^2_{n - p - 1}$ ($D$ follows a Chi-square distribution with $n - p -
 
 <br>
 
-Note: $n - p - 1$ a the degrees of freedom associated with the error in the model (like residuals)
+Note: $n - p - 1$ = the degrees of freedom associated with the error in the model (like residuals)
 
 ## $\chi^2$ distribution
 
@@ -482,6 +482,19 @@ pchisq(G, df = 3, lower.tail = FALSE)
 What is your conclusion? Would you include `education` in the model that already has `age`, `totChol`, `currentSmoker`?
 :::
 
+## Let's take a look at `education`
+
+```{r}
+#| echo: false
+ 
+tidy(high_risk_fit_full, conf.int = TRUE) |> 
+  kable(digits = 3) 
+```
+
+::: question
+What is your final assessment about including `education` in the model?
+:::
+
 ## Drop-in-deviance test in R {.midi}
 
 Conduct the drop-in-deviance test using the `anova()` function in R with option `test = "Chisq"`
@@ -504,6 +517,20 @@ anova(reduced_model, new_model, test = "Chisq") |>
   kable(digits = 3)
 
 ```
+
+## Applies to linear regression {.midi}
+
+-   We can use the drop-in-deviance test to test for subset of predictors in linear regression
+
+-   The deviance for the linear regression model is the sum of squared residuals
+
+    $$
+    SSR = \sum_{i=1}^n(y_i - \hat{y}_i)^2
+    $$
+
+-   The test statistic for the drop-in-deviance test is $$G = SSR_{\text{reduced}} - SSR_{full}$$
+
+-   This is also called the **Nested F Test**
 
 # Inference for an individual coefficient
 
@@ -546,34 +573,6 @@ where $SE(\hat{\beta}_j)$ is the square root of the $j^{th}$ diagonal element of
 . . .
 
 **P-value:** $P(|Z| > |z|)$, where $Z \sim N(0, 1)$, the Standard Normal distribution
-
-## Confidence interval for $\beta_j$
-
-We can calculate the **C% confidence interval** for $\beta_j$ as the following:
-
-$$
-\Large{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)}
-$$
-
-where $z^*$ is calculated from the $N(0,1)$ distribution
-
-. . .
-
-::: callout-note
-This is an interval for the change in the log-odds for every one unit increase in $x_j$
-:::
-
-## Interpretation in terms of the odds
-
-The change in **odds** for every one unit increase in $x_j$.
-
-$$
-\Large{\exp\{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)\}}
-$$
-
-. . .
-
-**Interpretation:** We are $C\%$ confident that for every one unit increase in $x_j$, the odds multiply by a factor of $\exp\{\hat{\beta}_j - z^* \times SE(\hat{\beta}_j)\}$ to $\exp\{\hat{\beta}_j + z^* \times SE(\hat{\beta}_j)\}$, holding all else constant.
 
 ## Coefficient for `age` {.midi}
 
@@ -638,6 +637,32 @@ $$
 
 The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for total cholesterol and smoking status.
 
+## Confidence interval for $\beta_j$
+
+We can calculate the **C% confidence interval** for $\beta_j$ as the following:
+
+$$
+\Large{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)}
+$$
+
+where $z^*$ is calculated from the $N(0,1)$ distribution
+
+. . .
+
+This is an interval for the change in the log-odds for every one unit increase in $x_j$
+
+## Interpretation in terms of the odds
+
+The change in **odds** for every one unit increase in $x_j$.
+
+$$
+\Large{\exp\{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)\}}
+$$
+
+. . .
+
+**Interpretation:** We are $C\%$ confident that for every one unit increase in $x_j$, the odds multiply by a factor of $\exp\{\hat{\beta}_j - z^* \times SE(\hat{\beta}_j)\}$ to $\exp\{\hat{\beta}_j + z^* \times SE(\hat{\beta}_j)\}$, holding all else constant.
+
 ## CI for `age`
 
 ```{r}
@@ -647,19 +672,6 @@ The p-value is very small, so we reject $H_0$. The data provide sufficient evide
 
 ::: question
 Interpret the 95% confidence interval for `age` in terms of the **odds** of being high risk for heart disease.
-:::
-
-## Let's take a look at `education`
-
-```{r}
-#| echo: false
- 
-tidy(high_risk_fit_full, conf.int = TRUE) |> 
-  kable(digits = 3) 
-```
-
-::: question
-What is your final assessment about including `education` in the model?
 :::
 
 ## Overview of testing coefficients

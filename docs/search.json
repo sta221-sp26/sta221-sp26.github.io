@@ -11647,7 +11647,7 @@
     "href": "slides/21-logistic-inference-notes.html#deviance",
     "title": "Logistic Regression",
     "section": "Deviance",
-    "text": "Deviance\nThe deviance is a measure of the degree to which the predicted values are different from the observed values (compares the current model to a “saturated” model)\nIn logistic regression,\n\\[\nD = -2 \\log L\n\\]\n\n\\(D \\sim \\chi^2_{n - p - 1}\\) (\\(D\\) follows a Chi-square distribution with \\(n - p - 1\\) degrees of freedom)1\n\nNote: \\(n - p - 1\\) a the degrees of freedom associated with the error in the model (like residuals)"
+    "text": "Deviance\nThe deviance is a measure of the degree to which the predicted values are different from the observed values (compares the current model to a “saturated” model)\nIn logistic regression,\n\\[\nD = -2 \\log L\n\\]\n\n\\(D \\sim \\chi^2_{n - p - 1}\\) (\\(D\\) follows a Chi-square distribution with \\(n - p - 1\\) degrees of freedom)1\n\nNote: \\(n - p - 1\\) = the degrees of freedom associated with the error in the model (like residuals)"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#chi2-distribution",
@@ -11741,6 +11741,13 @@
     "text": "Example: Include education?\nCompute p-value\n\npchisq(G, df = 3, lower.tail = FALSE)\n\n[1] 0.06543567\n\n\n\n. . .\n\nWhat is your conclusion? Would you include education in the model that already has age, totChol, currentSmoker?"
   },
   {
+    "objectID": "slides/21-logistic-inference-notes.html#lets-take-a-look-at-education",
+    "href": "slides/21-logistic-inference-notes.html#lets-take-a-look-at-education",
+    "title": "Logistic Regression",
+    "section": "Let’s take a look at education",
+    "text": "Let’s take a look at education\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.456\n0.391\n-16.533\n0.000\n-7.230\n-5.698\n\n\nage\n0.080\n0.006\n13.571\n0.000\n0.068\n0.091\n\n\ntotChol\n0.002\n0.001\n2.086\n0.037\n0.000\n0.004\n\n\ncurrentSmoker1\n0.445\n0.094\n4.747\n0.000\n0.262\n0.630\n\n\neducation2\n-0.270\n0.113\n-2.379\n0.017\n-0.494\n-0.049\n\n\neducation3\n-0.232\n0.135\n-1.714\n0.086\n-0.501\n0.029\n\n\neducation4\n-0.035\n0.150\n-0.232\n0.817\n-0.335\n0.255\n\n\n\n\n\n\nWhat is your final assessment about including education in the model?"
+  },
+  {
     "objectID": "slides/21-logistic-inference-notes.html#drop-in-deviance-test-in-r",
     "href": "slides/21-logistic-inference-notes.html#drop-in-deviance-test-in-r",
     "title": "Logistic Regression",
@@ -11753,6 +11760,13 @@
     "title": "Logistic Regression",
     "section": "Add interactions with currentSmoker?",
     "text": "Add interactions with currentSmoker?\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.residual\nresidual.deviance\ndf\ndeviance\np.value\n\n\n\n\nhigh_risk ~ age + totChol + currentSmoker\n4082\n3224.812\nNA\nNA\nNA\n\n\nhigh_risk ~ age + totChol + currentSmoker + currentSmoker * age + currentSmoker * totChol\n4080\n3222.377\n2\n2.435\n0.296"
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#applies-to-linear-regression",
+    "href": "slides/21-logistic-inference-notes.html#applies-to-linear-regression",
+    "title": "Logistic Regression",
+    "section": "Applies to linear regression",
+    "text": "Applies to linear regression\n\nWe can use the drop-in-deviance test to test for subset of predictors in linear regression\nThe deviance for the linear regression model is the sum of squared residuals\n\\[\nSSR = \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\n\\]\nThe test statistic for the drop-in-deviance test is \\[G = SSR_{\\text{reduced}} - SSR_{full}\\]\nThis is also called the Nested F Test"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#distribution-of-hatboldsymbolbeta",
@@ -11774,20 +11788,6 @@
     "title": "Logistic Regression",
     "section": "Test for a single coefficient",
     "text": "Test for a single coefficient\nHypotheses: \\(H_0: \\beta_j = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_j \\neq 0\\), given the other variables in the model\n. . .\n(Wald) Test Statistic: \\[z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)}\\]\nwhere \\(SE(\\hat{\\beta}_j)\\) is the square root of the \\(j^{th}\\) diagonal element of \\(Var(\\hat{\\boldsymbol{\\beta}})\\)\n. . .\nP-value: \\(P(|Z| &gt; |z|)\\), where \\(Z \\sim N(0, 1)\\), the Standard Normal distribution"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#confidence-interval-for-beta_j",
-    "href": "slides/21-logistic-inference-notes.html#confidence-interval-for-beta_j",
-    "title": "Logistic Regression",
-    "section": "Confidence interval for \\(\\beta_j\\)",
-    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\Large{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n. . .\n\n\n\n\n\n\nNote\n\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
-    "href": "slides/21-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
-    "title": "Logistic Regression",
-    "section": "Interpretation in terms of the odds",
-    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\Large{\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)\\}}\n\\]\n. . .\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^* \\times SE(\\hat{\\beta}_j)\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE(\\hat{\\beta}_j)\\}\\), holding all else constant."
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#coefficient-for-age",
@@ -11818,18 +11818,25 @@
     "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for total cholesterol and smoking status."
   },
   {
+    "objectID": "slides/21-logistic-inference-notes.html#confidence-interval-for-beta_j",
+    "href": "slides/21-logistic-inference-notes.html#confidence-interval-for-beta_j",
+    "title": "Logistic Regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\Large{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n. . .\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
+  },
+  {
+    "objectID": "slides/21-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
+    "href": "slides/21-logistic-inference-notes.html#interpretation-in-terms-of-the-odds",
+    "title": "Logistic Regression",
+    "section": "Interpretation in terms of the odds",
+    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\Large{\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)\\}}\n\\]\n. . .\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^* \\times SE(\\hat{\\beta}_j)\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE(\\hat{\\beta}_j)\\}\\), holding all else constant."
+  },
+  {
     "objectID": "slides/21-logistic-inference-notes.html#ci-for-age",
     "href": "slides/21-logistic-inference-notes.html#ci-for-age",
     "title": "Logistic Regression",
     "section": "CI for age",
     "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\n\nInterpret the 95% confidence interval for age in terms of the odds of being high risk for heart disease."
-  },
-  {
-    "objectID": "slides/21-logistic-inference-notes.html#lets-take-a-look-at-education",
-    "href": "slides/21-logistic-inference-notes.html#lets-take-a-look-at-education",
-    "title": "Logistic Regression",
-    "section": "Let’s take a look at education",
-    "text": "Let’s take a look at education\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.456\n0.391\n-16.533\n0.000\n-7.230\n-5.698\n\n\nage\n0.080\n0.006\n13.571\n0.000\n0.068\n0.091\n\n\ntotChol\n0.002\n0.001\n2.086\n0.037\n0.000\n0.004\n\n\ncurrentSmoker1\n0.445\n0.094\n4.747\n0.000\n0.262\n0.630\n\n\neducation2\n-0.270\n0.113\n-2.379\n0.017\n-0.494\n-0.049\n\n\neducation3\n-0.232\n0.135\n-1.714\n0.086\n-0.501\n0.029\n\n\neducation4\n-0.035\n0.150\n-0.232\n0.817\n-0.335\n0.255\n\n\n\n\n\n\nWhat is your final assessment about including education in the model?"
   },
   {
     "objectID": "slides/21-logistic-inference-notes.html#overview-of-testing-coefficients",
@@ -11920,7 +11927,7 @@
     "href": "slides/21-logistic-inference.html#deviance",
     "title": "Logistic Regression",
     "section": "Deviance",
-    "text": "Deviance\nThe deviance is a measure of the degree to which the predicted values are different from the observed values (compares the current model to a “saturated” model)\nIn logistic regression,\n\\[\nD = -2 \\log L\n\\]\n\n\\(D \\sim \\chi^2_{n - p - 1}\\) (\\(D\\) follows a Chi-square distribution with \\(n - p - 1\\) degrees of freedom)1\n\nNote: \\(n - p - 1\\) a the degrees of freedom associated with the error in the model (like residuals)\nSee Wilks (1935) for explanation of why -2 is included."
+    "text": "Deviance\nThe deviance is a measure of the degree to which the predicted values are different from the observed values (compares the current model to a “saturated” model)\nIn logistic regression,\n\\[\nD = -2 \\log L\n\\]\n\n\\(D \\sim \\chi^2_{n - p - 1}\\) (\\(D\\) follows a Chi-square distribution with \\(n - p - 1\\) degrees of freedom)1\n\nNote: \\(n - p - 1\\) = the degrees of freedom associated with the error in the model (like residuals)\nSee Wilks (1935) for explanation of why -2 is included."
   },
   {
     "objectID": "slides/21-logistic-inference.html#chi2-distribution",
@@ -12014,6 +12021,13 @@
     "text": "Example: Include education?\nCompute p-value\n\npchisq(G, df = 3, lower.tail = FALSE)\n\n[1] 0.06543567\n\n\n\n\n\nWhat is your conclusion? Would you include education in the model that already has age, totChol, currentSmoker?"
   },
   {
+    "objectID": "slides/21-logistic-inference.html#lets-take-a-look-at-education",
+    "href": "slides/21-logistic-inference.html#lets-take-a-look-at-education",
+    "title": "Logistic Regression",
+    "section": "Let’s take a look at education",
+    "text": "Let’s take a look at education\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.456\n0.391\n-16.533\n0.000\n-7.230\n-5.698\n\n\nage\n0.080\n0.006\n13.571\n0.000\n0.068\n0.091\n\n\ntotChol\n0.002\n0.001\n2.086\n0.037\n0.000\n0.004\n\n\ncurrentSmoker1\n0.445\n0.094\n4.747\n0.000\n0.262\n0.630\n\n\neducation2\n-0.270\n0.113\n-2.379\n0.017\n-0.494\n-0.049\n\n\neducation3\n-0.232\n0.135\n-1.714\n0.086\n-0.501\n0.029\n\n\neducation4\n-0.035\n0.150\n-0.232\n0.817\n-0.335\n0.255\n\n\n\n\n\n\nWhat is your final assessment about including education in the model?"
+  },
+  {
     "objectID": "slides/21-logistic-inference.html#drop-in-deviance-test-in-r",
     "href": "slides/21-logistic-inference.html#drop-in-deviance-test-in-r",
     "title": "Logistic Regression",
@@ -12026,6 +12040,13 @@
     "title": "Logistic Regression",
     "section": "Add interactions with currentSmoker?",
     "text": "Add interactions with currentSmoker?\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.residual\nresidual.deviance\ndf\ndeviance\np.value\n\n\n\n\nhigh_risk ~ age + totChol + currentSmoker\n4082\n3224.812\nNA\nNA\nNA\n\n\nhigh_risk ~ age + totChol + currentSmoker + currentSmoker * age + currentSmoker * totChol\n4080\n3222.377\n2\n2.435\n0.296"
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#applies-to-linear-regression",
+    "href": "slides/21-logistic-inference.html#applies-to-linear-regression",
+    "title": "Logistic Regression",
+    "section": "Applies to linear regression",
+    "text": "Applies to linear regression\n\nWe can use the drop-in-deviance test to test for subset of predictors in linear regression\nThe deviance for the linear regression model is the sum of squared residuals\n\\[\nSSR = \\sum_{i=1}^n(y_i - \\hat{y}_i)^2\n\\]\nThe test statistic for the drop-in-deviance test is \\[G = SSR_{\\text{reduced}} - SSR_{full}\\]\nThis is also called the Nested F Test"
   },
   {
     "objectID": "slides/21-logistic-inference.html#distribution-of-hatboldsymbolbeta",
@@ -12047,20 +12068,6 @@
     "title": "Logistic Regression",
     "section": "Test for a single coefficient",
     "text": "Test for a single coefficient\nHypotheses: \\(H_0: \\beta_j = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_j \\neq 0\\), given the other variables in the model\n\n(Wald) Test Statistic: \\[z = \\frac{\\hat{\\beta}_j - 0}{SE(\\hat{\\beta}_j)}\\]\nwhere \\(SE(\\hat{\\beta}_j)\\) is the square root of the \\(j^{th}\\) diagonal element of \\(Var(\\hat{\\boldsymbol{\\beta}})\\)\n\n\nP-value: \\(P(|Z| &gt; |z|)\\), where \\(Z \\sim N(0, 1)\\), the Standard Normal distribution"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#confidence-interval-for-beta_j",
-    "href": "slides/21-logistic-inference.html#confidence-interval-for-beta_j",
-    "title": "Logistic Regression",
-    "section": "Confidence interval for \\(\\beta_j\\)",
-    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\Large{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n\n\n\n\n\n\n\nNote\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#interpretation-in-terms-of-the-odds",
-    "href": "slides/21-logistic-inference.html#interpretation-in-terms-of-the-odds",
-    "title": "Logistic Regression",
-    "section": "Interpretation in terms of the odds",
-    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\Large{\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)\\}}\n\\]\n\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^* \\times SE(\\hat{\\beta}_j)\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE(\\hat{\\beta}_j)\\}\\), holding all else constant."
   },
   {
     "objectID": "slides/21-logistic-inference.html#coefficient-for-age",
@@ -12091,18 +12098,25 @@
     "text": "Coefficient for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for total cholesterol and smoking status."
   },
   {
+    "objectID": "slides/21-logistic-inference.html#confidence-interval-for-beta_j",
+    "href": "slides/21-logistic-inference.html#confidence-interval-for-beta_j",
+    "title": "Logistic Regression",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\Large{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
+  },
+  {
+    "objectID": "slides/21-logistic-inference.html#interpretation-in-terms-of-the-odds",
+    "href": "slides/21-logistic-inference.html#interpretation-in-terms-of-the-odds",
+    "title": "Logistic Regression",
+    "section": "Interpretation in terms of the odds",
+    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\Large{\\exp\\{\\hat{\\beta}_j \\pm z^* \\times SE(\\hat{\\beta}_j)\\}}\n\\]\n\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(\\exp\\{\\hat{\\beta}_j - z^* \\times SE(\\hat{\\beta}_j)\\}\\) to \\(\\exp\\{\\hat{\\beta}_j + z^* \\times SE(\\hat{\\beta}_j)\\}\\), holding all else constant."
+  },
+  {
     "objectID": "slides/21-logistic-inference.html#ci-for-age",
     "href": "slides/21-logistic-inference.html#ci-for-age",
     "title": "Logistic Regression",
     "section": "CI for age",
     "text": "CI for age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.673\n0.378\n-17.647\n0.000\n-7.423\n-5.940\n\n\nage\n0.082\n0.006\n14.344\n0.000\n0.071\n0.094\n\n\ntotChol\n0.002\n0.001\n1.940\n0.052\n0.000\n0.004\n\n\ncurrentSmoker1\n0.443\n0.094\n4.733\n0.000\n0.260\n0.627\n\n\n\n\n\n\nInterpret the 95% confidence interval for age in terms of the odds of being high risk for heart disease."
-  },
-  {
-    "objectID": "slides/21-logistic-inference.html#lets-take-a-look-at-education",
-    "href": "slides/21-logistic-inference.html#lets-take-a-look-at-education",
-    "title": "Logistic Regression",
-    "section": "Let’s take a look at education",
-    "text": "Let’s take a look at education\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-6.456\n0.391\n-16.533\n0.000\n-7.230\n-5.698\n\n\nage\n0.080\n0.006\n13.571\n0.000\n0.068\n0.091\n\n\ntotChol\n0.002\n0.001\n2.086\n0.037\n0.000\n0.004\n\n\ncurrentSmoker1\n0.445\n0.094\n4.747\n0.000\n0.262\n0.630\n\n\neducation2\n-0.270\n0.113\n-2.379\n0.017\n-0.494\n-0.049\n\n\neducation3\n-0.232\n0.135\n-1.714\n0.086\n-0.501\n0.029\n\n\neducation4\n-0.035\n0.150\n-0.232\n0.817\n-0.335\n0.255\n\n\n\n\n\n\nWhat is your final assessment about including education in the model?"
   },
   {
     "objectID": "slides/21-logistic-inference.html#overview-of-testing-coefficients",

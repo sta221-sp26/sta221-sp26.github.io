@@ -451,22 +451,23 @@ window.Quarto = {
   <li><a href="#example-include-education" id="toc-example-include-education" class="nav-link" data-scroll-target="#example-include-education">Example: Include <code>education</code>?</a></li>
   <li><a href="#example-include-education-1" id="toc-example-include-education-1" class="nav-link" data-scroll-target="#example-include-education-1">Example: Include <code>education</code>?</a></li>
   <li><a href="#example-include-education-2" id="toc-example-include-education-2" class="nav-link" data-scroll-target="#example-include-education-2">Example: Include <code>education</code>?</a></li>
+  <li><a href="#lets-take-a-look-at-education" id="toc-lets-take-a-look-at-education" class="nav-link" data-scroll-target="#lets-take-a-look-at-education">Let’s take a look at <code>education</code></a></li>
   <li><a href="#drop-in-deviance-test-in-r" id="toc-drop-in-deviance-test-in-r" class="nav-link" data-scroll-target="#drop-in-deviance-test-in-r">Drop-in-deviance test in R</a></li>
   <li><a href="#add-interactions-with-currentsmoker" id="toc-add-interactions-with-currentsmoker" class="nav-link" data-scroll-target="#add-interactions-with-currentsmoker">Add interactions with <code>currentSmoker</code>?</a></li>
+  <li><a href="#applies-to-linear-regression" id="toc-applies-to-linear-regression" class="nav-link" data-scroll-target="#applies-to-linear-regression">Applies to linear regression</a></li>
   </ul></li>
   <li><a href="#inference-for-an-individual-coefficient" id="toc-inference-for-an-individual-coefficient" class="nav-link" data-scroll-target="#inference-for-an-individual-coefficient">Inference for an individual coefficient</a>
   <ul class="collapse">
   <li><a href="#distribution-of-hatboldsymbolbeta" id="toc-distribution-of-hatboldsymbolbeta" class="nav-link" data-scroll-target="#distribution-of-hatboldsymbolbeta">Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></a></li>
   <li><a href="#distribution-of-hatboldsymbolbeta-1" id="toc-distribution-of-hatboldsymbolbeta-1" class="nav-link" data-scroll-target="#distribution-of-hatboldsymbolbeta-1">Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></a></li>
   <li><a href="#test-for-a-single-coefficient" id="toc-test-for-a-single-coefficient" class="nav-link" data-scroll-target="#test-for-a-single-coefficient">Test for a single coefficient</a></li>
-  <li><a href="#confidence-interval-for-beta_j" id="toc-confidence-interval-for-beta_j" class="nav-link" data-scroll-target="#confidence-interval-for-beta_j">Confidence interval for <span class="math inline">\(\beta_j\)</span></a></li>
-  <li><a href="#interpretation-in-terms-of-the-odds" id="toc-interpretation-in-terms-of-the-odds" class="nav-link" data-scroll-target="#interpretation-in-terms-of-the-odds">Interpretation in terms of the odds</a></li>
   <li><a href="#coefficient-for-age" id="toc-coefficient-for-age" class="nav-link" data-scroll-target="#coefficient-for-age">Coefficient for <code>age</code></a></li>
   <li><a href="#coefficient-for-age-1" id="toc-coefficient-for-age-1" class="nav-link" data-scroll-target="#coefficient-for-age-1">Coefficient for <code>age</code></a></li>
   <li><a href="#coefficient-for-age-2" id="toc-coefficient-for-age-2" class="nav-link" data-scroll-target="#coefficient-for-age-2">Coefficient for <code>age</code></a></li>
   <li><a href="#coefficient-for-age-3" id="toc-coefficient-for-age-3" class="nav-link" data-scroll-target="#coefficient-for-age-3">Coefficient for <code>age</code></a></li>
+  <li><a href="#confidence-interval-for-beta_j" id="toc-confidence-interval-for-beta_j" class="nav-link" data-scroll-target="#confidence-interval-for-beta_j">Confidence interval for <span class="math inline">\(\beta_j\)</span></a></li>
+  <li><a href="#interpretation-in-terms-of-the-odds" id="toc-interpretation-in-terms-of-the-odds" class="nav-link" data-scroll-target="#interpretation-in-terms-of-the-odds">Interpretation in terms of the odds</a></li>
   <li><a href="#ci-for-age" id="toc-ci-for-age" class="nav-link" data-scroll-target="#ci-for-age">CI for <code>age</code></a></li>
-  <li><a href="#lets-take-a-look-at-education" id="toc-lets-take-a-look-at-education" class="nav-link" data-scroll-target="#lets-take-a-look-at-education">Let’s take a look at <code>education</code></a></li>
   <li><a href="#overview-of-testing-coefficients" id="toc-overview-of-testing-coefficients" class="nav-link" data-scroll-target="#overview-of-testing-coefficients">Overview of testing coefficients</a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#next-class" id="toc-next-class" class="nav-link" data-scroll-target="#next-class">Next class</a></li>
@@ -707,7 +708,7 @@ D = -2 \log L
 <p><br></p>
 <p><span class="math inline">\(D \sim \chi^2_{n - p - 1}\)</span> (<span class="math inline">\(D\)</span> follows a Chi-square distribution with <span class="math inline">\(n - p - 1\)</span> degrees of freedom)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p><br></p>
-<p>Note: <span class="math inline">\(n - p - 1\)</span> a the degrees of freedom associated with the error in the model (like residuals)</p>
+<p>Note: <span class="math inline">\(n - p - 1\)</span> = the degrees of freedom associated with the error in the model (like residuals)</p>
 </section>
 <section id="chi2-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="chi2-distribution"><span class="math inline">\(\chi^2\)</span> distribution</h2>
@@ -947,6 +948,103 @@ G = D_{reduced} - D_{full} &amp;= (-2\log L_{reduced}) - (-2 \log L_{full}) \\
 <p>What is your conclusion? Would you include <code>education</code> in the model that already has <code>age</code>, <code>totChol</code>, <code>currentSmoker</code>?</p>
 </div>
 </section>
+<section id="lets-take-a-look-at-education" class="level2">
+<h2 class="anchored" data-anchor-id="lets-take-a-look-at-education">Let’s take a look at <code>education</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 12%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">conf.low</th>
+<th style="text-align: right;">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-6.456</td>
+<td style="text-align: right;">0.391</td>
+<td style="text-align: right;">-16.533</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">-7.230</td>
+<td style="text-align: right;">-5.698</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">0.080</td>
+<td style="text-align: right;">0.006</td>
+<td style="text-align: right;">13.571</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.068</td>
+<td style="text-align: right;">0.091</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">totChol</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">2.086</td>
+<td style="text-align: right;">0.037</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.004</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">currentSmoker1</td>
+<td style="text-align: right;">0.445</td>
+<td style="text-align: right;">0.094</td>
+<td style="text-align: right;">4.747</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.262</td>
+<td style="text-align: right;">0.630</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">education2</td>
+<td style="text-align: right;">-0.270</td>
+<td style="text-align: right;">0.113</td>
+<td style="text-align: right;">-2.379</td>
+<td style="text-align: right;">0.017</td>
+<td style="text-align: right;">-0.494</td>
+<td style="text-align: right;">-0.049</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">education3</td>
+<td style="text-align: right;">-0.232</td>
+<td style="text-align: right;">0.135</td>
+<td style="text-align: right;">-1.714</td>
+<td style="text-align: right;">0.086</td>
+<td style="text-align: right;">-0.501</td>
+<td style="text-align: right;">0.029</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">education4</td>
+<td style="text-align: right;">-0.035</td>
+<td style="text-align: right;">0.150</td>
+<td style="text-align: right;">-0.232</td>
+<td style="text-align: right;">0.817</td>
+<td style="text-align: right;">-0.335</td>
+<td style="text-align: right;">0.255</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="question">
+<p>What is your final assessment about including <code>education</code> in the model?</p>
+</div>
+</section>
 <section id="drop-in-deviance-test-in-r" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="drop-in-deviance-test-in-r">Drop-in-deviance test in R</h2>
 <p>Conduct the drop-in-deviance test using the <code>anova()</code> function in R with option <code>test = "Chisq"</code></p>
@@ -1041,6 +1139,18 @@ G = D_{reduced} - D_{full} &amp;= (-2\log L_{reduced}) - (-2 \log L_{full}) \\
 </div>
 </div>
 </section>
+<section id="applies-to-linear-regression" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="applies-to-linear-regression">Applies to linear regression</h2>
+<ul>
+<li><p>We can use the drop-in-deviance test to test for subset of predictors in linear regression</p></li>
+<li><p>The deviance for the linear regression model is the sum of squared residuals</p>
+<p><span class="math display">\[
+SSR = \sum_{i=1}^n(y_i - \hat{y}_i)^2
+\]</span></p></li>
+<li><p>The test statistic for the drop-in-deviance test is <span class="math display">\[G = SSR_{\text{reduced}} - SSR_{full}\]</span></p></li>
+<li><p>This is also called the <strong>Nested F Test</strong></p></li>
+</ul>
+</section>
 </section>
 <section id="inference-for-an-individual-coefficient" class="level1">
 <h1>Inference for an individual coefficient</h1>
@@ -1071,37 +1181,6 @@ Var(\hat{\boldsymbol{\beta}}) = (\mathbf{X}^\mathsf{T}\mathbf{V}\mathbf{X})^{-1}
 <p>where <span class="math inline">\(SE(\hat{\beta}_j)\)</span> is the square root of the <span class="math inline">\(j^{th}\)</span> diagonal element of <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span></p>
 <p>. . .</p>
 <p><strong>P-value:</strong> <span class="math inline">\(P(|Z| &gt; |z|)\)</span>, where <span class="math inline">\(Z \sim N(0, 1)\)</span>, the Standard Normal distribution</p>
-</section>
-<section id="confidence-interval-for-beta_j" class="level2">
-<h2 class="anchored" data-anchor-id="confidence-interval-for-beta_j">Confidence interval for <span class="math inline">\(\beta_j\)</span></h2>
-<p>We can calculate the <strong>C% confidence interval</strong> for <span class="math inline">\(\beta_j\)</span> as the following:</p>
-<p><span class="math display">\[
-\Large{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)}
-\]</span></p>
-<p>where <span class="math inline">\(z^*\)</span> is calculated from the <span class="math inline">\(N(0,1)\)</span> distribution</p>
-<p>. . .</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is an interval for the change in the log-odds for every one unit increase in <span class="math inline">\(x_j\)</span></p>
-</div>
-</div>
-</section>
-<section id="interpretation-in-terms-of-the-odds" class="level2">
-<h2 class="anchored" data-anchor-id="interpretation-in-terms-of-the-odds">Interpretation in terms of the odds</h2>
-<p>The change in <strong>odds</strong> for every one unit increase in <span class="math inline">\(x_j\)</span>.</p>
-<p><span class="math display">\[
-\Large{\exp\{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)\}}
-\]</span></p>
-<p>. . .</p>
-<p><strong>Interpretation:</strong> We are <span class="math inline">\(C\%\)</span> confident that for every one unit increase in <span class="math inline">\(x_j\)</span>, the odds multiply by a factor of <span class="math inline">\(\exp\{\hat{\beta}_j - z^* \times SE(\hat{\beta}_j)\}\)</span> to <span class="math inline">\(\exp\{\hat{\beta}_j + z^* \times SE(\hat{\beta}_j)\}\)</span>, holding all else constant.</p>
 </section>
 <section id="coefficient-for-age" class="level2 midi">
 <h2 class="midi anchored" data-anchor-id="coefficient-for-age">Coefficient for <code>age</code></h2>
@@ -1355,6 +1434,25 @@ H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq
 <p><strong>Conclusion:</strong></p>
 <p>The p-value is very small, so we reject <span class="math inline">\(H_0\)</span>. The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for total cholesterol and smoking status.</p>
 </section>
+<section id="confidence-interval-for-beta_j" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-interval-for-beta_j">Confidence interval for <span class="math inline">\(\beta_j\)</span></h2>
+<p>We can calculate the <strong>C% confidence interval</strong> for <span class="math inline">\(\beta_j\)</span> as the following:</p>
+<p><span class="math display">\[
+\Large{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)}
+\]</span></p>
+<p>where <span class="math inline">\(z^*\)</span> is calculated from the <span class="math inline">\(N(0,1)\)</span> distribution</p>
+<p>. . .</p>
+<p>This is an interval for the change in the log-odds for every one unit increase in <span class="math inline">\(x_j\)</span></p>
+</section>
+<section id="interpretation-in-terms-of-the-odds" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-in-terms-of-the-odds">Interpretation in terms of the odds</h2>
+<p>The change in <strong>odds</strong> for every one unit increase in <span class="math inline">\(x_j\)</span>.</p>
+<p><span class="math display">\[
+\Large{\exp\{\hat{\beta}_j \pm z^* \times SE(\hat{\beta}_j)\}}
+\]</span></p>
+<p>. . .</p>
+<p><strong>Interpretation:</strong> We are <span class="math inline">\(C\%\)</span> confident that for every one unit increase in <span class="math inline">\(x_j\)</span>, the odds multiply by a factor of <span class="math inline">\(\exp\{\hat{\beta}_j - z^* \times SE(\hat{\beta}_j)\}\)</span> to <span class="math inline">\(\exp\{\hat{\beta}_j + z^* \times SE(\hat{\beta}_j)\}\)</span>, holding all else constant.</p>
+</section>
 <section id="ci-for-age" class="level2">
 <h2 class="anchored" data-anchor-id="ci-for-age">CI for <code>age</code></h2>
 <div class="cell" data-layout-align="center">
@@ -1414,103 +1512,6 @@ H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq
 </div>
 <div class="question">
 <p>Interpret the 95% confidence interval for <code>age</code> in terms of the <strong>odds</strong> of being high risk for heart disease.</p>
-</div>
-</section>
-<section id="lets-take-a-look-at-education" class="level2">
-<h2 class="anchored" data-anchor-id="lets-take-a-look-at-education">Let’s take a look at <code>education</code></h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 12%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 12%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-<th style="text-align: right;">conf.low</th>
-<th style="text-align: right;">conf.high</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-6.456</td>
-<td style="text-align: right;">0.391</td>
-<td style="text-align: right;">-16.533</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">-7.230</td>
-<td style="text-align: right;">-5.698</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: right;">0.080</td>
-<td style="text-align: right;">0.006</td>
-<td style="text-align: right;">13.571</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">0.068</td>
-<td style="text-align: right;">0.091</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">totChol</td>
-<td style="text-align: right;">0.002</td>
-<td style="text-align: right;">0.001</td>
-<td style="text-align: right;">2.086</td>
-<td style="text-align: right;">0.037</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">0.004</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">currentSmoker1</td>
-<td style="text-align: right;">0.445</td>
-<td style="text-align: right;">0.094</td>
-<td style="text-align: right;">4.747</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">0.262</td>
-<td style="text-align: right;">0.630</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">education2</td>
-<td style="text-align: right;">-0.270</td>
-<td style="text-align: right;">0.113</td>
-<td style="text-align: right;">-2.379</td>
-<td style="text-align: right;">0.017</td>
-<td style="text-align: right;">-0.494</td>
-<td style="text-align: right;">-0.049</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">education3</td>
-<td style="text-align: right;">-0.232</td>
-<td style="text-align: right;">0.135</td>
-<td style="text-align: right;">-1.714</td>
-<td style="text-align: right;">0.086</td>
-<td style="text-align: right;">-0.501</td>
-<td style="text-align: right;">0.029</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">education4</td>
-<td style="text-align: right;">-0.035</td>
-<td style="text-align: right;">0.150</td>
-<td style="text-align: right;">-0.232</td>
-<td style="text-align: right;">0.817</td>
-<td style="text-align: right;">-0.335</td>
-<td style="text-align: right;">0.255</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="question">
-<p>What is your final assessment about including <code>education</code> in the model?</p>
 </div>
 </section>
 <section id="overview-of-testing-coefficients" class="level2">
