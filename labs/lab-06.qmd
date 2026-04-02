@@ -34,11 +34,11 @@ By the end of the lab you will be able to…
 
 # Getting started
 
--   Go to the [sta221-sp26](https://www.github.com/sta221-sp26) organization on GitHub. Click on the repo with the prefix **lab-05**. It contains the starter documents you need to complete the lab.
+-   Go to the [sta221-sp26](https://www.github.com/sta221-sp26) organization on GitHub. Click on the repo with the prefix **lab-06**. It contains the starter documents you need to complete the lab.
 
 -   Clone the repo and start a new project in RStudio. See the [Lab 00 instructions](../labs/lab-00.html) for details on cloning a repo and starting a new project in R.
 
--   Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo
+-   Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.
 
 # Packages
 

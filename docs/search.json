@@ -7421,9 +7421,119 @@
   {
     "objectID": "labs/lab-07.html",
     "href": "labs/lab-07.html",
-    "title": "Lab 07",
+    "title": "Lab 07: Logistic Regression",
     "section": "",
-    "text": "To be posted.",
+    "text": "ImportantDue date\n\n\n\nThis lab is due on Tuesday, April 9 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your team’s GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-1",
+    "href": "labs/lab-07.html#exercise-1",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWe’ll begin by exploring the data. Create a scatterplot of Area versus Eccentricity with the color and shape of the points by Class.",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-2",
+    "href": "labs/lab-07.html#exercise-2",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nBased on the plot from the previous exercise, do you think the two types of rice can be distinguished based on Area and Eccentricity. Briefly explain.",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-3",
+    "href": "labs/lab-07.html#exercise-3",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWith this type of classification problem, it is common to test the performance of a logistic regression model by splitting the data into a training and a test set. This means that we will choose a random subset of the data to estimate the regression coefficient (training), and we will then test the predictions on the remaining observations (test).\n\nRandomly select 75% of the rows of the data to create the training set rice_train . Use set.seed(221).\nPut the remaining 25% of the observations in the testing set called rice_test.",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-4",
+    "href": "labs/lab-07.html#exercise-4",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nIn a logistic regression model, the log-odds of the response being “1” (or a “success”) is given by \\[\\log\\Big(\\frac{\\pi_i}{1-\\pi_i}\\Big) = \\mathbf{x}_i^\\mathsf{T} \\boldsymbol{\\beta}\\]\nIn this analysis a “success” is the Class “Osmancik”.\n\nWhat does each \\(\\pi_i\\) represent in the context of this analysis?\nHow is the probability of the response variable being “1” calculated from the log-odds? Show the mathematical steps to go from the log-odds to the probability in your response.",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-5",
+    "href": "labs/lab-07.html#exercise-5",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nUse rice_train to fit the logistic regression model for the response variable Class on the predictors Area and Eccentricity .\n\nNeatly display the output using 3 digits.\nDoes the intercept have any reasonable interpretation? If so, interpret the intercept. Otherwise explain why not.",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-6",
+    "href": "labs/lab-07.html#exercise-6",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nInterpret the coefficients on Area and Eccentricity in the context of the data in terms of the odds and comment on whether they are useful predictors of Class in the model.",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-7",
+    "href": "labs/lab-07.html#exercise-7",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\n\nHow would you expect the log-odds of the rice grain being of the Osmancik variety to change if the measures eccentricity changes from 0.85 to 0.9?\nHow would you expect the odds of the rice grain being of the Osmancik variety to change if the measures eccentricity changes from 0.85 to 0.9?",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-8",
+    "href": "labs/lab-07.html#exercise-8",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nNow let’s test our model on the test set. Use the predict() function to obtain the predicted probabilities of the rice being Osmancik for the observations in rice_test.",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-9",
+    "href": "labs/lab-07.html#exercise-9",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nWith these estimated probabilities, we can now try to classify the rice in the test set. Choose a threshold for assigning a class to each observation based on the estimated probability. Briefly explain your reasoning for selecting the threshold, including any analysis used to make your decision.",
+    "crumbs": [
+      "Labs",
+      "Lab 07"
+    ]
+  },
+  {
+    "objectID": "labs/lab-07.html#exercise-10",
+    "href": "labs/lab-07.html#exercise-10",
+    "title": "Lab 07: Logistic Regression",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nCompare the estimated class assignments you constructed with the actual classes. Comment on the result and thus the model performance.",
     "crumbs": [
       "Labs",
       "Lab 07"

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 07 – STA 221 - Spring 2026</title>
+<title>Lab 07: Logistic Regression – STA 221 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -71,6 +126,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -334,15 +418,40 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link active" data-scroll-target="#logistic-regression">Logistic Regression</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  </ul></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#grading-10-pts" id="toc-grading-10-pts" class="nav-link" data-scroll-target="#grading-10-pts">Grading (10 pts)</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab-00.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab-07.html">Lab 07</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 07</h1>
+<h1 class="title">Lab 07: Logistic Regression</h1>
 </div>
 
 
@@ -359,11 +468,204 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To be posted.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Due date
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This lab is due on <strong>Tuesday, April 9 at 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
+<ul>
+<li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your team’s GitHub repo</li>
+<li>Final <code>.pdf</code> file submitted on Gradescope</li>
+</ul>
+</div>
+</div>
+<section id="logistic-regression" class="level1">
+<h1>Logistic Regression</h1>
+<p>In this lab, you will use logistic regression analysis to classify rice varieties based on features derived from image data. You will fit and interpret the logistic regression models using training data, then use testing data to assess how well the model classifies observations into the two varieties.</p>
+</section>
+<section id="learning-goals" class="level1">
+<h1>Learning goals</h1>
+<p>By the end of the lab you will be able to…</p>
+<ul>
+<li><p>conduct exploratory data analysis for data with a binary response variable.</p></li>
+<li><p>fit and interpret logistic regression model.</p></li>
+<li><p>use relevant metrics and subject-matter context to identify a threshold for classification.</p></li>
+<li><p>use training and testing data to fit and assess model performance.</p></li>
+</ul>
+</section>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<ul>
+<li><p>Go to the <a href="https://www.github.com/sta221-sp26">sta221-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>lab-07</strong>. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-00.html">Lab 00 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
+<li><p>Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.</p></li>
+</ul>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
+<p>You will use the following packages in today’s lab. Add other packages as needed.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>The data in this lab contains measures describing the shape and structure of two rice varieties - <em>Cammeo</em> and <em>Osmancik</em>. To curate the data set, researchers used images from over 3,000 grains a rice in these two varieties. They then used automated methods to process the image data and extract 7 morphological features (features related to the structure) from each image. The data were originally presented and analyzed in <span class="citation" data-cites="cinar2019classification">Cinar and Koklu (<a href="#ref-cinar2019classification" role="doc-biblioref">2019</a>)</span> and was obtained from the <a href="https://archive.ics.uci.edu/dataset/545/rice+cammeo+and+osmancik">UCI Machine Learning Repository</a>.</p>
+<p>This analysis will focus on the following variables:</p>
+<ul>
+<li><p><code>Class</code>: Cammeo or Osmancik</p></li>
+<li><p><code>Area</code>: Size of the rice grain measured in pixels</p></li>
+<li><p><code>Eccentricity</code>: A measure of how round the ellipse is, i.e., how close the shape of the grain is to a circle.</p></li>
+</ul>
+<p><a href="https://archive.ics.uci.edu/dataset/545/rice+cammeo+and+osmancik">Click here</a> for the full data dictionary.</p>
+<div class="cell" data-lable="read-data">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rice <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rice.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<p><strong>Goal</strong>: The goal of the analysis is to use Area and Eccentricity to identify grains from the Cammeo variety versus those from the Osmancik variety.</p>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>We’ll begin by exploring the data. Create a scatterplot of <code>Area</code> versus <code>Eccentricity</code> with the color and shape of the points by <code>Class</code>.</p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Based on the plot from the previous exercise, do you think the two types of rice can be distinguished based on <code>Area</code> and <code>Eccentricity</code>. Briefly explain.</p>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>With this type of classification problem, it is common to test the performance of a logistic regression model by splitting the data into a <em>training</em> and a <em>test</em> set. This means that we will choose a random subset of the data to estimate the regression coefficient (training), and we will then test the predictions on the remaining observations (test).</p>
+<ul>
+<li><p>Randomly select 75% of the rows of the data to create the training set <code>rice_train</code> . Use <code>set.seed(221)</code>.</p></li>
+<li><p>Put the remaining 25% of the observations in the testing set called <code>rice_test</code>.</p></li>
+</ul>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>In a logistic regression model, the <em>log-odds</em> of the response being “1” (or a “success”) is given by <span class="math display">\[\log\Big(\frac{\pi_i}{1-\pi_i}\Big) = \mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\]</span></p>
+<p>In this analysis a “success” is the Class “Osmancik”.</p>
+<ul>
+<li><p>What does each <span class="math inline">\(\pi_i\)</span> represent in the context of this analysis?</p></li>
+<li><p>How is the probability of the response variable being “1” calculated from the log-odds? Show the mathematical steps to go from the log-odds to the probability in your response.</p></li>
+</ul>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Use <code>rice_train</code> to fit the logistic regression model for the response variable <code>Class</code> on the predictors <code>Area</code> and <code>Eccentricity</code> .</p>
+<ul>
+<li>Neatly display the output using 3 digits.</li>
+<li>Does the intercept have any reasonable interpretation? If so, interpret the intercept. Otherwise explain why not.</li>
+</ul>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<ul>
+<li>Interpret the coefficients on <code>Area</code> and <code>Eccentricity</code> in the context of the data in terms of the odds and comment on whether they are useful predictors of <code>Class</code> in the model.</li>
+</ul>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<ul>
+<li><p>How would you expect the log-odds of the rice grain being of the Osmancik variety to change if the measures eccentricity changes from 0.85 to 0.9?</p></li>
+<li><p>How would you expect the odds of the rice grain being of the Osmancik variety to change if the measures eccentricity changes from 0.85 to 0.9?</p></li>
+</ul>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>Now let’s test our model on the test set. Use the <code>predict()</code> function to obtain the predicted probabilities of the rice being Osmancik for the observations in <code>rice_test.</code></p>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>With these estimated probabilities, we can now try to classify the rice in the test set. Choose a threshold for assigning a class to each observation based on the estimated probability. Briefly explain your reasoning for selecting the threshold, including any analysis used to make your decision.</p>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<p>Compare the estimated class assignments you constructed with the actual classes. Comment on the result and thus the model performance.</p>
+</section>
+</section>
+<section id="submission" class="level1">
+<h1>Submission</h1>
+<p>You will submit the PDF documents for labs, homework, and exams in to Gradescope as part of your final submission.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
+<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+</div>
+</div>
+<p>To submit your assignment:</p>
+<ul>
+<li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/73984">STA 221 Canvas site.</a></p></li>
+<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
+<li><p>Select the name of <strong>every</strong> team member.</p></li>
+<li><p>Mark the pages for the <em>“Exercises”</em> question.</p></li>
+<li><p>Select the first page of your .PDF submission to be associated with the <em>“Team agreement”</em> and <em>“Workflow &amp; formatting”</em> questions.</p></li>
+</ul>
+</section>
+<section id="grading-10-pts" class="level1">
+<h1>Grading (10 pts)</h1>
+<p>This lab will be graded based on completion and workflow &amp; formatting. The point breakdown is as follows:</p>
+<table class="caption-top table">
+<caption><strong>Completion:</strong> Points will be awarded for completion based on the following:</caption>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Complete exercises</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>Workflow &amp; formatting</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>8 pts: Complete all exercises</p></li>
+<li><p>7 pts: Complete 8 - 9 exercises</p></li>
+<li><p>6 pts: Complete 6 - 7 exercises</p></li>
+<li><p>5 pts: Complete 4 - 5 exercises</p></li>
+<li><p>4 pts: Complete 2 - 3 exercises</p></li>
+<li><p>0 pts: Complete &lt; 2 exercises</p></li>
+</ul>
+<p><strong>Workflow &amp; formatting</strong></p>
+<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.</p>
+<ul>
+<li><p>2 pts: Meet all criteria</p></li>
+<li><p>1 pt: Meet some criteria</p></li>
+<li><p>0 pt: Meet no criteria</p></li>
+</ul>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-cinar2019classification" class="csl-entry" role="listitem">
+Cinar, Ilkay, and Murat Koklu. 2019. <span>“Classification of Rice Varieties Using Artificial Intelligence Methods.”</span> <em>International Journal of Intelligent Systems and Applications in Engineering</em> 7 (3): 188–94.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -784,7 +1086,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
