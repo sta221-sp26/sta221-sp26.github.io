@@ -251,7 +251,7 @@ To submit your assignment:
 
 -   Select the first page of your .PDF submission to be associated with the *“Workflow & formatting”* section.
 
-## Grading
+# Grading
 
 | Component             | Points |
 |-----------------------|--------|

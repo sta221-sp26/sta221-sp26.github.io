@@ -7603,17 +7603,6 @@
     ]
   },
   {
-    "objectID": "hw/hw-04.html#grading",
-    "href": "hw/hw-04.html#grading",
-    "title": "HW 04: Logistic regression",
-    "section": "Grading",
-    "text": "Grading\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1\n5\n\n\nEx 2\n5\n\n\nEx 3\n8\n\n\nEx 4\n7\n\n\nEx 5\n7\n\n\nEx 6\n5\n\n\nEx 7\n5\n\n\nEx 8\n4\n\n\nAI Disclosure\n1\n\n\nWorkflow & formatting\n3\n\n\n\nThe “Workflow & formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.",
-    "crumbs": [
-      "Homework",
-      "HW 04"
-    ]
-  },
-  {
     "objectID": "hw/hw-03.html",
     "href": "hw/hw-03.html",
     "title": "HW 03: Multiple linear regression",
