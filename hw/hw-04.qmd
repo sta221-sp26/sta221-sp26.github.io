@@ -84,7 +84,7 @@ Hint: Recall from HW 02 that $\hat{\boldsymbol{\beta}}$ can be expressed in term
 
 Show that the **log-likelihood** for the logistic regression model can be written as
 
-$$\log L (\boldsymbol{\beta}|\mathbf{X}, \mathbf{y}) = \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})$$
+$$\log L (\boldsymbol{\beta}|\mathbf{X}, \mathbf{y}) = \sum_{i=1}^n \mathbf{y}_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})$$
 
 Provide a brief explanation for each step of your derivation.
 
@@ -98,7 +98,7 @@ a.  Show that $\frac{\partial}{\partial \boldsymbol{\beta}} \log L$ can be writt
     \mathbf{X}^\mathsf{T}\mathbf{y} - \mathbf{X}^\mathsf{T}\boldsymbol{\pi}
     $$
 
-    where $\boldsymbol{\pi} = [\pi_1, \ldots, \pi_n]$.
+    where $\boldsymbol{\pi} = [\pi_1, \ldots, \pi_n]^\mathsf{T}$.
 
 ::: callout-tip
 Note: You can start with the derivative of the log-likelihood function in the notes and show / explain why the above representation makes sense.

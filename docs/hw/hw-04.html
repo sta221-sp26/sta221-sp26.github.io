@@ -561,7 +561,7 @@ Tip
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <!--# from Alex's Fall 2025 course-->
 <p>Show that the <strong>log-likelihood</strong> for the logistic regression model can be written as</p>
-<p><span class="math display">\[\log L (\boldsymbol{\beta}|\mathbf{X}, \mathbf{y}) = \sum_{i=1}^n y_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})\]</span></p>
+<p><span class="math display">\[\log L (\boldsymbol{\beta}|\mathbf{X}, \mathbf{y}) = \sum_{i=1}^n \mathbf{y}_i \mathbf{x}_i^\mathsf{T} \boldsymbol\beta - \sum_{i=1}^n \log(1+ \exp\{\mathbf{x}_i^\mathsf{T} \boldsymbol{\beta}\})\]</span></p>
 <p>Provide a brief explanation for each step of your derivation.</p>
 </section>
 <section id="exercise-3" class="level2">
@@ -572,7 +572,7 @@ Tip
 <p><span class="math display">\[
 \mathbf{X}^\mathsf{T}\mathbf{y} - \mathbf{X}^\mathsf{T}\boldsymbol{\pi}
 \]</span></p>
-<p>where <span class="math inline">\(\boldsymbol{\pi} = [\pi_1, \ldots, \pi_n]\)</span>.</p></li>
+<p>where <span class="math inline">\(\boldsymbol{\pi} = [\pi_1, \ldots, \pi_n]^\mathsf{T}\)</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
