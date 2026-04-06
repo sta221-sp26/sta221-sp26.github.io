@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Prof.&nbsp;Maria Tackett">
-  <title>STA 221 - Spring 2026 – Logistic Regression</title>
+  <title>STA 221 - Spring 2026 – Data science ethics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -218,8 +218,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Logistic Regression</h1>
-  <p class="subtitle">Inference</p>
+  <h1 class="title">Data science ethics</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -229,24 +228,25 @@ Prof.&nbsp;Maria Tackett
 </div>
 </div>
 
-  <p class="date">Apr 02, 2026</p>
+  <p class="date">Apr 07, 2026</p>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li><p>Statistics experience due TODAY at 11:59pm</p></li>
-<li><p>HW 04 due Thursday, April 9 at 11:59pm</p>
-<ul>
-<li>released after class</li>
-</ul></li>
+<li><p>HW 04 due Thursday, April 9 at 11:59pm</p></li>
 <li><p>Next project milestone: Draft report due Friday, April 10 (before lab)</p></li>
+<li><p>Exam 02</p>
+<ul>
+<li><p>In-class: April 14</p></li>
+<li><p>Take-home: April 14 - 16</p></li>
+</ul></li>
 </ul>
 </section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
 <ul>
-<li><p>Drop-in-deviance test</p></li>
-<li><p>Inference for an individual coefficient</p></li>
+<li>Confidence interval for an individual coefficient</li>
+<li>Data science ethics</li>
 </ul>
 </section>
 <section id="computational-setup" class="slide level2">
@@ -276,619 +276,6 @@ Prof.&nbsp;Maria Tackett
 <li><p><code>currentSmoker</code>: 0 = nonsmoker, 1 = smoker</p></li>
 <li><p><code>education</code>: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College</p></li>
 </ul>
-</section>
-<section id="which-model-do-we-choose" class="slide level2">
-<h2>Which model do we choose?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<center>
-<strong>Model 1</strong>
-</center>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-6.673</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: right;">0.082</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">totChol</td>
-<td style="text-align: right;">0.002</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">currentSmoker1</td>
-<td style="text-align: right;">0.443</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<center>
-<strong>Model 2</strong>
-</center>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-6.456</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: right;">0.080</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">totChol</td>
-<td style="text-align: right;">0.002</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">currentSmoker1</td>
-<td style="text-align: right;">0.445</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">education2</td>
-<td style="text-align: right;">-0.270</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">education3</td>
-<td style="text-align: right;">-0.232</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">education4</td>
-<td style="text-align: right;">-0.035</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div></div>
-</section>
-<section id="log-likelihood" class="slide level2">
-<h2>Log-Likelihood</h2>
-<p>Recall the log-likelihood function</p>
-<p><span class="math display">\[
-\begin{aligned}
-\log L&amp;(\boldsymbol{\beta}|x_1, \ldots, x_n, y_1, \dots, y_n) \\
-&amp;= \sum\limits_{i=1}^n[y_i \log(\pi_i) + (1 - y_i)\log(1 - \pi_i)]
-\end{aligned}
-\]</span></p>
-<p>where <span class="math inline">\(\pi_i = \frac{\exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp\{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\)</span></p>
-</section>
-<section id="comparing-the-models-using-aic-and-bic" class="slide level2">
-<h2>Comparing the models using AIC and BIC</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>AIC</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># AIC reduced model </span></span>
-<span id="cb2-2"><a></a><span class="fu">glance</span>(high_risk_fit_reduced)<span class="sc">$</span>AIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3232.812</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># AIC full model</span></span>
-<span id="cb4-2"><a></a><span class="fu">glance</span>(high_risk_fit_full)<span class="sc">$</span>AIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3231.6</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<p><strong>BIC</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># BIC reduced model</span></span>
-<span id="cb6-2"><a></a><span class="fu">glance</span>(high_risk_fit_reduced)<span class="sc">$</span>BIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3258.074</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># BIC full model</span></span>
-<span id="cb8-2"><a></a><span class="fu">glance</span>(high_risk_fit_full)<span class="sc">$</span>BIC</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3275.807</code></pre>
-</div>
-</div>
-</div></div>
-</section>
-<section>
-<section id="drop-in-deviance-test" class="title-slide slide level1 center">
-<h1>Drop-in-deviance test</h1>
-
-</section>
-<section id="drop-in-deviance-test-1" class="slide level2">
-<h2>Drop-in-deviance test</h2>
-<p>We can use the <strong>drop-in-deviance test</strong> (aka Likelihood Ratio Test) to test</p>
-<ul>
-<li><p>the overall statistical significance of a logistic regression model</p></li>
-<li><p>the statistical significance of a subset of coefficients in the model</p></li>
-</ul>
-</section>
-<section id="deviance" class="slide level2 midi">
-<h2>Deviance</h2>
-<p>The <strong>deviance</strong> is a measure of the degree to which the predicted values are different from the observed values (compares the current model to a “saturated” model)</p>
-<p>In logistic regression,</p>
-<p><span class="math display">\[
-D = -2 \log L
-\]</span></p>
-<p><br></p>
-<p><span class="math inline">\(D \sim \chi^2_{n - p - 1}\)</span> (<span class="math inline">\(D\)</span> follows a Chi-square distribution with <span class="math inline">\(n - p - 1\)</span> degrees of freedom)<sup>1</sup></p>
-<p><br></p>
-<p>Note: <span class="math inline">\(n - p - 1\)</span> = the degrees of freedom associated with the error in the model (like residuals)</p>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>See <span class="citation" data-cites="wilks1935likelihood">Wilks (<a href="#/references" role="doc-biblioref" onclick="">1935</a>)</span> for explanation of why -2 is included.</p></li></ol></aside></section>
-<section id="chi2-distribution" class="slide level2">
-<h2><span class="math inline">\(\chi^2\)</span> distribution</h2>
-
-<img data-src="21-logistic-inference_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
-<section id="test-for-overall-significance" class="slide level2">
-<h2>Test for overall significance</h2>
-<p>We can test the overall significance for a logistic regression model, i.e., whether there is at least one predictor with a non-zero coefficient</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H_0: \beta_1 = \dots = \beta_p = 0 \\
-&amp;H_a: \beta_j \neq 0 \text{ for at least one } j
-\end{aligned}
-\]</span></p>
-<div class="fragment">
-<p>The <strong>drop-in-deviance test for overall significance</strong> compares the fit of a model with no predictors to the current model.</p>
-</div>
-</section>
-<section id="drop-in-deviance-test-statistic" class="slide level2 midi">
-<h2>Drop-in-deviance test statistic</h2>
-<p>Let <span class="math inline">\(L_0\)</span> and <span class="math inline">\(L_a\)</span> be the likelihood functions of the model under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span>, respectively. The <strong>test statistic</strong> is</p>
-<p><span class="math display">\[
-\begin{aligned}
-G = D_0 - D_a &amp;= (-2\log L_0) - (-2\log L_a)\\[5pt]
-&amp; = -2(\log L_0 - \log L_a) \\[5pt]
-&amp;= -2\sum_{i=1}^n \Big[ y_i \log \Big(\frac{\hat{\pi}^0}{\hat{\pi}^a_i}\Big) + (1 - y_i)\log \Big(\frac{1-\hat{\pi}^0}{1-\hat{\pi}^a_i}\Big)\Big]
-\end{aligned}
-\]</span></p>
-<p>where <span class="math inline">\(\hat{\pi}^0\)</span> is the predicted probability under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(\hat{\pi}_i^a = \frac{\exp \{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}{1 + \exp \{\mathbf{x}_i^\mathsf{T}\boldsymbol{\beta}\}}\)</span> is the predicted probability under <span class="math inline">\(H_a\)</span> <sup>1</sup></p>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>See <span class="citation" data-cites="wilks1935likelihood">Wilks (<a href="#/references" role="doc-biblioref" onclick="">1935</a>)</span> for explanation of why -2 is included.</p></li></ol></aside></section>
-<section id="drop-in-deviance-test-statistic-1" class="slide level2">
-<h2>Drop-in-deviance test statistic</h2>
-<p><span class="math display">\[
-G = -2\sum_{i=1}^n \Big[ y_i \log \Big(\frac{\hat{\pi}^0}{\hat{\pi}^a_i}\Big) + (1 - y_i)\log \Big(\frac{1-\hat{\pi}^0}{1-\hat{\pi}^a_i}\Big)\Big]
-\]</span></p>
-<div class="fragment">
-<ul>
-<li class="fragment"><p>When <span class="math inline">\(n\)</span> is large, <span class="math inline">\(G \sim \chi^2_p\)</span>, ( <span class="math inline">\(G\)</span> follows a Chi-square distribution with <span class="math inline">\(p\)</span> degrees of freedom)</p></li>
-<li class="fragment"><p>The p-value is calculated as <span class="math inline">\(P(\chi^2 &gt; G)\)</span></p></li>
-<li class="fragment"><p>Large values of <span class="math inline">\(G\)</span> (small p-values) indicate at least one <span class="math inline">\(\beta_j\)</span> is non-zero</p></li>
-</ul>
-</div>
-</section>
-<section id="heart-disease-model-drop-in-deviance-test" class="slide level2">
-<h2>Heart disease model: drop-in-deviance test</h2>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H_0: \beta_{age} = \beta_{totChol} = \beta_{currentSmoker} = 0 \\
-&amp;H_a: \beta_j \neq 0 \text{ for at least one }j
-\end{aligned}\]</span></p>
-<div class="fragment">
-<p><strong>Fit the null model</strong> (we’ve already fit the alternative model)</p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>null_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-1.72294</td>
-<td style="text-align: right;">0.0436342</td>
-<td style="text-align: right;">-39.486</td>
-<td style="text-align: right;">0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section id="heart-disease-model-drop-in-deviance-test-1" class="slide level2">
-<h2>Heart disease model: drop-in-deviance test</h2>
-<p><strong>Compute the log-likelihoods</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>(L_0 <span class="ot">&lt;-</span> <span class="fu">glance</span>(null_model)<span class="sc">$</span>logLik)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -1737.735</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>(L_a <span class="ot">&lt;-</span> <span class="fu">glance</span>(high_risk_fit)<span class="sc">$</span>logLik)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -1612.406</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Compute the test statistic</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>(G <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> (L_0 <span class="sc">-</span> L_a))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 250.6572</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="heart-disease-model-drop-in-deviance-test-2" class="slide level2">
-<h2>Heart disease model: drop-in-deviance test</h2>
-<p><strong>Compute the p-value</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">pchisq</span>(G, <span class="at">df =</span> <span class="dv">3</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.717158e-54</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Conclusion</strong></p>
-<p>The p-value is small, so we reject <span class="math inline">\(H_0\)</span>. The data provide evidence that at least one predictor in the model has a non-zero coefficient.</p>
-</div>
-</section>
-<section id="why-use-overall-test" class="slide level2 midi">
-<h2>Why use overall test?</h2>
-<p>Why do we use a test for overall significance instead of just looking at the test for individual coefficients?<sup>1</sup></p>
-<div class="fragment">
-<p>Suppose we have a model such that <span class="math inline">\(p = 100\)</span> and <span class="math inline">\(H_0: \beta_1 = \dots = \beta_{100} = 0\)</span> is true</p>
-</div>
-<div class="fragment">
-<ul>
-<li class="fragment"><p>About 5% of the p-values for individual coefficients will be below 0.05 by chance.</p></li>
-<li class="fragment"><p>So we expect to see 5 small p-values if even no linear association actually exists.</p></li>
-<li class="fragment"><p>Therefore, it is very likely we will see at least one small p-value by chance.</p></li>
-<li class="fragment"><p>The overall test of significance does not have this problem. There is only a 5% chance we will get a p-value below 0.05, if a relationship truly does not exist.</p></li>
-</ul>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Example from <em>Introduction to Statistical Learning</em></p></li></ol></aside></section></section>
-<section>
-<section id="test-a-subset-of-coefficients" class="title-slide slide level1 center">
-<h1>Test a subset of coefficients</h1>
-
-</section>
-<section id="testing-a-subset-of-coefficients" class="slide level2">
-<h2>Testing a subset of coefficients</h2>
-<ul>
-<li><p>Suppose there are two models:</p>
-<ul>
-<li><p><strong>Reduced Model</strong>: includes predictors <span class="math inline">\(x_1, \ldots, x_q\)</span></p></li>
-<li><p><strong>Full Model</strong>: includes predictors <span class="math inline">\(x_1, \ldots, x_q, x_{q+1}, \ldots, x_p\)</span></p></li>
-</ul></li>
-<li><p>We can use a <strong>drop-in-deviance test</strong> to determine if any of the new predictors are useful</p></li>
-</ul>
-<div class="fragment">
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H_0: \beta_{q+1} = \dots = \beta_p = 0\\
-&amp;H_a: \beta_j \neq 0 \text{ for at least one }j
-\end{aligned}
-\]</span></p>
-</div>
-</section>
-<section id="drop-in-deviance-test-2" class="slide level2 midi">
-<h2>Drop-in-deviance test</h2>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H_0: \beta_{q+1} = \dots = \beta_p = 0\\
-&amp;H_a: \beta_j \neq 0 \text{ for at least one }j
-\end{aligned}
-\]</span></p>
-<div class="fragment">
-<p>The test statistic is</p>
-<p><span class="math display">\[
-\begin{aligned}
-G = D_{reduced} - D_{full} &amp;= (-2\log L_{reduced}) - (-2 \log L_{full}) \\
-&amp;= -2(\log L_{reduced} - \log L_{full})
-\end{aligned}
-\]</span></p>
-</div>
-<div class="fragment">
-<p>The p-value is calculated using a <span class="math inline">\(\chi_{\Delta df}^2\)</span> distribution, where <span class="math inline">\(\Delta df\)</span> is the number of parameters being tested (the difference in number of parameters between the full and reduced model).</p>
-</div>
-</section>
-<section id="example-include-education" class="slide level2">
-<h2>Example: Include <code>education</code>?</h2>
-<p>Should we include <code>education</code> in the model?</p>
-<ul>
-<li><p>Reduced model: <code>age</code>, <code>totChol</code>, <code>currentSmoker</code></p></li>
-<li><p>Full model: <code>age</code>, <code>totChol</code>, <code>currentSmoker</code> , <code>education</code></p></li>
-</ul>
-<div class="fragment">
-<p><span class="math display">\[
-\begin{aligned}
-&amp;H_0: \beta_{ed2} = \beta_{ed3} = \beta_{ed4} = 0 \\
-&amp;H_a: \beta_j \neq 0 \text{ for at least one }j
-\end{aligned}
-\]</span></p>
-</div>
-</section>
-<section id="example-include-education-1" class="slide level2">
-<h2>Example: Include <code>education</code>?</h2>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>reduced_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> totChol <span class="sc">+</span> currentSmoker, </span>
-<span id="cb19-2"><a></a>              <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb19-3"><a></a></span>
-<span id="cb19-4"><a></a>full_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(high_risk <span class="sc">~</span> age <span class="sc">+</span> totChol <span class="sc">+</span> currentSmoker <span class="sc">+</span> education, </span>
-<span id="cb19-5"><a></a>              <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="fragment">
-<p><strong>Compute deviances</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>(deviance_reduced <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">glance</span>(reduced_model)<span class="sc">$</span>logLik)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3224.812</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>(deviance_full <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">glance</span>(full_model)<span class="sc">$</span>logLik)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3217.6</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Compute test statistic</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>(G <span class="ot">&lt;-</span> deviance_reduced <span class="sc">-</span> deviance_full)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.212113</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="example-include-education-2" class="slide level2">
-<h2>Example: Include <code>education</code>?</h2>
-<p><strong>Compute p-value</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">pchisq</span>(G, <span class="at">df =</span> <span class="dv">3</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.06543567</code></pre>
-</div>
-</div>
-<p><br></p>
-<div class="fragment">
-<div class="question">
-<p>What is your conclusion? Would you include <code>education</code> in the model that already has <code>age</code>, <code>totChol</code>, <code>currentSmoker</code>?</p>
-</div>
-</div>
-</section>
-<section id="lets-take-a-look-at-education" class="slide level2">
-<h2>Let’s take a look at <code>education</code></h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="caption-top">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 12%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 12%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-<th style="text-align: right;">conf.low</th>
-<th style="text-align: right;">conf.high</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-6.456</td>
-<td style="text-align: right;">0.391</td>
-<td style="text-align: right;">-16.533</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">-7.230</td>
-<td style="text-align: right;">-5.698</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: right;">0.080</td>
-<td style="text-align: right;">0.006</td>
-<td style="text-align: right;">13.571</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">0.068</td>
-<td style="text-align: right;">0.091</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">totChol</td>
-<td style="text-align: right;">0.002</td>
-<td style="text-align: right;">0.001</td>
-<td style="text-align: right;">2.086</td>
-<td style="text-align: right;">0.037</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">0.004</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">currentSmoker1</td>
-<td style="text-align: right;">0.445</td>
-<td style="text-align: right;">0.094</td>
-<td style="text-align: right;">4.747</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">0.262</td>
-<td style="text-align: right;">0.630</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">education2</td>
-<td style="text-align: right;">-0.270</td>
-<td style="text-align: right;">0.113</td>
-<td style="text-align: right;">-2.379</td>
-<td style="text-align: right;">0.017</td>
-<td style="text-align: right;">-0.494</td>
-<td style="text-align: right;">-0.049</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">education3</td>
-<td style="text-align: right;">-0.232</td>
-<td style="text-align: right;">0.135</td>
-<td style="text-align: right;">-1.714</td>
-<td style="text-align: right;">0.086</td>
-<td style="text-align: right;">-0.501</td>
-<td style="text-align: right;">0.029</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">education4</td>
-<td style="text-align: right;">-0.035</td>
-<td style="text-align: right;">0.150</td>
-<td style="text-align: right;">-0.232</td>
-<td style="text-align: right;">0.817</td>
-<td style="text-align: right;">-0.335</td>
-<td style="text-align: right;">0.255</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="question">
-<p>What is your final assessment about including <code>education</code> in the model?</p>
-</div>
-</section>
-<section id="drop-in-deviance-test-in-r" class="slide level2 midi">
-<h2>Drop-in-deviance test in R</h2>
-<p>Conduct the drop-in-deviance test using the <code>anova()</code> function in R with option <code>test = "Chisq"</code></p>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">anova</span>(reduced_model, full_model, <span class="at">test =</span> <span class="st">"Chisq"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb28-2"><a></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb28-3"><a></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<table class="caption-top">
-<colgroup>
-<col style="width: 51%">
-<col style="width: 11%">
-<col style="width: 17%">
-<col style="width: 2%">
-<col style="width: 8%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">df.residual</th>
-<th style="text-align: right;">residual.deviance</th>
-<th style="text-align: right;">df</th>
-<th style="text-align: right;">deviance</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">high_risk ~ age + totChol + currentSmoker</td>
-<td style="text-align: right;">4082</td>
-<td style="text-align: right;">3224.812</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">high_risk ~ age + totChol + currentSmoker + education</td>
-<td style="text-align: right;">4079</td>
-<td style="text-align: right;">3217.600</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">7.212</td>
-<td style="text-align: right;">0.065</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="add-interactions-with-currentsmoker" class="slide level2 midi">
-<h2>Add interactions with <code>currentSmoker</code>?</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="caption-top">
-<colgroup>
-<col style="width: 64%">
-<col style="width: 8%">
-<col style="width: 12%">
-<col style="width: 2%">
-<col style="width: 6%">
-<col style="width: 5%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">df.residual</th>
-<th style="text-align: right;">residual.deviance</th>
-<th style="text-align: right;">df</th>
-<th style="text-align: right;">deviance</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">high_risk ~ age + totChol + currentSmoker</td>
-<td style="text-align: right;">4082</td>
-<td style="text-align: right;">3224.812</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">high_risk ~ age + totChol + currentSmoker + currentSmoker * age + currentSmoker * totChol</td>
-<td style="text-align: right;">4080</td>
-<td style="text-align: right;">3222.377</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2.435</td>
-<td style="text-align: right;">0.296</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section></section>
-<section>
-<section id="inference-for-an-individual-coefficient" class="title-slide slide level1 center">
-<h1>Inference for an individual coefficient</h1>
-
-</section>
-<section id="distribution-of-hatboldsymbolbeta" class="slide level2">
-<h2>Distribution of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
-<p>When <span class="math inline">\(n\)</span> is large, <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is normally distributed</p>
-<p><br></p>
-<div class="question">
-<p>How do we know <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is normally for large <span class="math inline">\(n\)</span>?</p>
-</div>
-</section>
-<section id="properties-of-hatboldsymbolbeta" class="slide level2">
-<h2>Properties of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span></h2>
-<p><span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is a consistent estimator</p>
-<p><span class="math display">\[
-\lim_{n \rightarrow \infty} P(|\hat{\boldsymbol{\beta}} - \boldsymbol{\beta}| \geq c) = 0 \hspace{8mm} \forall ~ c &gt; 0
-\]</span></p>
-<div class="fragment">
-<p>When <span class="math inline">\(n\)</span> is large, <span class="math inline">\(Var(\hat{\boldsymbol{\beta}})\)</span>, the matrix of variances and covariances between estimators</p>
-<p><span class="math display">\[
-Var(\hat{\boldsymbol{\beta}}) = (\mathbf{X}^\mathsf{T}\mathbf{V}\mathbf{X})^{-1}
-\]</span></p>
-<p>where <span class="math inline">\(\mathbf{V}\)</span> is a <span class="math inline">\(n\times n\)</span> diagonal matrix, such that <span class="math inline">\(V_{ii}\)</span> is the estimated variance for the <span class="math inline">\(i^{th}\)</span> observation</p>
-</div>
 </section>
 <section id="test-for-a-single-coefficient" class="slide level2">
 <h2>Test for a single coefficient</h2>
@@ -1088,7 +475,7 @@ H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq
 \]</span></p>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="fl">14.34</span>,<span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="fl">14.34</span>,<span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.230554e-46</code></pre>
 </div>
@@ -1254,17 +641,346 @@ H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq
 <p>Can use AIC and BIC to compare models in both scenarios</p>
 </div>
 </section>
+<section>
+<section id="data-science-ethics" class="title-slide slide level1 center">
+<h1>Data science ethics</h1>
+
+</section>
+<section id="when-things-go-wrong" class="slide level2">
+<h2>When things go wrong</h2>
+
+<img data-src="images/clipboard-2930999253.png" class="r-stretch"></section>
+<section id="gap-in-public-trust" class="slide level2">
+<h2>Gap in public trust</h2>
+
+<img data-src="images/clipboard-129687469.png" class="r-stretch"></section>
+<section class="slide level2">
+
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>“…coverage of polls [data science] often <strong>does not adequately convey the many decisions</strong> that pollsters [data scientists] must make … as well as the <strong>potential consequences of those decisions</strong>”</p>
+
+<aside><div>
+<p>Clinton, J. (2021, January 11). Polling problems and why we should still trust (some) polls. The Vanderbilt Project on Unity and American Democracy. <a href="https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/" class="uri">https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/</a></p>
+</div></aside></section>
+<section id="ideal-objectivity" class="slide level2">
+<h2>“Ideal objectivity?”</h2>
+<ul>
+<li class="fragment"><p><strong>Desire for “ideal objectivity”</strong></p>
+<ul>
+<li class="fragment"><p>Work that is free from interference of human perception <span class="citation" data-cites="feinberg2023myth">(<a href="#/references" role="doc-biblioref" onclick="">Feinberg 2023</a>)</span></p></li>
+<li class="fragment"><p>Conclusions that are observer independent <span class="citation" data-cites="gelman2017beyond">(<a href="#/references" role="doc-biblioref" onclick="">Gelman and Hennig 2017</a>)</span></p></li>
+</ul></li>
+<li class="fragment"><p><strong>Feels like the ethical approach</strong> <span class="citation" data-cites="feinberg2023myth">(<a href="#/references" role="doc-biblioref" onclick="">Feinberg 2023</a>)</span></p></li>
+<li class="fragment"><p><strong>There are implications</strong> <span class="citation" data-cites="feinberg2023myth">(<a href="#/references" role="doc-biblioref" onclick="">Feinberg 2023</a>)</span></p>
+<ul>
+<li class="fragment"><p>Distorted reality of data analysis process</p></li>
+<li class="fragment"><p>Lack of communication about decisions that don’t seem “objective”</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="the-role-of-data-science-ethics" class="slide level2">
+<h2>The role of data science ethics</h2>
+<ul>
+<li><p>Illuminates the the decision-making in data science</p>
+<ul>
+<li><p>Makes explicit the existence of choice throughout an analysis</p></li>
+<li><p>Makes explicit the moral implications of our choices</p></li>
+</ul></li>
+<li><p>Align data science practices with what we ought to do and moral duties to stakeholders</p></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024b</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science" class="slide level2 midi">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Problem definition</strong>: Question we wish to answer with data
+<ul>
+<li>What is the likelihood a customer purchases product S?</li>
+<li>Our model (built on training data) is successful if it achieves at least 75% accuracy on testing data</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024b</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-1" class="slide level2 midi">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Raw data</strong>: Information collected by interacting with the world
+<ul>
+<li>Information from each time the customer clicks on an advertisement for product S</li>
+<li>Includes timestamps for each advertisement interaction and the customer’s demographic information</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024b</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-2" class="slide level2 midi">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Data</strong>: Processed form of raw data
+<ul>
+<li>Data table where each row represents a unique customer and the columns are the variables that describe that customer</li>
+<li>Includes information from raw data and engineered variables (e.g., average time between clicks)</li>
+<li>We decide what to do with missing data</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024b</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-3" class="slide level2 midi">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Data model(s)</strong>: Product from running input data through learning algorithm (generalize the relationship between variables in the data)
+<ul>
+<li>We choose a logistic regression model of the form</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+\log(\frac{\pi}{1-\pi}) = \beta_0 + \beta_1 ~ \text{age}
++ \beta_2 ~ \text{number clicks}
++ \beta_3 ~ \text{avg time between clicks}
+\]</span></p>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024b</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-4" class="slide level2 midi">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Tuned data model(s)</strong>: Data model in which the parameters are adjusted
+<ul>
+<li>Use 5-fold cross validation to determine which variables to include in order to improve model’s accuracy</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024b</a>)</span></p>
+</div></aside></section>
+<section id="processes-in-data-science-5" class="slide level2 midi">
+<h2>Processes in data science</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/clipboard-719982942.png" class="quarto-figure quarto-figure-center" alt="Source: Figure 1 of @colando2024philosophy"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Deployment and usage</strong>: Generating predictions (or other output) from the tuned model
+<ul>
+<li>Determine that the model should only be used for customers under a certain age</li>
+<li>Determine only data scientists at the company selling product S should be able to access model and sell products from it</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024b</a>)</span></p>
+</div></aside></section>
+<section id="your-data-science-process" class="slide level2 midi">
+<h2>Your data science process</h2>
+
+<img data-src="images/clipboard-3136590850.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html" class="uri">https://scolando.github.io/data-science-ethics/Intro-DS-ethics.html</a></p><div class="question">
+<p>What are some decisions you have made (or will make) in your project or other data analysis work?</p>
+</div>
+</section>
+<section id="what-is-data-science-ethics" class="slide level2">
+<h2>What is data science ethics?</h2>
+<p>Data science ethics studies and evaluates moral problems related to:</p>
+<ul>
+<li><p><strong>Data:</strong> generation, recording, process, dissemination, and sharing</p></li>
+<li><p><strong>Algorithms:</strong> artificial intelligence, machine learning, large language models, and statistical learning models</p></li>
+<li><p><strong>Corresponding practices:</strong> responsible innovation, programming, hacking, professional code</p></li>
+</ul>
+
+<aside><div>
+<p>Sources: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024b</a>)</span>, <span class="citation" data-cites="floridi2016data">Floridi and Taddeo (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span></p>
+</div></aside></section>
+<section id="data-science-ethics-issues" class="slide level2">
+<h2>Data science ethics issues</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Bias, fairness, and justice</p></li>
+<li><p>Causation</p></li>
+<li><p>Data privacy and informed consent</p></li>
+<li><p>Explainability, interpretability, and transparency</p></li>
+<li><p>Responsibility</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>Applications in government and policing</p></li>
+<li><p>Professional ethics</p></li>
+<li><p>Reproducibility</p></li>
+<li><p>..and more</p></li>
+</ul>
+</div></div>
+
+<aside><div>
+<p>List adapted from <span class="citation" data-cites="colando_data_science_ethics">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024a</a>)</span> and <span class="citation" data-cites="baumer2017modern">Baumer, Kaplan, and Horton (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div></aside></section>
+<section id="data-science-oath" class="slide level2 midi">
+<h2>Data Science Oath</h2>
+<ol type="1">
+<li><p>I will not be ashamed to say, “I know not,” nor will I fail to call in my colleagues when the skills of another are needed for solving a problem.</p></li>
+<li><p>I will respect the privacy of my data subjects, for their data are not disclosed to me that the world may know, so I will tread with care in matters of privacy and security.</p></li>
+<li><p>I will remember that my data are not just numbers without meaning or context, but represent real people and situations, and that my work may lead to unintended societal consequences, such as inequality, poverty, and disparities due to algorithmic bias.</p></li>
+</ol>
+<p><small>From <span class="citation" data-cites="nas2018data_science_undergraduate_project">National Academies of Sciences, Engineering, and Medicine (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> based on the Hippocratic Oath for physicians.</small></p>
+</section>
+<section id="responsibility" class="slide level2 midi">
+<h2>Responsibility</h2>
+<p>The data scientist is (morally) responsible for</p>
+<ul>
+<li>How the data are handled and stored</li>
+<li>Modeling decisions</li>
+<li>Implications of data handling and modeling</li>
+<li>Providing clear documentation and guidance on model use</li>
+</ul>
+<div class="fragment">
+<p>The user is (morally) responsible for</p>
+<ul>
+<li>Understanding the model and its limitations</li>
+<li>How the model is deployed</li>
+</ul>
+
+</div>
+<aside><div>
+<p>Source: <span class="citation" data-cites="colando2024philosophy">Colando and Hardin (<a href="#/references" role="doc-biblioref" onclick="">2024b</a>)</span></p>
+</div></aside></section>
+<section id="example-mistaken-identity" class="slide level2 midi">
+<h2>Example: Mistaken identity</h2>
+<p>Angela Lipps, from Tennessee, spent 5 months in jail after facial recognition software connected her to a string of bank fraud cases in Fargo, North Dakota</p>
+<ul>
+<li>Police were investigating a string of cases in Fargo, ND in which a woman used a fake ID to withdraw money from a bank account or home-equity line of credit</li>
+<li>Investigators used facial recognition technology to identify a potential suspect based on bank surveillance video</li>
+<li>The software “identified a potential suspect with similar features to Angela Lipps”</li>
+</ul>
+
+<aside><div>
+<p>Source: <a href="https://www.nytimes.com/2026/03/30/us/north-dakota-facial-recognition-ai-errors-bank-fraud.html">New York Times</a></p>
+</div></aside></section>
+<section id="example-mistaken-identity-1" class="slide level2 midi">
+<h2>Example: Mistaken identity</h2>
+<ul>
+<li>Police used Angela Lipps’ Facebook and Instagram accounts, along with her Tennessee ID to determine she matched the identified suspect</li>
+<li>She was released from jail after a judge dismissed the case</li>
+</ul>
+
+<aside><div>
+<p>Source: <a href="https://www.nytimes.com/2026/03/30/us/north-dakota-facial-recognition-ai-errors-bank-fraud.html">New York Times</a></p>
+</div></aside></section>
+<section id="example-mistaken-identity-2" class="slide level2 midi">
+<h2>Example: Mistaken identity</h2>
+<ul>
+<li><p>Facial recognition company, Clearview AI uses “publicly available images” for its data base and to train its models used by law enforcement agencies</p></li>
+<li><p>Their statement on how models should be used:</p>
+<blockquote>
+<p>“Once a search is performed, the search may return a set of potential leads, which the investigator is required to independently verify by both peer review and other means, before continuing with their investigation.”</p>
+</blockquote></li>
+<li><p>Website reports “99% accuracy for all demographics”</p></li>
+</ul>
+
+<aside><div>
+<p>Source: <a href="https://www.clearview.ai/" class="uri">https://www.clearview.ai/</a></p>
+</div></aside></section>
+<section id="example-mistaken-identity-3" class="slide level2">
+<h2>Example: Mistaken identity</h2>
+<div class="question">
+<ul>
+<li>What are the ethical considerations and responsibilities for the data scientists <u>building</u> such facial recognition technology?</li>
+</ul>
+</div>
+<p><br></p>
+<div class="question">
+<ul>
+<li>What are the ethical considerations and responsibilities for those <u>using</u> such facial recognition technology?</li>
+</ul>
+</div>
+</section>
+<section id="example-case-study" class="slide level2">
+<h2>Example case study</h2>
+<p>A data analyst received permission to analyze a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.</p>
+<p><br></p>
+<div class="question">
+<p>What are ethical considerations of putting a deidentified data set with name and email address removed in a LLM (e.g., Claude or ChatGPT) to help with analysis?</p>
+</div>
+
+<aside><div>
+<p>Adapted from Chapter 8 of <span class="citation" data-cites="baumer2017modern">Baumer, Kaplan, and Horton (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div></aside></section>
+<section id="further-reading" class="slide level2">
+<h2>Further reading</h2>
+<ul>
+<li><p><a href="https://www.amstat.org/your-career/ethical-guidelines-for-statistical-practice">American Statistical Association: Ethical Guidelines for Statistical Practice</a></p></li>
+<li><p><a href="https://scolando.github.io/data-science-ethics/Reading-Tags.html">Data science ethics reading lists</a></p></li>
+<li><p><a href="https://mdsr-book.github.io/mdsr3e/08-ethics.html#sec-ethics-intro">Chapter 8 in Modern Data Science with R</a></p></li>
+</ul>
+</section>
+<section id="further-reading-1" class="slide level2">
+<h2>Further reading</h2>
+<ul>
+<li><p>When things go wrong examples:</p>
+<ul>
+<li><p><a href="https://www.vox.com/recode/2019/7/31/20747874/cambridge-analytica-julian-wheatland-great-hack-netflix-documentary-kara-swisher-podcast-interview">Cambridge Analytica made ‘ethical mistakes’ because it was too focused on regulation, former COO says</a> from Vox.com</p></li>
+<li><p><a href="https://www.vox.com/2018/2/6/16874782/welfare-big-data-technology-poverty">How big data is helping states kick poor people off welfare</a> from Vox.com</p></li>
+<li><p><a href="https://www.washingtonpost.com/technology/2023/10/25/data-provenance/">How AI researchers uncover ethical, legal risks to using popular data sets</a> from the Washington Post</p></li>
+<li><p><a href="https://www.seattletimes.com/opinion/boeings-manufacturing-ethical-lapses-go-back-decades/">Boeing’s manufacturing, ethical lapses go back decades</a> from the Seattle Times</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="further-reading-2" class="slide level2">
+<h2>Further reading</h2>
+<ul>
+<li><p>Gap in public trust examples</p>
+<ul>
+<li><p><a href="https://www.vox.com/2024-elections/370649/trust-polls-2016-2020-election-2024-pollster-polling-miss">Can we trust the polls this year?</a> from Vox.com</p></li>
+<li><p><a href="https://www.vanderbilt.edu/unity/2021/01/11/polling-problems-and-why-we-should-still-trust-some-polls/">Polling problems and why we should still trust (some) polls</a> from Vanderbilt Project on Unity and American Democracy</p></li>
+<li><p><a href="https://www.nytimes.com/2024/11/01/upshot/so-can-we-trust-the-polls.html">So, can we trust the polls?</a> from New York Times</p></li>
+<li><p><a href="https://today.usc.edu/can-we-still-trust-the-polls/">Can we still trust the polls?</a> from University of Southern California</p></li>
+</ul></li>
+</ul>
+</section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <ul>
-<li><p>Model selection for logistic regression using a drop-in-deviance test</p></li>
-<li><p>Inference for an individual coefficient</p></li>
+<li><p>Confidence interval for an individual coefficient</p></li>
+<li><p>Data science ethics</p></li>
 </ul>
 </section>
 <section id="next-class" class="slide level2">
 <h2>Next class</h2>
 <ul>
-<li><p>Data science ethics</p></li>
+<li><p>Exam 02 review</p></li>
 <li><p>No prepare assignment</p></li>
 </ul>
 </section>
@@ -1273,12 +989,29 @@ H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-wilks1935likelihood" class="csl-entry" role="listitem">
-Wilks, SS. 1935. <span>“The Likelihood Test of Independence in Contingency Tables.”</span> <em>The Annals of Mathematical Statistics</em> 6 (4): 190–96.
+<div id="ref-baumer2017modern" class="csl-entry" role="listitem">
+Baumer, Benjamin S, Daniel T Kaplan, and Nicholas J Horton. 2024. <em>Modern Data Science with r</em>. 3rd ed. <a href="https://mdsr-book.github.io/mdsr3e/">https://mdsr-book.github.io/mdsr3e/</a>.
+</div>
+<div id="ref-colando_data_science_ethics" class="csl-entry" role="listitem">
+Colando, Sara, and Jo Hardin. 2024a. <span>“Data Science Ethics.”</span> 2024. <a href="https://scolando.github.io/data-science-ethics/">https://scolando.github.io/data-science-ethics/</a>.
+</div>
+<div id="ref-colando2024philosophy" class="csl-entry" role="listitem">
+Colando, Sara, and Johanna Hardin. 2024b. <span>“Philosophy Within Data Science Ethics Courses.”</span> <em>Journal of Statistics and Data Science Education</em> 32 (4): 361–73.
+</div>
+<div id="ref-feinberg2023myth" class="csl-entry" role="listitem">
+Feinberg, Melanie. 2023. <span>“The Myth of Objective Data.”</span> MIT Press Reader. 2023. <a href="https://thereader.mitpress.mit.edu/the-myth-of-objective-data/">https://thereader.mitpress.mit.edu/the-myth-of-objective-data/</a>.
+</div>
+<div id="ref-floridi2016data" class="csl-entry" role="listitem">
+Floridi, Luciano, and Mariarosaria Taddeo. 2016. <span>“What Is Data Ethics?”</span> <em>Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences</em> 374 (2083).
+</div>
+<div id="ref-gelman2017beyond" class="csl-entry" role="listitem">
+Gelman, Andrew, and Christian Hennig. 2017. <span>“Beyond Subjective and Objective in Statistics.”</span> <em>Journal of the Royal Statistical Society Series A: Statistics in Society</em> 180 (4): 967–1033.
+</div>
+<div id="ref-nas2018data_science_undergraduate_project" class="csl-entry" role="listitem">
+National Academies of Sciences, Engineering, and Medicine. 2018. <span>“Envisioning the Data Science Discipline: The Undergraduate Perspective.”</span> 2018. <a href="https://www.nationalacademies.org/projects/DEPS-CSTB-16-01">https://www.nationalacademies.org/projects/DEPS-CSTB-16-01</a>.
 </div>
 </div>
 </section></section>
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../images/logo.png" class="slide-logo"></p>

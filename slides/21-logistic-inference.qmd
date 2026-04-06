@@ -518,20 +518,6 @@ anova(reduced_model, new_model, test = "Chisq") |>
 
 ```
 
-## Applies to linear regression {.midi}
-
--   We can use the drop-in-deviance test to test for subset of predictors in linear regression
-
--   The deviance for the linear regression model is the sum of squared residuals
-
-    $$
-    SSR = \sum_{i=1}^n(y_i - \hat{y}_i)^2
-    $$
-
--   The test statistic for the drop-in-deviance test is $$G = SSR_{\text{reduced}} - SSR_{full}$$
-
--   This is also called the **Nested F Test**
-
 # Inference for an individual coefficient
 
 ## Distribution of $\hat{\boldsymbol{\beta}}$
