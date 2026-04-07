@@ -52,6 +52,8 @@ knitr::opts_chunk$set(
 
     -   Take-home: April 14 - 16
 
+    -   Content: February 19 (Model conditions & diagnostics) - Today (Data science ethics)
+
 ## Topics
 
 -   Confidence interval for an individual coefficient
