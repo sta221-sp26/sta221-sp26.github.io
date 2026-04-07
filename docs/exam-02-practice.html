@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./math-rules.html" rel="next">
+<link href="./exam-01-practice.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -110,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Exam 02 practice</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./exam-02-practice.html">Exam 02 Practice</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -346,6 +348,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./exam-02-practice.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Exam 02 Practice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=e9dd03b6-5301-4acd-acea-b3c9014d1010" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture recordings</span></a>
   </div>
@@ -393,7 +401,7 @@ window.Quarto = {
   <li><a href="#exercise-17" id="toc-exercise-17" class="nav-link" data-scroll-target="#exercise-17">Exercise 17</a></li>
   <li><a href="#exercise-18" id="toc-exercise-18" class="nav-link" data-scroll-target="#exercise-18">Exercise 18</a></li>
   </ul></li>
-  <li><a href="#relevant-assignments-and-aes" id="toc-relevant-assignments-and-aes" class="nav-link" data-scroll-target="#relevant-assignments-and-aes">Relevant assignments and AEs</a></li>
+  <li><a href="#relevant-assignments" id="toc-relevant-assignments" class="nav-link" data-scroll-target="#relevant-assignments">Relevant assignments</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -440,7 +448,7 @@ There is no answer key for these problems. You may ask questions in office hours
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>Given the simple linear regression model</p>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1x_i + \epsilon_i, \hspace{10mm} \epsilon_i \sim N(0, \sigma^2_{\epsilon})\]</span></p>
-<p>Write the likelihood function and use it to show that the maximum likelihood estimators (MLEs) of <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\sigma^2_{\epsilon}\)</span> are of the form shown on <a href="https://sta221-sp25.netlify.app/slides/16-mle#/mle-for-beta_0-1">this slide</a> <span class="math inline">\((\tilde{\beta}_0)\)</span> and <a href="https://sta221-sp25.netlify.app/slides/16-mle#/mle-for-beta_1-and-sigma2_epsilon">this slide</a> <span class="math inline">\((\tilde{\beta}_1, \tilde{\sigma}^2_{\epsilon})\)</span> .</p>
+<p>Write the likelihood function and use it to show that the maximum likelihood estimators (MLEs) of <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\sigma^2_{\epsilon}\)</span> are of the form shown on <a href="https://sta221-sp26.github.io/slides/14-mle.html#/mle-for-beta_0-2">this slide</a> <span class="math inline">\((\tilde{\beta}_0)\)</span> and <a href="https://sta221-sp26.github.io/slides/14-mle.html#/mle-for-beta_1-and-sigma2_epsilon">this slide</a> <span class="math inline">\((\tilde{\beta}_1, \tilde{\sigma}^2_{\epsilon})\)</span> .</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
@@ -460,8 +468,8 @@ There is no answer key for these problems. You may ask questions in office hours
 \log\Big(\frac{\pi}{1-\pi}\Big) = \mathbf{X}\boldsymbol{\beta}
 \]</span></p>
 <ul>
-<li><p>Write the likelihood function</p></li>
-<li><p>Rework the derivation from the March 27 lecture to show the derivative solved to find the MLEs is of the form on <a href="https://sta221-sp25.netlify.app/slides/19-logistic-regression#/finding-the-mle">this slide</a>. (You can check your answer using the board work posted in Canvas).</p></li>
+<li><p>Write the likelihood and the log-likelihood function</p></li>
+<li><p>Show the steps to get the derivative on <a href="https://sta221-sp26.github.io/slides/18-logistic-regression.html#/finding-the-mle">this slide</a>.</p></li>
 </ul>
 </section>
 <section id="exercise-4" class="level2">
@@ -472,7 +480,7 @@ There is no answer key for these problems. You may ask questions in office hours
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Rework Exercises 1 - 2 in <a href="https://sta221-sp25.netlify.app/hw/hw-04">HW 04</a>.</p>
+<p>Rework the conceptual exercises in <a href="../hw/hw-04.html">HW 04</a>.</p>
 </section>
 </section>
 <section id="multiple-linear-regression-diagnostics-multicollinearity-variable-transformations-comparison" class="level1">
@@ -484,7 +492,7 @@ There is no answer key for these problems. You may ask questions in office hours
 \widehat{\log(y_i)} = \hat{\beta}_0 + \hat{\beta}_1x_1 + \dots + \hat{\beta}_p x_p
 \]</span></p>
 <ul>
-<li><p>Show mathematically why the slope for <span class="math inline">\(x_j\)</span> and intercept are interpreted in terms of <span class="math inline">\(y\)</span> as shown on <a href="https://sta221-sp25.netlify.app/slides/14-variable-transformations#/model-interpretation">this slide</a>.</p></li>
+<li><p>Show mathematically why the slope for <span class="math inline">\(x_j\)</span> and intercept are interpreted in terms of <span class="math inline">\(y\)</span> as shown on <a href="https://sta221-sp26.github.io/slides/13-variable-transformations.html#/model-interpretation-in-terms-of-mathbfy">this slide</a>.</p></li>
 <li><p>Show how <span class="math inline">\(y\)</span> is expected to change if <span class="math inline">\(x_j\)</span> increases by <span class="math inline">\(t\)</span> units.</p></li>
 </ul>
 </section>
@@ -493,15 +501,15 @@ There is no answer key for these problems. You may ask questions in office hours
 <p>Suppose we fit a linear model with a log transformation on one predictor variable, i.e.,</p>
 <p><span class="math display">\[\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1\log (x_1) + \dots + \hat{\beta}_p x_p
 \]</span></p>
-<p>Show mathematically why the slope and intercept are interpreted as shown on <a href="https://sta221-sp25.netlify.app/slides/15-transformations-contd#/model-interpretation">this slide</a> when <span class="math inline">\(x\)</span> is multiplied by a factor <span class="math inline">\(C\)</span>.</p>
+<p>Show mathematically why the slope and intercept are interpreted as shown on <a href="https://sta221-sp26.github.io/slides/13-variable-transformations.html#/model-interpretation">this slide</a> when <span class="math inline">\(x\)</span> is multiplied by a factor <span class="math inline">\(C\)</span>.</p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Rework Exercise 1 in <a href="https://sta221-sp25.netlify.app/hw/hw-03">HW 03</a>.</p>
+<p>Rework conceptual exercises in <a href="../hw/hw-03.html">HW 03</a>.</p>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Recall that for the linear regression, the variance of the estimated coefficients are the diagonal elements of <span class="math inline">\(Var(\hat{\boldsymbol{\beta}}) = \hat{\sigma}^2_{\epsilon}(\mathbf{X}^T\mathbf{X})^{-1}\)</span>. One of the <a href="https://sta221-sp25.netlify.app/slides/13-multicollinearity.html?q=multicollin#/how-multicollinearity-impacts-model">impacts of multicollinearity</a> is that the model coefficients will have large variances. Explain why.</p>
+<p>Recall that for the linear regression, the variance of the estimated coefficients are the diagonal elements of <span class="math inline">\(Var(\hat{\boldsymbol{\beta}}) = \hat{\sigma}^2_{\epsilon}(\mathbf{X}^T\mathbf{X})^{-1}\)</span>. One of the <a href="https://sta221-sp26.github.io/slides/12-multicollinearity.html#/how-multicollinearity-impacts-model">impacts of multicollinearity</a> is that the model coefficients will have large variances. Explain why.</p>
 </section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
@@ -516,7 +524,7 @@ There is no answer key for these problems. You may ask questions in office hours
 <h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
 <ul>
 <li><p>What is an advantage of examining a plot of studentized residuals vs.&nbsp;fitted values rather than using the raw residuals?</p></li>
-<li><p>Explain what is measured by Cook’s distance. You don’t need to memorize the formula but rather describe what the formula is quantifying for each observation. <a href="https://sta221-sp25.netlify.app/slides/12-conditions-diagnostics.html?q=cook#/cooks-distance-1">Click here</a> for the formula (slide also contains the solution).</p></li>
+<li><p>Explain what is measured by Cook’s distance. You don’t need to memorize the formula but rather describe what the formula is quantifying for each observation. <a href="https://sta221-sp26.github.io/slides/11-conditions-diagnostics.html#/cooks-distance-1">Click here</a> for the formula (slide also contains the solution).</p></li>
 </ul>
 </section>
 </section>
@@ -524,7 +532,7 @@ There is no answer key for these problems. You may ask questions in office hours
 <h1>Logistic regression</h1>
 <section id="exercise-12" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-12">Exercise 12</h2>
-<p>Write the hypotheses being tested in the drop-in-deviance test output on <a href="https://sta221-sp25.netlify.app/slides/22-logistic-inference#/add-interactions-with-currentsmoker">this slide</a>. Explain how each value in the table is computed.</p>
+<p>Write the hypotheses being tested in the drop-in-deviance test output on <a href="https://sta221-sp26.github.io/slides/21-logistic-inference.html#/add-interactions-with-currentsmoker">this slide</a>. Explain how each value in the table is computed.</p>
 </section>
 <section id="exercise-13" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-13">Exercise 13</h2>
@@ -544,16 +552,16 @@ There is no answer key for these problems. You may ask questions in office hours
 <h2 class="anchored" data-anchor-id="exercise-15">Exercise 15</h2>
 <p>Recall the model using age and education to predict odds of being high risk for heart disease.</p>
 <ul>
-<li><p>Show mathematically why the interpretation for the slope for <code>age</code> in terms of the log-odds is in the form shown on <a href="https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-log-odds-1">this slide</a>.</p></li>
-<li><p>Show mathematically why the interpretation for the slope of <code>age</code> in terms of the odds is in the form shown on <a href="https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-odds-1">this slide</a>.</p></li>
+<li><p>Show mathematically why the interpretation for the slope for <code>age</code> in terms of the log-odds is in the form shown on <a href="https://sta221-sp26.github.io/slides/18-logistic-regression.html#/interpretation-in-terms-of-log-odds-1">this slide</a>.</p></li>
+<li><p>Show mathematically why the interpretation for the slope of <code>age</code> in terms of the odds is in the form discussed on <a href="https://sta221-sp26.github.io/slides/18-logistic-regression.html#/interpretation-in-terms-of-odds">this slide</a>.</p></li>
 </ul>
 </section>
 <section id="exercise-16" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-16">Exercise 16</h2>
 <p>Recall the model using age and education to predict odds of being high risk for heart disease.</p>
 <ul>
-<li><p>Show mathematically why the interpretation for the slope for <code>education4</code> in terms of the log-odds is in the form shown on <a href="https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-log-odds">this slide</a>.</p></li>
-<li><p>Show mathematically why the interpretation for the slope of <code>education4</code>in terms of the odds is in the form shown on <a href="https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-odds">this slide</a>.</p></li>
+<li><p>Show mathematically why the interpretation for the slope for <code>education4</code> in terms of the log-odds is in the form shown on <a href="https://sta221-sp26.github.io/slides/18-logistic-regression.html#/interpretation-in-terms-of-log-odds">this slide</a>.</p></li>
+<li><p>Show mathematically why the interpretation for the slope of <code>education4</code>in terms of the odds is in the form discussed on <a href="https://sta221-sp26.github.io/slides/18-logistic-regression.html#/interpretation-in-terms-of-odds">this slide</a>.</p></li>
 </ul>
 </section>
 <section id="exercise-17" class="level2">
@@ -569,13 +577,13 @@ There is no answer key for these problems. You may ask questions in office hours
 </ul>
 </section>
 </section>
-<section id="relevant-assignments-and-aes" class="level1">
-<h1>Relevant assignments and AEs</h1>
+<section id="relevant-assignments" class="level1">
+<h1>Relevant assignments</h1>
 <p>The following assignments and AEs cover Exam 02 content. Ask yourself “why” questions as your review your answers, process, and derivations on these assignments. It may also be helpful to explain your process to others.</p>
 <ul>
 <li><p>HW 03, HW 04</p></li>
 <li><p>Lab 05, Lab 06, Lab 07</p></li>
-<li><p>AE 04, AE 05</p></li>
+<li><p>Prepare readings February 19 - April 7</p></li>
 </ul>
 
 
@@ -988,6 +996,18 @@ There is no answer key for these problems. You may ask questions in office hours
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./exam-01-practice.html" class="pagination-link" aria-label="Exam 01 Practice">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exam 01 Practice</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./math-rules.html" class="pagination-link" aria-label="Math rules">
+        <span class="nav-page-text">Math rules</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

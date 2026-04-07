@@ -16,7 +16,7 @@ Given the simple linear regression model
 
 $$y_i = \beta_0 + \beta_1x_i + \epsilon_i, \hspace{10mm} \epsilon_i \sim N(0, \sigma^2_{\epsilon})$$
 
-Write the likelihood function and use it to show that the maximum likelihood estimators (MLEs) of $\beta_0$, $\beta_1$, and $\sigma^2_{\epsilon}$ are of the form shown on [this slide](https://sta221-sp25.netlify.app/slides/16-mle#/mle-for-beta_0-1) $(\tilde{\beta}_0)$ and [this slide](https://sta221-sp25.netlify.app/slides/16-mle#/mle-for-beta_1-and-sigma2_epsilon) $(\tilde{\beta}_1, \tilde{\sigma}^2_{\epsilon})$ .
+Write the likelihood function and use it to show that the maximum likelihood estimators (MLEs) of $\beta_0$, $\beta_1$, and $\sigma^2_{\epsilon}$ are of the form shown on [this slide](https://sta221-sp26.github.io/slides/14-mle.html#/mle-for-beta_0-2) $(\tilde{\beta}_0)$ and [this slide](https://sta221-sp26.github.io/slides/14-mle.html#/mle-for-beta_1-and-sigma2_epsilon) $(\tilde{\beta}_1, \tilde{\sigma}^2_{\epsilon})$ .
 
 ## Exercise 2
 
@@ -40,9 +40,9 @@ $$
 \log\Big(\frac{\pi}{1-\pi}\Big) = \mathbf{X}\boldsymbol{\beta}
 $$
 
--   Write the likelihood function
+-   Write the likelihood and the log-likelihood function
 
--   Rework the derivation from the March 27 lecture to show the derivative solved to find the MLEs is of the form on [this slide](https://sta221-sp25.netlify.app/slides/19-logistic-regression#/finding-the-mle). (You can check your answer using the board work posted in Canvas).
+-   Show the steps to get the derivative on [this slide](https://sta221-sp26.github.io/slides/18-logistic-regression.html#/finding-the-mle).
 
 ## Exercise 4
 
@@ -54,7 +54,7 @@ such that $y$ takes on positive integer values and $0 < \theta < 1$. Show that t
 
 ## Exercise 5
 
-Rework Exercises 1 - 2 in [HW 04](https://sta221-sp25.netlify.app/hw/hw-04).
+Rework the conceptual exercises in [HW 04](../hw/hw-04.html).
 
 # Multiple linear regression (diagnostics, multicollinearity, variable transformations, comparison)
 
@@ -66,7 +66,7 @@ $$
 \widehat{\log(y_i)} = \hat{\beta}_0 + \hat{\beta}_1x_1 + \dots + \hat{\beta}_p x_p
 $$
 
--   Show mathematically why the slope for $x_j$ and intercept are interpreted in terms of $y$ as shown on [this slide](https://sta221-sp25.netlify.app/slides/14-variable-transformations#/model-interpretation).
+-   Show mathematically why the slope for $x_j$ and intercept are interpreted in terms of $y$ as shown on [this slide](https://sta221-sp26.github.io/slides/13-variable-transformations.html#/model-interpretation-in-terms-of-mathbfy).
 
 -   Show how $y$ is expected to change if $x_j$ increases by $t$ units.
 
@@ -77,15 +77,15 @@ Suppose we fit a linear model with a log transformation on one predictor variabl
 $$\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1\log (x_1) + \dots + \hat{\beta}_p x_p
 $$
 
-Show mathematically why the slope and intercept are interpreted as shown on [this slide](https://sta221-sp25.netlify.app/slides/15-transformations-contd#/model-interpretation) when $x$ is multiplied by a factor $C$.
+Show mathematically why the slope and intercept are interpreted as shown on [this slide](https://sta221-sp26.github.io/slides/13-variable-transformations.html#/model-interpretation) when $x$ is multiplied by a factor $C$.
 
 ## Exercise 8
 
-Rework Exercise 1 in [HW 03](https://sta221-sp25.netlify.app/hw/hw-03).
+Rework conceptual exercises in [HW 03](../hw/hw-03.html).
 
 ## Exercise 9
 
-Recall that for the linear regression, the variance of the estimated coefficients are the diagonal elements of $Var(\hat{\boldsymbol{\beta}}) = \hat{\sigma}^2_{\epsilon}(\mathbf{X}^T\mathbf{X})^{-1}$. One of the [impacts of multicollinearity](https://sta221-sp25.netlify.app/slides/13-multicollinearity.html?q=multicollin#/how-multicollinearity-impacts-model) is that the model coefficients will have large variances. Explain why.
+Recall that for the linear regression, the variance of the estimated coefficients are the diagonal elements of $Var(\hat{\boldsymbol{\beta}}) = \hat{\sigma}^2_{\epsilon}(\mathbf{X}^T\mathbf{X})^{-1}$. One of the [impacts of multicollinearity](https://sta221-sp26.github.io/slides/12-multicollinearity.html#/how-multicollinearity-impacts-model) is that the model coefficients will have large variances. Explain why.
 
 ## Exercise 10
 
@@ -101,13 +101,13 @@ Suppose you fit a simple linear regression model.
 
 -   What is an advantage of examining a plot of studentized residuals vs. fitted values rather than using the raw residuals?
 
--   Explain what is measured by Cook's distance. You don't need to memorize the formula but rather describe what the formula is quantifying for each observation. [Click here](https://sta221-sp25.netlify.app/slides/12-conditions-diagnostics.html?q=cook#/cooks-distance-1) for the formula (slide also contains the solution).
+-   Explain what is measured by Cook's distance. You don't need to memorize the formula but rather describe what the formula is quantifying for each observation. [Click here](https://sta221-sp26.github.io/slides/11-conditions-diagnostics.html#/cooks-distance-1) for the formula (slide also contains the solution).
 
 # Logistic regression
 
 ## Exercise 12
 
-Write the hypotheses being tested in the drop-in-deviance test output on [this slide](https://sta221-sp25.netlify.app/slides/22-logistic-inference#/add-interactions-with-currentsmoker). Explain how each value in the table is computed.
+Write the hypotheses being tested in the drop-in-deviance test output on [this slide](https://sta221-sp26.github.io/slides/21-logistic-inference.html#/add-interactions-with-currentsmoker). Explain how each value in the table is computed.
 
 ## Exercise 13
 
@@ -127,17 +127,17 @@ Write the hypotheses being tested in the drop-in-deviance test output on [this s
 
 Recall the model using age and education to predict odds of being high risk for heart disease.
 
--   Show mathematically why the interpretation for the slope for `age` in terms of the log-odds is in the form shown on [this slide](https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-log-odds-1).
+-   Show mathematically why the interpretation for the slope for `age` in terms of the log-odds is in the form shown on [this slide](https://sta221-sp26.github.io/slides/18-logistic-regression.html#/interpretation-in-terms-of-log-odds-1).
 
--   Show mathematically why the interpretation for the slope of `age` in terms of the odds is in the form shown on [this slide](https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-odds-1).
+-   Show mathematically why the interpretation for the slope of `age` in terms of the odds is in the form discussed on [this slide](https://sta221-sp26.github.io/slides/18-logistic-regression.html#/interpretation-in-terms-of-odds).
 
 ## Exercise 16
 
 Recall the model using age and education to predict odds of being high risk for heart disease.
 
--   Show mathematically why the interpretation for the slope for `education4` in terms of the log-odds is in the form shown on [this slide](https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-log-odds).
+-   Show mathematically why the interpretation for the slope for `education4` in terms of the log-odds is in the form shown on [this slide](https://sta221-sp26.github.io/slides/18-logistic-regression.html#/interpretation-in-terms-of-log-odds).
 
--   Show mathematically why the interpretation for the slope of `education4`in terms of the odds is in the form shown on [this slide](https://sta221-sp25.netlify.app/slides/19-logistic-regression#/interpretation-in-terms-of-odds).
+-   Show mathematically why the interpretation for the slope of `education4`in terms of the odds is in the form discussed on [this slide](https://sta221-sp26.github.io/slides/18-logistic-regression.html#/interpretation-in-terms-of-odds).
 
 ## Exercise 17
 
@@ -151,7 +151,7 @@ Explain why the slope of the logistic regression model is called the Adjusted Od
 
 -   Explain what each point on an ROC curve represents.
 
-# Relevant assignments and AEs
+# Relevant assignments
 
 The following assignments and AEs cover Exam 02 content. Ask yourself "why" questions as your review your answers, process, and derivations on these assignments. It may also be helpful to explain your process to others.
 
@@ -159,4 +159,4 @@ The following assignments and AEs cover Exam 02 content. Ask yourself "why" ques
 
 -   Lab 05, Lab 06, Lab 07
 
--   AE 04, AE 05
+-   Prepare readings February 19 - April 7
