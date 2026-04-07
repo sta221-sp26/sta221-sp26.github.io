@@ -4,140 +4,200 @@
     "href": "exam-02-practice.html",
     "title": "Exam 02 practice",
     "section": "",
-    "text": "Important\n\n\n\nThis page contains practice problems to help prepare for Exam 02. This set of practice problems is not comprehensive. You should review these study tips as you prepare for the exam.\n\nThere is no answer key for these problems. You may ask questions in office hours and on Ed Discussion."
+    "text": "Important\n\n\n\nThis page contains practice problems to help prepare for Exam 02. This set of practice problems is not comprehensive. You should review these study tips as you prepare for the exam.\n\nThere is no answer key for these problems. You may ask questions in office hours and on Ed Discussion.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-1",
     "href": "exam-02-practice.html#exercise-1",
     "title": "Exam 02 practice",
     "section": "Exercise 1",
-    "text": "Exercise 1\nGiven the simple linear regression model\n\\[y_i = \\beta_0 + \\beta_1x_i + \\epsilon_i, \\hspace{10mm} \\epsilon_i \\sim N(0, \\sigma^2_{\\epsilon})\\]\nWrite the likelihood function and use it to show that the maximum likelihood estimators (MLEs) of \\(\\beta_0\\), \\(\\beta_1\\), and \\(\\sigma^2_{\\epsilon}\\) are of the form shown on this slide \\((\\tilde{\\beta}_0)\\) and this slide \\((\\tilde{\\beta}_1, \\tilde{\\sigma}^2_{\\epsilon})\\) ."
+    "text": "Exercise 1\nGiven the simple linear regression model\n\\[y_i = \\beta_0 + \\beta_1x_i + \\epsilon_i, \\hspace{10mm} \\epsilon_i \\sim N(0, \\sigma^2_{\\epsilon})\\]\nWrite the likelihood function and use it to show that the maximum likelihood estimators (MLEs) of \\(\\beta_0\\), \\(\\beta_1\\), and \\(\\sigma^2_{\\epsilon}\\) are of the form shown on this slide \\((\\tilde{\\beta}_0)\\) and this slide \\((\\tilde{\\beta}_1, \\tilde{\\sigma}^2_{\\epsilon})\\) .",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-2",
     "href": "exam-02-practice.html#exercise-2",
     "title": "Exam 02 practice",
     "section": "Exercise 2",
-    "text": "Exercise 2\nGiven the linear regression model\n\\[\n\\mathbf{y}  = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon} \\hspace{10mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\]\nWrite the likelihood function and use it to show that the maximum likelihood estimators (MLEs) of \\(\\boldsymbol{\\beta}\\) and \\(\\sigma^2_{\\epsilon}\\) are\n\\[\n\\tilde{\\boldsymbol{\\beta}} = (\\mathbf{X}^T\\mathbf{X})^{-1}\\mathbf{X}^T\\mathbf{y} \\hspace{10mm} \\tilde{\\sigma}^2_{\\epsilon} = \\frac{1}{n}(\\mathbf{y} - \\mathbf{X}\\tilde{\\boldsymbol{\\beta}})^T(\\mathbf{y} - \\mathbf{X}\\tilde{\\boldsymbol{\\beta}})\n\\]"
+    "text": "Exercise 2\nGiven the linear regression model\n\\[\n\\mathbf{y}  = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\epsilon} \\hspace{10mm} \\boldsymbol{\\epsilon} \\sim N(\\mathbf{0}, \\sigma^2_{\\epsilon}\\mathbf{I})\n\\]\nWrite the likelihood function and use it to show that the maximum likelihood estimators (MLEs) of \\(\\boldsymbol{\\beta}\\) and \\(\\sigma^2_{\\epsilon}\\) are\n\\[\n\\tilde{\\boldsymbol{\\beta}} = (\\mathbf{X}^T\\mathbf{X})^{-1}\\mathbf{X}^T\\mathbf{y} \\hspace{10mm} \\tilde{\\sigma}^2_{\\epsilon} = \\frac{1}{n}(\\mathbf{y} - \\mathbf{X}\\tilde{\\boldsymbol{\\beta}})^T(\\mathbf{y} - \\mathbf{X}\\tilde{\\boldsymbol{\\beta}})\n\\]",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-3",
     "href": "exam-02-practice.html#exercise-3",
     "title": "Exam 02 practice",
     "section": "Exercise 3",
-    "text": "Exercise 3\nGiven the logistic regression model\n\\[\n\\log\\Big(\\frac{\\pi}{1-\\pi}\\Big) = \\mathbf{X}\\boldsymbol{\\beta}\n\\]\n\nWrite the likelihood function\nRework the derivation from the March 27 lecture to show the derivative solved to find the MLEs is of the form on this slide. (You can check your answer using the board work posted in Canvas)."
+    "text": "Exercise 3\nGiven the logistic regression model\n\\[\n\\log\\Big(\\frac{\\pi}{1-\\pi}\\Big) = \\mathbf{X}\\boldsymbol{\\beta}\n\\]\n\nWrite the likelihood and the log-likelihood function\nShow the steps to get the derivative on this slide.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-4",
     "href": "exam-02-practice.html#exercise-4",
     "title": "Exam 02 practice",
     "section": "Exercise 4",
-    "text": "Exercise 4\nSuppose \\(Y_1, \\ldots, Y_n\\) are an independent and identically distributed (iid) sample from some distribution\n\\[f_Y(y) = \\theta(1 - \\theta)^{y-1}\\]\nsuch that \\(y\\) takes on positive integer values and \\(0 &lt; \\theta &lt; 1\\). Show that the MLE for \\(\\theta^{-1}\\) is \\(\\frac{1}{n}\\sum_{i=1}^n y_i\\) ."
+    "text": "Exercise 4\nSuppose \\(Y_1, \\ldots, Y_n\\) are an independent and identically distributed (iid) sample from some distribution\n\\[f_Y(y) = \\theta(1 - \\theta)^{y-1}\\]\nsuch that \\(y\\) takes on positive integer values and \\(0 &lt; \\theta &lt; 1\\). Show that the MLE for \\(\\theta^{-1}\\) is \\(\\frac{1}{n}\\sum_{i=1}^n y_i\\) .",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-5",
     "href": "exam-02-practice.html#exercise-5",
     "title": "Exam 02 practice",
     "section": "Exercise 5",
-    "text": "Exercise 5\nRework Exercises 1 - 2 in HW 04."
+    "text": "Exercise 5\nRework the conceptual exercises in HW 04.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-6",
     "href": "exam-02-practice.html#exercise-6",
     "title": "Exam 02 practice",
     "section": "Exercise 6",
-    "text": "Exercise 6\nSuppose we fit a linear model with a log transformation on the response variable, i.e.,\n\\[\n\\widehat{\\log(y_i)} = \\hat{\\beta}_0 + \\hat{\\beta}_1x_1 + \\dots + \\hat{\\beta}_p x_p\n\\]\n\nShow mathematically why the slope for \\(x_j\\) and intercept are interpreted in terms of \\(y\\) as shown on this slide.\nShow how \\(y\\) is expected to change if \\(x_j\\) increases by \\(t\\) units."
+    "text": "Exercise 6\nSuppose we fit a linear model with a log transformation on the response variable, i.e.,\n\\[\n\\widehat{\\log(y_i)} = \\hat{\\beta}_0 + \\hat{\\beta}_1x_1 + \\dots + \\hat{\\beta}_p x_p\n\\]\n\nShow mathematically why the slope for \\(x_j\\) and intercept are interpreted in terms of \\(y\\) as shown on this slide.\nShow how \\(y\\) is expected to change if \\(x_j\\) increases by \\(t\\) units.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-7",
     "href": "exam-02-practice.html#exercise-7",
     "title": "Exam 02 practice",
     "section": "Exercise 7",
-    "text": "Exercise 7\nSuppose we fit a linear model with a log transformation on one predictor variable, i.e.,\n\\[\\hat{y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1\\log (x_1) + \\dots + \\hat{\\beta}_p x_p\n\\]\nShow mathematically why the slope and intercept are interpreted as shown on this slide when \\(x\\) is multiplied by a factor \\(C\\)."
+    "text": "Exercise 7\nSuppose we fit a linear model with a log transformation on one predictor variable, i.e.,\n\\[\\hat{y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1\\log (x_1) + \\dots + \\hat{\\beta}_p x_p\n\\]\nShow mathematically why the slope and intercept are interpreted as shown on this slide when \\(x\\) is multiplied by a factor \\(C\\).",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-8",
     "href": "exam-02-practice.html#exercise-8",
     "title": "Exam 02 practice",
     "section": "Exercise 8",
-    "text": "Exercise 8\nRework Exercise 1 in HW 03."
+    "text": "Exercise 8\nRework conceptual exercises in HW 03.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-9",
     "href": "exam-02-practice.html#exercise-9",
     "title": "Exam 02 practice",
     "section": "Exercise 9",
-    "text": "Exercise 9\nRecall that for the linear regression, the variance of the estimated coefficients are the diagonal elements of \\(Var(\\hat{\\boldsymbol{\\beta}}) = \\hat{\\sigma}^2_{\\epsilon}(\\mathbf{X}^T\\mathbf{X})^{-1}\\). One of the impacts of multicollinearity is that the model coefficients will have large variances. Explain why."
+    "text": "Exercise 9\nRecall that for the linear regression, the variance of the estimated coefficients are the diagonal elements of \\(Var(\\hat{\\boldsymbol{\\beta}}) = \\hat{\\sigma}^2_{\\epsilon}(\\mathbf{X}^T\\mathbf{X})^{-1}\\). One of the impacts of multicollinearity is that the model coefficients will have large variances. Explain why.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-10",
     "href": "exam-02-practice.html#exercise-10",
     "title": "Exam 02 practice",
     "section": "Exercise 10",
-    "text": "Exercise 10\nSuppose you fit a simple linear regression model.\n\nDraw a scatterplot that contains an observation with large leverage but low Cook’s distance.\nDraw a scatterplot that contains an observation with large leverage and high Cook’s distance.\nDraw a scatterplot that contains an observation with a large studentized residual."
+    "text": "Exercise 10\nSuppose you fit a simple linear regression model.\n\nDraw a scatterplot that contains an observation with large leverage but low Cook’s distance.\nDraw a scatterplot that contains an observation with large leverage and high Cook’s distance.\nDraw a scatterplot that contains an observation with a large studentized residual.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-11",
     "href": "exam-02-practice.html#exercise-11",
     "title": "Exam 02 practice",
     "section": "Exercise 11",
-    "text": "Exercise 11\n\nWhat is an advantage of examining a plot of studentized residuals vs. fitted values rather than using the raw residuals?\nExplain what is measured by Cook’s distance. You don’t need to memorize the formula but rather describe what the formula is quantifying for each observation. Click here for the formula (slide also contains the solution)."
+    "text": "Exercise 11\n\nWhat is an advantage of examining a plot of studentized residuals vs. fitted values rather than using the raw residuals?\nExplain what is measured by Cook’s distance. You don’t need to memorize the formula but rather describe what the formula is quantifying for each observation. Click here for the formula (slide also contains the solution).",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-12",
     "href": "exam-02-practice.html#exercise-12",
     "title": "Exam 02 practice",
     "section": "Exercise 12",
-    "text": "Exercise 12\nWrite the hypotheses being tested in the drop-in-deviance test output on this slide. Explain how each value in the table is computed."
+    "text": "Exercise 12\nWrite the hypotheses being tested in the drop-in-deviance test output on this slide. Explain how each value in the table is computed.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-13",
     "href": "exam-02-practice.html#exercise-13",
     "title": "Exam 02 practice",
     "section": "Exercise 13",
-    "text": "Exercise 13\n\nWhat is an advantage of using a drop-in-deviance test instead of AIC (or BIC) to compare regression models?\nWhat is an advantage of using AIC (or BIC) instead of a drop-in-deviance test to compare regression models?"
+    "text": "Exercise 13\n\nWhat is an advantage of using a drop-in-deviance test instead of AIC (or BIC) to compare regression models?\nWhat is an advantage of using AIC (or BIC) instead of a drop-in-deviance test to compare regression models?",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-141",
     "href": "exam-02-practice.html#exercise-141",
     "title": "Exam 02 practice",
     "section": "Exercise 141",
-    "text": "Exercise 141\n\nOn average, what fraction of people with an odds of 0.37 of defaulting on their credit card payment will in fact default?\nSuppose an individual has a 16% chance of defaulting on their credit card payment. What are the odds they will default?"
+    "text": "Exercise 141\n\nOn average, what fraction of people with an odds of 0.37 of defaulting on their credit card payment will in fact default?\nSuppose an individual has a 16% chance of defaulting on their credit card payment. What are the odds they will default?",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-15",
     "href": "exam-02-practice.html#exercise-15",
     "title": "Exam 02 practice",
     "section": "Exercise 15",
-    "text": "Exercise 15\nRecall the model using age and education to predict odds of being high risk for heart disease.\n\nShow mathematically why the interpretation for the slope for age in terms of the log-odds is in the form shown on this slide.\nShow mathematically why the interpretation for the slope of age in terms of the odds is in the form shown on this slide."
+    "text": "Exercise 15\nRecall the model using age and education to predict odds of being high risk for heart disease.\n\nShow mathematically why the interpretation for the slope for age in terms of the log-odds is in the form shown on this slide.\nShow mathematically why the interpretation for the slope of age in terms of the odds is in the form discussed on this slide.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-16",
     "href": "exam-02-practice.html#exercise-16",
     "title": "Exam 02 practice",
     "section": "Exercise 16",
-    "text": "Exercise 16\nRecall the model using age and education to predict odds of being high risk for heart disease.\n\nShow mathematically why the interpretation for the slope for education4 in terms of the log-odds is in the form shown on this slide.\nShow mathematically why the interpretation for the slope of education4in terms of the odds is in the form shown on this slide."
+    "text": "Exercise 16\nRecall the model using age and education to predict odds of being high risk for heart disease.\n\nShow mathematically why the interpretation for the slope for education4 in terms of the log-odds is in the form shown on this slide.\nShow mathematically why the interpretation for the slope of education4in terms of the odds is in the form discussed on this slide.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-17",
     "href": "exam-02-practice.html#exercise-17",
     "title": "Exam 02 practice",
     "section": "Exercise 17",
-    "text": "Exercise 17\nExplain why the slope of the logistic regression model is called the Adjusted Odds Ratio (or just Odds Ratio if there is one predictor)."
+    "text": "Exercise 17\nExplain why the slope of the logistic regression model is called the Adjusted Odds Ratio (or just Odds Ratio if there is one predictor).",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#exercise-18",
     "href": "exam-02-practice.html#exercise-18",
     "title": "Exam 02 practice",
     "section": "Exercise 18",
-    "text": "Exercise 18\n\nDraw an example of an ROC curve such that the AUC is about 0.55\nDraw an example of an ROC curve such that the AUC is about 0.9.\nExplain what each point on an ROC curve represents."
+    "text": "Exercise 18\n\nDraw an example of an ROC curve such that the AUC is about 0.55\nDraw an example of an ROC curve such that the AUC is about 0.9.\nExplain what each point on an ROC curve represents.",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "exam-02-practice.html#footnotes",
     "href": "exam-02-practice.html#footnotes",
     "title": "Exam 02 practice",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nFrom Introduction to Statistical Learning.↩︎"
+    "text": "Footnotes\n\n\nFrom Introduction to Statistical Learning.↩︎",
+    "crumbs": [
+      "Exam 02 Practice"
+    ]
   },
   {
     "objectID": "project.html",
