@@ -36,7 +36,7 @@ c.  Draw a scatterplot that contains an observation with a large standardized re
 
 ## Exercise 2
 
-a.  Describe what it means for $\tilde{\boldsymbol{\beta}}$ to be the maximum likelihood estimator.
+a.  Describe what it means for $\hat{\boldsymbol{\beta}}$ to be the maximum likelihood estimator.
 
 b.  What are properties of MLEs?
 
@@ -89,17 +89,11 @@ tidy(credit_fit) |>
 
 ## Exercise 4
 
-The logistic regression model takes the following form:
-
-$$
- \log\big(\frac{\pi_i}{1 - \pi_i}\big) = \beta_0 + \beta_1 ~ income + \beta_2 ~ rating + \beta_3 ~ regionSouth + \beta_4 ~ regionWest
-$$
-
 a.  Write the interpretation of `income` in terms of the odds of maxing out a credit card.
 
 b.  What is the odds ratio of the South versus the East regions?
 
-c.  Suppose there are two individuals. Individual 1 has an income of \$64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of \$135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2. Write your answer in terms of $\beta_0, \beta_1, \beta_2$, etc.
+c.  Suppose there are two individuals. Individual 1 has an income of \$64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of \$135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2.
 
 ## Exercise 5
 

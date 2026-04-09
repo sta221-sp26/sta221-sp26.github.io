@@ -405,6 +405,16 @@
     ]
   },
   {
+    "objectID": "math-rules.html#normal-distribution",
+    "href": "math-rules.html#normal-distribution",
+    "title": "Math rules",
+    "section": "Normal distribution",
+    "text": "Normal distribution\n\nUnivariate normal distribution\nLet \\(X\\) be a random variable, such that \\(X \\sim N(\\mu, \\sigma^2)\\). Then the probability function is\n\\[P(X = x | \\mu, \\sigma^2) = \\frac{1}{\\sqrt{2\\pi\\sigma^2}}\\exp\\Big\\{-{\\frac{1}{2\\sigma^2}(x - \\mu)^2}\\Big\\}\\]\n\n\nMultivariate normal distribution\nLet \\(\\mathbf{z}\\) be a \\(p \\times 1\\) vector of random variables, such that \\(\\mathbf{z}\\) follows a multivariate normal distribution with mean \\(\\boldsymbol{\\mu}\\) and variance \\(\\boldsymbol{\\Sigma}\\). Then the probability density function of \\(\\mathbf{z}\\) is\n\\[f(\\mathbf{z}) = \\frac{1}{(2\\pi)^{p/2}|\\boldsymbol{\\Sigma}|^{1/2}}\\exp\\Big\\{-\\frac{1}{2}(\\mathbf{z} - \\boldsymbol{\\mu})^\\mathsf{T}\\boldsymbol{\\Sigma}^{-1}(\\mathbf{z}- \\boldsymbol{\\mu})\\Big\\}\\]",
+    "crumbs": [
+      "Math rules"
+    ]
+  },
+  {
     "objectID": "slides/11-conditions-diagnostics.html#announcements",
     "href": "slides/11-conditions-diagnostics.html#announcements",
     "title": "Model conditions + diagnostics",
@@ -6312,21 +6322,21 @@
     "href": "ae/ae-06-exam-02-review.html#exercise-2",
     "title": "AE 06: Exam 02 review",
     "section": "Exercise 2",
-    "text": "Exercise 2\n\nDescribe what it means for \\(\\tilde{\\boldsymbol{\\beta}}\\) to be the maximum likelihood estimator.\nWhat are properties of MLEs?"
+    "text": "Exercise 2\n\nDescribe what it means for \\(\\hat{\\boldsymbol{\\beta}}\\) to be the maximum likelihood estimator.\nWhat are properties of MLEs?"
   },
   {
     "objectID": "ae/ae-06-exam-02-review.html#exercise-3",
     "href": "ae/ae-06-exam-02-review.html#exercise-3",
     "title": "AE 06: Exam 02 review",
     "section": "Exercise 3",
-    "text": "Exercise 3\nThis exercise is adapted from (casella2024statistical?).\nSuppose there are \\(n\\) observations \\((x_1, y_1), \\ldots, (x_n, y_n)\\), such that the relationship between \\(X\\) and \\(Y\\) can be summarized as \\[\ny_i = \\beta x_i^2 + \\epsilon_i \\hspace{8mm} \\epsilon_i \\sim N(0,\\sigma^2_{\\epsilon})\n\\]\n\nFind the maximum likelihood estimator of \\(\\beta\\) .\nIs the MLE unbiased?\n\n\n\n\n\n\n\nNote\n\n\n\nUse this data analysis scenario for Exercises 4 - 6.\n\n\nThe data for this analysis is about credit card customers. It can be found in the file credit.csv. The following variables are in the data set:\n\nincome: Income in $1,000’s\nlimit: Credit limit\nrating: Credit rating\ncards: Number of credit cards\nage: Age in years\neducation: Number of years of education\nown: Whether an individual owns their home ( No or Yes )\nstudent: Whether the individual was a student ( No or Yes )\nmarried: Whether the individual was married (No and Yes)\nregion: Region the individual is from ( South, East, and West)\nbalance: Average credit card balance in $.\n\n\ncredit &lt;- read_csv(\"data/credit.csv\") |&gt;\n  mutate(maxed = factor(if_else(balance == 0, 1, 0)))\n\nThe objective of this analysis is to predict whether a person has maxed out their credit card, i.e., had $0 average card balance.\nWe’ll start with a model predicting the odds of maxed = 1 using income, rating, and region.\n\ncredit_fit &lt;- glm(maxed ~ income + rating + region, data = credit, \n                  family = \"binomial\")\n\ntidy(credit_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.898\n1.449\n6.829\n0.000\n\n\nincome\n0.113\n0.021\n5.273\n0.000\n\n\nrating\n-0.057\n0.008\n-7.397\n0.000\n\n\nregionSouth\n-0.595\n0.604\n-0.985\n0.324\n\n\nregionWest\n-0.082\n0.649\n-0.126\n0.900"
+    "text": "Exercise 3\nThis exercise is adapted from Casella and Berger (2024).\nSuppose there are \\(n\\) observations \\((x_1, y_1), \\ldots, (x_n, y_n)\\), such that the relationship between \\(X\\) and \\(Y\\) can be summarized as \\[\ny_i = \\beta x_i^2 + \\epsilon_i \\hspace{8mm} \\epsilon_i \\sim N(0,\\sigma^2_{\\epsilon})\n\\]\n\nFind the maximum likelihood estimator of \\(\\beta\\) .\nIs the MLE unbiased?\n\n\n\n\n\n\n\nNote\n\n\n\nUse this data analysis scenario for Exercises 4 - 6.\n\n\nThe data for this analysis is about credit card customers. It can be found in the file credit.csv. The following variables are in the data set:\n\nincome: Income in $1,000’s\nlimit: Credit limit\nrating: Credit rating\ncards: Number of credit cards\nage: Age in years\neducation: Number of years of education\nown: Whether an individual owns their home ( No or Yes )\nstudent: Whether the individual was a student ( No or Yes )\nmarried: Whether the individual was married (No and Yes)\nregion: Region the individual is from ( South, East, and West)\nbalance: Average credit card balance in $.\n\n\ncredit &lt;- read_csv(\"data/credit.csv\") |&gt;\n  mutate(maxed = factor(if_else(balance == 0, 1, 0)))\n\nThe objective of this analysis is to predict whether a person has maxed out their credit card, i.e., had $0 average card balance.\nWe’ll start with a model predicting the odds of maxed = 1 using income, rating, and region.\n\ncredit_fit &lt;- glm(maxed ~ income + rating + region, data = credit, \n                  family = \"binomial\")\n\ntidy(credit_fit) |&gt;\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n9.898\n1.449\n6.829\n0.000\n\n\nincome\n0.113\n0.021\n5.273\n0.000\n\n\nrating\n-0.057\n0.008\n-7.397\n0.000\n\n\nregionSouth\n-0.595\n0.604\n-0.985\n0.324\n\n\nregionWest\n-0.082\n0.649\n-0.126\n0.900"
   },
   {
     "objectID": "ae/ae-06-exam-02-review.html#exercise-4",
     "href": "ae/ae-06-exam-02-review.html#exercise-4",
     "title": "AE 06: Exam 02 review",
     "section": "Exercise 4",
-    "text": "Exercise 4\nThe logistic regression model takes the following form:\n\\[\n\\log\\big(\\frac{\\pi_i}{1 - \\pi_i}\\big) = \\beta_0 + \\beta_1 ~ income + \\beta_2 ~ rating + \\beta_3 ~ regionSouth + \\beta_4 ~ regionWest\n\\]\n\nWrite the interpretation of income in terms of the odds of maxing out a credit card.\nWhat is the odds ratio of the South versus the East regions?\nSuppose there are two individuals. Individual 1 has an income of $64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of $135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2. Write your answer in terms of \\(\\beta_0, \\beta_1, \\beta_2\\), etc."
+    "text": "Exercise 4\n\nWrite the interpretation of income in terms of the odds of maxing out a credit card.\nWhat is the odds ratio of the South versus the East regions?\nSuppose there are two individuals. Individual 1 has an income of $64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of $135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2."
   },
   {
     "objectID": "ae/ae-06-exam-02-review.html#exercise-5",

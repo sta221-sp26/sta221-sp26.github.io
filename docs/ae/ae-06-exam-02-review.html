@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -477,13 +497,13 @@ Important
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <ol type="a">
-<li><p>Describe what it means for <span class="math inline">\(\tilde{\boldsymbol{\beta}}\)</span> to be the maximum likelihood estimator.</p></li>
+<li><p>Describe what it means for <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> to be the maximum likelihood estimator.</p></li>
 <li><p>What are properties of MLEs?</p></li>
 </ol>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p><em>This exercise is adapted from <span class="citation" data-cites="casella2024statistical">(<a href="#ref-casella2024statistical" role="doc-biblioref"><strong>casella2024statistical?</strong></a>)</span>.</em></p>
+<p><em>This exercise is adapted from <span class="citation" data-cites="casella2024statistical">Casella and Berger (<a href="#ref-casella2024statistical" role="doc-biblioref">2024</a>)</span>.</em></p>
 <p>Suppose there are <span class="math inline">\(n\)</span> observations <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span>, such that the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can be summarized as <span class="math display">\[
 y_i = \beta x_i^2 + \epsilon_i \hspace{8mm} \epsilon_i \sim N(0,\sigma^2_{\epsilon})
 \]</span></p>
@@ -584,14 +604,10 @@ Note
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>The logistic regression model takes the following form:</p>
-<p><span class="math display">\[
-\log\big(\frac{\pi_i}{1 - \pi_i}\big) = \beta_0 + \beta_1 ~ income + \beta_2 ~ rating + \beta_3 ~ regionSouth + \beta_4 ~ regionWest
-\]</span></p>
 <ol type="a">
 <li><p>Write the interpretation of <code>income</code> in terms of the odds of maxing out a credit card.</p></li>
 <li><p>What is the odds ratio of the South versus the East regions?</p></li>
-<li><p>Suppose there are two individuals. Individual 1 has an income of $64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of $135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2. Write your answer in terms of <span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span>, etc.</p></li>
+<li><p>Suppose there are two individuals. Individual 1 has an income of $64,000, a credit rating of 590, and is from the South region. Individual 2 has an income of $135,000, a credit rating of 695, and is from the East region. Use the equation above to show how the odds of maxing out a credit card differ between Individual 1 and Individual 2.</p></li>
 </ol>
 </section>
 <section id="exercise-5" class="level2">
@@ -680,9 +696,14 @@ Note
 </ol>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-casella2024statistical" class="csl-entry" role="listitem">
+Casella, George, and Roger Berger. 2024. <em>Statistical Inference</em>. CRC Press.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
