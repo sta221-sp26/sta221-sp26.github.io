@@ -384,11 +384,9 @@ window.Quarto = {
   <li><a href="#expected-value-of-mathbfaz-mathbfc" id="toc-expected-value-of-mathbfaz-mathbfc" class="nav-link" data-scroll-target="#expected-value-of-mathbfaz-mathbfc">Expected value of <span class="math inline">\(\mathbf{Az} + \mathbf{C}\)</span></a></li>
   <li><a href="#expected-value-of-mathbfaxamathsft" id="toc-expected-value-of-mathbfaxamathsft" class="nav-link" data-scroll-target="#expected-value-of-mathbfaxamathsft">Expected value of <span class="math inline">\(\mathbf{AXA}\mathsf{^T}\)</span></a></li>
   <li><a href="#variance-of-vector-mathbfz" id="toc-variance-of-vector-mathbfz" class="nav-link" data-scroll-target="#variance-of-vector-mathbfz">Variance of vector <span class="math inline">\(\mathbf{z}\)</span></a></li>
-  </ul></li>
-  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution">Normal distribution</a>
-  <ul class="collapse">
   <li><a href="#univariate-normal-distribution" id="toc-univariate-normal-distribution" class="nav-link" data-scroll-target="#univariate-normal-distribution">Univariate normal distribution</a></li>
   <li><a href="#multivariate-normal-distribution" id="toc-multivariate-normal-distribution" class="nav-link" data-scroll-target="#multivariate-normal-distribution">Multivariate normal distribution</a></li>
+  <li><a href="#bernoulli-distribution" id="toc-bernoulli-distribution" class="nav-link" data-scroll-target="#bernoulli-distribution">Bernoulli distribution</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sta221-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -471,18 +469,23 @@ E(\mathbf{AXA}^\mathsf{T}) = \mathbf{A}E(\mathbf{X})\mathbf{A}^\mathsf{T}
 Var(\mathbf{z}) = E[(\mathbf{z} - E(\mathbf{z}))(\mathbf{z} - E(\mathbf{z}))^\mathsf{T}]
 \]</span></p>
 </section>
-</section>
-<section id="normal-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="normal-distribution">Normal distribution</h2>
 <section id="univariate-normal-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="univariate-normal-distribution">Univariate normal distribution</h3>
-<p>Let <span class="math inline">\(X\)</span> be a random variable, such that <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>. Then the probability function is</p>
+<p>Let <span class="math inline">\(X\)</span> be a random variable, such that <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>. Then the probability density function is</p>
 <p><span class="math display">\[P(X = x | \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\Big\{-{\frac{1}{2\sigma^2}(x - \mu)^2}\Big\}\]</span></p>
 </section>
 <section id="multivariate-normal-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="multivariate-normal-distribution">Multivariate normal distribution</h3>
 <p>Let <span class="math inline">\(\mathbf{z}\)</span> be a <span class="math inline">\(p \times 1\)</span> vector of random variables, such that <span class="math inline">\(\mathbf{z}\)</span> follows a multivariate normal distribution with mean <span class="math inline">\(\boldsymbol{\mu}\)</span> and variance <span class="math inline">\(\boldsymbol{\Sigma}\)</span>. Then the probability density function of <span class="math inline">\(\mathbf{z}\)</span> is</p>
 <p><span class="math display">\[f(\mathbf{z}) = \frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}|^{1/2}}\exp\Big\{-\frac{1}{2}(\mathbf{z} - \boldsymbol{\mu})^\mathsf{T}\boldsymbol{\Sigma}^{-1}(\mathbf{z}- \boldsymbol{\mu})\Big\}\]</span></p>
+</section>
+<section id="bernoulli-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="bernoulli-distribution">Bernoulli distribution</h3>
+<p>Let <span class="math inline">\(X\)</span> be a random variable that takes values 0 or 1. Then, the probability mass function is</p>
+<p><span class="math display">\[
+p(x) = \pi^x(1-\pi)^{1-x}
+\]</span></p>
+<p>such that <span class="math inline">\(0 \leq \pi \leq 1\)</span></p>
 
 
 </section>
