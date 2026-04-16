@@ -22,9 +22,9 @@ library(broom)
 
 [Draft report](#draft-report) + [Peer review](#peer-review) Friday, April 10 (peer review in lab)
 
-[Written report](#written-report) due Tuesday, April 21
+[Written report](#written-report) due Tuesday, April 21 (+ one day grace period)
 
-[Reproducibility + organization](#reproducibility-organization) due Tuesday, April 21
+[Reproducibility + organization](#reproducibility-organization) due Tuesday, April 21 ( + one day grace period)
 
 ## Introduction
 
@@ -315,7 +315,7 @@ You will provide feedback on two teams' presentations. Please provide all scores
 
 The presentation comments are worth 2 points. The grade will be based on submitting the scores and comments for both of your assigned teams by the end of your lab. This portion of the project will be assessed individually.
 
-## Draft report  {#draft-report}
+## Draft report {#draft-report}
 
 ::: callout-important
 ## Submission
@@ -327,7 +327,7 @@ The purpose of the draft and peer review is to give you an opportunity to receiv
 
 Below is a brief description of the sections to focus on in the draft. Keep in mind that the final report has a strict 10-page limit. For the draft and final written report, additional EDA or supporting analyses can be included in an appendix if needed.
 
-### Introduction 
+### Introduction
 
 This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.
 
@@ -357,7 +357,7 @@ Write the peer review in the `Peer Review` issue in your assigned teams' GitHub 
 
 Critically reviewing others' work is a crucial part of the scientific process, and STA 221 is no exception. Each lab team will be assigned two other teams' projects to review. Each team should push their draft to their GitHub repo before the start of their lab session on the day of the peer review lab. During lab, your team will have the opportunity to review and provide quality feedback to two other teams.
 
-During the peer review process, you will be provided read-only access to your partner teams' GitHub repos. Provide your review in the form of a GitHub issue to the team's GitHub repo using the provided peer review issue template. 
+During the peer review process, you will be provided read-only access to your partner teams' GitHub repos. Provide your review in the form of a GitHub issue to the team's GitHub repo using the provided peer review issue template.
 
 #### Steps for peer review
 
@@ -406,22 +406,22 @@ The peer review will be graded based on the extent to which it comprehensively a
 ::: callout-important
 The written report must be completed in the `written-report.qmd` file and must be reproducible. All team members' contributions will be evaluated, in part, based on the commit history in the GitHub repo.
 
-Make sure all code, warnings, and messages are suppressed in the final written report. The report in `written-report.qmd` and the rendered PDF should be pushed to the GitHub repo by **April 21 at 11:59pm.**
+Make sure all code, warnings, and messages are suppressed in the final written report. The final written report is due April 21 at 11:59pm. There is a one-day grace period (no late penalty) for submissions pushed to GitHub by **April 22 at 11:59pm**. This means he report in `written-report.qmd` and the rendered PDF should be pushed to the GitHub repo by **April 22 at 11:59pm**.
 :::
 
 Below are general details about the final written report.
 
--   The rendered PDF must match exactly what is produced when rendering `written-report.qmd` in your GitHub repo. 
+-   The rendered PDF must match exactly what is produced when rendering `written-report.qmd` in your GitHub repo.
 
-- **The report, including tables and visualizations, must be no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address the analysis and clearly communicate your findings.
+-   **The report, including tables and visualizations, must be no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address the analysis and clearly communicate your findings.
 
 -   Be selective in what you include in your final write-up. The goal is to write a cohesive narrative that demonstrates a thorough and comprehensive analysis rather than explain every step of the analysis.
 
 -   You are welcome to include an appendix with additional work at the end of the written report document, as needed; however, grading will overwhelmingly be based on the content in the main body of the report. You should assume the reader will not see the material in the appendix unless prompted to view it in the main body of the report. The appendix should be neatly formatted and easy for the reader to navigate. The appendix does [**not**]{.underline} count towards the 10-page limit.
 
-The mandatory components of the written report are below. You are free to add additional sections as necessary. 
+The mandatory components of the written report are below. You are free to add additional sections as necessary.
 
-### Introduction 
+### Introduction
 
 This section includes an introduction to the project motivation, data, and research question. Include discussion about work others have done related to your research question. Describe the data and definitions of key variables. It should also include selected exploratory data analysis that helps motivate the modeling decisions described later in the report. Not all of the EDA will fit in the body of the report, so focus on the EDA for the response variable and a few other interesting variables and relationships.
 
@@ -449,7 +449,7 @@ This section also includes initial interpretations of key model coefficients and
 
 The model fit is clearly assessed, and interesting findings from the model are clearly described. The model conditions and diagnostics are thoroughly and accurately assessed for the final model, if not previously discussed in the methodology. Interpretations of model coefficients are used to support the key findings and conclusions, rather than merely listing the interpretation of every model coefficient. If the primary modeling objective is prediction, the model's predictive power is thoroughly assessed.
 
-### Discussion 
+### Discussion
 
 This section is a summary of what you have learned about your research question along with statistical arguments supporting your conclusions. Connect the conclusions drawn from your analysis to previous research, and discuss how they align or differ. In addition, discuss the limitations of your analysis and provide suggestions on ways the analysis could be improved. Any potential issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here. Lastly, this section will include ideas for future work.
 
@@ -464,6 +464,20 @@ This is an assessment of the overall presentation and formatting of the written 
 #### Grading criteria
 
 The report is neatly written and organized with clear section headers. Figures have informative labels, are appropriately sized, and are easy to read. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted and labeled. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.
+
+### AI Disclosure 
+
+Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste [**all**]{.underline} statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps me learn how students are most effectively using AI.
+
+-   I didn’t use an LLM / Generative AI tool.
+-   I asked it to clarify one or more exercises.
+-   I asked it clarifying questions to better understand a concept.
+-   I asked it to help write code to complete an exercise.
+-   I gave it my code and asked it to help me fix it.
+-   I asked it about an error or why code would do something I didn’t want.
+-   I pasted the exercise prompt in AI and asked for help, but I wrote my answer myself.
+-   I pasted the exercise prompt in AI and copied and pasted at least some of the answer into my Quarto document.
+-   Other:\_\_\_\_\_\_
 
 ## Reproducibility + organization {#reproducibility-organization}
 
@@ -513,7 +527,6 @@ The grade breakdown is as follows:
 | Draft report + peer review     | 15 pts  |
 | Written report                 | 40 pts  |
 | Reproducibility + organization | 3 pts   |
-
 
 ## Late work policy
 
