@@ -22,9 +22,9 @@ library(broom)
 
 [Draft report](#draft-report) + [Peer review](#peer-review) Friday, April 10 (peer review in lab)
 
-[Written report](#written-report) due Tuesday, April 21 (+ one day grace period)
+[Written report](#written-report) due Wednesday, April 22
 
-[Reproducibility + organization](#reproducibility-organization) due Tuesday, April 21 ( + one day grace period)
+[Reproducibility + organization](#reproducibility-organization) due Wednesday, April 22
 
 ## Introduction
 
@@ -406,7 +406,7 @@ The peer review will be graded based on the extent to which it comprehensively a
 ::: callout-important
 The written report must be completed in the `written-report.qmd` file and must be reproducible. All team members' contributions will be evaluated, in part, based on the commit history in the GitHub repo.
 
-Make sure all code, warnings, and messages are suppressed in the final written report. The final written report is due April 21 at 11:59pm. There is a one-day grace period (no late penalty) for submissions pushed to GitHub by **April 22 at 11:59pm**. This means he report in `written-report.qmd` and the rendered PDF should be pushed to the GitHub repo by **April 22 at 11:59pm**.
+Make sure all code, warnings, and messages are suppressed in the final written report. The final written report is due **April 22 at 11:59pm**. This means he report in `written-report.qmd` and the rendered PDF should be pushed to the GitHub repo by **April 22 at 11:59pm**.
 :::
 
 Below are general details about the final written report.
@@ -465,7 +465,7 @@ This is an assessment of the overall presentation and formatting of the written 
 
 The report is neatly written and organized with clear section headers. Figures have informative labels, are appropriately sized, and are easy to read. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted and labeled. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.
 
-### AI Disclosure 
+### AI Disclosure
 
 Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste [**all**]{.underline} statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps me learn how students are most effectively using AI.
 
