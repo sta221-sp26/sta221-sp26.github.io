@@ -467,16 +467,14 @@ The report is neatly written and organized with clear section headers. Figures h
 
 ### AI Disclosure
 
-Did you use an LLM / Generative AI tool to complete this assignment? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste [**all**]{.underline} statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps me learn how students are most effectively using AI.
+Did you use an LLM / Generative AI tool to complete the project? If not, copy and paste the first option in your Quarto document. Otherwise, copy and paste [**all**]{.underline} statements that describe how you used it. The purpose of the disclosure is for you to reflect on how you’re using AI in this course. It also helps me learn how students are most effectively using AI.
 
--   I didn’t use an LLM / Generative AI tool.
--   I asked it to clarify one or more exercises.
--   I asked it clarifying questions to better understand a concept.
--   I asked it to help write code to complete an exercise.
--   I gave it my code and asked it to help me fix it.
--   I asked it about an error or why code would do something I didn’t want.
--   I pasted the exercise prompt in AI and asked for help, but I wrote my answer myself.
--   I pasted the exercise prompt in AI and copied and pasted at least some of the answer into my Quarto document.
+-   We didn’t use an LLM / Generative AI tool.
+-   We asked it to clarify criteria.
+-   We asked it clarifying questions to better understand a concept.
+-   We asked it to help write code to complete a part of the project.
+-   We gave it our code and asked it to help us fix it.
+-   We asked it about an error or why code would do something we didn’t want.
 -   Other:\_\_\_\_\_\_
 
 ## Reproducibility + organization {#reproducibility-organization}
