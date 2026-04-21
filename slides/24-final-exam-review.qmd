@@ -48,7 +48,7 @@ library(knitr)
 
 -   Project report and organized GitHub repo - due Wednesday, April 22 at 11:59pm
 
--   Course evaluations - open until April 25 at 11:59pm
+-   Course and TA evaluations - open until April 25 at 11:59pm
 
 -   Final exam: April 30, 9am - 12pm
 
@@ -64,7 +64,7 @@ Course evaluations [**and**]{.underline} TA evaluations are open now until April
 
 -   If the response rate is at least 80% on both course evaluations [**and**]{.underline} TA evaluations, everyone in the class will receive 0.5 points (out of 50) added to their final exam grade.
 
--   Should receive emails with links to course and TA evaluations.
+-   Check email for links to course and TA evaluations.
 
 ## Final exam
 
@@ -130,7 +130,7 @@ Course evaluations [**and**]{.underline} TA evaluations are open now until April
 
 -   Review prepare readings
 
--   Review lecture recordings (available until start of in-class exam)
+-   Review lecture recordings (available until start of final exam)
 
 ## Resources
 
@@ -219,20 +219,20 @@ model1_full <- glm(cancer ~ socioeconomic + age + bird +
 
 anova(model1, model1_full, test = "Chisq") |> 
   tidy() |>
-  kable(digits = 3, col.names = c("term", "df.resid", "deviance", "df", "G", "p.value"))
+  kable(digits = 0, col.names = c("term", "df.resid", "deviance", "df", "G", "p.value"))
 ```
 
 -   What is the distribution of the p-value?
 
 -   How would do we know the p-value will be very small?
 
-## Unbiased estimator 
+## Unbiased estimator
 
 -   What does it mean for an estimator to be unbiased?
 
 -   How do you show an estimator is unbiased?
 
-## Linear regression 
+## Linear regression
 
 $$
 \mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}
@@ -250,7 +250,7 @@ $$
 \text{Show }\hspace{1mm} SSR = \mathbf{y}^\mathsf{T}\mathbf{y} - \hat{\boldsymbol{\beta}}^\mathsf{T}\mathbf{X}^\mathsf{T}\mathbf{y}
 $$
 
-## Types of predictors 
+## Types of predictors
 
 -   Why might we use centered predictors in a model?
 

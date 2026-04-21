@@ -5526,7 +5526,7 @@
     "href": "slides/24-final-exam-review.html#announcements",
     "title": "Final exam review",
     "section": "Announcements",
-    "text": "Announcements\n\nProject report and organized GitHub repo - due Wednesday, April 22 at 11:59pm\nCourse evaluations - open until April 25 at 11:59pm\nFinal exam: April 30, 9am - 12pm"
+    "text": "Announcements\n\nProject report and organized GitHub repo - due Wednesday, April 22 at 11:59pm\nCourse and TA evaluations - open until April 25 at 11:59pm\nFinal exam: April 30, 9am - 12pm"
   },
   {
     "objectID": "slides/24-final-exam-review.html#project",
@@ -5540,7 +5540,7 @@
     "href": "slides/24-final-exam-review.html#course-evaluations",
     "title": "Final exam review",
     "section": "Course evaluations",
-    "text": "Course evaluations\nPlease share your feedback about the course!\nCourse evaluations and TA evaluations are open now until April 25 at 11:59pm.\n\nIf the response rate is at least 80% on both course evaluations and TA evaluations, everyone in the class will receive 0.5 points (out of 50) added to their final exam grade.\nShould receive emails with links to course and TA evaluations."
+    "text": "Course evaluations\nPlease share your feedback about the course!\nCourse evaluations and TA evaluations are open now until April 25 at 11:59pm.\n\nIf the response rate is at least 80% on both course evaluations and TA evaluations, everyone in the class will receive 0.5 points (out of 50) added to their final exam grade.\nCheck email for links to course and TA evaluations."
   },
   {
     "objectID": "slides/24-final-exam-review.html#final-exam",
@@ -5561,7 +5561,7 @@
     "href": "slides/24-final-exam-review.html#tips-for-studying",
     "title": "Final exam review",
     "section": "Tips for studying",
-    "text": "Tips for studying\n\nRework derivations from assignments and lecture notes\nReview in-class activities and assignments, asking “why” as you review your process and reasoning\nFocus on understanding not memorization\nExplain concepts / process to others\nAsk questions in office hours\nReview prepare readings\nReview lecture recordings (available until start of in-class exam)"
+    "text": "Tips for studying\n\nRework derivations from assignments and lecture notes\nReview in-class activities and assignments, asking “why” as you review your process and reasoning\nFocus on understanding not memorization\nExplain concepts / process to others\nAsk questions in office hours\nReview prepare readings\nReview lecture recordings (available until start of final exam)"
   },
   {
     "objectID": "slides/24-final-exam-review.html#resources",
@@ -5596,7 +5596,7 @@
     "href": "slides/24-final-exam-review.html#drop-in-deviance-test",
     "title": "Final exam review",
     "section": "Drop-in-deviance test",
-    "text": "Drop-in-deviance test\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.resid\ndeviance\ndf\nG\np.value\n\n\n\n\ncancer ~ socioeconomic + age + bird\n143\n172.281\nNA\nNA\nNA\n\n\ncancer ~ socioeconomic + age + bird + yrsmoke + cigsday\n141\n155.317\n2\n16.964\n0\n\n\n\n\n\n\nWhat is the distribution of the p-value?\nHow would do we know the p-value will be very small?"
+    "text": "Drop-in-deviance test\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.resid\ndeviance\ndf\nG\np.value\n\n\n\n\ncancer ~ socioeconomic + age + bird\n143\n172\nNA\nNA\nNA\n\n\ncancer ~ socioeconomic + age + bird + yrsmoke + cigsday\n141\n155\n2\n17\n0\n\n\n\n\n\n\nWhat is the distribution of the p-value?\nHow would do we know the p-value will be very small?"
   },
   {
     "objectID": "slides/24-final-exam-review.html#unbiased-estimator",
@@ -5631,14 +5631,14 @@
     "href": "slides/24-final-exam-review-notes.html",
     "title": "Final exam review",
     "section": "",
-    "text": "Project report and organized GitHub repo - due Wednesday, April 22 at 11:59pm\nCourse evaluations - open until April 25 at 11:59pm\nFinal exam: April 30, 9am - 12pm"
+    "text": "Project report and organized GitHub repo - due Wednesday, April 22 at 11:59pm\nCourse and TA evaluations - open until April 25 at 11:59pm\nFinal exam: April 30, 9am - 12pm"
   },
   {
     "objectID": "slides/24-final-exam-review-notes.html#announcements",
     "href": "slides/24-final-exam-review-notes.html#announcements",
     "title": "Final exam review",
     "section": "",
-    "text": "Project report and organized GitHub repo - due Wednesday, April 22 at 11:59pm\nCourse evaluations - open until April 25 at 11:59pm\nFinal exam: April 30, 9am - 12pm"
+    "text": "Project report and organized GitHub repo - due Wednesday, April 22 at 11:59pm\nCourse and TA evaluations - open until April 25 at 11:59pm\nFinal exam: April 30, 9am - 12pm"
   },
   {
     "objectID": "slides/24-final-exam-review-notes.html#project",
@@ -5652,7 +5652,7 @@
     "href": "slides/24-final-exam-review-notes.html#course-evaluations",
     "title": "Final exam review",
     "section": "Course evaluations",
-    "text": "Course evaluations\nPlease share your feedback about the course!\nCourse evaluations and TA evaluations are open now until April 25 at 11:59pm.\n\nIf the response rate is at least 80% on both course evaluations and TA evaluations, everyone in the class will receive 0.5 points (out of 50) added to their final exam grade.\nShould receive emails with links to course and TA evaluations."
+    "text": "Course evaluations\nPlease share your feedback about the course!\nCourse evaluations and TA evaluations are open now until April 25 at 11:59pm.\n\nIf the response rate is at least 80% on both course evaluations and TA evaluations, everyone in the class will receive 0.5 points (out of 50) added to their final exam grade.\nCheck email for links to course and TA evaluations."
   },
   {
     "objectID": "slides/24-final-exam-review-notes.html#final-exam",
@@ -5673,7 +5673,7 @@
     "href": "slides/24-final-exam-review-notes.html#tips-for-studying",
     "title": "Final exam review",
     "section": "Tips for studying",
-    "text": "Tips for studying\n\nRework derivations from assignments and lecture notes\nReview in-class activities and assignments, asking “why” as you review your process and reasoning\nFocus on understanding not memorization\nExplain concepts / process to others\nAsk questions in office hours\nReview prepare readings\nReview lecture recordings (available until start of in-class exam)"
+    "text": "Tips for studying\n\nRework derivations from assignments and lecture notes\nReview in-class activities and assignments, asking “why” as you review your process and reasoning\nFocus on understanding not memorization\nExplain concepts / process to others\nAsk questions in office hours\nReview prepare readings\nReview lecture recordings (available until start of final exam)"
   },
   {
     "objectID": "slides/24-final-exam-review-notes.html#resources",
@@ -5708,7 +5708,7 @@
     "href": "slides/24-final-exam-review-notes.html#drop-in-deviance-test",
     "title": "Final exam review",
     "section": "Drop-in-deviance test",
-    "text": "Drop-in-deviance test\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.resid\ndeviance\ndf\nG\np.value\n\n\n\n\ncancer ~ socioeconomic + age + bird\n143\n172.281\nNA\nNA\nNA\n\n\ncancer ~ socioeconomic + age + bird + yrsmoke + cigsday\n141\n155.317\n2\n16.964\n0\n\n\n\n\n\n\nWhat is the distribution of the p-value?\nHow would do we know the p-value will be very small?"
+    "text": "Drop-in-deviance test\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.resid\ndeviance\ndf\nG\np.value\n\n\n\n\ncancer ~ socioeconomic + age + bird\n143\n172\nNA\nNA\nNA\n\n\ncancer ~ socioeconomic + age + bird + yrsmoke + cigsday\n141\n155\n2\n17\n0\n\n\n\n\n\n\nWhat is the distribution of the p-value?\nHow would do we know the p-value will be very small?"
   },
   {
     "objectID": "slides/24-final-exam-review-notes.html#unbiased-estimator",
