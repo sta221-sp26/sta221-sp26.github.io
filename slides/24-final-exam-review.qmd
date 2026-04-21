@@ -222,7 +222,7 @@ anova(model1, model1_full, test = "Chisq") |>
   kable(digits = 0, col.names = c("term", "df.resid", "deviance", "df", "G", "p.value"))
 ```
 
--   What is the distribution of the p-value?
+-   What is the distribution of the test statistic $G$?
 
 -   How would do we know the p-value will be very small?
 

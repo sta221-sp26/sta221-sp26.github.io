@@ -5596,7 +5596,7 @@
     "href": "slides/24-final-exam-review.html#drop-in-deviance-test",
     "title": "Final exam review",
     "section": "Drop-in-deviance test",
-    "text": "Drop-in-deviance test\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.resid\ndeviance\ndf\nG\np.value\n\n\n\n\ncancer ~ socioeconomic + age + bird\n143\n172\nNA\nNA\nNA\n\n\ncancer ~ socioeconomic + age + bird + yrsmoke + cigsday\n141\n155\n2\n17\n0\n\n\n\n\n\n\nWhat is the distribution of the p-value?\nHow would do we know the p-value will be very small?"
+    "text": "Drop-in-deviance test\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.resid\ndeviance\ndf\nG\np.value\n\n\n\n\ncancer ~ socioeconomic + age + bird\n143\n172\nNA\nNA\nNA\n\n\ncancer ~ socioeconomic + age + bird + yrsmoke + cigsday\n141\n155\n2\n17\n0\n\n\n\n\n\n\nWhat is the distribution of the test statistic \\(G\\)?\nHow would do we know the p-value will be very small?"
   },
   {
     "objectID": "slides/24-final-exam-review.html#unbiased-estimator",
@@ -5708,7 +5708,7 @@
     "href": "slides/24-final-exam-review-notes.html#drop-in-deviance-test",
     "title": "Final exam review",
     "section": "Drop-in-deviance test",
-    "text": "Drop-in-deviance test\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.resid\ndeviance\ndf\nG\np.value\n\n\n\n\ncancer ~ socioeconomic + age + bird\n143\n172\nNA\nNA\nNA\n\n\ncancer ~ socioeconomic + age + bird + yrsmoke + cigsday\n141\n155\n2\n17\n0\n\n\n\n\n\n\nWhat is the distribution of the p-value?\nHow would do we know the p-value will be very small?"
+    "text": "Drop-in-deviance test\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf.resid\ndeviance\ndf\nG\np.value\n\n\n\n\ncancer ~ socioeconomic + age + bird\n143\n172\nNA\nNA\nNA\n\n\ncancer ~ socioeconomic + age + bird + yrsmoke + cigsday\n141\n155\n2\n17\n0\n\n\n\n\n\n\nWhat is the distribution of the test statistic \\(G\\)?\nHow would do we know the p-value will be very small?"
   },
   {
     "objectID": "slides/24-final-exam-review-notes.html#unbiased-estimator",

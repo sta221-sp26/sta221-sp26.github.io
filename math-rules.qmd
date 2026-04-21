@@ -82,7 +82,7 @@ Let $\mathbf{z}$ be a $p \times 1$ vector of random variables, such that $\mathb
 
 $$f(\mathbf{z}) = \frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}|^{1/2}}\exp\Big\{-\frac{1}{2}(\mathbf{z} - \boldsymbol{\mu})^\mathsf{T}\boldsymbol{\Sigma}^{-1}(\mathbf{z}- \boldsymbol{\mu})\Big\}$$
 
-### Bernoulli distribution 
+### Bernoulli distribution
 
 Let $X$ be a random variable that takes values 0 or 1. Then, the probability mass function is
 
